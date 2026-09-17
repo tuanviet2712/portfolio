@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 180" width="440" height="180">
+  <path d="M20,90 Q100,35 160,58 Q220,15 280,58 Q340,35 420,90 Q340,145 280,122 Q220,165 160,122 Q100,145 20,90 Z" fill="#1671C6"/>
+  <text x="220" y="72" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="18" letter-spacing="2" fill="#FFC72C">PHÂN BÓN</text>
+  <text x="220" y="118" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="42" fill="#fff">VietTranhĐề</text>
+  <text x="220" y="142" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="13" letter-spacing="2" fill="#BFE6C4">100% NGOẠI NHẬP</text>
+</svg>

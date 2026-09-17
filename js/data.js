@@ -1,0 +1,204 @@
+/* ==========================================================================
+   DỮ LIỆU WEBSITE — nguồn: CV_Marketing Leader_Lê Tuấn Việt.pdf
+   Chỉ cần sửa file này để cập nhật Dự án, Đối tác, Feedback, liên hệ.
+   ========================================================================== */
+window.SITE_DATA = {
+  profile: {
+    name: 'Lê Tuấn Việt',
+    title: 'Marketing Leader',
+    email: 'tuanviet.2712@gmail.com',
+    phone: '0935 702 321',
+    phoneRaw: '0935702321',
+    location: 'Hà Đông, Hà Nội',
+    zalo: 'https://zalo.me/0935702321',
+    cv: 'assets/cv/CV-Le-Tuan-Viet.pdf'
+  },
+
+  /* ---------------- DỰ ÁN ĐÃ TRIỂN KHAI ----------------
+     Trang chủ: 4 hạng mục, mỗi hạng mục là một "bức tường" thẻ nghiêng 3D; cuộn tới đâu các hàng
+     trượt ngang ngược chiều nhau tới đó (giống section "Dự án thành công" của ledinhtuan.com).
+     Mỗi hàng 4 ô — máy tính thấy rõ 3 ô, ô thứ 4 ló ở mép và trượt vào khi cuộn.
+     MỖI Ô = MỘT ĐỐI TÁC KHÁC NHAU (trong cùng hạng mục không lặp đối tác).
+
+     partners : danh sách đối tác (id viết thường, không dấu · name · field = lĩnh vực)
+     rows     : mỗi hàng là một mảng 4 ô. Mỗi ô:
+                  { partner: 'tomec', link: 'https://drive.google.com/…' }
+                    link : link Google Drive (thư mục hoặc file) — BẤM Ô SẼ MỞ LINK NÀY Ở TAB MỚI.
+                           Nhớ chia sẻ link ở chế độ "Bất kỳ ai có đường liên kết đều xem được".
+                           Để trống '' => ô chưa bấm được.
+                    shot : (không bắt buộc) ảnh bìa ngang 16:9, khoảng 1280×720, ví dụ 'assets/projects/plan-tomec.jpg'.
+                           Để trống => hiện thẻ mô phỏng.
+                  ''  => ô trống "Đối tác mới · đang cập nhật"
+                Hàng có nhãn: { label: 'Thương hiệu cá nhân', kind: 'social', items: [ ...4 ô ] } */
+  /* ---------------- DỰ ÁN ĐÃ TRIỂN KHAI ----------------
+     Nguồn: TÀI NGUYÊN LÀM PORTFOLIO.xlsx (4 sheet = 4 hạng mục).
+     Mỗi ô: { partner | title, img, link, note }
+       partner : id trong danh sách partners bên dưới (tên hiển thị lấy từ đó)
+       title   : tên hiển thị khi ô là một tài liệu (không gắn với đối tác cụ thể)
+       img     : ảnh trong assets/img/projects/ (không đuôi) → thumbnail <img>.jpg, bản lớn <img>-full.jpg
+       link    : Google Drive / Sheets / Docs / Slides / Facebook… (bấm ô mở tab mới). Để trống: bấm ô mở ảnh lớn
+       note    : dòng phụ tuỳ chọn (mặc định tự hiện loại đích: Google Sheets, Facebook…)
+     Mỗi hàng đúng 4 ô. */
+  showcase: {
+    partners: [
+      { id: 'tomec', name: 'TOMEC' },
+      { id: 'fungha', name: 'FungHa Dimsum' },
+      { id: 'uyen-uyen-mart', name: 'Uyên Uyên Mart' },
+      { id: 'dotaka', name: 'Dotaka' },
+      { id: 'firo-cafe', name: 'Firo Cafe' },
+      { id: 'hai-san-bien-dong', name: 'Hải Sản Biển Đông' },
+      { id: 'esfy-pro-press', name: 'Esfy Pro Press' },
+      { id: 'hope', name: 'HOPE Corporation' },
+      { id: 'hanoi-door', name: 'Hanoi Door' },
+      { id: 'topcom', name: 'TOPCOM' },
+      { id: 'hoai-le-diamond', name: 'Hoài Lê Diamond' },
+      { id: 'uyen-uyen-nguyen', name: 'Uyên Uyên Nguyễn' },
+      { id: 'bs-dung', name: 'Bác sĩ Dung' },
+      { id: 'bs-tri', name: 'Bác sĩ Trí' },
+      { id: 'minh-ha', name: 'Minh Hà' }
+    ],
+    groups: [
+      {
+        id: 'plan', no: '01', name: 'Plan & Campaign',
+        desc: 'Kế hoạch Marketing tổng thể và các chiến dịch truyền thông tôi đã xây dựng.',
+        rows: [
+          [
+            { partner: 'tomec', img: 'plan/tomec', link: 'https://docs.google.com/spreadsheets/d/1j8RfBHqeunff2QDWT0kgOJpunbxSQM3B/edit?usp=sharing&ouid=113613338350596465961&rtpof=true&sd=true' },
+            { partner: 'fungha', img: 'plan/fungha', link: 'https://docs.google.com/spreadsheets/d/1YXdPER9Vcq3IMwzL7A0qFMfvpXMiTv85PHj7nVbkyUU/edit?gid=1508728250#gid=1508728250' },
+            { partner: 'dotaka', img: 'plan/dotaka', link: 'https://docs.google.com/spreadsheets/d/1ItYstDZKDP-uAlJm9FbtlcqMsS9JyjrEmcXcL0AmJRI/edit?gid=373102079#gid=373102079' },
+            { partner: 'firo-cafe', img: 'plan/firo', link: 'https://docs.google.com/spreadsheets/d/1gkTWNUBO0yD8EWnietMPc_OmvC23Ys9OnSQnPNHlYOM/edit?gid=1548467159#gid=1548467159' }
+          ],
+          [
+            { partner: 'uyen-uyen-mart', img: 'plan/uyen-uyen-mart', link: 'https://docs.google.com/spreadsheets/d/1yN6DoDqBWJmIEK4eceIVk7tReLhxN82AI3CvpNf-yUg/edit?gid=1150121871#gid=1150121871' },
+            { partner: 'hai-san-bien-dong', img: 'plan/hai-san-bien-dong', link: 'https://docs.google.com/spreadsheets/d/1Y02a0-EcwceX0ZPR3E5w-4NOprOr4d2v0P7WhB3n0u0/edit?gid=0#gid=0' },
+            { partner: 'esfy-pro-press', img: 'plan/esfy-pro-press', link: 'https://docs.google.com/spreadsheets/d/1BFPBFNXEQcTUHokEr_cKXpF_Bk-e-lJLA5VeGf02RC0/edit?gid=1777465809#gid=1777465809' },
+            { partner: 'bs-tri', img: 'plan/bs-tri', note: 'Thương hiệu cá nhân', link: 'https://docs.google.com/spreadsheets/d/1whrxNvh7PECV_LkZbjjiyYi1ZecMemVhI-FrQVamoS4/edit?gid=1082034667#gid=1082034667' }
+          ],
+          [
+            { partner: 'minh-ha', img: 'plan/minh-ha', note: 'Thương hiệu cá nhân', link: 'https://docs.google.com/spreadsheets/d/1wib_PJibKQsSDWiv3izLklb_xvfgxouPDxqUWpMweeE/edit?gid=955900404#gid=955900404' },
+            { title: 'Plan SEO', img: 'plan/plan-seo', link: 'https://docs.google.com/spreadsheets/d/1GdrWVlA3Wf9MaXQxyY6FuVOGwoDh3rsG-iSayTHAv7I/edit?usp=sharing' },
+            { partner: 'hope', img: 'plan/hope', link: 'https://docs.google.com/spreadsheets/d/109o_CybzBl0Gwt1o7__RBA7NHLSUmabh/edit?usp=sharing&ouid=113613338350596465961&rtpof=true&sd=true' },
+            { title: 'Plan xây hệ thống kênh AI', img: 'plan/he-thong-kenh-ai', link: 'https://docs.google.com/spreadsheets/d/1nJGJDDplvbIJKheybGwsBJZWYEfZq9qbr5WImALEhKU/edit?gid=903369081#gid=903369081' }
+          ]
+        ]
+      },
+      {
+        id: 'web', no: '02', name: 'Website & CRM',
+        desc: 'Website thương hiệu, Zalo Mini App và hệ thống CRM đã triển khai cho từng doanh nghiệp.',
+        rows: [ // chưa có link đích trong Excel: bấm ô mở ảnh lớn
+          [
+            { partner: 'esfy-pro-press', img: 'web/esfy-pro-press', note: 'Website' },
+            { partner: 'uyen-uyen-mart', img: 'web/uyen-uyen-mart', note: 'Website' },
+            { partner: 'fungha', img: 'web/fungha', note: 'Website' },
+            { partner: 'hanoi-door', img: 'web/hanoi-door', note: 'Website' }
+          ],
+          [
+            { partner: 'fungha', img: 'web/fungha-mini-app', note: 'Zalo Mini App' },
+            { partner: 'dotaka', img: 'web/dotaka', note: 'Website' },
+            { partner: 'tomec', img: 'web/tomec', note: 'Website' },
+            { title: 'Zalo CRM', img: 'web/zalo-crm', note: 'Hệ thống CRM' }
+          ]
+        ]
+      },
+      {
+        id: 'content', no: '03', name: 'Kênh & Content',
+        desc: 'Những dự án xây dựng kênh tiêu biểu tôi đã trực tiếp tham gia, từ định hướng nội dung và hình ảnh đến triển khai, vận hành và tối ưu hiệu quả.',
+        rows: [
+          {
+            label: 'Thương hiệu cá nhân',
+            items: [
+              { partner: 'hoai-le-diamond', img: 'social/hoai-le-diamond', link: 'https://www.facebook.com/helena.tran.5074' },
+              { partner: 'uyen-uyen-nguyen', img: 'social/uyen-uyen-nguyen', link: 'https://www.facebook.com/UyenUyenNhaTrang' },
+              { partner: 'bs-dung', img: 'social/bs-dung', link: 'https://www.facebook.com/drthuydungmomau' },
+              { partner: 'bs-tri', img: 'social/bs-tri', link: 'https://www.facebook.com/bstri.vn' }
+            ]
+          },
+          {
+            label: 'Thương hiệu doanh nghiệp',
+            items: [
+              { partner: 'dotaka', img: 'social/dotaka', link: 'https://www.facebook.com/dotakavietnam' },
+              { partner: 'fungha', img: 'social/fungha', link: 'https://www.facebook.com/FunghaDimsum' },
+              { partner: 'tomec', img: 'social/tomec', link: 'https://www.facebook.com/dakhoatomec' },
+              { partner: 'topcom', img: 'social/topcom', link: 'https://www.facebook.com/vespatopcom' }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'other', no: '04', name: 'Hạng mục khác',
+        desc: 'Tài liệu đào tạo đội ngũ, bộ chỉ số KPI, báo cáo định kỳ, bộ quy chuẩn logo và các bài viết, kịch bản mẫu tôi đã xây dựng.',
+        rows: [
+          [
+            { title: 'Tài liệu đào tạo SEO', img: 'other/dao-tao-seo', link: 'https://docs.google.com/document/d/10NzgXE53AnfTxZs1dJXrYBV9z73KVItK/edit#heading=h.4syd63uij9fx' },
+            { title: 'Tài liệu đào tạo Content', img: 'other/dao-tao-content', link: 'https://docs.google.com/presentation/d/1QkT9iD1VPt3hmVzTiVfSMTQU-jEynPXw/edit' },
+            { title: 'Tài liệu đào tạo Vibe Coding', img: 'other/dao-tao-vibe-coding', link: 'https://docs.google.com/presentation/d/1GDgY0Q7itMGix7Q-4amaEKBV3-kUFO2U/edit?usp=sharing&ouid=113613338350596465961&rtpof=true&sd=true' },
+            { title: 'Logo Guideline', img: 'other/logo-guideline', link: 'https://drive.google.com/file/d/1kIAlwVG_283QI4QQVpDoSS0Ucecqd2bK/view?usp=sharing' }
+          ],
+          [
+            { title: 'Báo cáo Booking', img: 'other/bao-cao-booking', link: 'https://docs.google.com/spreadsheets/d/1v2zlDUjsRssPFr8dJTL_r3NQhtmUg73bUwWLdhep3UA/edit?usp=sharing' },
+            { title: 'Báo cáo chỉ số Marketing', img: 'other/bao-cao-marketing', link: 'https://docs.google.com/spreadsheets/d/1y0bzEODM8bsGjNz1PhZOmSkPbER-2Ic6vuvdPnCAa4M/edit?usp=sharing' },
+            { title: 'Bộ chỉ số KPI Phòng Marketing', img: 'other/bo-chi-so-kpi', link: 'https://docs.google.com/spreadsheets/d/1H5FI1CACE-0sJpdIoaWtJj_lY0TKrD0r/edit?usp=sharing&ouid=113613338350596465961&rtpof=true&sd=true' },
+            { title: 'Bài viết + Kịch bản mẫu', img: 'other/bai-viet-kich-ban', link: 'https://docs.google.com/spreadsheets/d/1nBmdQ3p6cFYN1RJ1ulfozP0RwYQMABURtPNveCPHWAU/edit?usp=sharing' }
+          ]
+        ]
+      }
+    ]
+  },
+
+  /* ---------------- ĐỐI TÁC ----------------
+     2 hàng logo TRẮNG chạy ngược chiều trên nền tối (kiểu ledinhtuan.com).
+     logo  : logo trắng nền trong suốt, đã cắt sát viền, đặt trong assets/img/partners/white/. Để trống sẽ hiển thị chữ.
+     scale : chỉnh độ lớn thị giác (mặc định 1). Logo đậm, đặc nên < 1; logo nét mảnh nên > 1. */
+  partners: [
+    { name: 'TAKI Group', note: 'Cố vấn doanh nghiệp', period: '2024 – 2026', logo: 'assets/img/partners/white/taki-group.png' },
+    { name: 'PITO', note: 'E-commerce F&B', period: '2022 – 2024', logo: 'assets/img/partners/white/pito.png', scale: 1.05 },
+    { name: 'TOMEC', note: 'Y đa khoa', period: '2025 – 2026', logo: 'assets/img/partners/white/tomec.png', scale: 0.87 },
+    { name: 'FungHa Dimsum', note: 'Chuỗi nhà hàng', period: '2025 – 2026', logo: 'assets/img/partners/white/fungha-dimsum.png', scale: 1.02 },
+    { name: 'Uyên Uyên Mart', note: 'Siêu thị gia dụng', period: '2025 – 2026', logo: 'assets/img/partners/white/uyenuyenmart.png', scale: 1.2 },
+    { name: 'Traphaco', note: 'Dược phẩm', period: '', logo: 'assets/img/partners/white/traphaco.png', scale: 0.96 },
+    { name: 'Việt Tranh Đề', note: 'Phân bón nhập khẩu', period: '', logo: 'assets/img/partners/white/viettranhde.png', scale: 1.15 },
+    { name: 'KingStyle', note: 'Balo, túi xách', period: '', logo: 'assets/img/partners/white/kingstyle.png', scale: 1.09 },
+    { name: 'Gerari', note: 'Phụ kiện tủ bếp, tủ áo', period: '', logo: 'assets/img/partners/white/gerari.png', scale: 1.02 },
+    { name: 'Dotaka', note: '', period: '', logo: 'assets/img/partners/white/dotaka.png', scale: 0.9 },
+    { name: 'Cool Coffee', note: 'Chuỗi cà phê', period: '', logo: 'assets/img/partners/white/coolcoffee.png', scale: 1.07 },
+    { name: 'DrKam', note: 'Chăm sóc răng miệng', period: '', logo: 'assets/img/partners/white/drkam.png', scale: 1.08 },
+    { name: 'Dr.Natro', note: 'Sản phẩm tẩy rửa sinh học', period: '', logo: 'assets/img/partners/white/drnatro.png' },
+    { name: 'DPS', note: 'Chăm sóc răng miệng', period: '', logo: 'assets/img/partners/white/dps.png', scale: 0.91 },
+    { name: 'Bebino', note: 'Mẹ và bé', period: '', logo: 'assets/img/partners/white/bebino.png', scale: 0.98 },
+    { name: 'BeeKing', note: 'Sức khoẻ, thực phẩm', period: '', logo: 'assets/img/partners/white/beeking.png', scale: 1.09 },
+    { name: 'POZAA Tea & Coffee', note: 'Trà, cà phê', period: '', logo: 'assets/img/partners/white/pozaa.png', scale: 1.15 },
+    { name: 'ESFY Lashes', note: 'Nối mi', period: '', logo: 'assets/img/partners/white/esfy.png', scale: 1.15 },
+    { name: 'MID Pharma', note: 'Dược phẩm', period: '', logo: 'assets/img/partners/white/midpharma.png', scale: 1.03 },
+    { name: 'TOPCOM', note: '', period: '', logo: 'assets/img/partners/white/topcom.png' },
+    { name: 'Firo Cafe', note: 'Cà phê', period: '', logo: 'assets/img/partners/white/firo.png', scale: 0.95 },
+    { name: 'Hanoi Door', note: 'Cửa nhựa composite', period: '', logo: 'assets/img/partners/white/hanoidoor.png' },
+    { name: 'S-Femme', note: 'Chăm sóc sức khoẻ sinh sản', period: '', logo: 'assets/img/partners/white/sfemme.png' },
+    { name: 'Kim Tâm Cát', note: 'Phong thuỷ', period: '', logo: 'assets/img/partners/white/kimtamcat.png', scale: 1.3 }
+  ],
+
+  /* ---------------- FEEDBACK ----------------
+     type: 'proof' (danh hiệu chính thức) | 'quote' (nhận xét khách hàng)
+     draft: true => thẻ mẫu (viền đứt, chữ nghiêng). badge: nhãn riêng của thẻ quote,
+     mặc định "Khách hàng nhận xét". avatar: đường dẫn ảnh tròn (để trống sẽ hiện chữ cái đầu).
+     logo: logo đơn vị nằm gọn trong hình tròn trắng (có logo thì ẩn tên đơn vị, tên chỉ còn ở alt).  */
+  feedbacks: [
+    { type: 'proof', draft: false, text: 'Được Ban lãnh đạo TAKI Group đánh giá là Nhân viên xuất sắc nhất năm 2025.', name: 'TAKI Group', role: 'Danh hiệu năm 2025', avatar: '', logo: 'assets/img/partners/taki.png' },
+    { type: 'proof', draft: false, text: 'Được hơn 400 đối tác của PITO đánh giá là Nhân viên xuất sắc nhất năm 2024.', name: 'PITO', role: 'Danh hiệu năm 2024', avatar: '', logo: 'assets/img/partners/pito.png' },
+    { type: 'proof', draft: false, text: 'Giải Khuyến khích cuộc thi Đổi mới sáng tạo khởi nghiệp cấp khoa năm 2022.', name: 'ĐH Công Thương TP.HCM', role: 'Giải thưởng năm 2022', avatar: '', logo: 'assets/img/partners/huit.png' },
+    { type: 'quote', draft: false, text: 'Việt giúp Uyên Uyên Mart định hướng rõ cách xây dựng cả kênh doanh nghiệp và kênh cá nhân. Phần cơ chế, chính sách và KPI cũng được Việt xây dựng khá sát thực tế, giúp đội ngũ dễ hiểu và áp dụng.', name: 'Chị Cẩm Uyên', role: 'CEO · Uyên Uyên Mart', avatar: 'assets/img/feedback/cam-uyen.jpg' },
+    { type: 'quote', draft: false, text: 'Việt trực tiếp đào tạo và theo sát đội Marketing của Dotaka trong quá trình triển khai. Lượng tiếp cận fanpage đã tăng từ khoảng 3 triệu lên 8,3 triệu mỗi tháng; quan trọng hơn là đội ngũ đã biết cách tự làm và tối ưu.', name: 'Anh Đỗ Vũ Tập', role: 'CEO · Dotaka', avatar: 'assets/img/feedback/do-vu-tap.jpg' },
+    { type: 'quote', draft: false, text: 'Việt hỗ trợ Gerari từ đào tạo nhân sự, xây dựng cơ chế chính sách đến định hướng các kênh Marketing. Cách làm rõ ràng, sát thực tế và luôn hướng tới việc giúp đội ngũ có thể tự vận hành.', name: 'Chị Phương Vương', role: 'CEO · Gerari', avatar: 'assets/img/feedback/phuong-vuong.jpg' },
+    { type: 'quote', draft: false, text: 'Việt giúp CoolCoffee nhìn lại toàn bộ hoạt động Marketing, kết nối các kênh về chung một hướng và xác định rõ những chỉ số cần theo dõi. Nhờ vậy, đội ngũ biết phần nào hiệu quả và phần nào cần điều chỉnh.', name: 'Chị Phạm Thị Tư', role: 'CEO · CoolCoffee', avatar: 'assets/img/feedback/pham-thi-tu.jpg' },
+    { type: 'quote', draft: false, text: 'Điều tôi ấn tượng nhất ở Việt là sự nhiệt tình và trách nhiệm. Khi có vấn đề cần xử lý, Việt luôn phản hồi nhanh, theo sát đến cùng và hỗ trợ đội ngũ bằng thái độ rất chân thành.', name: 'Chị Minh Nguyễn', role: 'CEO · Dolphin', avatar: 'assets/img/feedback/nguyen-thi-minh.jpg' },
+    { type: 'quote', draft: false, text: 'Việt đồng hành cùng FungHa từ kế hoạch Marketing tổng thể đến website và Zalo Mini App. Việt nắm khá nhanh bài toán kinh doanh, tư vấn thực tế và theo sát để từng hạng mục thực sự được triển khai.', name: 'Anh Quốc Trung', role: 'CEO · FungHa Dimsum', avatar: 'assets/img/feedback/quoc-trung.jpg' },
+    { type: 'quote', draft: false, text: 'Việt giúp chúng tôi thay đổi cách nhìn về số liệu: không báo cáo cho đủ mà phải dùng dữ liệu để biết cần tối ưu ở đâu. Quy trình booking cũng được sắp xếp rõ ràng hơn, từ lựa chọn đối tác đến đánh giá hiệu quả.', name: 'Chị Đan Thanh', role: 'CEO · Việt Tranh Đề', avatar: 'assets/img/feedback/lam-thuy-dan-thanh.jpg' },
+    { type: 'quote', draft: false, text: 'Việt giúp chúng tôi hệ thống lại hoạt động trên Google, từ lựa chọn từ khóa, theo dõi dữ liệu đến tối ưu các điểm khách hàng tìm kiếm. Cách hướng dẫn dễ hiểu, đi thẳng vào vấn đề nên đội ngũ có thể áp dụng ngay.', name: 'Chị Thanh Hương', role: 'CEO · KingStyle', avatar: 'assets/img/feedback/nguyen-thi-thanh-huong.jpg' },
+    { type: 'quote', draft: false, text: 'Việt luôn đặt Marketing trong mối liên hệ với mục tiêu kinh doanh. Bạn giúp Pozza Tea xây dựng hướng triển khai tổng thể, tối ưu các chỉ số và điều chỉnh hoạt động Marketing phù hợp với chiến lược phát triển nhượng quyền.', name: 'Chị Hoàng Hiền', role: 'CEO · Pozza Tea', avatar: 'assets/img/feedback/hoang-hien.jpg' },
+    { type: 'quote', draft: false, text: 'Việt giúp Mid Pharma nhìn lại Marketing như một hệ thống hoàn chỉnh, từ khách hàng, thông điệp đến kênh triển khai và chỉ số theo dõi. Các phương án đều rõ ràng, có thứ tự ưu tiên và phù hợp với nguồn lực thực tế.', name: 'Chị Nguyễn Thị Nụ', role: 'CEO · Mid Pharma', avatar: 'assets/img/feedback/nguyen-thi-nu.jpg' },
+    { type: 'quote', draft: false, text: 'Việt hỗ trợ chúng tôi sắp xếp lại hoạt động thương mại điện tử, từ nội dung gian hàng, chương trình bán hàng đến cách theo dõi hiệu quả. Các góp ý đều cụ thể, thực tế và đội ngũ có thể áp dụng ngay.', name: 'Chị Lê Hạ', role: 'CEO · Haroma', avatar: 'assets/img/feedback/le-ha.jpg' },
+    { type: 'quote', draft: false, text: 'Việt giúp Esfy Lashies làm rõ định hướng thương hiệu, đồng thời chuẩn hóa hệ thống báo cáo và quy trình vận hành Marketing. Nhờ vậy, đội ngũ phối hợp rõ ràng hơn và người quản lý cũng dễ theo dõi công việc.', name: 'Chị Phương Khánh', role: 'CEO · Esfy Lashies', avatar: 'assets/img/feedback/phuong-khanh.jpg' },
+    { type: 'quote', draft: false, badge: 'Cấp trên nhận xét', text: 'Việt là người nhiệt tình, trách nhiệm và không ngại việc khó. Trong vai trò trợ lý, Việt luôn chủ động theo sát học viên, tiếp nhận góp ý nghiêm túc và cố gắng xử lý công việc đến cùng.', name: 'Thầy Nguyễn Tất Kiểm', role: 'CEO · TAKI Group', avatar: 'assets/img/feedback/nguyen-tat-kiem.jpg' },
+    { type: 'quote', draft: false, badge: 'Cấp trên nhận xét', text: 'Trong thời gian trực tiếp quản lý Việt, tôi đánh giá bạn có nền tảng chuyên môn Marketing khá toàn diện, từ lập kế hoạch, xây dựng kênh đến tối ưu hiệu quả. Việt học nhanh, chịu khó đào sâu vấn đề và tiến bộ rõ qua từng giai đoạn.', name: 'Anh Nguyễn Tuấn Linh', role: 'CMO · TAKI Group', avatar: 'assets/img/feedback/nguyen-tuan-linh.jpg' },
+    { type: 'quote', draft: false, badge: 'Cấp trên nhận xét', text: 'Trong quá trình trực tiếp quản lý, tôi ghi nhận ở Việt sự trách nhiệm, chủ động và tinh thần hỗ trợ đội ngũ. Việt có chuyên môn tốt, tiếp thu phản hồi nhanh và luôn cố gắng hoàn thành công việc đến cùng.', name: 'Chị Lê Thị Ngân', role: 'COO · TAKI Group', avatar: 'assets/img/feedback/le-thi-ngan.jpg' }
+  ]
+};

@@ -1,0 +1,17 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Website portfolio 1 trang, hero là **video AI tua theo cuộn**: một cú máy 10 giây (toàn thân góc thấp → cận mặt) được tách thành 240 khung, người xem cuộn tới đâu camera chạy tới đó, không cuộn thì đứng hình. Cuộn được làm mượt bằng giảm chấn hai tầng (học từ getlayers.ai), giữa hai khung có hoà trộn nên không nhìn thấy \"bậc\" khung hình. Viết bằng HTML/CSS/JS thuần, không cần cài đặt hay build.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/genai": "^2.23.0",
+    "dotenv": "^17.4.2"
+  }
+}

@@ -1,0 +1,9 @@
+# torch / torchvision cài riêng từ https://download.pytorch.org/whl/cpu (xem build-hero3d.ps1)
+# simple-lama-inpainting cài với --no-deps (gói gốc ghim phiên bản cũ của numpy/pillow)
+moge @ git+https://github.com/microsoft/MoGe.git
+rembg[cpu]
+opencv-python-headless
+pillow
+scipy
+numpy
+moderngl

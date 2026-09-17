@@ -1,0 +1,28 @@
+# ===== Portfolio — Lê Tuấn Việt =====
+# Không đưa lên hosting / Git các file không dùng trên web.
+
+# --- Thư viện Node (chỉ dùng cho script build, website không cần) ---
+node_modules/
+
+# --- Công cụ build hero (RIFE AI, ffmpeg script, ảnh gốc, video nguồn) ---
+tools/rife/
+tools/hero-video/source.mp4
+tools/source-frames/
+tools/hero3d/.venv/
+
+# --- Biến môi trường / bí mật ---
+.env
+.env.*
+
+# --- File tạm hệ điều hành ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.swp
+*~
+
+# --- IDE ---
+.vscode/
+.idea/
+*.sublime-workspace
+
