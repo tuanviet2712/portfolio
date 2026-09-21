@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://letuanviet.digital/</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/img/portrait.jpg</image:loc>
+      <image:title>Chân dung Lê Tuấn Việt — Marketing Leader</image:title>
+      <image:caption>Chân dung đại diện chính thức của Lê Tuấn Việt, Marketing Leader tại Hà Nội</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/img/contact.jpg</image:loc>
+      <image:title>Lê Tuấn Việt — Kết nối và Hợp tác Marketing</image:title>
+      <image:caption>Lê Tuấn Việt nhìn thẳng vào ống kính, ảnh liên hệ</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/frames/frame-08.jpg</image:loc>
+      <image:title>Portfolio Lê Tuấn Việt — Marketing Leader</image:title>
+      <image:caption>Ảnh đại diện Portfolio dùng cho Open Graph và chia sẻ mạng xã hội</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/video/portrait-poster.webp</image:loc>
+      <image:title>Lê Tuấn Việt làm việc bên laptop</image:title>
+      <image:caption>Ảnh bìa video chân dung làm việc của Lê Tuấn Việt</image:caption>
+    </image:image>
   </url>
 </urlset>

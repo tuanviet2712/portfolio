@@ -1,0 +1,25 @@
+{
+  "name": "Portfolio Lê Tuấn Việt — Marketing Leader",
+  "short_name": "Lê Tuấn Việt",
+  "description": "Portfolio cá nhân của Lê Tuấn Việt, Marketing Leader tại Hà Nội với hơn 4 năm kinh nghiệm.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F8FF",
+  "theme_color": "#F5F8FF",
+  "lang": "vi",
+  "icons": [
+    {
+      "src": "assets/img/logo-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
+
