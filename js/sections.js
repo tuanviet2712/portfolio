@@ -15,10 +15,34 @@
     initProcess();
     renderPartners();
     renderFeedback();
+    initLazyVideo();
     initSphere();
     initCasual();
     initSkills();
   });
+
+  /* Video nằm sau hero 820vh: chỉ nạp khi người dùng sắp cuộn tới, giữ nguyên poster/autoplay. */
+  function initLazyVideo() {
+    const videos = $$('video[data-src]');
+    if (!videos.length) return;
+    const load = video => {
+      if (video.src) return;
+      video.src = video.dataset.src;
+      video.removeAttribute('data-src');
+      video.load();
+      const play = () => video.play().catch(() => {});
+      video.addEventListener('canplay', play, { once: true });
+    };
+    if (!('IntersectionObserver' in window)) { videos.forEach(load); return; }
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        load(entry.target);
+        io.unobserve(entry.target);
+      });
+    }, { rootMargin: '700px 0px' });
+    videos.forEach(video => io.observe(video));
+  }
 
   /* ---------------- Năng lực: điện thoại thu 6 thẻ giữa thành hàng bấm mở ----------------
      Thẻ đầu (Marketing Strategy) và thẻ cuối (Công cụ, dữ liệu & AI) luôn mở như cũ.
@@ -208,7 +232,7 @@
     };
     // logo trắng (assets/img/partners/white/) trong ô cùng cỡ; JS đặt cỡ từng logo để tất cả trông nặng ngang nhau
     const cell = p => `<li class="logos__item"><span class="logos__box" title="${esc(p.name)}">${p.logo
-      ? `<img src="${esc(p.logo)}" alt="" draggable="false" decoding="async" data-scale="${+p.scale || 1}">`
+      ? `<img src="${esc(p.logo)}" alt="" loading="lazy" draggable="false" decoding="async" data-scale="${+p.scale || 1}">`
       : `<span class="logos__word">${word(p.name)}</span>`}</span></li>`;
     // Chia đôi danh sách: mỗi đối tác chỉ nằm ở 1 hàng, không lặp giữa hàng trên/dưới
     const half = Math.ceil(list.length / 2);
@@ -286,8 +310,8 @@
       const initials = String(f.name || '?').trim().split(/\s+/).map(w => w[0]).slice(-2).join('').toUpperCase();
       // logo (ô ghi nhận): hình tròn trắng, logo thu gọn giữ nguyên tỉ lệ; có logo thì ẩn tên đơn vị (tên chỉ còn ở alt).
       // avatar: ảnh tròn; còn lại: tick hoặc chữ cái đầu
-      const av = f.logo ? `<img src="${esc(f.logo)}" alt="${esc(f.name)}" draggable="false" decoding="async">`
-        : f.avatar ? `<img src="${esc(f.avatar)}" alt="${esc(f.name)}" draggable="false" decoding="async">` : proof ? icon('i-verified') : esc(initials);
+      const av = f.logo ? `<img src="${esc(f.logo)}" alt="${esc(f.name)}" loading="lazy" draggable="false" decoding="async">`
+        : f.avatar ? `<img src="${esc(f.avatar)}" alt="${esc(f.name)}" loading="lazy" draggable="false" decoding="async">` : proof ? icon('i-verified') : esc(initials);
       return `<figure class="quote spot${proof ? ' quote--proof is-dark' : ''}${f.draft ? ' is-draft' : ''}">
         <span class="quote__badge">${proof ? 'Ghi nhận chính thức' : esc(f.badge || 'Khách hàng nhận xét')}</span>
         <blockquote class="quote__text desc">${proof ? '' : '“'}${esc(f.text)}${proof ? '' : '”'}</blockquote>

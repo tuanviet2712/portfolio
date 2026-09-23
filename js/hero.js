@@ -25,7 +25,7 @@
   const DAMP_REST = 8, REST_EPS = 0.002;     // gần đích (|đích - p| < 0.002): đậu về đúng một khung, nhanh hơn
   const VMAX = 120;                          // tốc độ tua tối đa (khung/s = 5x tốc độ clip) khi vuốt mạnh
   const LEVELS = [8, 4, 2, 1];               // thứ tự tải: mỗi 8 khung trước, rồi 4, 2, 1
-  const PAR = 8;                             // số file tải song song
+  const PAR = 4;                             // giới hạn tải song song để không tranh băng thông với nội dung chính
   const AHEAD = 8, BEHIND = 4, KEEP = 14;    // cửa sổ giải mã quanh khung hiện tại (số khung)
   const MAXQ = 6;                            // số khung giải mã cùng lúc
   const MOUSE = { x: 7, y: 5, zoom: 1.02 };  // parallax chuột: dịch (px màn hình) + phóng nhẹ để có biên
@@ -289,7 +289,7 @@
         i, k, set, url: base + def.dir + pad3(i) + '.webp', bytes: (def.bytes && def.bytes[k]) || 60000,
         x0: Array.isArray(def.x0) ? def.x0[k] : (def.x0 || 0),
         rank: Math.max(0, LEVELS.findIndex(s => i % s === 0)),      // 0 = mức thô nhất (tải trước)
-        src: null, bmp: null, busy: null, loaded: false, queued: false, failed: false
+        src: null, bmp: null, busy: null, loaded: false, queued: false, wanted: false, failed: false
       }));
       set.frames.forEach(f => { if (f.rank === 0) { set.coarseLeft++; set.coarseBytes += f.bytes; } });
       return set;
@@ -299,6 +299,7 @@
       if (want === active) return;
       if (active) fallbackSet = active;                      // giữ khung cũ tới khi bộ mới vẽ được
       active = want;
+      markWindow(active, curT, 18, 6);
       startLoading(active);
       dirty = true;
     }
@@ -325,13 +326,21 @@
       if (isFile || typeof fetch !== 'function') return loadImgEl(f.url);
       return fetch(f.url).then(r => { if (!r.ok) throw new Error(r.status + ' ' + f.url); return r.blob(); }).catch(() => loadImgEl(f.url));
     }
-    function startLoading(set) { if (set.started) return; set.started = true; pump(set); }
+    function markWindow(set, t, ahead = 18, behind = 6) {
+      if (!set || !set.frames.length) return;
+      const hi = Math.min(set.frames.length - 1, lowerBound(set.frames, t));
+      const lo = Math.max(0, hi - behind), end = Math.min(set.frames.length - 1, hi + ahead);
+      for (let k = lo; k <= end; k++) set.frames[k].wanted = true;
+      // Luôn có một khung dự phòng gần đích nếu người dùng nhảy cuộn rất xa.
+      set.frames[hi].wanted = true;
+    }
+    function startLoading(set) { if (!set.started) set.started = true; pump(set); }
     function pump(set) {
       while (set.inflight < PAR && set.pending > 0) {
         let best = null, bs = Infinity;
-        const rankW = readyFired ? 48 : 1e6;                  // trước khi mở trang: hoàn tất mức thô; sau đó: mịn quanh vị trí hiện tại trước
+        const rankW = readyFired ? 48 : 1e6;
         for (const f of set.frames) {
-          if (f.queued) continue;
+          if (f.queued || !f.wanted) continue;
           const s = f.rank * rankW + Math.abs(f.i - curT);
           if (s < bs) { bs = s; best = f; }
         }
@@ -342,9 +351,9 @@
             set.inflight--; set.gotBytes += best.bytes;
             if (best.rank === 0) {
               set.coarseLeft--;
-              if (!readyFired && set === active) L.preloader.set(0.05 + 0.85 * clamp(set.gotBytes / set.coarseBytes));
+              if (!readyFired && set === active) L.preloader.set(0.9);
             }
-            if (!readyFired && set === active && set.coarseLeft <= 0) becomeReady();
+            if (!readyFired && set === active && best.loaded) becomeReady();
             dirty = true;
             pump(set);
           });
@@ -392,6 +401,8 @@
     // chọn khung cần giải mã quanh t (ưu tiên theo hướng cuộn), thu hồi khung ở xa
     function schedule(t, dir, vel) {
       const fr = active.frames, n = fr.length, hi = lowerBound(fr, t);
+      markWindow(active, t, dir >= 0 ? 22 : 10, dir >= 0 ? 8 : 20);
+      pump(active);
       // tốc độ cao: mỗi tick màn hình nhảy ~vel/60 khung => chỉ cần giải mã các khung cách nhau đúng bước đó
       const stride = Math.max(1, Math.min(8, Math.round(Math.abs(vel) / 60)));
       const want = [];

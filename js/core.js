@@ -17,6 +17,15 @@
   LTV.params = new URLSearchParams(location.search);
   const DATA = window.SITE_DATA || { profile: {} };
 
+  // CSS của showcase chỉ cần ở phần dự án rất xa màn hình đầu. Nạp sau lần vẽ đầu
+  // để không chặn FCP, nhưng vẫn sẵn sàng rất lâu trước khi người dùng cuộn tới.
+  const deferredStyle = document.getElementById('showcase-css');
+  if (deferredStyle) {
+    const activateStyle = () => { deferredStyle.rel = 'stylesheet'; deferredStyle.removeAttribute('as'); };
+    if ('requestIdleCallback' in window) requestIdleCallback(activateStyle, { timeout: 1200 });
+    else setTimeout(activateStyle, 0);
+  }
+
   /* ---------------- events ---------------- */
   const handlers = {};
   LTV.on = (n, f) => (handlers[n] = handlers[n] || []).push(f);
