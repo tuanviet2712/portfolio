@@ -26,3 +26,6 @@ Desktop.ini
 .idea/
 *.sublime-workspace
 
+
+# --- Thu muc dung tam khi trien khai (tools/deploy.ps1 tao lai moi lan) ---
+dist/
