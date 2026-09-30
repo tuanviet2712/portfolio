@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="vi" class="smooth">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9FR8F25SP"></script>
+  <script src="/js/ga4.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <!-- Chuyển cảnh vào trang: đặt sớm nhất có thể để màn phủ có ngay từ khung hình đầu tiên -->
@@ -74,6 +77,9 @@
       "@id": "https://letuanviet.com/#person",
       "name": "Lê Tuấn Việt",
       "alternateName": "Le Tuan Viet",
+      "givenName": "Việt",
+      "familyName": "Lê",
+      "identifier": "letuanviet",
       "url": "https://letuanviet.com/",
       "mainEntityOfPage": "https://letuanviet.com/",
       "image": {
@@ -83,6 +89,14 @@
         "height": 941
       },
       "jobTitle": "Marketing Leader",
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Marketing Leader",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "Hà Nội"
+        }
+      },
       "description": "Marketing Leader với hơn 4 năm kinh nghiệm tư vấn chiến lược và triển khai Marketing cho doanh nghiệp SME.",
       "email": "mailto:tuanviet.2712@gmail.com",
       "telephone": "+84935702321",
@@ -94,14 +108,18 @@
       },
       "worksFor": {
         "@type": "Organization",
+        "@id": "https://letuanviet.com/#taki-group",
         "name": "TAKI Group",
         "alternateName": "TAKI",
-        "url": "https://taki.vn"
+        "legalName": "Công ty Cổ phần TAKI GROUP",
+        "url": "https://takigroup.vn/",
+        "description": "Công ty tư vấn và cố vấn doanh nghiệp tại Việt Nam"
       },
       "alumniOf": {
         "@type": "CollegeOrUniversity",
         "name": "Đại học Công Thương TP.HCM",
-        "alternateName": "HUIT"
+        "alternateName": "HUIT",
+        "url": "https://huit.edu.vn/"
       },
       "knowsAbout": [
         "Marketing Strategy",
@@ -115,6 +133,11 @@
         "SEO",
         "Content Marketing",
         "Marketing Team Leadership"
+      ],
+      "award": [
+        "Nhân viên xuất sắc nhất năm 2025 (Ban lãnh đạo TAKI Group bình chọn)",
+        "Nhân viên xuất sắc nhất năm 2024 (hơn 400 đối tác của PITO bình chọn)",
+        "Giải Khuyến khích cuộc thi Đổi mới sáng tạo khởi nghiệp cấp khoa năm 2022 (Đại học Công Thương TP.HCM)"
       ],
       "sameAs": [
         "https://zalo.me/0935702321",
@@ -211,9 +234,7 @@
       ],
       "mentions": [
         {
-          "@type": "Organization",
-          "name": "TAKI Group",
-          "url": "https://taki.vn"
+          "@id": "https://letuanviet.com/#taki-group"
         },
         {
           "@type": "Organization",

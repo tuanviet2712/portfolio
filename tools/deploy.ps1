@@ -11,19 +11,32 @@
 
   Chay:  powershell -ExecutionPolicy Bypass -File tools\deploy.ps1
   Chi dung thu (khong day len):  ... -WhatIf
+  Bao cho Bing/Yandex/Naver... (IndexNow) moi URL trong sitemap sau khi day len:  ... -IndexNow
+    (chi dung khi co bai moi hoac noi dung doi dang ke; gui lai URL khong doi nhieu lan bi ha uu tien)
 
   Luu y: file nay chi dung ky tu ASCII vi PowerShell 5.1 doc .ps1 khong BOM theo bang ma ANSI.
 #>
-param([switch]$WhatIf, [string]$Message = "")
+param([switch]$WhatIf, [switch]$IndexNow, [string]$Message = "")
 
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $dist = Join-Path $root "dist"
 
+# Khoa IndexNow: tep <khoa>.txt o goc web chua dung chuoi nay, de cong cu tim kiem xac minh chu so huu
+$indexNowKey = "99b63334b27518ca1fd2d0022cdfce46"
+
+# Node khong nam trong PATH tren may nay: tim npx.cmd o mot thu muc cap 1 cua o D: (giong TAO-GOC-KIEN-THUC.bat)
+if (-not (Get-Command npx -ErrorAction SilentlyContinue)) {
+  $nodeDir = Get-ChildItem -LiteralPath "D:\" -Directory -ErrorAction SilentlyContinue |
+    Where-Object { Test-Path -LiteralPath (Join-Path $_.FullName "npx.cmd") } | Select-Object -First 1
+  if ($nodeDir) { $env:Path = $nodeDir.FullName + ";" + $env:Path }
+}
+
 # Chi nhung muc duoi day moi duoc len web. Them gi moi thi them vao day.
 $folders = @("assets", "css", "js", "goc-kien-thuc", ".well-known")
 $files = @("index.html", "404.html", "google49ce971bbd8cd1d5.html",
-           "_headers", "robots.txt", "sitemap.xml", "manifest.json", "llms.txt")
+           "_headers", "robots.txt", "sitemap.xml", "manifest.json", "llms.txt",
+           "favicon.ico", "$indexNowKey.txt")
 
 Write-Host ""
 Write-Host "  Dung lai thu muc dist ..." -ForegroundColor Cyan
@@ -98,7 +111,19 @@ Push-Location $root
 try {
   $env:CI = "1"
   & npx -y wrangler@4 pages deploy dist --project-name=portfolio --branch=main --commit-dirty=true --commit-message=$Message
+  if ($LASTEXITCODE -ne 0) { throw "wrangler pages deploy that bai (ma $LASTEXITCODE)" }
 } finally { Pop-Location }
+
+if ($IndexNow) {
+  $urls = @([regex]::Matches([IO.File]::ReadAllText((Join-Path $root "sitemap.xml"), $utf8), '<url>\s*<loc>([^<]+)</loc>') | ForEach-Object { $_.Groups[1].Value })
+  $body = @{ host = "letuanviet.com"; key = $indexNowKey; keyLocation = "https://letuanviet.com/$indexNowKey.txt"; urlList = $urls } | ConvertTo-Json -Compress
+  Write-Host ""
+  Write-Host "  Gui $($urls.Count) URL toi IndexNow ..." -ForegroundColor Cyan
+  try {
+    $r = Invoke-WebRequest -Uri "https://api.indexnow.org/indexnow" -Method Post -ContentType "application/json; charset=utf-8" -Body ([Text.Encoding]::UTF8.GetBytes($body)) -UseBasicParsing
+    Write-Host "    IndexNow tra ve $($r.StatusCode) (200/202 la da nhan)" -ForegroundColor Green
+  } catch { Write-Host "    IndexNow loi: $($_.Exception.Message)" -ForegroundColor Yellow }
+}
 
 Write-Host ""
 Write-Host "  Xong. Kiem tra: https://letuanviet.com/" -ForegroundColor Green

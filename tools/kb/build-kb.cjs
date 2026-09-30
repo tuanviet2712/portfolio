@@ -318,20 +318,31 @@ function personLd() {
     '@id': `${ORIGIN}/#person`,
     name: A.name,
     alternateName: A.alternateName,
+    givenName: A.givenName,
+    familyName: A.familyName,
+    identifier: A.identifier,
     url: A.url,
     mainEntityOfPage: `${ORIGIN}/`,
     image: { '@type': 'ImageObject', url: abs(A.image), width: 680, height: 941 },
     jobTitle: A.jobTitle,
+    hasOccupation: { '@type': 'Occupation', name: A.jobTitle, occupationLocation: { '@type': 'City', name: A.region } },
     description: A.description,
     email: `mailto:${A.email}`,
     telephone: '+84' + A.phoneRaw.replace(/^0/, ''),
     address: { '@type': 'PostalAddress', addressLocality: A.locality, addressRegion: A.region, addressCountry: 'VN' },
-    worksFor: { '@type': 'Organization', name: A.worksFor.name, alternateName: A.worksFor.alternateName, url: A.worksFor.url },
-    alumniOf: { '@type': 'CollegeOrUniversity', name: A.alumniOf.name, alternateName: A.alumniOf.alternateName },
+    worksFor: orgLd(),
+    alumniOf: { '@type': 'CollegeOrUniversity', name: A.alumniOf.name, alternateName: A.alumniOf.alternateName, url: A.alumniOf.url },
     knowsAbout: A.knowsAbout,
+    // Cả ba danh hiệu đều hiển thị trên trang chủ (thẻ minh chứng trong js/data.js)
+    award: A.awards.map(([name, by]) => `${name} (${by.replace(/^Do /, '')})`),
     sameAs: A.sameAs
   };
 }
+// Nơi làm việc: một @id chung cho mọi trang (trang chủ khai báo y hệt) để Google gộp thành một thực thể
+const orgLd = () => ({
+  '@type': 'Organization', '@id': `${ORIGIN}/#taki-group`, name: A.worksFor.name, alternateName: A.worksFor.alternateName,
+  legalName: A.worksFor.legalName, url: A.worksFor.site, description: A.worksFor.description
+});
 const websiteLd = () => ({
   '@type': 'WebSite', '@id': `${ORIGIN}/#website`, url: `${ORIGIN}/`, name: SITE.siteName,
   alternateName: `Lê Tuấn Việt — ${A.jobTitle}`, inLanguage: SITE.lang, publisher: { '@id': `${ORIGIN}/#person` }
@@ -354,6 +365,9 @@ function page({ rel, pagePath, title, description, draft = false, robots = 'inde
   return `<!DOCTYPE html>
 <html lang="vi" class="smooth">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9FR8F25SP"></script>
+  <script src="/js/ga4.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <!-- Chuyển cảnh vào trang: đặt sớm nhất có thể để màn phủ có ngay từ khung hình đầu tiên -->
@@ -815,7 +829,20 @@ function llmsTxt(all) {
     '',
     `- [Trang chủ và portfolio](${abs('')}): hồ sơ, năng lực, dự án và đối tác`,
     `- [${SITE.hub.name}](${abs(HUB + '/')}): danh sách toàn bộ bài viết`,
-    `- [RSS](${abs(HUB + '/feed.xml')}): nguồn cấp bài mới`
+    `- [RSS](${abs(HUB + '/feed.xml')}): nguồn cấp bài mới`,
+    // Hồ sơ ngắn để công cụ AI trả lời đúng câu "Lê Tuấn Việt là ai". Mọi dòng lấy từ site.cjs (dữ kiện trong CV).
+    '',
+    `## Về ${A.name}`,
+    '',
+    `- ${A.name} (${A.alternateName}) là ${A.jobTitle} tại ${A.worksFor.name} (${A.worksFor.legalName}), làm việc tại ${A.locality}, ${A.region}.`,
+    `- ${A.description}`,
+    ...A.experience.map(e => `- ${e.org}, ${e.place}, ${e.time}: ${e.roles.join('; ')}.`),
+    `- Số liệu nổi bật theo CV: ${A.stats.map(([n, t]) => `${n} ${t}`).join('; ')}.`,
+    ...A.results.map(([org, kind, text]) => `- Dự án ${org} (${kind.toLowerCase()}): ${text}`),
+    `- Danh hiệu: ${A.awards.map(([name, by]) => `${name} (${by.replace(/^Do /, '')})`).join('; ')}.`,
+    `- Học vấn: ${A.education.school}, ngành ${A.education.major}, ${A.education.time}, ${A.education.note}.`,
+    `- Chuyên môn: ${A.knowsAbout.join(', ')}.`,
+    `- Liên hệ: ${A.email}, điện thoại ${A.phone}, Zalo ${A.zalo}. CV: ${abs(A.cv)}`
   ];
   for (const { p, list } of byPillar) {
     lines.push('', `## ${p.name}`, '');
@@ -1029,7 +1056,9 @@ ${related.length ? `
       datePublished: a.published, dateModified: a.modified, inLanguage: SITE.lang,
       articleSection: p.name, keywords: (a.keywords || []).join(', '), wordCount: a.total, timeRequired: `PT${a.readMin}M`,
       about: (a.about || []).map(x => ({ '@type': 'Thing', name: x.name, sameAs: x.sameAs })),
-      mentions: (a.mentions || []).map(x => ({ '@type': x.type || 'Thing', name: x.name, ...(x.url ? { url: x.url } : {}), ...(x.sameAs ? { sameAs: x.sameAs } : {}) })),
+      // Nơi làm việc của tác giả được trỏ về đúng thực thể đã khai báo trong Person.worksFor
+      mentions: (a.mentions || []).map(x => x.name === A.worksFor.name ? { '@id': `${ORIGIN}/#taki-group` }
+        : ({ '@type': x.type || 'Thing', name: x.name, ...(x.url ? { url: x.url } : {}), ...(x.sameAs ? { sameAs: x.sameAs } : {}) })),
       citation: (a.references || []).filter(r => !String(r.url || '').startsWith(ORIGIN)).map(r => ({ '@type': 'CreativeWork', name: r.text, ...(r.url ? { url: r.url } : {}) }))
     },
     breadcrumbLd(url, crumbItems),
