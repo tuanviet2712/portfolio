@@ -19,6 +19,13 @@
 /assets/video/*
   Cache-Control: public, max-age=604800
 
+# Địa chỉ pages.dev do Cloudflare tự cấp, không gỡ được: không cho Google lập chỉ mục để chỉ letuanviet.com xuất hiện.
+# Dòng thứ hai là các bản xem trước của từng lần triển khai (<mã>.portfolio-elj.pages.dev).
+https://portfolio-elj.pages.dev/*
+  X-Robots-Tag: noindex
+https://:version.portfolio-elj.pages.dev/*
+  X-Robots-Tag: noindex
+
 # Chỉ mục tìm kiếm của Góc kiến thức: chỉ dành cho ô tìm kiếm, không cho Google lập chỉ mục
 /goc-kien-thuc/search.json
   X-Robots-Tag: noindex
