@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 >nul
-title Trien khai Portfolio len letuanviet.digital
+title Trien khai Portfolio len letuanviet.com
 cd /d "%~dp0"
 powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\deploy.ps1"
 pause

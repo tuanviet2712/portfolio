@@ -5,7 +5,7 @@
    Chuẩn SEO (tài liệu "Đào tạo về SEO và GEO"): title 50–60 ký tự, meta description 150–160 ký tự.
    ========================================================================== */
 module.exports = {
-  origin: 'https://letuanviet.digital',
+  origin: 'https://letuanviet.com',
   siteName: 'Portfolio Lê Tuấn Việt',
   locale: 'vi_VN',
   lang: 'vi-VN',
@@ -30,7 +30,7 @@ module.exports = {
     jobTitle: 'Marketing Leader',
     slogan: 'Biến chiến lược thành hệ thống. Biến hệ thống thành tăng trưởng.',
     role: 'Marketing Leader tại TAKI Group',
-    url: 'https://letuanviet.digital/',
+    url: 'https://letuanviet.com/',
     image: 'assets/img/portrait.jpg',            // cùng ảnh với schema Person ở trang chủ (nhất quán thực thể)
     photo: 'assets/kb/le-tuan-viet-photo.webp',  // ảnh chân dung hiển thị trên Góc kiến thức (portfolio dùng ảnh riêng)
     avatar: 'assets/kb/le-tuan-viet',            // .webp 320×320 (tools/kb/render-assets.cjs)

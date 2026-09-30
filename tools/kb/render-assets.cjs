@@ -79,7 +79,7 @@ function coverHtml({ kicker, title, line, extra, photo = 'assets/img/skills/stra
 <div class="brand"><i><img src="${url('assets/img/logo.svg')}" alt=""></i>Lê Tuấn Việt</div>
 <div class="txt"><p class="k">${esc(kicker)}</p><p class="t">${esc(title)}</p><p class="l">${esc(line)}</p>${extra || ''}</div>
 <div class="by"><img src="${url('assets/img/contact.jpg')}" alt=""><span><b>Lê Tuấn Việt</b><small>Marketing Leader tại TAKI Group</small></span></div>
-<div class="url">letuanviet.digital</div>
+<div class="url">letuanviet.com</div>
 </div></body></html>`;
 }
 

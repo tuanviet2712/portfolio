@@ -1,5 +1,5 @@
 <#
-  Trien khai Portfolio len Cloudflare Pages (du an "portfolio", ten mien letuanviet.digital).
+  Trien khai Portfolio len Cloudflare Pages (du an "portfolio", ten mien letuanviet.com).
 
   VI SAO CAN SCRIPT NAY:
   `wrangler pages deploy .` tai len TAT CA moi thu trong thu muc goc, ke ca tools\ (38 MB gom
@@ -101,5 +101,5 @@ try {
 } finally { Pop-Location }
 
 Write-Host ""
-Write-Host "  Xong. Kiem tra: https://letuanviet.digital/" -ForegroundColor Green
+Write-Host "  Xong. Kiem tra: https://letuanviet.com/" -ForegroundColor Green
 Write-Host ""
