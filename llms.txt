@@ -1,0 +1,32 @@
+# Portfolio Lê Tuấn Việt
+
+> Portfolio và Góc kiến thức của Lê Tuấn Việt, Marketing Leader tại TAKI Group, Hà Nội. Nội dung tiếng Việt về Marketing cho doanh nghiệp SME: chiến lược, kế hoạch, ứng dụng AI và bài học từ dự án thực tế.
+
+Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác giả này biên soạn; trang chủ https://letuanviet.digital/ là hồ sơ năng lực chính thức.
+
+## Trang chính
+
+- [Trang chủ và portfolio](https://letuanviet.digital/): hồ sơ, năng lực, dự án và đối tác
+- [Góc kiến thức](https://letuanviet.digital/goc-kien-thuc/): danh sách toàn bộ bài viết
+- [RSS](https://letuanviet.digital/goc-kien-thuc/feed.xml): nguồn cấp bài mới
+
+## Marketing
+
+- [Content angle là gì? Phân biệt pillar, topic và góc viết](https://letuanviet.digital/goc-kien-thuc/marketing/content-angle-la-gi/): Content angle là gì và khác content topic, content pillar ra sao? Bài viết có số liệu Ahrefs, bộ câu hỏi của Google và mẫu brief GOV.UK để chọn góc có căn cứ.
+- [Dark social là gì? Hiểu đúng nguồn và direct traffic](https://letuanviet.digital/goc-kien-thuc/marketing/dark-social-la-gi/): Dark social là gì, khác direct traffic ra sao. Cơ chế Referer làm mất nguồn, ba nhóm nguyên nhân direct theo Google và bốn bước đo dark social có căn cứ.
+- [Zero-party data là gì? Khác first-party data thế nào?](https://letuanviet.digital/goc-kien-thuc/marketing/zero-party-data-va-first-party-data/): Zero-party data là gì, khác first-party data ra sao và phân loại thế nào. Kèm số liệu tỷ lệ đồng ý, hiện trạng cookie và năm thiên lệch của dữ liệu tự khai.
+- [Brand voice và tone of voice khác gì nhau? Ví dụ cho SME](https://letuanviet.digital/goc-kien-thuc/marketing/brand-voice-va-tone-of-voice/): Brand voice và tone of voice khác nhau thế nào? Bài viết phân biệt hai khái niệm bằng số liệu thực nghiệm, case Monzo và khung guideline sáu bước cho SME.
+- [Micro conversion là gì, khác macro conversion thế nào](https://letuanviet.digital/goc-kien-thuc/marketing/micro-conversion-la-gi/): Micro conversion là gì, khác macro conversion ra sao và đo trong GA4 thế nào. Bài viết có danh sách theo loại hình, ví dụ thật và cách chọn mẫu số đúng.
+
+## AI Marketing
+
+- [AI personalization là gì? Khác quy tắc thế nào?](https://letuanviet.digital/goc-kien-thuc/ai-marketing/ai-personalization-la-gi/): AI personalization là gì, khác cá nhân hóa theo quy tắc ra sao? Bốn mức cá nhân hóa, số liệu McKinsey kèm dải thật, vòng lặp gợi ý và Điều 28 luật dữ liệu.
+- [Human-in-the-loop là gì? Vai trò người duyệt trong AI](https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/): Human-in-the-loop là gì và người duyệt cần gì để có tác dụng? Năm quyền theo Điều 14, số liệu thiên lệch tự động hóa và cách phân ba mức duyệt cho SME.
+- [AI workflow là gì? Luồng công việc có AI cho SME](https://letuanviet.digital/goc-kien-thuc/ai-marketing/ai-workflow-la-gi/): AI workflow là gì, khác automation và AI agent ra sao? Năm mẫu luồng có tên, cách đọc con số 95% đúng phạm vi và năm bước dựng luồng AI đầu tiên cho SME.
+- [AI agent và chatbot khác nhau thế nào cho SME?](https://letuanviet.digital/goc-kien-thuc/ai-marketing/ai-agent-va-chatbot-khac-nhau/): AI agent và chatbot khác nhau thế nào? Phân biệt qua bốn mức tự chủ, số liệu Klarna và phần điều chỉnh sau đó, sai số cộng dồn và cây quyết định chọn giải pháp.
+- [Ảo giác AI là gì? Nội dung trôi chảy vẫn có thể sai](https://letuanviet.digital/goc-kien-thuc/ai-marketing/ao-giac-ai-la-gi/): Ảo giác AI là gì và vì sao mô hình đoán thay vì nói không biết? Số liệu OpenAI, nghiên cứu Stanford, vụ Air Canada và quy trình duyệt bản nháp AI 5 bước.
+
+## Lưu ý khi trích dẫn
+
+- Ví dụ về cửa hàng, doanh nghiệp và nhân vật trong bài được ghi rõ là giả định biên tập, không phải kết quả khách hàng thật.
+- Số liệu từ nguồn ngoài luôn kèm nguồn và phạm vi đo; phần pháp lý chỉ để định hướng, không phải tư vấn pháp lý.

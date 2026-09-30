@@ -30,6 +30,12 @@ function Get-Stamp {
       Where-Object { $_.Extension -in '.html', '.css', '.js' } |
       ForEach-Object { $t = $_.LastWriteTimeUtc.Ticks; if ($t -gt $max) { $max = $t } }
   }
+  # Goc kien thuc: trang do tools/kb/build-kb.cjs tao ra (it file, quet de quy van nhanh)
+  $kb = Join-Path $root "goc-kien-thuc"
+  if (Test-Path -LiteralPath $kb) {
+    Get-ChildItem -LiteralPath $kb -Recurse -File -Filter index.html -ErrorAction SilentlyContinue |
+      ForEach-Object { $t = $_.LastWriteTimeUtc.Ticks; if ($t -gt $max) { $max = $t } }
+  }
   return "$max"
 }
 
@@ -69,7 +75,9 @@ try {
       if ($path.EndsWith('/')) { $path += 'index.html' }
       $rel = $path.TrimStart('/').Replace('/', '\')
       $file = [IO.Path]::GetFullPath([IO.Path]::Combine($root, $rel))
-      if (-not $file.StartsWith($root, [StringComparison]::OrdinalIgnoreCase) -or -not [IO.File]::Exists($file)) {
+      # Chi phuc vu file nam trong thu muc goc (kem dau phan cach) va chan thu muc an / node_modules
+      $under = $file.StartsWith($root.TrimEnd('\') + '\', [StringComparison]::OrdinalIgnoreCase) -and ($file.Substring($root.TrimEnd('\').Length + 1) -notmatch '(^|\\)(\.|node_modules(\\|$))')
+      if (-not $under -or -not [IO.File]::Exists($file)) {
         $res.StatusCode = 404
         $b = [Text.Encoding]::UTF8.GetBytes("404 — Không tìm thấy: $path"); $res.ContentType = 'text/plain; charset=utf-8'
         $res.OutputStream.Write($b, 0, $b.Length)

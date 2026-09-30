@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="vi" class="smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Chuyển cảnh vào trang: đặt sớm nhất có thể để màn phủ có ngay từ khung hình đầu tiên -->
+  <script src="../../../js/pt.js"></script>
+  <title>Human-in-the-loop là gì? Người duyệt trong AI marketing</title>
+  <meta name="description" content="Human-in-the-loop là gì và người duyệt cần gì để có tác dụng? Năm quyền theo Điều 14, số liệu thiên lệch tự động hóa và cách phân ba mức duyệt cho SME.">
+  <meta name="author" content="Lê Tuấn Việt">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/">
+  <link rel="alternate" hreflang="vi" href="https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/">
+  <link rel="alternate" hreflang="x-default" href="https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/">
+  <link rel="alternate" type="application/rss+xml" title="Góc kiến thức | Lê Tuấn Việt" href="https://letuanviet.digital/goc-kien-thuc/feed.xml">
+  <meta name="theme-color" content="#F5F8FF">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:site_name" content="Portfolio Lê Tuấn Việt">
+  <meta property="og:title" content="Human-in-the-loop là gì? Vai trò người duyệt trong AI">
+  <meta property="og:description" content="Human-in-the-loop là gì và người duyệt cần gì để có tác dụng? Năm quyền theo Điều 14, số liệu thiên lệch tự động hóa và cách phân ba mức duyệt cho SME.">
+  <meta property="og:url" content="https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/">
+  <meta property="og:image" content="https://letuanviet.digital/assets/kb/human-in-the-loop-la-gi.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Human-in-the-loop: người duyệt trong AI marketing có thể kiểm, sửa và dừng">
+  <meta property="article:published_time" content="2026-09-30T18:00:00+07:00">
+  <meta property="article:modified_time" content="2026-09-30T18:00:00+07:00">
+  <meta property="article:author" content="https://letuanviet.digital/">
+  <meta property="article:section" content="AI Marketing">
+  <meta property="article:tag" content="human-in-the-loop là gì">
+  <meta property="article:tag" content="HITL là gì">
+  <meta property="article:tag" content="human in the loop trong AI">
+  <meta property="article:tag" content="người duyệt nội dung AI">
+  <meta property="article:tag" content="giám sát con người trong AI">
+  <meta property="article:tag" content="human-on-the-loop">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Human-in-the-loop là gì? Vai trò người duyệt trong AI">
+  <meta name="twitter:description" content="Human-in-the-loop là gì và người duyệt cần gì để có tác dụng? Năm quyền theo Điều 14, số liệu thiên lệch tự động hóa và cách phân ba mức duyệt cho SME.">
+  <meta name="twitter:image" content="https://letuanviet.digital/assets/kb/human-in-the-loop-la-gi.jpg">
+  <meta name="twitter:image:alt" content="Human-in-the-loop: người duyệt trong AI marketing có thể kiểm, sửa và dừng">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/img/logo.svg">
+  <link rel="apple-touch-icon" href="../../../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../../../manifest.json">
+  <link rel="preload" href="../../../assets/fonts/be-vietnam-pro/QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../assets/fonts/be-vietnam-pro/QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../assets/fonts/be-vietnam-pro/QdVMSTAyLFyeg_IDWvOJmVES_HSQI281Rb0.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../assets/fonts/be-vietnam-pro/QdVMSTAyLFyeg_IDWvOJmVES_HSQI286Rb0bcw.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="../../../assets/kb/human-in-the-loop-la-gi.webp" imagesrcset="../../../assets/kb/human-in-the-loop-la-gi-320.webp 320w, ../../../assets/kb/human-in-the-loop-la-gi-640.webp 640w, ../../../assets/kb/human-in-the-loop-la-gi.webp 1200w, ../../../assets/kb/human-in-the-loop-la-gi-1600.webp 1600w" imagesizes="(min-width: 840px) 760px, 100vw" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="../../../css/style.min.css">
+  <link rel="stylesheet" href="../../../css/kb-core.css">
+  <link rel="stylesheet" href="../../../css/kb.css">
+  <link rel="stylesheet" href="../../../css/kb-article.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://letuanviet.digital/#website",
+      "url": "https://letuanviet.digital/",
+      "name": "Portfolio Lê Tuấn Việt",
+      "alternateName": "Lê Tuấn Việt — Marketing Leader",
+      "inLanguage": "vi-VN",
+      "publisher": {
+        "@id": "https://letuanviet.digital/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://letuanviet.digital/#person",
+      "name": "Lê Tuấn Việt",
+      "alternateName": "Le Tuan Viet",
+      "url": "https://letuanviet.digital/",
+      "mainEntityOfPage": "https://letuanviet.digital/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://letuanviet.digital/assets/img/portrait.jpg",
+        "width": 680,
+        "height": 941
+      },
+      "jobTitle": "Marketing Leader",
+      "description": "Marketing Leader với hơn 4 năm kinh nghiệm tư vấn chiến lược và triển khai Marketing cho doanh nghiệp SME.",
+      "email": "mailto:tuanviet.2712@gmail.com",
+      "telephone": "+84935702321",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hà Đông",
+        "addressRegion": "Hà Nội",
+        "addressCountry": "VN"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "TAKI Group",
+        "alternateName": "TAKI",
+        "url": "https://taki.vn"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Đại học Công Thương TP.HCM",
+        "alternateName": "HUIT"
+      },
+      "knowsAbout": [
+        "Marketing Strategy",
+        "Marketing Planning",
+        "Kế hoạch Marketing",
+        "AI Marketing",
+        "Quản trị Marketing",
+        "Growth Marketing",
+        "Performance Marketing",
+        "Digital Marketing",
+        "SEO",
+        "Content Marketing",
+        "Marketing Team Leadership"
+      ],
+      "sameAs": [
+        "https://zalo.me/0935702321",
+        "https://github.com/tuanviet2712"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/#webpage",
+      "url": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/",
+      "name": "Human-in-the-loop là gì? Người duyệt trong AI marketing",
+      "description": "Human-in-the-loop là gì và người duyệt cần gì để có tác dụng? Năm quyền theo Điều 14, số liệu thiên lệch tự động hóa và cách phân ba mức duyệt cho SME.",
+      "isPartOf": [
+        {
+          "@id": "https://letuanviet.digital/#website"
+        },
+        {
+          "@id": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/#webpage"
+        }
+      ],
+      "primaryImageOfPage": {
+        "@id": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/#primaryimage"
+      },
+      "breadcrumb": {
+        "@id": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/#breadcrumb"
+      },
+      "inLanguage": "vi-VN",
+      "datePublished": "2026-09-30T18:00:00+07:00",
+      "dateModified": "2026-09-30T18:00:00+07:00",
+      "author": {
+        "@id": "https://letuanviet.digital/#person"
+      },
+      "relatedLink": [
+        "https://letuanviet.digital/goc-kien-thuc/ai-marketing/ao-giac-ai-la-gi/",
+        "https://letuanviet.digital/goc-kien-thuc/ai-marketing/ai-agent-va-chatbot-khac-nhau/",
+        "https://letuanviet.digital/goc-kien-thuc/ai-marketing/ai-personalization-la-gi/",
+        "https://letuanviet.digital/goc-kien-thuc/ai-marketing/ai-workflow-la-gi/",
+        "https://letuanviet.digital/goc-kien-thuc/marketing/content-angle-la-gi/",
+        "https://letuanviet.digital/goc-kien-thuc/marketing/dark-social-la-gi/"
+      ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/#primaryimage",
+      "url": "https://letuanviet.digital/assets/kb/human-in-the-loop-la-gi.jpg",
+      "contentUrl": "https://letuanviet.digital/assets/kb/human-in-the-loop-la-gi.jpg",
+      "width": 1200,
+      "height": 630,
+      "caption": "Human-in-the-loop: người duyệt trong AI marketing có thể kiểm, sửa và dừng",
+      "inLanguage": "vi-VN"
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/#article",
+      "isPartOf": {
+        "@id": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/#webpage"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/#webpage"
+      },
+      "headline": "Human-in-the-loop là gì? Vai trò người duyệt trong AI",
+      "description": "Human-in-the-loop là gì và người duyệt cần gì để có tác dụng? Năm quyền theo Điều 14, số liệu thiên lệch tự động hóa và cách phân ba mức duyệt cho SME.",
+      "image": {
+        "@id": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/#primaryimage"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://letuanviet.digital/#person",
+        "name": "Lê Tuấn Việt",
+        "url": "https://letuanviet.digital/",
+        "jobTitle": "Marketing Leader"
+      },
+      "publisher": {
+        "@id": "https://letuanviet.digital/#person"
+      },
+      "datePublished": "2026-09-30T18:00:00+07:00",
+      "dateModified": "2026-09-30T18:00:00+07:00",
+      "inLanguage": "vi-VN",
+      "articleSection": "AI Marketing",
+      "keywords": "human-in-the-loop là gì, HITL là gì, human in the loop trong AI, người duyệt nội dung AI, giám sát con người trong AI, human-on-the-loop",
+      "wordCount": 5009,
+      "timeRequired": "PT22M",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Human-in-the-loop",
+          "sameAs": "https://en.wikipedia.org/wiki/Human-in-the-loop"
+        },
+        {
+          "@type": "Thing",
+          "name": "Thiên lệch tự động hóa",
+          "sameAs": "https://en.wikipedia.org/wiki/Automation_bias"
+        }
+      ],
+      "mentions": [
+        {
+          "@type": "Organization",
+          "name": "Stanford HAI",
+          "url": "https://hai.stanford.edu"
+        },
+        {
+          "@type": "Organization",
+          "name": "Amazon Web Services",
+          "url": "https://aws.amazon.com"
+        },
+        {
+          "@type": "Organization",
+          "name": "IBM",
+          "url": "https://www.ibm.com"
+        }
+      ],
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Stanford HAI. What is Human-in-the-loop? Định nghĩa HITL qua sự phản hồi hoặc can thiệp của người trong hoạt động AI.",
+          "url": "https://hai.stanford.edu/ai-definitions/what-is-human-in-the-loop"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "AWS. What is human in the loop? Phân biệt human-in-the-loop và human-on-the-loop, các điểm tham gia của người trong quá trình AI và học máy.",
+          "url": "https://aws.amazon.com/what-is/human-in-the-loop/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "IBM. What is human-in-the-loop? Lưu ý người vốn có thiên lệch riêng nên sự tham gia của người là một lớp hỗ trợ.",
+          "url": "https://www.ibm.com/think/topics/human-in-the-loop"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Đạo luật AI của Liên minh châu Âu. Điều 14: Giám sát con người, năm việc người giám sát cần được tạo điều kiện thực hiện; các mốc áp dụng theo bản sửa đổi Digital Omnibus có hiệu lực ngày 27 tháng 7 năm 2026.",
+          "url": "https://artificialintelligenceact.eu/article/14/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Rosbach, Ganz, Ammeling, Riener và Aubreville. Automation Bias in AI-Assisted Medical Decision-Making under Time Pressure in Computational Pathology, ngày 1 tháng 11 năm 2024.",
+          "url": "https://arxiv.org/abs/2411.00998"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Vicente và Matute. Warning people about the risk of AI error mitigates human acquisition of AI bias, Cognitive Research: Principles and Implications, tập 11 bài 36, ngày 30 tháng 4 năm 2026.",
+          "url": "https://doi.org/10.1186/s41235-026-00726-w"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Trang chủ",
+          "item": "https://letuanviet.digital/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Góc kiến thức",
+          "item": "https://letuanviet.digital/goc-kien-thuc/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI Marketing",
+          "item": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Human-in-the-loop là gì? Vai trò người duyệt trong AI",
+          "item": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/#faq",
+      "isPartOf": {
+        "@id": "https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/#webpage"
+      },
+      "inLanguage": "vi-VN",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Mọi bài AI đều cần cùng một mức duyệt không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Không. Mức kiểm tra phụ thuộc hệ quả khi lỗi lọt ra ngoài. Ghi chú nội bộ chỉ cần một người đọc lướt; bài blog cần kiểm dữ kiện rồi một người duyệt; quảng cáo có điều kiện ưu đãi cần người vận hành xác nhận phạm vi trước khi người duyệt ký. Đội chịu trách nhiệm cần viết bảng phân mức này ra và thống nhất, thay vì để nó nằm trong đầu trưởng nhóm."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Người sửa một câu thì AI có tự học cho lần sau không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Không mặc định. Sửa trong phiên làm việc, lưu phản hồi để phân tích và huấn luyện lại mô hình là ba cơ chế khác nhau. Với công cụ có sẵn, bản sửa thường chỉ thay đầu ra lần này. Muốn sửa một lỗi lặp đi lặp lại, cách làm là đổi hướng dẫn đầu vào hoặc đổi tài liệu nguồn, không phải sửa thêm nhiều lần và chờ mô hình nhận ra."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Có người duyệt thì có thể khẳng định nội dung luôn đúng không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Không. Người duyệt cũng có giới hạn, và thiên lệch tự động hóa là cơ chế đo được. Một nghiên cứu năm 2024 trên 28 chuyên gia ghi nhận khoảng 7% số lượt đánh giá ban đầu đúng bị gợi ý sai của AI lật ngược. Căn cứ phù hợp, chuyên môn và quyền quyết định giúp việc kiểm tra có ý nghĩa; đội vẫn cần lấy mẫu đối chiếu lại các bản đã duyệt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Human-in-the-loop và human-on-the-loop khác nhau ở đâu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ở chỗ hệ thống có dừng lại chờ người hay không. Human-in-the-loop là người tham gia vào từng quyết định cụ thể, hệ thống dừng chờ người. Human-on-the-loop là người theo dõi quá trình và can thiệp khi thấy cần, hệ thống vẫn chạy. Tên gọi cần đi kèm mô tả quyền thực tế trong quy trình, vì hai mức này có hai mức trách nhiệm khác nhau."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Đạo luật AI châu Âu có bắt buộc đội marketing phải có người duyệt không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Không. Điều 14 về giám sát con người áp cho hệ thống AI thuộc nhóm rủi ro cao, và việc sinh nội dung marketing không nằm trong nhóm đó. Tuy vậy danh sách năm quyền trong Điều 14 khoản 4 là mô tả cụ thể nhất hiện có về việc giám sát đòi hỏi những gì, nên dùng được làm bảng kiểm tự nguyện. Các mốc áp dụng cho nhóm rủi ro cao đã lùi về ngày 2 tháng 12 năm 2027 và ngày 2 tháng 8 năm 2028."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Nên giới thiệu công cụ AI với đội nội dung như thế nào?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nói về tỉ lệ sai và loại lỗi thường gặp, thay vì nói về độ chính xác. Một nghiên cứu công bố tháng 4 năm 2026 trên 175 người cho thấy nhấn vào rủi ro sai làm giảm xu hướng đi theo gợi ý sai mạnh hơn là nhấn vào độ chính xác. Danh sách loại lỗi cụ thể còn hữu ích hơn một con số, vì nó chỉ cho người duyệt biết phải nhìn vào đâu."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body class="kb kb--article" data-nav-active="kien-thuc">
+  <a class="skip-link" href="#noi-dung">Bỏ qua phần điều hướng</a>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V5M6 11l6-6 6 6"/></symbol>
+      <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+      <symbol id="i-zalo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-4.5 3v-3H5a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-verified" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 1.8 3 .1 1 2.8 2.4 1.9-.9 2.9.9 2.9-2.4 1.9-1 2.8-3 .1L12 22l-2.4-1.8-3-.1-1-2.8-2.4-1.9.9-2.9-.9-2.9 2.4-1.9 1-2.8 3-.1z"/><path d="m8.5 12.3 2.4 2.4 4.6-4.9" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5c.6 5.6 4.9 9.9 10.5 10.5-5.6.6-9.9 4.9-10.5 10.5C11.4 16.9 7.1 12.6 1.5 12 7.1 11.4 11.4 7.1 12 1.5z"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></symbol>
+      <symbol id="i-kanban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 7v7M12 7v4M16 7v10"/></symbol>
+      <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5" opacity=".5"/></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r=".9" fill="currentColor"/><circle cx="4.5" cy="12" r=".9" fill="currentColor"/><circle cx="4.5" cy="18" r=".9" fill="currentColor"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4L12 5.6"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.4V21z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9.75h4v11H3zm6.5 0h3.8v1.6h.06c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12v5.34h-4v-4.73c0-1.13-.02-2.58-1.57-2.58-1.58 0-1.82 1.23-1.82 2.5v4.81h-4z"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.3l-4.9-6.4L5.2 21H2.1l7.3-8.3L1.8 3h6.4l4.4 5.9zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.3 4.9L20 16"/><path d="M20 20v-4h-4"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-5.5h-5V21H5a1 1 0 0 1-1-1z"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-notes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol>
+    </defs></svg>
+  <div class="pt" aria-hidden="true"><span class="pt__mark"><img src="../../../assets/img/logo.svg" alt="" width="40" height="40">Lê Tuấn Việt</span></div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="../../../" aria-label="Lê Tuấn Việt, về trang chủ">
+        <span class="nav__logo"><img src="../../../assets/img/logo.svg" alt="" width="28" height="28"></span><span class="nav__name">Lê Tuấn Việt</span><span class="nav__badge">Marketing Leader</span>
+      </a>
+      <nav class="nav__links" aria-label="Điều hướng chính">
+        <span class="nav__pill" aria-hidden="true"></span>
+        <a href="../../../" data-nav="trang-chu">Trang chủ</a>
+        <a href="../../../#gioi-thieu" data-nav="gioi-thieu">Giới thiệu</a>
+        <a href="../../../#nang-luc" data-nav="nang-luc">Năng lực</a>
+        <a href="../../../#du-an" data-nav="du-an">Dự án</a>
+        <a href="../../../#doi-tac" data-nav="doi-tac">Đối tác</a>
+        <a href="../../../#feedback" data-nav="feedback">Feedback</a>
+        <a class="nav__kb" href="../../../goc-kien-thuc/" data-nav="kien-thuc" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="kb-dd"><span data-en="Knowledge Hub">Góc kiến thức</span><svg class="nav__chev" aria-hidden="true"><use href="#i-chev"/></svg></a>
+        <div class="kbdd" id="kb-dd" role="region" aria-label="Góc kiến thức" data-en-label="Knowledge Hub">
+          <div class="kbdd__intro">
+            <p class="kbdd__title" data-en="Knowledge Hub">Góc kiến thức</p>
+            <p class="kbdd__desc" data-en="Practical marketing knowledge, applied AI and lessons that turn strategy into a growth system.">Góc nhìn Marketing, ứng dụng AI và bài học thực chiến giúp biến chiến lược thành hệ thống tăng trưởng.</p>
+            <div class="kbdd__by"><img src="../../../assets/kb/le-tuan-viet.webp" alt="" width="38" height="38" loading="lazy" decoding="async"><span><b>Lê Tuấn Việt</b><small>Marketing Leader</small></span></div>
+            <a class="kbdd__all" href="../../../goc-kien-thuc/"><span data-en="View all articles">Xem tất cả bài viết</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="kbdd__main">
+            <ul class="kbdd__list">
+            <li><a class="kbdd__item" href="../../../goc-kien-thuc/marketing/"><span class="kbdd__ico"><svg aria-hidden="true"><use href="#i-target"/></svg></span><span class="kbdd__txt"><b data-en="Marketing">Marketing</b><small data-en="Strategy, planning and multichannel marketing for SMEs">Chiến lược, kế hoạch và triển khai đa kênh</small></span><svg class="kbdd__go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="kbdd__item" href="../../../goc-kien-thuc/ai-marketing/"><span class="kbdd__ico"><svg aria-hidden="true"><use href="#i-spark"/></svg></span><span class="kbdd__txt"><b data-en="AI Marketing">AI Marketing</b><small data-en="Using AI for research, content and campaign performance">AI cho nghiên cứu, nội dung và tối ưu hiệu suất</small></span><svg class="kbdd__go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="kbdd__item" href="../../../goc-kien-thuc/quan-tri-marketing/"><span class="kbdd__ico"><svg aria-hidden="true"><use href="#i-kanban"/></svg></span><span class="kbdd__txt"><b data-en="Marketing Management">Quản trị Marketing</b><small data-en="Managing teams, budgets, KPIs and marketing operations">Đội ngũ, ngân sách, KPI và vận hành Marketing</small></span><svg class="kbdd__go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="kbdd__item" href="../../../goc-kien-thuc/du-an-va-bai-hoc/"><span class="kbdd__ico"><svg aria-hidden="true"><use href="#i-flag"/></svg></span><span class="kbdd__txt"><b data-en="Case Marketing">Case Marketing</b><small data-en="Marketing case analysis, execution, measurement and lessons">Phân tích case, triển khai, đo lường và bài học ứng dụng</small></span><svg class="kbdd__go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            </ul>
+          </div>
+        </div>
+        <a href="../../../#lien-he" data-nav="lien-he">Liên hệ</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="nav__search" type="button" data-search-open aria-haspopup="dialog" aria-controls="kb-search" aria-label="Tìm kiếm bài viết" title="Tìm kiếm bài viết (phím /)"><svg aria-hidden="true"><use href="#i-search"/></svg></button>
+        <a class="btn btn--dark btn--sm magnetic" href="../../../assets/cv/CV-Le-Tuan-Viet.pdf" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv>Tải CV <svg class="ico ico--down" aria-hidden="true"><use href="#i-download"/></svg></a>
+        <button class="nav__burger" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu__links" aria-label="Menu di động">
+      <a href="../../../"><small>01</small>Trang chủ</a>
+      <a href="../../../#gioi-thieu"><small>02</small>Giới thiệu</a>
+      <a href="../../../#nang-luc"><small>03</small>Năng lực</a>
+      <a href="../../../#du-an"><small>04</small>Dự án</a>
+      <a href="../../../#doi-tac"><small>05</small>Đối tác</a>
+      <a href="../../../#feedback"><small>06</small>Feedback</a>
+      <div class="menu-kb is-open">
+        <button class="menu-kb__btn" type="button" aria-expanded="true" aria-controls="menu-kb-list"><small>07</small><span data-en="Knowledge Hub">Góc kiến thức</span><svg class="menu-kb__chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <div class="menu-kb__panel" id="menu-kb-list">
+          <div class="menu-kb__inner">
+            <a href="../../../goc-kien-thuc/marketing/"><span class="menu-kb__ico"><svg aria-hidden="true"><use href="#i-target"/></svg></span><span data-en="Marketing">Marketing</span></a>
+            <a href="../../../goc-kien-thuc/ai-marketing/"><span class="menu-kb__ico"><svg aria-hidden="true"><use href="#i-spark"/></svg></span><span data-en="AI Marketing">AI Marketing</span></a>
+            <a href="../../../goc-kien-thuc/quan-tri-marketing/"><span class="menu-kb__ico"><svg aria-hidden="true"><use href="#i-kanban"/></svg></span><span data-en="Marketing Management">Quản trị Marketing</span></a>
+            <a href="../../../goc-kien-thuc/du-an-va-bai-hoc/"><span class="menu-kb__ico"><svg aria-hidden="true"><use href="#i-flag"/></svg></span><span data-en="Case Marketing">Case Marketing</span></a>
+            <a class="menu-kb__all" href="../../../goc-kien-thuc/"><span data-en="View all articles">Tất cả bài viết</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <a href="../../../assets/cv/CV-Le-Tuan-Viet.pdf" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv><small>08</small>Tải CV</a>
+      <a href="../../../#lien-he"><small>09</small>Liên hệ</a>
+    </nav>
+    <div class="menu__foot">
+      <a class="menu__contact" href="mailto:tuanviet.2712@gmail.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><span>tuanviet.2712@gmail.com</span></a>
+      <a class="menu__contact" href="tel:+84935702321"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>0935 702 321</span></a>
+    </div>
+  </div>
+
+  <main id="noi-dung" tabindex="-1">
+
+    <article class="kb-art">
+      <div class="container">
+        <div class="kb-art__grid">
+          <div class="kb-art__main">
+            <header class="kb-art__head">
+              <nav class="kb-crumbs" aria-label="Đường dẫn"><ol><li><a href="../../../"><svg aria-hidden="true"><use href="#i-home"/></svg>Trang chủ</a></li><li><a href="../../../goc-kien-thuc/">Góc kiến thức</a></li><li><a href="../../../goc-kien-thuc/ai-marketing/">AI Marketing</a></li><li aria-current="page"><span>Human-in-the-loop là gì? Vai trò người duyệt trong AI</span></li></ol></nav>
+              <h1 class="kb-art__h1" data-fit data-fit-min="20">Human-in-the-loop là gì? Vai trò <span class="grad">người duyệt trong AI</span></h1>
+              <p class="kb-art__sapo">Human-in-the-loop (HITL) là cách tổ chức quy trình AI có sự tham gia trực tiếp của con người để kiểm tra, điều chỉnh hoặc phê duyệt kết quả tại những bước được xác định trước. Trong marketing, người duyệt có thể kiểm chứng thông tin sản phẩm, sửa nội dung sai hoặc yêu cầu AI làm lại trước khi xuất bản. Giá trị của HITL nằm ở việc người duyệt có đủ thông tin, chuyên môn và quyền can thiệp để xử lý sai sót. Bài viết này làm rõ HITL là gì, khác human-on-the-loop như thế nào và cách phân chia ba mức duyệt theo mức độ ảnh hưởng của lỗi, giúp doanh nghiệp đưa AI vào công việc với trách nhiệm rõ ràng.</p>
+              <div class="kb-art__by">
+                <a class="kb-art__who" href="../../../" rel="author"><img src="../../../assets/kb/le-tuan-viet.webp" alt="Ảnh đại diện Lê Tuấn Việt" width="48" height="48"><span><b>Lê Tuấn Việt <svg aria-hidden="true"><use href="#i-verified"/></svg></b><small>Marketing Leader tại TAKI Group</small></span></a>
+                <ul class="kb-art__dates">
+                  <li><svg aria-hidden="true"><use href="#i-calendar"/></svg><span>Đăng ngày <time datetime="2026-09-30T18:00:00+07:00">30/09/2026</time></span></li>
+                  <li><svg aria-hidden="true"><use href="#i-refresh"/></svg><span>Cập nhật <time datetime="2026-09-30T18:00:00+07:00">30/09/2026</time></span></li>
+                </ul>
+              </div>
+            </header>
+
+<figure class="kb-art__cover">
+              <picture><source type="image/webp" srcset="../../../assets/kb/human-in-the-loop-la-gi-320.webp 320w, ../../../assets/kb/human-in-the-loop-la-gi-640.webp 640w, ../../../assets/kb/human-in-the-loop-la-gi.webp 1200w, ../../../assets/kb/human-in-the-loop-la-gi-1600.webp 1600w" sizes="(min-width: 840px) 760px, 100vw"><img src="../../../assets/kb/human-in-the-loop-la-gi.jpg" alt="Human-in-the-loop: người duyệt trong AI marketing có thể kiểm, sửa và dừng" width="1200" height="630" decoding="async" fetchpriority="high"></picture>
+              <figcaption>Human-in-the-loop: người duyệt trong AI marketing có thể kiểm, sửa và dừng</figcaption>
+            </figure>
+
+            <section class="kb-sum" aria-labelledby="tom-tat">
+              <p class="kb-sum__t" id="tom-tat"><svg aria-hidden="true"><use href="#i-notes"/></svg>Tóm tắt nhanh</p>
+              <ul><li>Human-in-the-loop là cách đưa sự tham gia của người vào hệ thống AI sao cho sự tham gia đó thay đổi được đầu ra. Một lượt duyệt chỉ có tác dụng khi người duyệt có căn cứ, chuyên môn, quyền sửa hoặc dừng và đúng bản sẽ phát hành.</li><li>Human-in-the-loop dừng hệ thống chờ người; human-on-the-loop để hệ thống chạy trong lúc người theo dõi. Điều 14 khoản 4 của Đạo luật AI châu Âu là bảng kiểm năm quyền dùng tự nguyện được cho mọi điểm duyệt.</li><li>Thiên lệch tự động hóa có thật: trong một nghiên cứu trên 28 chuyên gia, khoảng 7% lượt đánh giá ban đầu đúng bị gợi ý sai của AI lật ngược. Nói về tỉ lệ sai và loại lỗi giúp người duyệt tỉnh táo hơn nói về độ chính xác.</li><li>Phân mức duyệt theo hệ quả khi lỗi lọt ra ngoài và đo chất lượng duyệt bằng lỗi còn lọt qua mẫu mười bản mỗi tháng, không bằng tỉ lệ chấp nhận đứng một mình.</li></ul>
+            </section>
+
+            <details class="kb-toc2">
+              <summary><span class="kb-toc2__t"><svg aria-hidden="true"><use href="#i-list"/></svg>Mục lục bài viết</span><span class="kb-toc2__n">14 phần</span><span class="kb-toc2__ico" aria-hidden="true"></span></summary>
+              <nav aria-label="Mục lục"><ol class="kb-toc__list"><li><a href="#human-in-the-loop-la-gi-va-hoat-dong-theo-co-che-nao"><span class="kb-toc__n">1</span>Human-in-the-loop là gì và hoạt động theo cơ chế nào?</a></li><li><a href="#con-nguoi-co-the-tham-gia-o-giai-doan-nao"><span class="kb-toc__n">2</span>Con người có thể tham gia ở giai đoạn nào?</a></li><li><a href="#human-in-the-loop-va-human-on-the-loop-khac-nhau-ra-sao"><span class="kb-toc__n">3</span>Human-in-the-loop và human-on-the-loop khác nhau ra sao?</a></li><li><a href="#nguoi-duyet-can-duoc-trao-nhung-quyen-nao"><span class="kb-toc__n">4</span>Người duyệt cần được trao những quyền nào?</a><ol><li><a href="#dieu-14-ap-cho-nhom-rui-ro-cao-khong-ap-cho-marketing">Điều 14 áp cho nhóm rủi ro cao, không áp cho marketing</a></li><li><a href="#moc-ap-dung-da-duoc-lui-lai">Mốc áp dụng đã được lùi lại</a></li></ol></li></li><li><a href="#vi-du-sme-duyet-quang-cao-mien-phi-giao-hang"><span class="kb-toc__n">5</span>Ví dụ SME: duyệt quảng cáo miễn phí giao hàng</a></li><li><a href="#nguoi-duyet-can-nhin-gi-va-quyet-dinh-gi"><span class="kb-toc__n">6</span>Người duyệt cần nhìn gì và quyết định gì?</a><ol><li><a href="#hanh-dong-sap-dien-ra-la-muc-hay-bi-bo">Hành động sắp diễn ra là mục hay bị bỏ</a></li></ol></li></li><li><a href="#vi-sao-nguoi-duyet-van-co-the-bo-sot-loi"><span class="kb-toc__n">7</span>Vì sao người duyệt vẫn có thể bỏ sót lỗi?</a><ol><li><a href="#cach-doc-con-so-7-dung-pham-vi">Cách đọc con số 7% đúng phạm vi</a></li><li><a href="#suc-ep-thoi-gian-lam-nguoi-duyet-bam-theo-ban-nhap-hon">Sức ép thời gian làm người duyệt bám theo bản nháp hơn</a></li></ol></li></li><li><a href="#cach-noi-nao-giup-nguoi-duyet-tinh-tao-hon"><span class="kb-toc__n">8</span>Cách nói nào giúp người duyệt tỉnh táo hơn?</a><ol><li><a href="#thi-nghiem-nay-co-gioi-han-gi">Thí nghiệm này có giới hạn gì?</a></li></ol></li></li><li><a href="#muc-duyet-nao-cho-loai-noi-dung-nao"><span class="kb-toc__n">9</span>Mức duyệt nào cho loại nội dung nào?</a><ol><li><a href="#cach-dung-bang-phan-muc-cho-doi-minh">Cách dựng bảng phân mức cho đội mình</a></li></ol></li></li><li><a href="#danh-gia-chat-luong-duyet-bang-chi-so-nao"><span class="kb-toc__n">10</span>Đánh giá chất lượng duyệt bằng chỉ số nào?</a><ol><li><a href="#ba-chi-so-nen-doc-kem">Ba chỉ số nên đọc kèm</a></li></ol></li></li><li><a href="#chi-phi-that-cua-mot-diem-duyet-nam-o-dau"><span class="kb-toc__n">11</span>Chi phí thật của một điểm duyệt nằm ở đâu?</a><ol><li><a href="#chi-phi-hang-cho-tang-theo-cach-phan-truc-giac">Chi phí hàng chờ tăng theo cách phản trực giác</a></li></ol></li></li><li><a href="#thiet-ke-diem-duyet-dau-tien-tu-dau"><span class="kb-toc__n">12</span>Thiết kế điểm duyệt đầu tiên từ đâu?</a><ol><li><a href="#buoc-1-tim-phan-thieu">Bước 1: Tìm phần thiếu</a></li><li><a href="#buoc-2-dua-du-can-cu">Bước 2: Đưa đủ căn cứ</a></li><li><a href="#buoc-3-them-lua-chon">Bước 3: Thêm lựa chọn</a></li><li><a href="#buoc-4-kiem-lai-mau">Bước 4: Kiểm lại mẫu</a></li></ol></li></li><li><a href="#cau-hoi-thuong-gap-ve-human-in-the-loop"><span class="kb-toc__n">13</span>Câu hỏi thường gặp về human-in-the-loop</a></li><li><a href="#ket-luan-human-in-the-loop-la-gi-va-dung-the-nao-cho-dung"><span class="kb-toc__n">14</span>Kết luận: Human-in-the-loop là gì và dùng thế nào cho đúng?</a></li></ol></nav>
+            </details>
+
+            <div class="kb-prose">
+<p>Có người duyệt không tự bảo đảm bài đúng. Với doanh nghiệp SME (doanh nghiệp vừa và nhỏ) làm <a href="../../../goc-kien-thuc/ai-marketing/">AI marketing</a>, hiệu quả của lượt duyệt phụ thuộc bốn thứ: người đó thấy căn cứ gì, có chuyên môn nào, có quyền sửa hoặc dừng hay không, và bản đang duyệt có đúng là bản sẽ phát hành hay không. Thiếu một trong bốn, lượt duyệt chỉ còn là một thao tác&nbsp;xác&nbsp;nhận.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/01-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/01-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/01-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Bốn điều kiện của người duyệt: căn cứ, chuyên môn, quyền và đúng phiên bản." width="1600" height="900">
+  <figcaption>Bốn điều kiện phải có cùng lúc thì một lượt duyệt mới có tác dụng</figcaption>
+</figure>
+
+<h2 id="human-in-the-loop-la-gi-va-hoat-dong-theo-co-che-nao">Human-in-the-loop là gì và hoạt động theo cơ chế nào?</h2>
+<p class="kb-def"><strong>Human-in-the-loop là gì?</strong> Theo cách <a href="https://hai.stanford.edu/ai-definitions/what-is-human-in-the-loop" target="_blank" rel="noopener">Stanford HAI</a> mô tả, HITL được định nghĩa qua sự phản hồi hoặc can thiệp của người trong hoạt động AI, gồm hướng dẫn, sửa lỗi và quyết định cuối. Điểm mấu chốt nằm ở chữ ảnh hưởng: sự tham gia phải làm thay đổi được công việc, thay vì chỉ ghi nhận rằng một người đã nhìn màn hình.</p>
+<p>Ví dụ, AI soạn một bản quảng cáo, người kiểm tra nhận thấy điều kiện ưu đãi bị bỏ. Người đó trả lại yêu cầu sửa, rồi kiểm bản chỉnh trước khi chấp nhận. Phản hồi đã làm thay đổi đầu ra và làm thay đổi đường đi của luồng. Đó là một vòng phản hồi&nbsp;đầy&nbsp;đủ.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/02-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/02-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/02-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="AI soạn, người kiểm và quyết định; bản chưa đạt quay lại để sửa." width="1600" height="900">
+  <figcaption>Không có đường quay lại thì không có vòng phản hồi, chỉ có một thao tác xác nhận</figcaption>
+</figure>
+
+<p>Cách kiểm tra nhanh nhất một điểm duyệt có thật hay không: nhìn vào các nút mà người duyệt có. Nếu chỉ có nút chấp nhận, người đó không phản hồi được, họ chỉ đánh dấu. Một điểm duyệt thật cần ít nhất ba lựa chọn: chấp nhận, trả lại kèm lý do, và chuyển cho người có chuyên môn&nbsp;phù&nbsp;hợp.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/03-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/03-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/03-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Ba lựa chọn tại điểm duyệt: chấp nhận, trả lại hoặc chuyển người có chuyên môn." width="1600" height="900">
+  <figcaption>Ba lựa chọn tối thiểu; thiếu lựa chọn thứ hai thì người duyệt buộc phải thông qua bản chưa đủ căn cứ</figcaption>
+</figure>
+
+<p>Thời điểm tham gia cũng quyết định phần việc người đó còn kiểm soát được. Một người được thông báo sau khi quảng cáo đã gửi đi không có cùng vai trò với người có thể chặn trước khi gửi. Cả hai đều được gọi là có người giám sát, nhưng chỉ một trong hai thay đổi được kết quả. Gọi chung dễ làm mờ khác biệt này, nhất là khi đội cần trả lời câu hỏi ai chịu trách nhiệm cho một bài đã&nbsp;đăng&nbsp;sai.</p>
+
+<h2 id="con-nguoi-co-the-tham-gia-o-giai-doan-nao">Con người có thể tham gia ở giai đoạn nào?</h2>
+<p>Human-in-the-loop diễn ra ở hai lớp khác nhau, và hai lớp này thường bị gộp. <strong>Lớp vận hành</strong> là lúc hệ thống đang chạy: người sửa bản nháp, xử lý ngoại lệ, quyết định phát hành. <strong>Lớp huấn luyện</strong> là lúc dữ liệu được dùng để thay đổi hành vi của mô hình: người gán nhãn, chấm chất lượng đầu ra, cung cấp phản hồi có chủ đích. <a href="https://aws.amazon.com/what-is/human-in-the-loop/" target="_blank" rel="noopener">AWS</a> mô tả nhiều điểm tham gia trải khắp quá trình AI và học máy, không chỉ bước&nbsp;duyệt&nbsp;cuối.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/04-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/04-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/04-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sửa một đầu ra khác với huấn luyện mô hình AI." width="1600" height="900">
+  <figcaption>Sửa một câu trong phiên làm việc không mặc định làm mô hình học lại</figcaption>
+</figure>
+
+<p>Với một đội marketing dùng công cụ có sẵn, việc sửa bài trong phiên không mặc định làm mô hình được huấn luyện lại. Phản hồi có thể chỉ thay bản nháp lần này, hoặc được lưu để phân tích, hoặc không đi đâu cả. Muốn dùng phản hồi cho huấn luyện cần một cơ chế riêng và cần biết nhà cung cấp xử lý dữ liệu&nbsp;thế&nbsp;nào.</p>
+<p>Đây không phải chi tiết kỹ thuật vụn vặt. Nhiều đội để nguyên một lỗi lặp đi lặp lại vì tin rằng công cụ sẽ tự học từ các lần sửa. Thực tế cách sửa lỗi lặp là đổi hướng dẫn đầu vào hoặc đổi tài liệu nguồn, chứ không phải sửa thêm vài chục lần nữa và chờ mô hình nhận ra.</p>
+
+<h2 id="human-in-the-loop-va-human-on-the-loop-khac-nhau-ra-sao">Human-in-the-loop và human-on-the-loop khác nhau ra sao?</h2>
+<p>Khác ở chỗ hệ thống có dừng lại chờ người hay không. AWS phân biệt hai khái niệm: <strong>human-in-the-loop</strong> là người tham gia vào quyết định cụ thể, hệ thống dừng lại chờ; <strong>human-on-the-loop</strong> là người theo dõi quá trình và can thiệp khi thấy cần, hệ thống vẫn chạy. Thêm một mức thứ ba ít được nhắc: <strong>human-out-of-the-loop</strong>, khi người chỉ xem lại sau khi mọi thứ đã xong.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/05-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/05-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/05-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Human-in-the-loop chờ người duyệt; human-on-the-loop có người giám sát; human-out-of-the-loop không có người can thiệp." width="1600" height="900">
+  <figcaption>Ba tên gọi tương ứng với ba mức trách nhiệm khác nhau</figcaption>
+</figure>
+
+<p>Trong một đội nội dung, ba mức này thường tồn tại song song mà không ai đặt tên cho chúng, dù chỉ mức đầu tiên mới đúng nghĩa human-in-the-loop. Bài blog đi qua mức thứ nhất vì có người duyệt trước khi đăng. Bình luận trả lời tự động trên fanpage có thể đang ở mức thứ hai, người quản trị chỉ đọc lại khi có ai đó phản ánh. Một lịch đăng tự động sinh caption rồi đăng thẳng là mức&nbsp;thứ&nbsp;ba.</p>
+<p>Vấn đề không nằm ở việc mức nào tốt hơn, mà ở việc đội có biết mình đang ở mức nào cho từng loại nội dung hay không. Tên gọi cần đi kèm mô tả quyền thực tế, nếu không thì câu có người giám sát sẽ được dùng để trấn an chính mình. Trong luồng nội dung, không nhất thiết đặt một người ở mọi thao tác, nhưng cần biết ai xác lập nguồn được dùng, ai kiểm khẳng định và ai chịu trách nhiệm quyết định&nbsp;phát&nbsp;hành.</p>
+<p>Đọc tiếp bài <a href="../../../goc-kien-thuc/ai-marketing/ai-workflow-la-gi/">AI workflow là gì</a> để đặt điểm duyệt vào quan hệ với đầu vào, bước xử lý và trạng thái đầu ra. Nếu còn phân vân giữa hệ thống chạy theo luồng và hệ thống tự chọn bước, bài <a href="../../../goc-kien-thuc/ai-marketing/ai-agent-va-chatbot-khac-nhau/">AI agent và chatbot khác nhau thế nào</a> phân tích riêng&nbsp;phần&nbsp;này.</p>
+
+<aside class="kb-cta kb-cta--nut">
+  <p class="kb-cta__t">Cần dựng điểm duyệt cho nội dung AI của doanh nghiệp?</p>
+  <a class="kb-btn kb-btn--primary" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo><svg aria-hidden="true"><use href="#i-zalo"/></svg>Nhắn Zalo cho tôi</a>
+</aside>
+
+<h2 id="nguoi-duyet-can-duoc-trao-nhung-quyen-nao">Người duyệt cần được trao những quyền nào?</h2>
+<p>Đạo luật AI của Liên minh châu Âu đưa ra danh sách cụ thể nhất hiện có. <a href="https://artificialintelligenceact.eu/article/14/" target="_blank" rel="noopener">Điều 14 khoản 4</a> quy định người được giao giám sát phải được tạo điều kiện để làm&nbsp;năm&nbsp;việc.</p>
+
+<ol>
+  <li><strong>Hiểu năng lực và giới hạn:</strong> hiểu được năng lực và giới hạn của hệ thống, và theo dõi được để phát hiện dấu hiệu bất thường.</li>
+  <li><strong>Ý thức về thiên lệch tự động hóa:</strong> tức xu hướng tin vào đầu ra của máy.</li>
+  <li><strong>Diễn giải đúng đầu ra:</strong> có công cụ hỗ trợ đi kèm để đọc đúng điều hệ thống&nbsp;trả&nbsp;về.</li>
+  <li><strong>Được quyền không dùng đầu ra:</strong> bỏ qua, ghi đè và đảo ngược nó.</li>
+  <li><strong>Can thiệp hoặc dừng hệ thống:</strong> can thiệp được vào quá trình vận hành hoặc dừng hệ thống bằng một&nbsp;nút&nbsp;dừng.</li>
+</ol>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/06-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/06-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/06-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Năm khả năng của người giám sát: hiểu giới hạn, nhận ra lệ thuộc, hiểu đầu ra, bác bỏ và dừng hệ thống; tham chiếu Điều 14 EU AI Act cho AI rủi ro cao." width="1600" height="900">
+  <figcaption>Năm quyền theo Điều 14 khoản 4, dùng được làm bảng kiểm cho bất kỳ điểm duyệt nào</figcaption>
+</figure>
+
+<h3 id="dieu-14-ap-cho-nhom-rui-ro-cao-khong-ap-cho-marketing">Điều 14 áp cho nhóm rủi ro cao, không áp cho marketing</h3>
+<p>Cần nói rõ phạm vi để không dùng sai. Quy định này áp cho hệ thống AI thuộc nhóm rủi ro cao, và việc sinh nội dung marketing không nằm trong nhóm đó. Nghĩa là đội marketing không bị ràng buộc bởi Điều 14. Giá trị của nó nằm ở chỗ khác: đây là lần đầu có một văn bản mô tả cụ thể việc giám sát con người đòi hỏi những gì, nên nó dùng được làm bảng kiểm tự nguyện cho bất kỳ điểm&nbsp;duyệt&nbsp;nào.</p>
+<p>Ba trong năm mục đáng chú ý với đội nội dung. Mục thứ hai nêu thẳng thiên lệch tự động hóa như một thứ người giám sát phải được cảnh báo, chứ không coi đó là lỗi cá nhân. Mục thứ tư tách quyền bỏ qua đầu ra khỏi quyền sửa đầu ra, hai việc khác nhau. Mục thứ năm đòi hỏi khả năng dừng, tức là có một trạng thái tạm ngưng chứ không chỉ có đi tiếp&nbsp;hoặc&nbsp;hủy.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/07-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/07-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/07-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Mốc pháp lý cần đối chiếu văn bản mới nhất và đúng phạm vi áp dụng." width="1600" height="900">
+  <figcaption>Mốc áp dụng đã được lùi lại sau khi Digital Omnibus có hiệu lực</figcaption>
+</figure>
+
+<h3 id="moc-ap-dung-da-duoc-lui-lai">Mốc áp dụng đã được lùi lại</h3>
+<p>Các nghĩa vụ với hệ thống rủi ro cao đã được lùi. Sau khi Digital Omnibus có hiệu lực ngày 27 tháng 7 năm 2026, nhóm Phụ lục III áp dụng từ ngày 2 tháng 12 năm 2027 và nhóm Phụ lục I từ ngày 2 tháng 8 năm 2028. Nội dung yêu cầu không đổi, chỉ thời hạn đổi. Với doanh nghiệp Việt Nam có khách hoặc đối tác tại châu Âu, đây là mốc cần theo dõi chứ chưa phải việc phải&nbsp;làm&nbsp;ngay.</p>
+
+<h2 id="vi-du-sme-duyet-quang-cao-mien-phi-giao-hang">Ví dụ SME: duyệt quảng cáo miễn phí giao hàng</h2>
+<p>Xét một nhãn cà phê bán trực tuyến thuộc nhóm SME muốn quảng bá ưu đãi giao hàng, với hồ sơ ưu đãi chỉ áp dụng cho nhóm đơn đáp ứng điều kiện về khu vực và giá&nbsp;trị&nbsp;đơn.</p>
+
+<div class="kb-callout">
+  <p class="kb-callout__t">Đây là ví dụ giả định</p>
+  <p>Nhãn cà phê này dùng để giải thích điểm duyệt, không phải chiến dịch đã chạy hay kết quả của một khách hàng thật.</p>
+</div>
+
+<p>AI tạo câu Miễn phí giao hàng cho mọi đơn. Câu nghe rõ, đúng ngữ pháp, đọc lên thấy hấp dẫn, nhưng đã mở rộng phạm vi cam kết so với hồ sơ.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/08-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/08-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/08-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Ví dụ giả định miễn phí giao hàng: mọi đơn khác với đơn đủ điều kiện ưu đãi." width="1600" height="900">
+  <figcaption>Ví dụ giả định: câu nghe rõ vẫn có thể vượt phạm vi cam kết trong hồ sơ</figcaption>
+</figure>
+
+<p>Đây là loại lỗi mà người biên tập giỏi chữ nghĩa nhất cũng không bắt được, vì nó không phải lỗi diễn đạt. Nếu người biên tập chỉ sửa câu cho hấp dẫn hơn, lỗi điều kiện vẫn tồn tại và có khi còn&nbsp;nặng&nbsp;thêm.</p>
+<p>Người phụ trách vận hành cần xác nhận đúng phạm vi ưu đãi; người biên tập đưa điều kiện vào cách diễn đạt dễ hiểu. Hai việc hỗ trợ nhau nhưng dùng tiêu chí khác nhau và cần hai người khác&nbsp;nhau&nbsp;ký.</p>
+<p>Một bản sửa phù hợp có thể ghi Miễn phí giao hàng cho đơn đáp ứng điều kiện ưu đãi, kèm điều kiện cụ thể tại vị trí người đọc thấy được mà không phải bấm thêm. Câu này chỉ là cách diễn đạt minh họa; khi dùng thật, đội cần điền đúng khu vực, mức đơn và thời gian đã được&nbsp;xác&nbsp;nhận.</p>
+<p>Sau khi sửa, người duyệt kiểm lại bản sẽ phát hành. Nếu bản trong màn duyệt khác với bản được gửi, một lượt chấp nhận không chứng minh nội dung thực tế đã được kiểm tra. Phiên bản là một phần của căn cứ duyệt, không phải chi tiết kỹ thuật bên lề. Cách xử lý đơn giản nhất là gắn mã phiên bản vào bản nháp và hiển thị mã đó ngay trong&nbsp;màn&nbsp;duyệt.</p>
+
+<aside class="kb-cta kb-cta--mid" aria-label="Trao đổi với Lê Tuấn Việt">
+  <img class="kb-cta__ava" src="../../../assets/kb/le-tuan-viet.webp" alt="" width="52" height="52" loading="lazy" decoding="async">
+  <div class="kb-cta__txt">
+    <p class="kb-cta__t">Đội bạn đang duyệt nội dung AI ra sao?</p>
+    <p class="kb-cta__d">Nhắn cho tôi để cùng rà điểm duyệt trong quy trình nội dung hiện tại</p>
+  </div>
+  <a class="kb-btn kb-btn--primary" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo><svg aria-hidden="true"><use href="#i-zalo"/></svg>Nhắn Zalo</a>
+</aside>
+
+<h2 id="nguoi-duyet-can-nhin-gi-va-quyet-dinh-gi">Người duyệt cần nhìn gì và quyết định gì?</h2>
+<p>Cần năm thứ đi kèm bản nháp, không nằm rải rác ở các file khác để người duyệt tự đi tìm. Thiếu một trong năm, lượt duyệt trở thành phán đoán dựa trên cảm giác về chất lượng&nbsp;câu&nbsp;chữ.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/09-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/09-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/09-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Người duyệt cần hồ sơ gốc, phần AI sửa, điều cần kiểm, hành động tiếp và mã phiên bản." width="1600" height="900">
+  <figcaption>Năm mục này đi kèm bản nháp, không để người duyệt tự đi tìm</figcaption>
+</figure>
+
+<h3 id="hanh-dong-sap-dien-ra-la-muc-hay-bi-bo">Hành động sắp diễn ra là mục hay bị bỏ</h3>
+<p>Mục quan trọng nhưng hay bị bỏ là hành động sắp diễn ra. Khi người duyệt biết bấm chấp nhận sẽ dẫn tới lưu nháp, gửi email cho hai nghìn người, hay đăng công khai lên fanpage, họ mới đánh giá đúng hệ quả của quyết định. Cùng một bản nháp nhưng ba hành động đó xứng đáng ba mức cẩn trọng&nbsp;khác&nbsp;nhau.</p>
+
+<div class="kb-table" role="region" aria-label="Bốn phần cần duyệt, căn cứ và người phù hợp cho từng phần" tabindex="0"><table>
+  <caption>Bốn phần cần duyệt, căn cứ và người phù hợp cho từng phần</caption>
+  <thead>
+    <tr><th>Phần cần duyệt</th><th>Căn cứ phù hợp</th><th>Người phù hợp</th><th>Quyết định có thể đưa ra</th></tr>
+  </thead>
+  <tbody>
+    <tr><td data-label="Phần cần duyệt">Điều kiện ưu đãi</td><td data-label="Căn cứ phù hợp">Hồ sơ được người phụ trách xác nhận</td><td data-label="Người phù hợp">Người&nbsp;vận&nbsp;hành</td><td data-label="Quyết định có thể đưa ra">Giữ đúng phạm vi cam kết hoặc trả lại hồ sơ</td></tr>
+    <tr><td data-label="Phần cần duyệt">Khẳng định về sản phẩm</td><td data-label="Căn cứ phù hợp">Tài liệu đúng dòng và đúng phiên bản</td><td data-label="Người phù hợp">Người&nbsp;phụ&nbsp;trách</td><td data-label="Quyết định có thể đưa ra">Sửa, bỏ hoặc yêu cầu thêm căn cứ cho khẳng định</td></tr>
+    <tr><td data-label="Phần cần duyệt">Số liệu và nguồn dẫn</td><td data-label="Căn cứ phù hợp">Nguồn gốc kèm ngày và phạm vi đo</td><td data-label="Người phù hợp">Người&nbsp;biên&nbsp;tập</td><td data-label="Quyết định có thể đưa ra">Đối chiếu lại hoặc gỡ số liệu khỏi&nbsp;bài&nbsp;viết</td></tr>
+    <tr><td data-label="Phần cần duyệt">Giọng điệu và cách nói</td><td data-label="Căn cứ phù hợp">Hướng dẫn thương hiệu và ngữ cảnh kênh</td><td data-label="Người phù hợp">Người&nbsp;biên&nbsp;tập</td><td data-label="Quyết định có thể đưa ra">Biên tập cách diễn đạt</td></tr>
+  </tbody>
+</table></div>
+
+<p>Bảng này cho thấy vì sao không nên giao mọi phần cho một người chỉ có trách nhiệm kiểm giọng. Khi gặp thông tin vượt chuyên môn, quyền chuyển cho người phù hợp quan trọng ngang quyền sửa. Đọc tiếp bài <a href="../../../goc-kien-thuc/marketing/brand-voice-va-tone-of-voice/">Brand voice và tone of voice khác nhau thế nào</a> để tách bản sắc giọng khỏi độ đúng của&nbsp;dữ&nbsp;kiện.</p>
+<p>Điểm duyệt cũng cần cho phép phản hồi rõ lý do. Nếu lựa chọn duy nhất là chấp nhận, người duyệt có thể phải thông qua một bản chưa đủ căn cứ để tránh làm công việc mắc lại. Một phương án trả lại hồ sơ hoặc từ chối giúp giữ trạng thái chưa hoàn tất đúng với thực tế, thay vì đẩy trạng thái đó sang&nbsp;chỗ&nbsp;khác.</p>
+
+<h2 id="vi-sao-nguoi-duyet-van-co-the-bo-sot-loi">Vì sao người duyệt vẫn có thể bỏ sót lỗi?</h2>
+<p>Vì thiên lệch tự động hóa là một cơ chế có thật, đo được, và nó tác động cả lên người có chuyên môn đang giữ vai trò human-in-the-loop. Một <a href="https://arxiv.org/abs/2411.00998" target="_blank" rel="noopener">nghiên cứu công bố ngày 1 tháng 11 năm 2024 trên 28 chuyên gia giải phẫu bệnh</a> cho thấy trong 560 lượt đánh giá có AI hỗ trợ, có 38 lượt mà một đánh giá ban đầu đúng bị gợi ý sai của AI lật ngược. Tỉ lệ&nbsp;khoảng&nbsp;7%.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/10-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/10-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/10-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Chuyên gia vẫn cần đối chiếu căn cứ khi xem gợi ý AI; minh họa từ nghiên cứu trong bối cảnh y khoa." width="1600" height="900">
+  <figcaption>Người có chuyên môn, đang làm đúng việc của mình, vẫn có thể bị một gợi ý sai kéo khỏi kết luận đúng</figcaption>
+</figure>
+
+<h3 id="cach-doc-con-so-7-dung-pham-vi">Cách đọc con số 7% đúng phạm vi</h3>
+<p>Đây là bối cảnh y khoa với chuyên gia được đào tạo bài bản, không phải đội nội dung, nên không suy ra tỉ lệ tương đương cho việc duyệt bài. Cùng nghiên cứu cũng ghi nhận các chuyên gia phần lớn không đổi ý theo AI khi hai bên khác nhau, chỉ 67 trên 560 lượt là&nbsp;có&nbsp;đổi.</p>
+<p>Giá trị của con số nằm ở cơ chế, không nằm ở độ lớn: ngay cả người đang làm đúng chuyên môn của mình vẫn có thể bị một gợi ý sai kéo khỏi kết luận đúng&nbsp;ban&nbsp;đầu.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/11-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/11-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/11-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Áp lực thời gian có thể làm người kiểm bám gợi ý AI hơn; minh họa trong bối cảnh nghiên cứu y khoa." width="1600" height="900">
+  <figcaption>Sức ép thời gian không làm tăng số lỗi, nó làm nặng thêm mức lệ thuộc vào bản nháp</figcaption>
+</figure>
+
+<h3 id="suc-ep-thoi-gian-lam-nguoi-duyet-bam-theo-ban-nhap-hon">Sức ép thời gian làm người duyệt bám theo bản nháp hơn</h3>
+<p>Phát hiện thứ hai của nghiên cứu này đáng chú ý hơn với đội marketing. Khi có sức ép thời gian, tỉ lệ bị gợi ý sai kéo theo vẫn giữ nguyên khoảng 7%, nhưng mức bám theo gợi ý của máy tăng từ 0,58 lên 0,65 và hiệu quả làm việc giảm. Nói cách khác, rút ngắn thời gian duyệt để chạy kịp chiến dịch không làm người duyệt sai nhiều hơn về số lượt, nhưng làm họ bám theo bản nháp nhiều hơn và sửa&nbsp;ít&nbsp;đi.</p>
+<p>Cộng thêm các nguyên nhân quen thuộc: người duyệt thiếu tài liệu, đọc nhiều quảng cáo giống nhau nên quen nhìn vào tiêu đề và bỏ phần điều kiện, hoặc hồ sơ ưu đãi nằm ở một nơi khác và đã đổi&nbsp;phiên&nbsp;bản.</p>
+<p><a href="https://www.ibm.com/think/topics/human-in-the-loop" target="_blank" rel="noopener">IBM</a> cũng lưu ý người vốn có thiên lệch riêng, nên sự tham gia của người là một lớp hỗ trợ, không phải chứng nhận tuyệt đối. Giao cho một mô hình AI khác tự kiểm bài cũng không giải quyết được phần quyền và trách nhiệm. Đọc tiếp bài <a href="../../../goc-kien-thuc/ai-marketing/ao-giac-ai-la-gi/">Ảo giác AI là gì</a> để hiểu vì sao có dẫn nguồn vẫn chưa đủ xác nhận nội&nbsp;dung&nbsp;đúng.</p>
+
+<h2 id="cach-noi-nao-giup-nguoi-duyet-tinh-tao-hon">Cách nói nào giúp người duyệt tỉnh táo hơn?</h2>
+<p>Nói về tỉ lệ sai, thay vì nói về tỉ lệ đúng. Đây là kết quả của một <a href="https://doi.org/10.1186/s41235-026-00726-w" target="_blank" rel="noopener">nghiên cứu công bố ngày 30 tháng 4 năm 2026 trên tạp chí Cognitive Research: Principles and Implications</a>. Nhóm tác giả cho 175 người dùng một hệ thống AI mô phỏng có tỉ lệ sai khoảng 20%, rồi thay đổi cách giới thiệu hệ thống đó với&nbsp;từng&nbsp;nhóm.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/12-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/12-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/12-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Đúng 80 phần trăm và sai 20 phần trăm là cùng thông tin được diễn đạt khác nhau." width="1600" height="900">
+  <figcaption>Cùng một thông tin, hai cách diễn đạt, hai kết quả khác nhau</figcaption>
+</figure>
+
+<p>Kết quả: nhấn vào rủi ro sai của AI có tác dụng giảm xu hướng đi theo gợi ý sai mạnh hơn là nhấn vào độ chính xác của nó. Người được cảnh báo về tỉ lệ lỗi cũng ít bị nhiễm thiên lệch từ&nbsp;máy&nbsp;hơn.</p>
+<p>Việc cần làm khi đưa human-in-the-loop vào đội nội dung rất cụ thể. Khi bàn giao một công cụ AI cho người viết và người duyệt, đừng giới thiệu bằng câu công cụ này chính xác cao. Hãy ghi rõ tỉ lệ sai ước lượng và quan trọng hơn là loại lỗi thường gặp.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/13-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/13-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/13-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Bốn loại lỗi cần kiểm: bịa số liệu, quá phạm vi, mất điều kiện và nhầm phiên bản." width="1600" height="900">
+  <figcaption>Danh sách loại lỗi cụ thể hữu ích hơn một con số, vì nó chỉ cho người duyệt biết phải nhìn vào đâu</figcaption>
+</figure>
+
+<p>Bốn loại lỗi trong hình là ví dụ, không phải danh sách chuẩn. Mỗi đội cần rút danh sách của riêng mình từ chính các bản đã duyệt được lấy mẫu, vì loại lỗi phụ thuộc vào ngành hàng, vào cách viết hướng dẫn đầu vào và vào chất lượng hồ sơ nguồn. Một đội bán thiết bị kỹ thuật sẽ gặp nhiều lỗi nhầm thông số; một đội bán dịch vụ sẽ gặp nhiều lỗi mở rộng phạm vi cam kết.</p>
+
+<h3 id="thi-nghiem-nay-co-gioi-han-gi">Thí nghiệm này có giới hạn gì?</h3>
+<p>Thí nghiệm chạy trên 175 sinh viên với một nhiệm vụ mô phỏng, không phải trên người làm nội dung chuyên nghiệp. Nó không cho biết tác dụng kéo dài bao lâu, và cũng không nói cảnh báo sẽ hiệu quả với mọi loại công việc. Điều dùng được là hướng: mô tả giới hạn cụ thể hơn là quảng cáo&nbsp;năng&nbsp;lực.</p>
+
+<aside class="kb-cta kb-cta--nut">
+  <p class="kb-cta__t">Xem cách tôi triển khai Marketing cho doanh nghiệp SME</p>
+  <a class="kb-btn kb-btn--ghost" href="../../../#du-an">Xem dự án <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</aside>
+
+<h2 id="muc-duyet-nao-cho-loai-noi-dung-nao">Mức duyệt nào cho loại nội dung nào?</h2>
+<p>Phân theo hệ quả khi lỗi lọt ra ngoài, không phân theo độ dài bài hay theo kênh đăng. Áp một mức human-in-the-loop cho mọi loại nội dung dẫn tới hai hỏng cùng lúc: nội dung rủi ro cao bị duyệt qua loa vì hàng chờ quá dài, còn ghi chú nội bộ thì tắc lại vô ích.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/14-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/14-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/14-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Phân mức duyệt theo hậu quả: nội bộ đọc lướt, công khai kiểm căn cứ, cam kết cần xác nhận rồi duyệt." width="1600" height="900">
+  <figcaption>Phân mức theo hệ quả khi lỗi lọt ra ngoài, không phân theo độ dài bài</figcaption>
+</figure>
+
+<ul class="kb-list-cards">
+  <li><strong>Mức một, lỗi dễ sửa và không ra ngoài:</strong> ghi chú nội bộ, tóm tắt họp, bản nháp ý tưởng chưa dùng tới. Một người đọc lướt&nbsp;là&nbsp;đủ.</li>
+  <li><strong>Mức hai, nội dung ra ngoài nhưng sửa được:</strong> bài blog, bài mạng xã hội, mô tả sản phẩm trên sàn thương mại điện tử. Cần kiểm dữ kiện rồi một&nbsp;người&nbsp;duyệt.</li>
+  <li><strong>Mức ba, nội dung tạo ra cam kết với khách:</strong> quảng cáo có điều kiện ưu đãi, nội dung về giá, bảo hành hoặc sức khỏe. Ở mức này cần người vận hành xác nhận phạm vi trước, rồi người&nbsp;duyệt&nbsp;ký.</li>
+</ul>
+
+<h3 id="cach-dung-bang-phan-muc-cho-doi-minh">Cách dựng bảng phân mức cho đội mình</h3>
+<p>Việc này khá đơn giản. Liệt kê mười loại nội dung đội đang sản xuất, với mỗi loại hỏi một câu: nếu bài này sai, điều tệ nhất có thể xảy ra là gì và mất bao lâu để sửa. Câu trả lời sẽ tự chia mười loại đó thành ba nhóm. Điều quan trọng là bảng này được viết ra và được thống nhất, chứ không nằm trong đầu&nbsp;trưởng&nbsp;nhóm.</p>
+<p>Với nội dung cá nhân hóa theo từng khách, hãy tách bước chọn gợi ý khỏi bước viết lời giới thiệu vì hai bước cần tiêu chí duyệt khác nhau, như bài <a href="../../../goc-kien-thuc/ai-marketing/ai-personalization-la-gi/">AI personalization là gì</a> phân tích.</p>
+
+<h2 id="danh-gia-chat-luong-duyet-bang-chi-so-nao">Đánh giá chất lượng duyệt bằng chỉ số nào?</h2>
+<p>Không bằng tỉ lệ chấp nhận đứng một mình. Tỉ lệ chấp nhận cao có thể là do bản nháp tốt, do tiêu chí quá dễ, hoặc do người duyệt đang lướt nhanh, và ba nguyên nhân đó cần ba cách xử lý hoàn toàn khác nhau. Một chỉ số không phân biệt được ba nguyên nhân thì không dùng để ra quyết&nbsp;định&nbsp;được.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/15-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/15-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/15-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Đo lỗi còn sót, lý do trả lại, thời gian chờ chuyên môn và vòng làm lại." width="1600" height="900">
+  <figcaption>Tỉ lệ chấp nhận chỉ có nghĩa khi đọc cùng lỗi còn lọt và thời gian chờ</figcaption>
+</figure>
+
+<p>Chỉ số đáng tin nhất của human-in-the-loop là lỗi còn lọt sau khi duyệt, và cách đo nó là lấy mẫu. Mỗi tháng rút ngẫu nhiên khoảng mười bản đã được chấp nhận rồi đối chiếu lại với hồ sơ gốc. Số lỗi tìm thấy trong mẫu đó nói nhiều hơn mọi chỉ số quy trình khác, vì nó đo kết quả chứ không đo&nbsp;thao&nbsp;tác.</p>
+
+<h3 id="ba-chi-so-nen-doc-kem">Ba chỉ số nên đọc kèm</h3>
+<p>Nội dung đã sửa và lý do từ chối cho biết người duyệt đang bắt được loại lỗi nào và bỏ sót loại nào. Thời gian chờ người có chuyên môn cho biết điểm nghẽn nằm ở khâu nào. Tỉ lệ bản phải quay lại từ hai lần trở lên cho biết tiêu chí đầu ra có đủ rõ ngay từ đầu hay không, vì một bản quay lại ba lần thường là dấu hiệu đề bài chưa rõ chứ không phải người&nbsp;viết&nbsp;kém.</p>
+<p>Nếu những người duyệt thường bất đồng với nhau, hãy kiểm tra họ có cùng hồ sơ và hiểu cùng điều kiện hay không, trước khi kết luận một người làm sai. Phần lớn bất đồng trong khâu duyệt đến từ việc hai người đang đọc hai bản tài liệu&nbsp;khác&nbsp;nhau.</p>
+
+<aside class="kb-cta kb-cta--late" aria-label="Dự án đã triển khai">
+  <span class="kb-cta__ico" aria-hidden="true"><svg aria-hidden="true"><use href="#i-layers"/></svg></span>
+  <div class="kb-cta__txt">
+    <p class="kb-cta__t">Xem cách tôi triển khai Marketing cho từng dự án</p>
+    <p class="kb-cta__d">Kết quả thật tại TOMEC, FungHa Dimsum và Uyên Uyên Mart</p>
+  </div>
+  <a class="kb-btn kb-btn--ghost" href="../../../#du-an">Xem dự án <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</aside>
+
+<h2 id="chi-phi-that-cua-mot-diem-duyet-nam-o-dau">Chi phí thật của một điểm duyệt nằm ở đâu?</h2>
+<p>Ở bốn khoản thời gian của human-in-the-loop, và cả bốn đều không nằm trên bảng giá công cụ. Đây là phần làm một quy trình trông gọn trong bản kế hoạch mà tắc trong&nbsp;vận&nbsp;hành.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/16-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/16-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/16-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Bốn chi phí: đọc hồ sơ, trao đổi, chờ chuyên môn và làm lại." width="1600" height="900">
+  <figcaption>Bốn khoản này không biến mất khi đổi công cụ AI, chúng chỉ đổi chỗ trong luồng</figcaption>
+</figure>
+
+<h3 id="chi-phi-hang-cho-tang-theo-cach-phan-truc-giac">Chi phí hàng chờ tăng theo cách phản trực giác</h3>
+<p>Khoản đáng chú ý nhất là chi phí hàng chờ, vì nó tăng theo cách phản trực giác. Khi đội tự động hóa bước soạn, số bản nháp tạo ra tăng lên nhiều lần, nhưng số người đủ thẩm quyền duyệt thì không đổi. Kết quả là nhiều bản dồn về cùng một chốt, thời gian chờ kéo dài, và người duyệt bắt đầu đọc nhanh hơn để giải phóng hàng chờ. Đúng lúc đó, nghiên cứu về sức ép thời gian ở phần trên bắt đầu có&nbsp;hiệu&nbsp;lực.</p>
+<p>Vì vậy khi đo lợi ích, hãy nhìn toàn luồng: thời gian từ lúc đủ hồ sơ tới lúc có bản được duyệt, chứ không phải tốc độ tạo chữ. Tách riêng thời gian hệ thống xử lý với thời gian chờ người phụ trách. Nếu chờ là điểm nghẽn, đổi mô hình AI mạnh hơn không giải quyết vấn đề, mà có khi còn làm nặng thêm vì nó tạo ra nhiều bản nháp hơn nữa.</p>
+
+<h2 id="thiet-ke-diem-duyet-dau-tien-tu-dau">Thiết kế điểm duyệt đầu tiên từ đâu?</h2>
+<p>Từ việc liệt kê những gì người duyệt hiện đang không nhìn thấy. Đây là bước rẻ nhất và thường mang lại thay đổi lớn nhất, vì phần lớn điểm duyệt kém không phải do người kém mà do người đó bị đặt vào thế&nbsp;phải&nbsp;đoán.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/17-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/17-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/17-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Ba lỗi thiết kế: chỉ bấm duyệt, sai phiên bản và một mức cho mọi việc." width="1600" height="900">
+  <figcaption>Mỗi sai lầm có một cách sửa cụ thể, không phải một lời khuyên chung</figcaption>
+</figure>
+
+<p>Ba sai lầm hay gặp đều sửa được bằng thao tác nhỏ. <strong>Điểm duyệt chỉ có nút chấp nhận</strong> thì thêm phương án trả lại kèm lý do và phương án chuyển người có chuyên môn. <strong>Bản đang duyệt không chắc là bản sẽ phát hành</strong> thì gắn mã phiên bản và hiển thị mã đó trong màn duyệt. <strong>Một mức duyệt cho mọi nội dung</strong> thì dựng bảng ba mức theo hệ quả&nbsp;của&nbsp;lỗi.</p>
+
+<figure class="kb-fig">
+  <img loading="lazy" decoding="async" src="../../../assets/kb/human-in-the-loop/18-human-in-the-loop.webp" srcset="../../../assets/kb/human-in-the-loop/18-human-in-the-loop-800.webp 800w, ../../../assets/kb/human-in-the-loop/18-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Bốn bước bắt đầu: tìm phần thiếu, đưa đủ căn cứ, thêm lựa chọn và kiểm lại mẫu." width="1600" height="900">
+  <figcaption>Bốn bước này không cần đổi công cụ và không cần ngân sách</figcaption>
+</figure>
+
+<h3 id="buoc-1-tim-phan-thieu" class="kb-h3-step">Bước 1: Tìm phần thiếu</h3>
+<p>Liệt kê những gì người duyệt hiện đang không nhìn thấy khi mở bản nháp: hồ sơ gốc, phần AI đã sửa, điều cần kiểm, hành động sắp diễn ra và mã phiên bản. Mỗi chỗ thiếu là một chỗ người duyệt buộc&nbsp;phải&nbsp;đoán.</p>
+
+<h3 id="buoc-2-dua-du-can-cu" class="kb-h3-step">Bước 2: Đưa đủ căn cứ</h3>
+<p>Đưa năm thứ đó vào cùng màn với bản nháp để người duyệt không phải đi tìm ở các file khác. Gắn mã phiên bản vào bản nháp và hiển thị mã đó ngay trong&nbsp;màn&nbsp;duyệt.</p>
+
+<h3 id="buoc-3-them-lua-chon" class="kb-h3-step">Bước 3: Thêm lựa chọn</h3>
+<p>Bổ sung phương án trả lại kèm lý do và phương án chuyển cho người có chuyên môn phù hợp, để người duyệt không bị đẩy vào thế chỉ còn nút chấp nhận.</p>
+
+<h3 id="buoc-4-kiem-lai-mau" class="kb-h3-step">Bước 4: Kiểm lại mẫu</h3>
+<p>Chạy khoảng một tháng, rồi lấy mẫu mười bản đã duyệt để đối chiếu với hồ sơ gốc và ghi lại loại lỗi&nbsp;tìm&nbsp;thấy.</p>
+
+<p>Danh sách loại lỗi đó chính là thứ cần đưa cho người duyệt ở tháng tiếp theo, theo đúng nguyên tắc mô tả giới hạn cụ thể thay vì quảng cáo năng lực. Một điểm duyệt tốt lên qua từng vòng như vậy, không tốt lên nhờ đổi&nbsp;công&nbsp;cụ.</p>
+
+<h2 id="cau-hoi-thuong-gap-ve-human-in-the-loop">Câu hỏi thường gặp về human-in-the-loop</h2>
+<div class="kb-faq">
+  <details class="kb-faq__item" open>
+    <summary><h3 class="kb-faq__q">Mọi bài AI đều cần cùng một mức duyệt không?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Không. Mức kiểm tra phụ thuộc hệ quả khi lỗi lọt ra ngoài. Ghi chú nội bộ chỉ cần một người đọc lướt; bài blog cần kiểm dữ kiện rồi một người duyệt; quảng cáo có điều kiện ưu đãi cần người vận hành xác nhận phạm vi trước khi người duyệt ký. Đội chịu trách nhiệm cần viết bảng phân mức này ra và thống nhất, thay vì để nó nằm trong đầu trưởng nhóm.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Người sửa một câu thì AI có tự học cho lần sau không?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Không mặc định. Sửa trong phiên làm việc, lưu phản hồi để phân tích và huấn luyện lại mô hình là ba cơ chế khác nhau. Với công cụ có sẵn, bản sửa thường chỉ thay đầu ra lần này. Muốn sửa một lỗi lặp đi lặp lại, cách làm là đổi hướng dẫn đầu vào hoặc đổi tài liệu nguồn, không phải sửa thêm nhiều lần và chờ mô hình nhận ra.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Có người duyệt thì có thể khẳng định nội dung luôn đúng không?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Không. Người duyệt cũng có giới hạn, và thiên lệch tự động hóa là cơ chế đo được. Một nghiên cứu năm 2024 trên 28 chuyên gia ghi nhận khoảng 7% số lượt đánh giá ban đầu đúng bị gợi ý sai của AI lật ngược. Căn cứ phù hợp, chuyên môn và quyền quyết định giúp việc kiểm tra có ý nghĩa; đội vẫn cần lấy mẫu đối chiếu lại các bản đã duyệt.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Human-in-the-loop và human-on-the-loop khác nhau ở đâu?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Ở chỗ hệ thống có dừng lại chờ người hay không. Human-in-the-loop là người tham gia vào từng quyết định cụ thể, hệ thống dừng chờ người. Human-on-the-loop là người theo dõi quá trình và can thiệp khi thấy cần, hệ thống vẫn chạy. Tên gọi cần đi kèm mô tả quyền thực tế trong quy trình, vì hai mức này có hai mức trách nhiệm khác nhau.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Đạo luật AI châu Âu có bắt buộc đội marketing phải có người duyệt không?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Không. Điều 14 về giám sát con người áp cho hệ thống AI thuộc nhóm rủi ro cao, và việc sinh nội dung marketing không nằm trong nhóm đó. Tuy vậy danh sách năm quyền trong Điều 14 khoản 4 là mô tả cụ thể nhất hiện có về việc giám sát đòi hỏi những gì, nên dùng được làm bảng kiểm tự nguyện. Các mốc áp dụng cho nhóm rủi ro cao đã lùi về ngày 2 tháng 12 năm 2027 và ngày 2 tháng 8 năm 2028.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Nên giới thiệu công cụ AI với đội nội dung như thế nào?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Nói về tỉ lệ sai và loại lỗi thường gặp, thay vì nói về độ chính xác. Một nghiên cứu công bố tháng 4 năm 2026 trên 175 người cho thấy nhấn vào rủi ro sai làm giảm xu hướng đi theo gợi ý sai mạnh hơn là nhấn vào độ chính xác. Danh sách loại lỗi cụ thể còn hữu ích hơn một con số, vì nó chỉ cho người duyệt biết phải nhìn vào đâu.</p></div>
+  </details>
+</div>
+
+<h2 id="ket-luan-human-in-the-loop-la-gi-va-dung-the-nao-cho-dung">Kết luận: Human-in-the-loop là gì và dùng thế nào cho đúng?</h2>
+<p>Human-in-the-loop trong marketing nên được hiểu qua phần việc con người thực sự kiểm soát. Khi người có thể đối chiếu, sửa hoặc dừng đúng phiên bản, việc duyệt mới đóng góp vào chất lượng nội dung. Còn nếu người duyệt chỉ có một nút và không có căn cứ, thì dù quy trình ghi là có người duyệt, phần chịu trách nhiệm thật sự vẫn đang&nbsp;bỏ&nbsp;trống.</p>
+<p>Hãy bắt đầu bằng việc liệt kê những gì người duyệt đang không nhìn thấy, rồi lấy mẫu mười bản đã duyệt sau một tháng để biết lỗi nào còn lọt. Xem thêm các bài khác trong chuyên mục <a href="../../../goc-kien-thuc/ai-marketing/">AI Marketing</a> hoặc <a href="../../../#du-an">những dự án tôi đã triển khai</a>.</p>
+            </div>
+
+            <section class="kb-authorbox" aria-label="Về tác giả">
+              <img class="kb-authorbox__photo" src="../../../assets/kb/le-tuan-viet.webp" alt="Lê Tuấn Việt, Marketing Leader tại TAKI Group" width="96" height="96" loading="lazy" decoding="async">
+              <div class="kb-authorbox__body">
+                <p class="kb-authorbox__name">Lê Tuấn Việt <svg aria-hidden="true"><use href="#i-verified"/></svg></p>
+                <p class="kb-authorbox__role">Marketing Leader tại <a href="https://taki.vn" target="_blank" rel="noopener">TAKI Group</a></p>
+                <p class="kb-authorbox__slogan">Biến chiến lược thành hệ thống. Biến hệ thống thành tăng trưởng.</p>
+                <p class="kb-authorbox__bio"><a href="../../../">Lê Tuấn Việt</a> có hơn 4 năm kinh nghiệm trong Marketing, từng tư vấn chiến lược cho hơn 200 doanh nghiệp SME. Anh bắt đầu từ bài toán kinh doanh, chuyển mục tiêu thành kế hoạch, quy trình triển khai và hệ thống KPI rõ ràng. Từ đó, các hoạt động Marketing được phối hợp, đo lường và tối ưu để tạo ra tăng trưởng bền vững.</p>
+                <div class="kb-authorbox__links">
+                  <a href="../../../" rel="author">Xem Portfolio <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                  <a href="../../../#du-an">Dự án đã triển khai <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                  <a href="../../../#lien-he">Liên hệ <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </div>
+            </section>
+
+            <div class="kb-art__end">
+              <div class="kb-share kb-share--end">
+          <span class="kb-share__label">Chia sẻ</span>
+          <a class="kb-share__btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fletuanviet.digital%2Fgoc-kien-thuc%2Fai-marketing%2Fhuman-in-the-loop-la-gi%2F" target="_blank" rel="noopener" aria-label="Chia sẻ lên Facebook"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a>
+          <a class="kb-share__btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fletuanviet.digital%2Fgoc-kien-thuc%2Fai-marketing%2Fhuman-in-the-loop-la-gi%2F" target="_blank" rel="noopener" aria-label="Chia sẻ lên LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+          <a class="kb-share__btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fletuanviet.digital%2Fgoc-kien-thuc%2Fai-marketing%2Fhuman-in-the-loop-la-gi%2F&amp;text=Human-in-the-loop%20l%C3%A0%20g%C3%AC%3F%20Vai%20tr%C3%B2%20ng%C6%B0%E1%BB%9Di%20duy%E1%BB%87t%20trong%20AI" target="_blank" rel="noopener" aria-label="Chia sẻ lên X"><svg aria-hidden="true"><use href="#i-x"/></svg></a>
+          <button class="kb-share__btn" type="button" data-share-copy="https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/" aria-label="Sao chép liên kết bài viết"><svg aria-hidden="true"><use href="#i-link"/></svg></button>
+        </div>
+            </div>
+          </div>
+
+          <aside class="kb-art__aside" aria-label="Tìm kiếm, chuyên mục và bài viết mới">
+            <div class="kb-side">
+              <form class="kb-search kb-search--side" role="search" action="../../../goc-kien-thuc/" method="get" data-kb-search="../../../goc-kien-thuc/search.json" data-rel="../../../" data-zalo="https://zalo.me/0935702321">
+      <div class="kb-search__box">
+        
+        <label class="sr-only" for="kb-sq">Tìm kiếm bài viết trong Góc kiến thức</label>
+        <input id="kb-sq" name="q" type="search" placeholder="Tìm kiếm bài viết" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="kb-sq-list">
+        <button class="kb-search__clear" type="button" aria-label="Xóa từ khóa"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+        <button class="kb-search__btn" type="submit"><svg aria-hidden="true"><use href="#i-search"/></svg><span>Tìm kiếm</span></button>
+      </div>
+      <div class="kb-search__panel" hidden>
+        <p class="kb-search__head" aria-hidden="true"></p>
+        <ul class="kb-search__list" id="kb-sq-list" role="listbox" aria-label="Kết quả tìm kiếm"></ul>
+      </div>
+      <p class="sr-only" role="status" aria-live="polite"></p>
+    </form>
+              <nav class="kb-side__box" aria-labelledby="kb-side-cat">
+                <p class="kb-side__t" id="kb-side-cat">Chuyên mục</p>
+                <ul class="kb-side__cats">
+                <li><a class="kb-side__cat" href="../../../goc-kien-thuc/marketing/"><svg aria-hidden="true"><use href="#i-chev-r"/></svg><span class="kb-side__cname">Marketing</span><span class="kb-side__n">5</span></a></li>
+                <li><a class="kb-side__cat is-current" href="../../../goc-kien-thuc/ai-marketing/"><svg aria-hidden="true"><use href="#i-chev-r"/></svg><span class="kb-side__cname">AI Marketing</span><span class="kb-side__n">5</span></a></li>
+                <li><a class="kb-side__cat" href="../../../goc-kien-thuc/quan-tri-marketing/"><svg aria-hidden="true"><use href="#i-chev-r"/></svg><span class="kb-side__cname">Quản trị Marketing</span></a></li>
+                <li><a class="kb-side__cat" href="../../../goc-kien-thuc/du-an-va-bai-hoc/"><svg aria-hidden="true"><use href="#i-chev-r"/></svg><span class="kb-side__cname">Case Marketing</span></a></li>
+                </ul>
+              </nav>
+              <section class="kb-side__box" aria-labelledby="kb-side-new">
+                <p class="kb-side__t" id="kb-side-new">Kiến thức mới</p>
+                <ul class="kb-side__posts">
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/ai-marketing/ai-personalization-la-gi/"><span class="kb-side__img"><img src="../../../assets/kb/ai-personalization-la-gi-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="AI personalization là gì? Khác quy tắc thế nào?"><span>AI personalization là gì?</span> <span>Khác quy tắc thế nào?</span></b><small><time datetime="2026-09-30">30/09/2026</time></small></span></a></li>
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/ai-marketing/ai-workflow-la-gi/"><span class="kb-side__img"><img src="../../../assets/kb/ai-workflow-la-gi-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="AI workflow là gì? Luồng công việc có AI cho SME"><span>AI workflow là gì?</span> <span>Luồng công việc có AI cho SME</span></b><small><time datetime="2026-09-30">30/09/2026</time></small></span></a></li>
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/ai-marketing/ai-agent-va-chatbot-khac-nhau/"><span class="kb-side__img"><img src="../../../assets/kb/ai-agent-va-chatbot-khac-nhau-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="AI agent và chatbot khác nhau thế nào cho SME?"><span>AI agent và chatbot</span> <span>khác nhau thế nào cho SME?</span></b><small><time datetime="2026-09-30">30/09/2026</time></small></span></a></li>
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/ai-marketing/ao-giac-ai-la-gi/"><span class="kb-side__img"><img src="../../../assets/kb/ao-giac-ai-la-gi-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="Ảo giác AI là gì? Nội dung trôi chảy vẫn có thể sai"><span>Ảo giác AI là gì?</span> <span>Nội dung trôi chảy vẫn có thể sai</span></b><small><time datetime="2026-09-30">30/09/2026</time></small></span></a></li>
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/marketing/content-angle-la-gi/"><span class="kb-side__img"><img src="../../../assets/kb/content-angle-la-gi-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="Content angle là gì? Phân biệt pillar, topic và góc viết"><span>Content angle là gì?</span> <span>Phân biệt pillar, topic và góc viết</span></b><small><time datetime="2026-09-30">30/09/2026</time></small></span></a></li>
+                </ul>
+              </section>
+            </div>
+            <div class="kb-side__cta bio">
+              <div class="bio__photo"><img src="../../../assets/kb/le-tuan-viet-photo.webp" alt="Lê Tuấn Việt, Marketing Leader tại TAKI Group" loading="lazy" decoding="async" width="760" height="760"></div>
+              <div class="bio__body">
+                <p class="bio__name">Lê Tuấn Việt <svg aria-hidden="true"><use href="#i-verified"/></svg></p>
+                <p class="bio__role">Marketing Leader</p>
+                <div class="bio__links">
+                  <button class="bio__link" type="button" data-copy="tuanviet.2712@gmail.com"><span><svg aria-hidden="true"><use href="#i-mail"/></svg><em>tuanviet.2712@gmail.com</em></span><small>Sao chép</small></button>
+                  <a class="bio__link" href="tel:0935702321"><span><svg aria-hidden="true"><use href="#i-phone"/></svg><em>0935 702 321</em></span><small>Gọi</small></a>
+                  <a class="bio__link" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo><span><svg aria-hidden="true"><use href="#i-zalo"/></svg><em>Zalo I Tuấn Việt</em></span><small>Mở</small></a>
+                  <div class="bio__link bio__link--static"><span><svg aria-hidden="true"><use href="#i-pin"/></svg><em>Hà Đông, Hà Nội</em></span><small>GMT+7</small></div>
+                </div>
+                <a class="kb-btn kb-btn--primary kb-btn--block kb-side__go" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo>Nhận tư vấn Marketing <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </article>
+
+
+    <section class="kb-more" aria-labelledby="kb-more-title">
+      <div class="container">
+        <header class="kb-head">
+          <h2 class="kb-head__t" id="kb-more-title" data-fit data-split>Bài viết có <span class="grad">liên quan</span></h2>
+          <a class="btn btn--dark btn--sm magnetic" href="../../../goc-kien-thuc/">Tất cả bài viết <svg class="ico ico--arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </header>
+        <div class="kb-grid"><article class="kb-post kb-post--grid">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/ao-giac-ai-la-gi-320.webp 320w, ../../../assets/kb/ao-giac-ai-la-gi-640.webp 640w, ../../../assets/kb/ao-giac-ai-la-gi.webp 1200w, ../../../assets/kb/ao-giac-ai-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 400px, (min-width: 761px) 50vw, 100vw"><img src="../../../assets/kb/ao-giac-ai-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-09-30"><b>30</b> <span>09/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/ai-marketing/ao-giac-ai-la-gi/">Ảo giác AI là gì? Nội dung trôi chảy vẫn có thể&nbsp;sai</a></h3>
+            <p class="kb-post__x">Nội dung AI trôi chảy vẫn có thể chứa dữ kiện sai. Bài giải thích cơ chế khiến mô hình đoán thay vì nói không biết, tỷ lệ sai đo được, một vụ việc có phán quyết và quy trình năm bước duyệt bản nháp.</p>
+          </div>
+        </article><article class="kb-post kb-post--grid">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/ai-agent-va-chatbot-khac-nhau-320.webp 320w, ../../../assets/kb/ai-agent-va-chatbot-khac-nhau-640.webp 640w, ../../../assets/kb/ai-agent-va-chatbot-khac-nhau.webp 1200w, ../../../assets/kb/ai-agent-va-chatbot-khac-nhau-1600.webp 1600w" sizes="(min-width: 1025px) 400px, (min-width: 761px) 50vw, 100vw"><img src="../../../assets/kb/ai-agent-va-chatbot-khac-nhau.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-09-30"><b>30</b> <span>09/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/ai-marketing/ai-agent-va-chatbot-khac-nhau/">AI agent và chatbot khác nhau thế nào cho&nbsp;SME?</a></h3>
+            <p class="kb-post__x">Chatbot và agent có thể cùng xuất hiện trong một hệ thống. Bài đưa bốn mức tự chủ, số liệu một triển khai thật cùng phần điều chỉnh sau đó, và cây quyết định để chọn giữa chatbot, workflow và agent.</p>
+          </div>
+        </article><article class="kb-post kb-post--grid">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/ai-personalization-la-gi-320.webp 320w, ../../../assets/kb/ai-personalization-la-gi-640.webp 640w, ../../../assets/kb/ai-personalization-la-gi.webp 1200w, ../../../assets/kb/ai-personalization-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 400px, (min-width: 761px) 50vw, 100vw"><img src="../../../assets/kb/ai-personalization-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-09-30"><b>30</b> <span>09/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/ai-marketing/ai-personalization-la-gi/">AI personalization là gì? Khác quy&nbsp;tắc thế&nbsp;nào?</a></h3>
+            <p class="kb-post__x">Bước AI chỉ là một trong bốn lớp của luồng cá nhân hóa. Bài tách bốn mức cá nhân hóa, đưa dải hiệu quả thật, giải thích vì sao hệ gợi ý tự thu hẹp danh mục và nêu nghĩa vụ theo Điều 28 Luật Bảo vệ dữ liệu cá nhân.</p>
+          </div>
+        </article><article class="kb-post kb-post--grid">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/ai-workflow-la-gi-320.webp 320w, ../../../assets/kb/ai-workflow-la-gi-640.webp 640w, ../../../assets/kb/ai-workflow-la-gi.webp 1200w, ../../../assets/kb/ai-workflow-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 400px, (min-width: 761px) 50vw, 100vw"><img src="../../../assets/kb/ai-workflow-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-09-30"><b>30</b> <span>09/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/ai-marketing/ai-workflow-la-gi/">AI workflow là gì? Luồng công việc có AI cho&nbsp;SME</a></h3>
+            <p class="kb-post__x">Một luồng nội dung cần hơn bản nháp AI: nguồn đúng phiên bản, tiêu chí kiểm tra, trạng thái duyệt và cách xử lý dữ kiện thiếu. Bài đưa năm mẫu luồng có tên và quy trình dựng luồng đầu tiên.</p>
+          </div>
+        </article><article class="kb-post kb-post--grid">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/content-angle-la-gi-320.webp 320w, ../../../assets/kb/content-angle-la-gi-640.webp 640w, ../../../assets/kb/content-angle-la-gi.webp 1200w, ../../../assets/kb/content-angle-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 400px, (min-width: 761px) 50vw, 100vw"><img src="../../../assets/kb/content-angle-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-09-30"><b>30</b> <span>09/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/content-angle-la-gi/">Content angle là gì? Phân&nbsp;biệt pillar, topic và góc&nbsp;viết</a></h3>
+            <p class="kb-post__x">Content angle quyết định vấn đề mà bài viết giải thích cho người đọc. Bài có số liệu Ahrefs, bộ câu hỏi tự đánh giá của Google và mẫu brief GOV.UK để chọn góc có căn cứ.</p>
+          </div>
+        </article><article class="kb-post kb-post--grid">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/dark-social-la-gi-320.webp 320w, ../../../assets/kb/dark-social-la-gi-640.webp 640w, ../../../assets/kb/dark-social-la-gi.webp 1200w, ../../../assets/kb/dark-social-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 400px, (min-width: 761px) 50vw, 100vw"><img src="../../../assets/kb/dark-social-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-09-30"><b>30</b> <span>09/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/dark-social-la-gi/">Dark social là gì? Hiểu đúng nguồn và direct traffic</a></h3>
+            <p class="kb-post__x">Chia sẻ riêng tư có thể thiếu dấu vết nguồn. Bài giải thích cơ chế Referer của trình duyệt, ba nguyên nhân direct theo tài liệu Google, và bốn bước thu hẹp phần chưa biết thay vì đổi tên nó.</p>
+          </div>
+        </article></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid footer__grid--kb">
+        <div class="footer__brand">
+          <div class="footer__id"><span class="footer__logo"><img src="../../../assets/img/logo.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><b>Lê Tuấn Việt</b></div>
+          <span class="footer__role">Marketing Leader</span>
+          <p class="desc">Tôi tin rằng Marketing hiệu quả không dừng ở một ý tưởng hay, mà nằm ở khả năng biến chiến lược thành kết quả thực tế.</p>
+        </div>
+        <div>
+          <p class="footer__h">Menu nhanh</p>
+          <ul class="footer__list">
+            <li><a href="../../../">Trang chủ</a></li><li><a href="../../../#gioi-thieu">Giới thiệu</a></li><li><a href="../../../#nang-luc">Năng lực</a></li><li><a href="../../../#du-an">Dự án</a></li><li><a href="../../../#feedback">Feedback</a></li><li><a href="../../../#lien-he">Liên hệ</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__h">Góc kiến thức</p>
+          <ul class="footer__list">
+            <li><a href="../../../goc-kien-thuc/">Tất cả bài viết</a></li><li><a href="../../../goc-kien-thuc/marketing/">Marketing</a></li><li><a href="../../../goc-kien-thuc/ai-marketing/">AI Marketing</a></li><li><a href="../../../goc-kien-thuc/quan-tri-marketing/">Quản trị Marketing</a></li><li><a href="../../../goc-kien-thuc/du-an-va-bai-hoc/">Case Marketing</a></li><li><a href="../../../">Về tác giả</a></li>
+          </ul>
+        </div>
+        <div class="footer__cv">
+          <p class="footer__h">Liên hệ</p>
+          <ul class="footer__list">
+            <li><a href="mailto:tuanviet.2712@gmail.com" data-mailto><svg width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg>tuanviet.2712@gmail.com</a></li>
+            <li><a href="tel:0935702321"><svg width="16" height="16" aria-hidden="true"><use href="#i-phone"/></svg>0935 702 321</a></li>
+            <li><span class="footer__clock"><svg width="16" height="16" aria-hidden="true"><use href="#i-clock"/></svg>Hà Nội · <b data-clock>--:--</b></span></li>
+          </ul>
+          <a class="btn btn--light btn--sm magnetic" href="../../../assets/cv/CV-Le-Tuan-Viet.pdf" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv style="justify-self:start; margin-top:6px">Tải CV (PDF) <svg class="ico ico--down" aria-hidden="true"><use href="#i-download"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <time datetime="2026">2026</time> Lê Tuấn Việt · Marketing Leader</span>
+        <a class="footer__top" href="#noi-dung">Về đầu trang <svg aria-hidden="true"><use href="#i-up"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__mark" aria-hidden="true"><span data-split>Le Tuan Viet</span></div>
+  </footer>
+
+  <div class="kb-bar" aria-hidden="true">
+    <button class="kb-bar__toc" type="button" data-sheet-open aria-controls="kb-sheet"><svg aria-hidden="true"><use href="#i-list"/></svg><span>Mục lục</span></button>
+    <a class="kb-bar__main" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo><svg aria-hidden="true"><use href="#i-zalo"/></svg><span>Nhắn Zalo cho tôi</span></a>
+    <a class="kb-bar__call" href="tel:0935702321" aria-label="Gọi 0935 702 321"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+  </div>
+  <dialog class="kb-sheet" id="kb-sheet" aria-labelledby="kb-sheet-t">
+    <div class="kb-sheet__head"><p id="kb-sheet-t"><svg aria-hidden="true"><use href="#i-list"/></svg>Mục lục bài viết</p><button type="button" data-sheet-close aria-label="Đóng mục lục"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <nav class="kb-sheet__body" aria-label="Mục lục"><ol class="kb-toc__list"><li><a href="#human-in-the-loop-la-gi-va-hoat-dong-theo-co-che-nao"><span class="kb-toc__n">1</span>Human-in-the-loop là gì và hoạt động theo cơ chế nào?</a></li><li><a href="#con-nguoi-co-the-tham-gia-o-giai-doan-nao"><span class="kb-toc__n">2</span>Con người có thể tham gia ở giai đoạn nào?</a></li><li><a href="#human-in-the-loop-va-human-on-the-loop-khac-nhau-ra-sao"><span class="kb-toc__n">3</span>Human-in-the-loop và human-on-the-loop khác nhau ra sao?</a></li><li><a href="#nguoi-duyet-can-duoc-trao-nhung-quyen-nao"><span class="kb-toc__n">4</span>Người duyệt cần được trao những quyền nào?</a><ol><li><a href="#dieu-14-ap-cho-nhom-rui-ro-cao-khong-ap-cho-marketing">Điều 14 áp cho nhóm rủi ro cao, không áp cho marketing</a></li><li><a href="#moc-ap-dung-da-duoc-lui-lai">Mốc áp dụng đã được lùi lại</a></li></ol></li></li><li><a href="#vi-du-sme-duyet-quang-cao-mien-phi-giao-hang"><span class="kb-toc__n">5</span>Ví dụ SME: duyệt quảng cáo miễn phí giao hàng</a></li><li><a href="#nguoi-duyet-can-nhin-gi-va-quyet-dinh-gi"><span class="kb-toc__n">6</span>Người duyệt cần nhìn gì và quyết định gì?</a><ol><li><a href="#hanh-dong-sap-dien-ra-la-muc-hay-bi-bo">Hành động sắp diễn ra là mục hay bị bỏ</a></li></ol></li></li><li><a href="#vi-sao-nguoi-duyet-van-co-the-bo-sot-loi"><span class="kb-toc__n">7</span>Vì sao người duyệt vẫn có thể bỏ sót lỗi?</a><ol><li><a href="#cach-doc-con-so-7-dung-pham-vi">Cách đọc con số 7% đúng phạm vi</a></li><li><a href="#suc-ep-thoi-gian-lam-nguoi-duyet-bam-theo-ban-nhap-hon">Sức ép thời gian làm người duyệt bám theo bản nháp hơn</a></li></ol></li></li><li><a href="#cach-noi-nao-giup-nguoi-duyet-tinh-tao-hon"><span class="kb-toc__n">8</span>Cách nói nào giúp người duyệt tỉnh táo hơn?</a><ol><li><a href="#thi-nghiem-nay-co-gioi-han-gi">Thí nghiệm này có giới hạn gì?</a></li></ol></li></li><li><a href="#muc-duyet-nao-cho-loai-noi-dung-nao"><span class="kb-toc__n">9</span>Mức duyệt nào cho loại nội dung nào?</a><ol><li><a href="#cach-dung-bang-phan-muc-cho-doi-minh">Cách dựng bảng phân mức cho đội mình</a></li></ol></li></li><li><a href="#danh-gia-chat-luong-duyet-bang-chi-so-nao"><span class="kb-toc__n">10</span>Đánh giá chất lượng duyệt bằng chỉ số nào?</a><ol><li><a href="#ba-chi-so-nen-doc-kem">Ba chỉ số nên đọc kèm</a></li></ol></li></li><li><a href="#chi-phi-that-cua-mot-diem-duyet-nam-o-dau"><span class="kb-toc__n">11</span>Chi phí thật của một điểm duyệt nằm ở đâu?</a><ol><li><a href="#chi-phi-hang-cho-tang-theo-cach-phan-truc-giac">Chi phí hàng chờ tăng theo cách phản trực giác</a></li></ol></li></li><li><a href="#thiet-ke-diem-duyet-dau-tien-tu-dau"><span class="kb-toc__n">12</span>Thiết kế điểm duyệt đầu tiên từ đâu?</a><ol><li><a href="#buoc-1-tim-phan-thieu">Bước 1: Tìm phần thiếu</a></li><li><a href="#buoc-2-dua-du-can-cu">Bước 2: Đưa đủ căn cứ</a></li><li><a href="#buoc-3-them-lua-chon">Bước 3: Thêm lựa chọn</a></li><li><a href="#buoc-4-kiem-lai-mau">Bước 4: Kiểm lại mẫu</a></li></ol></li></li><li><a href="#cau-hoi-thuong-gap-ve-human-in-the-loop"><span class="kb-toc__n">13</span>Câu hỏi thường gặp về human-in-the-loop</a></li><li><a href="#ket-luan-human-in-the-loop-la-gi-va-dung-the-nao-cho-dung"><span class="kb-toc__n">14</span>Kết luận: Human-in-the-loop là gì và dùng thế nào cho đúng?</a></li></ol></nav>
+  </dialog>
+  <dialog class="kb-sd" id="kb-search" aria-label="Tìm kiếm trong Góc kiến thức">
+    <form class="kb-search kb-search--dlg" role="search" action="../../../goc-kien-thuc/" method="get" data-kb-search="../../../goc-kien-thuc/search.json" data-rel="../../../" data-zalo="https://zalo.me/0935702321">
+      <div class="kb-search__box">
+        <svg class="kb-search__ico" aria-hidden="true"><use href="#i-search"/></svg>
+        <label class="sr-only" for="kb-dq">Tìm kiếm bài viết trong Góc kiến thức</label>
+        <input id="kb-dq" name="q" type="search" placeholder="Tìm bài viết, ví dụ: kế hoạch Marketing" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="kb-dq-list">
+        <button class="kb-search__clear" type="button" aria-label="Xóa từ khóa"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+        <button class="kb-sd__close" type="button" data-search-close>Đóng</button>
+      </div>
+      <div class="kb-search__panel">
+        <p class="kb-search__head" aria-hidden="true"></p>
+        <ul class="kb-search__list" id="kb-dq-list" role="listbox" aria-label="Kết quả tìm kiếm"></ul>
+      </div>
+      <p class="sr-only" role="status" aria-live="polite"></p>
+    </form>
+  </dialog>
+  <button class="totop" type="button" aria-label="Về đầu trang">
+    <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle class="totop__track" cx="24" cy="24" r="21"/><circle class="totop__bar" cx="24" cy="24" r="21"/></svg>
+    <svg class="ico" aria-hidden="true"><use href="#i-up"/></svg>
+  </button>
+  <div class="toast" role="status" aria-live="polite"><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg><span>Đã sao chép</span></div>
+
+  <script src="../../../js/core.min.js" defer></script>
+  <script src="../../../js/fx.js" defer></script>
+  <script src="../../../js/kb-nav.js" defer></script>
+  <script src="../../../js/kb.js" defer></script>
+  <script src="../../../js/kb-search.js" defer></script>
+</body>
+</html>

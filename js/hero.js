@@ -519,6 +519,7 @@
     /* ================= VÒNG LẶP ================= */
     let wasVisible = true, lastC = -1, lastMx = 9, lastMy = 9, lastP = -1, lastDrawT = -1, dir = 1, shown = false, vel = 0, prevT = 0;
     L.tick(s => {
+      if (innerHeight !== vh) measure();   // chiều cao khung nhìn đổi mà không có sự kiện resize (thanh địa chỉ điện thoại, lần đo đầu lúc tải): đo lại để mốc "phần kế tiếp trượt lên" không lệch
       const y = s.y - heroTop;
       const visible = y < heroH && y > -vh;
       if (!visible) { wasVisible = false; return; }

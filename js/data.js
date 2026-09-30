@@ -63,7 +63,7 @@ window.SITE_DATA = {
         desc: 'Kế hoạch Marketing tổng thể và các chiến dịch truyền thông tôi đã xây dựng.',
         rows: [
           [
-            { partner: 'tomec', img: 'plan/tomec', link: 'https://docs.google.com/spreadsheets/d/1j8RfBHqeunff2QDWT0kgOJpunbxSQM3B/edit?usp=sharing&ouid=113613338350596465961&rtpof=true&sd=true' },
+            { partner: 'tomec', img: 'plan/tomec', link: 'https://docs.google.com/spreadsheets/d/1j8RfBHqeunff2QDWT0kgOJpunbxSQM3B/edit?usp=sharing&rtpof=true&sd=true' },
             { partner: 'fungha', img: 'plan/fungha', link: 'https://docs.google.com/spreadsheets/d/1YXdPER9Vcq3IMwzL7A0qFMfvpXMiTv85PHj7nVbkyUU/edit?gid=1508728250#gid=1508728250' },
             { partner: 'dotaka', img: 'plan/dotaka', link: 'https://docs.google.com/spreadsheets/d/1ItYstDZKDP-uAlJm9FbtlcqMsS9JyjrEmcXcL0AmJRI/edit?gid=373102079#gid=373102079' },
             { partner: 'firo-cafe', img: 'plan/firo', link: 'https://docs.google.com/spreadsheets/d/1gkTWNUBO0yD8EWnietMPc_OmvC23Ys9OnSQnPNHlYOM/edit?gid=1548467159#gid=1548467159' }
@@ -77,7 +77,7 @@ window.SITE_DATA = {
           [
             { partner: 'minh-ha', img: 'plan/minh-ha', note: 'Thương hiệu cá nhân', link: 'https://docs.google.com/spreadsheets/d/1wib_PJibKQsSDWiv3izLklb_xvfgxouPDxqUWpMweeE/edit?gid=955900404#gid=955900404' },
             { title: 'Plan SEO', img: 'plan/plan-seo', link: 'https://docs.google.com/spreadsheets/d/1GdrWVlA3Wf9MaXQxyY6FuVOGwoDh3rsG-iSayTHAv7I/edit?usp=sharing' },
-            { partner: 'hope', img: 'plan/hope', link: 'https://docs.google.com/spreadsheets/d/109o_CybzBl0Gwt1o7__RBA7NHLSUmabh/edit?usp=sharing&ouid=113613338350596465961&rtpof=true&sd=true' },
+            { partner: 'hope', img: 'plan/hope', link: 'https://docs.google.com/spreadsheets/d/109o_CybzBl0Gwt1o7__RBA7NHLSUmabh/edit?usp=sharing&rtpof=true&sd=true' },
             { title: 'Plan xây hệ thống kênh AI', img: 'plan/he-thong-kenh-ai', link: 'https://docs.google.com/spreadsheets/d/1nJGJDDplvbIJKheybGwsBJZWYEfZq9qbr5WImALEhKU/edit?gid=903369081#gid=903369081' }
           ]
         ]
@@ -131,13 +131,13 @@ window.SITE_DATA = {
           [
             { title: 'Tài liệu đào tạo SEO', img: 'other/dao-tao-seo', link: 'https://docs.google.com/document/d/10NzgXE53AnfTxZs1dJXrYBV9z73KVItK/edit#heading=h.4syd63uij9fx' },
             { title: 'Tài liệu đào tạo Content', img: 'other/dao-tao-content', link: 'https://docs.google.com/presentation/d/1QkT9iD1VPt3hmVzTiVfSMTQU-jEynPXw/edit' },
-            { title: 'Tài liệu đào tạo Vibe Coding', img: 'other/dao-tao-vibe-coding', link: 'https://docs.google.com/presentation/d/1GDgY0Q7itMGix7Q-4amaEKBV3-kUFO2U/edit?usp=sharing&ouid=113613338350596465961&rtpof=true&sd=true' },
+            { title: 'Tài liệu đào tạo Vibe Coding', img: 'other/dao-tao-vibe-coding', link: 'https://docs.google.com/presentation/d/1GDgY0Q7itMGix7Q-4amaEKBV3-kUFO2U/edit?usp=sharing&rtpof=true&sd=true' },
             { title: 'Logo Guideline', img: 'other/logo-guideline', link: 'https://drive.google.com/file/d/1kIAlwVG_283QI4QQVpDoSS0Ucecqd2bK/view?usp=sharing' }
           ],
           [
             { title: 'Báo cáo Booking', img: 'other/bao-cao-booking', link: 'https://docs.google.com/spreadsheets/d/1v2zlDUjsRssPFr8dJTL_r3NQhtmUg73bUwWLdhep3UA/edit?usp=sharing' },
             { title: 'Báo cáo chỉ số Marketing', img: 'other/bao-cao-marketing', link: 'https://docs.google.com/spreadsheets/d/1y0bzEODM8bsGjNz1PhZOmSkPbER-2Ic6vuvdPnCAa4M/edit?usp=sharing' },
-            { title: 'Bộ chỉ số KPI Phòng Marketing', img: 'other/bo-chi-so-kpi', link: 'https://docs.google.com/spreadsheets/d/1H5FI1CACE-0sJpdIoaWtJj_lY0TKrD0r/edit?usp=sharing&ouid=113613338350596465961&rtpof=true&sd=true' },
+            { title: 'Bộ chỉ số KPI Phòng Marketing', img: 'other/bo-chi-so-kpi', link: 'https://docs.google.com/spreadsheets/d/1H5FI1CACE-0sJpdIoaWtJj_lY0TKrD0r/edit?usp=sharing&rtpof=true&sd=true' },
             { title: 'Bài viết + Kịch bản mẫu', img: 'other/bai-viet-kich-ban', link: 'https://docs.google.com/spreadsheets/d/1nBmdQ3p6cFYN1RJ1ulfozP0RwYQMABURtPNveCPHWAU/edit?usp=sharing' }
           ]
         ]

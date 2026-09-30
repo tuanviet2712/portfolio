@@ -208,13 +208,17 @@ main > section:not(.hero), .footer { z-index: 3; }
 .hello { width: min(640px, 82vw); height: auto; overflow: visible; position: relative; transition: transform 1.1s var(--ease-io), opacity .8s; }
 .preloader.is-done .hello { transform: translateY(-60px) scale(.96); opacity: 0; }
 .hello__ink { fill: currentColor; }
-/* Original font outlines stay fixed; only the writing guides animate. */
-.hello__pen { fill: none; stroke: #fff; stroke-width: 18; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1 2; stroke-dashoffset: 1; opacity: 0; }
-.preloader.is-writing .hello__pen { animation: hello-draw calc(var(--duration) * .65) linear calc(var(--delay) * .65) forwards; }
-@keyframes hello-draw { from { opacity: 1; stroke-dashoffset: 1; } to { opacity: 1; stroke-dashoffset: 0; } }
+/* The exact font outlines never change: a mask of pen strokes writes them. Each pen carries its
+   length (--l) and its own keyframes/timing (--anim), generated into the SVG by tools/hello-pen. */
+.hello__pen { stroke-dasharray: var(--l) var(--l); stroke-dashoffset: var(--l); opacity: 0; }
+.hello__dot { transform-box: fill-box; transform-origin: 50% 50%; transform: scale(0); opacity: 0; }
+.preloader.is-writing .hello__pen, .preloader.is-writing .hello__dot { animation: var(--anim); }
 .preloader.is-written .hello__pen { animation: none; stroke-dashoffset: 0; opacity: 1; }
+.preloader.is-written .hello__dot { animation: none; transform: none; opacity: 1; }
+.preloader.is-written .hello__ink [mask] { mask: none; }
 @media (prefers-reduced-motion: reduce) {
   .hello__pen, .preloader.is-writing .hello__pen { animation: none; stroke-dashoffset: 0; opacity: 1; }
+  .hello__dot, .preloader.is-writing .hello__dot { animation: none; transform: none; opacity: 1; }
 }
 .preloader__meta { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 34px; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgb(var(--ivory-rgb) / .55); }
 .preloader__bar { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: rgb(var(--ivory-rgb) / .08); }
@@ -237,22 +241,24 @@ main > section:not(.hero), .footer { z-index: 3; }
 /* ==========================================================================
    NAV
    ========================================================================== */
-.nav { position: fixed; top: 14px; left: 0; right: 0; z-index: 100; padding-inline: var(--gutter); transition: transform .6s var(--ease), opacity .6s var(--ease); pointer-events: none; }
+/* Thanh điều hướng là một viên nang; logo, nút CV và nút menu là những viên nang nhỏ nằm đồng tâm bên
+   trong. --nav-ctl là cỡ chung của chúng, lề trong tự tính từ đó nên bốn phía luôn hở bằng nhau. */
+.nav { --nav-bar: 62px; --nav-ctl: 40px; position: fixed; top: 14px; left: 0; right: 0; z-index: 100; padding-inline: var(--gutter); transition: transform .6s var(--ease), opacity .6s var(--ease); pointer-events: none; }
+.nav.is-scrolled { --nav-bar: 56px; --nav-ctl: 38px; }
 .nav.is-hidden { transform: translateY(-120%); }
 .nav__inner {
   pointer-events: auto; max-width: calc(var(--maxw) - 2 * var(--gutter) + 40px); margin-inline: auto;
-  height: 62px; padding: 0 8px 0 10px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  height: var(--nav-bar); padding-inline: calc((var(--nav-bar) - var(--nav-ctl)) / 2 - 1px); display: flex; align-items: center; justify-content: space-between; gap: 16px;
   border-radius: 999px; background: rgb(var(--ivory-rgb) / .62); border: 1px solid rgba(255, 255, 255, .7);
   box-shadow: 0 18px 40px -26px rgb(var(--shadow-rgb) / .55), 0 1px 0 rgba(255, 255, 255, .7) inset;
   backdrop-filter: blur(18px) saturate(1.25); -webkit-backdrop-filter: blur(18px) saturate(1.25);
   transition: height .5s var(--ease), background .5s;
 }
-.nav.is-scrolled .nav__inner { height: 56px; background: rgb(var(--ivory-rgb) / .82); }
+.nav.is-scrolled .nav__inner { background: rgb(var(--ivory-rgb) / .82); }
 .nav__brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
-.nav__logo { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: #fff; box-shadow: 0 0 0 1px rgb(var(--ink-rgb) / .06), 0 8px 18px -10px rgb(var(--blue-rgb) / .55); transition: transform .6s var(--ease), width .5s var(--ease), height .5s var(--ease); }
+.nav__logo { width: var(--nav-ctl); height: var(--nav-ctl); border-radius: 50%; display: grid; place-items: center; background: #fff; box-shadow: 0 0 0 1px rgb(var(--ink-rgb) / .06), 0 8px 18px -10px rgb(var(--blue-rgb) / .55); transition: transform .6s var(--ease), width .5s var(--ease), height .5s var(--ease); }
 .nav__logo img { width: 66%; height: 66%; }
 .nav__brand:hover .nav__logo { transform: rotate(-12deg) scale(1.06); }
-.nav.is-scrolled .nav__logo { width: 38px; height: 38px; }
 .nav__badge { font-size: 11px; font-weight: 600; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-3); }
 .nav__links { position: relative; display: flex; align-items: center; gap: 2px; }
 .nav__links a { position: relative; z-index: 1; padding: 9px 14px; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--ink-2); transition: color .3s; white-space: nowrap; }
@@ -261,12 +267,13 @@ main > section:not(.hero), .footer { z-index: 3; }
 .nav__links a:hover:not(.is-active)::after { transform: scale(1); }
 .nav__pill { position: absolute; z-index: 0; top: 0; left: 0; height: 100%; border-radius: 999px; background: #fff; box-shadow: 0 6px 16px -10px rgb(var(--shadow-rgb) / .5), 0 0 0 1px rgb(var(--ink-rgb) / .06); transition: transform .55s var(--ease), width .55s var(--ease), opacity .3s; opacity: 0; }
 .nav__actions { display: flex; align-items: center; gap: 8px; }
-.nav__burger { display: none; width: 46px; height: 46px; border-radius: 50%; background: var(--grad-btn); position: relative; }
-.nav__burger span { position: absolute; left: 14px; right: 14px; height: 1.6px; background: var(--ivory); border-radius: 2px; transition: transform .45s var(--ease), top .45s var(--ease); }
-.nav__burger span:first-child { top: 19px; }
-.nav__burger span:last-child { top: 26px; }
-.nav.is-open .nav__burger span:first-child { top: 22.5px; transform: rotate(45deg); }
-.nav.is-open .nav__burger span:last-child { top: 22.5px; transform: rotate(-45deg); }
+.nav__actions .btn { --bh: var(--nav-ctl); padding-inline: 16px; gap: 10px; transition: height .5s var(--ease), background-color .4s var(--ease), color .4s var(--ease), box-shadow .4s var(--ease); }
+.nav__burger { display: none; width: var(--nav-ctl); height: var(--nav-ctl); border-radius: 50%; background: var(--grad-btn); position: relative; }
+.nav__burger span { position: absolute; left: 30%; right: 30%; height: 1.6px; background: var(--ivory); border-radius: 2px; transition: transform .45s var(--ease), top .45s var(--ease); }
+.nav__burger span:first-child { top: calc(var(--nav-ctl) / 2 - 4px); }
+.nav__burger span:last-child { top: calc(var(--nav-ctl) / 2 + 3px); }
+.nav.is-open .nav__burger span:first-child { top: calc(var(--nav-ctl) / 2 - .5px); transform: rotate(45deg); }
+.nav.is-open .nav__burger span:last-child { top: calc(var(--nav-ctl) / 2 - .5px); transform: rotate(-45deg); }
 .menu { position: fixed; inset: 0; z-index: 99; background: var(--grad-lux); padding: calc(var(--nav-h) + 40px) var(--gutter) 40px; display: flex; flex-direction: column; justify-content: space-between; clip-path: circle(0% at calc(100% - 44px) 44px); transition: clip-path .8s var(--ease-io); visibility: hidden; }
 .menu.is-open { clip-path: circle(150% at calc(100% - 44px) 44px); visibility: visible; }
 .menu__links { display: grid; gap: 4px; }
@@ -799,6 +806,8 @@ a.bio__link:hover small, button.bio__link:hover small { color: var(--taupe); }
    RESPONSIVE
    ========================================================================== */
 @media (max-width: 1180px) {
+  /* 1025–1059px là dải chật nhất (còn đủ chỗ cho menu ngang nhưng thiếu ~7px): thu khoảng cách giữa ba nhóm */
+  .nav__inner { gap: 8px; }
   .nav__links a { padding: 9px 10px; font-size: 13.5px; }
   .nav__badge { display: none; }
   .skills { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -806,6 +815,8 @@ a.bio__link:hover small, button.bio__link:hover small { color: var(--taupe); }
   .footer__brand { grid-column: span 2; }
 }
 @media (max-width: 1024px) {
+  /* Máy tính bảng: hiện nút menu, giữ cỡ nút 44px và không co theo cuộn */
+  .nav, .nav.is-scrolled { --nav-bar: 60px; --nav-ctl: 44px; }
   .nav__links { display: none; }
   .nav__burger { display: block; }
   .sec-head__foot { grid-template-columns: 1fr; }
@@ -845,8 +856,8 @@ a.bio__link:hover small, button.bio__link:hover small { color: var(--taupe); }
 @media (max-width: 760px) {
   body { font-size: 15.5px; }
   .sec-head--aside { display: flex; align-items: stretch; }
-  .nav { top: 10px; }
-  .nav__inner { height: 58px; }
+  /* Điện thoại: thanh không co lại khi cuộn, giữ nút menu 44px cho vừa đầu ngón tay */
+  .nav, .nav.is-scrolled { top: 10px; --nav-bar: 58px; --nav-ctl: 44px; }
   .nav__name { font-size: 15px; }
   .nav__actions .btn { display: none; }
   .hero { height: 760vh; }
@@ -940,4 +951,12 @@ a.bio__link:hover small, button.bio__link:hover small { color: var(--taupe); }
   .split .w__in, .hero-name .hn > span { transform: none; }
   .reveal-img { clip-path: none; }
   .grain { display: none; }
+}
+
+/* Điện thoại: chương chữ trong hero hiện đủ sáng sau nửa quãng cuộn (trước đây phải cuộn hết quãng, đoạn giữa chữ còn mờ như đang tan).
+   Chương chỉ hiện dần ở nửa đầu của tiến trình --v; phần còn lại giữ sáng hẳn. Máy tính giữ nguyên. */
+@media (max-width: 760px) {
+  .ch { --v2: clamp(0, calc(var(--v) * 2), 1); --vi: clamp(0, calc(var(--v2) * 1.7 - var(--i, 0) * .16), 1); opacity: var(--v2); }
+  .ch__rule { width: calc(var(--v2) * 72px); opacity: var(--v2); }
+  .ch .u { --ci: clamp(0, calc((var(--v2) - var(--d)) / min(var(--dur), calc(1 - var(--d)))), 1); }
 }

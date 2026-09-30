@@ -69,6 +69,17 @@ public class LtvServer
         this.port = port;
     }
 
+    // Chi phuc vu file NAM TRONG thu muc goc (so sanh kem dau phan cach, tranh thu muc anh em trung tien to)
+    // va chan thu muc an / node_modules de .git, .env khong lo ra mang LAN.
+    bool IsServable(string file)
+    {
+        string prefix = root.TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;
+        if (!file.StartsWith(prefix, StringComparison.OrdinalIgnoreCase)) return false;
+        foreach (string seg in file.Substring(prefix.Length).Split(Path.DirectorySeparatorChar))
+            if (seg.StartsWith(".") || seg.Equals("node_modules", StringComparison.OrdinalIgnoreCase)) return false;
+        return true;
+    }
+
     // Nghe ca IPv6 va IPv4 tren cung mot socket (dual-mode). Neu chi nghe IPv4 thi trinh duyet go
     // "localhost" se thu ::1 truoc va cho het thoi gian (~2 giay) moi chuyen sang 127.0.0.1.
     public void Start()
@@ -215,7 +226,7 @@ public class LtvServer
         string rel = path.TrimStart('/').Replace('/', Path.DirectorySeparatorChar);
         string file = null;
         try { file = Path.GetFullPath(Path.Combine(root, rel)); } catch { file = null; }
-        if (file == null || !file.StartsWith(root, StringComparison.OrdinalIgnoreCase) || !File.Exists(file))
+        if (file == null || !IsServable(file) || !File.Exists(file))
         {
             WriteSimple(ws, 404, "text/plain; charset=utf-8", Encoding.UTF8.GetBytes("404 - " + path), keep, headOnly);
             return keep;

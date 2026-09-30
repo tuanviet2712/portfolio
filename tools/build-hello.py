@@ -1,7 +1,15 @@
 """Build exact Playwrite VN 300 outlines with a fast handwriting reveal.
 
 Authoring dependencies: fonttools, uharfbuzz. No runtime font request is needed.
+
+SUPERSEDED (2026-09-28): the greeting's animation is now built by tools/hello-pen (see its
+README). This script is kept only as the record of how the outlines were shaped (x = 40,
+scale .118, baseline 160, group translate(22 0)); running it would put back the old,
+hand-drawn guide animation, so it stops unless --force is given.
 """
+import sys
+if '--force' not in sys.argv:
+    raise SystemExit('superseded by tools/hello-pen (see tools/hello-pen/README.md); pass --force to run anyway')
 from pathlib import Path
 import math
 import re

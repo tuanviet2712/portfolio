@@ -1,3 +1,4 @@
+// SUPERSEDED (2026-09-28): checks the retired guide animation; use tools/hello-pen/check.cjs.
 // Visual regression for original-font handwriting, speed, and the c-h join.
 // Requires Playwright + pngjs. CHROME_PATH optionally selects an installed browser.
 const assert = require('node:assert/strict');

@@ -1,0 +1,390 @@
+<!--
+  BÀI VIẾT: Human-in-the-loop là gì? Vai trò người duyệt trong AI marketing
+  Chủ đề (pillar): AI Marketing. Từ khóa chính: "human-in-the-loop" (tiêu đề giữ nguyên cụm "là gì"). Ý định tìm kiếm: thông tin (TOFU).
+  Nguồn: file 09-A4-human-in-the-loop-la-gi-ANH-MOI.docx (phần "Hồ sơ biên tập trên web" cuối file không đưa lên web).
+  Việc biên tập khi đưa lên web: sapo viết lại theo mẫu ba câu (định nghĩa kèm phân biệt, tên và chuyên môn tác giả, phạm vi bài),
+  H2 đầu bài mang từ khóa kèm khối định nghĩa, năm quyền theo Điều 14 khoản 4, ba mức duyệt và bốn bước bắt đầu thành danh sách chữ thật
+  (bản gốc chỉ có trong đoạn văn hoặc trong ảnh), thêm H3 để chia các phần dài, tách các đoạn quá 90 từ, FAQ đặt trước Kết luận
+  (như các bài A1, A2, A3), đường dẫn nguồn thật gắn trực tiếp lên từ khóa.
+  Slug: "human-in-the-loop-la-gi" (khớp docx). Bìa: ảnh thứ 19 trong docx (tools/kb/covers/human-in-the-loop-la-gi.png).
+  Liên kết nội bộ: AI workflow (A3), AI agent và chatbot (A2), Ảo giác AI (A1), Brand voice (M2), chuyên mục AI Marketing (thay trang trụ
+  "AI marketing cho SME" chưa có). Liên kết ngược từ A1, A2, A3 về bài này đã thêm cùng lúc.
+  Hai mốc ngày của Đạo luật AI châu Âu (2/12/2027 và 2/8/2028) giữ nguyên theo docx; docx nhắc đối chiếu lại trước khi đăng.
+-->
+<script type="application/json" data-meta>
+{
+  "slug": "human-in-the-loop-la-gi",
+  "pillar": "ai-marketing",
+  "title": "Human-in-the-loop là gì? Vai trò người duyệt trong AI",
+  "titleHtml": "Human-in-the-loop là gì? Vai trò <span class=\"grad\">người duyệt trong AI</span>",
+  "seoTitle": "Human-in-the-loop là gì? Người duyệt trong AI marketing",
+  "description": "Human-in-the-loop là gì và người duyệt cần gì để có tác dụng? Năm quyền theo Điều 14, số liệu thiên lệch tự động hóa và cách phân ba mức duyệt cho SME.",
+  "excerpt": "Có người duyệt không tự bảo đảm bài đúng. Bài đưa bốn điều kiện của một điểm duyệt có tác dụng, năm quyền người giám sát cần có, số liệu về thiên lệch tự động hóa và cách phân mức duyệt theo hệ quả của lỗi.",
+  "sapo": "Human-in-the-loop (HITL) là cách tổ chức quy trình AI có sự tham gia trực tiếp của con người để kiểm tra, điều chỉnh hoặc phê duyệt kết quả tại những bước được xác định trước. Trong marketing, người duyệt có thể kiểm chứng thông tin sản phẩm, sửa nội dung sai hoặc yêu cầu AI làm lại trước khi xuất bản. Giá trị của HITL nằm ở việc người duyệt có đủ thông tin, chuyên môn và quyền can thiệp để xử lý sai sót. Bài viết này làm rõ HITL là gì, khác human-on-the-loop như thế nào và cách phân chia ba mức duyệt theo mức độ ảnh hưởng của lỗi, giúp doanh nghiệp đưa AI vào công việc với trách nhiệm rõ ràng.",
+  "keyword": "human-in-the-loop",
+  "keywords": [
+    "human-in-the-loop là gì",
+    "HITL là gì",
+    "human in the loop trong AI",
+    "người duyệt nội dung AI",
+    "giám sát con người trong AI",
+    "human-on-the-loop"
+  ],
+  "published": "2026-09-30T18:00:00+07:00",
+  "modified": "2026-09-30T18:00:00+07:00",
+  "cover": {
+    "base": "human-in-the-loop-la-gi",
+    "src": "tools/kb/covers/human-in-the-loop-la-gi.png",
+    "alt": "Human-in-the-loop: người duyệt trong AI marketing có thể kiểm, sửa và dừng",
+    "caption": "Human-in-the-loop: người duyệt trong AI marketing có thể kiểm, sửa và dừng",
+    "kicker": "Human-in-the-loop",
+    "line": "Kiểm, sửa và dừng"
+  },
+  "takeaways": [
+    "Human-in-the-loop là cách đưa sự tham gia của người vào hệ thống AI sao cho sự tham gia đó thay đổi được đầu ra. Một lượt duyệt chỉ có tác dụng khi người duyệt có căn cứ, chuyên môn, quyền sửa hoặc dừng và đúng bản sẽ phát hành.",
+    "Human-in-the-loop dừng hệ thống chờ người; human-on-the-loop để hệ thống chạy trong lúc người theo dõi. Điều 14 khoản 4 của Đạo luật AI châu Âu là bảng kiểm năm quyền dùng tự nguyện được cho mọi điểm duyệt.",
+    "Thiên lệch tự động hóa có thật: trong một nghiên cứu trên 28 chuyên gia, khoảng 7% lượt đánh giá ban đầu đúng bị gợi ý sai của AI lật ngược. Nói về tỉ lệ sai và loại lỗi giúp người duyệt tỉnh táo hơn nói về độ chính xác.",
+    "Phân mức duyệt theo hệ quả khi lỗi lọt ra ngoài và đo chất lượng duyệt bằng lỗi còn lọt qua mẫu mười bản mỗi tháng, không bằng tỉ lệ chấp nhận đứng một mình."
+  ],
+  "about": [
+    { "name": "Human-in-the-loop", "sameAs": "https://en.wikipedia.org/wiki/Human-in-the-loop" },
+    { "name": "Thiên lệch tự động hóa", "sameAs": "https://en.wikipedia.org/wiki/Automation_bias" }
+  ],
+  "mentions": [
+    { "type": "Organization", "name": "Stanford HAI", "url": "https://hai.stanford.edu" },
+    { "type": "Organization", "name": "Amazon Web Services", "url": "https://aws.amazon.com" },
+    { "type": "Organization", "name": "IBM", "url": "https://www.ibm.com" }
+  ],
+  "faq": [
+    {
+      "q": "Mọi bài AI đều cần cùng một mức duyệt không?",
+      "a": "Không. Mức kiểm tra phụ thuộc hệ quả khi lỗi lọt ra ngoài. Ghi chú nội bộ chỉ cần một người đọc lướt; bài blog cần kiểm dữ kiện rồi một người duyệt; quảng cáo có điều kiện ưu đãi cần người vận hành xác nhận phạm vi trước khi người duyệt ký. Đội chịu trách nhiệm cần viết bảng phân mức này ra và thống nhất, thay vì để nó nằm trong đầu trưởng nhóm."
+    },
+    {
+      "q": "Người sửa một câu thì AI có tự học cho lần sau không?",
+      "a": "Không mặc định. Sửa trong phiên làm việc, lưu phản hồi để phân tích và huấn luyện lại mô hình là ba cơ chế khác nhau. Với công cụ có sẵn, bản sửa thường chỉ thay đầu ra lần này. Muốn sửa một lỗi lặp đi lặp lại, cách làm là đổi hướng dẫn đầu vào hoặc đổi tài liệu nguồn, không phải sửa thêm nhiều lần và chờ mô hình nhận ra."
+    },
+    {
+      "q": "Có người duyệt thì có thể khẳng định nội dung luôn đúng không?",
+      "a": "Không. Người duyệt cũng có giới hạn, và thiên lệch tự động hóa là cơ chế đo được. Một nghiên cứu năm 2024 trên 28 chuyên gia ghi nhận khoảng 7% số lượt đánh giá ban đầu đúng bị gợi ý sai của AI lật ngược. Căn cứ phù hợp, chuyên môn và quyền quyết định giúp việc kiểm tra có ý nghĩa; đội vẫn cần lấy mẫu đối chiếu lại các bản đã duyệt."
+    },
+    {
+      "q": "Human-in-the-loop và human-on-the-loop khác nhau ở đâu?",
+      "a": "Ở chỗ hệ thống có dừng lại chờ người hay không. Human-in-the-loop là người tham gia vào từng quyết định cụ thể, hệ thống dừng chờ người. Human-on-the-loop là người theo dõi quá trình và can thiệp khi thấy cần, hệ thống vẫn chạy. Tên gọi cần đi kèm mô tả quyền thực tế trong quy trình, vì hai mức này có hai mức trách nhiệm khác nhau."
+    },
+    {
+      "q": "Đạo luật AI châu Âu có bắt buộc đội marketing phải có người duyệt không?",
+      "a": "Không. Điều 14 về giám sát con người áp cho hệ thống AI thuộc nhóm rủi ro cao, và việc sinh nội dung marketing không nằm trong nhóm đó. Tuy vậy danh sách năm quyền trong Điều 14 khoản 4 là mô tả cụ thể nhất hiện có về việc giám sát đòi hỏi những gì, nên dùng được làm bảng kiểm tự nguyện. Các mốc áp dụng cho nhóm rủi ro cao đã lùi về ngày 2 tháng 12 năm 2027 và ngày 2 tháng 8 năm 2028."
+    },
+    {
+      "q": "Nên giới thiệu công cụ AI với đội nội dung như thế nào?",
+      "a": "Nói về tỉ lệ sai và loại lỗi thường gặp, thay vì nói về độ chính xác. Một nghiên cứu công bố tháng 4 năm 2026 trên 175 người cho thấy nhấn vào rủi ro sai làm giảm xu hướng đi theo gợi ý sai mạnh hơn là nhấn vào độ chính xác. Danh sách loại lỗi cụ thể còn hữu ích hơn một con số, vì nó chỉ cho người duyệt biết phải nhìn vào đâu."
+    }
+  ],
+  "faqTitle": "Câu hỏi thường gặp về human-in-the-loop",
+  "references": [
+    {
+      "text": "Stanford HAI. What is Human-in-the-loop? Định nghĩa HITL qua sự phản hồi hoặc can thiệp của người trong hoạt động AI.",
+      "url": "https://hai.stanford.edu/ai-definitions/what-is-human-in-the-loop"
+    },
+    {
+      "text": "AWS. What is human in the loop? Phân biệt human-in-the-loop và human-on-the-loop, các điểm tham gia của người trong quá trình AI và học máy.",
+      "url": "https://aws.amazon.com/what-is/human-in-the-loop/"
+    },
+    {
+      "text": "IBM. What is human-in-the-loop? Lưu ý người vốn có thiên lệch riêng nên sự tham gia của người là một lớp hỗ trợ.",
+      "url": "https://www.ibm.com/think/topics/human-in-the-loop"
+    },
+    {
+      "text": "Đạo luật AI của Liên minh châu Âu. Điều 14: Giám sát con người, năm việc người giám sát cần được tạo điều kiện thực hiện; các mốc áp dụng theo bản sửa đổi Digital Omnibus có hiệu lực ngày 27 tháng 7 năm 2026.",
+      "url": "https://artificialintelligenceact.eu/article/14/"
+    },
+    {
+      "text": "Rosbach, Ganz, Ammeling, Riener và Aubreville. Automation Bias in AI-Assisted Medical Decision-Making under Time Pressure in Computational Pathology, ngày 1 tháng 11 năm 2024.",
+      "url": "https://arxiv.org/abs/2411.00998"
+    },
+    {
+      "text": "Vicente và Matute. Warning people about the risk of AI error mitigates human acquisition of AI bias, Cognitive Research: Principles and Implications, tập 11 bài 36, ngày 30 tháng 4 năm 2026.",
+      "url": "https://doi.org/10.1186/s41235-026-00726-w"
+    }
+  ],
+  "ctaButtons": [
+    {
+      "text": "Cần dựng điểm duyệt cho nội dung AI của doanh nghiệp?",
+      "label": "Nhắn Zalo cho tôi",
+      "href": "zalo"
+    },
+    {
+      "text": "Xem cách tôi triển khai Marketing cho doanh nghiệp SME",
+      "label": "Xem dự án",
+      "href": "/#du-an",
+      "style": "ghost"
+    }
+  ],
+  "ctaMid": {
+    "title": "Đội bạn đang duyệt nội dung AI ra sao?",
+    "text": "Nhắn cho tôi để cùng rà điểm duyệt trong quy trình nội dung hiện tại"
+  },
+  "ctaLate": {
+    "title": "Xem cách tôi triển khai Marketing cho từng dự án",
+    "text": "Kết quả thật tại TOMEC, FungHa Dimsum và Uyên Uyên Mart"
+  },
+  "en": {
+    "title": "What is human-in-the-loop? The role of the reviewer in AI marketing",
+    "excerpt": "Having a reviewer does not guarantee a correct piece. This article gives the four conditions of a review point that works, the five powers an overseer needs, data on automation bias and how to set review levels by the consequence of an error."
+  }
+}
+</script>
+
+<p>Có người duyệt không tự bảo đảm bài đúng. Với doanh nghiệp SME (doanh nghiệp vừa và nhỏ) làm <a href="/goc-kien-thuc/ai-marketing/">AI marketing</a>, hiệu quả của lượt duyệt phụ thuộc bốn thứ: người đó thấy căn cứ gì, có chuyên môn nào, có quyền sửa hoặc dừng hay không, và bản đang duyệt có đúng là bản sẽ phát hành hay không. Thiếu một trong bốn, lượt duyệt chỉ còn là một thao tác&nbsp;xác&nbsp;nhận.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/01-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/01-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/01-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Bốn điều kiện của người duyệt: căn cứ, chuyên môn, quyền và đúng phiên bản." width="1600" height="900">
+  <figcaption>Bốn điều kiện phải có cùng lúc thì một lượt duyệt mới có tác dụng</figcaption>
+</figure>
+
+<h2>Human-in-the-loop là gì và hoạt động theo cơ chế nào?</h2>
+<p class="kb-def"><strong>Human-in-the-loop là gì?</strong> Theo cách <a href="https://hai.stanford.edu/ai-definitions/what-is-human-in-the-loop">Stanford HAI</a> mô tả, HITL được định nghĩa qua sự phản hồi hoặc can thiệp của người trong hoạt động AI, gồm hướng dẫn, sửa lỗi và quyết định cuối. Điểm mấu chốt nằm ở chữ ảnh hưởng: sự tham gia phải làm thay đổi được công việc, thay vì chỉ ghi nhận rằng một người đã nhìn màn hình.</p>
+<p>Ví dụ, AI soạn một bản quảng cáo, người kiểm tra nhận thấy điều kiện ưu đãi bị bỏ. Người đó trả lại yêu cầu sửa, rồi kiểm bản chỉnh trước khi chấp nhận. Phản hồi đã làm thay đổi đầu ra và làm thay đổi đường đi của luồng. Đó là một vòng phản hồi&nbsp;đầy&nbsp;đủ.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/02-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/02-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/02-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="AI soạn, người kiểm và quyết định; bản chưa đạt quay lại để sửa." width="1600" height="900">
+  <figcaption>Không có đường quay lại thì không có vòng phản hồi, chỉ có một thao tác xác nhận</figcaption>
+</figure>
+
+<p>Cách kiểm tra nhanh nhất một điểm duyệt có thật hay không: nhìn vào các nút mà người duyệt có. Nếu chỉ có nút chấp nhận, người đó không phản hồi được, họ chỉ đánh dấu. Một điểm duyệt thật cần ít nhất ba lựa chọn: chấp nhận, trả lại kèm lý do, và chuyển cho người có chuyên môn&nbsp;phù&nbsp;hợp.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/03-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/03-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/03-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Ba lựa chọn tại điểm duyệt: chấp nhận, trả lại hoặc chuyển người có chuyên môn." width="1600" height="900">
+  <figcaption>Ba lựa chọn tối thiểu; thiếu lựa chọn thứ hai thì người duyệt buộc phải thông qua bản chưa đủ căn cứ</figcaption>
+</figure>
+
+<p>Thời điểm tham gia cũng quyết định phần việc người đó còn kiểm soát được. Một người được thông báo sau khi quảng cáo đã gửi đi không có cùng vai trò với người có thể chặn trước khi gửi. Cả hai đều được gọi là có người giám sát, nhưng chỉ một trong hai thay đổi được kết quả. Gọi chung dễ làm mờ khác biệt này, nhất là khi đội cần trả lời câu hỏi ai chịu trách nhiệm cho một bài đã&nbsp;đăng&nbsp;sai.</p>
+
+<h2>Con người có thể tham gia ở giai đoạn nào?</h2>
+<p>Human-in-the-loop diễn ra ở hai lớp khác nhau, và hai lớp này thường bị gộp. <strong>Lớp vận hành</strong> là lúc hệ thống đang chạy: người sửa bản nháp, xử lý ngoại lệ, quyết định phát hành. <strong>Lớp huấn luyện</strong> là lúc dữ liệu được dùng để thay đổi hành vi của mô hình: người gán nhãn, chấm chất lượng đầu ra, cung cấp phản hồi có chủ đích. <a href="https://aws.amazon.com/what-is/human-in-the-loop/">AWS</a> mô tả nhiều điểm tham gia trải khắp quá trình AI và học máy, không chỉ bước&nbsp;duyệt&nbsp;cuối.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/04-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/04-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/04-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sửa một đầu ra khác với huấn luyện mô hình AI." width="1600" height="900">
+  <figcaption>Sửa một câu trong phiên làm việc không mặc định làm mô hình học lại</figcaption>
+</figure>
+
+<p>Với một đội marketing dùng công cụ có sẵn, việc sửa bài trong phiên không mặc định làm mô hình được huấn luyện lại. Phản hồi có thể chỉ thay bản nháp lần này, hoặc được lưu để phân tích, hoặc không đi đâu cả. Muốn dùng phản hồi cho huấn luyện cần một cơ chế riêng và cần biết nhà cung cấp xử lý dữ liệu&nbsp;thế&nbsp;nào.</p>
+<p>Đây không phải chi tiết kỹ thuật vụn vặt. Nhiều đội để nguyên một lỗi lặp đi lặp lại vì tin rằng công cụ sẽ tự học từ các lần sửa. Thực tế cách sửa lỗi lặp là đổi hướng dẫn đầu vào hoặc đổi tài liệu nguồn, chứ không phải sửa thêm vài chục lần nữa và chờ mô hình nhận ra.</p>
+
+<h2>Human-in-the-loop và human-on-the-loop khác nhau ra sao?</h2>
+<p>Khác ở chỗ hệ thống có dừng lại chờ người hay không. AWS phân biệt hai khái niệm: <strong>human-in-the-loop</strong> là người tham gia vào quyết định cụ thể, hệ thống dừng lại chờ; <strong>human-on-the-loop</strong> là người theo dõi quá trình và can thiệp khi thấy cần, hệ thống vẫn chạy. Thêm một mức thứ ba ít được nhắc: <strong>human-out-of-the-loop</strong>, khi người chỉ xem lại sau khi mọi thứ đã xong.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/05-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/05-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/05-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Human-in-the-loop chờ người duyệt; human-on-the-loop có người giám sát; human-out-of-the-loop không có người can thiệp." width="1600" height="900">
+  <figcaption>Ba tên gọi tương ứng với ba mức trách nhiệm khác nhau</figcaption>
+</figure>
+
+<p>Trong một đội nội dung, ba mức này thường tồn tại song song mà không ai đặt tên cho chúng, dù chỉ mức đầu tiên mới đúng nghĩa human-in-the-loop. Bài blog đi qua mức thứ nhất vì có người duyệt trước khi đăng. Bình luận trả lời tự động trên fanpage có thể đang ở mức thứ hai, người quản trị chỉ đọc lại khi có ai đó phản ánh. Một lịch đăng tự động sinh caption rồi đăng thẳng là mức&nbsp;thứ&nbsp;ba.</p>
+<p>Vấn đề không nằm ở việc mức nào tốt hơn, mà ở việc đội có biết mình đang ở mức nào cho từng loại nội dung hay không. Tên gọi cần đi kèm mô tả quyền thực tế, nếu không thì câu có người giám sát sẽ được dùng để trấn an chính mình. Trong luồng nội dung, không nhất thiết đặt một người ở mọi thao tác, nhưng cần biết ai xác lập nguồn được dùng, ai kiểm khẳng định và ai chịu trách nhiệm quyết định&nbsp;phát&nbsp;hành.</p>
+<p>Đọc tiếp bài <a href="/goc-kien-thuc/ai-marketing/ai-workflow-la-gi/">AI workflow là gì</a> để đặt điểm duyệt vào quan hệ với đầu vào, bước xử lý và trạng thái đầu ra. Nếu còn phân vân giữa hệ thống chạy theo luồng và hệ thống tự chọn bước, bài <a href="/goc-kien-thuc/ai-marketing/ai-agent-va-chatbot-khac-nhau/">AI agent và chatbot khác nhau thế nào</a> phân tích riêng&nbsp;phần&nbsp;này.</p>
+
+<!-- cta:nut -->
+
+<h2>Người duyệt cần được trao những quyền nào?</h2>
+<p>Đạo luật AI của Liên minh châu Âu đưa ra danh sách cụ thể nhất hiện có. <a href="https://artificialintelligenceact.eu/article/14/">Điều 14 khoản 4</a> quy định người được giao giám sát phải được tạo điều kiện để làm&nbsp;năm&nbsp;việc.</p>
+
+<ol>
+  <li><strong>Hiểu năng lực và giới hạn:</strong> hiểu được năng lực và giới hạn của hệ thống, và theo dõi được để phát hiện dấu hiệu bất thường.</li>
+  <li><strong>Ý thức về thiên lệch tự động hóa:</strong> tức xu hướng tin vào đầu ra của máy.</li>
+  <li><strong>Diễn giải đúng đầu ra:</strong> có công cụ hỗ trợ đi kèm để đọc đúng điều hệ thống&nbsp;trả&nbsp;về.</li>
+  <li><strong>Được quyền không dùng đầu ra:</strong> bỏ qua, ghi đè và đảo ngược nó.</li>
+  <li><strong>Can thiệp hoặc dừng hệ thống:</strong> can thiệp được vào quá trình vận hành hoặc dừng hệ thống bằng một&nbsp;nút&nbsp;dừng.</li>
+</ol>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/06-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/06-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/06-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Năm khả năng của người giám sát: hiểu giới hạn, nhận ra lệ thuộc, hiểu đầu ra, bác bỏ và dừng hệ thống; tham chiếu Điều 14 EU AI Act cho AI rủi ro cao." width="1600" height="900">
+  <figcaption>Năm quyền theo Điều 14 khoản 4, dùng được làm bảng kiểm cho bất kỳ điểm duyệt nào</figcaption>
+</figure>
+
+<h3>Điều 14 áp cho nhóm rủi ro cao, không áp cho marketing</h3>
+<p>Cần nói rõ phạm vi để không dùng sai. Quy định này áp cho hệ thống AI thuộc nhóm rủi ro cao, và việc sinh nội dung marketing không nằm trong nhóm đó. Nghĩa là đội marketing không bị ràng buộc bởi Điều 14. Giá trị của nó nằm ở chỗ khác: đây là lần đầu có một văn bản mô tả cụ thể việc giám sát con người đòi hỏi những gì, nên nó dùng được làm bảng kiểm tự nguyện cho bất kỳ điểm&nbsp;duyệt&nbsp;nào.</p>
+<p>Ba trong năm mục đáng chú ý với đội nội dung. Mục thứ hai nêu thẳng thiên lệch tự động hóa như một thứ người giám sát phải được cảnh báo, chứ không coi đó là lỗi cá nhân. Mục thứ tư tách quyền bỏ qua đầu ra khỏi quyền sửa đầu ra, hai việc khác nhau. Mục thứ năm đòi hỏi khả năng dừng, tức là có một trạng thái tạm ngưng chứ không chỉ có đi tiếp&nbsp;hoặc&nbsp;hủy.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/07-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/07-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/07-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Mốc pháp lý cần đối chiếu văn bản mới nhất và đúng phạm vi áp dụng." width="1600" height="900">
+  <figcaption>Mốc áp dụng đã được lùi lại sau khi Digital Omnibus có hiệu lực</figcaption>
+</figure>
+
+<h3>Mốc áp dụng đã được lùi lại</h3>
+<p>Các nghĩa vụ với hệ thống rủi ro cao đã được lùi. Sau khi Digital Omnibus có hiệu lực ngày 27 tháng 7 năm 2026, nhóm Phụ lục III áp dụng từ ngày 2 tháng 12 năm 2027 và nhóm Phụ lục I từ ngày 2 tháng 8 năm 2028. Nội dung yêu cầu không đổi, chỉ thời hạn đổi. Với doanh nghiệp Việt Nam có khách hoặc đối tác tại châu Âu, đây là mốc cần theo dõi chứ chưa phải việc phải&nbsp;làm&nbsp;ngay.</p>
+
+<h2>Ví dụ SME: duyệt quảng cáo miễn phí giao hàng</h2>
+<p>Xét một nhãn cà phê bán trực tuyến thuộc nhóm SME muốn quảng bá ưu đãi giao hàng, với hồ sơ ưu đãi chỉ áp dụng cho nhóm đơn đáp ứng điều kiện về khu vực và giá&nbsp;trị&nbsp;đơn.</p>
+
+<div class="kb-callout">
+  <p class="kb-callout__t">Đây là ví dụ giả định</p>
+  <p>Nhãn cà phê này dùng để giải thích điểm duyệt, không phải chiến dịch đã chạy hay kết quả của một khách hàng thật.</p>
+</div>
+
+<p>AI tạo câu Miễn phí giao hàng cho mọi đơn. Câu nghe rõ, đúng ngữ pháp, đọc lên thấy hấp dẫn, nhưng đã mở rộng phạm vi cam kết so với hồ sơ.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/08-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/08-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/08-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Ví dụ giả định miễn phí giao hàng: mọi đơn khác với đơn đủ điều kiện ưu đãi." width="1600" height="900">
+  <figcaption>Ví dụ giả định: câu nghe rõ vẫn có thể vượt phạm vi cam kết trong hồ sơ</figcaption>
+</figure>
+
+<p>Đây là loại lỗi mà người biên tập giỏi chữ nghĩa nhất cũng không bắt được, vì nó không phải lỗi diễn đạt. Nếu người biên tập chỉ sửa câu cho hấp dẫn hơn, lỗi điều kiện vẫn tồn tại và có khi còn&nbsp;nặng&nbsp;thêm.</p>
+<p>Người phụ trách vận hành cần xác nhận đúng phạm vi ưu đãi; người biên tập đưa điều kiện vào cách diễn đạt dễ hiểu. Hai việc hỗ trợ nhau nhưng dùng tiêu chí khác nhau và cần hai người khác&nbsp;nhau&nbsp;ký.</p>
+<p>Một bản sửa phù hợp có thể ghi Miễn phí giao hàng cho đơn đáp ứng điều kiện ưu đãi, kèm điều kiện cụ thể tại vị trí người đọc thấy được mà không phải bấm thêm. Câu này chỉ là cách diễn đạt minh họa; khi dùng thật, đội cần điền đúng khu vực, mức đơn và thời gian đã được&nbsp;xác&nbsp;nhận.</p>
+<p>Sau khi sửa, người duyệt kiểm lại bản sẽ phát hành. Nếu bản trong màn duyệt khác với bản được gửi, một lượt chấp nhận không chứng minh nội dung thực tế đã được kiểm tra. Phiên bản là một phần của căn cứ duyệt, không phải chi tiết kỹ thuật bên lề. Cách xử lý đơn giản nhất là gắn mã phiên bản vào bản nháp và hiển thị mã đó ngay trong&nbsp;màn&nbsp;duyệt.</p>
+
+<!-- cta:mid -->
+
+<h2>Người duyệt cần nhìn gì và quyết định gì?</h2>
+<p>Cần năm thứ đi kèm bản nháp, không nằm rải rác ở các file khác để người duyệt tự đi tìm. Thiếu một trong năm, lượt duyệt trở thành phán đoán dựa trên cảm giác về chất lượng&nbsp;câu&nbsp;chữ.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/09-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/09-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/09-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Người duyệt cần hồ sơ gốc, phần AI sửa, điều cần kiểm, hành động tiếp và mã phiên bản." width="1600" height="900">
+  <figcaption>Năm mục này đi kèm bản nháp, không để người duyệt tự đi tìm</figcaption>
+</figure>
+
+<h3>Hành động sắp diễn ra là mục hay bị bỏ</h3>
+<p>Mục quan trọng nhưng hay bị bỏ là hành động sắp diễn ra. Khi người duyệt biết bấm chấp nhận sẽ dẫn tới lưu nháp, gửi email cho hai nghìn người, hay đăng công khai lên fanpage, họ mới đánh giá đúng hệ quả của quyết định. Cùng một bản nháp nhưng ba hành động đó xứng đáng ba mức cẩn trọng&nbsp;khác&nbsp;nhau.</p>
+
+<table>
+  <caption>Bốn phần cần duyệt, căn cứ và người phù hợp cho từng phần</caption>
+  <thead>
+    <tr><th>Phần cần duyệt</th><th>Căn cứ phù hợp</th><th>Người phù hợp</th><th>Quyết định có thể đưa ra</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Điều kiện ưu đãi</td><td>Hồ sơ được người phụ trách xác nhận</td><td>Người&nbsp;vận&nbsp;hành</td><td>Giữ đúng phạm vi cam kết hoặc trả lại hồ sơ</td></tr>
+    <tr><td>Khẳng định về sản phẩm</td><td>Tài liệu đúng dòng và đúng phiên bản</td><td>Người&nbsp;phụ&nbsp;trách</td><td>Sửa, bỏ hoặc yêu cầu thêm căn cứ cho khẳng định</td></tr>
+    <tr><td>Số liệu và nguồn dẫn</td><td>Nguồn gốc kèm ngày và phạm vi đo</td><td>Người&nbsp;biên&nbsp;tập</td><td>Đối chiếu lại hoặc gỡ số liệu khỏi&nbsp;bài&nbsp;viết</td></tr>
+    <tr><td>Giọng điệu và cách nói</td><td>Hướng dẫn thương hiệu và ngữ cảnh kênh</td><td>Người&nbsp;biên&nbsp;tập</td><td>Biên tập cách diễn đạt</td></tr>
+  </tbody>
+</table>
+
+<p>Bảng này cho thấy vì sao không nên giao mọi phần cho một người chỉ có trách nhiệm kiểm giọng. Khi gặp thông tin vượt chuyên môn, quyền chuyển cho người phù hợp quan trọng ngang quyền sửa. Đọc tiếp bài <a href="/goc-kien-thuc/marketing/brand-voice-va-tone-of-voice/">Brand voice và tone of voice khác nhau thế nào</a> để tách bản sắc giọng khỏi độ đúng của&nbsp;dữ&nbsp;kiện.</p>
+<p>Điểm duyệt cũng cần cho phép phản hồi rõ lý do. Nếu lựa chọn duy nhất là chấp nhận, người duyệt có thể phải thông qua một bản chưa đủ căn cứ để tránh làm công việc mắc lại. Một phương án trả lại hồ sơ hoặc từ chối giúp giữ trạng thái chưa hoàn tất đúng với thực tế, thay vì đẩy trạng thái đó sang&nbsp;chỗ&nbsp;khác.</p>
+
+<h2>Vì sao người duyệt vẫn có thể bỏ sót lỗi?</h2>
+<p>Vì thiên lệch tự động hóa là một cơ chế có thật, đo được, và nó tác động cả lên người có chuyên môn đang giữ vai trò human-in-the-loop. Một <a href="https://arxiv.org/abs/2411.00998">nghiên cứu công bố ngày 1 tháng 11 năm 2024 trên 28 chuyên gia giải phẫu bệnh</a> cho thấy trong 560 lượt đánh giá có AI hỗ trợ, có 38 lượt mà một đánh giá ban đầu đúng bị gợi ý sai của AI lật ngược. Tỉ lệ&nbsp;khoảng&nbsp;7%.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/10-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/10-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/10-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Chuyên gia vẫn cần đối chiếu căn cứ khi xem gợi ý AI; minh họa từ nghiên cứu trong bối cảnh y khoa." width="1600" height="900">
+  <figcaption>Người có chuyên môn, đang làm đúng việc của mình, vẫn có thể bị một gợi ý sai kéo khỏi kết luận đúng</figcaption>
+</figure>
+
+<h3>Cách đọc con số 7% đúng phạm vi</h3>
+<p>Đây là bối cảnh y khoa với chuyên gia được đào tạo bài bản, không phải đội nội dung, nên không suy ra tỉ lệ tương đương cho việc duyệt bài. Cùng nghiên cứu cũng ghi nhận các chuyên gia phần lớn không đổi ý theo AI khi hai bên khác nhau, chỉ 67 trên 560 lượt là&nbsp;có&nbsp;đổi.</p>
+<p>Giá trị của con số nằm ở cơ chế, không nằm ở độ lớn: ngay cả người đang làm đúng chuyên môn của mình vẫn có thể bị một gợi ý sai kéo khỏi kết luận đúng&nbsp;ban&nbsp;đầu.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/11-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/11-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/11-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Áp lực thời gian có thể làm người kiểm bám gợi ý AI hơn; minh họa trong bối cảnh nghiên cứu y khoa." width="1600" height="900">
+  <figcaption>Sức ép thời gian không làm tăng số lỗi, nó làm nặng thêm mức lệ thuộc vào bản nháp</figcaption>
+</figure>
+
+<h3>Sức ép thời gian làm người duyệt bám theo bản nháp hơn</h3>
+<p>Phát hiện thứ hai của nghiên cứu này đáng chú ý hơn với đội marketing. Khi có sức ép thời gian, tỉ lệ bị gợi ý sai kéo theo vẫn giữ nguyên khoảng 7%, nhưng mức bám theo gợi ý của máy tăng từ 0,58 lên 0,65 và hiệu quả làm việc giảm. Nói cách khác, rút ngắn thời gian duyệt để chạy kịp chiến dịch không làm người duyệt sai nhiều hơn về số lượt, nhưng làm họ bám theo bản nháp nhiều hơn và sửa&nbsp;ít&nbsp;đi.</p>
+<p>Cộng thêm các nguyên nhân quen thuộc: người duyệt thiếu tài liệu, đọc nhiều quảng cáo giống nhau nên quen nhìn vào tiêu đề và bỏ phần điều kiện, hoặc hồ sơ ưu đãi nằm ở một nơi khác và đã đổi&nbsp;phiên&nbsp;bản.</p>
+<p><a href="https://www.ibm.com/think/topics/human-in-the-loop">IBM</a> cũng lưu ý người vốn có thiên lệch riêng, nên sự tham gia của người là một lớp hỗ trợ, không phải chứng nhận tuyệt đối. Giao cho một mô hình AI khác tự kiểm bài cũng không giải quyết được phần quyền và trách nhiệm. Đọc tiếp bài <a href="/goc-kien-thuc/ai-marketing/ao-giac-ai-la-gi/">Ảo giác AI là gì</a> để hiểu vì sao có dẫn nguồn vẫn chưa đủ xác nhận nội&nbsp;dung&nbsp;đúng.</p>
+
+<h2>Cách nói nào giúp người duyệt tỉnh táo hơn?</h2>
+<p>Nói về tỉ lệ sai, thay vì nói về tỉ lệ đúng. Đây là kết quả của một <a href="https://doi.org/10.1186/s41235-026-00726-w">nghiên cứu công bố ngày 30 tháng 4 năm 2026 trên tạp chí Cognitive Research: Principles and Implications</a>. Nhóm tác giả cho 175 người dùng một hệ thống AI mô phỏng có tỉ lệ sai khoảng 20%, rồi thay đổi cách giới thiệu hệ thống đó với&nbsp;từng&nbsp;nhóm.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/12-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/12-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/12-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Đúng 80 phần trăm và sai 20 phần trăm là cùng thông tin được diễn đạt khác nhau." width="1600" height="900">
+  <figcaption>Cùng một thông tin, hai cách diễn đạt, hai kết quả khác nhau</figcaption>
+</figure>
+
+<p>Kết quả: nhấn vào rủi ro sai của AI có tác dụng giảm xu hướng đi theo gợi ý sai mạnh hơn là nhấn vào độ chính xác của nó. Người được cảnh báo về tỉ lệ lỗi cũng ít bị nhiễm thiên lệch từ&nbsp;máy&nbsp;hơn.</p>
+<p>Việc cần làm khi đưa human-in-the-loop vào đội nội dung rất cụ thể. Khi bàn giao một công cụ AI cho người viết và người duyệt, đừng giới thiệu bằng câu công cụ này chính xác cao. Hãy ghi rõ tỉ lệ sai ước lượng và quan trọng hơn là loại lỗi thường gặp.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/13-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/13-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/13-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Bốn loại lỗi cần kiểm: bịa số liệu, quá phạm vi, mất điều kiện và nhầm phiên bản." width="1600" height="900">
+  <figcaption>Danh sách loại lỗi cụ thể hữu ích hơn một con số, vì nó chỉ cho người duyệt biết phải nhìn vào đâu</figcaption>
+</figure>
+
+<p>Bốn loại lỗi trong hình là ví dụ, không phải danh sách chuẩn. Mỗi đội cần rút danh sách của riêng mình từ chính các bản đã duyệt được lấy mẫu, vì loại lỗi phụ thuộc vào ngành hàng, vào cách viết hướng dẫn đầu vào và vào chất lượng hồ sơ nguồn. Một đội bán thiết bị kỹ thuật sẽ gặp nhiều lỗi nhầm thông số; một đội bán dịch vụ sẽ gặp nhiều lỗi mở rộng phạm vi cam kết.</p>
+
+<h3>Thí nghiệm này có giới hạn gì?</h3>
+<p>Thí nghiệm chạy trên 175 sinh viên với một nhiệm vụ mô phỏng, không phải trên người làm nội dung chuyên nghiệp. Nó không cho biết tác dụng kéo dài bao lâu, và cũng không nói cảnh báo sẽ hiệu quả với mọi loại công việc. Điều dùng được là hướng: mô tả giới hạn cụ thể hơn là quảng cáo&nbsp;năng&nbsp;lực.</p>
+
+<!-- cta:nut -->
+
+<h2>Mức duyệt nào cho loại nội dung nào?</h2>
+<p>Phân theo hệ quả khi lỗi lọt ra ngoài, không phân theo độ dài bài hay theo kênh đăng. Áp một mức human-in-the-loop cho mọi loại nội dung dẫn tới hai hỏng cùng lúc: nội dung rủi ro cao bị duyệt qua loa vì hàng chờ quá dài, còn ghi chú nội bộ thì tắc lại vô ích.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/14-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/14-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/14-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Phân mức duyệt theo hậu quả: nội bộ đọc lướt, công khai kiểm căn cứ, cam kết cần xác nhận rồi duyệt." width="1600" height="900">
+  <figcaption>Phân mức theo hệ quả khi lỗi lọt ra ngoài, không phân theo độ dài bài</figcaption>
+</figure>
+
+<ul class="kb-list-cards">
+  <li><strong>Mức một, lỗi dễ sửa và không ra ngoài:</strong> ghi chú nội bộ, tóm tắt họp, bản nháp ý tưởng chưa dùng tới. Một người đọc lướt&nbsp;là&nbsp;đủ.</li>
+  <li><strong>Mức hai, nội dung ra ngoài nhưng sửa được:</strong> bài blog, bài mạng xã hội, mô tả sản phẩm trên sàn thương mại điện tử. Cần kiểm dữ kiện rồi một&nbsp;người&nbsp;duyệt.</li>
+  <li><strong>Mức ba, nội dung tạo ra cam kết với khách:</strong> quảng cáo có điều kiện ưu đãi, nội dung về giá, bảo hành hoặc sức khỏe. Ở mức này cần người vận hành xác nhận phạm vi trước, rồi người&nbsp;duyệt&nbsp;ký.</li>
+</ul>
+
+<h3>Cách dựng bảng phân mức cho đội mình</h3>
+<p>Việc này khá đơn giản. Liệt kê mười loại nội dung đội đang sản xuất, với mỗi loại hỏi một câu: nếu bài này sai, điều tệ nhất có thể xảy ra là gì và mất bao lâu để sửa. Câu trả lời sẽ tự chia mười loại đó thành ba nhóm. Điều quan trọng là bảng này được viết ra và được thống nhất, chứ không nằm trong đầu&nbsp;trưởng&nbsp;nhóm.</p>
+<p>Với nội dung cá nhân hóa theo từng khách, hãy tách bước chọn gợi ý khỏi bước viết lời giới thiệu vì hai bước cần tiêu chí duyệt khác nhau, như bài <a href="/goc-kien-thuc/ai-marketing/ai-personalization-la-gi/">AI personalization là gì</a> phân tích.</p>
+
+<h2>Đánh giá chất lượng duyệt bằng chỉ số nào?</h2>
+<p>Không bằng tỉ lệ chấp nhận đứng một mình. Tỉ lệ chấp nhận cao có thể là do bản nháp tốt, do tiêu chí quá dễ, hoặc do người duyệt đang lướt nhanh, và ba nguyên nhân đó cần ba cách xử lý hoàn toàn khác nhau. Một chỉ số không phân biệt được ba nguyên nhân thì không dùng để ra quyết&nbsp;định&nbsp;được.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/15-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/15-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/15-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Đo lỗi còn sót, lý do trả lại, thời gian chờ chuyên môn và vòng làm lại." width="1600" height="900">
+  <figcaption>Tỉ lệ chấp nhận chỉ có nghĩa khi đọc cùng lỗi còn lọt và thời gian chờ</figcaption>
+</figure>
+
+<p>Chỉ số đáng tin nhất của human-in-the-loop là lỗi còn lọt sau khi duyệt, và cách đo nó là lấy mẫu. Mỗi tháng rút ngẫu nhiên khoảng mười bản đã được chấp nhận rồi đối chiếu lại với hồ sơ gốc. Số lỗi tìm thấy trong mẫu đó nói nhiều hơn mọi chỉ số quy trình khác, vì nó đo kết quả chứ không đo&nbsp;thao&nbsp;tác.</p>
+
+<h3>Ba chỉ số nên đọc kèm</h3>
+<p>Nội dung đã sửa và lý do từ chối cho biết người duyệt đang bắt được loại lỗi nào và bỏ sót loại nào. Thời gian chờ người có chuyên môn cho biết điểm nghẽn nằm ở khâu nào. Tỉ lệ bản phải quay lại từ hai lần trở lên cho biết tiêu chí đầu ra có đủ rõ ngay từ đầu hay không, vì một bản quay lại ba lần thường là dấu hiệu đề bài chưa rõ chứ không phải người&nbsp;viết&nbsp;kém.</p>
+<p>Nếu những người duyệt thường bất đồng với nhau, hãy kiểm tra họ có cùng hồ sơ và hiểu cùng điều kiện hay không, trước khi kết luận một người làm sai. Phần lớn bất đồng trong khâu duyệt đến từ việc hai người đang đọc hai bản tài liệu&nbsp;khác&nbsp;nhau.</p>
+
+<!-- cta:late -->
+
+<h2>Chi phí thật của một điểm duyệt nằm ở đâu?</h2>
+<p>Ở bốn khoản thời gian của human-in-the-loop, và cả bốn đều không nằm trên bảng giá công cụ. Đây là phần làm một quy trình trông gọn trong bản kế hoạch mà tắc trong&nbsp;vận&nbsp;hành.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/16-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/16-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/16-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Bốn chi phí: đọc hồ sơ, trao đổi, chờ chuyên môn và làm lại." width="1600" height="900">
+  <figcaption>Bốn khoản này không biến mất khi đổi công cụ AI, chúng chỉ đổi chỗ trong luồng</figcaption>
+</figure>
+
+<h3>Chi phí hàng chờ tăng theo cách phản trực giác</h3>
+<p>Khoản đáng chú ý nhất là chi phí hàng chờ, vì nó tăng theo cách phản trực giác. Khi đội tự động hóa bước soạn, số bản nháp tạo ra tăng lên nhiều lần, nhưng số người đủ thẩm quyền duyệt thì không đổi. Kết quả là nhiều bản dồn về cùng một chốt, thời gian chờ kéo dài, và người duyệt bắt đầu đọc nhanh hơn để giải phóng hàng chờ. Đúng lúc đó, nghiên cứu về sức ép thời gian ở phần trên bắt đầu có&nbsp;hiệu&nbsp;lực.</p>
+<p>Vì vậy khi đo lợi ích, hãy nhìn toàn luồng: thời gian từ lúc đủ hồ sơ tới lúc có bản được duyệt, chứ không phải tốc độ tạo chữ. Tách riêng thời gian hệ thống xử lý với thời gian chờ người phụ trách. Nếu chờ là điểm nghẽn, đổi mô hình AI mạnh hơn không giải quyết vấn đề, mà có khi còn làm nặng thêm vì nó tạo ra nhiều bản nháp hơn nữa.</p>
+
+<h2>Thiết kế điểm duyệt đầu tiên từ đâu?</h2>
+<p>Từ việc liệt kê những gì người duyệt hiện đang không nhìn thấy. Đây là bước rẻ nhất và thường mang lại thay đổi lớn nhất, vì phần lớn điểm duyệt kém không phải do người kém mà do người đó bị đặt vào thế&nbsp;phải&nbsp;đoán.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/17-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/17-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/17-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Ba lỗi thiết kế: chỉ bấm duyệt, sai phiên bản và một mức cho mọi việc." width="1600" height="900">
+  <figcaption>Mỗi sai lầm có một cách sửa cụ thể, không phải một lời khuyên chung</figcaption>
+</figure>
+
+<p>Ba sai lầm hay gặp đều sửa được bằng thao tác nhỏ. <strong>Điểm duyệt chỉ có nút chấp nhận</strong> thì thêm phương án trả lại kèm lý do và phương án chuyển người có chuyên môn. <strong>Bản đang duyệt không chắc là bản sẽ phát hành</strong> thì gắn mã phiên bản và hiển thị mã đó trong màn duyệt. <strong>Một mức duyệt cho mọi nội dung</strong> thì dựng bảng ba mức theo hệ quả&nbsp;của&nbsp;lỗi.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/human-in-the-loop/18-human-in-the-loop.webp" srcset="/assets/kb/human-in-the-loop/18-human-in-the-loop-800.webp 800w, /assets/kb/human-in-the-loop/18-human-in-the-loop.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Bốn bước bắt đầu: tìm phần thiếu, đưa đủ căn cứ, thêm lựa chọn và kiểm lại mẫu." width="1600" height="900">
+  <figcaption>Bốn bước này không cần đổi công cụ và không cần ngân sách</figcaption>
+</figure>
+
+<h3>Bước 1: Tìm phần thiếu</h3>
+<p>Liệt kê những gì người duyệt hiện đang không nhìn thấy khi mở bản nháp: hồ sơ gốc, phần AI đã sửa, điều cần kiểm, hành động sắp diễn ra và mã phiên bản. Mỗi chỗ thiếu là một chỗ người duyệt buộc&nbsp;phải&nbsp;đoán.</p>
+
+<h3>Bước 2: Đưa đủ căn cứ</h3>
+<p>Đưa năm thứ đó vào cùng màn với bản nháp để người duyệt không phải đi tìm ở các file khác. Gắn mã phiên bản vào bản nháp và hiển thị mã đó ngay trong&nbsp;màn&nbsp;duyệt.</p>
+
+<h3>Bước 3: Thêm lựa chọn</h3>
+<p>Bổ sung phương án trả lại kèm lý do và phương án chuyển cho người có chuyên môn phù hợp, để người duyệt không bị đẩy vào thế chỉ còn nút chấp nhận.</p>
+
+<h3>Bước 4: Kiểm lại mẫu</h3>
+<p>Chạy khoảng một tháng, rồi lấy mẫu mười bản đã duyệt để đối chiếu với hồ sơ gốc và ghi lại loại lỗi&nbsp;tìm&nbsp;thấy.</p>
+
+<p>Danh sách loại lỗi đó chính là thứ cần đưa cho người duyệt ở tháng tiếp theo, theo đúng nguyên tắc mô tả giới hạn cụ thể thay vì quảng cáo năng lực. Một điểm duyệt tốt lên qua từng vòng như vậy, không tốt lên nhờ đổi&nbsp;công&nbsp;cụ.</p>
+
+<!-- faq -->
+
+<h2>Kết luận: Human-in-the-loop là gì và dùng thế nào cho đúng?</h2>
+<p>Human-in-the-loop trong marketing nên được hiểu qua phần việc con người thực sự kiểm soát. Khi người có thể đối chiếu, sửa hoặc dừng đúng phiên bản, việc duyệt mới đóng góp vào chất lượng nội dung. Còn nếu người duyệt chỉ có một nút và không có căn cứ, thì dù quy trình ghi là có người duyệt, phần chịu trách nhiệm thật sự vẫn đang&nbsp;bỏ&nbsp;trống.</p>
+<p>Hãy bắt đầu bằng việc liệt kê những gì người duyệt đang không nhìn thấy, rồi lấy mẫu mười bản đã duyệt sau một tháng để biết lỗi nào còn lọt. Xem thêm các bài khác trong chuyên mục <a href="/goc-kien-thuc/ai-marketing/">AI Marketing</a> hoặc <a href="/#du-an">những dự án tôi đã triển khai</a>.</p>

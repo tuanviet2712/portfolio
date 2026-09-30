@@ -135,7 +135,20 @@
       // The last pen ends only after every letter and Vietnamese accent is drawn.
       const lastPen = pens[pens.length - 1];
       if (lastPen) lastPen.addEventListener('animationend', completeWriting, { once: true });
-      requestAnimationFrame(() => {
+      // Start writing once the page's start-up work (deferred scripts, fonts, layout passes) has settled:
+      // a stroke drawn across a long frame would jump. Needs 150 ms of smooth frames; waits 1.6 s at most.
+      const whenQuiet = go => {
+        if (LTV.reduced) return requestAnimationFrame(go);
+        const t0 = performance.now();
+        let last = t0, calm = t0;
+        const check = now => {
+          if (now - last > 34 || document.readyState !== 'complete') calm = now;
+          last = now;
+          if (now - calm >= 150 || now - t0 >= 1600) go(); else requestAnimationFrame(check);
+        };
+        requestAnimationFrame(check);
+      };
+      whenQuiet(() => {
         pre.classList.add('is-writing');
         if (LTV.reduced || !lastPen) completeWriting();
         else {

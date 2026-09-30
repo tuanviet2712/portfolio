@@ -1,8 +1,28 @@
 /*
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
-  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; frame-ancestors 'self'
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests
+  ! Access-Control-Allow-Origin
 
+# Bộ nhớ đệm cho tệp nặng ít đổi (Cloudflare Pages mặc định chỉ 4 giờ, khiến khách quay lại phải tải lại font, khung hình hero, video).
+# Font: tên tệp do Google đặt theo nội dung nên để 1 năm. Hero, khung hình, video: 7 ngày, đủ dài mà vẫn cập nhật được khi thay ảnh.
+# css/js và ảnh bìa bài viết KHÔNG đặt ở đây vì tên tệp không đổi khi nội dung đổi.
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/hero/*
+  Cache-Control: public, max-age=604800
+/assets/frames/*
+  Cache-Control: public, max-age=604800
+/assets/video/*
+  Cache-Control: public, max-age=604800
+
+# Chỉ mục tìm kiếm của Góc kiến thức: chỉ dành cho ô tìm kiếm, không cho Google lập chỉ mục
+/goc-kien-thuc/search.json
+  X-Robots-Tag: noindex
+
+# Tệp báo lỗi bảo mật cần ở dạng văn bản thuần
+/.well-known/security.txt
+  Content-Type: text/plain; charset=utf-8

@@ -1,4 +1,15 @@
 User-agent: *
 Allow: /
 
+# Trình thu thập của công cụ AI (GEO): cho phép đọc toàn bộ nội dung công khai để trích dẫn
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://letuanviet.digital/sitemap.xml

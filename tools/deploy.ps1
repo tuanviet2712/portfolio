@@ -21,9 +21,9 @@ $root = Split-Path -Parent $PSScriptRoot
 $dist = Join-Path $root "dist"
 
 # Chi nhung muc duoi day moi duoc len web. Them gi moi thi them vao day.
-$folders = @("assets", "css", "js")
+$folders = @("assets", "css", "js", "goc-kien-thuc", ".well-known")
 $files = @("index.html", "404.html", "google49ce971bbd8cd1d5.html",
-           "_headers", "robots.txt", "sitemap.xml", "manifest.json")
+           "_headers", "robots.txt", "sitemap.xml", "manifest.json", "llms.txt")
 
 Write-Host ""
 Write-Host "  Dung lai thu muc dist ..." -ForegroundColor Cyan
@@ -47,7 +47,7 @@ Write-Host "    $count file, $size MB" -ForegroundColor Green
 
 # Canh bao neu co thu bi lot vao ngoai y muon
 $leak = Get-ChildItem -LiteralPath $dist -Recurse -File |
-  Where-Object { $_.Extension -in ".ps1", ".bat", ".md", ".py", ".exe" -or $_.Name -in "package.json", "package-lock.json" }
+  Where-Object { $_.Extension -in ".ps1", ".bat", ".md", ".py", ".exe", ".cjs", ".map", ".pem", ".key", ".sql", ".zip" -or $_.Name -in "package.json", "package-lock.json" -or $_.Name -like ".env*" }
 if ($leak) {
   Write-Host "    CANH BAO: co file khong nen cong khai trong dist:" -ForegroundColor Red
   $leak | ForEach-Object { "      " + $_.FullName.Substring($dist.Length + 1) }

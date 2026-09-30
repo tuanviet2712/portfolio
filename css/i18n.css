@@ -1,0 +1,149 @@
+/* ==========================================================================
+   EN typography overrides
+   Keep text-align:justify but prevent ugly inter-word gaps that appear when
+   English (longer words, fewer per line) is set in containers sized for
+   Vietnamese.  NO hyphens (the user does not want dash characters).
+   text-wrap:pretty lets the browser redistribute words across lines so the
+   last line never has only 1–2 orphaned words.
+   ========================================================================== */
+
+/* ── Master rule: every justified English text element ── */
+html[data-lang="en"] .desc,
+html[data-lang="en"] .ch__text,
+html[data-lang="en"] .hero-pos,
+html[data-lang="en"] .ch-stat > span,
+html[data-lang="en"] .vrow__proof,
+html[data-lang="en"] .vrow__content .desc,
+html[data-lang="en"] .vpanel .desc,
+html[data-lang="en"] .about__block .desc,
+html[data-lang="en"] .strength .desc,
+html[data-lang="en"] .tl .desc,
+html[data-lang="en"] .quote__text,
+html[data-lang="en"] .sec-head__foot .desc,
+html[data-lang="en"] .skill--feat .desc,
+html[data-lang="en"] .pstep .desc,
+html[data-lang="en"] .cta__main .desc,
+html[data-lang="en"] .footer__brand .desc {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  overflow-wrap: break-word;
+  word-spacing: -0.04em;
+  text-wrap: pretty;
+  /* js/en-justify.js sets each line as a nowrap block; without this the longest
+     line becomes the min-content width and pushes the box out of a grid cell */
+  min-width: 0;
+}
+
+/* Lines set by js/en-justify.js: each line is its own fully justified block,
+   the last one keeps the paragraph's own text-align-last (left / centre) */
+html[data-lang="en"] .jt { display: block; min-width: 0; }
+html[data-lang="en"] .jl { display: block; white-space: nowrap; text-align-last: justify; }
+html[data-lang="en"] .jl--last { text-align-last: inherit; }
+/* The Results box styles every <span> as its label pill: keep the line wrappers plain text */
+html[data-lang="en"] .vrow__proof .jt,
+html[data-lang="en"] .vrow__proof .jl {
+  display: block; padding: 0; border-radius: 0; background: none;
+  font-size: inherit; font-weight: inherit; letter-spacing: inherit; text-transform: none; color: inherit;
+}
+html[data-lang="en"] .vrow__proof .jl { white-space: nowrap; }
+
+/* Skill subtitle: prevent orphans */
+html[data-lang="en"] .skill__sub {
+  text-wrap: pretty;
+}
+
+/* ── Project category description: same shape as the Vietnamese one —
+   a full justified first line and a shorter, centred second line ── */
+html[data-lang="en"] .pw__desc {
+  text-align: justify;
+  text-align-last: center;
+  text-justify: inter-word;
+  hyphens: none;
+  -webkit-hyphens: none;
+  text-wrap: wrap;
+}
+
+/* (The first strength card used to be widened by 12px so the English text fit;
+   js/en-justify.js now breaks the lines to the real column, so it stays put.) */
+
+/* ── CTA section: keep all 3 EN buttons on one row ── */
+html[data-lang="en"] .cta__main .btn-row {
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+@media (max-width: 760px) {
+  html[data-lang="en"] .cta__main .btn-row {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+
+/* ==========================================================================
+   Language switcher (shared — not language-specific)
+   ========================================================================== */
+
+/* ==========================================================================
+   Floating language switcher — fixed bottom-left
+   Mirrors the totop button position & reveal behaviour.
+   ========================================================================== */
+
+.lang-float {
+  position: fixed;
+  left: clamp(16px, 2.2vw, 26px);
+  bottom: clamp(16px, 2.2vw, 26px);
+  z-index: 110;
+  height: 42px;
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid rgba(255, 255, 255, .85);
+  border-radius: 999px;
+  background: rgb(var(--ivory-rgb) / .78);
+  box-shadow: var(--shadow-float);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  transform: translateY(20px) scale(.8);
+  pointer-events: none;
+  transition: opacity .5s var(--ease), transform .6s var(--ease), background .3s;
+}
+.lang-float.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.lang-float__option {
+  min-width: 36px;
+  height: 34px;
+  padding-inline: 10px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: var(--ink-3);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .06em;
+  transition: color .25s ease, background .25s ease, box-shadow .25s ease;
+}
+
+.lang-float__option:hover { color: var(--ink); }
+.lang-float__option.is-active {
+  color: var(--ivory);
+  background: var(--grad-btn);
+  box-shadow: 0 5px 12px -8px rgb(var(--blue-rgb) / .75);
+}
+.lang-float__option:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+.lang-float__sep { color: rgb(var(--ink-rgb) / .22); font-size: 11px; font-weight: 300; }
+
+
+@media (max-width: 430px) {
+  .lang-float { height: 38px; padding: 3px; }
+  .lang-float__option { min-width: 32px; height: 32px; padding-inline: 8px; font-size: 10px; }
+}

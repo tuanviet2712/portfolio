@@ -1,0 +1,470 @@
+/* ==========================================================================
+   GÓC KIẾN THỨC — TRANG BÀI VIẾT (form mẫu dùng chung cho mọi bài)
+   Nạp riêng ở trang bài viết, sau style.min.css + kb-core.css + kb.css. HTML do tools/kb/build-kb.cjs tạo.
+
+   Nguyên tắc: nền xám nhạt, bài viết là tờ giấy trắng (máy tính, máy tính bảng), tiêu đề 1 dòng trên máy tính (data-fit), cột đọc 740px chữ 15px (dòng 1.9, đoạn cách 1.6em), căn đều hai bên.
+   Cột phải 320px (từ 1280px): tìm kiếm, chuyên mục, kiến thức mới, ô liên hệ (thẻ .bio như trang chủ) dính khi cuộn.
+   Mục lục là hộp gập trong bài (và bảng trượt trên điện thoại), không đặt ở cột phải.
+   Khối kêu gọi: gọn một hàng, một câu hỏi, một dòng mô tả, một nút.
+   Khối nội dung dùng được trong bài (tools/kb/articles/*.html):
+     p.kb-def          định nghĩa            p.kb-out        đầu ra của một bước
+     div.kb-callout    kinh nghiệm thực tế   div.kb-case     kết quả dự án (dl.kb-case__m)
+     dl.kb-stats       3 con số nổi bật      ul|ol.kb-list-cards  thẻ 2 cột (đúng 3 thẻ thì 3 cột, lẻ ≥5 thì thẻ cuối trải hết hàng)
+     figure.kb-figure > ol.kb-steps          sơ đồ các bước
+   ========================================================================== */
+.kb--article {
+  --a-text: #2B3A5C;
+  --a-muted: #5F6F92;
+  --a-line: #E4E9F2;
+  --a-line-2: #EEF2F8;
+  --a-tint: #F6F8FD;
+  --a-tint-2: #EAF1FF;
+  --a-r: 16px;
+  --a-page: #EEF2F8;                                  /* nền trang: tờ giấy trắng của bài viết nằm trên nền này */
+  background: #fff;
+}
+
+/* ---------- Khung: cột đọc + cột phải ---------- */
+.kb-art { padding: calc(var(--nav-h) + 28px) 0 clamp(64px, 8vw, 104px); background: var(--a-page); }
+.kb-art__grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; column-gap: 36px; align-items: start; }
+/* Tờ giấy: nền trắng, viền mảnh, bóng rất nhẹ, lề trong đều bốn phía */
+.kb-art__main { min-width: 0; padding: clamp(28px, 3.4vw, 48px) clamp(24px, 3.4vw, 48px) clamp(28px, 3vw, 40px); border-radius: 20px; background: #fff; border: 1px solid #E2E8F2; box-shadow: 0 1px 2px rgb(var(--shadow-rgb) / .05), 0 36px 70px -56px rgb(var(--shadow-rgb) / .4); }
+.kb-art__aside { align-self: stretch; min-width: 0; display: flex; flex-direction: column; gap: 32px; }
+
+/* ---------- Đầu bài ---------- */
+.kb-art__head .kb-crumbs { margin-bottom: 26px; }
+.kb-art__h1 { margin-top: 0; font-size: 1.65rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.3; color: var(--ink); }
+.kb-art__sapo { margin-top: 16px; font-size: 15.5px; line-height: 1.9; color: #44547A; text-align: justify; text-align-last: left; text-wrap: pretty; }
+.kb-art__by { margin-top: 26px; padding-top: 20px; border-top: 1px solid var(--a-line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px; }
+.kb-art__who { display: inline-flex; align-items: center; gap: 12px; min-width: 0; }
+.kb-art__who img { width: 44px; height: 44px; flex: none; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 3px #fff, 0 0 0 4px var(--a-line); }
+.kb-art__who b { display: flex; align-items: center; gap: 6px; font-size: 14.5px; line-height: 1.3; color: var(--ink); transition: color .25s; }
+.kb-art__who b svg { width: 14px; height: 14px; color: var(--blue); }
+.kb-art__who small { display: block; font-size: 12.5px; color: var(--a-muted); }
+.kb-art__who:hover b { color: var(--blue); }
+.kb-art__dates { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--a-muted); }
+.kb-art__dates li { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+.kb-art__dates svg { width: 15px; height: 15px; flex: none; }
+
+.kb-art__cover { margin: 30px 0 0; }
+.kb-art__cover picture { display: block; overflow: hidden; border-radius: 18px; aspect-ratio: 1200 / 630; background: #0F1A3A; box-shadow: 0 30px 56px -44px rgb(var(--shadow-rgb) / .55); }
+.kb-art__cover img { width: 100%; height: 100%; object-fit: cover; }
+.kb-art__cover figcaption { margin-top: 12px; font-size: 13px; line-height: 1.5; color: var(--a-muted); text-align: center; }
+
+/* ---------- Nút ---------- */
+.kb-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 46px; padding: 0 20px; border-radius: 999px; font-size: 14.5px; font-weight: 700; line-height: 1; white-space: nowrap; text-decoration: none; transition: transform .45s var(--ease), box-shadow .45s var(--ease), background .3s, color .3s, border-color .3s; }
+.kb-btn svg { width: 17px; height: 17px; flex: none; }
+.kb-btn:active { transform: scale(.97); }
+.kb-btn--primary { color: #fff; background: linear-gradient(120deg, #2F8CFF 0%, #1B5CF2 55%, #1A43C9 100%); box-shadow: 0 12px 24px -14px rgb(var(--blue-rgb) / .85); }
+.kb-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 18px 30px -16px rgb(var(--blue-rgb) / .9); }
+.kb-btn--ghost { color: var(--ink); background: #fff; border: 1px solid var(--a-line); }
+.kb-btn--ghost:hover { color: var(--blue); border-color: rgb(var(--blue-rgb) / .45); }
+.kb-btn--block { width: 100%; }
+
+/* ---------- Tóm tắt nhanh ---------- */
+.kb-sum { margin-top: 36px; padding: 18px 24px 20px; border-radius: 14px; background: var(--a-tint); border: 1px solid #E3EAF8; }
+.kb-sum__t { display: flex; align-items: center; gap: 9px; padding-bottom: 12px; border-bottom: 1px solid #E0E7F4; font-size: 15px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); }
+.kb-sum__t svg { width: 18px; height: 18px; flex: none; color: var(--blue); }
+.kb-sum ul { margin-top: 14px; display: grid; gap: 8px; }
+.kb-sum li { position: relative; padding-left: 20px; font-size: 14.5px; line-height: 1.8; color: var(--a-text); text-align: justify; text-align-last: left; text-wrap: pretty; }
+.kb-sum li::before { content: ""; position: absolute; left: 3px; top: calc(.9em - 2.5px); width: 5px; height: 5px; border-radius: 50%; background: var(--blue); }
+
+/* ---------- Mục lục (hộp gập trong bài + bảng trượt trên điện thoại) ---------- */
+.kb-toc__list { display: grid; gap: 2px; }
+.kb-toc__list a { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 10px; align-items: start; padding: 8px 10px; border-radius: 10px; font-size: 13.5px; line-height: 1.5; color: var(--a-text); text-align: left; transition: background .2s, color .2s; }
+.kb-toc__list a:hover { background: var(--a-tint); color: var(--blue); }
+.kb-toc__n { width: 22px; height: 22px; border-radius: 7px; display: grid; place-items: center; font-size: 11.5px; font-weight: 800; color: var(--a-muted); background: var(--a-tint-2); transition: background .25s, color .25s; }
+.kb-toc__list a.is-active, .kb-toc__list a.is-parent { color: var(--ink); font-weight: 600; }
+.kb-toc__list a.is-active { background: var(--a-tint); }
+.kb-toc__list a.is-active .kb-toc__n, .kb-toc__list a.is-parent .kb-toc__n { color: #fff; background: var(--blue); }
+.kb-toc__list ol { display: grid; gap: 1px; margin: 2px 0 6px 20px; padding-left: 12px; border-left: 1px solid var(--a-line); }
+.kb-toc__list ol a { display: block; margin-left: -13px; padding: 5px 10px 5px 14px; border-radius: 0 8px 8px 0; border-left: 2px solid transparent; font-size: 12.5px; font-weight: 400; color: var(--a-muted); }
+.kb-toc__list ol a.is-active { border-left-color: var(--blue); color: var(--ink); font-weight: 600; background: var(--a-tint); }
+
+.kb-toc2 { margin-top: 16px; border-radius: 14px; background: #fff; border: 1px solid var(--a-line); overflow: hidden; interpolate-size: allow-keywords; transition: border-color .3s, box-shadow .4s var(--ease); }
+.kb-toc2:hover, .kb-toc2[open] { border-color: #D5E0F4; }
+.kb-toc2[open] { box-shadow: 0 24px 48px -40px rgb(var(--shadow-rgb) / .5); }
+.kb-toc2 summary { list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) auto 28px; align-items: center; gap: 12px; padding: 13px 14px 13px 20px; cursor: pointer; transition: background .25s; }
+.kb-toc2 summary:hover { background: var(--a-tint); }
+.kb-toc2 summary::-webkit-details-marker { display: none; }
+.kb-toc2__t { display: inline-flex; align-items: center; gap: 10px; font-size: 14.5px; font-weight: 800; color: var(--ink); }
+.kb-toc2__t svg { width: 18px; height: 18px; color: var(--blue); }
+.kb-toc2__n { font-size: 12.5px; color: var(--a-muted); }
+.kb-toc2__ico, .kb-faq__ico { position: relative; width: 28px; height: 28px; flex: none; border-radius: 50%; color: var(--blue); background: var(--a-tint-2); transition: background .3s, color .3s; }
+.kb-toc2__ico::before, .kb-toc2__ico::after, .kb-faq__ico::before, .kb-faq__ico::after { content: ""; position: absolute; left: 50%; top: 50%; width: 11px; height: 1.8px; margin: -.9px 0 0 -5.5px; border-radius: 2px; background: currentColor; transition: transform .4s var(--ease); }
+.kb-toc2__ico::after, .kb-faq__ico::after { transform: rotate(90deg); }
+.kb-toc2[open] .kb-toc2__ico::after, .kb-faq__item[open] .kb-faq__ico::after { transform: rotate(0deg); }
+.kb-toc2[open] .kb-toc2__ico, .kb-faq__item[open] .kb-faq__ico { color: #fff; background: var(--blue); }
+.kb-toc2 nav { padding: 8px 12px 14px; border-top: 1px solid var(--a-line-2); }
+.kb-toc2::details-content, .kb-faq__item::details-content { block-size: 0; overflow: hidden; transition: block-size .4s var(--ease), content-visibility .4s allow-discrete; }
+.kb-toc2[open]::details-content, .kb-faq__item[open]::details-content { block-size: auto; }
+
+/* ---------- Thân bài ---------- */
+.kb-prose { margin-top: 44px; font-size: 15px; line-height: 1.9; color: var(--a-text); }
+.kb-prose > * + * { margin-top: 1.6em; }
+/* Căn đều hai bên toàn bài. "text-wrap: pretty" để trình duyệt không bỏ lại
+   dòng cuối chỉ có một hai chữ; phần còn lại là việc của câu chữ, xem quy tắc
+   viết bài trong bộ nhớ dự án (không để dòng cuối 1–2 chữ, không để khe chữ giãn rộng). */
+.kb-prose p, .kb-prose li { text-align: justify; text-align-last: left; text-wrap: pretty; }
+.kb-prose h2 { margin-top: 2.3em; font-size: clamp(1.3rem, 1.7vw, 1.45rem); font-weight: 800; letter-spacing: -.025em; line-height: 1.35; color: var(--ink); scroll-margin-top: 96px; text-wrap: balance; }
+.kb-prose > h2:first-child { margin-top: 0; }
+.kb-prose h3 { margin-top: 2em; font-size: 1.05rem; font-weight: 750; letter-spacing: -.015em; line-height: 1.45; color: var(--ink); scroll-margin-top: 96px; text-wrap: balance; }
+.kb-prose h2 + *, .kb-prose h3 + * { margin-top: .8em; }
+.kb-prose strong { font-weight: 700; color: var(--ink); }
+/* .kb-art__sapo .kb-fn a (số chú thích) nằm sau và đặc hiệu hơn nên vẫn giữ kiểu riêng của nó */
+.kb-prose a:not(.kb-btn), .kb-art__sapo a { font-weight: 600; color: var(--blue); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: rgb(var(--blue-rgb) / .35); transition: text-decoration-color .25s; }
+.kb-prose a:not(.kb-btn):hover, .kb-art__sapo a:hover { text-decoration-color: currentColor; }
+
+/* H3 "Bước n": đường kẻ mảnh tách từng bước (số bước đã nằm trong chính tiêu đề) */
+.kb-prose .kb-h3-step { margin-top: 2.2em; padding-top: 1.6em; border-top: 1px solid var(--a-line-2); }
+
+/* Danh sách */
+.kb-prose ul:not([class]), .kb-prose ol:not([class]) { display: grid; gap: .7em; }
+.kb-prose ul:not([class]) > li { position: relative; padding-left: 26px; }
+.kb-prose ul:not([class]) > li::before { content: ""; position: absolute; left: 6px; top: .76em; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 4px var(--a-tint-2); }
+.kb-prose ol:not([class]) { counter-reset: kbol; }
+.kb-prose ol:not([class]) > li { position: relative; padding-left: 38px; counter-increment: kbol; }
+.kb-prose ol:not([class]) > li::before { content: counter(kbol); position: absolute; left: 0; top: .2em; width: 25px; height: 25px; border-radius: 50%; display: grid; place-items: center; font-size: 12.5px; font-weight: 800; color: var(--blue); background: var(--a-tint-2); }
+/* Chữ trong thẻ căn đều hai bên như thân bài. Điều kiện để không bị giãn chữ: cột chữ phải đủ rộng.
+   Đo trên bài "brand voice": cột 201px (3 thẻ một hàng) làm khoảng cách giữa các từ giãn tới 10 lần,
+   cột 283px giãn 4,3 lần và còn dòng cuối trơ trọi 22%, cột 323px (2 thẻ một hàng) chỉ giãn 1,1–1,8 lần
+   và mỗi thẻ gọn trong 2 dòng đầy. Thân bài ở cột 718px giãn 1,2–2,1 lần, nên 1,8 là mức đã quen mắt.
+   Vì vậy lưới luôn lấy cột tối thiểu 300px thay vì ép số cột. */
+.kb-prose .kb-list-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; counter-reset: kbl; }
+.kb-list-cards > li { position: relative; padding: 16px 16px 18px; border-radius: 14px; background: #fff; border: 1px solid var(--a-line); font-size: 14px; line-height: 1.7; counter-increment: kbl; transition: border-color .3s; }
+.kb-list-cards > li:hover { border-color: rgb(var(--blue-rgb) / .35); }
+.kb-list-cards > li::before { content: counter(kbl, decimal-leading-zero); position: static; margin-bottom: 9px; width: 24px; height: 24px; border-radius: 7px; display: grid; place-items: center; font-size: 11.5px; font-weight: 800; color: var(--blue); background: var(--a-tint-2); }
+.kb-list-cards strong { display: block; margin-bottom: 3px; font-size: 14.5px; }
+/* Căn đều hai bên CHỈ khi cột đủ rộng, và cột chỉ đủ rộng khi một hàng có tối đa 2 thẻ.
+   Số đo ở 1440px (bề rộng thật của từng dấu cách): cột chữ 201px, tức 3 thẻ một hàng, khe chữ
+   giãn tới 10,6 lần khe thường; cột 319px, tức 2 thẻ một hàng, chỉ giãn 1,0–2,4 lần, ngang mức
+   thân bài ở cột 718px (1,2–2,1 lần). Vì vậy: danh sách từ 4 thẻ trở lên đi 2 cột và căn đều;
+   danh sách đúng 3 thẻ vẫn giữ 3 cột theo yêu cầu 29/09 của chủ trang ("để lẻ thì xấu quá")
+   nên buộc phải căn trái. Hai thứ đi liền nhau, đổi cái này phải đổi cái kia.
+   Kiểm lại bằng: node tools/kb/check-lines.cjs <url> 1440 */
+.kb-prose .kb-list-cards > li { text-align: justify; text-align-last: left; text-wrap: pretty; }
+.kb-list-cards strong { text-align: left; }
+/* Số thẻ lẻ: thẻ cuối trải hết hàng, nằm dưới hai thẻ trên. Chủ trang chọn cách này ngày 30/09
+   thay cho kiểu 3 thẻ một hàng, để vừa không bỏ trống nửa hàng vừa giữ được chữ căn đều.
+   Thẻ trải ngang có cột chữ khoảng 686px, xấp xỉ thân bài, nên câu chữ trong thẻ đó cần dài
+   gần một bội số của dòng, nếu không dòng cuối sẽ rớt lại một hai chữ. */
+.kb-prose .kb-list-cards > li:last-child:nth-child(odd):not(:first-child) { grid-column: 1 / -1; }
+
+/* Định nghĩa */
+.kb-prose .kb-def { padding: 20px 24px; border-radius: 14px; background: var(--a-tint); box-shadow: inset 3px 0 0 var(--blue); font-size: 15px; line-height: 1.9; color: var(--ink-2); }
+
+/* Đầu ra của một bước */
+.kb-prose .kb-out { position: relative; padding: 13px 18px 13px 46px; border-radius: 12px; background: #F4F8FF; border: 1px solid #DDE7F9; font-size: 14px; line-height: 1.7; }
+.kb-out::before { content: ""; position: absolute; left: 15px; top: 15px; width: 20px; height: 20px; border-radius: 50%; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M6 12.5l4 4 8-9'/></svg>") center / 11px no-repeat, var(--blue); }
+.kb-prose .kb-out strong { color: var(--blue); }
+
+/* Kinh nghiệm thực tế */
+.kb-prose .kb-callout { position: relative; padding: 20px 22px 20px 68px; border-radius: var(--a-r); background: #fff; border: 1px solid var(--a-line); }
+.kb-callout::before { content: ""; position: absolute; left: 20px; top: 20px; width: 34px; height: 34px; border-radius: 10px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231B5CF2' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M5 21V4M5 4h11l-2 4 2 4H5'/></svg>") center / 17px no-repeat, var(--a-tint-2); }
+.kb-callout > * + * { margin-top: .5em; }
+.kb-prose .kb-callout__t { font-size: 14.5px; font-weight: 800; color: var(--ink); text-align: left; }
+.kb-callout p { font-size: 14.5px; line-height: 1.85; }
+
+/* Sơ đồ các bước */
+.kb-prose .kb-figure { margin-top: 1.8em; }
+.kb-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+.kb-steps li { display: flex; flex-direction: column; gap: 4px; padding: 16px 16px 18px; border-radius: 14px; background: #fff; border: 1px solid var(--a-line); transition: border-color .3s, transform .5s var(--ease), box-shadow .5s var(--ease); }
+.kb-steps li:hover { border-color: rgb(var(--blue-rgb) / .35); transform: translateY(-3px); box-shadow: 0 20px 40px -30px rgb(var(--shadow-rgb) / .45); }
+.kb-steps__n { width: 30px; height: 30px; margin-bottom: 8px; border-radius: 9px; display: grid; place-items: center; font-size: 12.5px; font-weight: 800; color: var(--blue); background: var(--a-tint-2); }
+.kb-steps b { font-size: 14px; font-weight: 750; line-height: 1.4; color: var(--ink); }
+.kb-steps li > span:last-child { font-size: 13px; line-height: 1.6; color: var(--a-muted); }
+.kb-prose .kb-steps li { text-align: justify; text-align-last: left; text-wrap: pretty; }   /* cột đã nới, xem ghi chú ở .kb-list-cards */
+/* Số ô lẻ: ô cuối trải hết hàng, không để trơ trọi nửa hàng. Giống .kb-list-cards ở trên. */
+.kb-prose .kb-steps > li:last-child:nth-child(odd):not(:first-child) { grid-column: 1 / -1; }
+.kb-steps b { text-align: left; }
+.kb-figure figcaption { margin-top: 12px; font-size: 13px; line-height: 1.5; color: var(--a-muted); text-align: center; }
+
+/* Ảnh minh họa trong thân bài */
+.kb-prose .kb-fig { margin-top: 1.8em; }
+.kb-fig > img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--a-r); background: var(--a-tint); border: 1px solid var(--a-line); }
+.kb-fig figcaption { margin-top: 12px; font-size: 13px; line-height: 1.5; color: var(--a-muted); text-align: center; }
+
+/* Con số nổi bật */
+.kb-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.kb-stats > div { padding: 18px 18px 20px; border-radius: 14px; background: var(--a-tint); border: 1px solid #E3EAF8; }
+.kb-stats dt { font-size: clamp(1.6rem, 2.3vw, 1.9rem); font-weight: 800; letter-spacing: -.04em; line-height: 1; background: var(--grad-text); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.kb-stats dd { margin: 10px 0 0; font-size: 13px; line-height: 1.65; color: var(--a-text); }
+
+/* Kết quả dự án */
+.kb-prose .kb-case { padding: 22px 24px 24px; border-radius: var(--a-r); background: #fff; border: 1px solid var(--a-line); }
+.kb-case > * + * { margin-top: .5em; }
+.kb-prose .kb-case__k { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 800; color: var(--blue); background: var(--a-tint-2); }
+.kb-prose .kb-case__t { margin-top: 10px; font-size: 1rem; font-weight: 800; letter-spacing: -.015em; line-height: 1.4; color: var(--ink); text-align: left; }
+.kb-case p { font-size: 14.5px; line-height: 1.85; }
+.kb-case .kb-case__m { margin-top: 16px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.kb-case__m > div { padding: 14px 16px; border-radius: 12px; background: var(--a-tint); }
+.kb-case__m dt { font-size: 1.35rem; font-weight: 800; letter-spacing: -.03em; line-height: 1.1; color: var(--blue); }
+.kb-case__m dd { margin: 6px 0 0; font-size: 13px; line-height: 1.5; color: var(--a-text); text-align: justify; text-align-last: left; text-wrap: pretty; }
+
+/* Bảng */
+.kb-table { overflow-x: auto; border-radius: 14px; background: #fff; border: 1px solid var(--a-line); -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+.kb-table:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.kb-table table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 12.5px; line-height: 1.65; }
+.kb-table th { padding: 13px 18px; text-align: left; font-size: 11.5px; font-weight: 700; color: var(--ink); background: var(--a-tint); border-bottom: 1px solid var(--a-line); white-space: nowrap; }
+.kb-table td { padding: 13px 18px; vertical-align: top; text-align: left; text-wrap: pretty; color: var(--a-text); border-top: 1px solid var(--a-line-2); }
+.kb-table tbody tr:first-child td { border-top: 0; }
+.kb-table tbody tr:hover td { background: #FAFCFF; }
+/* Cột nhãn: luôn nằm gọn một hàng, trình duyệt tự nới cột cho vừa */
+.kb-table td:first-child { font-weight: 700; color: var(--ink); text-align: left; white-space: nowrap; }
+.kb-table caption { caption-side: bottom; padding: 11px 18px; font-size: 11px; text-align: left; color: var(--a-muted); background: #FBFCFF; border-top: 1px solid var(--a-line-2); }
+
+/* Chú thích nguồn */
+.kb-fn { font-size: .68em; line-height: 0; margin-left: 1px; }
+.kb-prose .kb-fn a, .kb-art__sapo .kb-fn a { padding: 0 1px; font-weight: 700; text-decoration: none; color: var(--blue); scroll-margin-top: 140px; }
+
+/* Câu hỏi thường gặp */
+.kb-faq { border-top: 1px solid var(--a-line); }
+.kb-faq__item { border-bottom: 1px solid var(--a-line); interpolate-size: allow-keywords; }
+.kb-faq__item summary { list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) 28px; gap: 16px; align-items: center; padding: 18px 0; cursor: pointer; }
+.kb-faq__item summary::-webkit-details-marker { display: none; }
+.kb-prose .kb-faq__q { margin: 0; padding: 0; border: 0; font-size: 15px; font-weight: 700; letter-spacing: -.005em; line-height: 1.55; color: var(--ink); transition: color .25s; }
+.kb-faq__item summary:hover .kb-faq__q { color: var(--blue); }
+.kb-faq__a { padding: 0 44px 20px 0; }
+.kb-faq__a p { font-size: 14.5px; line-height: 1.85; }
+
+/* ---------- Khối kêu gọi trong bài: một hàng gọn ---------- */
+.kb-prose .kb-cta { margin-block: 2.4em; }
+.kb-cta { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px 18px; padding: 18px 20px; border-radius: var(--a-r); }
+.kb-cta__ava { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 3px #fff; }
+.kb-cta__ico { width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; color: var(--blue); background: var(--a-tint-2); }
+.kb-cta__ico svg { width: 21px; height: 21px; }
+.kb-cta__txt { min-width: 0; }
+.kb-prose .kb-cta__t, .kb-cta__t { margin: 0; font-size: 15px; font-weight: 800; letter-spacing: -.01em; line-height: 1.45; color: var(--ink); text-align: left; text-wrap: balance; }
+.kb-prose .kb-cta__d, .kb-cta__d { margin-top: 2px; font-size: 13px; line-height: 1.6; color: var(--a-muted); text-align: left; }
+.kb-cta .kb-btn { height: 42px; padding: 0 18px; font-size: 14px; }
+.kb-cta--mid { background: linear-gradient(120deg, #EDF3FF 0%, #F6F9FF 100%); border: 1px solid #DCE6F8; }
+.kb-cta--late { background: #fff; border: 1px solid var(--a-line); }
+
+/* Nút kêu gọi gọn trong bài: chỉ một câu và một nút, không ảnh, không dòng mô tả */
+.kb-prose .kb-cta--nut { grid-template-columns: minmax(0, 1fr) auto; padding: 15px 18px; background: var(--a-tint); border: 1px solid #DDE7F9; }
+.kb-prose .kb-cta--nut .kb-cta__t { font-size: 14.5px; font-weight: 750; text-wrap: pretty; }   /* không "balance": nếu câu dài quá vẫn dồn đầy dòng đầu, không chẻ đôi cho cân */
+
+/* ---------- Tác giả, cuối bài ---------- */
+.kb-authorbox { margin-top: 44px; display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 20px; padding: 24px 26px; border-radius: 18px; background: var(--a-tint); border: 1px solid #E3EAF8; }
+.kb-authorbox__photo { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 4px #fff, 0 14px 26px -16px rgb(var(--blue-rgb) / .6); }
+.kb-authorbox__body { min-width: 0; }
+.kb-authorbox__name { display: flex; align-items: center; gap: 7px; font-size: 1.15rem; font-weight: 800; letter-spacing: -.02em; line-height: 1.3; color: var(--ink); }
+.kb-authorbox__name svg { width: 16px; height: 16px; color: var(--blue); }
+.kb-authorbox__role { margin-top: 3px; font-size: 13.5px; font-weight: 600; color: var(--a-muted); }
+.kb-authorbox__role a { color: var(--blue); }
+.kb-authorbox__role a:hover { text-decoration: underline; }
+.kb-authorbox__slogan { margin-top: 12px; padding-left: 12px; border-left: 2px solid var(--blue); font-size: 14px; font-weight: 600; font-style: italic; line-height: 1.6; color: var(--ink-2); }
+.kb-authorbox__bio { margin-top: 12px; font-size: 14px; line-height: 1.85; color: var(--a-text); text-align: justify; text-align-last: left; text-wrap: pretty; }
+.kb-authorbox__bio a { font-weight: 600; color: var(--blue); transition: text-decoration-color .25s; }
+.kb-authorbox__bio a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.kb-authorbox__links { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.kb-authorbox__links a { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 700; color: var(--ink); transition: color .25s; }
+.kb-authorbox__links a:hover { color: var(--blue); }
+.kb-authorbox__links svg { width: 14px; height: 14px; }
+
+.kb-art__end { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--a-line); }
+.kb-share { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.kb-share__label { margin-right: 6px; font-size: 13px; font-weight: 700; color: var(--a-muted); }
+.kb-share__btn { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; color: var(--ink-2); background: #fff; border: 1px solid var(--a-line); transition: transform .4s var(--ease), background .3s, color .3s, border-color .3s; }
+.kb-share__btn:hover { transform: translateY(-2px); color: #fff; background: var(--blue); border-color: transparent; }
+.kb-share__btn svg { width: 16px; height: 16px; }
+
+/* ---------- Cột phải: tìm kiếm, chuyên mục, kiến thức mới, liên hệ ---------- */
+.kb-side { display: flex; flex-direction: column; gap: 32px; }
+.kb-side__t { position: relative; padding-bottom: 12px; font-size: 15px; font-weight: 800; letter-spacing: -.01em; color: var(--ink); border-bottom: 1px solid #DCE3EE; }
+.kb-side__t::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 32px; height: 2px; border-radius: 2px; background: var(--blue); }
+
+/* Ô tìm kiếm gọn (dùng chung script js/kb-search.js) */
+.kb-search--side { width: 100%; margin: 0; z-index: 6; }
+.kb-search--side .kb-search__box { height: 48px; padding: 0 4px 0 18px; border-radius: 999px; background: #fff; box-shadow: inset 0 0 0 1px #DCE3EE; transition: background .25s, box-shadow .3s; }
+.kb-search--side .kb-search__box:focus-within { background: #fff; box-shadow: inset 0 0 0 1px rgb(var(--blue-rgb) / .5), 0 0 0 4px rgb(var(--blue-rgb) / .12); }
+.kb-search--side input { padding: 0 6px 0 0; font-size: 14px; }
+.kb-search--side .kb-search__clear { width: 32px; height: 32px; }
+.kb-search--side .kb-search__clear svg { width: 14px; height: 14px; }
+.kb-search--side .kb-search__btn { width: 40px; height: 40px; padding: 0; justify-content: center; box-shadow: none; }
+.kb-search--side .kb-search__btn svg { width: 17px; height: 17px; }
+.kb-search--side .kb-search__btn span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.kb-search--side .kb-search__panel { top: calc(100% + 8px); max-height: min(60vh, 460px); padding: 4px 6px 6px; border-radius: 18px; }
+.kb-search--side .kb-sr a { grid-template-columns: 72px minmax(0, 1fr); gap: 10px; padding: 8px; border-radius: 12px; }
+.kb-search--side .kb-sr__img { border-radius: 8px; }
+.kb-search--side .kb-sr__t { font-size: 13.5px; }
+.kb-search--side .kb-sr__s { display: none; }
+.kb-search--side .kb-sr--topic a { grid-template-columns: 36px minmax(0, 1fr) auto; }
+.kb-search--side .kb-sr__ico { width: 36px; height: 36px; border-radius: 11px; }
+.kb-search--side .kb-sr__ico svg { width: 17px; height: 17px; }
+.kb-search--side .kb-search__empty p { font-size: 13px; }
+
+/* Chuyên mục: danh sách chữ gọn — mũi tên nhỏ, tên, số bài (chỉ khi có bài), đường kẻ mảnh giữa các dòng */
+.kb-side__cats { margin-top: 4px; }
+.kb-side__cats li + li { border-top: 1px solid #DFE5EF; }
+.kb-side__cat { display: flex; align-items: center; gap: 10px; padding: 12px 2px; font-size: 14.5px; font-weight: 500; line-height: 1.4; color: var(--ink-2); transition: color .25s; }
+.kb-side__cat svg { width: 14px; height: 14px; flex: none; color: #9AA8C2; transition: transform .35s var(--ease), color .25s; }
+.kb-side__cname { flex: 1 1 auto; min-width: 0; }
+.kb-side__n { flex: none; font-size: 12.5px; font-weight: 500; color: var(--a-muted); font-variant-numeric: tabular-nums; }
+.kb-side__cat:hover { color: var(--blue); }
+.kb-side__cat:hover svg { color: var(--blue); transform: translateX(2px); }
+.kb-side__cat.is-current { font-weight: 700; color: var(--blue); }
+.kb-side__cat.is-current svg, .kb-side__cat.is-current .kb-side__n { color: var(--blue); }
+
+/* Kiến thức mới */
+.kb-side__posts { margin-top: 16px; display: grid; gap: 16px; }
+.kb-side__post { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 14px; align-items: center; }
+.kb-side__img { display: block; overflow: hidden; border-radius: 10px; aspect-ratio: 16 / 10; background: #0F1A3A; }
+.kb-side__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.kb-side__post:hover .kb-side__img img { transform: scale(1.05); }
+.kb-side__txt { display: grid; gap: 4px; min-width: 0; }
+/* Tiêu đề: 2 dòng ngắt theo ý (build-kb.cjs sideTitleLines), mỗi dòng một span không xuống hàng */
+.kb-side__txt b { font-size: 12.5px; font-weight: 700; line-height: 1.55; letter-spacing: -.01em; color: var(--ink); transition: color .25s; }
+.kb-side__txt b > span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.kb-side__post:hover b { color: var(--blue); }
+.kb-side__txt small { font-size: 12.5px; color: var(--a-muted); }
+.kb-side__post[aria-current] small { font-weight: 600; color: var(--blue); }
+
+/* Ô liên hệ: giữ nguyên cấu trúc thẻ "Kết nối với tôi" ở trang chủ (.bio trong style.css: ảnh, tên, chức danh,
+   email / điện thoại / Zalo / nơi làm việc), thêm nút kêu gọi hành động ở cuối.
+   Dính theo cuộn suốt bài ở mọi chiều cao màn hình: js/kb.js tính --side-top (menu hiện) / --side-top-h (menu ẩn);
+   màn hình thấp hơn thẻ thì giá trị âm, thẻ dính theo mép dưới để nút cuối luôn trong tầm nhìn. */
+.kb-side__cta.bio { position: sticky; top: var(--side-top, 96px); max-width: none; border-radius: 24px; background: #fff; border: 1px solid #E2E8F2; box-shadow: 0 30px 60px -46px rgb(var(--shadow-rgb) / .5); backdrop-filter: none; -webkit-backdrop-filter: none; transition: top .6s var(--ease); }
+.nav.is-hidden ~ main .kb-side__cta { top: var(--side-top-h, 28px); }
+.kb-side__cta .bio__photo { aspect-ratio: 3 / 2; background: #1B3C8C; }
+.kb-side__cta .bio__photo img { object-position: 50% 0; }
+.kb-side__cta .bio__photo::after { background: linear-gradient(transparent, #fff); }
+.kb-side__cta .bio__body { transform: none; padding: 0 16px 16px; }
+.kb-side__cta .bio__link { padding: 10px 12px; font-size: 13px; text-align: left; }
+.kb-side__cta .bio__link span { gap: 8px; }
+.kb-side__cta .bio__link svg { width: 17px; height: 17px; }
+.kb-side__cta .bio__link small { font-size: 11.5px; }
+.kb-side__cta .bio__link--static { cursor: default; }
+.kb-side__go { margin-top: 2px; height: 44px; }
+.kb-side__go svg { transition: transform .4s var(--ease); }
+.kb-side__go:hover svg { transform: translateX(3px); }
+
+/* ---------- Bài viết liên quan ---------- */
+.kb-more { padding: clamp(64px, 8vw, 96px) 0; background: var(--a-tint); border-top: 1px solid var(--a-line-2); }
+
+/* ---------- Thanh liên hệ cố định + bảng mục lục (điện thoại, máy tính bảng) ---------- */
+.kb-bar {
+  position: fixed; left: 12px; right: 12px; bottom: max(12px, env(safe-area-inset-bottom)); z-index: 105;
+  display: none; grid-template-columns: auto minmax(0, 1fr) 46px; gap: 8px; padding: 6px; border-radius: 999px;
+  background: rgb(255 255 255 / .92); border: 1px solid var(--a-line); box-shadow: 0 20px 40px -22px rgb(var(--shadow-rgb) / .5);
+  backdrop-filter: blur(16px) saturate(1.2); -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  transform: translate3d(0, calc(100% + 30px), 0); transition: transform .5s var(--ease);
+}
+.kb-bar.is-on { transform: none; }
+.kb-bar svg { width: 18px; height: 18px; flex: none; }
+.kb-bar__toc { display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 16px; border-radius: 999px; font-size: 14px; font-weight: 700; color: var(--ink); background: var(--a-tint); }
+.kb-bar__main { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-width: 0; height: 46px; padding: 0 14px; border-radius: 999px; font-size: 14.5px; font-weight: 700; color: #fff; background: linear-gradient(120deg, #2F8CFF 0%, #1B5CF2 60%, #1A43C9 100%); white-space: nowrap; overflow: hidden; }
+.kb-bar__call { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 50%; color: var(--blue); background: var(--a-tint-2); }
+.kb.has-bar .totop { bottom: calc(max(12px, env(safe-area-inset-bottom)) + 70px); }
+
+.kb-sheet { position: fixed; inset: auto 0 0; width: 100%; max-width: 100%; max-height: min(78vh, 640px); margin: 0; padding: 0; border: 0; border-radius: 24px 24px 0 0; color: var(--ink); background: #fff; box-shadow: 0 -30px 60px -20px rgb(var(--shadow-rgb) / .4); }
+.kb-sheet[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); animation: kb-sheet-in .45s var(--ease); }
+.kb-sheet::backdrop { background: rgb(10 13 28 / .4); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+.kb-sheet__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 16px 12px 20px; border-bottom: 1px solid var(--a-line-2); }
+.kb-sheet__head p { display: inline-flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 800; }
+.kb-sheet__head p svg { width: 20px; height: 20px; color: var(--blue); }
+.kb-sheet__head button { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: var(--a-tint); }
+.kb-sheet__head button svg { width: 18px; height: 18px; }
+.kb-sheet__body { overflow-y: auto; overscroll-behavior: contain; padding: 10px 12px calc(18px + env(safe-area-inset-bottom)); }
+@keyframes kb-sheet-in { from { transform: translateY(40%); opacity: 0; } to { transform: none; opacity: 1; } }
+
+/* ==========================================================================
+   MÀN HÌNH NHỎ
+   ========================================================================== */
+/* Trang bài viết có cột phải: bỏ nút về đầu trang để không đè lên ô liên hệ dính ở góc phải */
+@media (min-width: 1280px) {
+  .kb--article .totop { display: none; }
+}
+
+@media (max-width: 1279px) {
+  .kb-art__grid { grid-template-columns: minmax(0, 820px); justify-content: center; }
+  .kb-art__aside { display: none; }
+  .kb-bar { display: grid; }
+}
+@media (min-width: 761px) and (max-width: 1279px) {
+  .kb-bar { left: 50%; right: auto; width: min(560px, calc(100% - 24px)); transform: translate3d(-50%, calc(100% + 30px), 0); }
+  .kb-bar.is-on { transform: translate3d(-50%, 0, 0); }
+}
+@media (max-width: 760px) {
+  .kb-art { padding-top: calc(var(--nav-h) + 22px); background: #fff; }
+  .kb-art__main { padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; }
+  .kb-art__head .kb-crumbs { margin-bottom: 20px; }
+  .kb-art__h1[data-fit] { font-size: calc(1.5rem - 1.33px); line-height: 1.32; white-space: normal; text-wrap: balance; }
+  .kb-art__h1 .grad { display: inline; }   /* không để cụm chữ gradient thành khối nguyên: nó bị đẩy cả cụm xuống dòng dưới, dòng đầu hụt */
+  .kb-art__sapo { margin-top: 14px; font-size: 15px; }
+  .kb-art__by { flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 22px; padding-top: 18px; }
+  .kb-art__dates { font-size: 12.5px; gap: 6px 14px; }
+  .kb-art__cover { margin-top: 24px; }
+  .kb-art__cover picture { border-radius: 14px; }
+  .kb-sum { margin-top: 28px; padding: 18px 18px 20px; }
+  .kb-toc2 summary { padding: 12px 12px 12px 16px; }
+  /* Cỡ chữ cho điện thoại (yêu cầu 30/09/2026: "cho size chữ bé lại vừa bằng kích thước
+     đọc trên điện thoại"). Cột chữ ở khổ 390px chỉ còn khoảng 322px, chữ nhỏ lại cho nhiều
+     ký tự trên một dòng hơn nên phần dư phải chia cho các khe ít đi, khe chữ hẹp lại.
+     Đo bằng: node tools/kb/check-lines.cjs <url> 390  (và 430) */
+  .kb-prose { margin-top: 36px; font-size: 14px; line-height: 1.8; }
+  .kb-sum li { font-size: 13.5px; line-height: 1.75; }
+  /* Tiêu đề H1, H2, H3 cùng hạ 1pt (1,33px) so với cỡ trước đây, đồng bộ mọi tiêu đề trên điện thoại (yêu cầu 30/09/2026):
+     đo trên 10 bài ở khổ 360, 390 và 412px, số dòng tiêu đề giảm khoảng 6% và số tiêu đề phải xuống dòng giảm khoảng 12% */
+  .kb-prose h2 { font-size: calc(1.28rem - 1.33px); }
+  .kb-prose h3 { font-size: calc(1.02rem - 1.33px); }
+  /* Tiêu đề trên điện thoại: dồn đầy dòng rồi mới xuống dòng. Không dùng "balance" (chẻ đôi câu dù dòng đầu còn chỗ)
+     và không dùng "pretty" (Chrome đẩy thêm chữ xuống để dòng cuối dài hơn, dòng đầu lại hụt, đo được trên màn 432px).
+     Dòng cuối chỉ còn một chữ lẻ thì js/kb.js (mục 5) nối hai chữ cuối */
+  .kb-art__h1[data-fit], .kb-prose h2, .kb-prose h3 { text-wrap: wrap; }
+  .kb-prose .kb-def { padding: 16px 18px; font-size: 14.5px; }
+  .kb-prose .kb-out { padding: 12px 14px 12px 44px; }
+  .kb-out::before { left: 14px; top: 14px; }
+  /* Một cột: hai cột trên điện thoại chỉ cho cột chữ khoảng 160px, căn đều ở khổ đó giãn chữ rất rộng */
+  .kb-steps { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .kb-steps li { padding: 14px; }
+  .kb-stats, .kb-case .kb-case__m, .kb-prose .kb-list-cards { grid-template-columns: minmax(0, 1fr); }
+  .kb-stats > div { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 14px; align-items: center; padding: 14px 16px; }
+  .kb-stats dd { margin: 0; }
+  .kb-prose .kb-case { padding: 18px 18px 20px; }
+  .kb-case__m > div { display: flex; align-items: baseline; gap: 12px; padding: 12px 14px; }
+  .kb-case__m dt { flex: none; min-width: 88px; font-size: 1.25rem; }
+  .kb-case__m dd { margin: 0; }
+  .kb-prose .kb-callout { padding: 66px 18px 18px; }
+  .kb-callout::before { left: 18px; top: 18px; }
+  /* khối kêu gọi: ảnh + chữ một hàng, nút xuống dưới, rộng hết khối */
+  .kb-cta { grid-template-columns: auto minmax(0, 1fr); padding: 16px; }
+  .kb-cta .kb-btn { grid-column: 1 / -1; width: 100%; height: 44px; }
+  .kb-cta__ava { width: 44px; height: 44px; }
+  .kb-cta__ico { width: 42px; height: 42px; border-radius: 12px; }
+  .kb-prose .kb-cta--nut { grid-template-columns: minmax(0, 1fr); }
+  .kb-faq__a { padding-right: 0; }
+  .kb-authorbox { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 20px 18px; }
+  .kb-authorbox__photo { width: 68px; height: 68px; }
+  /* Bảng trên điện thoại: mỗi hàng thành một thẻ, nhãn cột nằm trên nội dung */
+  .kb-table { overflow: visible; background: none; border: 0; border-radius: 0; }
+  .kb-table table { display: block; min-width: 0; font-size: 12.5px; }
+  .kb-table caption { display: block; padding: 0 2px 10px; background: none; border: 0; font-weight: 600; }
+  .kb-table thead { display: none; }
+  .kb-table tbody { display: grid; gap: 10px; }
+  .kb-table tr { display: block; overflow: hidden; border-radius: 14px; background: #fff; border: 1px solid var(--a-line); }
+  .kb-table td { display: block; padding: 10px 16px 12px; border-top: 1px solid var(--a-line-2); background: none !important; }
+  .kb-table tbody tr:first-child td { border-top: 1px solid var(--a-line-2); }
+  .kb-table td::before { content: attr(data-label); display: block; margin-bottom: 2px; font-size: 11px; font-weight: 700; color: var(--blue); }
+  .kb-table td:first-child { padding: 12px 16px; border-top: 0; background: var(--a-tint) !important; white-space: normal; }
+  .kb-table td:first-child::before { content: none; }
+}
+@media (max-width: 380px) {
+  .kb-bar__toc span { display: none; }
+  .kb-bar__toc { padding: 0 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kb-sheet[open] { animation: none; }
+  .kb-steps li:hover, .kb-btn:hover { transform: none; }
+  .kb-side__post:hover .kb-side__img img { transform: none; }
+}
+
+@media print {
+  .kb-art__aside, .kb-bar, .kb-sheet, .kb-cta, .kb-share, .kb-more, .kb-toc2 { display: none !important; }
+  .kb-art { padding-top: 0; background: none; }
+  .kb-art__main { padding: 0; border: 0; box-shadow: none; }
+  .kb-art__grid { display: block; }
+  .kb-prose { font-size: 11pt; }
+  .kb-prose a { color: inherit; }
+}

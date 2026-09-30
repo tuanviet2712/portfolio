@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://letuanviet.digital/</loc>
-    <lastmod>2026-09-21</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -27,4 +27,114 @@
       <image:caption>Ảnh bìa video chân dung làm việc của Lê Tuấn Việt</image:caption>
     </image:image>
   </url>
+  <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/marketing/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/ai-marketing/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/ai-marketing/ai-personalization-la-gi/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/kb/ai-personalization-la-gi.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/kb/human-in-the-loop-la-gi.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/ai-marketing/ai-workflow-la-gi/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/kb/ai-workflow-la-gi.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/ai-marketing/ai-agent-va-chatbot-khac-nhau/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/kb/ai-agent-va-chatbot-khac-nhau.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/ai-marketing/ao-giac-ai-la-gi/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/kb/ao-giac-ai-la-gi.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/marketing/content-angle-la-gi/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/kb/content-angle-la-gi.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/marketing/dark-social-la-gi/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/kb/dark-social-la-gi.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/marketing/zero-party-data-va-first-party-data/</loc>
+    <lastmod>2026-09-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/kb/zero-party-data-va-first-party-data.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/marketing/brand-voice-va-tone-of-voice/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/kb/brand-voice-va-tone-of-voice.jpg</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.digital/goc-kien-thuc/marketing/micro-conversion-la-gi/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.digital/assets/kb/micro-conversion-la-gi.jpg</image:loc>
+    </image:image>
+  </url>
+  <!-- /KB:SITEMAP -->
 </urlset>

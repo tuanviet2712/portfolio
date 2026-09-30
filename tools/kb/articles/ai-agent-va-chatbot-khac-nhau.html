@@ -1,0 +1,363 @@
+<!--
+  BÀI VIẾT: AI agent và chatbot khác nhau thế nào trong marketing?
+  Chủ đề (pillar): AI Marketing. Từ khóa chính: "AI agent và chatbot khác nhau". Ý định tìm kiếm: thông tin (TOFU) kèm cách chọn giải pháp.
+  Nguồn: file 07-A2-ai-agent-va-chatbot-ANH-MOI.docx (phần "Hồ sơ biên tập" cuối file không đưa lên web).
+  Việc biên tập khi đưa lên web: sapo rút gọn (Answer-First, có tên tác giả), bảng so sánh có H2 riêng chứa từ khóa,
+  bốn mức tự chủ, năm câu hỏi cho nhà cung cấp và ba lỗi triển khai thành danh sách chữ thật (bản gốc chỉ có trong ảnh),
+  đường dẫn nguồn thật, FAQ đặt trước Kết luận (theo yêu cầu của chủ trang ở bài Ảo giác AI).
+  Slug đổi từ "ai-agent-va-chatbot" (đề xuất trong docx) thành "ai-agent-va-chatbot-khac-nhau" để chứa đủ từ khóa chính.
+  Liên kết chưa gắn vì bài đích chưa có: "AI workflow là gì" (A3), "MQL và SQL khác nhau thế nào" (Q4).
+  Khi các bài đó lên web, thêm lại vào phần Agent thực hiện nhiệm vụ, cuối phần ba lớp quyền và cuối phần đánh giá.
+-->
+<script type="application/json" data-meta>
+{
+  "slug": "ai-agent-va-chatbot-khac-nhau",
+  "pillar": "ai-marketing",
+  "title": "AI agent và chatbot khác nhau thế nào cho SME?",
+  "titleHtml": "AI agent và chatbot khác nhau thế nào <span class=\"grad\">cho&nbsp;SME?</span>",
+  "seoTitle": "AI agent và chatbot khác nhau thế nào trong marketing?",
+  "description": "AI agent và chatbot khác nhau thế nào? Phân biệt qua bốn mức tự chủ, số liệu Klarna và phần điều chỉnh sau đó, sai số cộng dồn và cây quyết định chọn giải pháp.",
+  "excerpt": "Chatbot và agent có thể cùng xuất hiện trong một hệ thống. Bài đưa bốn mức tự chủ, số liệu một triển khai thật cùng phần điều chỉnh sau đó, và cây quyết định để chọn giữa chatbot, workflow và agent.",
+  "sapo": "AI agent và chatbot khác nhau ở chỗ chatbot là hệ thống tổ chức tương tác qua hội thoại, còn agent là hệ thống có thể chọn bước tiếp theo, dùng công cụ và điều chỉnh theo kết quả trong phạm vi được giao. Hai khái niệm có thể cùng xuất hiện trong một sản phẩm, nên câu hỏi hữu ích là hệ thống được quyết định điều gì và thao tác đến đâu. Tôi là Lê Tuấn Việt, Marketing Leader tại TAKI Group. Bài viết này phân tích bốn mức tự chủ của AI, đối chiếu kết quả Klarna công bố với những điều chỉnh sau đó, đồng thời hướng dẫn chọn giải pháp phù hợp qua cây quyết định.",
+  "keyword": "AI agent và chatbot khác nhau",
+  "keywords": [
+    "AI agent và chatbot khác nhau",
+    "AI agent khác chatbot",
+    "chatbot và AI agent trong marketing",
+    "mức tự chủ của agent",
+    "nên dùng chatbot hay agent"
+  ],
+  "published": "2026-09-30T17:00:00+07:00",
+  "modified": "2026-09-30T17:00:00+07:00",
+  "cover": {
+    "base": "ai-agent-va-chatbot-khac-nhau",
+    "src": "tools/kb/covers/ai-agent-va-chatbot-khac-nhau.png",
+    "alt": "AI agent và chatbot: phân biệt qua quyền chọn bước và cách xử lý công việc",
+    "caption": "Phân biệt AI agent và chatbot qua quyền chọn bước và cách xử lý công việc",
+    "kicker": "AI agent và chatbot",
+    "line": "Khác nhau ở quyền chọn bước"
+  },
+  "takeaways": [
+    "Chatbot tổ chức tương tác qua hội thoại; agent có thể chọn bước tiếp theo, dùng công cụ và điều chỉnh theo kết quả. Hai thứ có thể cùng nằm trong một sản phẩm.",
+    "Nên hỏi hệ thống ở mức tự chủ nào cho từng tác vụ: trả lời, gọi công cụ, chọn bước hay ghi dữ liệu, thay vì hỏi đây là chatbot hay agent.",
+    "Trợ lý AI của Klarna xử lý 2,3 triệu hội thoại trong tháng đầu, nhưng sau hơn một năm công ty bổ sung lại nhân sự vì chất lượng phục vụ giảm.",
+    "Nhiệm vụ càng nhiều bước càng dễ hỏng: mỗi bước đúng 95% thì chuỗi mười bước chỉ hoàn tất khoảng 60%. Hãy chọn giải pháp đơn giản nhất còn giải quyết được việc."
+  ],
+  "about": [
+    { "name": "AI agent", "sameAs": "https://en.wikipedia.org/wiki/Intelligent_agent" },
+    { "name": "Chatbot", "sameAs": "https://en.wikipedia.org/wiki/Chatbot" }
+  ],
+  "mentions": [
+    { "type": "Organization", "name": "IBM", "url": "https://www.ibm.com" },
+    { "type": "Organization", "name": "Anthropic", "url": "https://www.anthropic.com" },
+    { "type": "Organization", "name": "OpenAI", "url": "https://openai.com" },
+    { "type": "Organization", "name": "Klarna", "url": "https://www.klarna.com" },
+    { "type": "Organization", "name": "Forbes", "url": "https://www.forbes.com" },
+    { "type": "Person", "name": "Sebastian Siemiatkowski" }
+  ],
+  "faq": [
+    {
+      "q": "AI agent và chatbot khác nhau chủ yếu ở điểm nào?",
+      "a": "Chatbot tổ chức tương tác qua hội thoại, còn agent có thể chọn bước tiếp theo, dùng công cụ và điều chỉnh theo kết quả để đạt mục tiêu trong phạm vi được giao. Hai khái niệm có thể cùng nằm trong một sản phẩm, nên cần đánh giá theo từng tác vụ."
+    },
+    {
+      "q": "Chatbot gọi được công cụ có trở thành agent không?",
+      "a": "Chưa đủ để kết luận. Cần xem hệ thống có lựa chọn và điều chỉnh cách thực hiện nhiệm vụ hay chỉ gọi công cụ tại bước định sẵn. Theo bốn mức tự chủ trong bài, gọi công cụ ở bước cố định là mức 2, còn agent bắt đầu từ mức 3."
+    },
+    {
+      "q": "Agent có cần hoạt động hoàn toàn không có người duyệt?",
+      "a": "Không. Mức tự chủ có thể giới hạn theo tác vụ. Đọc dữ liệu và soạn đề xuất tự động vẫn có ích khi quyết định tiếp theo cần người chịu trách nhiệm xác nhận."
+    },
+    {
+      "q": "SME có phải nâng cấp chatbot thành agent ngay?",
+      "a": "Không có quy tắc chung. Nếu vấn đề là trả lời thông tin ổn định, một hệ thống đơn giản có thể đáp ứng. Nếu cần lựa chọn bước linh hoạt, hãy đánh giá agent bằng tình huống thật, điều kiện hoàn tất và phần việc con người còn phải xử lý."
+    },
+    {
+      "q": "Agent có thay được cả một đội chăm sóc khách hàng không?",
+      "a": "Số liệu Klarna cho thấy có thể thay được khối lượng công việc rất lớn, tương đương 700 nhân sự toàn thời gian ngay trong tháng đầu. Nhưng cùng công ty đó, sau hơn một năm, đã bổ sung lại nhân sự hỗ trợ vì chất lượng phục vụ giảm. Câu trả lời thực tế là thay được phần lớn khối lượng, không thay được toàn bộ vai trò."
+    },
+    {
+      "q": "Vì sao demo chạy tốt mà triển khai thật lại hỏng?",
+      "a": "Một nguyên nhân phổ biến là sai số cộng dồn. Mỗi bước đúng 95% nghe rất cao, nhưng một chuỗi mười bước chỉ hoàn tất trọn vẹn khoảng 60% số lần. Demo thường chỉ chạy một tình huống với dữ liệu đẹp, nên không lộ ra vấn đề này."
+    },
+    {
+      "q": "Nên bắt đầu từ mức tự chủ nào?",
+      "a": "Với phần lớn SME, hãy bắt đầu ở mức đọc dữ liệu và soạn đề xuất, chạy vài tuần, đo tỷ lệ phải sửa lại, rồi mới cân nhắc mở quyền ghi. Mở quyền ghi ngay từ đầu chỉ vì demo chạy mượt là sai lầm tốn kém nhất trong ba sai lầm đã nêu."
+    }
+  ],
+  "faqTitle": "Câu hỏi thường gặp về AI agent và chatbot",
+  "references": [
+    {
+      "text": "IBM. What is a chatbot?",
+      "url": "https://www.ibm.com/think/topics/chatbots"
+    },
+    {
+      "text": "Anthropic. Building effective agents. Tài liệu kỹ thuật về phân biệt workflow và agent, ngày 19 tháng 12 năm 2024.",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    },
+    {
+      "text": "OpenAI. Klarna's AI assistant does the work of 700 full-time agents. Hồ sơ khách hàng, số liệu tháng đầu triển khai trợ lý AI, năm 2024.",
+      "url": "https://openai.com/index/klarna/"
+    },
+    {
+      "text": "Klarna. Klarna AI assistant handles two-thirds of customer service chats in its first month. Thông cáo báo chí, năm 2024.",
+      "url": "https://www.klarna.com/international/press/klarna-ai-assistant-handles-two-thirds-of-customer-service-chats-in-its-first-month/"
+    },
+    {
+      "text": "Forbes. Klarna Reverses AI Push, Says Customers Prefer Human Support. Ngày 18 tháng 5 năm 2025.",
+      "url": "https://www.forbes.com/sites/quickerbettertech/2025/05/18/business-tech-news-klarna-reverses-on-ai-says-customers-like-talking-to-people/"
+    }
+  ],
+  "ctaButtons": [
+    {
+      "text": "Chatbot của bạn đang ở mức tự chủ nào?",
+      "label": "Nhắn Zalo cho tôi",
+      "href": "zalo"
+    },
+    {
+      "text": "Xem cách tôi triển khai Marketing cho doanh nghiệp SME",
+      "label": "Xem dự án",
+      "href": "/#du-an",
+      "style": "ghost"
+    }
+  ],
+  "ctaMid": {
+    "title": "Bạn đang cân nhắc chatbot hay AI agent?",
+    "text": "Nhắn cho tôi để trao đổi cách chọn giải pháp cho quy trình của bạn"
+  },
+  "ctaLate": {
+    "title": "Xem cách tôi triển khai Marketing cho từng dự án",
+    "text": "Kết quả thật tại TOMEC, FungHa Dimsum và Uyên Uyên Mart"
+  },
+  "en": {
+    "title": "How do AI agents and chatbots differ in marketing?",
+    "excerpt": "A chatbot and an agent can live in the same system. This article gives four levels of autonomy, the numbers from a real deployment and the correction that followed, and a decision tree for choosing between a chatbot, a workflow and an agent."
+  }
+}
+</script>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/01-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/01-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/01-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Một khung chat có thể kết nối chatbot, workflow hoặc AI agent." width="1600" height="900">
+  <figcaption>Giao diện hội thoại và cách thực hiện nhiệm vụ cần được nhìn riêng</figcaption>
+</figure>
+
+<h2>Chatbot và AI agent là gì?</h2>
+<p class="kb-def"><strong>Chatbot</strong> là ứng dụng phần mềm giao tiếp với người dùng bằng văn bản hoặc giọng nói, theo định nghĩa của <a href="https://www.ibm.com/think/topics/chatbots">IBM</a>. Một bot kịch bản có thể đi theo cây lựa chọn; một chatbot dùng AI có thể hiểu câu hỏi linh hoạt hơn.</p>
+<p>Hội thoại là cách người dùng tiếp cận chức năng của hệ thống, không phải bằng chứng rằng hệ thống chỉ biết trả lời. IBM giải thích chatbot hiện đại có thể kết nối ứng dụng doanh nghiệp và thực hiện một số tác vụ. Agent cũng có thể dùng giao diện hội thoại. Vì vậy, câu chatbot chỉ nói, agent mới làm giúp hình dung ban đầu nhưng dễ bỏ qua phần giao nhau.</p>
+<p>Trong phạm vi bài này, <strong>AI agent</strong> là hệ thống có khả năng lựa chọn cách thực hiện nhiệm vụ bằng AI, sử dụng công cụ và phản hồi từ môi trường. Mức tự chủ tùy thiết kế: có agent chỉ nghiên cứu và soạn đề xuất; có hệ thống được phép ghi dữ liệu sau khi đủ điều kiện. Bài viết tập trung vào cách đánh giá chúng trong <a href="/goc-kien-thuc/ai-marketing/">AI Marketing</a>.</p>
+
+<h3>Bốn mức tự chủ thay cho câu hỏi chatbot hay agent</h3>
+<p>Cách hữu ích nhất để nói chuyện với nhà cung cấp là bỏ hẳn câu hỏi đây là chatbot hay agent, và thay bằng câu hỏi hệ thống đang ở mức tự chủ nào cho tác vụ cụ thể này. Bốn mức dưới đây đủ để phân loại gần như mọi sản phẩm trên thị trường.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/02-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/02-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/02-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Bốn mức tự chủ trong khung phân loại của bài: trả lời, gọi công cụ, chọn bước và ghi dữ liệu." width="1600" height="900">
+  <figcaption>Mức tự chủ là một lựa chọn thiết kế, không phải thuộc tính cố định của sản phẩm</figcaption>
+</figure>
+
+<ol>
+  <li><strong>Mức 1, trả lời:</strong> hệ thống chỉ trả lời câu hỏi, ví dụ tư vấn thông tin.</li>
+  <li><strong>Mức 2, gọi công cụ:</strong> hệ thống gọi công cụ tại một bước cố định, ví dụ tra cứu hoặc đặt lịch theo luồng định sẵn.</li>
+  <li><strong>Mức 3, chọn bước:</strong> hệ thống tự lựa chọn bước tiếp theo và điều chỉnh theo kết quả. Agent bắt đầu từ mức này.</li>
+  <li><strong>Mức 4, ghi dữ liệu:</strong> hệ thống được phép ghi dữ liệu hoặc đổi trạng thái sau khi đủ điều kiện, ví dụ tạo phiếu hỗ trợ.</li>
+</ol>
+
+<p>Bốn mức này không phải thang đo chính thức của ngành, mà là cách phân loại dùng được khi đi mua. Điểm quan trọng là mỗi tác vụ có một mức riêng. Cùng một sản phẩm có thể ở mức 4 cho việc tạo phiếu hỗ trợ, nhưng chỉ ở mức 1 cho việc tư vấn giá, vì doanh nghiệp không muốn hệ thống tự báo giá. Hỏi theo tác vụ thay vì hỏi theo sản phẩm là cách duy nhất có được câu trả lời chính xác.</p>
+<p>Ví dụ, nút chat trên website có thể dẫn đến câu trả lời FAQ, một luồng đặt lịch định sẵn hoặc agent xử lý yêu cầu phức tạp. Cùng vẻ ngoài không đồng nghĩa cùng cơ chế. Tên gọi trong tài liệu bán hàng cũng chưa chứng minh mức tự chủ thật.</p>
+
+<h2>Agent thực hiện nhiệm vụ bằng cách nào?</h2>
+<p><a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic</a> phân biệt workflow và agent: workflow đi theo đường xử lý được định trước; agent để mô hình quyết định linh hoạt hơn về quá trình và việc dùng công cụ. Đây là một cách phân biệt kiến trúc hữu ích, không phải chuẩn đặt tên bắt buộc cho mọi nhà cung cấp.</p>
+<p>Hình dung agent nhận mục tiêu, xem thông tin đang có, chọn bước phù hợp, gọi công cụ rồi kiểm tra kết quả. Nếu thiếu thông tin, nó có thể hỏi thêm hoặc dừng. Nếu công cụ báo lỗi, hệ thống cần biết trạng thái để tránh xem một đề xuất chưa thực hiện là việc đã xong.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/03-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/03-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/03-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Vòng lặp agent gồm mục tiêu, thông tin, chọn bước, công cụ và kiểm kết quả trong phạm vi được giao." width="1600" height="900">
+  <figcaption>Kết quả công cụ giúp agent cân nhắc bước tiếp theo trong phạm vi được giao</figcaption>
+</figure>
+
+<p>Việc lặp lại và điều chỉnh trong một nhiệm vụ không tự chứng minh agent đã học để thay đổi mô hình. Bộ nhớ cũng không mặc định tồn tại lâu dài giữa mọi phiên. Muốn biết hệ thống nhớ gì, cần xem dữ liệu được lưu và quy tắc dùng lại dữ liệu đó.</p>
+<p>Một chuỗi nhiều bước chưa chắc cần agent. Nếu mọi đường đi đều rõ và ổn định, quy trình định sẵn có thể phù hợp. Cách dựng loại quy trình này, kèm năm mẫu luồng có tên, được trình bày trong bài <a href="/goc-kien-thuc/ai-marketing/ai-workflow-la-gi/">AI workflow là gì</a>.</p>
+
+<h2>AI agent và chatbot khác nhau ở những tiêu chí nào?</h2>
+<p>Hai loại hệ thống khác nhau ở trọng tâm, quyền chọn bước tiếp theo, cách dùng công cụ, quyền ghi dữ liệu và cách đo thành công. Bảng dưới đây tóm tắt năm tiêu chí đó.</p>
+
+<table>
+  <caption>So sánh AI agent và chatbot theo năm tiêu chí thường gặp</caption>
+  <thead>
+    <tr><th>Tiêu chí</th><th>Chatbot</th><th>AI agent</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Trọng tâm</td><td>Tương tác qua hội thoại</td><td>Theo đuổi nhiệm vụ hoặc mục tiêu</td></tr>
+    <tr><td>Bước tiếp theo</td><td>Theo thiết kế hội thoại, có thể kết nối tác vụ</td><td>Có thể được mô hình lựa chọn trong phạm vi cho phép</td></tr>
+    <tr><td>Công cụ</td><td>Có thể tra cứu, đặt lịch, tạo yêu cầu</td><td>Có thể phối hợp công cụ và phản hồi qua nhiều bước</td></tr>
+    <tr><td>Quyền ghi dữ liệu</td><td>Tùy cấu hình, không suy từ tên</td><td>Tùy phân quyền, không mặc định toàn quyền</td></tr>
+    <tr><td>Thành công</td><td>Câu trả lời hoặc tác vụ hội thoại phù hợp</td><td>Kết quả nhiệm vụ đáp ứng tiêu chí đã giao</td></tr>
+  </tbody>
+</table>
+
+<p>Bảng mô tả trọng tâm thường gặp, không chia sản phẩm thành hai hộp kín. Một nền tảng có thể chứa chatbot, workflow và agent; từng tác vụ vẫn cần được đánh giá riêng.</p>
+
+<!-- cta:nut -->
+
+<h2>Một triển khai thật đạt được gì trong tháng đầu?</h2>
+<p>Con số công khai rõ ràng nhất đến từ Klarna. Theo <a href="https://openai.com/index/klarna/">hồ sơ khách hàng mà OpenAI công bố năm 2024</a>, trợ lý AI của công ty này xử lý 2,3 triệu cuộc hội thoại trong tháng đầu tiên, tương đương hai phần ba tổng số cuộc chat hỗ trợ khách hàng, và bằng khối lượng công việc của khoảng 700 nhân sự toàn thời gian.</p>
+<p>Các chỉ số đi kèm cũng đáng chú ý. Thời gian xử lý một vấn đề giảm từ 11 phút xuống dưới 2 phút. Số lần khách phải hỏi lại giảm 25%, nghĩa là chất lượng giải quyết lần đầu tăng chứ không chỉ tốc độ tăng. Hệ thống hoạt động tại 23 thị trường, hỗ trợ hơn 35 ngôn ngữ, và được ước tính mang lại 40 triệu đô la cải thiện lợi nhuận trong năm 2024.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/04-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/04-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/04-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Klarna tháng đầu triển khai: 2,3 triệu hội thoại, hai phần ba chat hỗ trợ, thời gian xử lý từ 11 xuống dưới 2 phút; hồ sơ OpenAI 2024." width="1600" height="900">
+  <figcaption>Trợ lý AI của Klarna, số liệu do OpenAI công bố trong hồ sơ khách hàng năm 2024</figcaption>
+</figure>
+
+<p>Có ba điều đáng lưu ý khi đọc bộ số liệu này. Thứ nhất, đây là số liệu do bên bán công nghệ công bố về khách hàng của mình, nên nó được chọn lọc theo hướng có lợi, dù các con số bản thân chúng không bị nghi ngờ.</p>
+<p>Thứ hai, Klarna là công ty tài chính quy mô toàn cầu với lượng câu hỏi lặp lại rất lớn và rất chuẩn hóa, điều kiện lý tưởng cho tự động hóa mà phần lớn SME không có. Thứ ba, đây là số liệu tháng đầu tiên, tức giai đoạn hệ thống còn mới và được theo dõi sát nhất.</p>
+<p>Đây là bộ số liệu được trích dẫn nhiều nhất trong mọi tài liệu bán giải pháp AI cho doanh nghiệp. Phần lớn tài liệu đó dừng lại ở đây.</p>
+
+<h2>Vì sao Klarna phải điều chỉnh sau hơn một năm?</h2>
+<p>Vì chất lượng phục vụ giảm xuống, và theo chính người đứng đầu công ty, nguyên nhân không nằm ở công nghệ. <a href="https://www.forbes.com/sites/quickerbettertech/2025/05/18/business-tech-news-klarna-reverses-on-ai-says-customers-like-talking-to-people/">Forbes đưa tin ngày 18 tháng 5 năm 2025</a> rằng CEO Sebastian Siemiatkowski cho biết việc quá tập trung vào cắt giảm chi phí, chứ không phải bản thân AI, đã dẫn tới chất lượng thấp hơn.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/05-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/05-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/05-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Klarna điều chỉnh năm 2025: vẫn dùng AI và bổ sung người để nâng chất lượng phục vụ." width="1600" height="900">
+  <figcaption>Phần ít được kể lại của cùng một câu chuyện, theo Forbes tháng 5 năm 2025</figcaption>
+</figure>
+
+<p>Cần đọc kỹ điều công ty thật sự làm, vì báo chí hay rút gọn thành Klarna bỏ AI. Họ không bỏ. Trợ lý AI vẫn đang làm khối lượng công việc tương đương hơn 800 nhân sự toàn thời gian, tăng so với con số 700 ban đầu.</p>
+<p>Điều được thêm vào là một chương trình thí điểm tuyển nhân viên hỗ trợ làm từ xa theo hợp đồng, bên cạnh vài nghìn nhân sự thuê ngoài đang có. Công ty mô tả hướng đi là kết hợp AI quy mô lớn với hỗ trợ chất lượng cao.</p>
+<p>Bài học cho SME nằm ở thứ tự đặt mục tiêu. Nếu bạn quyết định mức tự chủ dựa trên số nhân sự muốn giảm, bạn sẽ đẩy hệ thống vượt quá năng lực thật của nó, và chi phí sửa sai sẽ đến sau vài tháng dưới dạng khách không hài lòng. Nếu bạn đặt ngưỡng chất lượng phục vụ trước rồi mới tính mức tự chủ phù hợp, phần tiết kiệm sẽ nhỏ hơn nhưng bền hơn.</p>
+<p>Một điểm nữa đáng học: Klarna công bố cả hai chiều. Với một doanh nghiệp đang cân nhắc đầu tư, một case có cả phần điều chỉnh đáng tin hơn nhiều so với một case chỉ có số liệu đẹp của tháng đầu.</p>
+
+<!-- cta:mid -->
+
+<h2>Ví dụ SME: tiếp nhận yêu cầu khảo sát văn phòng</h2>
+<p>Xét một doanh nghiệp thiết kế văn phòng thuộc nhóm SME (doanh nghiệp vừa và nhỏ) nhận tin nhắn muốn khảo sát mặt bằng. Khách cung cấp địa điểm, diện tích dự kiến và thời gian mong muốn. Chatbot có thể hỏi phần còn thiếu, trả lời phạm vi dịch vụ và chuyển yêu cầu đến người phụ trách. Nếu đã tích hợp lịch, bot cũng có thể đưa các khung giờ theo luồng định sẵn.</p>
+
+<div class="kb-callout">
+  <p class="kb-callout__t">Đây là ví dụ giả định</p>
+  <p>Doanh nghiệp thiết kế văn phòng này dùng để giải thích chức năng, không phải dự án đã triển khai hay kết quả khách hàng thật.</p>
+</div>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/06-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/06-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/06-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Ví dụ khảo sát văn phòng: hội thoại và chuyển việc so với tra cứu, cân nhắc và đề xuất bước tiếp theo." width="1600" height="900">
+  <figcaption>Ví dụ giả định: yêu cầu khảo sát văn phòng cần thêm dữ liệu trước khi đặt lịch</figcaption>
+</figure>
+
+<p>Một agent được thiết kế cho nhiệm vụ này có thể xem yêu cầu, đối chiếu khu vực phục vụ, kiểm tra lịch khảo sát, rồi soạn đề xuất phù hợp. Khi địa chỉ chưa rõ hoặc lịch thay đổi, nó cân nhắc bước tiếp theo thay vì cứ đi hết danh sách hành động.</p>
+<p>Nhưng biết tra lịch không đồng nghĩa được xác nhận lịch. Nếu chỉ có quyền đọc, đầu ra phải là đề xuất chờ duyệt. Nếu khách chưa xác nhận, hệ thống không nên báo đã đặt lịch chỉ vì tìm thấy một khung giờ trống.</p>
+<p>Khác biệt cần quan sát là ai chọn bước tiếp theo và hệ thống kiểm chứng trạng thái ra sao. Nếu mọi nhánh đã cố định theo điều kiện rõ, bạn đang xem một workflow có AI, dù nhà cung cấp gọi đó là agent.</p>
+<p>Tôi ưu tiên hỏi khi dữ liệu thiếu hoặc hai điều kiện xung đột, hệ thống làm gì. Câu trả lời này thể hiện năng lực vận hành rõ hơn một màn demo chạy đúng với dữ liệu đẹp.</p>
+
+<h2>Ba lớp quyền cần tách khi ứng dụng vào marketing</h2>
+<p>Đọc dữ liệu, soạn đề xuất và thực hiện hành động là những quyền khác nhau. Doanh nghiệp có thể giao cho agent tổng hợp yêu cầu nhưng giữ việc thay đổi trạng thái lead hoặc xác nhận cam kết ở bước duyệt riêng.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/07-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/07-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/07-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Ba quyền riêng biệt: đọc dữ liệu, soạn đề xuất và thực hiện hành động." width="1600" height="900">
+  <figcaption>Đọc dữ liệu, soạn đề xuất và xác nhận lịch là những quyền khác nhau</figcaption>
+</figure>
+
+<p>Trong ví dụ khảo sát, dữ liệu đầu vào cần đủ cho nhiệm vụ, có nguồn và được dùng trong phạm vi phù hợp. Agent không cần xem toàn bộ hồ sơ khách hàng chỉ để đề xuất giờ khảo sát. Quyền rộng hơn không tự làm kết quả tốt hơn. Về cách phân loại dữ liệu khách hàng theo nguồn, xem bài <a href="/goc-kien-thuc/marketing/zero-party-data-va-first-party-data/">Zero-party data là gì? Khác first-party data thế nào?</a></p>
+
+<h3>Ba trạng thái khi ghi dữ liệu</h3>
+<p>Khi ghi dữ liệu, cần phân biệt ba trạng thái là dự kiến, chờ duyệt và đã thực hiện, và không được gộp chúng lại trong bất kỳ báo cáo nào.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/08-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/08-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/08-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Phân biệt dự kiến, chờ duyệt và đã thực hiện; đề xuất chưa xác nhận hành động hoàn tất." width="1600" height="900">
+  <figcaption>Gộp ba trạng thái này là nguồn gốc của những cam kết sai với khách hàng</figcaption>
+</figure>
+
+<p>Nếu công cụ lỗi sau một bước, người phụ trách cần biết phần nào đã xong để xử lý tiếp; gửi lại cả chuỗi có thể tạo yêu cầu trùng. Đây cũng là lý do nhật ký từng bước quan trọng hơn nhiều so với một màn hình tổng kết.</p>
+
+<h3>Điểm chuyển người cũng cần có nội dung</h3>
+<p>Khi hệ thống chuyển việc cho con người, thông báo cần nêu thiếu hồ sơ nào, điều kiện nào chưa thống nhất và đề xuất nào đang chờ. Điểm duyệt đó cần những quyền gì được nói kỹ trong bài <a href="/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/">Human-in-the-loop là gì</a>.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/09-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/09-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/09-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Bàn giao cho người cần rõ thiếu gì, vướng gì và đã làm gì." width="1600" height="900">
+  <figcaption>Một thông báo cần duyệt mà không có căn cứ khiến con người phải làm lại việc từ đầu</figcaption>
+</figure>
+
+<!-- cta:nut -->
+
+<h2>Vì sao nhiệm vụ càng nhiều bước càng dễ hỏng?</h2>
+<p>Vì xác suất nhân với nhau. Đây là điểm khác biệt quan trọng nhất giữa một chatbot trả lời một câu và một agent thực hiện một chuỗi, và nó giải thích vì sao demo chạy đẹp mà vận hành thật lại hay hỏng.</p>
+<p>Giả sử mỗi bước của agent có độ chính xác 95%, một con số nghe rất cao. Một nhiệm vụ mười bước liên tiếp, bước nào cũng phải đúng thì cả chuỗi mới hoàn tất, sẽ chỉ thành công khoảng 60% số lần. Nếu mỗi bước đúng 90%, tỷ lệ hoàn tất trọn vẹn chỉ còn khoảng 35%. Ngược lại, nếu nâng từng bước lên 99%, tỷ lệ hoàn tất đạt khoảng 90%.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/10-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/10-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/10-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Minh họa 10 bước độc lập: mỗi bước đúng 95 phần trăm, cả chuỗi hoàn tất khoảng 60 phần trăm." width="1600" height="900">
+  <figcaption>Một agent làm đúng 95% mỗi bước vẫn hỏng bốn trên mười nhiệm vụ mười bước</figcaption>
+</figure>
+
+<p>Phép tính trên là minh họa, giả định các bước độc lập với nhau, còn thực tế có bước dễ có bước khó. Nhưng hướng của kết luận thì không đổi: sai số cộng dồn theo cấp số nhân chứ không theo cấp số cộng.</p>
+<p>Điều này cũng giải thích một hiện tượng quen thuộc khi chạy thử: agent làm đúng trong buổi demo, rồi sang tuần thứ hai bắt đầu có những lỗi kỳ lạ không lặp lại được. Không phải hệ thống xấu đi. Chỉ là số lượt chạy tăng lên đủ để phần 40% kia bắt đầu xuất hiện, và mỗi lần nó xuất hiện ở một bước khác nhau.</p>
+
+<h3>Hai hệ quả thực hành</h3>
+<p>Thứ nhất, chia nhiệm vụ dài thành vài nhiệm vụ ngắn có điểm kiểm tra ở giữa, thay vì giao một chuỗi mười bước rồi chờ kết quả cuối. Thứ hai, khi so sánh hai nhà cung cấp, đừng hỏi độ chính xác trung bình mỗi bước, hãy hỏi tỷ lệ hoàn tất trọn vẹn cả nhiệm vụ. Hai con số này cách nhau rất xa.</p>
+
+<h2>Agent đắt hơn ở những khoản nào?</h2>
+<p>Ba khoản, và cả ba đều không xuất hiện trên bảng giá phần mềm. Cần đưa chúng vào bài toán trước khi quyết định.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/11-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/11-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/11-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Ba khoản cần tính đến khi việc hoàn tất: chi phí, độ trễ và công sức vận hành." width="1600" height="900">
+  <figcaption>Agent đổi chi phí và độ trễ lấy khả năng xử lý tình huống không đoán trước được</figcaption>
+</figure>
+
+<p>Chi phí mỗi lượt xử lý cao hơn, vì một agent có thể gọi mô hình nhiều lần cho một nhiệm vụ thay vì một lần. Độ trễ cao hơn, vì nhiều bước suy luận và gọi công cụ nghĩa là khách phải chờ lâu hơn. Công sức vận hành cao hơn, vì bạn phải theo dõi nhật ký từng bước, dựng điểm kiểm tra và xử lý trường hợp lỗi giữa chừng.</p>
+<p>Ba khoản này chỉ đáng trả khi nhiệm vụ thật sự không liệt kê hết nhánh được. Với một luồng ổn định, workflow rẻ hơn, nhanh hơn và dễ kiểm soát hơn. Khi so sánh, hãy so tổng chi phí xử lý một yêu cầu cho tới khi hoàn tất, không so giá gói phần mềm.</p>
+
+<h2>SME nên đánh giá hiệu quả bằng gì?</h2>
+<p>Hãy bắt đầu từ một công việc có đầu vào và tiêu chí hoàn tất rõ. Với yêu cầu khảo sát, cần xem thông tin được ghi đúng, đề xuất lịch phù hợp và trạng thái bàn giao có thể kiểm tra. Số tin nhắn trả lời chỉ phản ánh một phần hoạt động.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/12-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/12-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/12-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Năm chỉ số gồm hoàn tất đúng, thời gian nhân sự, phải sửa, chuyển đúng lúc và báo xong sai." width="1600" height="900">
+  <figcaption>Đánh giá việc được xử lý đúng cùng phần việc còn cần con người</figcaption>
+</figure>
+
+<p>So sánh chất lượng xử lý, thời gian nhân sự còn phải dùng và số yêu cầu cần sửa. Phân biệt chuyển người đúng lúc với chuyển người vì hệ thống không xử lý được phần đã giao. Hai tình huống có cùng hành động nhưng ý nghĩa khác nhau.</p>
+<p>Chỉ số cuối cùng trong năm chỉ số là chỉ số ít ai đo nhưng tốn kém nhất: số lần hệ thống báo đã xong trong khi chưa thực hiện. Vụ việc trong bài <a href="/goc-kien-thuc/ai-marketing/ao-giac-ai-la-gi/">Ảo giác AI là gì</a> cho thấy một cam kết sai của hệ thống tự động vẫn ràng buộc doanh nghiệp, nên đây là chỉ số nên theo dõi từ ngày đầu.</p>
+<p>Một lưu ý về cách so sánh trước và sau. Nếu chỉ so thời gian phản hồi trung bình, gần như mọi triển khai AI đều thắng, vì hệ thống trả lời trong vài giây. Nhưng thời gian phản hồi không phải thời gian giải quyết.</p>
+<p>Con số đáng so là thời gian từ lúc khách nhắn tới lúc việc thật sự xong, tính cả phần nhân sự phải can thiệp. Klarna báo giảm từ 11 phút xuống dưới 2 phút chính là con số thứ hai, không phải con số thứ nhất.</p>
+<p>Đừng lấy lịch khảo sát làm bằng chứng chắc chắn của doanh thu. Khách còn có thể đổi nhu cầu, không đến hoặc không phù hợp dự án. Cách đọc những hành động nhỏ như đặt lịch mà không xem chúng là kết quả cuối được giải thích trong bài <a href="/goc-kien-thuc/marketing/micro-conversion-la-gi/">Micro conversion là gì, khác macro conversion thế nào</a>.</p>
+
+<!-- cta:late -->
+
+<h2>Chọn chatbot, workflow hay agent theo tiêu chí nào?</h2>
+<p>Hãy chọn giải pháp đơn giản nhất còn giải quyết được việc, bằng cách trả lời ba câu hỏi theo thứ tự và dừng ở câu đầu tiên có câu trả lời.</p>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/13-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/13-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/13-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Chọn chatbot cho hội thoại, workflow khi luồng rõ và cân nhắc agent khi cần chọn bước linh hoạt." width="1600" height="900">
+  <figcaption>Hãy chọn giải pháp đơn giản nhất còn giải quyết được việc</figcaption>
+</figure>
+
+<h3>Ba câu hỏi theo thứ tự</h3>
+<p>Câu một, mọi đường đi đều rõ và ổn định chưa. Nếu rồi, một workflow hoặc chatbot là đủ, và nó rẻ hơn, nhanh hơn, dễ kiểm tra hơn. Câu hai, hệ thống có cần tự chọn bước tiếp theo không. Chỉ khi đầu vào thay đổi nhiều tới mức không liệt kê hết nhánh được thì agent mới đáng cân nhắc. Câu ba, ai chịu trách nhiệm khi hệ thống sai. Nếu chưa trả lời được, chưa nên mở quyền ghi dữ liệu, dù công nghệ đã sẵn sàng.</p>
+
+<h3>Năm câu hỏi gửi nhà cung cấp trước khi ký hợp đồng</h3>
+<p>Khi đã quyết định cân nhắc agent, năm câu hỏi dưới đây nên được gửi cho nhà cung cấp trước khi ký hợp đồng. Chúng khó trả lời bằng một màn demo.</p>
+
+<ol>
+  <li><strong>Thiếu dữ liệu thì hệ thống làm gì?</strong> Nó hỏi thêm, dừng lại hay tự điền phần còn thiếu.</li>
+  <li><strong>Điều kiện xung đột thì hệ thống làm gì?</strong> Nó chọn một nhánh hay chuyển cho người quyết định.</li>
+  <li><strong>Công cụ lỗi giữa chừng thì sao?</strong> Người phụ trách có biết phần nào đã xong để xử lý tiếp không.</li>
+  <li><strong>Hệ thống được ghi những gì?</strong> Quyền ghi dữ liệu được phân theo từng tác vụ ra sao.</li>
+  <li><strong>Bàn giao cho người như thế nào?</strong> Thông báo có nêu thiếu gì, vướng gì và đang chờ gì không.</li>
+</ol>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/14-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/14-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/14-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Năm câu hỏi nhà cung cấp: thiếu dữ liệu, điều kiện xung đột, công cụ lỗi, quyền ghi và bàn giao." width="1600" height="900">
+  <figcaption>Câu trả lời cho những câu này nói nhiều hơn một màn demo chạy đúng với dữ liệu đẹp</figcaption>
+</figure>
+
+<h3>Ba sai lầm hay gặp khi triển khai</h3>
+<p>Ba sai lầm dưới đây là những sai lầm hay gặp nhất khi triển khai, và sai lầm thứ ba chính là sai lầm mà Klarna đã mất hơn một năm để điều chỉnh.</p>
+
+<ol>
+  <li><strong>Mở quyền ghi quá sớm:</strong> mở ngay từ đầu chỉ vì demo chạy mượt là sai lầm tốn kém nhất.</li>
+  <li><strong>Chỉ đếm tin nhắn:</strong> số tin nhắn trả lời chỉ phản ánh một phần hoạt động, không cho biết việc đã xong đúng chưa.</li>
+  <li><strong>Chỉ lo giảm chi phí:</strong> cách sửa là đặt ngưỡng chất lượng phục vụ trước rồi mới tính mức tự chủ.</li>
+</ol>
+
+<figure class="kb-fig">
+  <img src="/assets/kb/ai-agent-va-chatbot/15-ai-agent-va-chatbot.webp" srcset="/assets/kb/ai-agent-va-chatbot/15-ai-agent-va-chatbot-800.webp 800w, /assets/kb/ai-agent-va-chatbot/15-ai-agent-va-chatbot.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Ba lỗi triển khai: mở quyền quá sớm, chỉ đếm tin nhắn và chỉ lo giảm chi phí." width="1600" height="900">
+  <figcaption>Ba lỗi hay gặp khi triển khai agent, và nguyên tắc sửa là đặt chất lượng trước</figcaption>
+</figure>
+
+<!-- faq -->
+
+<h2>Kết luận: AI agent và chatbot khác nhau ra sao và nên chọn thế nào?</h2>
+<p>Tóm lại, AI agent và chatbot khác nhau ở quyền chọn bước, quyền hành động và cách xác nhận kết quả, chứ không nằm ở khung chat. Hiểu ba điều đó giúp bạn đánh giá giá trị của AI agent trong marketing qua công việc cần hoàn thành.</p>
+<p>Hãy bắt đầu ở mức đọc dữ liệu và soạn đề xuất, đặt chất lượng phục vụ trước, và chỉ mở thêm quyền khi đã đo được kết quả.</p>

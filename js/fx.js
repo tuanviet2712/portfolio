@@ -127,11 +127,16 @@
     measure();
     L.onLayout(measure);
     let last = -1, on = false;
+    const langFloat = $('.lang-float');
     L.tick(s => {
       const p = clamp(s.y / docH);
       if (Math.abs(p - last) > 0.001) { last = p; bar.style.strokeDashoffset = (C * (1 - p)).toFixed(1); }
       const show = s.y > showAt;
-      if (show !== on) { on = show; b.classList.toggle('is-on', show); }
+      if (show !== on) {
+        on = show;
+        b.classList.toggle('is-on', show);
+        if (langFloat) langFloat.classList.toggle('is-visible', show);
+      }
     });
     b.addEventListener('click', () => window.scrollTo({ top: 0, behavior: L.reduced ? 'auto' : 'smooth' }));
   }
