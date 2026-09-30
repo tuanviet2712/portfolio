@@ -41,6 +41,38 @@ foreach ($f in $files) {
   Copy-Item -LiteralPath $src -Destination $dist -Force
 }
 
+# Gan ma phien ban (?v=ma bam noi dung) vao moi tham chieu css/js trong cac trang HTML cua dist.
+# VI SAO: Cloudflare Pages cho trinh duyet giu css/js 4 gio, con HTML thi luon tai moi. Khach vua xem
+# trang truoc khi trien khai se nhan HTML moi chay voi css/js CU (loi 30/09/2026: chu "xin chao" khong
+# duoc ve vi HTML moi can quy tac CSS moi). Doi dia chi theo noi dung thi HTML moi luon keo dung tep moi,
+# tep nao khong doi thi giu nguyen ma nen van dung lai duoc bo nho dem. Tep nguon khong bi sua.
+# Bo qua assets/ (scene.js cua hero duoc hero.js tu nap theo dia chi khong co ma, phai khop voi preload).
+$utf8 = New-Object System.Text.UTF8Encoding($false)
+$sha1 = [System.Security.Cryptography.SHA1]::Create()
+$verCache = @{}
+$verStat = @{ refs = 0; pages = 0 }
+$verRx = [regex]'(?<=\b(?:href|src)=")(?!https?:|//|data:)[^"?#]+\.(?:css|js)(?=")'
+foreach ($page in Get-ChildItem -LiteralPath $dist -Recurse -File -Filter *.html) {
+  $html = [IO.File]::ReadAllText($page.FullName, $utf8)
+  $pageDir = $page.DirectoryName
+  $stamped = $verRx.Replace($html, [System.Text.RegularExpressions.MatchEvaluator]{
+    param($m)
+    $url = $m.Value
+    if ($url -match '(^|/)assets/') { return $url }
+    $base = if ($url.StartsWith('/')) { $dist } else { $pageDir }
+    $file = [IO.Path]::GetFullPath((Join-Path $base $url.TrimStart('/')))
+    if (-not [IO.File]::Exists($file)) { return $url }
+    if (-not $verCache.ContainsKey($file)) {
+      $bytes = $sha1.ComputeHash([IO.File]::ReadAllBytes($file))
+      $verCache[$file] = -join ($bytes[0..3] | ForEach-Object { $_.ToString('x2') })
+    }
+    $verStat.refs++
+    return $url + '?v=' + $verCache[$file]
+  })
+  if ($stamped -ne $html) { [IO.File]::WriteAllText($page.FullName, $stamped, $utf8); $verStat.pages++ }
+}
+Write-Host "    gan ma phien ban: $($verStat.refs) tham chieu css/js trong $($verStat.pages) trang" -ForegroundColor Green
+
 $count = (Get-ChildItem -LiteralPath $dist -Recurse -File).Count
 $size = [math]::Round(((Get-ChildItem -LiteralPath $dist -Recurse -File | Measure-Object Length -Sum).Sum / 1MB), 1)
 Write-Host "    $count file, $size MB" -ForegroundColor Green
