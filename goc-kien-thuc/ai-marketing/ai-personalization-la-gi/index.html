@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="vi" class="smooth">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9FR8F25SP"></script>
-  <script src="/js/ga4.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <!-- Chuyển cảnh vào trang: đặt sớm nhất có thể để màn phủ có ngay từ khung hình đầu tiên -->
   <script src="../../../js/pt.js"></script>
+  <!-- Google tag (gtag.js). ga4.js để defer: không chặn hiển thị, gtag.js vẫn đọc dataLayer khi nó được đẩy vào -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9FR8F25SP"></script>
+  <script src="/js/ga4.js" defer></script>
   <title>AI personalization là gì? Cá nhân hóa marketing bằng AI</title>
   <meta name="description" content="AI personalization là gì, khác cá nhân hóa theo quy tắc ra sao? Bốn mức cá nhân hóa, số liệu McKinsey kèm dải thật, vòng lặp gợi ý và Điều 28 luật dữ liệu.">
   <meta name="author" content="Lê Tuấn Việt">
@@ -373,6 +373,7 @@
   </script>
 </head>
 <body class="kb kb--article" data-nav-active="kien-thuc">
+<!--email_off--><!-- Cloudflare không mã hóa email trong vùng này: bot không chạy JavaScript (GPTBot, ClaudeBot…) đọc được đúng địa chỉ liên hệ -->
   <a class="skip-link" href="#noi-dung">Bỏ qua phần điều hướng</a>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
       <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
@@ -1026,5 +1027,6 @@
   <script src="../../../js/kb-nav.js" defer></script>
   <script src="../../../js/kb.js" defer></script>
   <script src="../../../js/kb-search.js" defer></script>
+<!--/email_off-->
 </body>
 </html>

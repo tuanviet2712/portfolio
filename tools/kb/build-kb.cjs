@@ -365,13 +365,13 @@ function page({ rel, pagePath, title, description, draft = false, robots = 'inde
   return `<!DOCTYPE html>
 <html lang="vi" class="smooth">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9FR8F25SP"></script>
-  <script src="/js/ga4.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <!-- Chuyển cảnh vào trang: đặt sớm nhất có thể để màn phủ có ngay từ khung hình đầu tiên -->
   <script src="${rel}js/pt.js"></script>
+  <!-- Google tag (gtag.js). ga4.js để defer: không chặn hiển thị, gtag.js vẫn đọc dataLayer khi nó được đẩy vào -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9FR8F25SP"></script>
+  <script src="/js/ga4.js" defer></script>
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
   <meta name="author" content="${A.name}">
@@ -414,6 +414,7 @@ ${json({ '@context': 'https://schema.org', '@graph': ld })}
   </script>
 </head>
 <body class="kb ${bodyClass}" data-nav-active="kien-thuc">
+<!--email_off--><!-- Cloudflare không mã hóa email trong vùng này: bot không chạy JavaScript (GPTBot, ClaudeBot…) đọc được đúng địa chỉ liên hệ -->
   <a class="skip-link" href="#noi-dung">Bỏ qua phần điều hướng</a>
   ${sprite()}
   <div class="pt" aria-hidden="true"><span class="pt__mark"><img src="${rel}assets/img/logo.svg" alt="" width="40" height="40">Lê Tuấn Việt</span></div>
@@ -441,6 +442,7 @@ ${after}
   <script src="${rel}js/kb-nav.js" defer></script>
   <script src="${rel}js/kb.js" defer></script>
   <script src="${rel}js/kb-search.js" defer></script>
+<!--/email_off-->
 </body>
 </html>
 `;
@@ -849,7 +851,43 @@ function llmsTxt(all) {
     for (const a of list) lines.push(`- [${a.title}](${abs(articlePath(a))}): ${String(a.description || a.excerpt).replace(/\s+/g, ' ').trim()}`);
   }
   lines.push('', '## Lưu ý khi trích dẫn', '', '- Ví dụ về cửa hàng, doanh nghiệp và nhân vật trong bài được ghi rõ là giả định biên tập, không phải kết quả khách hàng thật.', '- Số liệu từ nguồn ngoài luôn kèm nguồn và phạm vi đo; phần pháp lý chỉ để định hướng, không phải tư vấn pháp lý.', '');
+  lines.push(`Toàn văn mọi bài viết ở dạng văn bản thuần: ${abs('llms-full.txt')}`, '');
   return lines.join('\n');
+}
+
+/* llms-full.txt: toàn văn mọi bài ở dạng Markdown thuần cho công cụ AI không chạy JavaScript.
+   Gắn X-Robots-Tag: noindex trong _headers để Google không xem là bản trùng của các bài viết. */
+function bodyToText(html) {
+  return decode(String(html)
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/<aside class="kb-cta[\s\S]*?<\/aside>/g, '')
+    .replace(/<script[\s\S]*?<\/script>/g, '')
+    .replace(/<figure[\s\S]*?<\/figure>/g, f => { const c = f.match(/<figcaption[^>]*>([\s\S]*?)<\/figcaption>/); return c ? `\n\n[Hình: ${plain(c[1])}]\n\n` : '\n\n'; })
+    .replace(/<h2[^>]*>([\s\S]*?)<\/h2>/g, (_, t) => `\n\n### ${plain(t)}\n\n`)
+    .replace(/<h3[^>]*>([\s\S]*?)<\/h3>/g, (_, t) => `\n\n#### ${plain(t)}\n\n`)
+    .replace(/<tr[^>]*>([\s\S]*?)<\/tr>/g, (_, r) => `\n| ${[...r.matchAll(/<t[hd][^>]*>([\s\S]*?)<\/t[hd]>/g)].map(c => plain(c[1])).join(' | ')} |`)
+    .replace(/<li[^>]*>/g, '\n- ')
+    .replace(/<\/(p|div|section|ul|ol|table|dl|dd|dt|blockquote|caption|li)>/g, '\n')
+    .replace(/<br\s*\/?>/g, '\n')
+    .replace(/<[^>]+>/g, ''))
+    .split('\n').map(l => l.replace(/[ \t ]+/g, ' ').trim()).join('\n')
+    .replace(/\n{3,}/g, '\n\n').trim();
+}
+function llmsFullTxt(all) {
+  const out = [`# ${SITE.siteName}: toàn văn Góc kiến thức`, '',
+    `> Toàn văn các bài viết của ${A.name}, ${A.role}. Mỗi bài ghi rõ địa chỉ gốc; khi trích dẫn, hãy dẫn về địa chỉ đó. Hồ sơ tác giả: ${abs('llms.txt')}`, ''];
+  for (const a of all) {
+    const p = pillarBySlug(a.pillar);
+    out.push('---', '', `## ${a.title}`, '',
+      `- URL: ${abs(articlePath(a))}`, `- Chủ đề: ${p.name}`, `- Tác giả: ${A.name}`,
+      `- Xuất bản: ${day(a.published)}; cập nhật: ${day(a.modified)}`, `- Tóm tắt: ${String(a.description).replace(/\s+/g, ' ').trim()}`, '');
+    if (a.sapo) out.push(plain(a.sapo), '');
+    if ((a.takeaways || []).length) out.push('### Tóm tắt nhanh', '', ...a.takeaways.map(t => `- ${plain(t)}`), '');
+    out.push(bodyToText(a.bodyHtml), '');
+    if ((a.faq || []).length) out.push('### Câu hỏi thường gặp', '', ...a.faq.flatMap(f => [`**${plain(f.q)}**`, plain(f.a), '']));
+    if ((a.references || []).length) out.push('### Nguồn tham khảo', '', ...a.references.map(r => `- ${r.text || r.name || ''}${r.url ? ` ${r.url}` : ''}`), '');
+  }
+  return out.join('\n');
 }
 
 const SIDE_POSTS = 5;
@@ -1325,7 +1363,15 @@ function updateSitemap(all) {
     urls.push(`  <url>\n    <loc>${abs(pillarPath(p))}</loc>\n    <lastmod>${mod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`);
   });
   all.forEach(a => {
-    urls.push(`  <url>\n    <loc>${abs(articlePath(a))}</loc>\n    <lastmod>${day(a.modified)}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n    <image:image>\n      <image:loc>${abs(`assets/kb/${a.cover.base}.jpg`)}</image:loc>\n    </image:image>\n  </url>`);
+    // Ảnh bìa + mọi ảnh minh họa trong thân bài (bản lớn nhất trong src), để Google Images thấy hết sơ đồ của bài
+    const pageUrl = abs(articlePath(a));
+    const imgs = [abs(`assets/kb/${a.cover.base}.jpg`)];
+    for (const m of a.bodyHtml.matchAll(/<img\b[^>]*\ssrc="([^"]+)"/g)) {
+      const u = new URL(m[1], pageUrl).href;
+      if (u.startsWith(ORIGIN + '/') && !imgs.includes(u)) imgs.push(u);
+    }
+    const imgXml = imgs.map(u => `\n    <image:image>\n      <image:loc>${u}</image:loc>\n    </image:image>`).join('');
+    urls.push(`  <url>\n    <loc>${pageUrl}</loc>\n    <lastmod>${day(a.modified)}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>${imgXml}\n  </url>`);
   });
   const block = `<!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->\n${urls.join('\n')}\n  <!-- /KB:SITEMAP -->`;
   if (/<!-- KB:SITEMAP[\s\S]*?<!-- \/KB:SITEMAP -->/.test(src)) src = src.replace(/<!-- KB:SITEMAP[\s\S]*?<!-- \/KB:SITEMAP -->/, block);
@@ -1495,6 +1541,7 @@ function main() {
   written.push(writeFile(`${HUB}/feed.xml`, feed(all)));
   written.push(writeFile(`${HUB}/search.json`, searchIndex(all)));
   written.push(writeFile('llms.txt', llmsTxt(all)));
+  written.push(writeFile('llms-full.txt', llmsFullTxt(all)));
   updateSitemap(all);
   const homeChanged = updateHome(all);
 

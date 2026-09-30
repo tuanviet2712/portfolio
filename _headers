@@ -25,6 +25,13 @@
 /assets/video/*
   Cache-Control: public, max-age=604800
 
+# CV: luôn hỏi lại máy chủ (tên tệp không đổi khi thay CV mới, mặc định 4 giờ khiến khách có thể nhận bản cũ).
+# Content-Disposition: lưu về máy luôn mang đúng tên "CV_Marketing Leader_Lê Tuấn Việt.pdf" dù mở từ nút hay dán thẳng liên kết;
+# inline để bấm vào liên kết vẫn xem được ngay trên trình duyệt.
+/assets/cv/*
+  Cache-Control: public, no-cache
+  Content-Disposition: inline; filename="CV_Marketing_Leader_Le_Tuan_Viet.pdf"; filename*=UTF-8''CV_Marketing%20Leader_L%C3%AA%20Tu%E1%BA%A5n%20Vi%E1%BB%87t.pdf
+
 # Địa chỉ pages.dev do Cloudflare tự cấp, không gỡ được: không cho Google lập chỉ mục để chỉ letuanviet.com xuất hiện.
 # Dòng thứ hai là các bản xem trước của từng lần triển khai (<mã>.portfolio-elj.pages.dev).
 https://portfolio-elj.pages.dev/*
@@ -35,6 +42,11 @@ https://:version.portfolio-elj.pages.dev/*
 # Chỉ mục tìm kiếm của Góc kiến thức: chỉ dành cho ô tìm kiếm, không cho Google lập chỉ mục
 /goc-kien-thuc/search.json
   X-Robots-Tag: noindex
+
+# Toàn văn bài viết cho công cụ AI: vẫn đọc được, nhưng Google không lập chỉ mục (tránh trùng với chính các bài)
+/llms-full.txt
+  X-Robots-Tag: noindex
+  Content-Type: text/plain; charset=utf-8
 
 # Tệp báo lỗi bảo mật cần ở dạng văn bản thuần
 /.well-known/security.txt

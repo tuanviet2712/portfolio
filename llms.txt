@@ -45,3 +45,5 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 - Ví dụ về cửa hàng, doanh nghiệp và nhân vật trong bài được ghi rõ là giả định biên tập, không phải kết quả khách hàng thật.
 - Số liệu từ nguồn ngoài luôn kèm nguồn và phạm vi đo; phần pháp lý chỉ để định hướng, không phải tư vấn pháp lý.
+
+Toàn văn mọi bài viết ở dạng văn bản thuần: https://letuanviet.com/llms-full.txt
