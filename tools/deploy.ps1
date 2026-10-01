@@ -36,7 +36,7 @@ if (-not (Get-Command npx -ErrorAction SilentlyContinue)) {
 $folders = @("assets", "css", "js", "goc-kien-thuc", ".well-known")
 $files = @("index.html", "404.html", "google49ce971bbd8cd1d5.html",
            "_headers", "robots.txt", "sitemap.xml", "manifest.json", "llms.txt", "llms-full.txt",
-           "favicon.ico", "$indexNowKey.txt")
+           "favicon.ico", "$indexNowKey.txt", "BingSiteAuth.xml")
 
 Write-Host ""
 Write-Host "  Dung lai thu muc dist ..." -ForegroundColor Cyan
