@@ -961,12 +961,14 @@ a.bio__link:hover small, button.bio__link:hover small { color: var(--taupe); }
   .ch .u { --ci: clamp(0, calc((var(--v2) - var(--d)) / min(var(--dur), calc(1 - var(--d)))), 1); }
 }
 
-/* Điện thoại: khung hero luôn vừa khít phần màn hình đang nhìn thấy (100dvh), thanh địa chỉ hiện hay thu lại đều vậy.
+/* Điện thoại: khung hero cao bằng chiều cao lớn nhất của khung nhìn ở bề ngang hiện tại (--hh, js/hero.js) và có lớp nền tối kéo
+   dài 40vh dưới đáy (box-shadow, bị phần kế tiếp che khi nó trượt lên), nên khi thanh công cụ ẩn/hiện chữ không nhảy và không lộ nền xanh nhạt.
+   Lịch sử: 100dvh trước khi có --hh (dưới đây).
    Lỗi cũ 1: khung cao 100svh (lúc thanh còn hiện) nên khi thanh thu lại vùng nhìn cao hơn khung ~50px, hở dải nền xanh nhạt ở đáy.
    Lỗi cũ 2 (bản sửa lvh): khung cao hơn màn hình lúc thanh còn hiện, ảnh bị cắt đáy và trôi lên như cuộn ảnh trước khi chuyển động.
    Trình duyệt chưa có dvh dùng 100vh. Chữ và nút theo khung nên tự canh lại theo phần nhìn thấy. Máy tính giữ nguyên. */
 @media (max-width: 760px) {
-  .hero__sticky { height: 100vh; height: 100dvh; }
+  .hero__sticky { height: 100vh; height: var(--hh, 100dvh); box-shadow: 0 40vh 0 0 rgb(9 13 24); }
 }
 
 /* Android: trang chủ cuộn trong thân trang (js/inner-scroll.js đặt lớp inner-scroll lên html, chỉ trên điện thoại Android).
@@ -977,4 +979,3 @@ html.inner-scroll body { height: 100%; overflow-x: hidden; overflow-y: auto; ove
 html.inner-scroll body::-webkit-scrollbar { display: none; }
 html.inner-scroll.smooth body { scroll-behavior: smooth; }
 html.inner-scroll body.is-loading { overflow: hidden; }
-html.inner-scroll .hero__sticky { height: 100vh; height: var(--ih, 100svh); }

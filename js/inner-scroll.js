@@ -15,6 +15,29 @@
    ========================================================================== */
 (function () {
   'use strict';
+  /* ?diag: bảng chẩn đoán nhỏ ở góc dưới (trình duyệt, phiên bản đang chạy, chiều cao khung nhìn) để người dùng chụp gửi khi báo lỗi.
+     Không có ?diag thì không hiện gì. */
+  if (/[?&]diag(?:=|&|$)/.test(window.location.search)) {
+    var diag = function () {
+      var box = document.createElement('pre');
+      box.style.cssText = 'position:fixed;left:6px;right:6px;bottom:6px;z-index:2147483647;margin:0;padding:8px 10px;font:11px/1.35 monospace;white-space:pre-wrap;word-break:break-all;color:#fff;background:rgba(0,0,0,.78);border-radius:8px;pointer-events:none';
+      document.body.appendChild(box);
+      var minH = 1e9, maxH = 0, changes = 0, lastH = window.innerHeight;
+      var ver = function (k) { var s = document.querySelector('script[src*="' + k + '"]'); return s ? (s.getAttribute('src').split('v=')[1] || '-') : 'none'; };
+      setInterval(function () {
+        var ih = window.innerHeight, st = document.querySelector('.hero__sticky');
+        if (ih !== lastH) { changes++; lastH = ih; }
+        minH = Math.min(minH, ih); maxH = Math.max(maxH, ih);
+        box.textContent = 'UA: ' + navigator.userAgent +
+          '\ninner-scroll: ' + document.documentElement.classList.contains('inner-scroll') + ' | hero.min ' + ver('hero.min.js') + ' | inner-scroll ' + ver('inner-scroll.js') +
+          '\ninnerHeight ' + ih + ' (min ' + minH + ', max ' + maxH + ', doi ' + changes + ' lan) | visualViewport ' + (window.visualViewport ? Math.round(window.visualViewport.height) : '-') +
+          ' | screen ' + screen.width + 'x' + screen.height + ' @' + window.devicePixelRatio +
+          '\nhero --hh ' + (document.getElementById('trang-chu') ? document.getElementById('trang-chu').style.getPropertyValue('--hh') : '-') + ' | khung hero ' + (st ? Math.round(st.getBoundingClientRect().height) : '-') +
+          ' | scrollY ' + Math.round(window.scrollY);
+      }, 250);
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', diag); else diag();
+  }
   try {
     var w = window, d = document, de = d.documentElement, q = w.location.search;
     if (/[?&]inner=0(?:&|$)/.test(q)) return;
@@ -80,11 +103,6 @@
     function bind() { if (d.body) d.body.addEventListener('scroll', fwd, { passive: true }); }
     if (d.body) bind(); else d.addEventListener('DOMContentLoaded', bind);
     undo.push(function () { if (d.body) d.body.removeEventListener('scroll', fwd); });
-
-    // chiều cao nhìn thấy cho khung hero (css: var(--ih))
-    var ih = function () { de.style.setProperty('--ih', w.innerHeight + 'px'); };
-    ih();
-    w.addEventListener('resize', ih);
 
     function off() {
       de.classList.remove('inner-scroll');

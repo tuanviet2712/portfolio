@@ -90,9 +90,26 @@
       return Math.min(lvhPx - svhPx, Math.max(0, vv.height - svhPx));
     }
 
+    /* ================= CHIỀU CAO KHUNG HERO TRÊN ĐIỆN THOẠI =================
+       Trình duyệt trong ứng dụng (Facebook, Messenger, Zalo…) và Chrome ẩn/hiện thanh công cụ khi cuộn, làm khung nhìn cao lên
+       thấp xuống ~50px. Nếu khung hero đi theo thì chữ nhảy, video co giãn và lộ dải nền trong lúc chờ. Giữ khung hero bằng chiều cao
+       LỚN NHẤT từng thấy ở bề ngang hiện tại (--hh, css/style.css): thanh hiện thì phần đáy khung nằm dưới mép màn hình,
+       thanh ẩn thì khung vừa khít; chiều cao không đổi qua lại nên không còn nhảy. Đổi bề ngang (xoay máy) thì đo lại. */
+    let stableW = 0, stableH = 0;
+    function stabilizeHeight() {
+      if (!phoneMQ.matches) { if (stableH) { stableW = stableH = 0; hero.style.removeProperty('--hh'); } return; }
+      if (innerWidth !== stableW) { stableW = innerWidth; stableH = 0; }
+      // Chrome báo trước chiều cao khi thanh ẩn (100lvh) nên dùng luôn; trình duyệt trong ứng dụng thì lvh bằng chiều cao hiện tại
+      // chặn giá trị bất thường (đo lúc đang tải, thu phóng…): không cao hơn màn hình máy và không quá thanh công cụ ~160px
+      const cap = Math.min(innerHeight + 160, Math.max(screen.height || 0, screen.width || 0, innerHeight));
+      const h = Math.min(cap, Math.max(innerHeight, probeVh('lvh') || 0));
+      if (h > stableH) { stableH = h; hero.style.setProperty('--hh', stableH + 'px'); }
+    }
+
     /* ================= KÍCH THƯỚC & MỐC CUỘN ================= */
     let W = 1, H = 1, dpr = 1, heroTop = 0, heroH = 1, vh = innerHeight, animEnd = 1, coverStart = 1, dirty = true;
     function measure() {
+      stabilizeHeight();
       const r = canvas.getBoundingClientRect();
       W = Math.max(1, r.width); H = Math.max(1, r.height);
       dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, 2, 2560 / W));
