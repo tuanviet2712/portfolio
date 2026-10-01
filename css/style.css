@@ -961,12 +961,10 @@ a.bio__link:hover small, button.bio__link:hover small { color: var(--taupe); }
   .ch .u { --ci: clamp(0, calc((var(--v2) - var(--d)) / min(var(--dur), calc(1 - var(--d)))), 1); }
 }
 
-/* Điện thoại: khung hero cao đúng bằng chiều cao LỚN NHẤT của khung nhìn (lvh) thay vì nhỏ nhất (svh).
-   Lỗi cũ: khi cuộn xuống, thanh địa chỉ thu lại, vùng nhìn cao hơn khung hero khoảng 57px và để lộ dải nền xanh nhạt ở đáy.
-   Lớp nền (video, tấm phủ) lấy trọn lvh nên không bao giờ hở; lớp chữ và khung góc giữ đúng chiều cao svh như cũ, canh theo đỉnh,
-   nên vị trí chữ không đổi. Máy tính giữ nguyên. */
+/* Điện thoại: khung hero luôn vừa khít phần màn hình đang nhìn thấy (100dvh), thanh địa chỉ hiện hay thu lại đều vậy.
+   Lỗi cũ 1: khung cao 100svh (lúc thanh còn hiện) nên khi thanh thu lại vùng nhìn cao hơn khung ~50px, hở dải nền xanh nhạt ở đáy.
+   Lỗi cũ 2 (bản sửa lvh): khung cao hơn màn hình lúc thanh còn hiện, ảnh bị cắt đáy và trôi lên như cuộn ảnh trước khi chuyển động.
+   Trình duyệt chưa có dvh dùng 100vh. Chữ và nút theo khung nên tự canh lại theo phần nhìn thấy. Máy tính giữ nguyên. */
 @media (max-width: 760px) {
-  .hero__sticky { height: 100vh; height: 100lvh; }
-  .hero__layers { bottom: auto; height: 100vh; height: 100svh; }
-  .hero__frame { bottom: auto; height: calc(100vh - 2 * clamp(14px, 2.2vw, 28px)); height: calc(100svh - 2 * clamp(14px, 2.2vw, 28px)); }
+  .hero__sticky { height: 100vh; height: 100dvh; }
 }

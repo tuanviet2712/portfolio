@@ -71,6 +71,25 @@
     let curP = 0, curT = 0;
     let face = null, gutterPx = 48;                              // mặt trên màn hình (draw() cập nhật) + lề trái của thẻ (measure() đo)
 
+    /* ================= THANH ĐỊA CHỈ ĐIỆN THOẠI =================
+       Cuộn xuống, trình duyệt dùng quãng cuộn đầu tiên (~50px) để trượt thanh địa chỉ đi, scrollY chưa đổi nên video đứng yên rồi mới chạy.
+       Cộng phần thanh đã thu vào quãng cuộn để chuyển động chạy ngay theo ngón tay. Máy tính, hoặc trình duyệt không có
+       visualViewport / đơn vị svh, lvh: luôn trả 0 nên không đổi gì. */
+    const vv = window.visualViewport, phoneMQ = window.matchMedia('(max-width: 760px)');
+    let svhPx = 0, lvhPx = 0;
+    function probeVh(unit) {
+      const d = document.createElement('div');
+      d.style.cssText = 'position:fixed;top:0;left:0;width:0;height:100' + unit + ';visibility:hidden;pointer-events:none';
+      document.body.appendChild(d);
+      const h = d.offsetHeight;
+      d.remove();
+      return h;
+    }
+    function barCollapsed() {
+      if (!vv || !phoneMQ.matches || vv.scale > 1.01 || !(lvhPx > svhPx)) return 0;
+      return Math.min(lvhPx - svhPx, Math.max(0, vv.height - svhPx));
+    }
+
     /* ================= KÍCH THƯỚC & MỐC CUỘN ================= */
     let W = 1, H = 1, dpr = 1, heroTop = 0, heroH = 1, vh = innerHeight, animEnd = 1, coverStart = 1, dirty = true;
     function measure() {
@@ -80,6 +99,7 @@
       const cw = Math.round(W * dpr), ch = Math.round(H * dpr);
       if (canvas.width !== cw || canvas.height !== ch) { canvas.width = cw; canvas.height = ch; }
       vh = innerHeight;
+      if (phoneMQ.matches) { svhPx = probeVh('svh'); lvhPx = probeVh('lvh'); }
       heroTop = hero.getBoundingClientRect().top + window.scrollY;
       heroH = hero.offsetHeight;
       const intro = layers && $('.ch--intro', layers);
@@ -525,7 +545,7 @@
       if (!visible) { wasVisible = false; return; }
       if (!wasVisible) { wasVisible = true; dirty = true; }
 
-      const target = clamp(y / animEnd);
+      const target = clamp((y + barCollapsed()) / animEnd);
       if (snap || L.reduced) curP = target;
       else {
         curP += (target - curP) * (1 - Math.exp(-s.dt * DAMP_P));
