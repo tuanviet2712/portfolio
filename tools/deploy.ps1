@@ -64,14 +64,34 @@ $utf8 = New-Object System.Text.UTF8Encoding($false)
 $sha1 = [System.Security.Cryptography.SHA1]::Create()
 $verCache = @{}
 $verStat = @{ refs = 0; pages = 0 }
-$verRx = [regex]'(?<=\b(?:href|src)=")(?!https?:|//|data:)[^"?#]+\.(?:css|js)(?=")'
+# CV (.pdf) cung duoc gan ma: tren ten mien letuanviet.com Cloudflare ghi de Cache-Control cua tep PDF thanh
+# 4 gio (cai dat Browser Cache TTL cua zone), bat chap "no-cache" trong _headers, nen thay CV moi ma giu nguyen
+# duong dan thi khach vua mo CV se nhan ban cu. Nut "Tai CV" tren trang chu bi js/core.js ghi de href bang
+# gia tri cv trong data.js, nen phai gan ma ca trong data.js/data.min.js cua dist. Ten tep luu ve may khong doi:
+# no do thuoc tinh download cua nut va Content-Disposition cua _headers quyet dinh, khong lien quan toi query.
+$cvRel = "assets/cv/CV-Le-Tuan-Viet.pdf"
+$cvFile = Join-Path $dist $cvRel
+if (Test-Path -LiteralPath $cvFile) {
+  $cvBytes = $sha1.ComputeHash([IO.File]::ReadAllBytes($cvFile))
+  $cvVer = -join ($cvBytes[0..3] | ForEach-Object { $_.ToString('x2') })
+  foreach ($dj in "data.js", "data.min.js") {
+    $djPath = Join-Path $dist "js\$dj"
+    if (-not (Test-Path -LiteralPath $djPath)) { continue }
+    $djText = [IO.File]::ReadAllText($djPath, $utf8)
+    $djNew = $djText.Replace("`"$cvRel`"", "`"$cvRel`?v=$cvVer`"").Replace("'$cvRel'", "'$cvRel`?v=$cvVer'")
+    if ($djNew -ne $djText) { [IO.File]::WriteAllText($djPath, $djNew, $utf8) }
+  }
+  Write-Host "    CV: ma phien ban $cvVer" -ForegroundColor Green
+}
+
+$verRx = [regex]'(?<=\b(?:href|src)=")(?!https?:|//|data:)[^"?#]+\.(?:css|js|pdf)(?=")'
 foreach ($page in Get-ChildItem -LiteralPath $dist -Recurse -File -Filter *.html) {
   $html = [IO.File]::ReadAllText($page.FullName, $utf8)
   $pageDir = $page.DirectoryName
   $stamped = $verRx.Replace($html, [System.Text.RegularExpressions.MatchEvaluator]{
     param($m)
     $url = $m.Value
-    if ($url -match '(^|/)assets/') { return $url }
+    if ($url -match '(^|/)assets/' -and $url -notmatch '(^|/)assets/cv/[^/]+\.pdf$') { return $url }
     $base = if ($url.StartsWith('/')) { $dist } else { $pageDir }
     $file = [IO.Path]::GetFullPath((Join-Path $base $url.TrimStart('/')))
     if (-not [IO.File]::Exists($file)) { return $url }
