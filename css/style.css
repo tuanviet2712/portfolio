@@ -960,3 +960,13 @@ a.bio__link:hover small, button.bio__link:hover small { color: var(--taupe); }
   .ch__rule { width: calc(var(--v2) * 72px); opacity: var(--v2); }
   .ch .u { --ci: clamp(0, calc((var(--v2) - var(--d)) / min(var(--dur), calc(1 - var(--d)))), 1); }
 }
+
+/* Điện thoại: khung hero cao đúng bằng chiều cao LỚN NHẤT của khung nhìn (lvh) thay vì nhỏ nhất (svh).
+   Lỗi cũ: khi cuộn xuống, thanh địa chỉ thu lại, vùng nhìn cao hơn khung hero khoảng 57px và để lộ dải nền xanh nhạt ở đáy.
+   Lớp nền (video, tấm phủ) lấy trọn lvh nên không bao giờ hở; lớp chữ và khung góc giữ đúng chiều cao svh như cũ, canh theo đỉnh,
+   nên vị trí chữ không đổi. Máy tính giữ nguyên. */
+@media (max-width: 760px) {
+  .hero__sticky { height: 100vh; height: 100lvh; }
+  .hero__layers { bottom: auto; height: 100vh; height: 100svh; }
+  .hero__frame { bottom: auto; height: calc(100vh - 2 * clamp(14px, 2.2vw, 28px)); height: calc(100svh - 2 * clamp(14px, 2.2vw, 28px)); }
+}
