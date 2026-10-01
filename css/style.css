@@ -975,7 +975,9 @@ a.bio__link:hover small, button.bio__link:hover small { color: var(--taupe); }
    Thanh địa chỉ không còn co giãn nên khung hero luôn vừa khít màn hình, trang không bị kéo lên xuống và không hở nền.
    Khung hero lấy chiều cao nhìn thấy thật (--ih, do script cập nhật khi đổi cỡ). Máy tính và các trình duyệt khác không có lớp này. */
 html.inner-scroll { height: 100%; overflow: hidden; }
-html.inner-scroll body { height: 100%; overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: none; scrollbar-width: none; }
+/* body cao hơn màn hình 1px: Chrome tự coi một vùng cuộn khít đúng bằng màn hình là vùng cuộn chính (implicit root scroller)
+   và lại trượt thanh địa chỉ theo nó. Lệch 1px thì Chrome không nhận nữa, thanh địa chỉ đứng yên. html cắt phần 1px thừa. */
+html.inner-scroll body { height: calc(100% + 1px); overflow-x: hidden; overflow-y: auto; overscroll-behavior-y: none; scrollbar-width: none; }
 html.inner-scroll body::-webkit-scrollbar { display: none; }
 html.inner-scroll.smooth body { scroll-behavior: smooth; }
 html.inner-scroll body.is-loading { overflow: hidden; }

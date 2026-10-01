@@ -102,7 +102,9 @@
       // Chrome báo trước chiều cao khi thanh ẩn (100lvh) nên dùng luôn; trình duyệt trong ứng dụng thì lvh bằng chiều cao hiện tại
       // chặn giá trị bất thường (đo lúc đang tải, thu phóng…): không cao hơn màn hình máy và không quá thanh công cụ ~160px
       const cap = Math.min(innerHeight + 160, Math.max(screen.height || 0, screen.width || 0, innerHeight));
-      const h = Math.min(cap, Math.max(innerHeight, probeVh('lvh') || 0));
+      // Chế độ cuộn trong thân trang (js/inner-scroll.js) giữ thanh địa chỉ đứng yên: chiều cao nhìn thấy là cố định, không dùng lvh
+      const lv = document.documentElement.classList.contains('inner-scroll') ? 0 : (probeVh('lvh') || 0);
+      const h = Math.min(cap, Math.max(innerHeight, lv));
       if (h > stableH) { stableH = h; hero.style.setProperty('--hh', stableH + 'px'); }
     }
 

@@ -23,6 +23,14 @@
       box.style.cssText = 'position:fixed;left:6px;right:6px;bottom:6px;z-index:2147483647;margin:0;padding:8px 10px;font:11px/1.35 monospace;white-space:pre-wrap;word-break:break-all;color:#fff;background:rgba(0,0,0,.78);border-radius:8px;pointer-events:none';
       document.body.appendChild(box);
       var minH = 1e9, maxH = 0, changes = 0, lastH = window.innerHeight;
+      // có thêm &herodebug thì hiện khung video đang vẽ (0–240), tiến độ hero và số khung đã tải của bộ ảnh đang dùng
+      var heroInfo = function () {
+        try {
+          var s = JSON.parse(window.LTV.heroDebug.state());
+          var n = s[s.set] || {};
+          return '\nKHUNG VIDEO ' + Math.round(s.curT * 10) / 10 + ' | tien do ' + Math.round(s.curP * 1000) / 10 + '% | bo anh ' + s.set + ' (da tai ' + n.loaded + ', da giai ma ' + n.decoded + ')';
+        } catch (e) { return ''; }
+      };
       var ver = function (k) { var s = document.querySelector('script[src*="' + k + '"]'); return s ? (s.getAttribute('src').split('v=')[1] || '-') : 'none'; };
       setInterval(function () {
         var ih = window.innerHeight, st = document.querySelector('.hero__sticky');
@@ -33,7 +41,7 @@
           '\ninnerHeight ' + ih + ' (min ' + minH + ', max ' + maxH + ', doi ' + changes + ' lan) | visualViewport ' + (window.visualViewport ? Math.round(window.visualViewport.height) : '-') +
           ' | screen ' + screen.width + 'x' + screen.height + ' @' + window.devicePixelRatio +
           '\nhero --hh ' + (document.getElementById('trang-chu') ? document.getElementById('trang-chu').style.getPropertyValue('--hh') : '-') + ' | khung hero ' + (st ? Math.round(st.getBoundingClientRect().height) : '-') +
-          ' | scrollY ' + Math.round(window.scrollY);
+          ' | scrollY ' + Math.round(window.scrollY) + heroInfo();
       }, 250);
     };
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', diag); else diag();
