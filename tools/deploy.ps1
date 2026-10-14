@@ -13,10 +13,13 @@
   Chi dung thu (khong day len):  ... -WhatIf
   Bao cho Bing/Yandex/Naver... (IndexNow) moi URL trong sitemap sau khi day len:  ... -IndexNow
     (chi dung khi co bai moi hoac noi dung doi dang ke; gui lai URL khong doi nhieu lan bi ha uu tien)
+  Trien khai ban xem thu (khong phai trang that):  ... -Branch xem-thu
+  Chi bao IndexNow mot so URL:  ... -IndexNow -IndexNowUrls "https://letuanviet.com/a/","https://letuanviet.com/b/"
+  Chay duoc tren Linux (GitHub Actions) bang pwsh.
 
   Luu y: file nay chi dung ky tu ASCII vi PowerShell 5.1 doc .ps1 khong BOM theo bang ma ANSI.
 #>
-param([switch]$WhatIf, [switch]$IndexNow, [string]$Message = "")
+param([switch]$WhatIf, [switch]$IndexNow, [string]$Message = "", [string]$Branch = "main", [string[]]$IndexNowUrls = @())
 
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
@@ -75,7 +78,7 @@ if (Test-Path -LiteralPath $cvFile) {
   $cvBytes = $sha1.ComputeHash([IO.File]::ReadAllBytes($cvFile))
   $cvVer = -join ($cvBytes[0..3] | ForEach-Object { $_.ToString('x2') })
   foreach ($dj in "data.js", "data.min.js") {
-    $djPath = Join-Path $dist "js\$dj"
+    $djPath = Join-Path (Join-Path $dist "js") $dj
     if (-not (Test-Path -LiteralPath $djPath)) { continue }
     $djText = [IO.File]::ReadAllText($djPath, $utf8)
     $djNew = $djText.Replace("`"$cvRel`"", "`"$cvRel`?v=$cvVer`"").Replace("'$cvRel'", "'$cvRel`?v=$cvVer'")
@@ -130,12 +133,12 @@ Write-Host "  Day len Cloudflare Pages ..." -ForegroundColor Cyan
 Push-Location $root
 try {
   $env:CI = "1"
-  & npx -y wrangler@4 pages deploy dist --project-name=portfolio --branch=main --commit-dirty=true --commit-message=$Message
+  & npx -y wrangler@4 pages deploy dist --project-name=portfolio --branch=$Branch --commit-dirty=true --commit-message=$Message
   if ($LASTEXITCODE -ne 0) { throw "wrangler pages deploy that bai (ma $LASTEXITCODE)" }
 } finally { Pop-Location }
 
-if ($IndexNow) {
-  $urls = @([regex]::Matches([IO.File]::ReadAllText((Join-Path $root "sitemap.xml"), $utf8), '<url>\s*<loc>([^<]+)</loc>') | ForEach-Object { $_.Groups[1].Value })
+if ($IndexNow -and $Branch -eq "main") {
+  $urls = if ($IndexNowUrls.Count) { $IndexNowUrls } else { @([regex]::Matches([IO.File]::ReadAllText((Join-Path $root "sitemap.xml"), $utf8), '<url>\s*<loc>([^<]+)</loc>') | ForEach-Object { $_.Groups[1].Value }) }
   $body = @{ host = "letuanviet.com"; key = $indexNowKey; keyLocation = "https://letuanviet.com/$indexNowKey.txt"; urlList = $urls } | ConvertTo-Json -Compress
   Write-Host ""
   Write-Host "  Gui $($urls.Count) URL toi IndexNow ..." -ForegroundColor Cyan
