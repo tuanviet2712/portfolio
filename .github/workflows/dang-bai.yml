@@ -1,0 +1,168 @@
+# Dang bai tu he thong quan tri SEO-Agent (quantri.letuanviet.com).
+# Kich hoat: SEO-Agent goi workflow_dispatch luc den gio dang. Khong tu chay khi push.
+# Can: secrets CLOUDFLARE_API_TOKEN, CLOUDFLARE_ACCOUNT_ID, SEO_AGENT_PULL_TOKEN; variable SEO_AGENT_ORIGIN.
+# Tep nay CHI dung ky tu ASCII (an toan cho moi trinh doc).
+name: Dang bai SEO-Agent
+run-name: "Dang bai ${{ inputs.attempt_id }} (${{ inputs.mode }})"
+
+on:
+  workflow_dispatch:
+    inputs:
+      attempt_id:
+        description: Ma luot dang
+        required: true
+        type: string
+      nonce:
+        description: Ma dung mot lan cua luot dang
+        required: true
+        type: string
+      mode:
+        description: preview = nhanh xem-thu, khong commit; production = commit + trien khai that
+        required: true
+        type: choice
+        options: [preview, production]
+        default: preview
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dang-bai
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      ATTEMPT_ID: ${{ inputs.attempt_id }}
+      NONCE: ${{ inputs.nonce }}
+      MODE: ${{ inputs.mode }}
+      ORIGIN: ${{ vars.SEO_AGENT_ORIGIN }}
+      PULL_TOKEN: ${{ secrets.SEO_AGENT_PULL_TOKEN }}
+      RUN_ID: ${{ github.run_id }}
+    steps:
+      - name: Lay ma nguon
+        uses: actions/checkout@v7
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Cai Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Tai goi bai
+        run: |
+          set -euo pipefail
+          curl -fsS --retry 3 -H "Authorization: Bearer $PULL_TOKEN" \
+            "$ORIGIN/api/gh/bundle/$ATTEMPT_ID?nonce=$NONCE" -o "$RUNNER_TEMP/bundle.json"
+          node -e "const b=require(process.argv[1]);if(b.attempt_id!==process.env.ATTEMPT_ID)throw new Error('sai goi');console.log('Bai:',b.article.slug,'tep:',b.files.length)" "$RUNNER_TEMP/bundle.json"
+
+      - name: Ghi bai, dung, commit (production) hoac chi dung (preview)
+        id: build
+        run: |
+          set -euo pipefail
+          git config user.name "seo-agent[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cat > "$RUNNER_TEMP/apply.mjs" <<'EOF'
+          import fs from 'node:fs'; import path from 'node:path'; import crypto from 'node:crypto';
+          const b = JSON.parse(fs.readFileSync(process.env.RUNNER_TEMP + '/bundle.json', 'utf8'));
+          const H = { Authorization: 'Bearer ' + process.env.PULL_TOKEN };
+          const sha = buf => crypto.createHash('sha256').update(buf).digest('hex');
+          // 0. Chi ghi vao cac thu muc duoc phep (phong thu: Worker cung da kiem, day la lop thu hai)
+          const slug = b.article.slug;
+          if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) { console.error('slug khong hop le'); process.exit(2); }
+          const ap = b.article.path;
+          const IMG = '\\.(?:webp|jpe?g|png)$';
+          const ASSET_RES = [
+            new RegExp('^assets/kb/' + slug + '(?:-[a-z0-9]+)*' + IMG),
+            new RegExp('^assets/kb/' + slug + '/[a-z0-9][a-z0-9._-]*' + IMG),
+            new RegExp('^tools/kb/covers/(?:nen/)?' + slug + IMG),
+          ];
+          const okAsset = p => typeof p === 'string' && !p.includes('..') && !p.includes('//') && ASSET_RES.some(re => re.test(p));
+          if (ap !== 'tools/kb/articles/' + slug + '.html') { console.error('duong dan bai khong hop le'); process.exit(2); }
+          // tep kem bai: dung duong dan bai cua chinh slug nay, con lai chi la anh nam dung cho cua slug nay
+          for (const f of b.files) if (f.path !== ap && !okAsset(f.path)) { console.error('duong dan tep khong hop le: ' + f.path); process.exit(2); }
+          for (const p of b.link_patches) if (!/^tools\/kb\/articles\/[a-z0-9-]+\.html$/.test(p.path)) { console.error('duong dan sua bai cu khong hop le: ' + p.path); process.exit(2); }
+          // 1. Chong de len bai khac cung slug
+          if (fs.existsSync(ap) && !fs.readFileSync(ap, 'utf8').includes(b.marker)) {
+            fs.writeFileSync(process.env.RUNNER_TEMP + '/fail.txt', 'slug_conflict'); process.exit(3);
+          }
+          // 2. Ghi tep
+          for (const f of b.files) {
+            let buf;
+            if (f.encoding === 'utf8') buf = Buffer.from(f.content, 'utf8');
+            else {
+              const u = new URL(f.url, process.env.ORIGIN);
+              u.searchParams.set('attempt_id', b.attempt_id); u.searchParams.set('nonce', process.env.NONCE);
+              const r = await fetch(u, { headers: H }); if (!r.ok) throw new Error('tai ' + f.path + ' ' + r.status);
+              buf = Buffer.from(await r.arrayBuffer());
+            }
+            if (sha(buf) !== f.sha256) throw new Error('sai sha256 ' + f.path);
+            fs.mkdirSync(path.dirname(f.path), { recursive: true }); fs.writeFileSync(f.path, buf);
+          }
+          // 3. Sua bai cu (lien ket 2 chieu): chi ap khi find xuat hien dung 1 lan
+          const res = [];
+          for (const p of b.link_patches) {
+            if (!fs.existsSync(p.path)) { res.push({ id: p.id, applied: false, reason: 'missing_file' }); continue; }
+            const s = fs.readFileSync(p.path, 'utf8');
+            if (s.includes(p.replace)) { res.push({ id: p.id, applied: true, reason: 'already' }); continue; }
+            const n = s.split(p.find).length - 1;
+            if (n !== 1) { res.push({ id: p.id, applied: false, reason: 'find_count_' + n }); continue; }
+            fs.writeFileSync(p.path, s.replace(p.find, () => p.replace)); res.push({ id: p.id, applied: true });
+          }
+          fs.writeFileSync(process.env.RUNNER_TEMP + '/patches.json', JSON.stringify(res));
+          fs.writeFileSync(process.env.RUNNER_TEMP + '/msg.txt', b.commit_message);
+          EOF
+
+          report() { # stage, extra-json
+            curl -fsS --retry 3 -X POST -H "Authorization: Bearer $PULL_TOKEN" -H "Content-Type: application/json" \
+              "$ORIGIN/api/gh/result/$ATTEMPT_ID" \
+              -d "{\"nonce\":\"$NONCE\",\"run_id\":\"$RUN_ID\",\"stage\":\"$1\",$2}" || true
+          }
+
+          for try in 1 2 3; do
+            git fetch origin master
+            git reset --hard origin/master
+            set +e; node "$RUNNER_TEMP/apply.mjs"; code=$?; set -e
+            if [ $code -eq 3 ]; then report failed "\"error\":\"slug_conflict\",\"patches\":[]"; exit 1; fi
+            if [ $code -ne 0 ]; then report failed "\"error\":\"apply_failed\",\"patches\":[]"; exit 1; fi
+            node tools/kb/build-kb.cjs > "$RUNNER_TEMP/build.log" 2>&1 || { tail -n 60 "$RUNNER_TEMP/build.log"; report failed "\"error\":\"site_build_failed\",\"patches\":[]"; exit 1; }
+            PATCHES=$(cat "$RUNNER_TEMP/patches.json")
+            if [ "$MODE" != "production" ]; then echo "preview: khong commit"; echo "patches=$PATCHES" >> "${GITHUB_OUTPUT:-/dev/null}"; break; fi
+            for p in tools/kb assets/kb goc-kien-thuc index.html sitemap.xml llms.txt llms-full.txt; do
+              if [ -e "$p" ]; then git add -A -- "$p"; fi
+            done
+            if git diff --cached --quiet; then
+              report skipped_no_change "\"patches\":$PATCHES"; break
+            fi
+            git commit -F "$RUNNER_TEMP/msg.txt"
+            if git push origin HEAD:master; then
+              report committed "\"commit_sha\":\"$(git rev-parse HEAD)\",\"patches\":$PATCHES"; break
+            fi
+            echo "push bi tu choi, lam lai lan $try"
+            if [ $try -eq 3 ]; then report failed "\"error\":\"push_rejected\",\"patches\":$PATCHES"; exit 1; fi
+          done
+
+      - name: Trien khai len Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        shell: pwsh
+        run: |
+          $branch = if ($env:MODE -eq "production") { "main" } else { "xem-thu" }
+          & ./tools/deploy.ps1 -Branch $branch -Message "SEO-Agent $env:ATTEMPT_ID" 2>&1 | Tee-Object -Variable log
+          if ($LASTEXITCODE -ne 0) { throw "deploy that bai" }
+          $url = ([regex]::Match(($log -join "`n"), 'https://[a-z0-9-]+\.portfolio-elj\.pages\.dev')).Value
+          $body = @{ nonce = $env:NONCE; run_id = $env:RUN_ID; stage = "deployed"; deploy_url = $url; patches = @() } | ConvertTo-Json -Compress
+          Invoke-RestMethod -Method Post -Uri "$env:ORIGIN/api/gh/result/$env:ATTEMPT_ID" -Headers @{ Authorization = "Bearer $env:PULL_TOKEN" } -ContentType "application/json" -Body $body
+
+      - name: Bao loi
+        if: failure()
+        run: |
+          curl -fsS -X POST -H "Authorization: Bearer $PULL_TOKEN" -H "Content-Type: application/json" \
+            "$ORIGIN/api/gh/result/$ATTEMPT_ID" \
+            -d "{\"nonce\":\"$NONCE\",\"run_id\":\"$RUN_ID\",\"stage\":\"failed\",\"error\":\"workflow_failed\",\"patches\":[]}" || true
