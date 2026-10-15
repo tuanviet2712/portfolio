@@ -161,7 +161,7 @@ module.exports = {
       icon: 'i-flag',
       short: 'Phân tích bối cảnh, cách triển khai, đo lường và bài học thực tế',
       h1Html: 'Case <span class="grad">Marketing</span>',
-      title: 'Case Marketing: phân tích, triển khai và bài học | Lê Tuấn Việt',
+      title: 'Case Marketing cho SME: phân tích và bài học | Lê Tuấn Việt',
       description: 'Case Marketing cho doanh nghiệp SME: phân tích bối cảnh, thực tiễn triển khai, đo lường và tối ưu, cùng những bài học có thể ứng dụng từ dự án thực tế.',
       intro: 'Phân tích Case Marketing từ bối cảnh và thực tiễn triển khai đến đo lường, tối ưu và bài học có thể ứng dụng cho doanh nghiệp SME',
       topics: [
