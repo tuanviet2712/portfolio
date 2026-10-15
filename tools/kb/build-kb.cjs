@@ -20,6 +20,7 @@ const path = require('node:path');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const SITE = require('./site.cjs');
+const { LEGAL_PAGES } = require('./legal-data.cjs');
 const ORIGIN = SITE.origin;
 const HUB = SITE.hub.path;
 const A = SITE.author;
@@ -122,7 +123,9 @@ const ICONS = {
   'i-home': '<symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-5.5h-5V21H5a1 1 0 0 1-1-1z"/></symbol>',
   'i-close': '<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>',
   'i-notes': '<symbol id="i-notes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>',
-  'i-book': '<symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol>'
+  'i-book': '<symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol>',
+  'i-shield': '<symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 8.2-7 9.5C8.5 20.2 5 17 5 12V6l7-3z"/><path d="m9.5 12 1.8 1.8 3.7-3.8"/></symbol>',
+  'i-globe': '<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>'
 };
 const sprite = () => `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>\n      ${Object.values(ICONS).join('\n      ')}\n    </defs></svg>`;
 const ico = (id, cls = '') => `<svg${cls ? ` class="${cls}"` : ''} aria-hidden="true"><use href="#${id}"/></svg>`;
@@ -140,17 +143,19 @@ function countLabel(n) {
   return n ? { vi: `${n} bài viết`, en: `${n} ${plural(n, 'article', 'articles')}` } : { vi: 'Sắp ra mắt', en: 'Coming soon' };
 }
 
-function dropdown(rel) {
+function dropdown(rel, lang = 'vi') {
+  const isEn = lang === 'en';
+  const suf = isEn ? '?lang=en' : '';
   const items = SITE.pillars.map(p => {
-    return `<li><a class="kbdd__item" href="${rel}${pillarPath(p)}"><span class="kbdd__ico">${ico(p.icon)}</span><span class="kbdd__txt"><b data-en="${esc(p.en.name)}">${esc(p.name)}</b><small data-en="${esc(p.en.short)}">${esc(p.short)}</small></span>${ico('i-arrow', 'kbdd__go')}</a></li>`;
+    return `<li><a class="kbdd__item" href="${rel}${pillarPath(p)}${suf}"><span class="kbdd__ico">${ico(p.icon)}</span><span class="kbdd__txt"><b data-en="${esc(p.en.name)}">${esc(isEn ? p.en.name : p.name)}</b><small data-en="${esc(p.en.short)}">${esc(isEn ? p.en.short : p.short)}</small></span>${ico('i-arrow', 'kbdd__go')}</a></li>`;
   }).join('\n            ');
   return `
-        <div class="kbdd" id="kb-dd" role="region" aria-label="Góc kiến thức" data-en-label="${esc(SITE.hub.en.name)}">
+        <div class="kbdd" id="kb-dd" role="region" aria-label="${isEn ? esc(SITE.hub.en.name) : 'Góc kiến thức'}" data-en-label="${esc(SITE.hub.en.name)}">
           <div class="kbdd__intro">
-            <p class="kbdd__title" data-en="${esc(SITE.hub.en.name)}">Góc kiến thức</p>
-            <p class="kbdd__desc" data-en="${esc(SITE.hub.en.lead)}">Góc nhìn Marketing, ứng dụng AI và bài học thực chiến giúp biến chiến lược thành hệ thống tăng trưởng.</p>
+            <p class="kbdd__title" data-en="${esc(SITE.hub.en.name)}">${isEn ? esc(SITE.hub.en.name) : 'Góc kiến thức'}</p>
+            <p class="kbdd__desc" data-en="${esc(SITE.hub.en.lead)}">${isEn ? esc(SITE.hub.en.lead) : 'Góc nhìn Marketing, ứng dụng AI và bài học thực chiến giúp biến chiến lược thành hệ thống tăng trưởng.'}</p>
             <div class="kbdd__by"><img src="${rel}${A.avatar}.webp" alt="" width="38" height="38" loading="lazy" decoding="async"><span><b>${A.name}</b><small>${A.jobTitle}</small></span></div>
-            <a class="kbdd__all" href="${rel}${hubPath}"><span data-en="View all articles">Xem tất cả bài viết</span>${ico('i-arrow')}</a>
+            <a class="kbdd__all" href="${rel}${hubPath}${suf}"><span data-en="View all articles">${isEn ? 'View all articles' : 'Xem tất cả bài viết'}</span>${ico('i-arrow')}</a>
           </div>
           <div class="kbdd__main">
             <ul class="kbdd__list">
@@ -160,59 +165,65 @@ function dropdown(rel) {
         </div>`;
 }
 
-function trigger(href) {
-  return `<a class="nav__kb" href="${href}" data-nav="kien-thuc" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="kb-dd"><span data-en="${esc(SITE.hub.en.name)}">Góc kiến thức</span><svg class="nav__chev" aria-hidden="true"><use href="#i-chev"/></svg></a>`;
+function trigger(href, lang = 'vi') {
+  const isEn = lang === 'en';
+  return `<a class="nav__kb" href="${href}" data-nav="kien-thuc" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="kb-dd"><span data-en="${esc(SITE.hub.en.name)}">${isEn ? esc(SITE.hub.en.name) : 'Góc kiến thức'}</span><svg class="nav__chev" aria-hidden="true"><use href="#i-chev"/></svg></a>`;
 }
 
-function menuKb(rel, num, open) {
-  const items = SITE.pillars.map(p => `<a href="${rel}${pillarPath(p)}"><span class="menu-kb__ico">${ico(p.icon)}</span><span data-en="${esc(p.en.name)}">${esc(p.name)}</span></a>`).join('\n            ');
+function menuKb(rel, num, open, lang = 'vi') {
+  const isEn = lang === 'en';
+  const suf = isEn ? '?lang=en' : '';
+  const items = SITE.pillars.map(p => `<a href="${rel}${pillarPath(p)}${suf}"><span class="menu-kb__ico">${ico(p.icon)}</span><span data-en="${esc(p.en.name)}">${esc(isEn ? p.en.name : p.name)}</span></a>`).join('\n            ');
   return `<div class="menu-kb${open ? ' is-open' : ''}">
-        <button class="menu-kb__btn" type="button" aria-expanded="${open ? 'true' : 'false'}" aria-controls="menu-kb-list"><small>${num}</small><span data-en="${esc(SITE.hub.en.name)}">Góc kiến thức</span><svg class="menu-kb__chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <button class="menu-kb__btn" type="button" aria-expanded="${open ? 'true' : 'false'}" aria-controls="menu-kb-list"><small>${num}</small><span data-en="${esc(SITE.hub.en.name)}">${isEn ? esc(SITE.hub.en.name) : 'Góc kiến thức'}</span><svg class="menu-kb__chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
         <div class="menu-kb__panel" id="menu-kb-list">
           <div class="menu-kb__inner">
             ${items}
-            <a class="menu-kb__all" href="${rel}${hubPath}"><span data-en="View all articles">Tất cả bài viết</span>${ico('i-arrow')}</a>
+            <a class="menu-kb__all" href="${rel}${hubPath}${suf}"><span data-en="View all articles">${isEn ? 'View all articles' : 'Tất cả bài viết'}</span>${ico('i-arrow')}</a>
           </div>
         </div>
       </div>`;
 }
 
-function navBar(rel, articles) {
+function navBar(rel, articles, lang = 'vi') {
+  const isEn = lang === 'en';
+  const h = hash => isEn ? `${rel}?lang=en${hash}` : `${rel}${hash}`;
+  const kbSuf = isEn ? '?lang=en' : '';
   return `<header class="nav" id="nav">
     <div class="nav__inner">
-      <a class="nav__brand" href="${rel}" aria-label="Lê Tuấn Việt, về trang chủ">
+      <a class="nav__brand" href="${h('')}" aria-label="${isEn ? 'Lê Tuấn Việt, back to home' : 'Lê Tuấn Việt, về trang chủ'}">
         <span class="nav__logo"><img src="${rel}assets/img/logo.svg" alt="" width="28" height="28"></span><span class="nav__name">Lê Tuấn Việt</span><span class="nav__badge">${A.jobTitle}</span>
       </a>
-      <nav class="nav__links" aria-label="Điều hướng chính">
+      <nav class="nav__links" aria-label="${isEn ? 'Main navigation' : 'Điều hướng chính'}" data-en-label="Main navigation">
         <span class="nav__pill" aria-hidden="true"></span>
-        <a href="${rel}" data-nav="trang-chu">Trang chủ</a>
-        <a href="${rel}#gioi-thieu" data-nav="gioi-thieu">Giới thiệu</a>
-        <a href="${rel}#nang-luc" data-nav="nang-luc">Năng lực</a>
-        <a href="${rel}#du-an" data-nav="du-an">Dự án</a>
-        <a href="${rel}#doi-tac" data-nav="doi-tac">Đối tác</a>
-        <a href="${rel}#feedback" data-nav="feedback">Feedback</a>
-        ${trigger(`${rel}${hubPath}`)}${dropdown(rel)}
-        <a href="${rel}#lien-he" data-nav="lien-he">Liên hệ</a>
+        <a href="${h('')}" data-nav="trang-chu" data-en="Home">${isEn ? 'Home' : 'Trang chủ'}</a>
+        <a href="${h('#gioi-thieu')}" data-nav="gioi-thieu" data-en="About">${isEn ? 'About' : 'Giới thiệu'}</a>
+        <a href="${h('#nang-luc')}" data-nav="nang-luc" data-en="Expertise">${isEn ? 'Expertise' : 'Năng lực'}</a>
+        <a href="${h('#du-an')}" data-nav="du-an" data-en="Projects">${isEn ? 'Projects' : 'Dự án'}</a>
+        <a href="${h('#doi-tac')}" data-nav="doi-tac" data-en="Partners">${isEn ? 'Partners' : 'Đối tác'}</a>
+        <a href="${h('#feedback')}" data-nav="feedback">Feedback</a>
+        ${trigger(`${rel}${hubPath}${kbSuf}`, lang)}${dropdown(rel, lang)}
+        <a href="${h('#lien-he')}" data-nav="lien-he" data-en="Contact">${isEn ? 'Contact' : 'Liên hệ'}</a>
       </nav>
       <div class="nav__actions">
-        <button class="nav__search" type="button" data-search-open aria-haspopup="dialog" aria-controls="kb-search" aria-label="Tìm kiếm bài viết" title="Tìm kiếm bài viết (phím /)">${ico('i-search')}</button>
-        <a class="btn btn--dark btn--sm magnetic" href="${rel}${A.cv}" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv>Tải CV ${ico('i-download', 'ico ico--down')}</a>
-        <button class="nav__burger" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+        <button class="nav__search" type="button" data-search-open aria-haspopup="dialog" aria-controls="kb-search" aria-label="${isEn ? 'Search articles' : 'Tìm kiếm bài viết'}" title="${isEn ? 'Search articles (press /)' : 'Tìm kiếm bài viết (phím /)'}">${ico('i-search')}</button>
+        <a class="btn btn--dark btn--sm magnetic" href="${rel}${A.cv}" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv><span data-en="Download CV">${isEn ? 'Download CV' : 'Tải CV'}</span> ${ico('i-download', 'ico ico--down')}</a>
+        <button class="nav__burger" type="button" aria-label="${isEn ? 'Open menu' : 'Mở menu'}" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
       </div>
     </div>
   </header>
 
   <div class="menu" id="menu" aria-hidden="true">
-    <nav class="menu__links" aria-label="Menu di động">
-      <a href="${rel}"><small>01</small>Trang chủ</a>
-      <a href="${rel}#gioi-thieu"><small>02</small>Giới thiệu</a>
-      <a href="${rel}#nang-luc"><small>03</small>Năng lực</a>
-      <a href="${rel}#du-an"><small>04</small>Dự án</a>
-      <a href="${rel}#doi-tac"><small>05</small>Đối tác</a>
-      <a href="${rel}#feedback"><small>06</small>Feedback</a>
-      ${menuKb(rel, '07', true)}
-      <a href="${rel}${A.cv}" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv><small>08</small>Tải CV</a>
-      <a href="${rel}#lien-he"><small>09</small>Liên hệ</a>
+    <nav class="menu__links" aria-label="${isEn ? 'Mobile menu' : 'Menu di động'}">
+      <a href="${h('')}"><small>01</small><span data-en="Home">${isEn ? 'Home' : 'Trang chủ'}</span></a>
+      <a href="${h('#gioi-thieu')}"><small>02</small><span data-en="About">${isEn ? 'About' : 'Giới thiệu'}</span></a>
+      <a href="${h('#nang-luc')}"><small>03</small><span data-en="Expertise">${isEn ? 'Expertise' : 'Năng lực'}</span></a>
+      <a href="${h('#du-an')}"><small>04</small><span data-en="Projects">${isEn ? 'Projects' : 'Dự án'}</span></a>
+      <a href="${h('#doi-tac')}"><small>05</small><span data-en="Partners">${isEn ? 'Partners' : 'Đối tác'}</span></a>
+      <a href="${h('#feedback')}"><small>06</small>Feedback</a>
+      ${menuKb(rel, '07', true, lang)}
+      <a href="${rel}${A.cv}" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv><small>08</small><span data-en="Download CV">${isEn ? 'Download CV' : 'Tải CV'}</span></a>
+      <a href="${h('#lien-he')}"><small>09</small><span data-en="Contact">${isEn ? 'Contact' : 'Liên hệ'}</span></a>
     </nav>
     <div class="menu__foot">
       <a class="menu__contact" href="mailto:${A.email}">${ico('i-mail')}<span>${A.email}</span></a>
@@ -221,48 +232,57 @@ function navBar(rel, articles) {
   </div>`;
 }
 
-function footer(rel) {
-  const pillars = SITE.pillars.map(p => `<li><a href="${rel}${pillarPath(p)}">${esc(p.name)}</a></li>`).join('');
+function footer(rel, lang = 'vi') {
+  const isEn = lang === 'en';
+  const h = hash => isEn ? `${rel}?lang=en${hash}` : `${rel}${hash}`;
+  const kbSuf = isEn ? '?lang=en' : '';
+  const privHref = `${rel}${isEn ? 'en/privacy-policy/' : 'chinh-sach-bao-mat/'}`;
+  const termsHref = `${rel}${isEn ? 'en/terms-of-use/' : 'dieu-khoan-su-dung/'}`;
+  const pillars = SITE.pillars.map(p => `<li><a href="${rel}${pillarPath(p)}${kbSuf}" data-en="${esc(p.en.name)}">${esc(isEn ? p.en.name : p.name)}</a></li>`).join('');
   return `<footer class="footer">
     <div class="container">
       <div class="footer__grid footer__grid--kb">
         <div class="footer__brand">
           <div class="footer__id"><span class="footer__logo"><img src="${rel}assets/img/logo.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><b>Lê Tuấn Việt</b></div>
           <span class="footer__role">${A.jobTitle}</span>
-          <p class="desc">Tôi tin rằng Marketing hiệu quả không dừng ở một ý tưởng hay, mà nằm ở khả năng biến chiến lược thành kết quả thực tế.</p>
+          <p class="desc" data-en="I believe effective marketing is not defined by a good idea alone, but by the ability to turn strategy into tangible results.">${isEn ? 'I believe effective marketing is not defined by a good idea alone, but by the ability to turn strategy into tangible results.' : 'Tôi tin rằng Marketing hiệu quả không dừng ở một ý tưởng hay, mà nằm ở khả năng biến chiến lược thành kết quả thực tế.'}</p>
         </div>
         <div>
-          <p class="footer__h">Menu nhanh</p>
-          <ul class="footer__list">
-            <li><a href="${rel}">Trang chủ</a></li><li><a href="${rel}#gioi-thieu">Giới thiệu</a></li><li><a href="${rel}#nang-luc">Năng lực</a></li><li><a href="${rel}#du-an">Dự án</a></li><li><a href="${rel}#feedback">Feedback</a></li><li><a href="${rel}#lien-he">Liên hệ</a></li>
+          <p class="footer__h" data-en="Quick links">${isEn ? 'Quick links' : 'Menu nhanh'}</p>
+          <ul class="footer__list footer__list--2">
+            <li><a href="${h('')}" data-en="Home">${isEn ? 'Home' : 'Trang chủ'}</a></li><li><a href="${h('#gioi-thieu')}" data-en="About">${isEn ? 'About' : 'Giới thiệu'}</a></li>
+            <li><a href="${h('#nang-luc')}" data-en="Expertise">${isEn ? 'Expertise' : 'Năng lực'}</a></li><li><a href="${h('#du-an')}" data-en="Projects">${isEn ? 'Projects' : 'Dự án'}</a></li>
+            <li><a href="${h('#doi-tac')}" data-en="Partners">${isEn ? 'Partners' : 'Đối tác'}</a></li><li><a href="${h('#feedback')}">Feedback</a></li>
+            <li><a href="${rel}${hubPath}${kbSuf}" data-en="Knowledge Hub">${isEn ? 'Knowledge Hub' : 'Góc kiến thức'}</a></li><li><a href="${h('#lien-he')}" data-en="Contact">${isEn ? 'Contact' : 'Liên hệ'}</a></li>
+            <li><a href="${privHref}" data-en="Privacy Policy" data-en-href="${rel}en/privacy-policy/">${isEn ? 'Privacy Policy' : 'Chính sách bảo mật'}</a></li><li><a href="${termsHref}" data-en="Terms of Use" data-en-href="${rel}en/terms-of-use/">${isEn ? 'Terms of Use' : 'Điều khoản sử dụng'}</a></li>
           </ul>
         </div>
         <div>
-          <p class="footer__h">Góc kiến thức</p>
-          <ul class="footer__list">
-            <li><a href="${rel}${hubPath}">Tất cả bài viết</a></li>${pillars}<li><a href="${rel}">Về tác giả</a></li>
+          <p class="footer__h" data-en="Knowledge Hub">${isEn ? 'Knowledge Hub' : 'Góc kiến thức'}</p>
+          <ul class="footer__list footer__list--kb-topics">
+            <li><a href="${rel}${hubPath}${kbSuf}" data-en="All articles">${isEn ? 'All articles' : 'Tất cả bài viết'}</a></li>${pillars}
           </ul>
         </div>
         <div class="footer__cv">
-          <p class="footer__h">Liên hệ</p>
+          <p class="footer__h" data-en="Contact">${isEn ? 'Contact' : 'Liên hệ'}</p>
           <ul class="footer__list">
             <li><a href="mailto:${A.email}" data-mailto><svg width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg>${A.email}</a></li>
             <li><a href="tel:${A.phoneRaw}"><svg width="16" height="16" aria-hidden="true"><use href="#i-phone"/></svg>${A.phone}</a></li>
-            <li><span class="footer__clock"><svg width="16" height="16" aria-hidden="true"><use href="#i-clock"/></svg>Hà Nội · <b data-clock>--:--</b></span></li>
+            <li><span class="footer__clock"><svg width="16" height="16" aria-hidden="true"><use href="#i-clock"/></svg><span data-en="Hanoi ·">${isEn ? 'Hanoi ·' : 'Hà Nội ·'}</span> <b data-clock>--:--</b></span></li>
           </ul>
-          <a class="btn btn--light btn--sm magnetic" href="${rel}${A.cv}" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv style="justify-self:start; margin-top:6px">Tải CV (PDF) ${ico('i-download', 'ico ico--down')}</a>
+          <a class="btn btn--light btn--sm magnetic" href="${rel}${A.cv}" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv style="justify-self:start; margin-top:6px"><span data-en="Download CV (PDF)">${isEn ? 'Download CV (PDF)' : 'Tải CV (PDF)'}</span> ${ico('i-download', 'ico ico--down')}</a>
         </div>
       </div>
       <div class="footer__bottom">
         <span>© <time datetime="2026">2026</time> Lê Tuấn Việt · ${A.jobTitle}</span>
-        <a class="footer__top" href="#noi-dung">Về đầu trang ${ico('i-up')}</a>
+        <a class="footer__top" href="#noi-dung"><span data-en="Back to top">${isEn ? 'Back to top' : 'Về đầu trang'}</span> ${ico('i-up')}</a>
       </div>
     </div>
     <div class="footer__mark" aria-hidden="true"><span data-split>Le Tuan Viet</span></div>
   </footer>`;
 }
 
-function crumbs(rel, items) {
+function crumbs(rel, items, lang = 'vi') {
   // items: [{name, href}] — phần tử cuối là trang hiện tại (không có link)
   const li = items.map((it, i) => {
     const last = i === items.length - 1;
@@ -271,7 +291,7 @@ function crumbs(rel, items) {
       ? `<li aria-current="page"><span>${esc(it.name)}</span></li>`
       : `<li><a href="${it.href}">${home}${esc(it.name)}</a></li>`;
   }).join('');
-  return `<nav class="kb-crumbs" aria-label="Đường dẫn"><ol>${li}</ol></nav>`;
+  return `<nav class="kb-crumbs" aria-label="${lang === 'en' ? 'Breadcrumb' : 'Đường dẫn'}"><ol>${li}</ol></nav>`;
 }
 
 /* Khối "Kết nối với tôi" giống trang chủ (dùng ở trang tổng và trang chủ đề) */
@@ -357,13 +377,18 @@ function breadcrumbLd(url, items) {
 /* ----------------------------------------------------------------------------
    Khung trang
 ---------------------------------------------------------------------------- */
-function page({ rel, pagePath, title, description, draft = false, robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1', ogType = 'website', ogTitle, image, imageAlt, articleMeta = '', preload = '', ld, bodyClass, main, after = '', articles, flexTitle = false, css = "" }) {
+function page({ rel, pagePath, title, description, draft = false, robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1', ogType = 'website', ogTitle, image, imageAlt, articleMeta = '', preload = '', ld, bodyClass, main, after = '', articles, flexTitle = false, css = "", lang = 'vi', locale, hreflangs = null, navActive = 'kien-thuc' }) {
+  const isEn = lang === 'en';
+  const ogLocale = locale || (isEn ? 'en_US' : SITE.locale);
   const url = abs(pagePath);
   const indexable = robots.startsWith('index');
   // flexTitle: trang phân trang (ví dụ "… (Trang 2)") — độ dài title không bắt buộc theo chuẩn 50–60 như trang gốc
   PAGES.push({ path: pagePath, title, description, indexable, flexTitle, draft, h1: (main.match(/<h1[\s>]/g) || []).length });
+  const altLinks = hreflangs
+    ? Object.entries(hreflangs).map(([k, v]) => `  <link rel="alternate" hreflang="${k}" href="${v}">`).join('\n')
+    : `  <link rel="alternate" hreflang="vi" href="${url}">\n  <link rel="alternate" hreflang="x-default" href="${url}">`;
   return `<!DOCTYPE html>
-<html lang="vi" class="smooth">
+<html lang="${lang}"${isEn ? ' data-lang="en"' : ''} class="smooth">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -377,13 +402,12 @@ function page({ rel, pagePath, title, description, draft = false, robots = 'inde
   <meta name="author" content="${A.name}">
   <meta name="robots" content="${robots}">${indexable ? `\n  <meta name="googlebot" content="${robots}">` : ''}
   <link rel="canonical" href="${url}">
-  <link rel="alternate" hreflang="vi" href="${url}">
-  <link rel="alternate" hreflang="x-default" href="${url}">
+${altLinks}
   <link rel="alternate" type="application/rss+xml" title="Góc kiến thức | ${A.name}" href="${abs(HUB + '/feed.xml')}">
   <meta name="theme-color" content="#F5F8FF">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta property="og:type" content="${ogType}">
-  <meta property="og:locale" content="${SITE.locale}">
+  <meta property="og:locale" content="${ogLocale}">
   <meta property="og:site_name" content="${SITE.siteName}">
   <meta property="og:title" content="${esc(ogTitle || title)}">
   <meta property="og:description" content="${esc(description)}">
@@ -413,29 +437,29 @@ function page({ rel, pagePath, title, description, draft = false, robots = 'inde
 ${json({ '@context': 'https://schema.org', '@graph': ld })}
   </script>
 </head>
-<body class="kb ${bodyClass}" data-nav-active="kien-thuc">
+<body class="kb ${bodyClass}"${navActive ? ` data-nav-active="${navActive}"` : ''}>
 <!--email_off--><!-- Cloudflare không mã hóa email trong vùng này: bot không chạy JavaScript (GPTBot, ClaudeBot…) đọc được đúng địa chỉ liên hệ -->
-  <a class="skip-link" href="#noi-dung">Bỏ qua phần điều hướng</a>
+  <a class="skip-link" href="#noi-dung">${isEn ? 'Skip to main content' : 'Bỏ qua phần điều hướng'}</a>
   ${sprite()}
   <div class="pt" aria-hidden="true"><span class="pt__mark"><img src="${rel}assets/img/logo.svg" alt="" width="40" height="40">Lê Tuấn Việt</span></div>
   <div class="progress" aria-hidden="true"></div>
 
-  ${navBar(rel, articles)}
+  ${navBar(rel, articles, lang)}
 
   <main id="noi-dung" tabindex="-1">
 ${main}
   </main>
 
-  ${footer(rel)}
+  ${footer(rel, lang)}
 ${after}
-  <dialog class="kb-sd" id="kb-search" aria-label="Tìm kiếm trong Góc kiến thức">
-    ${searchBox(rel, { id: 'kb-dq', dialog: true })}
+  <dialog class="kb-sd" id="kb-search" aria-label="${isEn ? 'Search in Knowledge Hub' : 'Tìm kiếm trong Góc kiến thức'}">
+    ${searchBox(rel, { id: 'kb-dq', dialog: true, lang })}
   </dialog>
-  <button class="totop" type="button" aria-label="Về đầu trang">
+  <button class="totop" type="button" aria-label="${isEn ? 'Back to top' : 'Về đầu trang'}">
     <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle class="totop__track" cx="24" cy="24" r="21"/><circle class="totop__bar" cx="24" cy="24" r="21"/></svg>
     ${ico('i-up', 'ico')}
   </button>
-  <div class="toast" role="status" aria-live="polite"><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg><span>Đã sao chép</span></div>
+  <div class="toast" role="status" aria-live="polite"><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg><span>${isEn ? 'Copied' : 'Đã sao chép'}</span></div>
 
   <script src="${rel}js/core.min.js" defer></script>
   <script src="${rel}js/fx.js" defer></script>
@@ -458,6 +482,7 @@ const COVER_SIZES = {
   feature: '(min-width: 1025px) 720px, 100vw',
   main: '(min-width: 1025px) 700px, 100vw',
   row: '(min-width: 1025px) 270px, 40vw',
+  slide: '(min-width: 1025px) 280px, 250px',
   grid: '(min-width: 1025px) 400px, (min-width: 761px) 50vw, 100vw'
 };
 /* Tiêu đề hiển thị trên thẻ: lấy từ titleHtml để giữ &nbsp; chống rớt chữ ("có thể&nbsp;sai?"), bỏ span màu gradient của H1. */
@@ -465,7 +490,7 @@ const cardTitle = a => a.titleHtml ? a.titleHtml.replace(/<\/?span[^>]*>/g, '') 
 function postCard(a, rel, { variant = 'grid', headingTag = 'h3' } = {}) {
   const href = `${rel}${articlePath(a)}`;
   const [y, m, d] = day(a.published).split('-');
-  const badge = variant === 'grid' || variant === 'main';
+  const badge = variant === 'grid' || variant === 'main' || variant === 'slide';
   const foot = variant === 'feature' ? `
             <div class="kb-post__foot">
               <span class="kb-post__by"><img src="${rel}${A.avatar}.webp" alt="" width="44" height="44" loading="lazy" decoding="async"><span><b>${A.name}</b><small>${esc(A.role)}</small></span></span>
@@ -474,7 +499,7 @@ function postCard(a, rel, { variant = 'grid', headingTag = 'h3' } = {}) {
   // Bài không khai "cover": thẻ không có khung ảnh, ngày đăng chuyển xuống dòng thông tin
   const hasCover = !!(a.cover && a.cover.base);
   const fig = hasCover
-    ? `<div class="kb-post__fig">${cover(a, rel, { sizes: COVER_SIZES[variant] })}${badge ? `<time class="kb-post__date" datetime="${day(a.published)}"><b>${d}</b> <span>${m}/${y}</span></time>` : ''}</div>`
+    ? `<div class="kb-post__fig">${cover(a, rel, { sizes: COVER_SIZES[variant] || COVER_SIZES.grid })}${badge ? `<time class="kb-post__date" datetime="${day(a.published)}"><b>${d}</b> <span>${m}/${y}</span></time>` : ''}</div>`
     : '';
   // Thẻ bài viết không hiện tên chủ đề và thời gian đọc phía trên tiêu đề (bỏ 29/09/2026).
   // Ngày đăng vẫn giữ: thẻ nào có huy hiệu ngày trên ảnh thì thôi, còn lại hiện ở dòng này.
@@ -503,8 +528,8 @@ function postList(list, rel, headingTag = 'h3') {
         <div class="kb-grid">${rest.map(a => postCard(a, rel, { headingTag })).join('')}</div>` : ''}`;
 }
 
-/* Bài viết liên quan: cùng chủ đề được ưu tiên, rồi đến số từ khóa chung (keywords), hòa điểm thì bài mới hơn */
-const RELATED_MAX = 6;
+/* Bài viết liên quan: cùng chủ đề được ưu tiên, rồi đến số từ khóa chung (keywords), hòa điểm thì bài mới hơn (tối đa 9 bài trên 1 thanh trượt) */
+const RELATED_MAX = 9;
 // Từ phổ biến: không tính là "liên quan" (so sánh sau khi bỏ dấu)
 const STOP_WORDS = new Set('la gi va cua cho cac nhung mot voi trong the nao co khong de khi nhu ve o tai thi se da duoc hay hoac tu den nay do sao vi bang cach nen hon rat cung nhat theo khi'.split(' '));
 function relatedPosts(a, all, n = RELATED_MAX) {
@@ -514,12 +539,12 @@ function relatedPosts(a, all, n = RELATED_MAX) {
   const myKw = kwOf(a), myTitle = tokens(a.title);
   return all.filter(x => x.slug !== a.slug)
     .map(x => {
-      let s = x.pillar === a.pillar ? 100 : 0;
+      let s = x.pillar === a.pillar ? 100 : 1;
       kwOf(x).forEach(w => { if (myKw.has(w)) s += 4; });                       // trùng từ khóa: tín hiệu chính
       tokens(x.title).forEach(w => { if (myKw.has(w) || myTitle.has(w)) s += 1; });   // trùng chữ trong tiêu đề: tín hiệu phụ
       return { x, s };
     })
-    .filter(r => r.s > 0)                                                      // 0 điểm = không liên quan, không đề xuất
+    .filter(r => r.s > 0)
     .sort((p, q) => q.s - p.s || String(q.x.published).localeCompare(String(p.x.published)))
     .slice(0, n).map(r => r.x);
 }
@@ -574,19 +599,23 @@ function catCard(p, n, rel, headingTag = 'h2') {
 
 /* Ô tìm kiếm: ở đầu trang tổng / trang chủ đề (hiện kết quả ngay bên dưới) và trong hộp tìm kiếm (dialog).
    Không có JavaScript thì form gửi ?q= về trang tổng. Chỉ mục: goc-kien-thuc/search.json */
-function searchBox(rel, { id, dialog = false, side = false }) {
+function searchBox(rel, { id, dialog = false, side = false, lang = 'vi' }) {
+  const isEn = lang === 'en';
   // side: ô gọn ở cột phải trang bài viết (không có kính lúp bên trái, nút tìm chỉ có biểu tượng)
+  const ph = isEn
+    ? (side ? 'Search articles' : 'Search articles, e.g. Marketing plan')
+    : (side ? 'Tìm kiếm bài viết' : 'Tìm bài viết, ví dụ: kế hoạch Marketing');
   return `<form class="kb-search${dialog ? ' kb-search--dlg' : ''}${side ? ' kb-search--side' : ''}" role="search" action="${rel}${hubPath}" method="get" data-kb-search="${rel}${HUB}/search.json" data-rel="${rel}" data-zalo="${A.zalo}">
       <div class="kb-search__box">
         ${side ? '' : ico('i-search', 'kb-search__ico')}
-        <label class="sr-only" for="${id}">Tìm kiếm bài viết trong Góc kiến thức</label>
-        <input id="${id}" name="q" type="search" placeholder="${side ? 'Tìm kiếm bài viết' : 'Tìm bài viết, ví dụ: kế hoạch Marketing'}" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="${id}-list">
-        <button class="kb-search__clear" type="button" aria-label="Xóa từ khóa">${ico('i-close')}</button>
-        ${dialog ? '<button class="kb-sd__close" type="button" data-search-close>Đóng</button>' : `<button class="kb-search__btn" type="submit">${ico('i-search')}<span>Tìm kiếm</span></button>`}
+        <label class="sr-only" for="${id}">${isEn ? 'Search articles in Knowledge Hub' : 'Tìm kiếm bài viết trong Góc kiến thức'}</label>
+        <input id="${id}" name="q" type="search" placeholder="${ph}" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="${id}-list">
+        <button class="kb-search__clear" type="button" aria-label="${isEn ? 'Clear search query' : 'Xóa từ khóa'}">${ico('i-close')}</button>
+        ${dialog ? `<button class="kb-sd__close" type="button" data-search-close>${isEn ? 'Close' : 'Đóng'}</button>` : `<button class="kb-search__btn" type="submit">${ico('i-search')}<span>${isEn ? 'Search' : 'Tìm kiếm'}</span></button>`}
       </div>
       <div class="kb-search__panel"${dialog ? '' : ' hidden'}>
         <p class="kb-search__head" aria-hidden="true"></p>
-        <ul class="kb-search__list" id="${id}-list" role="listbox" aria-label="Kết quả tìm kiếm"></ul>
+        <ul class="kb-search__list" id="${id}-list" role="listbox" aria-label="${isEn ? 'Search results' : 'Kết quả tìm kiếm'}"></ul>
       </div>
       <p class="sr-only" role="status" aria-live="polite"></p>
     </form>`;
@@ -801,14 +830,15 @@ function tocList(toc, cls) {
   return `<ol class="${cls}">${out}</ol>`;
 }
 
-function shareLinks(url, title, cls) {
+function shareLinks(url, title, cls, lang = 'vi') {
+  const isEn = lang === 'en';
   const u = encodeURIComponent(url), t = encodeURIComponent(title);
   return `<div class="kb-share ${cls}">
-          <span class="kb-share__label">Chia sẻ</span>
-          <a class="kb-share__btn" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener" aria-label="Chia sẻ lên Facebook">${ico('i-facebook')}</a>
-          <a class="kb-share__btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${u}" target="_blank" rel="noopener" aria-label="Chia sẻ lên LinkedIn">${ico('i-linkedin')}</a>
-          <a class="kb-share__btn" href="https://twitter.com/intent/tweet?url=${u}&amp;text=${t}" target="_blank" rel="noopener" aria-label="Chia sẻ lên X">${ico('i-x')}</a>
-          <button class="kb-share__btn" type="button" data-share-copy="${esc(url)}" aria-label="Sao chép liên kết bài viết">${ico('i-link')}</button>
+          <span class="kb-share__label">${isEn ? 'Share' : 'Chia sẻ'}</span>
+          <a class="kb-share__btn" href="https://www.facebook.com/sharer/sharer.php?u=${u}" target="_blank" rel="noopener" aria-label="${isEn ? 'Share on Facebook' : 'Chia sẻ lên Facebook'}">${ico('i-facebook')}</a>
+          <a class="kb-share__btn" href="https://www.linkedin.com/sharing/share-offsite/?url=${u}" target="_blank" rel="noopener" aria-label="${isEn ? 'Share on LinkedIn' : 'Chia sẻ lên LinkedIn'}">${ico('i-linkedin')}</a>
+          <a class="kb-share__btn" href="https://twitter.com/intent/tweet?url=${u}&amp;text=${t}" target="_blank" rel="noopener" aria-label="${isEn ? 'Share on X' : 'Chia sẻ lên X'}">${ico('i-x')}</a>
+          <button class="kb-share__btn" type="button" data-share-copy="${esc(url)}" aria-label="${isEn ? 'Copy link' : 'Sao chép liên kết bài viết'}">${ico('i-link')}</button>
         </div>`;
 }
 
@@ -832,6 +862,10 @@ function llmsTxt(all) {
     `- [Trang chủ và portfolio](${abs('')}): hồ sơ, năng lực, dự án và đối tác`,
     `- [${SITE.hub.name}](${abs(HUB + '/')}): danh sách toàn bộ bài viết`,
     `- [RSS](${abs(HUB + '/feed.xml')}): nguồn cấp bài mới`,
+    `- [Chính sách bảo mật](${abs('chinh-sach-bao-mat/')}): quy định thu thập, sử dụng và bảo vệ dữ liệu cá nhân (tiếng Việt)`,
+    `- [Điều khoản sử dụng](${abs('dieu-khoan-su-dung/')}): quy định sử dụng nội dung và giới hạn trách nhiệm (tiếng Việt)`,
+    `- [Privacy Policy](${abs('en/privacy-policy/')}): personal data protection policy (English)`,
+    `- [Terms of Use](${abs('en/terms-of-use/')}): website terms of use and intellectual property rights (English)`,
     // Hồ sơ ngắn để công cụ AI trả lời đúng câu "Lê Tuấn Việt là ai". Mọi dòng lấy từ site.cjs (dữ kiện trong CV).
     '',
     `## Về ${A.name}`,
@@ -968,13 +1002,11 @@ function articlePage(a, all) {
 
   const takeaways = (a.takeaways || []).map(t => `<li>${esc(t)}</li>`).join('');
 
-  // Bài viết có liên quan (tối đa RELATED_MAX = 6, tự chọn theo relatedPosts).
-  // Không có bài nào liên quan thì ẩn cả khối, không hiện nội dung thay thế.
-  // 1 bài → thẻ lớn nằm ngang · 2 và 4 bài → 2 cột · 3, 5, 6 bài → 3 cột như SEODO
+  // Bài viết có liên quan (tối đa RELATED_MAX = 9, hiển thị trên 1 thanh trượt ngang tự chạy chậm kiểu casual).
   const related = relatedPosts(a, all);
-  const relatedHtml = related.length === 1
-    ? postCard(related[0], rel, { variant: 'feature' })
-    : `<div class="kb-grid${related.length === 2 || related.length === 4 ? ' kb-grid--2' : ''}">${related.map(r => postCard(r, rel)).join('')}</div>`;
+  const relatedHtml = `<div class="kb-more__viewport" data-more-viewport>
+          <div class="kb-more__track" data-more-track>${related.map(r => postCard(r, rel, { variant: 'slide' })).join('')}</div>
+        </div>`;
 
   const h2count = a.toc.filter(t => t.level === 2).length;
   const COVER_ART = '(min-width: 840px) 760px, 100vw';               // ảnh bìa nằm trong cột nội dung 760px
@@ -1046,7 +1078,13 @@ ${related.length ? `
       <div class="container">
         <header class="kb-head">
           <h2 class="kb-head__t" id="kb-more-title" data-fit data-split>Bài viết có <span class="grad">liên quan</span></h2>
-          <a class="btn btn--dark btn--sm magnetic" href="${rel}${hubPath}">Tất cả bài viết ${ico('i-arrow', 'ico ico--arrow')}</a>
+          <div class="kb-more__actions">
+            <div class="kb-more__nav" aria-label="Điều hướng bài viết liên quan">
+              <button class="round kb-more__btn" type="button" data-more-nav="-1" aria-label="Bài trước">${ico('i-chev-r', 'kb-pager__prev')}</button>
+              <button class="round kb-more__btn" type="button" data-more-nav="1" aria-label="Bài tiếp">${ico('i-chev-r')}</button>
+            </div>
+            <a class="btn btn--dark btn--sm magnetic" href="${rel}${hubPath}">Tất cả bài viết ${ico('i-arrow', 'ico ico--arrow')}</a>
+          </div>
         </header>
         ${relatedHtml}
       </div>
@@ -1119,6 +1157,195 @@ ${related.length ? `
     preload: !hasCover ? '' : `\n  <link rel="preload" as="image" href="${rel}assets/kb/${a.cover.base}.webp" imagesrcset="${rel}assets/kb/${a.cover.base}-320.webp 320w, ${rel}assets/kb/${a.cover.base}-640.webp 640w, ${rel}assets/kb/${a.cover.base}.webp 1200w, ${rel}assets/kb/${a.cover.base}-1600.webp 1600w" imagesizes="(min-width: 840px) 760px, 100vw" type="image/webp" fetchpriority="high">`,
     ld, bodyClass: 'kb--article', main, after, css: 'kb-article',
     ...(a.draft ? { robots: 'noindex, nofollow', draft: true } : {})
+  });
+}
+
+/* ----------------------------------------------------------------------------
+   Trang Chính sách bảo mật & Điều khoản sử dụng (VI + EN)
+---------------------------------------------------------------------------- */
+function legalSide(doc, all, rel) {
+  const isEn = doc.lang === 'en';
+  const counts = pillarCounts(all);
+  const privacyPath = isEn ? 'en/privacy-policy/' : 'chinh-sach-bao-mat/';
+  const termsPath = isEn ? 'en/terms-of-use/' : 'dieu-khoan-su-dung/';
+  const cats = SITE.pillars.map(p => {
+    const n = counts[p.slug];
+    const name = isEn && p.en ? p.en.name : p.name;
+    return `<li><a class="kb-side__cat" href="${rel}${pillarPath(p)}">${ico('i-chev-r')}<span class="kb-side__cname">${esc(name)}</span>${n ? `<span class="kb-side__n">${n}</span>` : ''}</a></li>`;
+  }).join('\n                ');
+  return `<aside class="kb-art__aside" aria-label="${isEn ? 'Legal navigation, categories and contact' : 'Tài liệu pháp lý, chuyên mục và liên hệ'}">
+            <div class="kb-side">
+              ${searchBox(rel, { id: 'kb-sq', side: true, lang: doc.lang })}
+              <nav class="kb-side__box" aria-labelledby="kb-side-legal">
+                <p class="kb-side__t" id="kb-side-legal">${isEn ? 'Policies & Terms' : 'Chính sách & Điều khoản'}</p>
+                <ul class="kb-side__cats">
+                  <li><a class="kb-side__cat${doc.key === 'privacy' ? ' is-current' : ''}" href="${rel}${privacyPath}"${doc.key === 'privacy' ? ' aria-current="page"' : ''}>${ico('i-chev-r')}<span class="kb-side__cname">${isEn ? 'Privacy Policy' : 'Chính sách bảo mật'}</span></a></li>
+                  <li><a class="kb-side__cat${doc.key === 'terms' ? ' is-current' : ''}" href="${rel}${termsPath}"${doc.key === 'terms' ? ' aria-current="page"' : ''}>${ico('i-chev-r')}<span class="kb-side__cname">${isEn ? 'Terms of Use' : 'Điều khoản sử dụng'}</span></a></li>
+                  <li><a class="kb-side__cat" href="${rel}${doc.altPath}" hreflang="${doc.altLang}">${ico('i-globe')}<span class="kb-side__cname">${isEn ? 'Phiên bản Tiếng Việt (VI)' : 'English Version (EN)'}</span></a></li>
+                </ul>
+              </nav>
+              <nav class="kb-side__box" aria-labelledby="kb-side-cat">
+                <p class="kb-side__t" id="kb-side-cat">${isEn ? 'Knowledge Hub' : 'Chuyên mục'}</p>
+                <ul class="kb-side__cats">
+                ${cats}
+                </ul>
+              </nav>
+            </div>
+            <div class="kb-side__cta bio">
+              <div class="bio__photo"><img src="${rel}${A.photo}" alt="${A.name}, ${esc(isEn ? A.jobTitle : A.role)}" loading="lazy" decoding="async" width="760" height="760"></div>
+              <div class="bio__body">
+                <p class="bio__name">${A.name} ${ico('i-verified')}</p>
+                <p class="bio__role">${esc(A.jobTitle)}</p>
+                <div class="bio__links">
+                  <button class="bio__link" type="button" data-copy="${A.email}"><span>${ico('i-mail')}<em>${A.email}</em></span><small>${isEn ? 'Copy' : 'Sao chép'}</small></button>
+                  <a class="bio__link" href="tel:${A.phoneRaw}"><span>${ico('i-phone')}<em>${A.phone}</em></span><small>${isEn ? 'Call' : 'Gọi'}</small></a>
+                  <a class="bio__link" href="${A.zalo}" target="_blank" rel="noopener" data-zalo><span>${ico('i-zalo')}<em>Zalo I Tuấn Việt</em></span><small>${isEn ? 'Open' : 'Mở'}</small></a>
+                  <div class="bio__link bio__link--static"><span>${ico('i-pin')}<em>${esc(isEn ? 'Hanoi, Vietnam' : `${A.locality}, ${A.region}`)}</em></span><small>GMT+7</small></div>
+                </div>
+                <a class="kb-btn kb-btn--primary kb-btn--block kb-side__go" href="${A.zalo}" target="_blank" rel="noopener" data-zalo>${isEn ? 'Get Marketing Consultation' : 'Nhận tư vấn Marketing'} ${ico('i-arrow')}</a>
+              </div>
+            </div>
+          </aside>`;
+}
+
+function legalPage(doc, all) {
+  const isEn = doc.lang === 'en';
+  const pPath = doc.path;
+  const rel = relRoot(pPath);
+  const url = abs(pPath);
+  const viPath = isEn ? doc.altPath : doc.path;
+  const enPath = isEn ? doc.path : doc.altPath;
+  const privacyPath = isEn ? 'en/privacy-policy/' : 'chinh-sach-bao-mat/';
+  const termsPath = isEn ? 'en/terms-of-use/' : 'dieu-khoan-su-dung/';
+  const img = abs('assets/img/og-image.jpg');
+
+  const crumbItems = [
+    { name: isEn ? 'Home' : 'Trang chủ', href: isEn ? `${rel}?lang=en` : rel, url: isEn ? `${ORIGIN}/?lang=en` : `${ORIGIN}/` },
+    { name: doc.title, url }
+  ];
+
+  const toc = (doc.sections || []).map(s => ({
+    level: 2,
+    id: s.id,
+    text: s.title.replace(/^\d+\.\s*/, '')
+  }));
+  const h2count = toc.length;
+
+  let body = (doc.sections || []).map(s => `<h2 id="${s.id}">${esc(s.title)}</h2>\n${s.html}`).join('\n\n');
+  body = body.replace(/href="\/([^"]*)"/g, (_, p) => `href="${rel}${p}"`);
+
+  const sapoHtml = (doc.sapo || []).map(p => `<p class="kb-art__sapo">${p}</p>`).join('\n              ');
+
+  const authorBio = isEn
+    ? `<a href="${rel}?lang=en">${A.name}</a> has over 6 years of experience leading In-house Marketing and Agency teams, advising more than 200 SMEs on brand strategy, multi-channel marketing operations, and AI-powered workflow systems.`
+    : esc(A.bio).replace(A.name, `<a href="${rel}">${A.name}</a>`);
+  const authorSlogan = isEn
+    ? 'Right strategy – Right system – Measurable outcomes.'
+    : esc(A.slogan);
+
+  const main = `
+    <article class="kb-art kb-art--legal">
+      <div class="container">
+        <div class="kb-art__grid">
+          <div class="kb-art__main">
+            <header class="kb-art__head">
+              <div class="kb-legal__top">
+                ${crumbs(rel, crumbItems, doc.lang)}
+                <div class="kb-legal__lang" role="group" aria-label="${isEn ? 'Language switcher' : 'Chuyển ngôn ngữ'}">
+                  <a href="${rel}${viPath}"${!isEn ? ' class="is-active" aria-current="page"' : ''} hreflang="vi" lang="vi">VI</a>
+                  <a href="${rel}${enPath}"${isEn ? ' class="is-active" aria-current="page"' : ''} hreflang="en" lang="en">EN</a>
+                </div>
+              </div>
+              <nav class="kb-legal__tabs" aria-label="${isEn ? 'Legal documents' : 'Văn bản pháp lý'}">
+                <a class="kb-legal__tab${doc.key === 'privacy' ? ' is-active' : ''}" href="${rel}${privacyPath}"${doc.key === 'privacy' ? ' aria-current="page"' : ''}>${ico('i-shield')}<span>${isEn ? 'Privacy Policy' : 'Chính sách bảo mật'}</span></a>
+                <a class="kb-legal__tab${doc.key === 'terms' ? ' is-active' : ''}" href="${rel}${termsPath}"${doc.key === 'terms' ? ' aria-current="page"' : ''}>${ico('i-notes')}<span>${isEn ? 'Terms of Use' : 'Điều khoản sử dụng'}</span></a>
+              </nav>
+              <h1 class="kb-art__h1" data-fit data-fit-min="20">${esc(doc.title)}</h1>
+              ${sapoHtml}
+              <div class="kb-art__by">
+                <a class="kb-art__who" href="${isEn ? `${rel}?lang=en` : rel}" rel="author"><img src="${rel}${A.avatar}.webp" alt="${A.name}" width="48" height="48"><span><b>${A.name} ${ico('i-verified')}</b><small>${esc(isEn ? A.jobTitle : A.role)}</small></span></a>
+                <ul class="kb-art__dates">
+                  <li>${ico('i-refresh')}<span>${esc(doc.updatedLabel)}: <time datetime="${doc.updatedIso}">${esc(doc.updatedText)}</time></span></li>
+                </ul>
+              </div>
+            </header>
+
+            <details class="kb-toc2">
+              <summary><span class="kb-toc2__t">${ico('i-list')}${esc(doc.tocTitle)}</span><span class="kb-toc2__n">${h2count} ${esc(doc.tocCountUnit)}</span><span class="kb-toc2__ico" aria-hidden="true"></span></summary>
+              <nav aria-label="${esc(doc.tocTitle)}">${tocList(toc, 'kb-toc__list')}</nav>
+            </details>
+
+            <div class="kb-prose">
+${body}
+            </div>
+
+            <section class="kb-authorbox" aria-label="${isEn ? 'Website operator' : 'Người quản lý website'}">
+              <img class="kb-authorbox__photo" src="${rel}${A.avatar}.webp" alt="${A.name}" width="96" height="96" loading="lazy" decoding="async">
+              <div class="kb-authorbox__body">
+                <p class="kb-authorbox__name">${A.name} ${ico('i-verified')}</p>
+                <p class="kb-authorbox__role">${esc(A.jobTitle)} ${isEn ? 'at' : 'tại'} <a href="${A.worksFor.url}" target="_blank" rel="noopener">${esc(A.worksFor.name)}</a></p>
+                <p class="kb-authorbox__slogan">${authorSlogan}</p>
+                <p class="kb-authorbox__bio">${authorBio}</p>
+                <div class="kb-authorbox__links">
+                  <a href="${isEn ? `${rel}?lang=en` : rel}" rel="author">${isEn ? 'View Portfolio' : 'Xem Portfolio'} ${ico('i-arrow')}</a>
+                  <a href="${rel}${doc.siblingPath}">${esc(doc.siblingName)} ${ico('i-arrow')}</a>
+                  <a href="${isEn ? `${rel}?lang=en#lien-he` : `${rel}#lien-he`}">${isEn ? 'Contact' : 'Liên hệ'} ${ico('i-arrow')}</a>
+                </div>
+              </div>
+            </section>
+
+            <div class="kb-art__end">
+              ${shareLinks(url, doc.title, 'kb-share--end', doc.lang)}
+            </div>
+          </div>
+
+          ${legalSide(doc, all, rel)}
+        </div>
+      </div>
+    </article>`;
+
+  const after = `
+  <div class="lang-float" data-always role="group" aria-label="${isEn ? 'Switch language' : 'Chuyển đổi ngôn ngữ'}">
+    <a class="lang-btn${isEn ? ' is-on' : ''}" href="${rel}${enPath}" hreflang="en" lang="en"${isEn ? ' aria-current="page"' : ''}>EN</a>
+    <span class="lang-sep" aria-hidden="true">|</span>
+    <a class="lang-btn${!isEn ? ' is-on' : ''}" href="${rel}${viPath}" hreflang="vi" lang="vi"${!isEn ? ' aria-current="page"' : ''}>VI</a>
+  </div>
+  <div class="kb-bar" aria-hidden="true">
+    <button class="kb-bar__toc" type="button" data-sheet-open aria-controls="kb-sheet">${ico('i-list')}<span>${isEn ? 'Contents' : 'Mục lục'}</span></button>
+    <a class="kb-bar__main" href="${A.zalo}" target="_blank" rel="noopener" data-zalo>${ico('i-zalo')}<span>${isEn ? 'Message on Zalo' : 'Nhắn Zalo cho tôi'}</span></a>
+    <a class="kb-bar__call" href="tel:${A.phoneRaw}" aria-label="${isEn ? 'Call' : 'Gọi'} ${A.phone}">${ico('i-phone')}</a>
+  </div>
+  <dialog class="kb-sheet" id="kb-sheet" aria-labelledby="kb-sheet-t">
+    <div class="kb-sheet__head"><p id="kb-sheet-t">${ico('i-list')}${esc(doc.tocTitle)}</p><button type="button" data-sheet-close aria-label="${isEn ? 'Close table of contents' : 'Đóng mục lục'}">${ico('i-close')}</button></div>
+    <nav class="kb-sheet__body" aria-label="${esc(doc.tocTitle)}">${tocList(toc, 'kb-toc__list')}</nav>
+  </dialog>`;
+
+  const ld = [
+    websiteLd(),
+    personLd(),
+    {
+      '@type': 'WebPage', '@id': `${url}#webpage`, url, name: doc.seoTitle || doc.title, description: doc.description,
+      isPartOf: { '@id': `${ORIGIN}/#website` }, about: { '@id': `${ORIGIN}/#person` }, author: { '@id': `${ORIGIN}/#person` },
+      breadcrumb: { '@id': `${url}#breadcrumb` }, inLanguage: isEn ? 'en-US' : SITE.lang,
+      datePublished: doc.updatedIso, dateModified: doc.updatedIso
+    },
+    breadcrumbLd(url, crumbItems)
+  ];
+
+  return page({
+    rel, pagePath: pPath, articles: all,
+    title: doc.seoTitle || doc.title,
+    ogTitle: doc.title,
+    description: doc.description,
+    image: img, imageAlt: doc.title,
+    ld, bodyClass: 'kb--article kb--legal', main, after, css: 'kb-article',
+    lang: doc.lang, locale: doc.locale,
+    hreflangs: {
+      vi: abs(viPath),
+      en: abs(enPath),
+      'x-default': abs(viPath)
+    },
+    navActive: ''
   });
 }
 
@@ -1373,6 +1600,9 @@ function updateSitemap(all) {
     const imgXml = imgs.map(u => `\n    <image:image>\n      <image:loc>${u}</image:loc>\n    </image:image>`).join('');
     urls.push(`  <url>\n    <loc>${pageUrl}</loc>\n    <lastmod>${day(a.modified)}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>${imgXml}\n  </url>`);
   });
+  LEGAL_PAGES.forEach(doc => {
+    urls.push(`  <url>\n    <loc>${abs(doc.path)}</loc>\n    <lastmod>${doc.updatedIso}</lastmod>\n    <changefreq>yearly</changefreq>\n    <priority>0.5</priority>\n  </url>`);
+  });
   const block = `<!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->\n${urls.join('\n')}\n  <!-- /KB:SITEMAP -->`;
   if (/<!-- KB:SITEMAP[\s\S]*?<!-- \/KB:SITEMAP -->/.test(src)) src = src.replace(/<!-- KB:SITEMAP[\s\S]*?<!-- \/KB:SITEMAP -->/, block);
   else src = src.replace('</urlset>', `  ${block}\n</urlset>`);
@@ -1538,6 +1768,7 @@ function main() {
   });
   all.forEach(a => written.push(writeFile(`${articlePath(a)}index.html`, articlePage(a, all))));
   drafts.forEach(a => written.push(writeFile(`${articlePath(a)}index.html`, articlePage(a, all))));
+  LEGAL_PAGES.forEach(doc => written.push(writeFile(`${doc.path}index.html`, legalPage(doc, all))));
   written.push(writeFile(`${HUB}/feed.xml`, feed(all)));
   written.push(writeFile(`${HUB}/search.json`, searchIndex(all)));
   written.push(writeFile('llms.txt', llmsTxt(all)));

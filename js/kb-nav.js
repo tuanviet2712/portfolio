@@ -11,9 +11,15 @@
   const doc = document.documentElement;
 
   /* 1. Tiếng Anh */
+  const params = new URLSearchParams(location.search);
+  if (params.get('lang') === 'en' && !doc.dataset.lang) {
+    doc.dataset.lang = 'en';
+    doc.lang = 'en';
+  }
   if (doc.dataset.lang === 'en') {
     document.querySelectorAll('[data-en]').forEach(el => { el.textContent = el.dataset.en; });
     document.querySelectorAll('[data-en-label]').forEach(el => el.setAttribute('aria-label', el.dataset.enLabel));
+    document.querySelectorAll('[data-en-href]').forEach(el => el.setAttribute('href', el.dataset.enHref));
   }
 
   /* 2. Menu thả xuống (máy tính) */

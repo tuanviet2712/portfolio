@@ -171,4 +171,103 @@
     if (mq.addEventListener) mq.addEventListener('change', run);
     (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(run);
   })();
+
+  /* ---------- 6. Bài viết có liên quan: carousel trôi liên tục chậm rãi, kéo để lướt ---------- */
+  (function initRelatedCarousel() {
+    const vp = $('[data-more-viewport]');
+    const track = $('[data-more-track]');
+    if (!vp || !track) return;
+    const items = Array.from(track.children);
+    if (!items.length) return;
+
+    // Nhân bản danh sách 1 lần (ẩn với trình đọc màn hình / tab) để tạo vòng lặp vô tận mượt mà
+    items.forEach(el => {
+      const c = el.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      $$('a', c).forEach(a => { a.tabIndex = -1; });
+      track.appendChild(c);
+    });
+
+    const SPEED = 22; // px/giây — tự chạy chậm rãi kiểu casual
+    let w = track.scrollWidth / 2, x = 0, v = 0, cur = SPEED, hover = false, drag = null, moved = false, vis = false, inView = false;
+    const setW = () => { w = track.scrollWidth / 2; };
+    if (L.onResize) L.onResize(setW);
+    else addEventListener('resize', setW, { passive: true });
+    setW();
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => { vis = e.isIntersecting; }).observe(vp);
+      new IntersectionObserver(([e]) => { inView = e.isIntersecting; }, { threshold: 0.3 }).observe(vp);
+    } else {
+      vis = true;
+    }
+
+    vp.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hover = true; });
+    vp.addEventListener('pointerleave', () => { hover = false; });
+    vp.addEventListener('dragstart', e => e.preventDefault());
+
+    vp.addEventListener('pointerdown', e => {
+      if (e.button !== 0 && e.pointerType === 'mouse') return;
+      drag = { startX: e.clientX, x: e.clientX, t: performance.now(), id: e.pointerId };
+      moved = false;
+      v = 0;
+    });
+    vp.addEventListener('pointermove', e => {
+      if (!drag) return;
+      const dx = e.clientX - drag.x;
+      if (!moved && Math.abs(e.clientX - drag.startX) > 6) {
+        moved = true;
+        vp.classList.add('is-drag');
+        try { vp.setPointerCapture(drag.id); } catch (_) {}
+      }
+      if (!moved) return;
+      const now = performance.now();
+      x += dx;
+      v = dx / Math.max(8, now - drag.t) * 1000;
+      drag.x = e.clientX;
+      drag.t = now;
+    });
+    const release = () => {
+      if (!drag) return;
+      drag = null;
+      vp.classList.remove('is-drag');
+      if (moved) setTimeout(() => { moved = false; }, 60);
+    };
+    vp.addEventListener('pointerup', release);
+    vp.addEventListener('pointercancel', release);
+    vp.addEventListener('click', e => {
+      if (moved) {
+        e.preventDefault();
+        e.stopPropagation();
+        moved = false;
+      }
+    }, true);
+
+    const stepW = () => { const c = $('.kb-post--slide', track); return c ? c.offsetWidth + 18 : 296; };
+    let kick = 0;
+    const go = dir => { kick -= dir * stepW(); };
+    $$('[data-more-nav]').forEach(b => b.addEventListener('click', () => go(+b.dataset.moreNav)));
+
+    const step = s => {
+      if (!vis || !w) return;
+      const dt = s.dt || 0.016;
+      const target = hover || drag || L.reduced ? 0 : SPEED;
+      cur += (target - cur) * (1 - Math.exp(-dt * 5));
+      if (!drag || !moved) {
+        x += (-cur + v) * dt;
+        v *= Math.exp(-dt * 3);
+        if (kick) { const k = kick * Math.min(1, dt * 6); x += k; kick -= k; }
+      }
+      x %= w;
+      if (x > 0) x -= w;
+      track.style.transform = `translate3d(${x.toFixed(2)}px,0,0)`;
+    };
+    if (L.tick) L.tick(step);
+
+    addEventListener('keydown', e => {
+      if (!inView || /input|textarea|select/i.test((e.target && e.target.tagName) || '')) return;
+      if (e.key === 'ArrowRight') { go(1); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { go(-1); e.preventDefault(); }
+    });
+  })();
 })();

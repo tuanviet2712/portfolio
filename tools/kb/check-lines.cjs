@@ -48,14 +48,16 @@ const PROBE = `(() => {
     + ' .kb-prose ul:not([class]) > li, .kb-prose ol:not([class]) > li,'
     + ' .kb-list-cards > li, .kb-steps li > span:last-child,'
     + ' .kb-table td, .kb-case__m dd, .kb-stats dd,'
-    // mô tả trên thẻ bài viết của trang tổng, trang chủ đề và trang chủ
-    + ' .kb-post__x, .kbh-post__excerpt, .kbdd__desc';
+    // mô tả trên thẻ bài viết của trang tổng, trang chủ đề, trang chủ và chân trang KB
+    + ' .kb-post__x, .kbh-post__excerpt, .kbdd__desc, .kbh-pillar__txt small, .footer__grid--kb .footer__brand .desc';
   const where = el => el.closest('.kb-table') ? 'bảng'
     : el.closest('.kb-list-cards') ? 'thẻ danh sách'
     : el.closest('.kb-steps') ? 'ô sơ đồ'
     : el.closest('.kb-case__m') ? 'số dự án'
     : el.closest('.kb-stats') ? 'số nổi bật'
     : el.closest('.kb-sum') ? 'tóm tắt'
+    : el.matches('.kbh-pillar__txt small') ? 'ô chủ đề'
+    : el.matches('.footer__brand .desc') ? 'chân trang'
     : el.matches('.kb-post__x, .kbh-post__excerpt, .kbdd__desc') ? 'thẻ bài viết'
     : el.classList.contains('kb-art__sapo') ? 'sapo' : 'thân bài';
   document.querySelectorAll(sel).forEach((el, idx) => {
@@ -98,6 +100,8 @@ const PROBE = `(() => {
       gapEm: +(maxGap / fs_).toFixed(2),
       gapLine, gapText: gapText.slice(0, 90),
       zone: where(el), clamped: isClamped,
+      width: Math.round(el.getBoundingClientRect().width),
+      rowTexts: rows.map(r => r.items.map(x => x.w).join(' ')),
       head: el.textContent.trim().slice(0, 64)
     });
   });
@@ -135,6 +139,11 @@ const PROBE = `(() => {
     orphan.forEach(o => console.log(`  · [${o.zone}] "${o.lastText}"   <-- ${o.lines} dòng | ${o.head}…`));
     console.log(`\nKHE CHỮ GIÃN RỘNG (>= 0.62em, khe thường ~0.26em): ${wide.length}`);
     wide.slice(0, 14).forEach(o => console.log(`  · [${o.zone}] ${o.gapEm}em  dòng ${o.gapLine}: ${o.gapText}`));
+    const topics = data.filter(o => o.zone === 'ô chủ đề');
+    if (topics.length) {
+      console.log(`\nCHI TIẾT Ô CHỦ ĐỀ (${topics.length}):`);
+      topics.forEach(o => console.log(`  · w=${o.width}px | ${o.lines} dòng | gap=${o.gapEm}em | rows: ${JSON.stringify(o.rowTexts)}`));
+    }
   } finally {
     await cdp.close();
   }

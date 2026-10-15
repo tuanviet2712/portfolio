@@ -19,7 +19,7 @@ module.exports = {
     lead: 'Kiến thức Marketing, cách ứng dụng AI và bài học từ các dự án tôi đã triển khai cho doanh nghiệp SME',
     en: {
       name: 'Knowledge Hub',
-      lead: 'Practical marketing knowledge, applied AI and lessons that turn strategy into a growth system.'
+      lead: 'Marketing insights, AI tools, and real project lessons that turn strategy into measurable growth.'
     }
   },
 
@@ -108,7 +108,7 @@ module.exports = {
       slug: 'marketing',
       name: 'Marketing',
       icon: 'i-target',
-      short: 'Chiến lược, kế hoạch và triển khai đa kênh',
+      short: 'Nghiên cứu thị trường, lập kế hoạch và triển khai đa kênh cho SME',
       h1Html: 'Kiến thức <span class="grad">Marketing</span>',
       title: 'Kiến thức Marketing cho doanh nghiệp SME | Lê Tuấn Việt',
       description: 'Kiến thức Marketing thực tế cho doanh nghiệp SME: chiến lược, kế hoạch, thương hiệu, nội dung và quảng cáo, được chia sẻ bởi Marketing Leader Lê Tuấn Việt.',
@@ -119,13 +119,13 @@ module.exports = {
         ['Thương hiệu và truyền thông', 'Thông điệp, câu chuyện thương hiệu và kế hoạch truyền thông tích hợp.'],
         ['Content, SEO và quảng cáo', 'Nội dung, tìm kiếm tự nhiên và quảng cáo hiệu suất trên các nền tảng phổ biến.']
       ],
-      en: { name: 'Marketing', short: 'Strategy, planning and multichannel marketing for SMEs' }
+      en: { name: 'Marketing', short: 'Market research, channel plans and multichannel growth for SMEs' }
     },
     {
       slug: 'ai-marketing',
       name: 'AI Marketing',
       icon: 'i-spark',
-      short: 'AI cho nghiên cứu, nội dung và tối ưu hiệu suất',
+      short: 'Dùng AI nghiên cứu, làm nội dung và tối ưu hóa hiệu suất chiến dịch',
       h1Html: 'Kiến thức <span class="grad">AI Marketing</span>',
       title: 'AI Marketing: ứng dụng AI vào Marketing | Lê Tuấn Việt',
       description: 'Cách ứng dụng AI vào nghiên cứu thị trường, sáng tạo nội dung, tự động hóa quy trình và tối ưu hiệu suất Marketing cho doanh nghiệp SME, bởi Lê Tuấn Việt.',
@@ -136,13 +136,13 @@ module.exports = {
         ['Sản xuất nội dung bằng AI', 'Quy trình làm hình ảnh, video và bài viết có sự hỗ trợ của AI.'],
         ['Tự động hóa quy trình', 'Chuẩn hóa và tự động hóa các đầu việc lặp lại trong bộ phận Marketing.']
       ],
-      en: { name: 'AI Marketing', short: 'Using AI for research, content and campaign performance' }
+      en: { name: 'AI Marketing', short: 'Using AI for research, content work and ad campaign performance' }
     },
     {
       slug: 'quan-tri-marketing',
       name: 'Quản trị Marketing',
       icon: 'i-kanban',
-      short: 'Đội ngũ, ngân sách, KPI và vận hành Marketing',
+      short: 'Xây dựng đội ngũ, đặt mục tiêu KPI, quản lý ngân sách và vận hành',
       h1Html: 'Kiến thức <span class="grad">Quản trị Marketing</span>',
       title: 'Quản trị Marketing: đội ngũ, KPI, ngân sách | Lê Tuấn Việt',
       description: 'Kiến thức quản trị Marketing cho doanh nghiệp SME: xây dựng đội ngũ, thiết lập KPI, quản lý ngân sách và vận hành bộ phận Marketing, chia sẻ bởi Lê Tuấn Việt.',
@@ -153,13 +153,13 @@ module.exports = {
         ['Quản lý đội ngũ', 'Phân công, đào tạo và theo dõi hiệu suất của đội ngũ Marketing.'],
         ['Quy trình và SOP', 'Chuẩn hóa quy trình để giảm sai sót và tiết kiệm nguồn lực.']
       ],
-      en: { name: 'Marketing Management', short: 'Managing teams, budgets, KPIs and marketing operations' }
+      en: { name: 'Marketing Management', short: 'Building teams, setting clear KPIs, managing budgets and workflows' }
     },
     {
       slug: 'du-an-va-bai-hoc',
       name: 'Case Marketing',
       icon: 'i-flag',
-      short: 'Phân tích case, triển khai, đo lường và bài học ứng dụng',
+      short: 'Phân tích bối cảnh, cách triển khai, đo lường và bài học thực tế',
       h1Html: 'Case <span class="grad">Marketing</span>',
       title: 'Case Marketing: phân tích, triển khai và bài học | Lê Tuấn Việt',
       description: 'Case Marketing cho doanh nghiệp SME: phân tích bối cảnh, thực tiễn triển khai, đo lường và tối ưu, cùng những bài học có thể ứng dụng từ dự án thực tế.',
@@ -170,7 +170,7 @@ module.exports = {
         ['Đo lường và tối ưu', 'Chỉ số, kết quả và cách điều chỉnh sau triển khai.'],
         ['Bài học và ứng dụng', 'Kinh nghiệm rút ra và cách áp dụng vào tình huống tương tự.']
       ],
-      en: { name: 'Case Marketing', short: 'Marketing case analysis, execution, measurement and lessons' }
+      en: { name: 'Case Marketing', short: 'Case analysis, campaign execution, metrics and key lessons' }
     }
   ]
 };

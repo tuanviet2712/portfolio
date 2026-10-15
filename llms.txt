@@ -9,6 +9,10 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 - [Trang chủ và portfolio](https://letuanviet.com/): hồ sơ, năng lực, dự án và đối tác
 - [Góc kiến thức](https://letuanviet.com/goc-kien-thuc/): danh sách toàn bộ bài viết
 - [RSS](https://letuanviet.com/goc-kien-thuc/feed.xml): nguồn cấp bài mới
+- [Chính sách bảo mật](https://letuanviet.com/chinh-sach-bao-mat/): quy định thu thập, sử dụng và bảo vệ dữ liệu cá nhân (tiếng Việt)
+- [Điều khoản sử dụng](https://letuanviet.com/dieu-khoan-su-dung/): quy định sử dụng nội dung và giới hạn trách nhiệm (tiếng Việt)
+- [Privacy Policy](https://letuanviet.com/en/privacy-policy/): personal data protection policy (English)
+- [Terms of Use](https://letuanviet.com/en/terms-of-use/): website terms of use and intellectual property rights (English)
 
 ## Về Lê Tuấn Việt
 

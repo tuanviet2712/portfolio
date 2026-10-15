@@ -36,6 +36,8 @@
     'Chuyển sang tiếng Anh': 'Switch to English',
     'Về đầu trang': 'Back to top',
     'Menu nhanh': 'Quick links',
+    'Chính sách bảo mật': 'Privacy Policy',
+    'Điều khoản sử dụng': 'Terms of Use',
     'Đã sao chép email': 'Email copied',
     'Đã sao chép': 'Copied',
     'Sao chép': 'Copy',
@@ -346,6 +348,7 @@
 
   function translateElement(el) {
     if (!el || el.nodeType !== 1 || skip.has(el.tagName)) return;
+    if (el.hasAttribute('data-en-href')) el.setAttribute('href', el.getAttribute('data-en-href'));
     ATTRS.forEach(attr => {
       if (!el.hasAttribute(attr)) return;
       const before = el.getAttribute(attr);

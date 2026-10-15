@@ -1,4 +1,4 @@
-﻿<#
+<#
   Máy chủ localhost cho Portfolio (không cần Python/Node).
   - Phục vụ file tĩnh với đúng MIME type, tắt cache (sửa là thấy ngay)
   - Live reload: tự tải lại trình duyệt khi bạn lưu file .html/.css/.js/ảnh
@@ -30,16 +30,18 @@ function Get-Stamp {
       Where-Object { $_.Extension -in '.html', '.css', '.js' } |
       ForEach-Object { $t = $_.LastWriteTimeUtc.Ticks; if ($t -gt $max) { $max = $t } }
   }
-  # Goc kien thuc: trang do tools/kb/build-kb.cjs tao ra (it file, quet de quy van nhanh)
-  $kb = Join-Path $root "goc-kien-thuc"
-  if (Test-Path -LiteralPath $kb) {
-    Get-ChildItem -LiteralPath $kb -Recurse -File -Filter index.html -ErrorAction SilentlyContinue |
-      ForEach-Object { $t = $_.LastWriteTimeUtc.Ticks; if ($t -gt $max) { $max = $t } }
+  # Goc kien thuc & trang phap ly: trang do tools/kb/build-kb.cjs tao ra (it file, quet de quy van nhanh)
+  foreach ($sub in @("goc-kien-thuc", "chinh-sach-bao-mat", "dieu-khoan-su-dung", "en")) {
+    $kb = Join-Path $root $sub
+    if (Test-Path -LiteralPath $kb) {
+      Get-ChildItem -LiteralPath $kb -Recurse -File -Filter index.html -ErrorAction SilentlyContinue |
+        ForEach-Object { $t = $_.LastWriteTimeUtc.Ticks; if ($t -gt $max) { $max = $t } }
+    }
   }
   return "$max"
 }
 
-# tìm cổng trống
+# tim cong trong
 $listener = $null
 for ($p = $Port; $p -lt $Port + 20; $p++) {
   try {
@@ -48,14 +50,14 @@ for ($p = $Port; $p -lt $Port + 20; $p++) {
     $l.Start(); $listener = $l; $Port = $p; break
   } catch { }
 }
-if (-not $listener) { Write-Host "Không mở được cổng $Port..$($Port+19)"; exit 1 }
+if (-not $listener) { Write-Host "Khong mo duoc cong $Port..$($Port+19)"; exit 1 }
 
 $url = "http://localhost:$Port/"
 Write-Host ""
-Write-Host "  Portfolio đang chạy tại:  $url" -ForegroundColor Green
-Write-Host "  Bỏ qua màn chào:          ${url}index.html?skip"
-Write-Host "  Trang dự án mẫu:          ${url}project.html?id=a1"
-Write-Host "  Sửa file & lưu => trình duyệt tự tải lại.  Dừng: Ctrl + C"
+Write-Host "  Portfolio dang chay tai:  $url" -ForegroundColor Green
+Write-Host "  Bo qua man chao:          ${url}index.html?skip"
+Write-Host "  Trang du an mau:          ${url}project.html?id=a1"
+Write-Host "  Sua file & luu => trinh duyet tu tai lai.  Dung: Ctrl + C"
 Write-Host ""
 if (-not $NoOpen) { Start-Process $url }
 
@@ -72,6 +74,14 @@ try {
         $b = [Text.Encoding]::UTF8.GetBytes($stamp); $res.ContentType = 'text/plain'
         $res.OutputStream.Write($b, 0, $b.Length); continue
       }
+      if (-not $path.EndsWith('/')) {
+        $tryDir = [IO.Path]::GetFullPath([IO.Path]::Combine($root, $path.TrimStart('/').Replace('/', '\')))
+        if ([IO.Directory]::Exists($tryDir) -and [IO.File]::Exists([IO.Path]::Combine($tryDir, 'index.html'))) {
+          $res.StatusCode = 301
+          $res.RedirectLocation = $path + '/' + $req.Url.Query
+          continue
+        }
+      }
       if ($path.EndsWith('/')) { $path += 'index.html' }
       $rel = $path.TrimStart('/').Replace('/', '\')
       $file = [IO.Path]::GetFullPath([IO.Path]::Combine($root, $rel))
@@ -79,7 +89,7 @@ try {
       $under = $file.StartsWith($root.TrimEnd('\') + '\', [StringComparison]::OrdinalIgnoreCase) -and ($file.Substring($root.TrimEnd('\').Length + 1) -notmatch '(^|\\)(\.|node_modules(\\|$))')
       if (-not $under -or -not [IO.File]::Exists($file)) {
         $res.StatusCode = 404
-        $b = [Text.Encoding]::UTF8.GetBytes("404 — Không tìm thấy: $path"); $res.ContentType = 'text/plain; charset=utf-8'
+        $b = [Text.Encoding]::UTF8.GetBytes("404 - Khong tim thay: $path"); $res.ContentType = 'text/plain; charset=utf-8'
         $res.OutputStream.Write($b, 0, $b.Length)
         Write-Host ("404  " + $path) -ForegroundColor DarkYellow
         continue

@@ -604,5 +604,29 @@
       <image:loc>https://letuanviet.com/assets/kb/micro-conversion/11-tuong-quan-va-tac-dong.webp</image:loc>
     </image:image>
   </url>
+  <url>
+    <loc>https://letuanviet.com/chinh-sach-bao-mat/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/en/privacy-policy/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/dieu-khoan-su-dung/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/en/terms-of-use/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
   <!-- /KB:SITEMAP -->
 </urlset>

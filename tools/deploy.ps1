@@ -36,7 +36,7 @@ if (-not (Get-Command npx -ErrorAction SilentlyContinue)) {
 }
 
 # Chi nhung muc duoi day moi duoc len web. Them gi moi thi them vao day.
-$folders = @("assets", "css", "js", "goc-kien-thuc", ".well-known")
+$folders = @("assets", "css", "js", "goc-kien-thuc", "chinh-sach-bao-mat", "dieu-khoan-su-dung", "en", ".well-known")
 $files = @("index.html", "404.html", "google49ce971bbd8cd1d5.html",
            "_headers", "robots.txt", "sitemap.xml", "manifest.json", "llms.txt", "llms-full.txt",
            "favicon.ico", "$indexNowKey.txt", "BingSiteAuth.xml")

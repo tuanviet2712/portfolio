@@ -135,7 +135,7 @@
       if (show !== on) {
         on = show;
         b.classList.toggle('is-on', show);
-        if (langFloat) langFloat.classList.toggle('is-visible', show);
+        if (langFloat && !langFloat.hasAttribute('data-always')) langFloat.classList.toggle('is-visible', show);
       }
     });
     b.addEventListener('click', () => window.scrollTo({ top: 0, behavior: L.reduced ? 'auto' : 'smooth' }));
