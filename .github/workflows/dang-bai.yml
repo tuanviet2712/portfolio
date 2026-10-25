@@ -133,7 +133,7 @@ jobs:
             node tools/kb/build-kb.cjs > "$RUNNER_TEMP/build.log" 2>&1 || { tail -n 60 "$RUNNER_TEMP/build.log"; report failed "\"error\":\"site_build_failed\",\"patches\":[]"; exit 1; }
             PATCHES=$(cat "$RUNNER_TEMP/patches.json")
             if [ "$MODE" != "production" ]; then echo "preview: khong commit"; echo "patches=$PATCHES" >> "${GITHUB_OUTPUT:-/dev/null}"; break; fi
-            for p in tools/kb assets/kb goc-kien-thuc index.html sitemap.xml llms.txt llms-full.txt; do
+            for p in tools/kb assets/kb goc-kien-thuc chinh-sach-bao-mat dieu-khoan-su-dung en index.html sitemap.xml llms.txt llms-full.txt; do
               if [ -e "$p" ]; then git add -A -- "$p"; fi
             done
             if git diff --cached --quiet; then
@@ -153,10 +153,15 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         shell: pwsh
         run: |
+          if ($env:CLOUDFLARE_API_TOKEN) { $env:CLOUDFLARE_API_TOKEN = ($env:CLOUDFLARE_API_TOKEN -replace "[^\x21-\x7E]", "") }
+          if ($env:CLOUDFLARE_ACCOUNT_ID) { $env:CLOUDFLARE_ACCOUNT_ID = ($env:CLOUDFLARE_ACCOUNT_ID -replace "[^\x21-\x7E]", "") }
+          if ($env:PULL_TOKEN) { $env:PULL_TOKEN = ($env:PULL_TOKEN -replace "[^\x21-\x7E]", "") }
           $branch = if ($env:MODE -eq "production") { "main" } else { "xem-thu" }
           & ./tools/deploy.ps1 -Branch $branch -Message "SEO-Agent $env:ATTEMPT_ID" 2>&1 | Tee-Object -Variable log
           if ($LASTEXITCODE -ne 0) { throw "deploy that bai" }
-          $url = ([regex]::Match(($log -join "`n"), 'https://[a-z0-9-]+\.portfolio-elj\.pages\.dev')).Value
+          $cleanLog = ($log -join "`n") -replace "\x1B\[[0-9;]*[A-Za-z]", ""
+          $url = ([regex]::Match($cleanLog, 'https://[a-z0-9-]+\.portfolio-elj\.pages\.dev')).Value
+          if (-not $url -and $branch -eq "xem-thu") { $url = "https://xem-thu.portfolio-elj.pages.dev" }
           $body = @{ nonce = $env:NONCE; run_id = $env:RUN_ID; stage = "deployed"; deploy_url = $url; patches = @() } | ConvertTo-Json -Compress
           Invoke-RestMethod -Method Post -Uri "$env:ORIGIN/api/gh/result/$env:ATTEMPT_ID" -Headers @{ Authorization = "Bearer $env:PULL_TOKEN" } -ContentType "application/json" -Body $body
 

@@ -133,6 +133,8 @@ Write-Host "  Day len Cloudflare Pages ..." -ForegroundColor Cyan
 Push-Location $root
 try {
   $env:CI = "1"
+  if ($env:CLOUDFLARE_API_TOKEN) { $env:CLOUDFLARE_API_TOKEN = ($env:CLOUDFLARE_API_TOKEN -replace "[^\x21-\x7E]", "") }
+  if ($env:CLOUDFLARE_ACCOUNT_ID) { $env:CLOUDFLARE_ACCOUNT_ID = ($env:CLOUDFLARE_ACCOUNT_ID -replace "[^\x21-\x7E]", "") }
   & npx -y wrangler@4 pages deploy dist --project-name=portfolio --branch=$Branch --commit-dirty=true --commit-message=$Message
   if ($LASTEXITCODE -ne 0) { throw "wrangler pages deploy that bai (ma $LASTEXITCODE)" }
 } finally { Pop-Location }
