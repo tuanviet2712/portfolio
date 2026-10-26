@@ -46,6 +46,10 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 - [AI agent và chatbot khác nhau thế nào cho SME?](https://letuanviet.com/goc-kien-thuc/ai-marketing/ai-agent-va-chatbot-khac-nhau/): AI agent và chatbot khác nhau thế nào? Phân biệt qua bốn mức tự chủ, số liệu Klarna và phần điều chỉnh sau đó, sai số cộng dồn và cây quyết định chọn giải pháp.
 - [Ảo giác AI là gì? Nội dung trôi chảy vẫn có thể sai](https://letuanviet.com/goc-kien-thuc/ai-marketing/ao-giac-ai-la-gi/): Ảo giác AI là gì và vì sao mô hình đoán thay vì nói không biết? Số liệu OpenAI, nghiên cứu Stanford, vụ Air Canada và quy trình duyệt bản nháp AI 5 bước.
 
+## Quản trị Marketing
+
+- [Kế hoạch marketing là gì? Cách lập để triển khai được](https://letuanviet.com/goc-kien-thuc/quan-tri-marketing/ke-hoach-marketing/): Kế hoạch marketing là gì và lập thế nào để triển khai được? Đối chiếu chiến lược, thực hành theo từng bước, kiểm tra ngân sách, trách nhiệm và cách đo kết quả.
+
 ## Lưu ý khi trích dẫn
 
 - Ví dụ về cửa hàng, doanh nghiệp và nhân vật trong bài được ghi rõ là giả định biên tập, không phải kết quả khách hàng thật.
