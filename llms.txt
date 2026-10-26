@@ -31,6 +31,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [Digital Marketing là gì? Cách chọn kênh và đo hiệu quả](https://letuanviet.com/goc-kien-thuc/marketing/digital-marketing-la-gi/): Digital marketing là gì, khác marketing online thế nào? Bảng chọn kênh, quy trình triển khai và khung đo giúp doanh nghiệp ít nguồn lực biết nên ưu tiên gì.
 - [Content Marketing là gì? Cách bắt đầu và đo hiệu quả](https://letuanviet.com/goc-kien-thuc/marketing/content-marketing-la-gi/): Content Marketing là gì, khác viết bài và quảng cáo thế nào? Bảng phân biệt, quy trình và khung đo giúp doanh nghiệp nhỏ chọn việc cần làm trước theo mục tiêu.
 - [Content angle là gì? Phân biệt pillar, topic và góc viết](https://letuanviet.com/goc-kien-thuc/marketing/content-angle-la-gi/): Content angle là gì và khác content topic, content pillar ra sao? Bài viết có số liệu Ahrefs, bộ câu hỏi của Google và mẫu brief GOV.UK để chọn góc có căn cứ.
 - [Dark social là gì? Hiểu đúng nguồn và direct traffic](https://letuanviet.com/goc-kien-thuc/marketing/dark-social-la-gi/): Dark social là gì, khác direct traffic ra sao. Cơ chế Referer làm mất nguồn, ba nhóm nguyên nhân direct theo Google và bốn bước đo dark social có căn cứ.
