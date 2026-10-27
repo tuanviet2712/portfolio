@@ -924,7 +924,7 @@ function llmsFullTxt(all) {
   return out.join('\n');
 }
 
-const SIDE_POSTS = 5;   /* tiêu đề trong "Kiến thức mới": tối đa 2 dòng, căn đều hai bên (css/kb-article.css) */
+const SIDE_POSTS = 5;
 function articleSide(a, all, rel) {
   const counts = pillarCounts(all);
   const cats = SITE.pillars.map(p => {
