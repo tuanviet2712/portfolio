@@ -4,7 +4,7 @@
 
 ---
 
-## Marketing online Google là gì, nên chọn SEO hay Google Ads?
+## Marketing online Google: Chọn SEO hay Ads?
 
 - URL: https://letuanviet.com/goc-kien-thuc/marketing/marketing-online-google/
 - Chủ đề: Marketing
@@ -71,7 +71,7 @@ Tài liệu năm 2026 của Google Search Central khẳng định Google Search 
 
 Ngược lại với cơ chế tích lũy tuần tự của SEO, tôi ưu tiên nhìn Google Ads như công cụ mua dữ liệu thị trường có kiểm soát khi trang đích đã sẵn sàng. Nhờ báo cáo cụm từ tìm kiếm sau vài tuần chạy thử, đội ngũ biết chính xác khách hàng dùng từ ngữ nào trước khi đầu tư sản xuất bài viết dài hạn.
 
-### Doanh nghiệp nên chọn kênh marketing online Google nào?
+### Nên chọn kênh marketing online Google nào?
 
 Doanh nghiệp nên chọn Google Ads khi cần kiểm chứng nhu cầu thị trường và tạo khách hàng tiềm năng sớm trên trang đích đã hoàn thiện, chọn SEO khi cần xây dựng tài sản tìm kiếm bền vững theo hành trình mua, hoặc phối hợp cả hai phương án khi muốn dùng dữ liệu chuyển đổi thật để giảm dần sự phụ thuộc vào quảng cáo theo ba phương án lựa chọn dưới đây.
 
@@ -91,7 +91,7 @@ Theo khuyến nghị năm 2026 từ Google Ads Help, việc chọn loại chiế
 
 Khi phối hợp đúng cơ chế, doanh nghiệp dùng Google Ads đánh vào nhóm từ khóa giao dịch để lấy dòng tiền và dữ liệu thực tế, sau đó chuyển danh sách truy vấn tạo ra khách hàng thật cho đội SEO xây dựng cụm bài trụ cột.
 
-### Quy trình lập kế hoạch marketing online Google trong bốn bước
+### Cách lập kế hoạch marketing online Google 4 bước
 
 Quy trình lập kế hoạch marketing online Google cho doanh nghiệp vừa và nhỏ gồm bốn bước tuần tự để nối mục tiêu doanh thu với trang đích và hệ thống đo lường trước khi chi tiền. Bốn bước triển khai gồm: chốt mục tiêu và hành động cần đo, xác định nhu cầu tìm kiếm gắn với trang đích, phân vai giữa SEO và Google Ads, rồi thiết lập đo lường và kiểm chứng dữ liệu.
 
@@ -121,21 +121,21 @@ Cài đặt Google Search Console để kiểm tra lập chỉ mục và cấu h
 
 Đầu ra: Biên bản nghiệm thu đo lường xác nhận các trang đích đã được lập chỉ mục hợp lệ và sự kiện chuyển đổi được ghi nhận chính xác, không đếm trùng trên cả hai công cụ.
 
-### Cách đo hiệu quả marketing online Google theo ba tầng chỉ số
+### Cách đo hiệu quả marketing online Google 3 tầng
 
 Cách đo hiệu quả marketing online Google chính xác là tách hệ thống báo cáo thành ba tầng chỉ số nối tiếp nhau thay vì chỉ nhìn vào lượt truy cập hay số tiền đã tiêu. Ba tầng đo lường cần theo dõi gồm: tín hiệu hiện diện và tương tác ban đầu, hành vi đạt chuẩn trên trang đích, và kết quả kinh doanh thực tế được xác nhận tại bộ phận bán hàng.
 
-Trước khi đọc bảng, người phụ trách cần thống nhất các chỉ số gồm CTR (tỷ lệ nhấp), CPC (chi phí mỗi lượt nhấp), CPL (chi phí trên mỗi khách hàng tiềm năng), CPA (chi phí trên mỗi khách hàng chuyển đổi) và ROAS (tỷ suất doanh thu trên chi phí quảng cáo) đối chiếu trên CRM (hệ thống quản trị quan hệ khách hàng). Bảng dưới đây phân tách ba tầng đo lường theo công cụ ghi nhận và giới hạn quyết định.
+Trước khi đọc bảng, người phụ trách cần thống nhất các chỉ số gồm Impressions (lượt hiển thị), CTR (tỷ lệ nhấp), CPC (chi phí mỗi lượt nhấp), Micro conversion (chuyển đổi vi mô), Lead (khách hàng tiềm năng), CPL (chi phí trên mỗi khách hàng tiềm năng), CPA (chi phí trên mỗi khách hàng chuyển đổi) và ROAS (tỷ suất doanh thu trên chi phí quảng cáo) đối chiếu trên CRM (hệ thống quản trị quan hệ khách hàng). Bảng dưới đây phân tách ba tầng đo lường theo công cụ ghi nhận và giới hạn quyết định.
 
 Khung đo lường hiệu quả marketing trên Google theo ba tầng quyết định
 
-| Tầng đo lường và chỉ số | Cách tính và công cụ ghi nhận | Giới hạn khi đọc và quyết định tối ưu |
+| Tầng chỉ số đo lường | Chỉ số và công cụ ghi nhận | Giới hạn và quyết định tối ưu |
 
-| Tầng hiện diện (Impressions (lượt hiển thị), CTR, CPC, thứ hạng) | Đếm lượt hiển thị, tỷ lệ nhấp và giá nhấp qua Google Search Console, Google Ads | Cho biết sức hút trên SERP nhưng chưa phản ánh chất lượng khách hay doanh thu |
+| Tầng 1: Tín hiệu hiện diện | Đo Impressions, CTR, CPC và thứ hạng qua Google Search Console, Google Ads | Cho biết sức hút trên SERP nhưng chưa phản ánh chất lượng khách hay doanh thu |
 
-| Tầng hành vi trên trang (Micro conversion (chuyển đổi vi mô), Key Event) | Đếm phiên xem bảng giá, điền biểu mẫu, nhấp gọi trên GA4 và trình quản lý thẻ | Xác nhận trang đích có tương tác nhưng chưa tách được khách thật với lượt bấm nhầm |
+| Tầng 2: Hành vi trên trang | Đo Micro conversion, Key Event, điền biểu mẫu và nhấp gọi trên GA4 | Xác nhận trang đích có tương tác nhưng chưa tách được khách thật với bấm nhầm |
 
-| Tầng kết quả kinh doanh (Lead (khách hàng tiềm năng) hợp lệ, CPL, CPA, ROAS) | Đối chiếu số khách đạt chuẩn, chi phí và doanh thu thực trong hệ thống bán hàng | Chịu độ trễ theo chu kỳ chốt đơn; cần đọc theo kỳ đủ dài để tránh cắt nhầm kênh |
+| Tầng 3: Kết quả kinh doanh | Đối chiếu Lead hợp lệ, CPL, CPA và ROAS thực tế trên hệ thống CRM | Chịu độ trễ theo chu kỳ chốt đơn; cần đọc theo kỳ đủ dài để tránh cắt nhầm kênh |
 
 Người quản lý cần phân biệt rõ micro conversion và macro conversion (chuyển đổi vĩ mô) vì CTR cao hay CPC rẻ vẫn gây lỗ nếu không tạo ra CPL, CPA và ROAS hợp lệ. Khi một trang đích liên tục tiêu tốn ngân sách qua một chu kỳ bán hàng mà không tạo ra khách hàng tiềm năng đạt chuẩn, người phụ trách cần tạm dừng để rà soát lại độ khớp ý định tìm kiếm và biểu mẫu liên hệ.
 
@@ -151,7 +151,7 @@ Tài liệu hướng dẫn năm 2026 của Google Analytics Help định nghĩa 
 
 - Chênh lệch cơ chế ghi nhận thời điểm chuyển đổi giữa Google Ads với GA4, hoặc khách hàng từ chối cookie và gọi thẳng vào số điện thoại trên màn hình.
 
-### Ví dụ phối hợp SEO và Google Ads cho doanh nghiệp vừa và nhỏ
+### Ví dụ phối hợp SEO và Google Ads thực tế
 
 Phối hợp SEO và Google Ads ở doanh nghiệp vừa và nhỏ đạt hiệu quả cao nhất khi dùng ngân sách quảng cáo nhỏ để lọc truy vấn tạo khách hàng thật, sau đó chuyển dữ liệu này sang xây dựng cụm bài SEO chủ lực. Trong một ví dụ biên tập, không phải kết quả khách hàng thật, một doanh nghiệp bảo trì thiết bị văn phòng B2B (doanh nghiệp với doanh nghiệp) tại Hà Nội đã áp dụng cơ chế này trong hai quý liên tiếp.
 
@@ -169,23 +169,23 @@ Doanh nghiệp bảo trì này có một nhân sự nội dung và ngân sách q
 
 ### Câu hỏi thường gặp về marketing online Google
 
-#### Chạy quảng cáo Google Ads có giúp từ khóa SEO lên top nhanh hơn không?
+#### Chạy Google Ads có giúp từ khóa SEO lên top nhanh hơn không?
 
 Không, việc chi trả ngân sách cho Google Ads không giúp website được thu thập dữ liệu thường xuyên hơn hay được cộng điểm trong thuật toán xếp hạng tự nhiên của Google. Tuy nhiên, dữ liệu từ khóa phát sinh chuyển đổi thật từ Google Ads có thể giúp đội ngũ nội dung chọn đúng chủ đề SEO sát nhu cầu mua hơn.
 
-#### Ngân sách hạn chế thì doanh nghiệp nhỏ nên bắt đầu marketing trên Google từ đâu?
+#### Ngân sách hạn chế thì doanh nghiệp nhỏ nên bắt đầu từ đâu?
 
 Doanh nghiệp nên bắt đầu bằng việc hoàn thiện trang đích cho dịch vụ chủ lực, thiết lập miễn phí Google Business Profile nếu có điểm bán địa phương và cài đặt Google Search Console cùng Google Analytics 4. Khi hệ thống đã ghi nhận đúng hành động liên hệ, bạn mới chạy thử Google Ads vào từ khóa mua rõ ràng hoặc viết cụm bài SEO ngách.
 
-#### Khi nào doanh nghiệp đang chạy Google Ads nên tạm dừng hoặc điều chỉnh chiến dịch?
+#### Khi nào doanh nghiệp nên tạm dừng hoặc chỉnh chiến dịch Ads?
 
 Doanh nghiệp cần điều chỉnh hoặc tạm dừng khi quảng cáo phát sinh lượt nhấp nhưng không tạo ra hành vi đạt chuẩn trên trang đích, hoặc khi chi phí mỗi khách hàng hợp lệ vượt biên lợi nhuận cho phép. Trước khi đổi ngân sách, người phụ trách phải kiểm tra xem chuyển đổi trên công cụ có khớp với số khách thực tế ở bộ phận bán hàng hay không.
 
-#### Vì sao số lượt chuyển đổi trên Google Ads thường lệch với Google Analytics 4 và sổ bán hàng?
+#### Vì sao số chuyển đổi Google Ads lệch với GA4 và sổ bán hàng?
 
 Số liệu giữa ba bên thường chênh lệch do khác biệt về mô hình quy kết, cửa sổ thời gian ghi nhận và cách tính thời điểm phát sinh sự kiện theo ngày nhấp quảng cáo hay ngày diễn ra hành vi. Ngoài ra, các cuộc gọi trực tiếp hoặc tin nhắn qua ứng dụng bên thứ ba không qua biểu mẫu cũng làm dữ liệu lệch khỏi doanh thu thực tế.
 
-#### Khi từ khóa thương hiệu đã đứng đầu kết quả tự nhiên thì có cần chạy thêm Google Ads không?
+#### Từ khóa thương hiệu đã lên top SEO có cần chạy Google Ads?
 
 Có, nếu đối thủ đang đấu thầu quảng cáo ngay trên tên thương hiệu của bạn hoặc khi cần điều hướng khách vào trang ưu đãi ngắn hạn khác với trang chủ SEO. Ngược lại, nếu không có đối thủ cạnh tranh trả phí trên tên thương hiệu, doanh nghiệp nên dành ngân sách cho nhóm truy vấn tìm giải pháp chưa biết tên thương hiệu.
 
@@ -199,19 +199,19 @@ Khi doanh nghiệp chạy song song nhiều chiến dịch nhưng số liệu gi
 
 ### Câu hỏi thường gặp
 
-**Chạy quảng cáo Google Ads có giúp từ khóa SEO lên top nhanh hơn không?**
+**Chạy Google Ads có giúp từ khóa SEO lên top nhanh hơn không?**
 Không, việc chi trả ngân sách cho Google Ads không giúp website được thu thập dữ liệu thường xuyên hơn hay được cộng điểm trong thuật toán xếp hạng tự nhiên của Google. Tuy nhiên, dữ liệu từ khóa phát sinh chuyển đổi thật từ Google Ads có thể giúp đội ngũ nội dung chọn đúng chủ đề SEO sát nhu cầu mua hơn.
 
-**Ngân sách hạn chế thì doanh nghiệp nhỏ nên bắt đầu marketing trên Google từ đâu?**
+**Ngân sách hạn chế thì doanh nghiệp nhỏ nên bắt đầu từ đâu?**
 Doanh nghiệp nên bắt đầu bằng việc hoàn thiện trang đích cho dịch vụ chủ lực, thiết lập miễn phí Google Business Profile nếu có điểm bán địa phương và cài đặt Google Search Console cùng Google Analytics 4. Khi hệ thống đã ghi nhận đúng hành động liên hệ, bạn mới chạy thử Google Ads vào từ khóa mua rõ ràng hoặc viết cụm bài SEO ngách.
 
-**Khi nào doanh nghiệp đang chạy Google Ads nên tạm dừng hoặc điều chỉnh chiến dịch?**
+**Khi nào doanh nghiệp nên tạm dừng hoặc chỉnh chiến dịch Ads?**
 Doanh nghiệp cần điều chỉnh hoặc tạm dừng khi quảng cáo phát sinh lượt nhấp nhưng không tạo ra hành vi đạt chuẩn trên trang đích, hoặc khi chi phí mỗi khách hàng hợp lệ vượt biên lợi nhuận cho phép. Trước khi đổi ngân sách, người phụ trách phải kiểm tra xem chuyển đổi trên công cụ có khớp với số khách thực tế ở bộ phận bán hàng hay không.
 
-**Vì sao số lượt chuyển đổi trên Google Ads thường lệch với Google Analytics 4 và sổ bán hàng?**
+**Vì sao số chuyển đổi Google Ads lệch với GA4 và sổ bán hàng?**
 Số liệu giữa ba bên thường chênh lệch do khác biệt về mô hình quy kết, cửa sổ thời gian ghi nhận và cách tính thời điểm phát sinh sự kiện theo ngày nhấp quảng cáo hay ngày diễn ra hành vi. Ngoài ra, các cuộc gọi trực tiếp hoặc tin nhắn qua ứng dụng bên thứ ba không qua biểu mẫu cũng làm dữ liệu lệch khỏi doanh thu thực tế.
 
-**Khi từ khóa thương hiệu đã đứng đầu kết quả tự nhiên thì có cần chạy thêm Google Ads không?**
+**Từ khóa thương hiệu đã lên top SEO có cần chạy Google Ads?**
 Có, nếu đối thủ đang đấu thầu quảng cáo ngay trên tên thương hiệu của bạn hoặc khi cần điều hướng khách vào trang ưu đãi ngắn hạn khác với trang chủ SEO. Ngược lại, nếu không có đối thủ cạnh tranh trả phí trên tên thương hiệu, doanh nghiệp nên dành ngân sách cho nhóm truy vấn tìm giải pháp chưa biết tên thương hiệu.
 
 ### Nguồn tham khảo
@@ -254,13 +254,13 @@ Trong vận hành thực tế, nhiều đội ngũ mở thẳng Meta Ads Manager
 Bảng phân biệt kế hoạch quảng cáo, thiết lập chiến dịch và nhật ký tối ưu
 
 | Tài liệu và thao tác | Mục đích và thời điểm dùng | Đầu ra kiểm soát |
-| Kế hoạch chạy quảng cáo Facebook | Thống nhất mục tiêu, ngân sách, đối tượng và ngưỡng chịu rủi ro trước khi giải ngân | Bản duyệt ngân sách, ma trận thử nghiệm và quy tắc xử lý khi lệch ngưỡng |
-| Thiết lập trong Meta Ads Manager | Chuyển hóa các lựa chọn trong kế hoạch thành cấu hình kỹ thuật để phân phối | Cấu trúc chiến dịch, nhóm quảng cáo, sự kiện theo dõi và mẫu quảng cáo |
+| Bản kế hoạch quảng cáo | Thống nhất mục tiêu, ngân sách, đối tượng và ngưỡng chịu rủi ro trước khi giải ngân | Bản duyệt ngân sách, ma trận thử nghiệm và quy tắc xử lý khi lệch ngưỡng |
+| Cấu hình Meta Ads Manager | Chuyển hóa các lựa chọn trong kế hoạch thành cấu hình kỹ thuật để phân phối | Cấu trúc chiến dịch, nhóm quảng cáo, sự kiện theo dõi và mẫu quảng cáo |
 | Nhật ký tối ưu chiến dịch | Theo dõi biến động theo kỳ đo và ghi lại lý do chỉnh sửa | Lịch sử thay đổi ngân sách, đối tượng hoặc nội dung để rút bài học |
 
 Bảng trên áp dụng khi làm việc nội bộ hoặc thuê ngoài, với điều kiện luôn tách riêng cột dự kiến và cột thực tế.
 
-### Kế hoạch chạy quảng cáo Facebook cần những đầu vào nào?
+### Kế hoạch chạy quảng cáo Facebook cần đầu vào nào?
 
 Trước khi phân bổ ngân sách, một bản kế hoạch chạy quảng cáo Facebook khả thi cần chuẩn bị đủ ba nhóm đầu vào gồm bài toán kinh doanh kèm biên lợi nhuận, hạ tầng dữ liệu trang đích và năng lực xử lý của đội bán hàng. Thiếu một trong ba nhóm này, chi phí bỏ ra rất dễ chỉ tạo lượt nhấp mà không thành doanh thu.
 
@@ -280,7 +280,7 @@ Theo định nghĩa chỉ số năm 2024 của Meta Business Help Center, lượ
 
 - Cam kết xử lý của đội bán hàng: Đã chốt người trực theo khung giờ, kịch bản lọc nhu cầu và thời hạn phản hồi.
 
-### Cách lập kế hoạch chạy quảng cáo Facebook theo sáu bước
+### Cách lập kế hoạch chạy quảng cáo Facebook 6 bước
 
 Quy trình lập kế hoạch chạy quảng cáo Facebook cho doanh nghiệp vừa và nhỏ đi qua sáu bước tuần tự: chốt mục tiêu đầu ra, xác định đối tượng, chọn sự kiện chuyển đổi, thiết kế thử nghiệm nội dung, phân bổ ngân sách theo giai đoạn máy học và thiết lập ngưỡng kiểm soát. Mỗi bước đều gắn với đầu ra và dấu hiệu hoàn tất cụ thể.
 
@@ -322,7 +322,7 @@ Người lập kế hoạch ấn định chu kỳ đọc báo cáo và ngưỡng
 
 Đầu ra và dấu hiệu hoàn tất: Bảng quy tắc nêu rõ ngưỡng CPA mục tiêu và ngưỡng cắt lỗ; hoàn tất khi marketing và sale ký nhận lịch soát.
 
-### Mẫu kế hoạch chạy quảng cáo Facebook gồm những phần nào?
+### Mẫu kế hoạch chạy quảng cáo Facebook gồm phần nào?
 
 Một bản mẫu kế hoạch chạy quảng cáo Facebook dùng được ngay trong doanh nghiệp vừa và nhỏ cần cô đọng thành ba phần: tổng quan mục tiêu và ngân sách, lịch triển khai thử nghiệm nội dung cùng đối tượng, và ngưỡng đọc kết quả gắn với quyết định điều chỉnh. Cấu trúc ba cột giúp người quản lý duyệt nhanh căn cứ phân bổ nguồn lực.
 
@@ -334,7 +334,7 @@ Mẫu bảng kế hoạch chạy quảng cáo Facebook theo ba phần cốt lõi
 
 | Hạng mục kế hoạch | Thông số mục tiêu (giả định) | Căn cứ tính và quy tắc điều chỉnh |
 | Mục tiêu và ngân sách 30 ngày | Ngân sách 30 triệu đồng; đạt 20 lịch khám với CPL tối đa 300.000 đồng | Tính từ biên lợi nhuận và tỷ lệ hẹn khám 20%; chia 30% thử nghiệm và 70% mở rộng |
-| Lịch thử nghiệm đối tượng và nội dung | Nhóm 1 (bán kính 10 km) và Nhóm 2 (khách tương tác 90 ngày) | Cố định đối tượng, chỉ đổi một biến số góc thông điệp để so sánh |
+| Lịch thử nghiệm tệp và mẫu | Nhóm 1 (bán kính 10 km) và Nhóm 2 (khách tương tác 90 ngày) | Cố định đối tượng, chỉ đổi một biến số góc thông điệp để so sánh |
 | Ngưỡng cảnh báo và quyết định | Tỷ lệ xem trang đích dưới 60% hoặc khách đạt chuẩn dưới 30% | Kiểm tra tốc độ tải trang, thêm câu hỏi lọc và tối ưu sự kiện từ CRM |
 
 [Hình: Thay đổi từng biến số riêng lẻ trong đợt thử nghiệm giúp xác định chính xác yếu tố tạo ra chuyển đổi]
@@ -354,13 +354,13 @@ Giới hạn áp dụng: các tỷ lệ phân bổ và đơn giá trong bảng h
 Khung đo lường hiệu quả kế hoạch quảng cáo Facebook theo ba tầng
 
 | Tầng chỉ số | Cách tính và nguồn dữ liệu | Giới hạn khi đọc số liệu |
-| Tầng 1: Tín hiệu phân phối và tương tác | Trích xuất trực tiếp từ báo cáo Meta Ads Manager và dữ liệu sự kiện Meta Pixel | Chỉ phản ánh sức hút bề mặt và tốc độ tải trang; CTR cao vẫn có thể không tạo ra đơn hàng nào |
-| Tầng 2: Chuyển đổi và khách tiềm năng đạt chuẩn | Đối chiếu số liên hệ trên Meta với phân loại hợp lệ ở CRM | Số biểu mẫu báo cáo trên Meta thường lệch với CRM do dữ liệu trùng hoặc sai số |
-| Tầng 3: Kết quả kinh doanh xác nhận | Đối chiếu trực tiếp từ sổ bán hàng, báo cáo kế toán và sự kiện Conversions API | Có độ trễ theo chu kỳ chốt đơn và sót khách mua tự nhiên |
+| Tầng 1: Chỉ số tương tác | Trích xuất trực tiếp từ báo cáo Meta Ads Manager và dữ liệu sự kiện Meta Pixel | Chỉ phản ánh sức hút bề mặt và tốc độ tải trang; CTR cao vẫn có thể không tạo ra đơn hàng nào |
+| Tầng 2: Khách đạt chuẩn | Đối chiếu số liên hệ trên Meta với phân loại hợp lệ ở CRM | Số biểu mẫu báo cáo trên Meta thường lệch với CRM do dữ liệu trùng hoặc sai số |
+| Tầng 3: Doanh thu xác nhận | Đối chiếu trực tiếp từ sổ bán hàng, báo cáo kế toán và sự kiện Conversions API | Có độ trễ theo chu kỳ chốt đơn và sót khách mua tự nhiên |
 
 Báo cáo thực tế luôn có khoảng trống quy kết do trình duyệt chặn theo dõi hoặc hành vi dark social (lưu lượng chia sẻ qua các kênh riêng tư khó đo lường), nên người quản lý cần đọc kết quả quảng cáo song song với biến động doanh thu toàn kênh.
 
-### Cách xử lý khi kế hoạch chạy quảng cáo Facebook lệch mục tiêu
+### Cách xử lý khi quảng cáo Facebook lệch mục tiêu
 
 Khi số liệu thực tế lệch khỏi kế hoạch chạy quảng cáo Facebook ban đầu, nguyên tắc xử lý là khoanh vùng đúng tầng bị gãy trong phễu chuyển đổi trước khi sửa ngân sách hay tạo lại chiến dịch. Thay đổi đồng loạt nhiều biến số trong lúc nhóm quảng cáo đang học dữ liệu sẽ xóa mất căn cứ đối chiếu.
 
@@ -376,7 +376,7 @@ Theo cơ chế giai đoạn máy học năm 2024 của Meta Business Help Center
 
 Nếu đã gộp nhóm quảng cáo mà ngân sách vẫn chưa đủ tạo sự kiện mua hàng cho máy học, doanh nghiệp nhỏ nên chuyển sang tối ưu sự kiện trung gian ở bước phễu cao hơn. Đã lập kế hoạch là phải khóa ngưỡng dừng lỗ.
 
-### Câu hỏi thường gặp về kế hoạch chạy quảng cáo Facebook
+### Câu hỏi thường gặp về kế hoạch quảng cáo Facebook
 
 #### Ngân sách tối thiểu cho quảng cáo Facebook nên tính từ đâu?
 

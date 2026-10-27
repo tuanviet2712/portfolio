@@ -924,24 +924,7 @@ function llmsFullTxt(all) {
   return out.join('\n');
 }
 
-const SIDE_POSTS = 5;
-/* Tiêu đề trong "Kiến thức mới": luôn đúng 2 dòng, ngắt theo ý thay vì để trình duyệt ngắt giữa cụm từ.
-   Thứ tự ưu tiên: sau "?" hoặc "," giữa câu → trước chữ "khác" → chỗ trống gần giữa nhất. Mỗi nửa ≤ SIDE_LINE ký tự
-   (12.5px trong cột chữ 210px chứa khoảng 36 ký tự). Bài có thể tự chọn chỗ ngắt bằng "sideTitle": "Dòng một|Dòng hai".
-   Mỗi dòng không xuống hàng (CSS), dòng quá dài bị cắt bằng dấu "…" nên không bao giờ thành 3 dòng. */
-const SIDE_LINE = 36;
-function sideTitleLines(x) {
-  if (x.sideTitle) return x.sideTitle.split('|').map(s => s.trim());
-  const t = x.title, ok = i => i > 0 && i < t.length && t.slice(0, i).trim().length <= SIDE_LINE && t.slice(i).trim().length <= SIDE_LINE;
-  const cuts = [];
-  for (const re of [/[?,] /g, / khác /g]) for (const m of t.matchAll(re)) cuts.push(re.source === ' khác ' ? m.index : m.index + 1);
-  let cut = cuts.find(ok);
-  if (cut == null) {
-    const spaces = [...t.matchAll(/ /g)].map(m => m.index).filter(ok).sort((p, q) => Math.abs(p - t.length / 2) - Math.abs(q - t.length / 2));
-    cut = spaces[0];
-  }
-  return cut == null ? [t] : [t.slice(0, cut).trim(), t.slice(cut).trim()];
-}
+const SIDE_POSTS = 5;   /* tiêu đề trong "Kiến thức mới": tối đa 2 dòng, căn đều hai bên (css/kb-article.css) */
 function articleSide(a, all, rel) {
   const counts = pillarCounts(all);
   const cats = SITE.pillars.map(p => {
@@ -951,7 +934,7 @@ function articleSide(a, all, rel) {
   const others = all.filter(x => x.slug !== a.slug).slice(0, SIDE_POSTS);
   const posts = (others.length ? others : [a]).map(x => {
     const self = x.slug === a.slug;
-    return `<li><a class="kb-side__post" href="${rel}${articlePath(x)}"${self ? ' aria-current="page"' : ''}>${x.cover && x.cover.base ? `<span class="kb-side__img"><img src="${rel}assets/kb/${x.cover.base}-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span>` : ''}<span class="kb-side__txt"><b title="${esc(x.title)}">${sideTitleLines(x).map(l => `<span>${esc(l)}</span>`).join(' ')}</b><small>${self ? 'Bạn đang đọc' : `<time datetime="${day(x.published)}">${vnDate(x.published)}</time>`}</small></span></a></li>`;
+    return `<li><a class="kb-side__post" href="${rel}${articlePath(x)}"${self ? ' aria-current="page"' : ''}>${x.cover && x.cover.base ? `<span class="kb-side__img"><img src="${rel}assets/kb/${x.cover.base}-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span>` : ''}<span class="kb-side__txt"><b title="${esc(x.title)}">${esc(x.title)}</b><small>${self ? 'Bạn đang đọc' : `<time datetime="${day(x.published)}">${vnDate(x.published)}</time>`}</small></span></a></li>`;
   }).join('\n                ');
   return `<aside class="kb-art__aside" aria-label="Tìm kiếm, chuyên mục và bài viết mới">
             <div class="kb-side">
