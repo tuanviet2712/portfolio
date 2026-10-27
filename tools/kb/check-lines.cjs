@@ -47,7 +47,7 @@ const PROBE = `(() => {
   const sel = '.kb-art__sapo, .kb-sum li, .kb-prose p,'
     + ' .kb-prose ul:not([class]) > li, .kb-prose ol:not([class]) > li,'
     + ' .kb-list-cards > li, .kb-steps li > span:last-child,'
-    + ' .kb-table td, .kb-case__m dd, .kb-stats dd,'
+    + ' .kb-table td, .kb-case__m dd, .kb-stats dd, .kb-faq__q,'
     // mô tả trên thẻ bài viết của trang tổng, trang chủ đề, trang chủ và chân trang KB
     + ' .kb-post__x, .kbh-post__excerpt, .kbdd__desc, .kbh-pillar__txt small, .footer__grid--kb .footer__brand .desc';
   const where = el => el.closest('.kb-table') ? 'bảng'
@@ -56,6 +56,7 @@ const PROBE = `(() => {
     : el.closest('.kb-case__m') ? 'số dự án'
     : el.closest('.kb-stats') ? 'số nổi bật'
     : el.closest('.kb-sum') ? 'tóm tắt'
+    : el.classList.contains('kb-faq__q') ? 'câu hỏi FAQ'
     : el.matches('.kbh-pillar__txt small') ? 'ô chủ đề'
     : el.matches('.footer__brand .desc') ? 'chân trang'
     : el.matches('.kb-post__x, .kbh-post__excerpt, .kbdd__desc') ? 'thẻ bài viết'
@@ -132,7 +133,7 @@ const PROBE = `(() => {
     const r = await cdp.send('Runtime.evaluate', { expression: PROBE, returnByValue: true });
     const data = JSON.parse(r.result.value);
 
-    const orphan = data.filter(o => !o.clamped && o.lines > 1 && o.lastWords <= 2);
+    const orphan = data.filter(o => !o.clamped && o.lines > 1 && o.lastWords <= (o.zone === 'câu hỏi FAQ' ? 5 : 2));
     const wide = data.filter(o => o.gapEm >= 0.62).sort((a, b) => b.gapEm - a.gapEm);
     console.log(`Đã đo ${data.length} đoạn ở bề ngang ${WIDTH}px\n`);
     console.log(`DÒNG CUỐI CHỈ 1–2 CHỮ: ${orphan.length}`);
