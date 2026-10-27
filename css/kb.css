@@ -15,14 +15,16 @@
 .btn--glass:hover { background: rgb(var(--ivory-rgb) / .16); border-color: rgb(var(--ivory-rgb) / .5); }
 
 /* ---------- Đường dẫn (breadcrumb) ---------- */
-.kb-crumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 0; font-size: 13px; color: var(--ink-3); min-width: 0; }
+/* Máy tính: cả đường dẫn nằm trên một hàng, tên bài quá dài thì tự cắt bằng dấu "…" */
+.kb-crumbs ol { display: flex; flex-wrap: nowrap; align-items: center; gap: 6px 0; font-size: 13px; color: var(--ink-3); min-width: 0; }
 .kb-crumbs li { display: inline-flex; align-items: center; min-width: 0; }
 .kb-crumbs li + li::before { content: ""; width: 6px; height: 6px; margin: 0 12px 0 8px; border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor; transform: rotate(45deg); opacity: .45; flex: none; }
 .kb-crumbs a { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; color: var(--ink-2); transition: color .3s; white-space: nowrap; }
 .kb-crumbs a:hover { color: var(--blue); }
 .kb-crumbs svg { width: 15px; height: 15px; }
+.kb-crumbs li:not([aria-current]) { flex: none; }
 .kb-crumbs [aria-current] { min-width: 0; }
-.kb-crumbs [aria-current] span { display: block; max-width: 46ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-3); }
+.kb-crumbs [aria-current] span { display: block; min-width: 0; max-width: 46ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-3); }
 
 /* ---------- Khối nội dung ---------- */
 .kb-sec { padding-block: clamp(64px, 8vw, 112px); }
@@ -383,6 +385,7 @@ html[data-lang="en"] .footer__grid--kb .footer__brand .desc {
   .kb-link { justify-self: start; }
 }
 @media (max-width: 760px) {
+  .kb-crumbs ol { flex-wrap: wrap; }
   .kb-crumbs [aria-current] span { max-width: 22ch; }
   /* Điện thoại: các khối xếp gọn, Menu nhanh và Góc kiến thức chia 2 cột cân đối */
   .footer__grid--kb,

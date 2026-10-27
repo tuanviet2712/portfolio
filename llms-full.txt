@@ -4,7 +4,7 @@
 
 ---
 
-## Kế hoạch chạy quảng cáo Facebook là gì và cách lập cho SME
+## Kế hoạch chạy quảng cáo Facebook cho SME
 
 - URL: https://letuanviet.com/goc-kien-thuc/quan-tri-marketing/ke-hoach-chay-quang-cao-facebook/
 - Chủ đề: Quản trị Marketing
@@ -100,7 +100,7 @@ Người lập kế hoạch ấn định chu kỳ đọc báo cáo và ngưỡng
 
 Đầu ra và dấu hiệu hoàn tất: Bảng quy tắc nêu rõ ngưỡng CPA mục tiêu và ngưỡng cắt lỗ; hoàn tất khi marketing và sale ký nhận lịch soát.
 
-### Mẫu kế hoạch chạy quảng cáo Facebook cho SME gồm những phần nào?
+### Mẫu kế hoạch chạy quảng cáo Facebook gồm những phần nào?
 
 Một bản mẫu kế hoạch chạy quảng cáo Facebook dùng được ngay trong doanh nghiệp vừa và nhỏ cần cô đọng thành ba phần: tổng quan mục tiêu và ngân sách, lịch triển khai thử nghiệm nội dung cùng đối tượng, và ngưỡng đọc kết quả gắn với quyết định điều chỉnh. Cấu trúc ba cột giúp người quản lý duyệt nhanh căn cứ phân bổ nguồn lực.
 
@@ -156,23 +156,23 @@ Nếu đã gộp nhóm quảng cáo mà ngân sách vẫn chưa đủ tạo sự
 
 ### Câu hỏi thường gặp về kế hoạch chạy quảng cáo Facebook
 
-#### Ngân sách tối thiểu để lập kế hoạch chạy quảng cáo Facebook cho doanh nghiệp nhỏ nên tính từ đâu?
+#### Ngân sách tối thiểu cho quảng cáo Facebook nên tính từ đâu?
 
 Ngân sách tối thiểu phải được tính ngược từ chi phí mục tiêu của một sự kiện chuyển đổi nhân với số sự kiện cần thiết để thoát giai đoạn máy học. Nếu nguồn lực hạn hẹp, doanh nghiệp nên gộp gọn nhóm quảng cáo và tách riêng chi phí sản xuất nội dung khỏi tiền mua hiển thị.
 
-#### Khi nào nên chọn ngân sách cấp chiến dịch thay vì ngân sách cấp nhóm quảng cáo?
+#### Nên chọn ngân sách cấp chiến dịch hay cấp nhóm quảng cáo?
 
 Doanh nghiệp nên chọn ngân sách cấp nhóm quảng cáo khi thử nghiệm và chuyển sang ngân sách cấp chiến dịch khi mở rộng. Ngân sách cấp nhóm giúp khóa số tiền cố định để so sánh từng tệp khách hàng, còn ngân sách cấp chiến dịch tự động dồn tiền vào nhóm có chi phí tốt nhất.
 
-#### Bao lâu sau khi bật chiến dịch thì người phụ trách nên chỉnh sửa ngân sách hoặc tắt nhóm quảng cáo?
+#### Có nên sửa ngân sách hay tắt nhóm quảng cáo ngay khi vừa chạy?
 
 Không, người phụ trách không nên chỉnh sửa lớn hoặc tắt bật liên tục trong những ngày đầu khi nhóm quảng cáo đang ở giai đoạn máy học. Mọi thay đổi quan trọng lúc này đều làm đặt lại chu kỳ học dữ liệu, trừ trường hợp phải dừng khẩn cấp do lỗi trang đích.
 
-#### Khi nào doanh nghiệp vừa và nhỏ không nên chạy quảng cáo Facebook dù đã có sẵn ngân sách?
+#### Khi nào SME chưa nên chạy quảng cáo Facebook dù có ngân sách?
 
 Doanh nghiệp không nên giải ngân khi chưa tính được biên lợi nhuận gộp trên mỗi đơn hàng và chưa có quy trình tiếp nhận khách hàng. Nếu đội ngũ phản hồi tin nhắn chậm, lưu lượng truy cập trả phí đổ về sẽ thất thoát ngay ở bước đầu.
 
-#### Ai là người duyệt và ai chịu trách nhiệm cho các chỉ số trong bản kế hoạch chạy quảng cáo Facebook?
+#### Ai duyệt kế hoạch và ai chịu trách nhiệm từng chỉ số?
 
 Chủ doanh nghiệp hoặc người quản lý marketing là người duyệt mục tiêu kinh doanh, tổng ngân sách thử nghiệm và ngưỡng chi phí tối đa. Nhân sự quảng cáo chịu trách nhiệm về chi phí thu hút khách hàng đúng chân dung, còn đội bán hàng chịu trách nhiệm về tốc độ phản hồi và tỷ lệ chốt đơn.
 
@@ -186,19 +186,19 @@ Khi điểm nghẽn chi phí nằm ở định vị sản phẩm, cấu trúc đ
 
 ### Câu hỏi thường gặp
 
-**Ngân sách tối thiểu để lập kế hoạch chạy quảng cáo Facebook cho doanh nghiệp nhỏ nên tính từ đâu?**
+**Ngân sách tối thiểu cho quảng cáo Facebook nên tính từ đâu?**
 Ngân sách tối thiểu phải được tính ngược từ chi phí mục tiêu của một sự kiện chuyển đổi nhân với số sự kiện cần thiết để thoát giai đoạn máy học. Nếu nguồn lực hạn hẹp, doanh nghiệp nên gộp gọn nhóm quảng cáo và tách riêng chi phí sản xuất nội dung khỏi tiền mua hiển thị.
 
-**Khi nào nên chọn ngân sách cấp chiến dịch thay vì ngân sách cấp nhóm quảng cáo?**
+**Nên chọn ngân sách cấp chiến dịch hay cấp nhóm quảng cáo?**
 Doanh nghiệp nên chọn ngân sách cấp nhóm quảng cáo khi thử nghiệm và chuyển sang ngân sách cấp chiến dịch khi mở rộng. Ngân sách cấp nhóm giúp khóa số tiền cố định để so sánh từng tệp khách hàng, còn ngân sách cấp chiến dịch tự động dồn tiền vào nhóm có chi phí tốt nhất.
 
-**Bao lâu sau khi bật chiến dịch thì người phụ trách nên chỉnh sửa ngân sách hoặc tắt nhóm quảng cáo?**
+**Có nên sửa ngân sách hay tắt nhóm quảng cáo ngay khi vừa chạy?**
 Không, người phụ trách không nên chỉnh sửa lớn hoặc tắt bật liên tục trong những ngày đầu khi nhóm quảng cáo đang ở giai đoạn máy học. Mọi thay đổi quan trọng lúc này đều làm đặt lại chu kỳ học dữ liệu, trừ trường hợp phải dừng khẩn cấp do lỗi trang đích.
 
-**Khi nào doanh nghiệp vừa và nhỏ không nên chạy quảng cáo Facebook dù đã có sẵn ngân sách?**
+**Khi nào SME chưa nên chạy quảng cáo Facebook dù có ngân sách?**
 Doanh nghiệp không nên giải ngân khi chưa tính được biên lợi nhuận gộp trên mỗi đơn hàng và chưa có quy trình tiếp nhận khách hàng. Nếu đội ngũ phản hồi tin nhắn chậm, lưu lượng truy cập trả phí đổ về sẽ thất thoát ngay ở bước đầu.
 
-**Ai là người duyệt và ai chịu trách nhiệm cho các chỉ số trong bản kế hoạch chạy quảng cáo Facebook?**
+**Ai duyệt kế hoạch và ai chịu trách nhiệm từng chỉ số?**
 Chủ doanh nghiệp hoặc người quản lý marketing là người duyệt mục tiêu kinh doanh, tổng ngân sách thử nghiệm và ngưỡng chi phí tối đa. Nhân sự quảng cáo chịu trách nhiệm về chi phí thu hút khách hàng đúng chân dung, còn đội bán hàng chịu trách nhiệm về tốc độ phản hồi và tỷ lệ chốt đơn.
 
 ### Nguồn tham khảo

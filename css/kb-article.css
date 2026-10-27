@@ -204,13 +204,14 @@
 /* Bảng */
 .kb-table { overflow-x: auto; border-radius: 14px; background: #fff; border: 1px solid var(--a-line); -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
 .kb-table:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
-.kb-table table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 12.5px; line-height: 1.65; }
-.kb-table th { padding: 13px 18px; text-align: left; font-size: 11.5px; font-weight: 700; color: var(--ink); background: var(--a-tint); border-bottom: 1px solid var(--a-line); white-space: nowrap; }
-.kb-table td { padding: 13px 18px; vertical-align: top; text-align: left; text-wrap: pretty; color: var(--a-text); border-top: 1px solid var(--a-line-2); }
+/* Độ rộng cột cố định theo <colgroup> (không có thì chia đều), chữ được xuống dòng
+   để các cột cân nhau; nội dung mỗi ô nằm giữa theo chiều dọc */
+.kb-table table { width: 100%; min-width: 560px; table-layout: fixed; border-collapse: collapse; font-size: 12.5px; line-height: 1.65; }
+.kb-table th { padding: 13px 18px; vertical-align: middle; text-align: left; font-size: 11.5px; font-weight: 700; color: var(--ink); background: var(--a-tint); border-bottom: 1px solid var(--a-line); }
+.kb-table td { padding: 13px 18px; vertical-align: middle; text-align: left; text-wrap: pretty; color: var(--a-text); border-top: 1px solid var(--a-line-2); }
 .kb-table tbody tr:first-child td { border-top: 0; }
 .kb-table tbody tr:hover td { background: #FAFCFF; }
-/* Cột nhãn: luôn nằm gọn một hàng, trình duyệt tự nới cột cho vừa */
-.kb-table td:first-child { font-weight: 700; color: var(--ink); text-align: left; white-space: nowrap; }
+.kb-table td:first-child { font-weight: 700; color: var(--ink); text-align: left; }
 .kb-table caption { caption-side: bottom; padding: 11px 18px; font-size: 11px; text-align: left; color: var(--a-muted); background: #FBFCFF; border-top: 1px solid var(--a-line-2); }
 
 /* Chú thích nguồn */
