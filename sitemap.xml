@@ -30,7 +30,7 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -54,9 +54,42 @@
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/du-an-va-bai-hoc/</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/du-an-va-bai-hoc/chien-luoc-marketing-cua-non-son/</loc>
+    <lastmod>2026-10-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-non-son.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-non-son/01-chien-luoc-marketing-cua-non-son.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-non-son/02-chien-luoc-marketing-cua-non-son.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-non-son/03-chien-luoc-marketing-cua-non-son.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-non-son/04-chien-luoc-marketing-cua-non-son.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-non-son/05-chien-luoc-marketing-cua-non-son.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-non-son/06-chien-luoc-marketing-cua-non-son.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-non-son/07-chien-luoc-marketing-cua-non-son.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/du-an-va-bai-hoc/chien-luoc-marketing-cua-pepsi/</loc>
