@@ -146,7 +146,8 @@
       const proof = extractProof(row);
       const twoLineHTML = formatTwoLineTitle(rawTitle, i);
 
-      const card = document.createElement('article');
+      // div, không phải article: role="button" không hợp lệ trên <article> (cây accessibility hỏng với trình đọc màn hình và AI agent)
+      const card = document.createElement('div');
       card.className = 'vcard' + (i === 0 ? ' is-active' : '');
       card.dataset.vcard = String(i);
       card.tabIndex = 0;

@@ -6,7 +6,8 @@
    ========================================================================== */
 module.exports = {
   origin: 'https://letuanviet.com',
-  siteName: 'Portfolio Lê Tuấn Việt',
+  // Tên site Google hiển thị trên kết quả tìm kiếm: trùng tên thương hiệu cá nhân, giống WebSite.name ở index.html
+  siteName: 'Lê Tuấn Việt',
   locale: 'vi_VN',
   lang: 'vi-VN',
 

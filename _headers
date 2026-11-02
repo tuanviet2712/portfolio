@@ -5,7 +5,7 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()
   Cross-Origin-Opener-Policy: same-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; media-src 'self'; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://www.googletagmanager.com https://*.google-analytics.com; media-src 'self'; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.google.com https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests
   ! Access-Control-Allow-Origin
 
 # Bộ nhớ đệm cho tệp nặng ít đổi (Cloudflare Pages mặc định chỉ 4 giờ, khiến khách quay lại phải tải lại font, khung hình hero, video).
@@ -24,6 +24,14 @@
 /assets/frames/*
   Cache-Control: public, max-age=604800
 /assets/video/*
+  Cache-Control: public, max-age=604800
+# Ảnh tĩnh của trang chủ (chân dung, logo, ảnh đối tác, thẻ năng lực, giá trị, lời chào): ít đổi, 7 ngày như hero.
+# KHÔNG đặt cho /assets/process/*: film.js là chỉ mục byte của film.mp4 cùng tên, hai tệp bị giữ lệch phiên bản thì phim hỏng.
+/assets/img/*
+  Cache-Control: public, max-age=604800
+/assets/hello/*
+  Cache-Control: public, max-age=604800
+/assets/values/*
   Cache-Control: public, max-age=604800
 
 # CV: luôn hỏi lại máy chủ (tên tệp không đổi khi thay CV mới, mặc định 4 giờ khiến khách có thể nhận bản cũ).

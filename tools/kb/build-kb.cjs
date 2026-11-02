@@ -371,7 +371,7 @@ const orgLd = (lang = 'vi') => ({
 });
 const websiteLd = () => ({
   '@type': 'WebSite', '@id': `${ORIGIN}/#website`, url: `${ORIGIN}/`, name: SITE.siteName,
-  alternateName: `Lê Tuấn Việt — ${A.jobTitle}`, inLanguage: SITE.lang, publisher: { '@id': `${ORIGIN}/#person` }
+  alternateName: [A.alternateName, 'Portfolio Lê Tuấn Việt'], inLanguage: SITE.lang, publisher: { '@id': `${ORIGIN}/#person` }
 });
 function breadcrumbLd(url, items) {
   return {
@@ -383,7 +383,7 @@ function breadcrumbLd(url, items) {
 /* ----------------------------------------------------------------------------
    Khung trang
 ---------------------------------------------------------------------------- */
-function page({ rel, pagePath, title, description, draft = false, robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1', ogType = 'website', ogTitle, image, imageAlt, articleMeta = '', preload = '', ld, bodyClass, main, after = '', articles, flexTitle = false, css = "", lang = 'vi', locale, hreflangs = null, navActive = 'kien-thuc' }) {
+function page({ rel, pagePath, title, description, draft = false, robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1', ogType = 'website', ogTitle, image, imageAlt, imageWidth = 1200, imageHeight = 630, articleMeta = '', preload = '', ld, bodyClass, main, after = '', articles, flexTitle = false, css = "", lang = 'vi', locale, hreflangs = null, navActive = 'kien-thuc' }) {
   const isEn = lang === 'en';
   const ogLocale = locale || (isEn ? 'en_US' : SITE.locale);
   const url = abs(pagePath);
@@ -420,8 +420,8 @@ ${altLinks}
   <meta property="og:url" content="${url}">
   <meta property="og:image" content="${image}">
   <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="${imageWidth}">
+  <meta property="og:image:height" content="${imageHeight}">
   <meta property="og:image:alt" content="${esc(imageAlt)}">${articleMeta}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${esc(ogTitle || title)}">
@@ -1221,7 +1221,8 @@ function legalPage(doc, all) {
   const enPath = isEn ? doc.path : doc.altPath;
   const privacyPath = isEn ? 'en/privacy-policy/' : 'chinh-sach-bao-mat/';
   const termsPath = isEn ? 'en/terms-of-use/' : 'dieu-khoan-su-dung/';
-  const img = abs('assets/img/og-image.jpg');
+  // Cùng ảnh chia sẻ với trang chủ (1672×941); assets/img/og-image.jpg chưa từng tồn tại nên trước đây ảnh xem trước bị 404
+  const img = abs('assets/frames/frame-08.jpg');
 
   const crumbItems = [
     { name: isEn ? 'Home' : 'Trang chủ', href: isEn ? `${rel}?lang=en` : rel, url: isEn ? `${ORIGIN}/?lang=en` : `${ORIGIN}/` },
@@ -1341,7 +1342,7 @@ ${body}
     title: doc.seoTitle || doc.title,
     ogTitle: doc.title,
     description: doc.description,
-    image: img, imageAlt: doc.title,
+    image: img, imageAlt: doc.title, imageWidth: 1672, imageHeight: 941,
     ld, bodyClass: 'kb--article kb--legal', main, after, css: 'kb-article',
     lang: doc.lang, locale: doc.locale,
     hreflangs: {
