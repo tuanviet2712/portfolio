@@ -87,17 +87,19 @@ if (Test-Path -LiteralPath $cvFile) {
   Write-Host "    CV: ma phien ban $cvVer" -ForegroundColor Green
 }
 
-$verRx = [regex]'(?<=\b(?:href|src)=")(?!https?:|//|data:)[^"?#]+\.(?:css|js|pdf)(?=")'
+# Ma ?v= viet tay trong nguon (vd. ?v=972 de chong cache luc xem localhost) cung bi thay bang ma bam noi dung,
+# neu khong tep do se giu mot dia chi co dinh va lai gap loi HTML moi + css/js cu nhu tren.
+$verRx = [regex]'(?<=\b(?:href|src)=")(?!https?:|//|data:)([^"?#]+\.(?:css|js|pdf))(?:\?v=[0-9A-Za-z]+)?(?=")'
 foreach ($page in Get-ChildItem -LiteralPath $dist -Recurse -File -Filter *.html) {
   $html = [IO.File]::ReadAllText($page.FullName, $utf8)
   $pageDir = $page.DirectoryName
   $stamped = $verRx.Replace($html, [System.Text.RegularExpressions.MatchEvaluator]{
     param($m)
-    $url = $m.Value
-    if ($url -match '(^|/)assets/' -and $url -notmatch '(^|/)assets/cv/[^/]+\.pdf$') { return $url }
+    $url = $m.Groups[1].Value
+    if ($url -match '(^|/)assets/' -and $url -notmatch '(^|/)assets/cv/[^/]+\.pdf$') { return $m.Value }
     $base = if ($url.StartsWith('/')) { $dist } else { $pageDir }
     $file = [IO.Path]::GetFullPath((Join-Path $base $url.TrimStart('/')))
-    if (-not [IO.File]::Exists($file)) { return $url }
+    if (-not [IO.File]::Exists($file)) { return $m.Value }
     if (-not $verCache.ContainsKey($file)) {
       $bytes = $sha1.ComputeHash([IO.File]::ReadAllBytes($file))
       $verCache[$file] = -join ($bytes[0..3] | ForEach-Object { $_.ToString('x2') })
