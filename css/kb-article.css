@@ -106,9 +106,9 @@
    dòng cuối chỉ có một hai chữ; phần còn lại là việc của câu chữ, xem quy tắc
    viết bài trong bộ nhớ dự án (không để dòng cuối 1–2 chữ, không để khe chữ giãn rộng). */
 .kb-prose p, .kb-prose li { text-align: justify; text-align-last: left; text-wrap: pretty; }
-.kb-prose h2 { margin-top: 2.3em; font-size: clamp(1.3rem, 1.7vw, 1.45rem); font-weight: 800; letter-spacing: -.025em; line-height: 1.35; color: var(--ink); scroll-margin-top: 96px; text-wrap: wrap; }
+.kb-prose h2 { margin-top: 2.3em; font-size: clamp(1.3rem, 1.7vw, 1.45rem); font-weight: 800; letter-spacing: -.025em; line-height: 1.35; color: var(--ink); scroll-margin-top: 96px; text-wrap: balance; }
 .kb-prose > h2:first-child { margin-top: 0; }
-.kb-prose h3 { margin-top: 2em; font-size: 1.05rem; font-weight: 750; letter-spacing: -.015em; line-height: 1.45; color: var(--ink); scroll-margin-top: 96px; text-wrap: wrap; }
+.kb-prose h3 { margin-top: 2em; font-size: 1.05rem; font-weight: 750; letter-spacing: -.015em; line-height: 1.45; color: var(--ink); scroll-margin-top: 96px; text-wrap: balance; }
 .kb-prose h2 + *, .kb-prose h3 + * { margin-top: .8em; }
 .kb-prose strong { font-weight: 700; color: var(--ink); }
 /* .kb-art__sapo .kb-fn a (số chú thích) nằm sau và đặc hiệu hơn nên vẫn giữ kiểu riêng của nó */
@@ -155,12 +155,12 @@
 
 /* Đầu ra của một bước */
 .kb-prose .kb-out { position: relative; padding: 13px 18px 13px 46px; border-radius: 12px; background: #F4F8FF; border: 1px solid #DDE7F9; font-size: 14px; line-height: 1.7; }
-.kb-out::before { content: ""; position: absolute; left: 15px; top: 15px; width: 20px; height: 20px; border-radius: 50%; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M6 12.5l4 4 8-9'/></svg>") center / 11px no-repeat, var(--blue); }
+.kb-out::before { content: ""; position: absolute; left: 15px; top: 15px; width: 20px; height: 20px; border-radius: 50%; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFFFFF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><path d='M20 6 9 17l-5-5'/></svg>") center / 11px no-repeat, var(--blue); }
 .kb-prose .kb-out strong { color: var(--blue); }
 
 /* Kinh nghiệm thực tế */
 .kb-prose .kb-callout { position: relative; padding: 20px 22px 20px 68px; border-radius: var(--a-r); background: #fff; border: 1px solid var(--a-line); }
-.kb-callout::before { content: ""; position: absolute; left: 20px; top: 20px; width: 34px; height: 34px; border-radius: 10px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231B5CF2' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M5 21V4M5 4h11l-2 4 2 4H5'/></svg>") center / 17px no-repeat, var(--a-tint-2); }
+.kb-callout::before { content: ""; position: absolute; left: 20px; top: 20px; width: 34px; height: 34px; border-radius: 10px; background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231B5CF2' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><path d='M4 15s1-1 4-1 5 2 8 2 4-1 4-1V4s-1 1-4 1-5-2-8-2-4 1-4 1m0 18V2'/></svg>") center / 17px no-repeat, var(--a-tint-2); }
 .kb-callout > * + * { margin-top: .5em; }
 .kb-prose .kb-callout__t { font-size: 14.5px; font-weight: 800; color: var(--ink); text-align: left; }
 .kb-callout p { font-size: 14.5px; line-height: 1.85; }
@@ -204,16 +204,13 @@
 /* Bảng */
 .kb-table { overflow-x: auto; border-radius: 14px; background: #fff; border: 1px solid var(--a-line); -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
 .kb-table:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
-/* Độ rộng cột cố định theo <colgroup> (không có thì chia đều), chữ được xuống dòng
-   để các cột cân nhau; nội dung mỗi ô nằm giữa theo chiều dọc */
-.kb-table table { width: 100%; min-width: 560px; table-layout: fixed; border-collapse: collapse; font-size: 12.5px; line-height: 1.65; }
-.kb-table col:first-child { width: 24%; }
-.kb-table col:nth-child(2), .kb-table col:nth-child(3) { width: 38%; }
-.kb-table th { padding: 13px 18px; vertical-align: middle; text-align: left; font-size: 11.5px; font-weight: 700; color: var(--ink); background: var(--a-tint); border-bottom: 1px solid var(--a-line); }
-.kb-table td { padding: 13px 18px; vertical-align: middle; text-align: left; text-wrap: pretty; color: var(--a-text); border-top: 1px solid var(--a-line-2); }
+.kb-table table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 12.5px; line-height: 1.65; }
+.kb-table th { padding: 13px 18px; text-align: left; font-size: 11.5px; font-weight: 700; color: var(--ink); background: var(--a-tint); border-bottom: 1px solid var(--a-line); white-space: nowrap; }
+.kb-table td { padding: 13px 18px; vertical-align: top; text-align: left; text-wrap: pretty; color: var(--a-text); border-top: 1px solid var(--a-line-2); }
 .kb-table tbody tr:first-child td { border-top: 0; }
 .kb-table tbody tr:hover td { background: #FAFCFF; }
-.kb-table td:first-child { font-weight: 700; color: var(--ink); text-align: left; }
+/* Cột nhãn: luôn nằm gọn một hàng, trình duyệt tự nới cột cho vừa */
+.kb-table td:first-child { font-weight: 700; color: var(--ink); text-align: left; white-space: nowrap; }
 .kb-table caption { caption-side: bottom; padding: 11px 18px; font-size: 11px; text-align: left; color: var(--a-muted); background: #FBFCFF; border-top: 1px solid var(--a-line-2); }
 
 /* Chú thích nguồn */
@@ -225,7 +222,7 @@
 .kb-faq__item { border-bottom: 1px solid var(--a-line); interpolate-size: allow-keywords; }
 .kb-faq__item summary { list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) 28px; gap: 16px; align-items: center; padding: 18px 0; cursor: pointer; }
 .kb-faq__item summary::-webkit-details-marker { display: none; }
-.kb-prose .kb-faq__q { margin: 0; padding: 0; border: 0; font-size: 15px; font-weight: 700; letter-spacing: -.005em; line-height: 1.55; color: var(--ink); text-wrap: wrap; transition: color .25s; }
+.kb-prose .kb-faq__q { margin: 0; padding: 0; border: 0; font-size: 15px; font-weight: 700; letter-spacing: -.005em; line-height: 1.55; color: var(--ink); transition: color .25s; }
 .kb-faq__item summary:hover .kb-faq__q { color: var(--blue); }
 .kb-faq__a { padding: 0 44px 20px 0; }
 .kb-faq__a p { font-size: 14.5px; line-height: 1.85; }
@@ -316,8 +313,9 @@
 .kb-side__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
 .kb-side__post:hover .kb-side__img img { transform: scale(1.05); }
 .kb-side__txt { display: grid; gap: 4px; min-width: 0; }
-/* Tiêu đề: căn trái, trình duyệt tự xuống dòng, tối đa 2 dòng, dài hơn thì cắt bằng "…" */
-.kb-side__txt b { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; font-size: 12.5px; font-weight: 700; line-height: 1.55; letter-spacing: -.01em; color: var(--ink); transition: color .25s; }
+/* Tiêu đề: 2 dòng ngắt theo ý (build-kb.cjs sideTitleLines), mỗi dòng một span không xuống hàng */
+.kb-side__txt b { font-size: 12.5px; font-weight: 700; line-height: 1.55; letter-spacing: -.01em; color: var(--ink); transition: color .25s; }
+.kb-side__txt b > span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .kb-side__post:hover b { color: var(--blue); }
 .kb-side__txt small { font-size: 12.5px; color: var(--a-muted); }
 .kb-side__post[aria-current] small { font-weight: 600; color: var(--blue); }
@@ -330,8 +328,8 @@
 .nav.is-hidden ~ main .kb-side__cta { top: var(--side-top-h, 28px); }
 .kb-side__cta .bio__photo { aspect-ratio: 3 / 2; background: #1B3C8C; }
 .kb-side__cta .bio__photo img { object-position: 50% 0; }
-.kb-side__cta .bio__photo::after { background: linear-gradient(transparent, #fff); }
-.kb-side__cta .bio__body { transform: none; padding: 0 16px 16px; }
+.kb-side__cta .bio__photo::after { inset: 28% 0 0; background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, .82) 52%, #fff 100%); }
+.kb-side__cta .bio__body { margin-top: -82px; transform: none; padding: 0 16px 16px; }
 .kb-side__cta .bio__link { padding: 10px 12px; font-size: 13px; text-align: left; }
 .kb-side__cta .bio__link span { gap: 8px; }
 .kb-side__cta .bio__link svg { width: 17px; height: 17px; }
@@ -480,7 +478,7 @@ html[lang="en"] .kb-authorbox__bio {
   .kb-legal__tab svg { width: 15px; height: 15px; }
   .kb-legal__card { padding: 16px 16px; gap: 8px; }
   .kb-legal__row { grid-template-columns: minmax(0, 1fr); gap: 2px; font-size: 13.5px; }
-  .kb-art__h1[data-fit] { font-size: calc(1.5rem - 1.33px); line-height: 1.32; white-space: normal; text-wrap: wrap; }
+  .kb-art__h1[data-fit] { font-size: calc(1.5rem - 1.33px); line-height: 1.32; white-space: normal; text-wrap: balance; }
   .kb-art__h1 .grad { display: inline; }   /* không để cụm chữ gradient thành khối nguyên: nó bị đẩy cả cụm xuống dòng dưới, dòng đầu hụt */
   .kb-art__sapo { margin-top: 14px; font-size: 15px; }
   .kb-art__by { flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 22px; padding-top: 18px; }
@@ -547,7 +545,7 @@ html[lang="en"] .kb-authorbox__bio {
   .kb-bar__toc { padding: 0 14px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: no-override) {
   .kb-sheet[open] { animation: none; }
   .kb-steps li:hover, .kb-btn:hover { transform: none; }
   .kb-side__post:hover .kb-side__img img { transform: none; }

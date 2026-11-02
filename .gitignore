@@ -29,3 +29,6 @@ Desktop.ini
 
 # --- Thu muc dung tam khi trien khai (tools/deploy.ps1 tao lai moi lan) ---
 dist/
+
+# --- Bo nho dem Python (tools/*.py) ---
+__pycache__/

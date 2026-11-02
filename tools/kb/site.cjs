@@ -34,7 +34,7 @@ module.exports = {
     image: 'assets/img/portrait.jpg',            // cùng ảnh với schema Person ở trang chủ (nhất quán thực thể)
     photo: 'assets/kb/le-tuan-viet-photo.webp',  // ảnh chân dung hiển thị trên Góc kiến thức (portfolio dùng ảnh riêng)
     avatar: 'assets/kb/le-tuan-viet',            // .webp 320×320 (tools/kb/render-assets.cjs)
-    email: 'tuanviet.2712@gmail.com',
+    email: 'work@letuanviet.com',
     phone: '0935 702 321',
     phoneRaw: '0935702321',
     zalo: 'https://zalo.me/0935702321',
@@ -50,6 +50,20 @@ module.exports = {
     description: 'Marketing Leader với hơn 4 năm kinh nghiệm tư vấn chiến lược và triển khai Marketing cho doanh nghiệp SME.',
     knowsAbout: ['Marketing Strategy', 'Marketing Planning', 'Kế hoạch Marketing', 'AI Marketing', 'Quản trị Marketing', 'Growth Marketing', 'Performance Marketing', 'Digital Marketing', 'SEO', 'Content Marketing', 'Marketing Team Leadership'],
     sameAs: ['https://zalo.me/0935702321', 'https://github.com/tuanviet2712'],
+    // JSON-LD bằng tiếng Anh cho các trang /en/ (cùng câu chữ với bản EN của trang chủ trong js/i18n.js)
+    en: {
+      description: 'Marketing Leader with more than four years of experience advising SMEs on strategy and marketing execution.',
+      locality: 'Ha Dong',
+      region: 'Hanoi',
+      worksFor: { legalName: 'TAKI Group Joint Stock Company', description: 'A business consulting and advisory firm in Vietnam' },
+      alumniOf: { name: 'Ho Chi Minh City University of Industry and Trade' },
+      knowsAbout: ['Marketing Strategy', 'Marketing Planning', 'Marketing Plans', 'AI Marketing', 'Marketing Management', 'Growth Marketing', 'Performance Marketing', 'Digital Marketing', 'SEO', 'Content Marketing', 'Marketing Team Leadership'],
+      awards: [
+        'Outstanding Employee of the Year 2025 (voted by the leadership of TAKI Group)',
+        'Outstanding Employee of the Year 2024 (voted by more than 400 of PITO’s partners)',
+        'Encouragement Prize, 2022 faculty-level Innovation and Startup Contest (Ho Chi Minh City University of Industry and Trade)'
+      ]
+    },
 
     // Hộp tác giả cuối bài (ngôi thứ ba để máy tìm kiếm nhận diện thực thể rõ hơn)
     bio: 'Lê Tuấn Việt có hơn 4 năm kinh nghiệm trong Marketing, từng tư vấn chiến lược cho hơn 200 doanh nghiệp SME. Anh bắt đầu từ bài toán kinh doanh, chuyển mục tiêu thành kế hoạch, quy trình triển khai và hệ thống KPI rõ ràng. Từ đó, các hoạt động Marketing được phối hợp, đo lường và tối ưu để tạo ra tăng trưởng bền vững.',
@@ -107,7 +121,7 @@ module.exports = {
     {
       slug: 'marketing',
       name: 'Marketing',
-      icon: 'i-target',
+      icon: 'i-kb-mkt',
       short: 'Nghiên cứu thị trường, lập kế hoạch và triển khai đa kênh cho SME',
       h1Html: 'Kiến thức <span class="grad">Marketing</span>',
       title: 'Kiến thức Marketing cho doanh nghiệp SME | Lê Tuấn Việt',
@@ -124,7 +138,7 @@ module.exports = {
     {
       slug: 'ai-marketing',
       name: 'AI Marketing',
-      icon: 'i-spark',
+      icon: 'i-kb-ai',
       short: 'Dùng AI nghiên cứu, làm nội dung và tối ưu hóa hiệu suất chiến dịch',
       h1Html: 'Kiến thức <span class="grad">AI Marketing</span>',
       title: 'AI Marketing: ứng dụng AI vào Marketing | Lê Tuấn Việt',
@@ -141,7 +155,7 @@ module.exports = {
     {
       slug: 'quan-tri-marketing',
       name: 'Quản trị Marketing',
-      icon: 'i-kanban',
+      icon: 'i-kb-mgmt',
       short: 'Xây dựng đội ngũ, đặt mục tiêu KPI, quản lý ngân sách và vận hành',
       h1Html: 'Kiến thức <span class="grad">Quản trị Marketing</span>',
       title: 'Quản trị Marketing: đội ngũ, KPI, ngân sách | Lê Tuấn Việt',
@@ -158,7 +172,7 @@ module.exports = {
     {
       slug: 'du-an-va-bai-hoc',
       name: 'Case Marketing',
-      icon: 'i-flag',
+      icon: 'i-kb-case',
       short: 'Phân tích bối cảnh, cách triển khai, đo lường và bài học thực tế',
       h1Html: 'Case <span class="grad">Marketing</span>',
       title: 'Case Marketing cho SME: phân tích và bài học | Lê Tuấn Việt',

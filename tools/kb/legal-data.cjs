@@ -85,7 +85,7 @@ const LEGAL_PAGES = [
         id: 'quyen-va-lua-chon-cua-ban',
         title: '7. Quyền và lựa chọn của bạn',
         html: `<p>Trong phạm vi pháp luật áp dụng, bạn có thể yêu cầu được biết về việc xử lý dữ liệu; truy cập, chỉnh sửa hoặc xóa dữ liệu cá nhân; rút lại sự đồng ý; yêu cầu hạn chế hoặc phản đối việc xử lý; và thực hiện quyền khiếu nại hoặc các quyền khác được pháp luật quy định.</p>
-<p>Bạn có thể gửi yêu cầu đến <strong><a href="mailto:tuanviet.2712@gmail.com">tuanviet.2712@gmail.com</a></strong> với tiêu đề “Yêu cầu về dữ liệu cá nhân”. Vui lòng mô tả yêu cầu và kênh bạn đã sử dụng để liên hệ. Tôi có thể cần xác minh danh tính ở mức hợp lý để tránh cung cấp hoặc xóa thông tin cho người không có quyền.</p>
+<p>Bạn có thể gửi yêu cầu đến <strong><a href="mailto:work@letuanviet.com">work@letuanviet.com</a></strong> với tiêu đề “Yêu cầu về dữ liệu cá nhân”. Vui lòng mô tả yêu cầu và kênh bạn đã sử dụng để liên hệ. Tôi có thể cần xác minh danh tính ở mức hợp lý để tránh cung cấp hoặc xóa thông tin cho người không có quyền.</p>
 <p>Yêu cầu sẽ được xử lý trong thời hạn pháp luật áp dụng. Nếu phải lưu một phần dữ liệu vì nghĩa vụ pháp lý hoặc có giới hạn hợp lệ đối với yêu cầu, tôi sẽ giải thích lý do trong phạm vi được phép. Việc rút lại sự đồng ý không ảnh hưởng đến tính hợp pháp của hoạt động xử lý trước thời điểm bạn rút lại sự đồng ý đó.</p>`
       },
       {
@@ -105,7 +105,7 @@ const LEGAL_PAGES = [
 <div class="kb-legal__card">
   <div class="kb-legal__row"><span>Người quản lý website</span><b>Lê Tuấn Việt</b></div>
   <div class="kb-legal__row"><span>Website</span><a href="https://letuanviet.com">https://letuanviet.com</a></div>
-  <div class="kb-legal__row"><span>Email về quyền riêng tư</span><a href="mailto:tuanviet.2712@gmail.com">tuanviet.2712@gmail.com</a></div>
+  <div class="kb-legal__row"><span>Email về quyền riêng tư</span><a href="mailto:work@letuanviet.com">work@letuanviet.com</a></div>
 </div>`
       }
     ]
@@ -184,7 +184,7 @@ const LEGAL_PAGES = [
         id: 'your-rights-and-choices',
         title: '7. Your rights and choices',
         html: `<p>Subject to applicable law, you may request information about processing; access, correction or deletion of your personal data; withdrawal of consent; restriction of or objection to processing; and exercise complaint rights or other rights provided by law.</p>
-<p>Send requests to <strong><a href="mailto:tuanviet.2712@gmail.com">tuanviet.2712@gmail.com</a></strong> with the subject “Personal data request”. Please describe your request and the channel you used to contact me. Reasonable identity verification may be needed to avoid disclosing or deleting information for an unauthorised person.</p>
+<p>Send requests to <strong><a href="mailto:work@letuanviet.com">work@letuanviet.com</a></strong> with the subject “Personal data request”. Please describe your request and the channel you used to contact me. Reasonable identity verification may be needed to avoid disclosing or deleting information for an unauthorised person.</p>
 <p>Requests will be handled within the applicable legal time limits. If certain data must be retained to meet a legal obligation or a valid restriction applies to your request, I will explain the reason to the extent permitted by law. Withdrawing your consent does not affect the lawfulness of processing carried out before the withdrawal took effect.</p>`
       },
       {
@@ -204,7 +204,7 @@ const LEGAL_PAGES = [
 <div class="kb-legal__card">
   <div class="kb-legal__row"><span>Website operator</span><b>Lê Tuấn Việt</b></div>
   <div class="kb-legal__row"><span>Website</span><a href="https://letuanviet.com">https://letuanviet.com</a></div>
-  <div class="kb-legal__row"><span>Privacy contact</span><a href="mailto:tuanviet.2712@gmail.com">tuanviet.2712@gmail.com</a></div>
+  <div class="kb-legal__row"><span>Privacy contact</span><a href="mailto:work@letuanviet.com">work@letuanviet.com</a></div>
 </div>`
       }
     ]
@@ -313,7 +313,7 @@ const LEGAL_PAGES = [
         html: `<div class="kb-legal__card">
   <div class="kb-legal__row"><span>Người quản lý website</span><b>Lê Tuấn Việt</b></div>
   <div class="kb-legal__row"><span>Website</span><a href="https://letuanviet.com">https://letuanviet.com</a></div>
-  <div class="kb-legal__row"><span>Email</span><a href="mailto:tuanviet.2712@gmail.com">tuanviet.2712@gmail.com</a></div>
+  <div class="kb-legal__row"><span>Email</span><a href="mailto:work@letuanviet.com">work@letuanviet.com</a></div>
 </div>`
       }
     ]
@@ -422,7 +422,7 @@ const LEGAL_PAGES = [
         html: `<div class="kb-legal__card">
   <div class="kb-legal__row"><span>Website operator</span><b>Lê Tuấn Việt</b></div>
   <div class="kb-legal__row"><span>Website</span><a href="https://letuanviet.com">https://letuanviet.com</a></div>
-  <div class="kb-legal__row"><span>Email</span><a href="mailto:tuanviet.2712@gmail.com">tuanviet.2712@gmail.com</a></div>
+  <div class="kb-legal__row"><span>Email</span><a href="mailto:work@letuanviet.com">work@letuanviet.com</a></div>
 </div>`
       }
     ]

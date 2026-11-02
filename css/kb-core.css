@@ -211,7 +211,7 @@ html[data-lang="en"] .kbh__note { display: block; }
   .cta__main .btn-row .btn { width: 100%; justify-content: center; }
   .footer__cv .btn { justify-self: stretch !important; justify-content: center; margin-top: 14px !important; }
 }
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: no-override) {
   .kbdd, .kbdd.is-open { transition: none; transform: none; }
 }
 
@@ -220,11 +220,12 @@ html[data-lang="en"] .kbh__note { display: block; }
    Trang trước: màn tối kéo LÊN che màn hình (.pt.is-leave trong style.css).
    Trang này:   màn tối phủ sẵn rồi HẠ XUỐNG để lộ nội dung.
    ========================================================================== */
-html.is-pt-in .pt { clip-path: inset(0 0 0 0); pointer-events: auto; }
-html.is-pt-in .pt__mark { opacity: 1; transform: none; }
-html.is-pt-in.is-pt-out .pt { clip-path: inset(100% 0 0 0); pointer-events: none; transition: clip-path .85s var(--ease-io) .06s; }
-html.is-pt-in.is-pt-out .pt__mark { opacity: 0; transform: translateY(26px); transition: opacity .4s, transform .7s var(--ease); }
-@media (prefers-reduced-motion: reduce) {
+html.is-pt-in #preloader { display: none !important; }
+html.is-pt-in .pt { z-index: 600; clip-path: inset(0 0 0 0); pointer-events: auto; transition: none; }
+html.is-pt-in .pt__mark { opacity: 1; transform: none; transition: none; }
+html.is-pt-in.is-pt-out .pt { z-index: 600; clip-path: inset(100% 0 0 0); pointer-events: none; transition: clip-path .82s var(--ease-io) .04s; }
+html.is-pt-in.is-pt-out .pt__mark { opacity: 0; transform: translateY(26px); transition: opacity .42s, transform .72s var(--ease); }
+@media (prefers-reduced-motion: no-override) {
   html.is-pt-in .pt, html.is-pt-in.is-pt-out .pt { clip-path: inset(100% 0 0 0); transition: none; }
 }
 

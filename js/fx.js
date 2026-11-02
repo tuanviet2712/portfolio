@@ -1,6 +1,7 @@
 /* ==========================================================================
    FX — tính năng động dùng chung
-   - Tiêu đề 1 dòng (fit-text)      - Chữ trồi lên theo từ (data-split)
+   - Tiêu đề luôn 1 dòng (fit-text) + Cân bằng khoảng cách chữ đoạn căn đều 2 bên (fitJustify)
+   - Chữ trồi lên theo từ (data-split)
    - Ánh sáng theo chuột trên thẻ (.spot)
    - Gợn sóng khi bấm nút             - Nút về đầu trang có vòng tiến trình
    - Chuyển trang có màn trượt        - Đồng hồ Hà Nội trực tiếp (data-clock)
@@ -12,19 +13,325 @@
   const L = window.LTV;
   const { $, $$, clamp } = L;
 
+  const TITLE_SEL = [
+    '[data-fit]',
+    '.sec-title',
+    '.about__title',
+    '.strength h4',
+    '.tl__role',
+    '.vrow__title',
+    '.skx-panel__title',
+    '.skill__title',
+    '.pstep__title',
+    '.pwall__title',
+    '.kb-topic__title',
+    '.cta__title'
+  ].join(', ');
+
+  const JUSTIFY_SEL = [
+    '.sec-head__foot .desc',
+    '.about__block .desc',
+    '.strength .desc',
+    '.tl .desc',
+    '.vcard__desc',
+    '.vcard__proof-txt',
+    '.vrow__content .desc',
+    '.vrow__proof p',
+    '.skx-panel__desc',
+    '.skill .desc',
+    '.pstep .desc',
+    '.pwall__desc',
+    '.quote__text',
+    '.kb-topic__desc',
+    '.cta__main .desc',
+    '.footer__brand .desc',
+    '.ch__text',
+    '.hero-pos:not(.hero-pos--m)'   // bản điện thoại .hero-pos--m do js/m-justify.js ngắt dòng
+  ].join(', ');
+  // Đoạn chữ trong hero: giữ đúng cỡ chung (--hero-body) cho đồng bộ, chỉ chọn bề rộng (fitHeroText)
+  const HERO_TEXT_SEL = '.hero-pos, #heroLayers .ch__text';
+
   /* ---------------- Tiêu đề luôn 1 dòng ---------------- */
   function fitOne(el) {
-    if (!el.isConnected) return;
+    if (!el || !el.isConnected) return;
+    // Bỏ qua các thẻ đang nằm trong trạng thái thu gọn dọc của Bento (desktop)
+    const vcard = el.closest && el.closest('.vcard');
+    if (vcard && !vcard.classList.contains('is-active') && window.innerWidth > 1024) return;
+
     el.style.fontSize = '';
     const w = el.clientWidth;
-    if (!w) return;                       // đang ẩn: sẽ fit lại khi hiện
+    if (!w || w < 20) return;             // đang ẩn: sẽ fit lại khi hiện
     const need = el.scrollWidth;
     if (need <= w + 1) return;
-    const cur = parseFloat(getComputedStyle(el).fontSize);
-    const min = parseFloat(el.dataset.fitMin || 13);
-    el.style.fontSize = Math.max(min, Math.floor(cur * (w / need) * 0.98 * 10) / 10) + 'px';
+    const cur = parseFloat(getComputedStyle(el).fontSize) || 16;
+    const min = parseFloat(el.dataset.fitMin || 9.5);
+    let sz = Math.max(min, Math.floor(cur * (w / need) * 0.975 * 10) / 10);
+    el.style.fontSize = sz + 'px';
+    let guard = 0;
+    while (el.scrollWidth > w + 1 && sz > min && guard++ < 24) {
+      sz = Math.max(min, +(sz - 0.35).toFixed(2));
+      el.style.fontSize = sz + 'px';
+    }
   }
-  L.fit = (root = document) => $$('[data-fit]', root).forEach(fitOne);
+
+  /* ---------------- Cân bằng chữ đoạn văn căn đều 2 bên (tránh dãn cách từ quá xa) ---------------- */
+  let measureCtx = null;
+  function getMeasureCtx() {
+    if (!measureCtx) {
+      const c = document.createElement('canvas');
+      measureCtx = c.getContext('2d');
+    }
+    return measureCtx;
+  }
+
+  /* Vị trí từng từ (bỏ qua transform của hiệu ứng chữ trồi lên: span .u dùng offset, không dùng rect) */
+  function heroWords(el) {
+    const units = el.querySelectorAll('.u');
+    if (units.length) return Array.from(units, u => ({ l: u.offsetLeft, r: u.offsetLeft + u.offsetWidth, t: u.offsetTop, s: u.textContent }));
+    const out = [], walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    let n;
+    while ((n = walker.nextNode())) {
+      const re = /\S+/g;
+      let m;
+      while ((m = re.exec(n.nodeValue))) {
+        const rg = document.createRange();
+        rg.setStart(n, m.index); rg.setEnd(n, m.index + m[0].length);
+        const rs = rg.getClientRects();
+        if (rs.length) out.push({ l: rs[0].left, r: rs[rs.length - 1].right, t: Math.round(rs[0].top), s: m[0] });
+      }
+    }
+    return out;
+  }
+  // từ ngắn tiếng Anh không nên đứng cuối dòng (thay cho việc en-justify.js dính chúng với từ sau)
+  const SHORT_END = /^(a|an|the|to|of|in|on|at|by|for|and|or|as|is|my|I)$/i;
+  // Khoảng cách từ trung bình mỗi dòng so với dấu cách thường (dòng cuối căn trái, không tính)
+  function heroGaps(el, space) {
+    const ws = heroWords(el);
+    if (ws.length < 4) return null;
+    const lines = [];
+    ws.forEach(w => { const ln = lines[lines.length - 1]; if (ln && Math.abs(ln.t - w.t) < 4) ln.w.push(w); else lines.push({ t: w.t, w: [w] }); });
+    let max = 0, sum = 0, shortEnds = 0;
+    for (let i = 0; i < lines.length - 1; i++) {
+      const L = lines[i].w;
+      if (SHORT_END.test(L[L.length - 1].s.replace(/[­,.;:]/g, ''))) shortEnds++;
+      if (L.length < 2) { max = Math.max(max, 4); sum += 4; continue; }
+      const ink = L.reduce((a, w) => a + w.r - w.l, 0);
+      const r = (L[L.length - 1].r - L[0].l - ink) / (L.length - 1) / space;
+      max = Math.max(max, r); sum += r;
+    }
+    const last = lines[lines.length - 1].w;
+    return { lines: lines.length, max, avg: sum / Math.max(1, lines.length - 1), shortEnds, lastWords: last.length, fill: (last[last.length - 1].r - last[0].l) / el.clientWidth };
+  }
+  /* Đoạn chữ trong hero: cỡ chữ cố định (--hero-body). Thử thu hẹp bề rộng từng 1% (tối đa 10%) và giãn/khít
+     khoảng cách ký tự rất nhẹ (−0.012…+0.006em), giữ cách ngắt dòng có khoảng cách từ đều và nhỏ nhất,
+     không để dòng cuối chỉ còn 1 từ, không để từ ngắn tiếng Anh đứng cuối dòng */
+  const HERO_LS = [0, -0.006, 0.006, -0.012];
+  function fitHeroText(el) {
+    el.style.maxWidth = '';
+    el.style.fontSize = '';
+    el.style.letterSpacing = '';
+    el.style.wordSpacing = '';
+    const full = el.clientWidth;
+    if (full < 160) return;
+    // bản EN: bỏ dấu cách không ngắt mà en-justify.js chèn giữa từ ngắn và từ sau (trong cột hẹp chúng làm dòng giãn rất xa);
+    // việc tránh từ ngắn cuối dòng do SHORT_END lo
+    if (document.documentElement.lang === 'en') {
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      let n;
+      while ((n = walker.nextNode())) if (n.nodeValue.indexOf(' ') !== -1) n.nodeValue = n.nodeValue.replace(/ /g, ' ');
+    }
+    const cs = getComputedStyle(el), ctx = getMeasureCtx();
+    if (!ctx) return;
+    ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+    const space = Math.max(1, ctx.measureText(' ').width + (parseFloat(cs.wordSpacing) || 0));
+    const base = heroGaps(el, space);
+    if (!base || base.lines < 2) return;
+    const score = s => s.max * 3 + s.avg * 2 + Math.max(0, s.lines - base.lines) * 1.2 + s.shortEnds * 1.5 + (s.lastWords < 2 ? 4 : 0) + (s.fill < 0.2 ? 2 : 0);
+    let best = { w: 0, ls: 0, s: score(base) };
+    for (const ls of HERO_LS) {
+      el.style.letterSpacing = ls ? ls + 'em' : '';
+      for (let k = 0; k <= 10; k++) {
+        if (!k && !ls) continue;
+        const w = Math.floor(full * (1 - k * 0.01));
+        el.style.maxWidth = k ? w + 'px' : '';
+        const s = heroGaps(el, space);
+        if (!s) continue;
+        const sc = score(s);
+        if (sc < best.s - 0.05) best = { w: k ? w : 0, ls, s: sc };
+      }
+    }
+    el.style.maxWidth = best.w ? best.w + 'px' : '';
+    el.style.letterSpacing = best.ls ? best.ls + 'em' : '';
+  }
+
+  /* Đoạn cỡ chữ cố định (css/d-type.css): chữ đã được viết để căn đều ở 1280–1440px. Ở bề rộng khác, nếu có dòng
+     giãn xa (khoảng trắng từ 0.42em) thì khít/giãn khoảng cách ký tự rất nhẹ (tối đa ±0.015em), giữ nguyên cỡ chữ */
+  const DT_LS = [-0.005, 0.005, -0.01, 0.01, -0.015, 0.015];
+  function tightenFixed(el, cs) {
+    const ctx = getMeasureCtx();
+    if (!ctx || el.clientWidth < 110) return;
+    const fs = parseFloat(cs.fontSize) || 14;
+    ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+    const space = Math.max(1, ctx.measureText(' ').width + (parseFloat(cs.wordSpacing) || 0));
+    const em = s => s.max * space / fs;
+    const base = heroGaps(el, space);
+    if (!base || base.lines < 2 || em(base) < 0.42) return;
+    const score = s => em(s) * 10 + Math.abs(s.lines - base.lines) * 3 + (s.lastWords < 2 ? 2 : 0);
+    let best = { ls: 0, sc: score(base) };
+    for (const ls of DT_LS) {
+      el.style.letterSpacing = ls + 'em';
+      const s = heroGaps(el, space);
+      if (s && score(s) < best.sc - 0.05) best = { ls, sc: score(s) };
+    }
+    el.style.letterSpacing = best.ls ? best.ls + 'em' : '';
+  }
+
+  function fitJustifiedEl(el) {
+    if (!el || !el.isConnected) return;
+    if (el.matches(HERO_TEXT_SEL)) { fitHeroText(el); return; }
+    // Không can thiệp vào chữ trong hero chương khi đã tách thành các span .u đang chạy hiệu ứng
+    if (el.classList.contains('ch__text') && el.querySelector('.u')) {
+      return;
+    }
+    el.style.fontSize = '';
+    el.style.letterSpacing = '';
+    el.style.wordSpacing = '';
+
+    const cs = getComputedStyle(el);
+    // Đoạn có cỡ chữ cố định theo loại chữ (css/d-type.css): không chỉnh cỡ riêng từng đoạn.
+    // Bản EN: bỏ dấu cách không ngắt mà en-justify.js chèn giữa từ ngắn và từ sau (chúng làm dòng giãn xa);
+    // chữ được viết để từ ngắn không đứng cuối dòng
+    if (cs.getPropertyValue('--dt-fixed')) {
+      if (document.documentElement.lang === 'en') {
+        const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+        let n;
+        while ((n = walker.nextNode())) if (n.nodeValue.indexOf(' ') !== -1) n.nodeValue = n.nodeValue.replace(/ /g, ' ');
+      }
+      tightenFixed(el, cs);
+      return;
+    }
+    const padL = parseFloat(cs.paddingLeft) || 0;
+    const padR = parseFloat(cs.paddingRight) || 0;
+    const availW = el.clientWidth - padL - padR;
+    if (availW < 110) return;
+
+    const rawText = (el.textContent || '').replace(/\u00AD/g, '').replace(/\s+/g, ' ').trim();
+    if (!rawText || rawText.length < 35) return;
+    const words = rawText.split(' ');
+    if (words.length < 7) return;
+
+    const ctx = getMeasureCtx();
+    if (!ctx) return;
+
+    const baseSize = parseFloat(cs.fontSize) || 14.5;
+    const fontWeight = cs.fontWeight || '400';
+    const fontStyle = cs.fontStyle || 'normal';
+    const fontFamily = cs.fontFamily || 'sans-serif';
+
+    const minDelta = window.innerWidth <= 760 ? -1.2 : -0.9;
+    const maxDelta = window.innerWidth <= 760 ? 0.45 : 0.45;
+    const step = 0.15;
+
+    let bestSize = baseSize;
+    let bestScore = Infinity;
+
+    for (let d = minDelta; d <= maxDelta + 0.001; d += step) {
+      const cand = +(baseSize + d).toFixed(2);
+      if (cand < 11.5) continue;
+      ctx.font = `${fontStyle} ${fontWeight} ${cand}px ${fontFamily}`;
+      const spaceW = ctx.measureText(' ').width;
+      const lens = new Array(words.length);
+      for (let i = 0; i < words.length; i++) lens[i] = ctx.measureText(words[i]).width;
+
+      const lines = [];
+      let lineW = lens[0], cnt = 1;
+      for (let i = 1; i < words.length; i++) {
+        const w = lens[i];
+        if (lineW + spaceW + w <= availW) {
+          lineW += spaceW + w;
+          cnt++;
+        } else {
+          lines.push({ w: lineW, count: cnt });
+          lineW = w;
+          cnt = 1;
+        }
+      }
+      lines.push({ w: lineW, count: cnt });
+
+      if (lines.length <= 1) {
+        bestSize = cand;
+        bestScore = 0;
+        break;
+      }
+
+      let maxGapSlack = 0;
+      let totalGapSlack = 0;
+      let badLinePenalty = 0;
+      for (let l = 0; l < lines.length - 1; l++) {
+        const ln = lines[l];
+        const gaps = Math.max(1, ln.count - 1);
+        const slack = Math.max(0, availW - ln.w);
+        const perGap = slack / gaps;
+        if (perGap > maxGapSlack) maxGapSlack = perGap;
+        totalGapSlack += perGap;
+        // Phạt nặng nếu bất kỳ khoảng trắng nào bị dãn thêm quá 4.2px
+        if (perGap > 4.2) badLinePenalty += (perGap - 4.2) * 18;
+        if (ln.count <= 3 && slack > availW * 0.18) badLinePenalty += 60;
+      }
+
+      const lastLn = lines[lines.length - 1];
+      const lastRatio = lastLn.w / availW;
+      let orphanPenalty = 0;
+      if (lastLn.count === 1) orphanPenalty = 85;
+      else if (lastRatio < 0.22) orphanPenalty = (0.22 - lastRatio) * 120;
+
+      const sizeDrift = Math.abs(cand - baseSize) * 1.6;
+      const avgGap = totalGapSlack / (lines.length - 1);
+      const score = maxGapSlack * 4.2 + avgGap * 1.8 + badLinePenalty + orphanPenalty + sizeDrift;
+
+      if (score < bestScore) {
+        bestScore = score;
+        bestSize = cand;
+      }
+    }
+
+    if (Math.abs(bestSize - baseSize) >= 0.08) {
+      el.style.fontSize = bestSize + 'px';
+    }
+  }
+
+  L.fitJustify = (root = document) => {
+    const list = $$(JUSTIFY_SEL, root);
+    if (root && root.nodeType === 1 && root.matches && root.matches(JUSTIFY_SEL)) list.unshift(root);
+    list.forEach(fitJustifiedEl);
+  };
+
+  // Tiêu đề cùng nhóm (data-fit-group) dùng chung một cỡ: cỡ nhỏ nhất sau khi từng cái đã vừa 1 dòng
+  function syncFitGroups() {
+    const groups = {};
+    $$('[data-fit-group]').forEach(el => {
+      if (el.clientWidth < 20) return;
+      const k = el.dataset.fitGroup;
+      (groups[k] = groups[k] || []).push(el);
+    });
+    Object.keys(groups).forEach(k => {
+      const list = groups[k];
+      const min = Math.min(...list.map(el => parseFloat(getComputedStyle(el).fontSize)));
+      list.forEach(el => { if (parseFloat(getComputedStyle(el).fontSize) - min > 0.05) el.style.fontSize = min + 'px'; });
+    });
+  }
+
+  L.fit = (root = document) => {
+    const titles = $$(TITLE_SEL, root);
+    if (root && root.nodeType === 1 && root.matches && root.matches(TITLE_SEL)) titles.unshift(root);
+    titles.forEach(fitOne);
+    syncFitGroups();
+    L.fitJustify(root);
+  };
+  // Căn lại toàn trang một lần cho cả đợt: lúc mở trang, DOMContentLoaded / en-justify / font / load / resize từng gọi
+  // L.fit() toàn trang ~9 lần trong 3 s đầu (mỗi lần 120–260 ms), chặn màn "xin chào". Lần cuối vẫn chạy sau yêu cầu cuối.
+  let fitT = 0;
+  L.fitSoon = () => { clearTimeout(fitT); fitT = setTimeout(() => { fitT = 0; L.fit(); }, 120); };
 
 
   /* ---------------- Chữ trồi lên theo từng từ ---------------- */
@@ -59,9 +366,9 @@
     };
     walk(el, false);
   }
+  L.splitWords = splitWords;
 
-  /* ---------------- Chữ lớn cuối trang trồi lên ----------------
-     Nằm sát đáy trang nên bộ quan sát chung (bỏ 10% dưới màn hình) có thể không bao giờ bắt được trên mobile */
+  /* ---------------- Chữ lớn cuối trang trồi lên ---------------- */
   function initFooterMark() {
     $$('.footer__mark [data-split]').forEach(el => {
       const io = new IntersectionObserver(([e]) => {
@@ -110,14 +417,17 @@
     });
   }
 
-  /* ---------------- Nút về đầu trang (vòng tiến trình) ---------------- */
+  /* ---------------- Nút về đầu trang / chuyển ngôn ngữ nổi ---------------- */
   function initTotop() {
     const b = $('.totop');
-    if (!b) return;
-    const bar = $('.totop__bar', b);
+    const langFloat = $('.lang-float');
+    if (!b && !langFloat) return;
+    const bar = b ? $('.totop__bar', b) : null;
     const C = 2 * Math.PI * 21;
-    bar.style.strokeDasharray = C.toFixed(1);
-    bar.style.strokeDashoffset = C.toFixed(1);
+    if (bar) {
+      bar.style.strokeDasharray = C.toFixed(1);
+      bar.style.strokeDashoffset = C.toFixed(1);
+    }
     let docH = 1, showAt = 600;
     const hero = $('#trang-chu');
     const measure = () => {
@@ -126,19 +436,20 @@
     };
     measure();
     L.onLayout(measure);
-    let last = -1, on = false;
-    const langFloat = $('.lang-float');
+    let last = -1, on = null;
     L.tick(s => {
-      const p = clamp(s.y / docH);
-      if (Math.abs(p - last) > 0.001) { last = p; bar.style.strokeDashoffset = (C * (1 - p)).toFixed(1); }
+      if (bar) {
+        const p = clamp(s.y / docH);
+        if (Math.abs(p - last) > 0.001) { last = p; bar.style.strokeDashoffset = (C * (1 - p)).toFixed(1); }
+      }
       const show = s.y > showAt;
       if (show !== on) {
         on = show;
-        b.classList.toggle('is-on', show);
+        if (b) b.classList.toggle('is-on', show);
         if (langFloat && !langFloat.hasAttribute('data-always')) langFloat.classList.toggle('is-visible', show);
       }
     });
-    b.addEventListener('click', () => window.scrollTo({ top: 0, behavior: L.reduced ? 'auto' : 'smooth' }));
+    if (b) b.addEventListener('click', () => window.scrollTo({ top: 0, behavior: L.reduced ? 'auto' : 'smooth' }));
   }
 
   /* ---------------- Chuyển trang có màn trượt ---------------- */
@@ -148,22 +459,33 @@
     if (pt.classList.contains('is-cover')) {
       requestAnimationFrame(() => requestAnimationFrame(() => pt.classList.add('is-out')));
     }
-    addEventListener('pageshow', e => { if (e.persisted) pt.classList.remove('is-leave'); });
+    addEventListener('pageshow', e => {
+      if (e.persisted) {
+        pt.classList.remove('is-leave');
+        document.documentElement.classList.remove('is-pt-in', 'is-pt-out');
+      }
+    });
+    const normPath = p => (p || '').replace(/\/index\.html$/i, '/') || '/';
     document.addEventListener('click', e => {
       const a = e.target.closest && e.target.closest('a[href]');
       if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       if (a.target === '_blank' || a.hasAttribute('download')) return;
+      if (a.hasAttribute('data-lang') || (a.closest && a.closest('.lang-float'))) return;
       const href = a.getAttribute('href');
       if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
       const url = new URL(a.href, location.href);
       if (url.origin !== location.origin) return;
-      if (!/\.html$|\/$/.test(url.pathname)) return;
-      if (url.pathname === location.pathname && url.search === location.search) return;
+      if (/\.(pdf|zip|png|jpe?g|webp|svg|gif|mp4|webm|xml|json|txt|ico)$/i.test(url.pathname)) return;
+      if (normPath(url.pathname) === normPath(location.pathname) && url.search === location.search) return;
       e.preventDefault();
       try { sessionStorage.setItem('ltv-pt', '1'); } catch (_) { /* bỏ qua */ }
-      pt.classList.remove('is-cover', 'is-out');
+      const dlg = document.querySelector('dialog[open]');
+      if (dlg && typeof dlg.close === 'function') dlg.close();
+      document.documentElement.classList.remove('is-pt-in', 'is-pt-out');
+      pt.classList.remove('is-cover', 'is-out', 'is-leave');
+      void pt.offsetHeight;
       pt.classList.add('is-leave');
-      setTimeout(() => { location.href = a.href; }, L.reduced ? 0 : 640);
+      setTimeout(() => { location.href = a.href; }, L.reduced ? 0 : 660);
     });
   }
 
@@ -184,7 +506,6 @@
     if (L.reduced) return;
     const items = $$('[data-speed]').map(el => ({ el, sp: parseFloat(el.dataset.speed) || 0, last: 1e9, top: 0, h: 0 }));
     if (!items.length) return;
-    // vị trí được đo sẵn => vòng lặp cuộn không đọc layout
     const measure = () => items.forEach(it => { const p = it.el.parentElement; it.top = L.docTop(p); it.h = p.offsetHeight; });
     measure();
     L.onLayout(measure);
@@ -200,15 +521,12 @@
     });
   }
 
-  /* ---------------- Video nền tự chạy (ô chân dung) ----------------
-     Chạy liên tục khi đang nhìn thấy; ra khỏi màn hình hoặc chuyển tab thì tạm dừng cho đỡ tốn pin.
-     Máy bật "giảm chuyển động" => đứng yên ở khung đầu (ảnh poster). */
+  /* ---------------- Video nền tự chạy (ô chân dung) ---------------- */
   function initVideos() {
     $$('video[autoplay]').forEach(v => {
-      v.muted = true;                                  // bắt buộc để trình duyệt cho tự chạy
+      v.muted = true;
       if (L.reduced) { v.removeAttribute('autoplay'); v.pause(); return; }
       const play = () => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
-      // tải ngầm sau khi trang tải xong, lúc máy rảnh => cuộn tới là chạy ngay, không khựng khung hình
       const warm = () => { v.preload = 'auto'; v.load(); };
       const idle = () => (window.requestIdleCallback || setTimeout)(warm, { timeout: 2500 });
       document.readyState === 'complete' ? idle() : addEventListener('load', idle, { once: true });
@@ -242,7 +560,6 @@
   };
 
   /* ---------------- Quan sát khi cuộn tới ---------------- */
-  // Ảnh .reveal-img bị clip-path che hoàn toàn lúc đầu => Chrome coi là "không giao" => quan sát phần tử cha
   const proxy = new WeakMap();
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -271,7 +588,7 @@
   };
 
   document.addEventListener('DOMContentLoaded', () => {
-    if (L.params.has('nofx')) { L.fit(); return; }   // ?nofx : tắt hiệu ứng (dùng khi đo hiệu năng)
+    if (L.params.has('nofx')) { L.fit(); return; }
     L.enhance(document);
     initFooterMark();
     initSpot();
@@ -281,16 +598,11 @@
     initClock();
     initParallax();
     initVideos();
-    let rq = 0;
-    L.onResize(() => { cancelAnimationFrame(rq); rq = requestAnimationFrame(() => L.fit()); });
-    // Đo lại sau khi font thật về: 'Be Vietnam Pro' nạp từng nét một, fonts.ready có thể xong
-    // trước khi nét cuối được yêu cầu, nên phải nghe thêm loadingdone, nếu không chữ giữ nguyên
-    // cỡ đã co theo font dự phòng (rộng hơn font thật).
+    L.onResize(() => L.fitSoon());
     if (document.fonts) {
-      const refit = () => L.fit();
-      if (document.fonts.ready) document.fonts.ready.then(refit);
-      if (document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', refit);
+      if (document.fonts.ready) document.fonts.ready.then(() => L.fitSoon());
+      if (document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', () => L.fitSoon());
     }
-    addEventListener('load', () => L.fit());
+    addEventListener('load', () => L.fitSoon());
   });
 })();

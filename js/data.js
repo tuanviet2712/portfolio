@@ -6,7 +6,7 @@ window.SITE_DATA = {
   profile: {
     name: 'Lê Tuấn Việt',
     title: 'Marketing Leader',
-    email: 'tuanviet.2712@gmail.com',
+    email: 'work@letuanviet.com',
     phone: '0935 702 321',
     phoneRaw: '0935702321',
     location: 'Hà Đông, Hà Nội',
@@ -55,7 +55,11 @@ window.SITE_DATA = {
       { id: 'uyen-uyen-nguyen', name: 'Uyên Uyên Nguyễn' },
       { id: 'bs-dung', name: 'Bác sĩ Dung' },
       { id: 'bs-tri', name: 'Bác sĩ Trí' },
-      { id: 'minh-ha', name: 'Minh Hà' }
+      { id: 'minh-ha', name: 'Minh Hà' },
+      { id: 'quoc-trung-fungha', name: 'Quốc Trung FungHa' },
+      { id: 'le-ha-haroma', name: 'Lê Hạ Haroma' },
+      { id: 'ma-thi-chu', name: 'Ma Thị Chú' },
+      { id: 'nguyen-tat-kiem', name: 'Nguyễn Tất Kiểm' }
     ],
     groups: [
       {
@@ -96,23 +100,29 @@ window.SITE_DATA = {
             { partner: 'fungha', img: 'web/fungha-mini-app', note: 'Zalo Mini App' },
             { partner: 'dotaka', img: 'web/dotaka', note: 'Website' },
             { partner: 'tomec', img: 'web/tomec', note: 'Website' },
-            { title: 'Zalo CRM', img: 'web/zalo-crm', note: 'Hệ thống CRM' }
+            { title: 'Zalo CRM', img: 'web/zalo-crm', note: 'Hệ thống CRM' } ], [ { title: 'Zalo Flow', img: 'web/zalo-flow', note: 'Hệ thống CRM' }, { title: 'Seo Agent Marketing', img: 'web/seo-agent-marketing', note: 'Hệ thống AI' }, { title: 'Agentic AI Agent', img: 'web/agentic-ai-agent', note: 'Hệ thống AI' }, { title: 'Dotaka CRM', img: 'web/dotaka-crm', note: 'Hệ thống CRM' }
           ]
         ]
       },
       {
         id: 'content', no: '03', name: 'Kênh & Content',
-        desc: 'Những dự án xây dựng kênh tiêu biểu tôi đã trực tiếp tham gia, từ định hướng nội dung và hình ảnh đến triển khai, vận hành và tối ưu hiệu quả.',
+        desc: 'Những dự án xây dựng kênh tiêu biểu tôi trực tiếp tham gia, từ định hướng nội dung, hình ảnh đến vận hành.',
         rows: [
           {
             label: 'Thương hiệu cá nhân',
             items: [
               { partner: 'hoai-le-diamond', img: 'social/hoai-le-diamond', link: 'https://www.facebook.com/helena.tran.5074' },
-              { partner: 'uyen-uyen-nguyen', img: 'social/uyen-uyen-nguyen', link: 'https://www.facebook.com/UyenUyenNhaTrang' },
+              { partner: 'bs-tri', img: 'social/bs-tri', link: 'https://www.facebook.com/bstri.vn' },
               { partner: 'bs-dung', img: 'social/bs-dung', link: 'https://www.facebook.com/drthuydungmomau' },
-              { partner: 'bs-tri', img: 'social/bs-tri', link: 'https://www.facebook.com/bstri.vn' }
+              { partner: 'uyen-uyen-nguyen', img: 'social/uyen-uyen-nguyen', link: 'https://www.facebook.com/UyenUyenNhaTrang' }
             ]
           },
+          [
+            { partner: 'quoc-trung-fungha', img: 'social/quoc-trung-fungha', link: 'https://www.facebook.com/quoc.trung.83393' },
+            { partner: 'nguyen-tat-kiem', img: 'social/nguyen-tat-kiem', link: 'https://www.facebook.com/nguyentatkiem' },
+            { partner: 'ma-thi-chu', img: 'social/ma-thi-chu', link: 'https://www.facebook.com/CeoMaThiChu' },
+            { partner: 'le-ha-haroma', img: 'social/le-ha-haroma', link: 'https://www.facebook.com/hal.haroma' }
+          ],
           {
             label: 'Thương hiệu doanh nghiệp',
             items: [
@@ -126,13 +136,13 @@ window.SITE_DATA = {
       },
       {
         id: 'other', no: '04', name: 'Hạng mục khác',
-        desc: 'Tài liệu đào tạo đội ngũ, bộ chỉ số KPI, báo cáo định kỳ, bộ quy chuẩn logo và các bài viết, kịch bản mẫu tôi đã xây dựng.',
+        desc: 'Tài liệu đào tạo đội ngũ, bộ chỉ số KPI, báo cáo định kỳ và các bài viết, kịch bản mẫu tôi đã xây dựng.',
         rows: [
           [
             { title: 'Tài liệu đào tạo SEO', img: 'other/dao-tao-seo', link: 'https://docs.google.com/document/d/10NzgXE53AnfTxZs1dJXrYBV9z73KVItK/edit#heading=h.4syd63uij9fx' },
             { title: 'Tài liệu đào tạo Content', img: 'other/dao-tao-content', link: 'https://docs.google.com/presentation/d/1QkT9iD1VPt3hmVzTiVfSMTQU-jEynPXw/edit' },
             { title: 'Tài liệu đào tạo Vibe Coding', img: 'other/dao-tao-vibe-coding', link: 'https://docs.google.com/presentation/d/1GDgY0Q7itMGix7Q-4amaEKBV3-kUFO2U/edit?usp=sharing&rtpof=true&sd=true' },
-            { title: 'Logo Guideline', img: 'other/logo-guideline', link: 'https://drive.google.com/file/d/1kIAlwVG_283QI4QQVpDoSS0Ucecqd2bK/view?usp=sharing' }
+            { title: 'Tài liệu đào tạo AI', img: 'other/dao-tao-ai', link: 'https://docs.google.com/presentation/d/1Ni7gWS_7GBdYM7nF0TMmOf_kx8LLtnO7/edit?usp=sharing&ouid=113613338350596465961&rtpof=true&sd=true' }
           ],
           [
             { title: 'Báo cáo Booking', img: 'other/bao-cao-booking', link: 'https://docs.google.com/spreadsheets/d/1v2zlDUjsRssPFr8dJTL_r3NQhtmUg73bUwWLdhep3UA/edit?usp=sharing' },
@@ -155,6 +165,7 @@ window.SITE_DATA = {
     { name: 'TOMEC', note: 'Y đa khoa', period: '2025 – 2026', logo: 'assets/img/partners/white/tomec.png', scale: 0.87 },
     { name: 'FungHa Dimsum', note: 'Chuỗi nhà hàng', period: '2025 – 2026', logo: 'assets/img/partners/white/fungha-dimsum.png', scale: 1.02 },
     { name: 'Uyên Uyên Mart', note: 'Siêu thị gia dụng', period: '2025 – 2026', logo: 'assets/img/partners/white/uyenuyenmart.png', scale: 1.2 },
+    { name: 'Cozy', note: 'Trà, đồ uống', period: '', logo: 'assets/img/partners/white/cozy.png', scale: 1.08 },
     { name: 'Traphaco', note: 'Dược phẩm', period: '', logo: 'assets/img/partners/white/traphaco.png', scale: 0.96 },
     { name: 'Việt Tranh Đề', note: 'Phân bón nhập khẩu', period: '', logo: 'assets/img/partners/white/viettranhde.png', scale: 1.15 },
     { name: 'KingStyle', note: 'Balo, túi xách', period: '', logo: 'assets/img/partners/white/kingstyle.png', scale: 1.09 },
@@ -187,18 +198,18 @@ window.SITE_DATA = {
     { type: 'proof', draft: false, text: 'Giải Khuyến khích cuộc thi Đổi mới sáng tạo khởi nghiệp cấp khoa năm 2022.', name: 'ĐH Công Thương TP.HCM', role: 'Giải thưởng năm 2022', avatar: '', logo: 'assets/img/partners/huit.png' },
     { type: 'quote', draft: false, text: 'Việt giúp Uyên Uyên Mart định hướng rõ cách xây dựng cả kênh doanh nghiệp và kênh cá nhân. Phần cơ chế, chính sách và KPI cũng được Việt xây dựng khá sát thực tế, giúp đội ngũ dễ hiểu và áp dụng.', name: 'Chị Cẩm Uyên', role: 'CEO · Uyên Uyên Mart', avatar: 'assets/img/feedback/cam-uyen.jpg' },
     { type: 'quote', draft: false, text: 'Việt trực tiếp đào tạo và theo sát đội Marketing của Dotaka trong quá trình triển khai. Lượng tiếp cận fanpage đã tăng từ khoảng 3 triệu lên 8,3 triệu mỗi tháng; quan trọng hơn là đội ngũ đã biết cách tự làm và tối ưu.', name: 'Anh Đỗ Vũ Tập', role: 'CEO · Dotaka', avatar: 'assets/img/feedback/do-vu-tap.jpg' },
-    { type: 'quote', draft: false, text: 'Việt hỗ trợ Gerari từ đào tạo nhân sự, xây dựng cơ chế chính sách đến định hướng các kênh Marketing. Cách làm rõ ràng, sát thực tế và luôn hướng tới việc giúp đội ngũ có thể tự vận hành.', name: 'Chị Phương Vương', role: 'CEO · Gerari', avatar: 'assets/img/feedback/phuong-vuong.jpg' },
-    { type: 'quote', draft: false, text: 'Việt giúp CoolCoffee nhìn lại toàn bộ hoạt động Marketing, kết nối các kênh về chung một hướng và xác định rõ những chỉ số cần theo dõi. Nhờ vậy, đội ngũ biết phần nào hiệu quả và phần nào cần điều chỉnh.', name: 'Chị Phạm Thị Tư', role: 'CEO · CoolCoffee', avatar: 'assets/img/feedback/pham-thi-tu.jpg' },
-    { type: 'quote', draft: false, text: 'Điều tôi ấn tượng nhất ở Việt là sự nhiệt tình và trách nhiệm. Khi có vấn đề cần xử lý, Việt luôn phản hồi nhanh, theo sát đến cùng và hỗ trợ đội ngũ bằng thái độ rất chân thành.', name: 'Chị Minh Nguyễn', role: 'CEO · Dolphin', avatar: 'assets/img/feedback/nguyen-thi-minh.jpg' },
-    { type: 'quote', draft: false, text: 'Việt đồng hành cùng FungHa từ kế hoạch Marketing tổng thể đến website và Zalo Mini App. Việt nắm khá nhanh bài toán kinh doanh, tư vấn thực tế và theo sát để từng hạng mục thực sự được triển khai.', name: 'Anh Quốc Trung', role: 'CEO · FungHa Dimsum', avatar: 'assets/img/feedback/quoc-trung.jpg' },
-    { type: 'quote', draft: false, text: 'Việt giúp chúng tôi thay đổi cách nhìn về số liệu: không báo cáo cho đủ mà phải dùng dữ liệu để biết cần tối ưu ở đâu. Quy trình booking cũng được sắp xếp rõ ràng hơn, từ lựa chọn đối tác đến đánh giá hiệu quả.', name: 'Chị Đan Thanh', role: 'CEO · Việt Tranh Đề', avatar: 'assets/img/feedback/lam-thuy-dan-thanh.jpg' },
-    { type: 'quote', draft: false, text: 'Việt giúp chúng tôi hệ thống lại hoạt động trên Google, từ lựa chọn từ khóa, theo dõi dữ liệu đến tối ưu các điểm khách hàng tìm kiếm. Cách hướng dẫn dễ hiểu, đi thẳng vào vấn đề nên đội ngũ có thể áp dụng ngay.', name: 'Chị Thanh Hương', role: 'CEO · KingStyle', avatar: 'assets/img/feedback/nguyen-thi-thanh-huong.jpg' },
-    { type: 'quote', draft: false, text: 'Việt luôn đặt Marketing trong mối liên hệ với mục tiêu kinh doanh. Bạn giúp Pozza Tea xây dựng hướng triển khai tổng thể, tối ưu các chỉ số và điều chỉnh hoạt động Marketing phù hợp với chiến lược phát triển nhượng quyền.', name: 'Chị Hoàng Hiền', role: 'CEO · Pozza Tea', avatar: 'assets/img/feedback/hoang-hien.jpg' },
-    { type: 'quote', draft: false, text: 'Việt giúp Mid Pharma nhìn lại Marketing như một hệ thống hoàn chỉnh, từ khách hàng, thông điệp đến kênh triển khai và chỉ số theo dõi. Các phương án đều rõ ràng, có thứ tự ưu tiên và phù hợp với nguồn lực thực tế.', name: 'Chị Nguyễn Thị Nụ', role: 'CEO · Mid Pharma', avatar: 'assets/img/feedback/nguyen-thi-nu.jpg' },
-    { type: 'quote', draft: false, text: 'Việt hỗ trợ chúng tôi sắp xếp lại hoạt động thương mại điện tử, từ nội dung gian hàng, chương trình bán hàng đến cách theo dõi hiệu quả. Các góp ý đều cụ thể, thực tế và đội ngũ có thể áp dụng ngay.', name: 'Chị Lê Hạ', role: 'CEO · Haroma', avatar: 'assets/img/feedback/le-ha.jpg' },
-    { type: 'quote', draft: false, text: 'Việt giúp Esfy Lashies làm rõ định hướng thương hiệu, đồng thời chuẩn hóa hệ thống báo cáo và quy trình vận hành Marketing. Nhờ vậy, đội ngũ phối hợp rõ ràng hơn và người quản lý cũng dễ theo dõi công việc.', name: 'Chị Phương Khánh', role: 'CEO · Esfy Lashies', avatar: 'assets/img/feedback/phuong-khanh.jpg' },
+    { type: 'quote', draft: false, text: 'Việt đồng hành và hỗ trợ Gerari từ đào tạo nhân sự, xây dựng cơ chế chính sách đến định hướng các kênh Marketing. Cách làm của Việt rõ ràng, sát với thực tế và luôn hướng tới việc giúp đội ngũ có thể tự vận hành ổn định.', name: 'Chị Phương Vương', role: 'CEO · Gerari', avatar: 'assets/img/feedback/phuong-vuong.jpg' },
+    { type: 'quote', draft: false, text: 'Việt giúp CoolCoffee nhìn lại toàn bộ hoạt động Marketing, kết nối các kênh về chung một hướng và xác định rõ những chỉ số cần theo dõi. Nhờ vậy, đội ngũ biết phần nào đang hiệu quả và phần nào cần điều chỉnh thêm.', name: 'Chị Phạm Thị Tư', role: 'CEO · CoolCoffee', avatar: 'assets/img/feedback/pham-thi-tu.jpg' },
+    { type: 'quote', draft: false, text: 'Điều tôi ấn tượng nhất ở Việt là sự nhiệt tình và tinh thần trách nhiệm. Khi có vấn đề cần xử lý, Việt luôn phản hồi nhanh, theo sát đến cùng và hỗ trợ đội ngũ bằng thái độ rất chân thành.', name: 'Chị Minh Nguyễn', role: 'CEO · Dolphin', avatar: 'assets/img/feedback/nguyen-thi-minh.jpg' },
+    { type: 'quote', draft: false, text: 'Việt đồng hành cùng FungHa trong nhiều việc, từ kế hoạch Marketing tổng thể đến website và Zalo Mini App. Việt nắm khá nhanh bài toán kinh doanh, tư vấn thực tế và theo sát để từng hạng mục thực sự được triển khai.', name: 'Anh Quốc Trung', role: 'CEO · FungHa Dimsum', avatar: 'assets/img/feedback/quoc-trung.jpg' },
+    { type: 'quote', draft: false, text: 'Việt giúp chúng tôi thay đổi cách nhìn về số liệu: không báo cáo cho đủ mà phải dùng dữ liệu để biết cần tối ưu ở đâu. Quy trình booking cũng được sắp xếp rõ ràng hơn, từ khâu lựa chọn đối tác đến đánh giá hiệu quả.', name: 'Chị Đan Thanh', role: 'CEO · Việt Tranh Đề', avatar: 'assets/img/feedback/lam-thuy-dan-thanh.jpg' },
+    { type: 'quote', draft: false, text: 'Việt đã giúp chúng tôi hệ thống lại hoạt động trên Google, từ lựa chọn từ khóa, theo dõi dữ liệu đến tối ưu các điểm khách hàng tìm kiếm. Cách hướng dẫn dễ hiểu, đi thẳng vào vấn đề nên đội ngũ có thể áp dụng ngay.', name: 'Chị Thanh Hương', role: 'CEO · KingStyle', avatar: 'assets/img/feedback/nguyen-thi-thanh-huong.jpg' },
+    { type: 'quote', draft: false, text: 'Việt luôn đặt Marketing trong mối liên hệ với mục tiêu kinh doanh. Bạn giúp Pozza Tea xây dựng định hướng triển khai tổng thể, tối ưu các chỉ số và điều chỉnh hoạt động Marketing phù hợp với chiến lược phát triển nhượng quyền.', name: 'Chị Hoàng Hiền', role: 'CEO · Pozza Tea', avatar: 'assets/img/feedback/hoang-hien.jpg' },
+    { type: 'quote', draft: false, text: 'Việt giúp Mid Pharma nhìn lại Marketing như một hệ thống hoàn chỉnh, đi từ khách hàng, thông điệp đến kênh triển khai và chỉ số theo dõi. Các phương án Việt đưa ra đều rõ ràng, có thứ tự ưu tiên và phù hợp với nguồn lực thực tế.', name: 'Chị Nguyễn Thị Nụ', role: 'CEO · Mid Pharma', avatar: 'assets/img/feedback/nguyen-thi-nu.jpg' },
+    { type: 'quote', draft: false, text: 'Việt hỗ trợ chúng tôi sắp xếp lại hoạt động thương mại điện tử, gồm nội dung gian hàng, chương trình bán hàng và cách theo dõi hiệu quả. Mọi góp ý của Việt đều cụ thể, thực tế và đội ngũ có thể áp dụng vào công việc ngay.', name: 'Chị Lê Hạ', role: 'CEO · Haroma', avatar: 'assets/img/feedback/le-ha.jpg' },
+    { type: 'quote', draft: false, text: 'Việt giúp Esfy Lashies làm rõ định hướng thương hiệu, đồng thời chuẩn hóa hệ thống báo cáo và quy trình vận hành Marketing. Nhờ đó, đội ngũ phối hợp rõ ràng hơn và người quản lý cũng dễ theo dõi tiến độ công việc.', name: 'Chị Phương Khánh', role: 'CEO · Esfy Lashies', avatar: 'assets/img/feedback/phuong-khanh.jpg' },
     { type: 'quote', draft: false, badge: 'Cấp trên nhận xét', text: 'Việt là người nhiệt tình, trách nhiệm và không ngại việc khó. Trong vai trò trợ lý, Việt luôn chủ động theo sát học viên, tiếp nhận góp ý nghiêm túc và cố gắng xử lý công việc đến cùng.', name: 'Thầy Nguyễn Tất Kiểm', role: 'CEO · TAKI Group', avatar: 'assets/img/feedback/nguyen-tat-kiem.jpg' },
     { type: 'quote', draft: false, badge: 'Cấp trên nhận xét', text: 'Trong thời gian trực tiếp quản lý Việt, tôi đánh giá bạn có nền tảng chuyên môn Marketing khá toàn diện, từ lập kế hoạch, xây dựng kênh đến tối ưu hiệu quả. Việt học nhanh, chịu khó đào sâu vấn đề và tiến bộ rõ qua từng giai đoạn.', name: 'Anh Nguyễn Tuấn Linh', role: 'CMO · TAKI Group', avatar: 'assets/img/feedback/nguyen-tuan-linh.jpg' },
-    { type: 'quote', draft: false, badge: 'Cấp trên nhận xét', text: 'Trong quá trình trực tiếp quản lý, tôi ghi nhận ở Việt sự trách nhiệm, chủ động và tinh thần hỗ trợ đội ngũ. Việt có chuyên môn tốt, tiếp thu phản hồi nhanh và luôn cố gắng hoàn thành công việc đến cùng.', name: 'Chị Lê Thị Ngân', role: 'COO · TAKI Group', avatar: 'assets/img/feedback/le-thi-ngan.jpg' }
+    { type: 'quote', draft: false, badge: 'Cấp trên nhận xét', text: 'Trong quá trình trực tiếp quản lý, tôi nhận thấy ở Việt sự trách nhiệm, chủ động và tinh thần hỗ trợ đội ngũ. Việt có chuyên môn tốt, tiếp thu phản hồi nhanh và luôn cố gắng hoàn thành công việc đến nơi đến chốn.', name: 'Chị Lê Thị Ngân', role: 'COO · TAKI Group', avatar: 'assets/img/feedback/le-thi-ngan.jpg' }
   ]
 };

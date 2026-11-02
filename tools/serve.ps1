@@ -17,7 +17,7 @@ $mime = @{
 }
 $reloadJs = @"
 <script>/* live reload (chỉ có khi chạy localhost) */
-(function(){var v=null;setInterval(function(){fetch('/__livereload',{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){if(v===null)v=t;else if(t!==v)location.reload()}).catch(function(){})},900)})();
+(function(){var v=null;setInterval(function(){fetch('/__livereload',{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){if(v===null)v=t;else if(t!==v)location.reload()}).catch(function(){})},2000)})();
 </script>
 "@
 
@@ -25,7 +25,7 @@ $reloadJs = @"
 # KHONG duyet de quy ca du an: assets\hero co hang tram khung hinh, moi lan quet lam may chu dung ~0,5 s.
 function Get-Stamp {
   $max = 0
-  foreach ($d in @($root, (Join-Path $root "css"), (Join-Path $root "js"))) {
+  foreach ($d in @($root, (Join-Path $root "css"), (Join-Path $root "js"), (Join-Path $root "js\scenes"))) {
     Get-ChildItem -LiteralPath $d -File -ErrorAction SilentlyContinue |
       Where-Object { $_.Extension -in '.html', '.css', '.js' } |
       ForEach-Object { $t = $_.LastWriteTimeUtc.Ticks; if ($t -gt $max) { $max = $t } }
@@ -95,6 +95,7 @@ try {
         continue
       }
       $ext = [IO.Path]::GetExtension($file).ToLower()
+      if ($ext -in '.webp', '.png', '.jpg', '.jpeg', '.svg', '.woff2', '.woff', '.mp4', '.webm', '.ico') { $res.Headers['Cache-Control'] = 'public, max-age=3600' }
       $res.ContentType = $(if ($mime.ContainsKey($ext)) { $mime[$ext] } else { 'application/octet-stream' })
       if ($ext -eq '.html') {
         $html = [IO.File]::ReadAllText($file, [Text.Encoding]::UTF8)

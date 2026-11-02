@@ -1,0 +1,1 @@
+window.KB_SEQ = {"w":2400,"h":1416,"n":172,"fps":24,"plate":"assets/kb/seq/poster.webp","tile":{"x":240,"y":258,"w":1120,"h":810},"act":[300,315,1235,988],"book":[308,452,1225,983],"sets":{"full":{"dir":"assets/kb/seq/full","w":1120,"h":810,"stride":1,"pad":3,"ext":"webp"}}};

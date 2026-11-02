@@ -94,38 +94,42 @@ function loadArticles() {
    Icon (bộ SVG sprite dùng trên các trang Góc kiến thức)
 ---------------------------------------------------------------------------- */
 const ICONS = {
-  'i-arrow': '<symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>',
-  'i-arrow-up-right': '<symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></symbol>',
-  'i-up': '<symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V5M6 11l6-6 6 6"/></symbol>',
+  'i-arrow': '<symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></symbol>',
+  'i-arrow-up-right': '<symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7m0 0H7m10 0v10"/></symbol>',
+  'i-up': '<symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m0 0-7 7m7-7 7 7"/></symbol>',
   'i-chev': '<symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>',
-  'i-chev-r': '<symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>',
-  'i-search': '<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></symbol>',
-  'i-download': '<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>',
-  'i-mail': '<symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></symbol>',
-  'i-phone': '<symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 6 6L15 14l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>',
-  'i-zalo': '<symbol id="i-zalo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-4.5 3v-3H5a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/></symbol>',
-  'i-pin': '<symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>',
-  'i-clock': '<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>',
-  'i-check': '<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>',
-  'i-verified': '<symbol id="i-verified" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 1.8 3 .1 1 2.8 2.4 1.9-.9 2.9.9 2.9-2.4 1.9-1 2.8-3 .1L12 22l-2.4-1.8-3-.1-1-2.8-2.4-1.9.9-2.9-.9-2.9 2.4-1.9 1-2.8 3-.1z"/><path d="m8.5 12.3 2.4 2.4 4.6-4.9" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>',
-  'i-spark': '<symbol id="i-spark" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5c.6 5.6 4.9 9.9 10.5 10.5-5.6.6-9.9 4.9-10.5 10.5C11.4 16.9 7.1 12.6 1.5 12 7.1 11.4 11.4 7.1 12 1.5z"/></symbol>',
-  'i-target': '<symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></symbol>',
-  'i-kanban': '<symbol id="i-kanban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 7v7M12 7v4M16 7v10"/></symbol>',
-  'i-flag': '<symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>',
-  'i-layers': '<symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/><path d="m3 17.5 9 5 9-5" opacity=".5"/></symbol>',
-  'i-list': '<symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r=".9" fill="currentColor"/><circle cx="4.5" cy="12" r=".9" fill="currentColor"/><circle cx="4.5" cy="18" r=".9" fill="currentColor"/></symbol>',
-  'i-link': '<symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4L12 5.6"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4l1.2-1.2"/></symbol>',
+  'i-chev-r': '<symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>',
+  'i-search': '<symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.35-4.35M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></symbol>',
+  'i-download': '<symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v1.2c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C18.72 21 17.88 21 16.2 21H7.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C3 18.72 3 17.88 3 16.2V15m14-5-5 5m0 0-5-5m5 5V3"/></symbol>',
+  'i-mail': '<symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 8.165 5.715c.661.463.992.695 1.351.784a2 2 0 0 0 .968 0c.36-.09.69-.32 1.351-.784L22 7M6.8 20h10.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C22 17.72 22 16.88 22 15.2V8.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C19.72 4 18.88 4 17.2 4H6.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C2 6.28 2 7.12 2 8.8v6.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C4.28 20 5.12 20 6.8 20Z"/></symbol>',
+  'i-phone': '<symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.38 8.853a14.603 14.603 0 0 0 2.847 4.01 14.603 14.603 0 0 0 4.01 2.847c.124.06.187.09.265.112.28.082.625.023.862-.147.067-.048.124-.105.239-.219.35-.35.524-.524.7-.639a2 2 0 0 1 2.18 0c.176.115.35.29.7.64l.195.194c.532.531.797.797.942 1.082a2 2 0 0 1 0 1.806c-.145.285-.41.551-.942 1.082l-.157.158c-.53.53-.795.794-1.155.997-.4.224-1.02.386-1.478.384-.413-.001-.695-.081-1.26-.241a19.038 19.038 0 0 1-8.283-4.874A19.039 19.039 0 0 1 3.17 7.761c-.16-.564-.24-.846-.241-1.26a3.377 3.377 0 0 1 .384-1.477c.202-.36.467-.625.997-1.155l.157-.158c.532-.53.798-.797 1.083-.941a2 2 0 0 1 1.805 0c.286.144.551.41 1.083.942l.195.194c.35.35.524.525.638.7a2 2 0 0 1 0 2.18c-.114.177-.289.352-.638.701a2.037 2.037 0 0 0-.22.238 1.05 1.05 0 0 0-.147.862c.023.08.053.142.113.266Z"/></symbol>',
+  'i-zalo': '<symbol id="i-zalo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-11.555 7.934c-.174-.066-.26-.1-.33-.116a.901.901 0 0 0-.186-.024 2.314 2.314 0 0 0-.303.021l-5.12.53c-.49.05-.733.075-.877-.013a.5.5 0 0 1-.234-.35c-.026-.166.09-.382.324-.814l1.636-3.027c.134-.25.202-.374.232-.494a.899.899 0 0 0 .028-.326c-.01-.123-.064-.283-.172-.604A8.5 8.5 0 1 1 21 11.5Z"/></symbol>',
+  'i-pin': '<symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M12 22c4-4 8-7.582 8-12a8 8 0 1 0-16 0c0 4.418 4 8 8 12Z"/></symbol>',
+  'i-clock': '<symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2m6-2c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z"/></symbol>',
+  'i-check': '<symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>',
+  'i-verified': '<symbol id="i-verified" viewBox="0 0 24 24" fill="currentColor"><path d="M16.901 3.099a2.03 2.03 0 0 0 1.1 1.1l1.744.723a2.033 2.033 0 0 1 1.1 2.656l-.722 1.744a2.03 2.03 0 0 0 0 1.556l.722 1.744a2.033 2.033 0 0 1-1.1 2.656L19 17.901A2.033 2.033 0 0 0 17.9 19l-.723 1.745a2.032 2.032 0 0 1-2.656 1.1l-1.744-.722a2.032 2.032 0 0 0-1.555 0l-1.745.723a2.033 2.033 0 0 1-2.654-1.1L6.1 19.001A2.033 2.033 0 0 0 5 17.9l-1.744-.723a2.033 2.033 0 0 1-1.1-2.654l.721-1.744a2.033 2.033 0 0 0 0-1.556l-.722-1.746a2.033 2.033 0 0 1 1.1-2.657L5 6.098A2.03 2.03 0 0 0 6.1 5l.723-1.745a2.033 2.033 0 0 1 2.656-1.1l1.744.722a2.033 2.033 0 0 0 1.555-.001l1.746-.72a2.032 2.032 0 0 1 2.655 1.1l.723 1.746v-.003Z"/><path d="m9 12 2 2 4.5-4.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>',
+  'i-spark': '<symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 22v-5m0-10V2M2 4.5h5m-5 15h5M13 3l-1.734 4.509c-.282.733-.423 1.1-.643 1.408a3 3 0 0 1-.706.707c-.308.219-.675.36-1.408.642L4 12l4.509 1.734c.733.282 1.1.423 1.408.643.273.194.512.433.707.706.219.308.36.675.642 1.408L13 21l1.734-4.509c.282-.733.423-1.1.643-1.408.194-.273.433-.512.706-.707.308-.219.675-.36 1.408-.642L22 12l-4.509-1.734c-.733-.282-1.1-.423-1.408-.642a3 3 0 0 1-.706-.707c-.22-.308-.36-.675-.643-1.408L13 3Z"/></symbol>',
+  'i-target': '<symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8V5l3-3 1 2 2 1-3 3h-3Zm0 0-4 4m10 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2m5 10a5 5 0 1 1-5-5"/></symbol>',
+  'i-kanban': '<symbol id="i-kanban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v18m6-18v18M7.8 3h8.4c1.68 0 2.52 0 3.162.327a3 3 0 0 1 1.311 1.311C21 5.28 21 6.12 21 7.8v8.4c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C18.72 21 17.88 21 16.2 21H7.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C3 18.72 3 17.88 3 16.2V7.8c0-1.68 0-2.52.327-3.162a3 3 0 0 1 1.311-1.311C5.28 3 6.12 3 7.8 3Z"/></symbol>',
+  'i-kb-mkt': '<symbol id="i-kb-mkt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8V5l3-3 1 2 2 1-3 3h-3Zm0 0-4 4m10 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2m5 10a5 5 0 1 1-5-5"/></symbol>',
+  'i-kb-ai': '<symbol id="i-kb-ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v2m6-2v2M9 20v2m6-2v2m5-13h2m-2 5h2M2 9h2m-2 5h2m4.8 6h6.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C20 17.72 20 16.88 20 15.2V8.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C17.72 4 16.88 4 15.2 4H8.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C4 6.28 4 7.12 4 8.8v6.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C6.28 20 7.12 20 8.8 20Zm1.8-5h2.8c.56 0 .84 0 1.054-.109a1 1 0 0 0 .437-.437C15 14.24 15 13.96 15 13.4v-2.8c0-.56 0-.84-.109-1.054a1 1 0 0 0-.437-.437C14.24 9 13.96 9 13.4 9h-2.8c-.56 0-.84 0-1.054.109a1 1 0 0 0-.437.437C9 9.76 9 10.04 9 10.6v2.8c0 .56 0 .84.109 1.054a1 1 0 0 0 .437.437C9.76 15 10.04 15 10.6 15Z"/></symbol>',
+  'i-kb-mgmt': '<symbol id="i-kb-mgmt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h12m0 0a3 3 0 1 0 6 0 3 3 0 0 0-6 0Zm-6 8h12M9 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></symbol>',
+  'i-kb-case': '<symbol id="i-kb-case" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 15v2m4-6v6m4-10v10m-8.2 4h8.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C21 18.72 21 17.88 21 16.2V7.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C18.72 3 17.88 3 16.2 3H7.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C3 5.28 3 6.12 3 7.8v8.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C5.28 21 6.12 21 7.8 21Z"/></symbol>',
+  'i-flag': '<symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V4s-1 1-4 1-5-2-8-2-4 1-4 1m0 18V2"/></symbol>',
+  'i-layers': '<symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m2 12 9.642 4.821c.131.066.197.099.266.111.06.012.123.012.184 0 .069-.012.135-.045.266-.11L22 12M2 17l9.642 4.821c.131.066.197.099.266.111.06.012.123.012.184 0 .069-.012.135-.045.266-.11L22 17M2 7l9.642-4.821c.131-.066.197-.098.266-.111a.5.5 0 0 1 .184 0c.069.013.135.045.266.11L22 7l-9.642 4.821a1.028 1.028 0 0 1-.266.111.501.501 0 0 1-.184 0c-.069-.012-.135-.045-.266-.11L2 7Z"/></symbol>',
+  'i-list': '<symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12H9m12-6H9m12 12H9m-4-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></symbol>',
+  'i-link': '<symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12.708 18.364-1.415 1.414a5 5 0 1 1-7.07-7.07l1.413-1.415m12.728 1.414 1.415-1.414a5 5 0 0 0-7.071-7.071l-1.415 1.414M8.5 15.5l7-7"/></symbol>',
   'i-facebook': '<symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.4V21z"/></symbol>',
   'i-linkedin': '<symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9.75h4v11H3zm6.5 0h3.8v1.6h.06c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12v5.34h-4v-4.73c0-1.13-.02-2.58-1.57-2.58-1.58 0-1.82 1.23-1.82 2.5v4.81h-4z"/></symbol>',
   'i-x': '<symbol id="i-x" viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.3l-4.9-6.4L5.2 21H2.1l7.3-8.3L1.8 3h6.4l4.4 5.9zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></symbol>',
-  'i-calendar': '<symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>',
-  'i-refresh': '<symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.3-4.9L4 8"/><path d="M4 4v4h4"/><path d="M4 13a8 8 0 0 0 14.3 4.9L20 16"/><path d="M20 20v-4h-4"/></symbol>',
-  'i-home': '<symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5V20a1 1 0 0 1-1 1h-4.5v-5.5h-5V21H5a1 1 0 0 1-1-1z"/></symbol>',
-  'i-close': '<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>',
-  'i-notes': '<symbol id="i-notes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></symbol>',
-  'i-book': '<symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5"/></symbol>',
-  'i-shield': '<symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 8.2-7 9.5C8.5 20.2 5 17 5 12V6l7-3z"/><path d="m9.5 12 1.8 1.8 3.7-3.8"/></symbol>',
-  'i-globe': '<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3.6 9h16.8M3.6 15h16.8M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>'
+  'i-calendar': '<symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10H3m13-8v4M8 2v4m-.2 16h8.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C21 19.72 21 18.88 21 17.2V8.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C18.72 4 17.88 4 16.2 4H7.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C3 6.28 3 7.12 3 8.8v8.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C5.28 22 6.12 22 7.8 22Z"/></symbol>',
+  'i-refresh': '<symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10s-2.005-2.732-3.634-4.362a9 9 0 1 0 2.282 8.862M21 10V4m0 6h-6"/></symbol>',
+  'i-home': '<symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 17h8M11.018 2.764 4.235 8.039c-.453.353-.68.53-.843.75a2 2 0 0 0-.318.65C3 9.704 3 9.991 3 10.565V17.8c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874C4.52 21 5.08 21 6.2 21h11.6c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C21 19.48 21 18.92 21 17.8v-7.235c0-.574 0-.861-.074-1.126a2.002 2.002 0 0 0-.318-.65c-.163-.22-.39-.397-.843-.75l-6.783-5.275c-.351-.273-.527-.41-.72-.462a1 1 0 0 0-.523 0c-.194.052-.37.189-.721.462Z"/></symbol>',
+  'i-close': '<symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>',
+  'i-notes': '<symbol id="i-notes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 11H8m2 4H8m8-8H8m12-.2v10.4c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C17.72 22 16.88 22 15.2 22H8.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C4 19.72 4 18.88 4 17.2V6.8c0-1.68 0-2.52.327-3.162a3 3 0 0 1 1.311-1.311C6.28 2 7.12 2 8.8 2h6.4c1.68 0 2.52 0 3.162.327a3 3 0 0 1 1.311 1.311C20 4.28 20 5.12 20 6.8Z"/></symbol>',
+  'i-book': '<symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 21-.1-.15c-.695-1.042-1.042-1.563-1.5-1.94a4 4 0 0 0-1.378-.737C8.453 18 7.827 18 6.575 18H5.2c-1.12 0-1.68 0-2.108-.218a2 2 0 0 1-.874-.874C2 16.48 2 15.92 2 14.8V6.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C3.52 3 4.08 3 5.2 3h.4c2.24 0 3.36 0 4.216.436a4 4 0 0 1 1.748 1.748C12 6.04 12 7.16 12 9.4M12 21V9.4M12 21l.1-.15c.695-1.042 1.042-1.563 1.5-1.94a3.999 3.999 0 0 1 1.378-.737C15.547 18 16.173 18 17.425 18H18.8c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C22 16.48 22 15.92 22 14.8V6.2c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C20.48 3 19.92 3 18.8 3h-.4c-2.24 0-3.36 0-4.216.436a4 4 0 0 0-1.748 1.748C12 6.04 12 7.16 12 9.4"/></symbol>',
+  'i-shield': '<symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11.5 2 2L15.5 9m4.5 3c0 4.908-5.354 8.478-7.302 9.615-.221.129-.332.194-.488.227a1.137 1.137 0 0 1-.42 0c-.156-.034-.267-.098-.488-.227C9.354 20.478 4 16.908 4 12V7.217c0-.799 0-1.199.13-1.542a2 2 0 0 1 .548-.79c.276-.243.65-.383 1.398-.664l5.362-2.01c.208-.078.312-.117.419-.133a1 1 0 0 1 .286 0c.107.016.21.055.419.133l5.362 2.01c.748.28 1.123.421 1.398.664a2 2 0 0 1 .547.79c.131.343.131.743.131 1.542V12Z"/></symbol>',
+  'i-globe': '<symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10m0-20a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10m0-20C6.477 2 2 6.477 2 12s4.477 10 10 10m0-20c5.523 0 10 4.477 10 10s-4.477 10-10 10M2.5 9h19m-19 6h19"/></symbol>'
 };
 const sprite = () => `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>\n      ${Object.values(ICONS).join('\n      ')}\n    </defs></svg>`;
 const ico = (id, cls = '') => `<svg${cls ? ` class="${cls}"` : ''} aria-hidden="true"><use href="#${id}"/></svg>`;
@@ -312,8 +316,7 @@ function ctaPanel(rel, headingTag = 'h2') {
             <div class="bio tilt" data-tilt="6">
               <div class="bio__photo reveal-img"><img src="${rel}${A.photo}" alt="${A.name}, ${esc(A.role)}" loading="lazy" decoding="async" width="760" height="760"></div>
               <div class="bio__body">
-                <div class="bio__name">Lê Tuấn Việt ${ico('i-verified')}</div>
-                <div class="bio__role">${A.jobTitle}</div>
+                <div class="bio__sig"><img src="${rel}assets/img/signature.png" alt="Chữ ký ${A.name}" width="984" height="346" loading="lazy" decoding="async"></div>
                 <div class="bio__links">
                   <button class="bio__link" type="button" data-copy="${A.email}"><span>${ico('i-mail')}<em>${A.email}</em></span><small>Sao chép</small></button>
                   <a class="bio__link" href="tel:${A.phoneRaw}"><span>${ico('i-phone')}<em>${A.phone}</em></span><small>Gọi</small></a>
@@ -332,7 +335,9 @@ function ctaPanel(rel, headingTag = 'h2') {
    Cùng một @id "#person" với trang chủ để Google gộp về một thực thể.
    Thông tin đầy đủ về tác giả nằm ở trang chủ portfolio (không có trang tác giả riêng).
 ---------------------------------------------------------------------------- */
-function personLd() {
+// lang 'en': các trang /en/ dùng bản tiếng Anh trong SITE.author.en
+function personLd(lang = 'vi') {
+  const E = lang === 'en' ? A.en : {};
   return {
     '@type': 'Person',
     '@id': `${ORIGIN}/#person`,
@@ -345,23 +350,24 @@ function personLd() {
     mainEntityOfPage: `${ORIGIN}/`,
     image: { '@type': 'ImageObject', url: abs(A.image), width: 680, height: 941 },
     jobTitle: A.jobTitle,
-    hasOccupation: { '@type': 'Occupation', name: A.jobTitle, occupationLocation: { '@type': 'City', name: A.region } },
-    description: A.description,
+    hasOccupation: { '@type': 'Occupation', name: A.jobTitle, occupationLocation: { '@type': 'City', name: E.region || A.region } },
+    description: E.description || A.description,
     email: `mailto:${A.email}`,
     telephone: '+84' + A.phoneRaw.replace(/^0/, ''),
-    address: { '@type': 'PostalAddress', addressLocality: A.locality, addressRegion: A.region, addressCountry: 'VN' },
-    worksFor: orgLd(),
-    alumniOf: { '@type': 'CollegeOrUniversity', name: A.alumniOf.name, alternateName: A.alumniOf.alternateName, url: A.alumniOf.url },
-    knowsAbout: A.knowsAbout,
+    address: { '@type': 'PostalAddress', addressLocality: E.locality || A.locality, addressRegion: E.region || A.region, addressCountry: 'VN' },
+    worksFor: orgLd(lang),
+    alumniOf: { '@type': 'CollegeOrUniversity', name: (E.alumniOf || A.alumniOf).name, alternateName: A.alumniOf.alternateName, url: A.alumniOf.url },
+    knowsAbout: E.knowsAbout || A.knowsAbout,
     // Cả ba danh hiệu đều hiển thị trên trang chủ (thẻ minh chứng trong js/data.js)
-    award: A.awards.map(([name, by]) => `${name} (${by.replace(/^Do /, '')})`),
+    award: E.awards || A.awards.map(([name, by]) => `${name} (${by.replace(/^Do /, '')})`),
     sameAs: A.sameAs
   };
 }
 // Nơi làm việc: một @id chung cho mọi trang (trang chủ khai báo y hệt) để Google gộp thành một thực thể
-const orgLd = () => ({
+const orgLd = (lang = 'vi') => ({
   '@type': 'Organization', '@id': `${ORIGIN}/#taki-group`, name: A.worksFor.name, alternateName: A.worksFor.alternateName,
-  legalName: A.worksFor.legalName, url: A.worksFor.site, description: A.worksFor.description
+  legalName: lang === 'en' ? A.en.worksFor.legalName : A.worksFor.legalName, url: A.worksFor.site,
+  description: lang === 'en' ? A.en.worksFor.description : A.worksFor.description
 });
 const websiteLd = () => ({
   '@type': 'WebSite', '@id': `${ORIGIN}/#website`, url: `${ORIGIN}/`, name: SITE.siteName,
@@ -393,7 +399,7 @@ function page({ rel, pagePath, title, description, draft = false, robots = 'inde
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <!-- Chuyển cảnh vào trang: đặt sớm nhất có thể để màn phủ có ngay từ khung hình đầu tiên -->
-  <script src="${rel}js/pt.js"></script>
+  <script src="${rel}js/pt.js?v=972"></script>
   <!-- Google tag (gtag.js). ga4.js để defer: không chặn hiển thị, gtag.js vẫn đọc dataLayer khi nó được đẩy vào -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9FR8F25SP"></script>
   <script src="/js/ga4.js" defer></script>
@@ -403,7 +409,7 @@ function page({ rel, pagePath, title, description, draft = false, robots = 'inde
   <meta name="robots" content="${robots}">${indexable ? `\n  <meta name="googlebot" content="${robots}">` : ''}
   <link rel="canonical" href="${url}">
 ${altLinks}
-  <link rel="alternate" type="application/rss+xml" title="Góc kiến thức | ${A.name}" href="${abs(HUB + '/feed.xml')}">
+  <link rel="alternate" type="application/rss+xml" title="${isEn ? 'Knowledge Hub' : 'Góc kiến thức'} | ${A.name}" href="${abs(HUB + '/feed.xml')}">
   <meta name="theme-color" content="#F5F8FF">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta property="og:type" content="${ogType}">
@@ -429,10 +435,11 @@ ${altLinks}
   <link rel="preload" href="${rel}assets/fonts/be-vietnam-pro/QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="${rel}assets/fonts/be-vietnam-pro/QdVMSTAyLFyeg_IDWvOJmVES_HSQI281Rb0.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="${rel}assets/fonts/be-vietnam-pro/QdVMSTAyLFyeg_IDWvOJmVES_HSQI286Rb0bcw.woff2" as="font" type="font/woff2" crossorigin>${preload}
-  <link rel="stylesheet" href="${rel}css/style.min.css">
-  <link rel="stylesheet" href="${rel}css/kb-core.css">
-  <link rel="stylesheet" href="${rel}css/kb.css">${css ? `
-  <link rel="stylesheet" href="${rel}css/${css}.css">` : ""}
+  <link rel="stylesheet" href="${rel}css/style.min.css?v=972">
+  <link rel="stylesheet" href="${rel}css/kb-core.css?v=972">
+  <link rel="stylesheet" href="${rel}css/kb.css?v=972">${css ? `
+  <link rel="stylesheet" href="${rel}css/${css}.css?v=972">` : ""}
+  <link rel="stylesheet" href="${rel}css/stage.css?v=972">
   <script type="application/ld+json">
 ${json({ '@context': 'https://schema.org', '@graph': ld })}
   </script>
@@ -455,17 +462,16 @@ ${after}
   <dialog class="kb-sd" id="kb-search" aria-label="${isEn ? 'Search in Knowledge Hub' : 'Tìm kiếm trong Góc kiến thức'}">
     ${searchBox(rel, { id: 'kb-dq', dialog: true, lang })}
   </dialog>
-  <button class="totop" type="button" aria-label="${isEn ? 'Back to top' : 'Về đầu trang'}">
-    <svg class="ring" viewBox="0 0 48 48" aria-hidden="true"><circle class="totop__track" cx="24" cy="24" r="21"/><circle class="totop__bar" cx="24" cy="24" r="21"/></svg>
-    ${ico('i-up', 'ico')}
-  </button>
   <div class="toast" role="status" aria-live="polite"><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg><span>${isEn ? 'Copied' : 'Đã sao chép'}</span></div>
 
-  <script src="${rel}js/core.min.js" defer></script>
-  <script src="${rel}js/fx.js" defer></script>
+  <script src="${rel}js/core.min.js?v=972" defer></script>
+  <script src="${rel}js/vendor/lenis.min.js" defer></script>
+  <script src="${rel}js/stage.js?v=972" defer></script>
+  <script src="${rel}js/fx.js?v=972" defer></script>
   <script src="${rel}js/kb-nav.js" defer></script>
   <script src="${rel}js/kb.js" defer></script>
   <script src="${rel}js/kb-search.js" defer></script>
+  <script src="${rel}js/scenes/kb-pages.js" defer></script>
 <!--/email_off-->
 </body>
 </html>
@@ -925,6 +931,23 @@ function llmsFullTxt(all) {
 }
 
 const SIDE_POSTS = 5;
+/* Tiêu đề trong "Kiến thức mới": luôn đúng 2 dòng, ngắt theo ý thay vì để trình duyệt ngắt giữa cụm từ.
+   Thứ tự ưu tiên: sau "?" hoặc "," giữa câu → trước chữ "khác" → chỗ trống gần giữa nhất. Mỗi nửa ≤ SIDE_LINE ký tự
+   (12.5px trong cột chữ 210px chứa khoảng 36 ký tự). Bài có thể tự chọn chỗ ngắt bằng "sideTitle": "Dòng một|Dòng hai".
+   Mỗi dòng không xuống hàng (CSS), dòng quá dài bị cắt bằng dấu "…" nên không bao giờ thành 3 dòng. */
+const SIDE_LINE = 36;
+function sideTitleLines(x) {
+  if (x.sideTitle) return x.sideTitle.split('|').map(s => s.trim());
+  const t = x.title, ok = i => i > 0 && i < t.length && t.slice(0, i).trim().length <= SIDE_LINE && t.slice(i).trim().length <= SIDE_LINE;
+  const cuts = [];
+  for (const re of [/[?,] /g, / khác /g]) for (const m of t.matchAll(re)) cuts.push(re.source === ' khác ' ? m.index : m.index + 1);
+  let cut = cuts.find(ok);
+  if (cut == null) {
+    const spaces = [...t.matchAll(/ /g)].map(m => m.index).filter(ok).sort((p, q) => Math.abs(p - t.length / 2) - Math.abs(q - t.length / 2));
+    cut = spaces[0];
+  }
+  return cut == null ? [t] : [t.slice(0, cut).trim(), t.slice(cut).trim()];
+}
 function articleSide(a, all, rel) {
   const counts = pillarCounts(all);
   const cats = SITE.pillars.map(p => {
@@ -934,7 +957,7 @@ function articleSide(a, all, rel) {
   const others = all.filter(x => x.slug !== a.slug).slice(0, SIDE_POSTS);
   const posts = (others.length ? others : [a]).map(x => {
     const self = x.slug === a.slug;
-    return `<li><a class="kb-side__post" href="${rel}${articlePath(x)}"${self ? ' aria-current="page"' : ''}>${x.cover && x.cover.base ? `<span class="kb-side__img"><img src="${rel}assets/kb/${x.cover.base}-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span>` : ''}<span class="kb-side__txt"><b title="${esc(x.title)}">${esc(x.title)}</b><small>${self ? 'Bạn đang đọc' : `<time datetime="${day(x.published)}">${vnDate(x.published)}</time>`}</small></span></a></li>`;
+    return `<li><a class="kb-side__post" href="${rel}${articlePath(x)}"${self ? ' aria-current="page"' : ''}>${x.cover && x.cover.base ? `<span class="kb-side__img"><img src="${rel}assets/kb/${x.cover.base}-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span>` : ''}<span class="kb-side__txt"><b title="${esc(x.title)}">${sideTitleLines(x).map(l => `<span>${esc(l)}</span>`).join(' ')}</b><small>${self ? 'Bạn đang đọc' : `<time datetime="${day(x.published)}">${vnDate(x.published)}</time>`}</small></span></a></li>`;
   }).join('\n                ');
   return `<aside class="kb-art__aside" aria-label="Tìm kiếm, chuyên mục và bài viết mới">
             <div class="kb-side">
@@ -955,8 +978,7 @@ function articleSide(a, all, rel) {
             <div class="kb-side__cta bio">
               <div class="bio__photo"><img src="${rel}${A.photo}" alt="${A.name}, ${esc(A.role)}" loading="lazy" decoding="async" width="760" height="760"></div>
               <div class="bio__body">
-                <p class="bio__name">${A.name} ${ico('i-verified')}</p>
-                <p class="bio__role">${esc(A.jobTitle)}</p>
+                <div class="bio__sig"><img src="${rel}assets/img/signature.png" alt="Chữ ký ${A.name}" width="984" height="346" loading="lazy" decoding="async"></div>
                 <div class="bio__links">
                   <button class="bio__link" type="button" data-copy="${A.email}"><span>${ico('i-mail')}<em>${A.email}</em></span><small>Sao chép</small></button>
                   <a class="bio__link" href="tel:${A.phoneRaw}"><span>${ico('i-phone')}<em>${A.phone}</em></span><small>Gọi</small></a>
@@ -1177,8 +1199,7 @@ function legalSide(doc, all, rel) {
             <div class="kb-side__cta bio">
               <div class="bio__photo"><img src="${rel}${A.photo}" alt="${A.name}, ${esc(isEn ? A.jobTitle : A.role)}" loading="lazy" decoding="async" width="760" height="760"></div>
               <div class="bio__body">
-                <p class="bio__name">${A.name} ${ico('i-verified')}</p>
-                <p class="bio__role">${esc(A.jobTitle)}</p>
+                <div class="bio__sig"><img src="${rel}assets/img/signature.png" alt="${isEn ? `Signature of ${A.name}` : `Chữ ký ${A.name}`}" width="984" height="346" loading="lazy" decoding="async"></div>
                 <div class="bio__links">
                   <button class="bio__link" type="button" data-copy="${A.email}"><span>${ico('i-mail')}<em>${A.email}</em></span><small>${isEn ? 'Copy' : 'Sao chép'}</small></button>
                   <a class="bio__link" href="tel:${A.phoneRaw}"><span>${ico('i-phone')}<em>${A.phone}</em></span><small>${isEn ? 'Call' : 'Gọi'}</small></a>
@@ -1305,7 +1326,7 @@ ${body}
 
   const ld = [
     websiteLd(),
-    personLd(),
+    personLd(doc.lang),
     {
       '@type': 'WebPage', '@id': `${url}#webpage`, url, name: doc.seoTitle || doc.title, description: doc.description,
       isPartOf: { '@id': `${ORIGIN}/#website` }, about: { '@id': `${ORIGIN}/#person` }, author: { '@id': `${ORIGIN}/#person` },
@@ -1522,7 +1543,7 @@ function homeSection(all) {
         <header class="sec-head sec-head--aside">
           <div class="sec-head__top"><a class="btn btn--light btn--sm magnetic kbh__all" href="${hubPath}"><span data-en="View all">Xem tất cả</span> ${ico('i-arrow', 'ico ico--arrow')}</a></div>
           <h2 class="h2" id="kb-title" data-fit data-split><span data-en="">Góc </span><span class="grad" data-en="Knowledge Hub">kiến thức</span></h2>
-          <div class="sec-head__foot"><span class="sec-head__rule"></span><p class="desc" data-en="I share marketing knowledge, practical ways to use AI and the lessons I have learned from projects delivered for SMEs.">Tôi chia sẻ kiến thức Marketing, cách ứng dụng AI và những bài học rút ra từ các dự án đã triển khai cho doanh nghiệp SME.</p></div>
+          <div class="sec-head__foot"><span class="sec-head__rule"></span><p class="desc" data-en="I share marketing knowledge, practical ways to use AI and lessons I have learned from the projects I have delivered for SMEs.">Tôi chia sẻ kiến thức Marketing, cách ứng dụng AI và những bài học rút ra từ các dự án đã triển khai cho doanh nghiệp SME.</p></div>
         </header>
         <div class="kbh__grid">
           ${post}

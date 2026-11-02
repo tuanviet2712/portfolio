@@ -36,36 +36,36 @@
     for (const k in KINDS) if (KINDS[k].re && KINDS[k].re.test(link)) return k;
     return 'link';
   };
-  // biểu tượng nét mảnh 24×24, cùng phong cách sprite trong index.html
-  const S = (d, extra = '') => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra}>${d}</svg>`;
+  const S = (d, extra = '') => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"${extra}><path d="${d}"/></svg>`;
+  const SF = (d, extra = '') => `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"${extra}><path d="${d}"/></svg>`;
   const ICON = {
-    sheet: S('<rect x="4" y="3.5" width="16" height="17" rx="2.5"/><path d="M4 9.5h16M4 15h16M10 9.5v11"/>'),
-    doc: S('<path d="M7 3.5h7l5 5v10a2.5 2.5 0 0 1-2.5 2.5h-9.5A2.5 2.5 0 0 1 4.5 18.5v-12.5A2.5 2.5 0 0 1 7 3.5z"/><path d="M14 3.5v5h5M8.5 12.5h7M8.5 16h7"/>'),
-    slide: S('<rect x="3" y="5" width="18" height="12" rx="2.5"/><path d="M8 20.5h8M12 17v3.5M7.5 10h6M7.5 13h4"/>'),
-    drive: S('<path d="M9 4h6l6 10.5-3 5.5H6l-3-5.5z"/><path d="M9 4 3 14.5M15 4l-5.5 10.5H21M6 20l4.5-5.5"/>'),
-    facebook: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.6 21v-7.2h2.5l.4-2.9h-2.9V9c0-.8.3-1.4 1.4-1.4h1.6V5.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.1H8v2.9h2.5V21z"/></svg>`,
-    tiktok: `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 3c.3 2.3 1.7 3.8 4 4v3c-1.5 0-2.9-.5-4-1.3v6.1a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v3.1a2.6 2.6 0 1 0 1.7 2.4V3z"/></svg>`,
-    youtube: S('<rect x="3" y="6" width="18" height="12" rx="4"/><path d="m10.5 9.5 4.5 2.5-4.5 2.5z" fill="currentColor" stroke="none"/>'),
-    zalo: S('<path d="M5 4.5h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-4.5 3v-3H5a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2z"/>'),
-    link: S('<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.2 1.2"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.2-1.2"/>'),
-    view: S('<circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4M11 8.5v5M8.5 11h5"/>'),
-    open: S('<path d="M7 17 17 7M8 7h9v9"/>'),
-    close: S('<path d="M6 6l12 12M18 6 6 18"/>'),
-    prev: S('<path d="M15 5l-7 7 7 7"/>'),
-    next: S('<path d="m9 5 7 7-7 7"/>')
+    sheet: S('M3 9h18M9 3v18M7.8 3h8.4c1.68 0 2.52 0 3.162.327a3 3 0 0 1 1.311 1.311C21 5.28 21 6.12 21 7.8v8.4c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C18.72 21 18.88 21 16.2 21H7.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C3 18.72 3 17.88 3 16.2V7.8c0-1.68 0-2.52.327-3.162a3 3 0 0 1 1.311-1.311C5.28 3 6.12 3 7.8 3Z'),
+    doc: S('M14 2.27V6.4c0 .56 0 .84.109 1.054a1 1 0 0 0 .437.437c.214.11.494.11 1.054.11h4.13M16 13H8m8 4H8m2-8H8m6-7H8.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C4 4.28 4 5.12 4 6.8v10.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C6.28 22 7.12 22 8.8 22h6.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C20 19.72 20 18.88 20 17.2V8l-6-6Z'),
+    slide: S('M12 16v5m0-5 6 5m-6-5-6 5M21 3v8.2c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C18.72 16 17.88 16 16.2 16H7.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C3 13.72 3 12.88 3 11.2V3m5 6v3m4-5v5m4-1v1m6-9H2'),
+    drive: S('m13 7-1.116-2.231c-.32-.642-.481-.963-.72-1.198a2 2 0 0 0-.748-.462C10.1 3 9.74 3 9.022 3H5.2c-1.12 0-1.68 0-2.108.218a2 2 0 0 0-.874.874C2 4.52 2 5.08 2 6.2V7m0 0h15.2c1.68 0 2.52 0 3.162.327a3 3 0 0 1 1.311 1.311C22 9.28 22 10.12 22 11.8v4.4c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C19.72 21 18.88 21 17.2 21H6.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C2 18.72 2 17.88 2 16.2V7Z'),
+    facebook: SF('M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.4V21z'),
+    tiktok: SF('M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48Z'),
+    youtube: S('M5 4.99c0-.972 0-1.457.202-1.725a1 1 0 0 1 .738-.395c.335-.02.74.25 1.548.788l10.515 7.01c.668.446 1.002.668 1.118.949a1 1 0 0 1 0 .766c-.116.28-.45.503-1.118.948l-10.515 7.01c-.809.54-1.213.809-1.548.789a1 1 0 0 1-.738-.395C5 20.467 5 19.98 5 19.01V4.99Z'),
+    zalo: S('M21 11.5a8.5 8.5 0 0 1-11.555 7.934c-.174-.066-.26-.1-.33-.116a.901.901 0 0 0-.186-.024 2.314 2.314 0 0 0-.303.021l-5.12.53c-.49.05-.733.075-.877-.013a.5.5 0 0 1-.234-.35c-.026-.166.09-.382.324-.814l1.636-3.027c.134-.25.202-.374.232-.494a.899.899 0 0 0 .028-.326c-.01-.123-.064-.283-.172-.604A8.5 8.5 0 1 1 21 11.5Z'),
+    link: S('m12.708 18.364-1.415 1.414a5 5 0 1 1-7.07-7.07l1.413-1.415m12.728 1.414 1.415-1.414a5 5 0 0 0-7.071-7.071l-1.415 1.414M8.5 15.5l7-7'),
+    view: S('m21 21-4.35-4.35M11 8v6m-3-3h6m5 0a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z'),
+    open: S('M7 17 17 7m0 0H7m10 0v10'),
+    close: S('M18 6 6 18M6 6l12 12'),
+    prev: S('m15 18-6-6 6-6'),
+    next: S('m9 18 6-6-6-6')
   };
 
-  /* ---------------- Dữ liệu: bức tường + danh sách ô phẳng ---------------- */
-  // Ô: { partner | title, img, link, note } | '' (ô trống)
-  // Hàng: [ô, ô, ô, ô] | { label, items: [ô, ô, ô, ô] }
-  const CELLS = []; // mọi ô có ảnh, theo thứ tự trên trang — dùng cho lightbox (chuyển ô trước/sau)
+  const CELLS = [];
   function walls() {
-    const sc = DATA.showcase || {};
+    CELLS.length = 0;
+    const sc = (window.SITE_DATA && window.SITE_DATA.showcase) || DATA.showcase || {};
     const byId = {};
     (sc.partners || []).forEach(p => (byId[p.id] = p));
     return (sc.groups || []).map(g => {
+      let curLabel = '';
       const rows = (g.rows || []).map(r => {
         const row = Array.isArray(r) ? { items: r } : (r || {});
+        if (row.label) curLabel = row.label;
         const items = (row.items || []).map(it => {
           const o = it && typeof it === 'object' ? it : { partner: it || '' };
           const p = o.partner ? byId[o.partner] || { id: String(o.partner), name: String(o.partner) } : null;
@@ -77,10 +77,10 @@
           const cell = {
             name, link, kind,
             note: String(o.note || '').trim() || KINDS[kind].label,
-            shot: img ? IMG_DIR + img + '.jpg' : '',
-            shot1x: img ? IMG_DIR + img + '-1x.jpg' : '',
-            full: img ? IMG_DIR + img + '-full.jpg' : '',
-            group: g.name, rowLabel: row.label || '', idx: -1
+            shot: img ? IMG_DIR + img + '.jpg?v=5' : '',
+            shot1x: img ? IMG_DIR + img + '-1x.jpg?v=5' : '',
+            full: img ? IMG_DIR + img + '-full.jpg?v=5' : '',
+            group: g.name, rowLabel: row.label || curLabel, idx: -1
           };
           if (cell.shot) { cell.idx = CELLS.length; CELLS.push(cell); }
           return cell;
@@ -92,7 +92,6 @@
   }
 
   function titleHTML(name) {
-    // phần sau "&" (hoặc sau 2 từ đầu) tô gradient: "Plan & <Campaign>", "Hạng mục <khác>"
     const s = String(name).trim();
     let i = s.indexOf('&');
     if (i >= 0) i += 1;
@@ -101,17 +100,13 @@
     return c ? `${esc(a)} <span class="grad">${esc(c)}</span>` : `<span class="grad">${esc(a)}</span>`;
   }
 
-  /* ---------------- Thẻ ---------------- */
-  /* ---------------- Thẻ: chỉ là ảnh chụp trong khung trắng (như ledinhtuan.com) ----------------
-     Tên đối tác + loại đích nằm trong một nhãn nhỏ góc trái dưới, chỉ hiện khi rê chuột
-     (màn cảm ứng: hiện cố định, cỡ nhỏ). Không dải tối, không nút tròn. */
   function cardHTML(it) {
     if (it.empty) {
       return `<div class="pw-card pw-card--empty" aria-hidden="true"><span class="pw-card__frame"><span class="pw-ph pw-ph--empty"><b>Đang cập nhật</b></span></span></div>`;
     }
     const where = it.rowLabel ? `${it.group}, ${it.rowLabel}` : it.group;
     const media = it.shot
-      ? `<img src="${esc(it.shot)}" srcset="${esc(it.shot1x)} 560w, ${esc(it.shot)} 1120w" sizes="(min-width: 1024px) 31vw, (min-width: 640px) 47vw, 82vw" alt="" loading="lazy" decoding="async" draggable="false">`
+      ? `<img src="${esc(it.shot)}" srcset="${esc(it.shot)} 1x, ${esc(it.full)} 2x" alt="" loading="lazy" decoding="async" draggable="false">`
       : `<span class="pw-ph"><b>${esc(it.name)}</b><small>${esc(it.note)}</small></span>`;
     const tag = `<span class="pw-card__tag"><i>${ICON[it.kind] || ICON.link}</i><b>${esc(it.name)}</b><small>${esc(it.note)}</small>${it.link ? `<em>${ICON.open}</em>` : ''}</span>`;
     const inner = `<span class="pw-card__frame">${media}<span class="pw-card__veil"></span>${tag}</span>`;
@@ -127,16 +122,15 @@
     return `<div class="pw-card${it.link ? ' pw-card--link' : ''}${it.shot ? ' pw-card--img' : ''}">${html}</div>`;
   }
 
-  function wallHTML(w) {
+  function wallHTML(w, wi) {
     const lines = w.rows.map((r, ri) => {
-      const rev = ri % 2 === 0; // hàng chẵn neo mép phải, trượt sang phải · hàng lẻ neo trái, trượt sang trái
+      const rev = (wi % 2 === 1) ? ri % 2 !== 0 : ri % 2 === 0;
       const cards = r.items.map(cardHTML).join('');
       return `<div class="pw__line${rev ? ' pw__line--rev' : ''}">${r.label ? `<p class="pw__label"><span>${esc(r.label)}</span></p>` : ''}<div class="pw__row${rev ? ' pw__row--rev' : ''}">${cards}</div></div>`;
     }).join('');
     return `<div class="pw" id="du-an-${esc(w.id)}" role="group" aria-labelledby="pw-${esc(w.id)}-title" data-wall="${esc(w.id)}">
-      <div class="pw__fade" aria-hidden="true"></div><div class="pw__fade pw__fade--2" aria-hidden="true"></div>
       <header class="pw__head">
-        <h3 class="pw__title" id="pw-${esc(w.id)}-title" data-fit data-fit-min="22" data-split>${titleHTML(w.name)}</h3>
+        <h3 class="pw__title" id="pw-${esc(w.id)}-title" data-fit data-fit-min="18" data-split>${titleHTML(w.name)}</h3>
         <p class="desc pw__desc">${esc(w.desc)}</p>
       </header>
       <div class="pw__wall">${lines}</div>
@@ -145,7 +139,6 @@
 
   const navHTML = list => list.map(w => `<a class="pw-nav__a" href="#du-an-${esc(w.id)}" data-to="${esc(w.id)}"><b>${esc(w.no)}</b>${esc(w.name)}</a>`).join('');
 
-  /* ---------------- Dựng section + hiệu ứng ---------------- */
   document.addEventListener('DOMContentLoaded', () => {
     const host = $('[data-showcase]');
     if (!host) return;
@@ -155,12 +148,56 @@
     const nav = $('[data-showcase-nav]');
     if (nav) nav.insertAdjacentHTML('beforeend', navHTML(list));
     L.enhance(host);
+    if (L.fitJustify) L.fitJustify(host);
     initWalls(host, nav);
     initLightbox(host);
+    L.showcaseRefreshLang = () => {
+      const updated = walls();
+      const navLinks = nav ? $$('.pw-nav__a', nav) : [];
+      updated.forEach((w, wi) => {
+        const wallEl = document.getElementById(`du-an-${w.id}`);
+        const tEl = document.getElementById(`pw-${w.id}-title`);
+        if (tEl) {
+          const wasIn = tEl.classList.contains('is-in');
+          delete tEl.dataset.splitDone;
+          tEl.innerHTML = titleHTML(w.name);
+          if (L.splitWords) L.splitWords(tEl);
+          if (wasIn) tEl.classList.add('is-in');
+        }
+        if (wallEl) {
+          const dEl = $('.pw__desc', wallEl);
+          if (dEl) dEl.textContent = w.desc;
+          const lines = $$('.pw__line', wallEl);
+          w.rows.forEach((r, ri) => {
+            const lineEl = lines[ri];
+            if (!lineEl) return;
+            const lbl = $('.pw__label span', lineEl);
+            if (lbl && r.label) lbl.textContent = r.label;
+            const cardEls = $$('.pw-card', lineEl);
+            r.items.forEach((it, ii) => {
+              const cEl = cardEls[ii];
+              if (!cEl || it.empty) return;
+              const b = $('.pw-card__tag b', cEl);
+              const sm = $('.pw-card__tag small', cEl);
+              if (b) b.textContent = it.name;
+              if (sm) sm.textContent = it.note;
+              const phB = $('.pw-ph b', cEl);
+              const phSm = $('.pw-ph small', cEl);
+              if (phB) phB.textContent = it.name;
+              if (phSm) phSm.textContent = it.note;
+            });
+          });
+        }
+        if (navLinks[wi]) {
+          navLinks[wi].innerHTML = `<b>${esc(w.no)}</b>${esc(w.name)}`;
+        }
+      });
+      if (L.fit) L.fit(host);
+      if (L.fitJustify) L.fitJustify(host);
+    };
   });
 
   function initWalls(host, nav) {
-    // Lò xo giống Framer Motion useSpring({ stiffness: 400, damping: 40, mass: 0.8 }) đặt trên vị trí cuộn
     const K = 400, C = 40, M = 0.8;
     let ys = window.scrollY, vs = 0;
     const spring = (target, dt) => {
@@ -169,7 +206,7 @@
       if (Math.abs(target - ys) < 0.05 && Math.abs(vs) < 1) { ys = target; vs = 0; }
     };
 
-    const W = $$('.pw', host).map(el => ({
+    const W = $$('.pw', host).map((el, wi) => ({ flip: wi % 2 === 1,
       el, id: el.dataset.wall,
       wall: $('.pw__wall', el),
       rows: $$('.pw__row', el),
@@ -177,21 +214,18 @@
       top: 0, h: 1, tiltD: 1, travel: [], lp: -1, lt: -1, live: false
     }));
     let vh = innerHeight, mob = innerWidth <= 768;
-    let navLinks = [], pill = null, cur = null, secBot = 0; // thanh hạng mục (bên dưới)
+    let navLinks = [], pill = null, cur = null, secBot = 0;
 
     const sec = host.closest('section') || host;
     function measure() {
       vh = innerHeight; mob = innerWidth <= 768;
-      // lớp phủ mép tường vẽ lại nền section → cần biết chiều cao section và độ lệch của từng tường trong section
       const secTop = L.docTop(sec);
       sec.style.setProperty('--sec-h', sec.offsetHeight + 'px');
       W.forEach(w => {
         w.top = L.docTop(w.el);
         w.el.style.setProperty('--fade-y', (secTop - w.top).toFixed(0) + 'px');
         w.h = Math.max(1, w.el.offsetHeight);
-        // ledinhtuan.com: bức tường ~1,85 màn hình, dựng thẳng trong 20% đầu => ~0,37 màn hình cuộn
         w.tiltD = 1.85 * vh;
-        // mỗi hàng trượt đúng phần đang tràn khỏi khung (máy tính: 1 ô) => ô thứ 4 vào hẳn, không lộ mép trống
         w.travel = w.rows.map(row => {
           const card = row.firstElementChild;
           if (!card) return 0;
@@ -200,7 +234,6 @@
           const over = n * card.offsetWidth + (n - 1) * (parseFloat(cs.columnGap) || 0) - inner;
           return Math.max(0, over) * (L.reduced ? 0.25 : 1);
         });
-        // tâm xoay/phối cảnh ở giữa bức tường (tối đa 4 hàng đầu như bản gốc)
         const pitch = w.wall.offsetHeight / Math.max(1, w.wall.children.length);
         const oy = Math.min(w.wall.offsetHeight / 2, 2 * pitch);
         w.wall.style.transformOrigin = `50% ${oy.toFixed(0)}px`;
@@ -218,13 +251,13 @@
       w.lp = p; w.lt = pt;
       const t20 = clamp(pt / 0.2), t15 = clamp(pt / 0.15), t25 = clamp(pt / 0.25);
       const rx = map(t20, L.reduced ? 5 : 15, 0);
-      const rz = map(t20, L.reduced ? 5 : 20, 0);
+      const sign = w.flip ? -1 : 1, rz = sign * map(t20, L.reduced ? 5 : 20, 0);
       const ty = map(t20, mob ? -100 : -200, mob ? 40 : 150);
       w.wall.style.transform = `translate3d(0, ${ty.toFixed(1)}px, 0) rotateX(${rx.toFixed(2)}deg) rotateZ(${rz.toFixed(2)}deg)`;
       w.wall.style.opacity = map(t15, 0.3, 1).toFixed(3);
       const f = (1 - t25).toFixed(3);
       w.fades.forEach(el => (el.style.opacity = f));
-      for (let i = 0; i < w.rows.length; i++) w.rows[i].style.transform = `translate3d(${((i % 2 ? -1 : 1) * w.travel[i] * p).toFixed(1)}px, 0, 0)`;
+      for (let i = 0; i < w.rows.length; i++) w.rows[i].style.transform = `translate3d(${(sign * (i % 2 ? -1 : 1) * w.travel[i] * p).toFixed(1)}px, 0, 0)`;
     }
 
     measure();
@@ -232,6 +265,7 @@
     W.forEach(w => apply(w, window.scrollY));
 
     L.tick(s => {
+      if (sec.classList.contains('prx-on')) return;
       spring(s.y, s.dt);
       for (const w of W) {
         const near = ys + vh > w.top - vh * 0.5 && ys < w.top + w.h + vh * 0.5;
@@ -241,7 +275,6 @@
       navTick(s.y);
     });
 
-    /* ---------- Thanh hạng mục nổi ở đáy màn hình ---------- */
     function navMeasure() {
       if (!nav) return;
       const sec = nav.closest('section') || host;
@@ -287,7 +320,6 @@
     }
   }
 
-  /* ---------------- Lightbox: xem ảnh lớn, chuyển ô trước / sau ---------------- */
   function initLightbox(host) {
     if (!CELLS.length) return;
     const lb = document.createElement('div');
@@ -327,7 +359,6 @@
       if (c.link) { elOpen.href = c.link; elOpen.hidden = false; elOpen.setAttribute('aria-label', `Mở ${KINDS[c.kind].label}: ${c.name} (tab mới)`); }
       else { elOpen.hidden = true; elOpen.removeAttribute('href'); }
       img.alt = `${c.name}, ${c.note}`;
-      // hiện thumbnail (đã tải) ngay, nạp bản lớn rồi thay
       lb.classList.add('is-loading');
       if (dir) { fig.classList.remove('slide-l', 'slide-r'); void fig.offsetWidth; fig.classList.add(dir > 0 ? 'slide-l' : 'slide-r'); }
       img.src = c.shot;
@@ -336,7 +367,6 @@
       big.onload = () => { if (id !== loadId) return; img.src = c.full; lb.classList.remove('is-loading'); };
       big.onerror = () => { if (id === loadId) lb.classList.remove('is-loading'); };
       big.src = c.full;
-      // nạp trước hai ô kề để chuyển mượt
       [1, -1].forEach(d => { const n = CELLS[(cur + d + CELLS.length) % CELLS.length]; if (n && n.full) { const p = new Image(); p.src = n.full; } });
     }
     function open(i, from) {
@@ -377,7 +407,6 @@
       else if (e.key === 'ArrowRight') { e.preventDefault(); show(cur + 1, 1); }
       else if (e.key === 'ArrowLeft') { e.preventDefault(); show(cur - 1, -1); }
       else if (e.key === 'Tab') {
-        // giữ focus trong hộp thoại
         const f = $$('button, a[href]', lb).filter(el => !el.hidden && el.offsetParent !== null);
         if (!f.length) return;
         const first = f[0], last = f[f.length - 1];
@@ -385,7 +414,6 @@
         else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
       }
     });
-    // vuốt ngang trên điện thoại để chuyển ảnh
     let sx = 0, sy = 0, swiping = false;
     stage.addEventListener('pointerdown', e => { sx = e.clientX; sy = e.clientY; swiping = true; }, { passive: true });
     stage.addEventListener('pointerup', e => {

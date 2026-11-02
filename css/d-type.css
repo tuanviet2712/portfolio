@@ -1,0 +1,40 @@
+/* ==========================================================================
+   D-TYPE — hệ chữ đoạn văn bản máy tính (> 760px), VI + EN
+   Mỗi loại chữ một cỡ cố định (không đoạn to đoạn nhỏ); fitJustify (js/fx.js) bỏ qua các đoạn
+   có --dt-fixed nên không còn chỉnh cỡ riêng từng đoạn. Khoảng trắng khi căn đều 2 bên được giữ
+   bằng cách viết chữ vừa dòng, không bằng đổi cỡ chữ.
+   Bản điện thoại: css/m-type.css. Không đụng tới hero (#trang-chu).
+   ========================================================================== */
+@media (min-width: 761px) {
+  :root {
+    --dt-lead: 14.5px;   /* mô tả dưới tiêu đề section, mô tả nhóm dự án, liên hệ, nhận xét */
+    --dt-card: 13.5px;   /* chữ trong thẻ: giới thiệu, thế mạnh, kinh nghiệm, giá trị, năng lực, công cụ, quy trình, chân trang */
+  }
+
+  .sec-head__foot .desc,
+  .pw__desc,
+  .cta__main .desc,
+  .quote__text {
+    font-size: var(--dt-lead) !important;
+    --dt-fixed: 1;
+  }
+
+  .about__block .desc,
+  .strength .desc,
+  .tl .desc,
+  .vcard__desc,
+  .vcard__proof-txt,
+  .skx-panel__desc,
+  .skill .desc,
+  .pstep .desc,
+  .footer__brand .desc {
+    font-size: var(--dt-card) !important;
+    --dt-fixed: 1;
+  }
+
+  /* Mô tả các bước quy trình: bề rộng tối đa bằng bản 1440px, để màn rộng hơn ngắt dòng giống hệt (chữ đã căn theo bề rộng này) */
+  html.st #quy-trinh.pfx .pstep .desc { max-width: 488px; }
+
+  /* Tiêu đề "Kết nối với tôi" cùng cỡ với tiêu đề các section khác (.h2) */
+  .cta__title { font-size: clamp(2rem, 5vw, 4.3rem); }
+}

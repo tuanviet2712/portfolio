@@ -200,7 +200,10 @@
     measure();
     L.onLayout(measure);
 
+    // .pfx = cảnh 3D (js/scenes/process.js): cảnh đó điều khiển chữ, bộ đếm và thanh bước từ cùng một tiến độ
+    const driven = () => sec.classList.contains('pfx');
     L.tick(s => {
+      if (driven()) return;
       if (!wide.matches) { if (lastCur !== -2) { lastCur = -2; steps.forEach(el => el.classList.add('is-current')); } return; }
       const rt = pinTop - s.y;
       if (rt + pinH < -50 || rt > s.vh + 50) return;
@@ -213,8 +216,10 @@
     });
 
     nodes.forEach((b, i) => b.addEventListener('click', () => {
+      if (driven()) return;
       const top = L.docTop(pin) + ((i + 0.5) / n) * (pin.offsetHeight - innerHeight);
-      window.scrollTo({ top, behavior: L.reduced ? 'auto' : 'smooth' });
+      if (L.stage && L.stage.scrollTo && !L.stage.off) L.stage.scrollTo(top, { duration: 1.4 });
+      else window.scrollTo({ top, behavior: L.reduced ? 'auto' : 'smooth' });
     }));
   }
 
@@ -242,7 +247,7 @@
     box.innerHTML = rows.map((r, i) => {
       const group = Array(repsFor(r)).fill(r.map(cell).join('')).join('');
       return `<div class="logos__row rv" style="--d:${i + 1}" aria-hidden="true"><ul class="logos__track">${group}${group}</ul></div>`;
-    }).join('') + `<ul class="sr-only">${list.map(p => `<li>${esc(p.name)} — ${esc(p.note)}, ${esc(p.period)}</li>`).join('')}</ul>`;
+    }).join('') + `<ul class="sr-only">${list.map(p => `<li>${esc(p.name)} — ${esc(p.note)}${p.period ? ', ' + esc(p.period) : ''}</li>`).join('')}</ul>`;
 
     // Cân cỡ thị giác (đơn vị: px ở máy tính; CSS nhân với --u theo màn hình). Ảnh đã cắt sát viền nên tỉ lệ khung là thật:
     // logo dài thì thấp lại, logo gọn thì cao lên (h ~ ar^-0.45), giới hạn 26–56px, rồi nhân scale (bù độ đậm), trần 62px, rộng ≤ 180px
@@ -322,13 +327,35 @@
     track.innerHTML = list.map(card).join('') + list.map(card).join('');
     $$('.quote__av svg', track).forEach(s => { s.style.width = '22px'; s.style.height = '22px'; s.style.color = 'var(--blue)'; });
     L.enhance(track);
+    if (L.fitJustify) L.fitJustify(track);
 
-    const SPEED = 22; // px/giây — chậm, kiểu casual
+    const SPEED = 24.2; // px/giây — tăng 10% so với 22 px/s, tự trôi liên tục
     let w = track.scrollWidth / 2, x = 0, v = 0, cur = SPEED, hover = false, drag = null, vis = false, inView = false;
     const setW = () => (w = track.scrollWidth / 2);
     L.onResize(setW);
     setW();
-    new IntersectionObserver(([e]) => (vis = e.isIntersecting)).observe(vp);
+    L.feedbackRefreshLang = () => {
+      const items = (window.SITE_DATA && window.SITE_DATA.feedbacks) || [];
+      if (!items.length) return;
+      const cards = $$('.quote', track);
+      cards.forEach((c, idx) => {
+        const f = items[idx % items.length];
+        if (!f) return;
+        const proof = f.type === 'proof';
+        const badge = $('.quote__badge', c);
+        const text = $('.quote__text', c);
+        const role = $('.quote__role', c);
+        if (badge) {
+          const bRaw = proof ? 'Ghi nhận chính thức' : (f.badge || 'Khách hàng nhận xét');
+          badge.textContent = window.LTV_I18N && window.LTV_I18N.t ? window.LTV_I18N.t(bRaw) : bRaw;
+        }
+        if (text) text.textContent = (proof ? '' : '“') + f.text + (proof ? '' : '”');
+        if (role) role.textContent = f.role;
+      });
+      if (L.fitJustify) L.fitJustify(track);
+      setW();
+    };
+    new IntersectionObserver(([e]) => (vis = e.isIntersecting), { rootMargin: '250px 0px' }).observe(vp);
     new IntersectionObserver(([e]) => (inView = e.isIntersecting), { threshold: 0.35 }).observe(vp);
     vp.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hover = true; });
     vp.addEventListener('pointerleave', () => (hover = false));
@@ -356,16 +383,17 @@
 
     L.tick(s => {
       if (!vis || !w) return;
-      const target = hover || drag || L.reduced ? 0 : SPEED;
+      const target = drag || L.reduced ? 0 : SPEED;
       cur += (target - cur) * (1 - Math.exp(-s.dt * 5));
       if (!drag) {
         x += (-cur + v) * s.dt;
         v *= Math.exp(-s.dt * 3);
-        if (kick) { const k = kick * Math.min(1, s.dt * 6); x += k; kick -= k; }
+        if (kick) { const k = kick * Math.min(1, s.dt * 6); x += k; kick -= k; } } if (track.__scrollDx) { x += track.__scrollDx; track.__scrollDx = 0;
       }
       x %= w;
       if (x > 0) x -= w;
       track.style.transform = `translate3d(${x.toFixed(2)}px,0,0)`;
+      track.__x = x; // js/scenes/dom.js đọc để xoay từng thẻ theo vị trí (hiệu ứng cover flow)
     });
 
     // phím mũi tên khi section đang hiển thị
@@ -383,6 +411,7 @@
   function initCasual() {
     if (matchMedia('(min-width: 1025px)').matches) return;
     $$('[data-casual="mobile"]').forEach(box => {
+      if (box.closest && box.closest('#quy-trinh') && (!L.params || !L.params.has('nomotion'))) return;
       const items = Array.from(box.children);
       if (items.length < 2) return;
       const vp = document.createElement('div'); vp.className = 'cmar';
@@ -399,7 +428,7 @@
       let w = track.scrollWidth / 2, x = 0, v = 0, cur = SPEED, drag = null, vis = false, lastIdx = -1;
       const setW = () => (w = track.scrollWidth / 2);
       L.onResize(setW);
-      new IntersectionObserver(([e]) => (vis = e.isIntersecting)).observe(vp);
+      new IntersectionObserver(([e]) => (vis = e.isIntersecting), { rootMargin: '250px 0px' }).observe(vp);
       vp.addEventListener('pointerdown', e => {
         drag = { x: e.clientX, t: performance.now() }; v = 0;
         vp.setPointerCapture(e.pointerId); vp.classList.add('is-drag');

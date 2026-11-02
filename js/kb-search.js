@@ -269,7 +269,7 @@
   function go(ui) {
     const o = ui.opts[ui.active >= 0 ? ui.active : (ui.input.value.trim() ? 0 : -1)];
     const a = o && o.querySelector('a');
-    if (a) location.href = a.href;
+    if (a) a.click();
   }
 
   const uis = forms.map(form => {

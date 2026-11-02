@@ -93,7 +93,7 @@ html[data-lang="en"] .cta__main .btn-row {
 
 .lang-float {
   position: fixed;
-  left: clamp(16px, 2.2vw, 26px);
+  right: clamp(16px, 2.2vw, 26px);
   bottom: clamp(16px, 2.2vw, 26px);
   z-index: 110;
   height: 42px;
