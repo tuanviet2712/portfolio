@@ -63,13 +63,10 @@
     .d4 { animation-delay: .36s } .d5 { animation-delay: .46s } .d6 { animation-delay: .58s }
     @keyframes rise { to { opacity: 1; transform: none; } }
 
-    /* ── Thanh trên: logo dạng viên thuốc như thanh điều hướng của trang chủ ── */
+    /* ── Thanh trên: logo + tên đứng tự do, không khối bao quanh ── */
     .top { display: flex; }
-    .brand { display: inline-flex; align-items: center; gap: 12px; padding: 9px 20px 9px 9px; border-radius: 999px; text-decoration: none; color: inherit;
-      background: rgb(255 255 255 / .07); border: 1px solid rgb(255 255 255 / .14);
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      transition: background .35s, border-color .35s; }
-    .brand:hover { background: rgb(255 255 255 / .13); border-color: rgb(255 255 255 / .26); }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; transition: opacity .35s; }
+    .brand:hover { opacity: .8; }
     .brand img { width: 38px; height: 38px; padding: 6px; border-radius: 50%; background: #fff; }
     .brand__txt { display: block; }
     .brand b { display: block; font-size: 14.5px; font-weight: 600; letter-spacing: -.01em; line-height: 1.25; }
@@ -85,7 +82,9 @@
       backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
     .tag i { width: 7px; height: 7px; border-radius: 50%; background: linear-gradient(120deg, var(--cyan), var(--sky)); box-shadow: 0 0 0 4px rgb(47 140 255 / .16); }
 
-    h1 { margin: 0 0 18px; font-size: clamp(2.1rem, 6.2vw, 4.15rem); font-weight: 800; line-height: 1.06; letter-spacing: -.045em; text-wrap: balance; }
+    /* Luôn 1 dòng: dòng chữ dài ~11 lần cỡ chữ, nên trên màn hẹp cỡ chữ co theo bề rộng còn lại sau lề */
+    h1 { margin: 0 0 18px; font-size: min(clamp(2.1rem, 6.2vw, 4.15rem), calc((100vw - 2 * var(--gutter) - 16px) / 11.2));
+      font-weight: 800; line-height: 1.06; letter-spacing: -.045em; white-space: nowrap; }
     h1 em { font-style: normal; background: linear-gradient(104deg, #FFFFFF 0%, #BCD5FF 46%, #6FD9FF 100%);
       -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
     .lead { margin: 0 0 clamp(28px, 4.5vh, 40px); max-width: 48ch; font-size: clamp(14.5px, 1.7vw, 16.5px); line-height: 1.8; color: rgb(245 248 255 / .74); }
@@ -128,7 +127,6 @@
     }
     @media (max-width: 420px) {
       .brand__role { display: none; }
-      .brand { padding-right: 16px; }
       .bottom { gap: 10px 18px; }
     }
     @media (prefers-reduced-motion: reduce) {
