@@ -44,13 +44,13 @@ jobs:
       RUN_ID: ${{ github.run_id }}
     steps:
       - name: Lay ma nguon
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1 (ghim SHA: the tag co the bi doi)
         with:
           ref: master
           fetch-depth: 0
 
       - name: Cai Node
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
 
@@ -87,6 +87,20 @@ jobs:
           // tep kem bai: dung duong dan bai cua chinh slug nay, con lai chi la anh nam dung cho cua slug nay
           for (const f of b.files) if (f.path !== ap && !okAsset(f.path)) { console.error('duong dan tep khong hop le: ' + f.path); process.exit(2); }
           for (const p of b.link_patches) if (!/^tools\/kb\/articles\/[a-z0-9-]+\.html$/.test(p.path)) { console.error('duong dan sua bai cu khong hop le: ' + p.path); process.exit(2); }
+          // 0b. Chan HTML co the chay ma hoac gia mao trong bai va trong cac sua bai cu (phong khi trang quan tri bi chiem; CSP la lop sau)
+          const BAD_TAG = /<\/?(?:iframe|frame|frameset|object|embed|applet|form|input|textarea|select|button|meta|base|link|style|svg|math|template|portal)\b/i;
+          const ON_ATTR = /<[a-z][^>]*?[\s"'\/]on[a-z]+\s*=/i;
+          const BAD_URL = /(?:href|src|srcset|action|formaction|xlink:href|poster|background)=["']?(?:javascript|vbscript|data):/i;
+          const cp = n => n <= 0x10ffff ? String.fromCodePoint(n) : '';
+          const unent = s => s.replace(/&#x([0-9a-f]+);?/gi, (_, h) => cp(parseInt(h, 16))).replace(/&#(\d+);?/g, (_, d) => cp(+d)).replace(/&colon;/gi, ':').replace(/&(?:tab|newline);/gi, '');
+          const unsafe = s => {
+            if (!(s.match(/<script\b[^>]*>/gi) || []).every(t => t === '<script type="application/json" data-meta>')) return 'the script';
+            const t = s.match(BAD_TAG); if (t) return 'the ' + t[0];
+            if (ON_ATTR.test(s)) return 'thuoc tinh on*';
+            if (BAD_URL.test(unent(s).replace(/[\x00-\x20]+/g, ''))) return 'duong dan javascript/vbscript/data';
+            return '';
+          };
+          for (const p of b.link_patches) { const why = unsafe(String(p.replace)); if (why) { console.error('sua bai cu co noi dung bi chan (' + why + '): ' + p.path); process.exit(2); } }
           // 1. Chong de len bai khac cung slug
           if (fs.existsSync(ap) && !fs.readFileSync(ap, 'utf8').includes(b.marker)) {
             fs.writeFileSync(process.env.RUNNER_TEMP + '/fail.txt', 'slug_conflict'); process.exit(3);
@@ -102,6 +116,7 @@ jobs:
               buf = Buffer.from(await r.arrayBuffer());
             }
             if (sha(buf) !== f.sha256) throw new Error('sai sha256 ' + f.path);
+            if (f.path === ap) { const why = unsafe(buf.toString('utf8')); if (why) { console.error('bai co noi dung bi chan: ' + why); process.exit(2); } }
             fs.mkdirSync(path.dirname(f.path), { recursive: true }); fs.writeFileSync(f.path, buf);
           }
           // 3. Sua bai cu (lien ket 2 chieu): chi ap khi find xuat hien dung 1 lan
