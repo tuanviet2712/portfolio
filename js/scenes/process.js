@@ -781,7 +781,7 @@
      ========================================================================== */
   function createFilmPlayer(secEl, sticky, onSync) {
     const DIR = 'assets/process/film/';
-    const VER = '?v=916';
+    const VER = '?v=917'; // 917: film.mp4 nén lại CRF 22 + film.js dựng lại chỉ mục (2026-11-02)
     const POOL = 24;
     const AHEAD = 10;
     const QIN = 10;
