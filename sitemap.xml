@@ -30,13 +30,13 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/</loc>
-    <lastmod>2026-10-29</lastmod>
+    <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -48,7 +48,7 @@
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/quan-tri-marketing/</loc>
-    <lastmod>2026-10-27</lastmod>
+    <lastmod>2026-11-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,171 @@
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/quan-tri-marketing/chien-luoc-cho-san-pham-moi/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-cho-san-pham-moi.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-cho-san-pham-moi/01-chien-luoc-cho-san-pham-moi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-cho-san-pham-moi/02-chien-luoc-cho-san-pham-moi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-cho-san-pham-moi/03-chien-luoc-cho-san-pham-moi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-cho-san-pham-moi/04-chien-luoc-cho-san-pham-moi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-cho-san-pham-moi/05-chien-luoc-cho-san-pham-moi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-cho-san-pham-moi/06-chien-luoc-cho-san-pham-moi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-cho-san-pham-moi/07-chien-luoc-cho-san-pham-moi.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/quan-tri-marketing/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/01-chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/02-chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/03-chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/04-chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/05-chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/06-chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/07-chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/quan-tri-marketing/chien-dich-marketing-la-gi/</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-dich-marketing-la-gi.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-dich-marketing-la-gi/01-chien-dich-marketing-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-dich-marketing-la-gi/02-chien-dich-marketing-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-dich-marketing-la-gi/03-chien-dich-marketing-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-dich-marketing-la-gi/04-chien-dich-marketing-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-dich-marketing-la-gi/05-chien-dich-marketing-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-dich-marketing-la-gi/06-chien-dich-marketing-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-dich-marketing-la-gi/07-chien-dich-marketing-la-gi.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/quan-tri-marketing/mau-ke-hoach-marketing/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/mau-ke-hoach-marketing.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/mau-ke-hoach-marketing/01-mau-ke-hoach-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/mau-ke-hoach-marketing/02-mau-ke-hoach-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/mau-ke-hoach-marketing/03-mau-ke-hoach-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/mau-ke-hoach-marketing/04-mau-ke-hoach-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/mau-ke-hoach-marketing/05-mau-ke-hoach-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/mau-ke-hoach-marketing/06-mau-ke-hoach-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/mau-ke-hoach-marketing/07-mau-ke-hoach-marketing.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/marketing/affiliate-content-facebook/</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/affiliate-content-facebook.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/affiliate-content-facebook/01-affiliate-content-facebook.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/affiliate-content-facebook/02-affiliate-content-facebook.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/affiliate-content-facebook/03-affiliate-content-facebook.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/affiliate-content-facebook/04-affiliate-content-facebook.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/affiliate-content-facebook/05-affiliate-content-facebook.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/affiliate-content-facebook/06-affiliate-content-facebook.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/affiliate-content-facebook/07-affiliate-content-facebook.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/du-an-va-bai-hoc/chien-luoc-digital-marketing-cua-shopee/</loc>
