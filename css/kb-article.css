@@ -327,9 +327,12 @@
    màn hình thấp hơn thẻ thì giá trị âm, thẻ dính theo mép dưới để nút cuối luôn trong tầm nhìn. */
 .kb-side__cta.bio { position: sticky; top: var(--side-top, 96px); max-width: none; border-radius: 24px; background: #fff; border: 1px solid #E2E8F2; box-shadow: 0 30px 60px -46px rgb(var(--shadow-rgb) / .5); backdrop-filter: none; -webkit-backdrop-filter: none; transition: top .6s var(--ease); }
 .nav.is-hidden ~ main .kb-side__cta { top: var(--side-top-h, 28px); }
-.kb-side__cta .bio__photo { aspect-ratio: 3 / 2; background: #1B3C8C; }
+/* Không có dòng địa điểm (bỏ 03/11/2026): ảnh cao thêm đúng phần dòng đó chiếm (42,8 + 8px) nên thẻ giữ nguyên chiều cao,
+   lộ thêm phần thân; lớp trắng mờ sau chữ ký giữ nguyên độ cao tính từ đáy ảnh (153px) nên dịch xuống cùng chữ ký.
+   Cao cố định số nguyên (cột phải luôn rộng 320px): chiều cao lẻ để lộ một vệt nền xanh mảnh ở mép dưới ảnh */
+.kb-side__cta .bio__photo { aspect-ratio: auto; height: 263px; background: #1B3C8C; }
 .kb-side__cta .bio__photo img { object-position: 50% 0; }
-.kb-side__cta .bio__photo::after { inset: 28% 0 0; background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, .82) 52%, #fff 100%); }
+.kb-side__cta .bio__photo::after { inset: 42% 0 0; background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, .82) 52%, #fff 100%); }
 .kb-side__cta .bio__body { margin-top: -82px; transform: none; padding: 0 16px 16px; }
 .kb-side__cta .bio__link { padding: 10px 12px; font-size: 13px; text-align: left; }
 .kb-side__cta .bio__link span { gap: 8px; }

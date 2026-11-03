@@ -985,7 +985,6 @@ function articleSide(a, all, rel) {
                   <button class="bio__link" type="button" data-copy="${A.email}"><span>${ico('i-mail')}<em>${A.email}</em></span><small>Sao chép</small></button>
                   <a class="bio__link" href="tel:${A.phoneRaw}"><span>${ico('i-phone')}<em>${A.phone}</em></span><small>Gọi</small></a>
                   <a class="bio__link" href="${A.zalo}" target="_blank" rel="noopener" data-zalo><span>${ico('i-zalo')}<em>Zalo I Tuấn Việt</em></span><small>Mở</small></a>
-                  <div class="bio__link bio__link--static"><span>${ico('i-pin')}<em>${esc(A.locality)}, ${esc(A.region)}</em></span><small>GMT+7</small></div>
                 </div>
                 <a class="kb-btn kb-btn--primary kb-btn--block kb-side__go" href="${A.zalo}" target="_blank" rel="noopener" data-zalo>Nhận tư vấn Marketing ${ico('i-arrow')}</a>
               </div>
@@ -1206,7 +1205,6 @@ function legalSide(doc, all, rel) {
                   <button class="bio__link" type="button" data-copy="${A.email}"><span>${ico('i-mail')}<em>${A.email}</em></span><small>${isEn ? 'Copy' : 'Sao chép'}</small></button>
                   <a class="bio__link" href="tel:${A.phoneRaw}"><span>${ico('i-phone')}<em>${A.phone}</em></span><small>${isEn ? 'Call' : 'Gọi'}</small></a>
                   <a class="bio__link" href="${A.zalo}" target="_blank" rel="noopener" data-zalo><span>${ico('i-zalo')}<em>Zalo I Tuấn Việt</em></span><small>${isEn ? 'Open' : 'Mở'}</small></a>
-                  <div class="bio__link bio__link--static"><span>${ico('i-pin')}<em>${esc(isEn ? 'Hanoi, Vietnam' : `${A.locality}, ${A.region}`)}</em></span><small>GMT+7</small></div>
                 </div>
                 <a class="kb-btn kb-btn--primary kb-btn--block kb-side__go" href="${A.zalo}" target="_blank" rel="noopener" data-zalo>${isEn ? 'Get Marketing Consultation' : 'Nhận tư vấn Marketing'} ${ico('i-arrow')}</a>
               </div>
