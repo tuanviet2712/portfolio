@@ -36,7 +36,7 @@
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,39 @@
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/marketing/tu-van-chien-luoc-marketing/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/tu-van-chien-luoc-marketing.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/tu-van-chien-luoc-marketing/01-tu-van-chien-luoc-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/tu-van-chien-luoc-marketing/02-tu-van-chien-luoc-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/tu-van-chien-luoc-marketing/03-tu-van-chien-luoc-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/tu-van-chien-luoc-marketing/04-tu-van-chien-luoc-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/tu-van-chien-luoc-marketing/05-tu-van-chien-luoc-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/tu-van-chien-luoc-marketing/06-tu-van-chien-luoc-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/tu-van-chien-luoc-marketing/07-tu-van-chien-luoc-marketing.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/quan-tri-marketing/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/</loc>
