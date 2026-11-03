@@ -30,7 +30,7 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -48,7 +48,7 @@
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/quan-tri-marketing/</loc>
-    <lastmod>2026-11-02</lastmod>
+    <lastmod>2026-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,39 @@
     <lastmod>2026-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/quan-tri-marketing/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/01-chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/02-chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/03-chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/04-chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/05-chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/06-chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/07-chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/quan-tri-marketing/chien-luoc-cho-san-pham-moi/</loc>
