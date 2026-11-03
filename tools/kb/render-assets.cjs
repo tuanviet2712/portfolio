@@ -78,13 +78,13 @@ function coverHtml({ kicker, title, line, extra, photo = 'assets/img/skills/stra
 <div class="bg"></div><div class="ov"></div><div class="glow"></div>
 <div class="brand"><i><img src="${url('assets/img/logo.svg')}" alt=""></i>Lê Tuấn Việt</div>
 <div class="txt"><p class="k">${esc(kicker)}</p><p class="t">${esc(title)}</p><p class="l">${esc(line)}</p>${extra || ''}</div>
-<div class="by"><img src="${url('assets/img/contact.jpg')}" alt=""><span><b>Lê Tuấn Việt</b><small>Marketing Leader tại TAKI Group</small></span></div>
+<div class="by"><img src="${url('assets/kb/le-tuan-viet.webp')}" alt=""><span><b>Lê Tuấn Việt</b><small>Marketing Leader tại TAKI Group</small></span></div>
 <div class="url">letuanviet.com</div>
 </div></body></html>`;
 }
 
 /* Ảnh tác giả của Góc kiến thức: nguồn là tools/kb/author-photo.png (1000×1000, không nằm trong thư mục triển khai).
-   Trang portfolio dùng ảnh riêng ở assets/img/, không đụng tới. */
+   Từ 2026-11-03 đây là cùng ảnh với khung liên hệ trang chủ (assets/img/contact-v2.jpg), theo yêu cầu: mọi bài đăng dùng ảnh này. */
 const AUTHOR_SRC = 'tools/kb/author-photo.png';
 const AUTHOR_W = 1000;
 
@@ -212,9 +212,9 @@ div{width:${S}px;height:${S}px;background:url("${url(AUTHOR_SRC)}") center/cover
 </style></head><body><div></div></body></html>`;
 }
 
-// Ảnh đại diện: khung vuông quanh khuôn mặt (mặt ở khoảng x 540, y 155 của ảnh 1000×1000)
+// Ảnh đại diện: khung vuông quanh khuôn mặt (mặt ở khoảng x 505, y 210; đỉnh tóc y 65, cằm y 360 của ảnh 1000×1000)
 function avatarHtml() {
-  const S = 320, box = 430, cx = 540, cy = 215, k = S / box;
+  const S = 320, box = 560, cx = 505, cy = 280, k = S / box;
   return `<!doctype html><html><head><meta charset="utf-8"><style>
 *{margin:0}html,body{width:${S}px;height:${S}px;overflow:hidden;background:#1B3C8C}
 div{width:${S}px;height:${S}px;background:url("${url(AUTHOR_SRC)}") ${(-(cx - box / 2) * k).toFixed(1)}px ${(-(cy - box / 2) * k).toFixed(1)}px/${(AUTHOR_W * k).toFixed(1)}px auto no-repeat}
@@ -281,6 +281,14 @@ async function main() {
   fs.mkdirSync(OUT, { recursive: true });
   const cdp = await launch();
   try {
+    // Ảnh tác giả trước: mẫu bìa chữ (coverHtml) lấy ảnh đại diện vừa tạo làm ảnh cạnh tên
+    console.log('Ảnh chân dung tác giả');
+    await render(cdp, authorPhotoHtml(), 'author-photo', 760, 760, [
+      { file: 'le-tuan-viet-photo.webp', format: 'webp', quality: 84, width: 760 },
+      { file: 'le-tuan-viet-photo.jpg', format: 'jpeg', quality: 86, width: 760 }
+    ]);
+    console.log('Ảnh đại diện');
+    await render(cdp, avatarHtml(), 'avatar', 320, 320, [{ file: 'le-tuan-viet.webp', format: 'webp', quality: 86, width: 320 }]);
     // Ảnh bìa của từng bài: lấy từ metadata trong tools/kb/articles/*.html
     const dir = path.join(__dirname, 'articles');
     for (const f of fs.readdirSync(dir).filter(x => x.endsWith('.html') && !x.startsWith('_'))) {
@@ -304,13 +312,6 @@ async function main() {
       { file: 'goc-kien-thuc.jpg', format: 'jpeg', quality: 86, width: 1200 },
       { file: 'goc-kien-thuc.webp', format: 'webp', quality: 84, width: 1200 }
     ]);
-    console.log('Ảnh chân dung tác giả');
-    await render(cdp, authorPhotoHtml(), 'author-photo', 760, 760, [
-      { file: 'le-tuan-viet-photo.webp', format: 'webp', quality: 84, width: 760 },
-      { file: 'le-tuan-viet-photo.jpg', format: 'jpeg', quality: 86, width: 760 }
-    ]);
-    console.log('Ảnh đại diện');
-    await render(cdp, avatarHtml(), 'avatar', 320, 320, [{ file: 'le-tuan-viet.webp', format: 'webp', quality: 86, width: 320 }]);
   } finally {
     await cdp.close();
   }
