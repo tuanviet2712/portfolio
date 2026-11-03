@@ -1656,6 +1656,7 @@ ${a.cover && a.cover.base ? `
     <title>Góc kiến thức | ${A.name}</title>
     <link>${abs(hubPath)}</link>
     <atom:link href="${abs(HUB + '/feed.xml')}" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <description>${esc(SITE.hub.description)}</description>
     <language>vi</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
