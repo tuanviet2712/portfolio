@@ -254,6 +254,7 @@
 .kb-authorbox__role a { color: var(--blue); }
 .kb-authorbox__role a:hover { text-decoration: underline; }
 .kb-authorbox__slogan { margin-top: 12px; padding-left: 12px; border-left: 2px solid var(--blue); font-size: 14px; font-weight: 600; font-style: italic; line-height: 1.6; color: var(--ink-2); }
+.kb-authorbox__pos { display: block; font-style: normal; font-weight: 750; color: var(--ink); }   /* định vị thương hiệu, dòng đầu của khối câu tâm niệm */
 .kb-authorbox__bio { margin-top: 12px; font-size: 14px; line-height: 1.85; color: var(--a-text); text-align: justify; text-align-last: left; text-wrap: pretty; }
 .kb-authorbox__bio a { font-weight: 600; color: var(--blue); transition: text-decoration-color .25s; }
 .kb-authorbox__bio a:hover { text-decoration: underline; text-underline-offset: 3px; }

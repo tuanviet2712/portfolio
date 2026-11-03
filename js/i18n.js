@@ -524,9 +524,9 @@
     document.title = 'Lê Tuấn Việt | Marketing Leader Portfolio';
     setMeta('meta[name="description"]', 'Lê Tuấn Việt is a Marketing Leader at TAKI Group in Hanoi, with more than four years of experience advising over 200 SMEs on strategy and marketing execution.');
     setMeta('meta[name="keywords"]', 'Lê Tuấn Việt, TAKI Group, Marketing Leader, Portfolio, Marketing Consulting, Marketing Strategy, SME Marketing, Hanoi');
-    setMeta('meta[property="og:description"]', 'Explore the experience, capabilities and marketing projects delivered by Lê Tuấn Việt, Marketing Leader at TAKI Group, for SME clients.');
+    setMeta('meta[property="og:description"]', 'Explore the experience, capabilities and marketing projects delivered by Lê Tuấn Việt, Marketing & Growth Architect and Marketing Leader at TAKI Group, for SME clients.');
     setMeta('meta[property="og:locale"]', 'en_US');
-    setMeta('meta[name="twitter:description"]', 'Explore the experience, capabilities and marketing projects delivered by Lê Tuấn Việt, Marketing Leader at TAKI Group, for SME clients.');
+    setMeta('meta[name="twitter:description"]', 'Explore the experience, capabilities and marketing projects delivered by Lê Tuấn Việt, Marketing & Growth Architect and Marketing Leader at TAKI Group, for SME clients.');
   }
 
   function translateStructuredData() {

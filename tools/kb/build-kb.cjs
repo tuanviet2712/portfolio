@@ -248,7 +248,7 @@ function footer(rel, lang = 'vi') {
       <div class="footer__grid footer__grid--kb">
         <div class="footer__brand">
           <div class="footer__id"><span class="footer__logo"><img src="${rel}assets/img/logo.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><b>Lê Tuấn Việt</b></div>
-          <span class="footer__role">${A.jobTitle}</span>
+          <span class="footer__role">${esc(A.positioning)}</span>
           <p class="desc" data-en="I believe effective marketing is not defined by a good idea alone, but by the ability to turn strategy into tangible results.">${isEn ? 'I believe effective marketing is not defined by a good idea alone, but by the ability to turn strategy into tangible results.' : 'Tôi tin rằng Marketing hiệu quả không dừng ở một ý tưởng hay, mà nằm ở khả năng biến chiến lược thành kết quả thực tế.'}</p>
         </div>
         <div>
@@ -351,6 +351,7 @@ function personLd(lang = 'vi') {
     image: { '@type': 'ImageObject', url: abs(A.image), width: 680, height: 941 },
     jobTitle: A.jobTitle,
     hasOccupation: { '@type': 'Occupation', name: A.jobTitle, occupationLocation: { '@type': 'City', name: E.region || A.region } },
+    disambiguatingDescription: A.positioning,
     description: E.description || A.description,
     email: `mailto:${A.email}`,
     telephone: '+84' + A.phoneRaw.replace(/^0/, ''),
@@ -877,6 +878,7 @@ function llmsTxt(all) {
     `## Về ${A.name}`,
     '',
     `- ${A.name} (${A.alternateName}) là ${A.jobTitle} tại ${A.worksFor.name} (${A.worksFor.legalName}), làm việc tại ${A.locality}, ${A.region}.`,
+    `- Định vị thương hiệu cá nhân: ${A.positioning}. Chức danh chính thức vẫn là ${A.jobTitle}.`,
     `- ${A.description}`,
     ...A.experience.map(e => `- ${e.org}, ${e.place}, ${e.time}: ${e.roles.join('; ')}.`),
     `- Số liệu nổi bật theo CV: ${A.stats.map(([n, t]) => `${n} ${t}`).join('; ')}.`,
@@ -1058,7 +1060,7 @@ ${a.bodyHtml}
               <div class="kb-authorbox__body">
                 <p class="kb-authorbox__name">${A.name} ${ico('i-verified')}</p>
                 <p class="kb-authorbox__role">${esc(A.jobTitle)} tại <a href="${A.worksFor.url}" target="_blank" rel="noopener">${esc(A.worksFor.name)}</a></p>
-                <p class="kb-authorbox__slogan">${esc(A.slogan)}</p>
+                <p class="kb-authorbox__slogan"><b class="kb-authorbox__pos">${esc(A.positioning)}</b>${esc(A.slogan)}</p>
                 <p class="kb-authorbox__bio">${esc(A.bio).replace(A.name, `<a href="${rel}">${A.name}</a>`)}</p>
                 <div class="kb-authorbox__links">
                   <a href="${rel}" rel="author">Xem Portfolio ${ico('i-arrow')}</a>
@@ -1289,7 +1291,7 @@ ${body}
               <div class="kb-authorbox__body">
                 <p class="kb-authorbox__name">${A.name} ${ico('i-verified')}</p>
                 <p class="kb-authorbox__role">${esc(A.jobTitle)} ${isEn ? 'at' : 'tại'} <a href="${A.worksFor.url}" target="_blank" rel="noopener">${esc(A.worksFor.name)}</a></p>
-                <p class="kb-authorbox__slogan">${authorSlogan}</p>
+                <p class="kb-authorbox__slogan"><b class="kb-authorbox__pos">${esc(A.positioning)}</b>${authorSlogan}</p>
                 <p class="kb-authorbox__bio">${authorBio}</p>
                 <div class="kb-authorbox__links">
                   <a href="${isEn ? `${rel}?lang=en` : rel}" rel="author">${isEn ? 'View Portfolio' : 'Xem Portfolio'} ${ico('i-arrow')}</a>

@@ -2,7 +2,7 @@
    M-TYPE — hệ chữ của bản điện thoại (≤ 760px), VI + EN
    Mỗi loại chữ một cỡ cố định (không đoạn to đoạn nhỏ), tối thiểu 12px, căn đều 2 bên.
    Ngắt dòng + chia khoảng trắng do js/m-justify.js làm (mỗi dòng là .mj-l).
-   Không đụng tới hero (#trang-chu), trừ cỡ tiêu đề chương và đoạn giới thiệu bản điện thoại (.hero-pos--m).
+   Không đụng tới hero (#trang-chu), trừ cỡ tiêu đề chương, đoạn giới thiệu bản điện thoại (.hero-pos--m) và vế sau của dòng dưới tên.
    ========================================================================== */
 @media (max-width: 760px) {
   /* Cỡ theo bề ngang máy (390px: 13 / 12,5 / 13), co giãn cùng tỉ lệ khung chữ để số dòng giữ nguyên trên máy hẹp/rộng hơn */
@@ -54,6 +54,9 @@
   /* Banner: 4 tiêu đề chương ("Kết quả nổi bật"…) cùng một cỡ, mỗi tiêu đề nằm trọn 1 dòng: cỡ lớn nhất (tối đa 36,8px)
      mà tiêu đề dài nhất ("Đồng hành cùng 200+ SME", "Chặng đường 2022 – 2026") vẫn vừa. Tên "Lê Tuấn Việt" giữ nguyên. */
   html.mj-g7 #heroLayers .ch__title { font-size: var(--mj-g7) !important; }
+  /* Dòng dưới tên: điện thoại chỉ giữ định vị "Marketing & Growth Architect". Cả dòng dài hơn khung nên data-fit thu chữ
+     xuống ~11px; số năm kinh nghiệm đã có ở mục Giới thiệu. */
+  #heroLayers .hero-role .sep, #heroLayers .hero-role__xp { display: none; }
 
   /* ---- Mọi đoạn: hiện trọn, căn đều 2 bên ---- */
   .sec-head__foot .desc, .about__block .desc, .strength .desc, .tl .desc, .vcard__desc, .vcard__proof-txt,

@@ -29,6 +29,8 @@ module.exports = {
     name: 'Lê Tuấn Việt',
     alternateName: 'Le Tuan Viet',
     jobTitle: 'Marketing Leader',
+    // Định vị thương hiệu, không phải chức danh: jobTitle giữ một giá trị duy nhất trên toàn site (trang chủ khai báo cùng @id)
+    positioning: 'Marketing & Growth Architect',
     slogan: 'Biến chiến lược thành hệ thống. Biến hệ thống thành tăng trưởng.',
     role: 'Marketing Leader tại TAKI Group',
     url: 'https://letuanviet.com/',
