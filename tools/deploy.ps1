@@ -89,14 +89,18 @@ if (Test-Path -LiteralPath $cvFile) {
 
 # Ma ?v= viet tay trong nguon (vd. ?v=972 de chong cache luc xem localhost) cung bi thay bang ma bam noi dung,
 # neu khong tep do se giu mot dia chi co dinh va lai gap loi HTML moi + css/js cu nhu tren.
-$verRx = [regex]'(?<=\b(?:href|src)=")(?!https?:|//|data:)([^"?#]+\.(?:css|js|pdf))(?:\?v=[0-9A-Za-z]+)?(?=")'
+# Anh tac gia cua Goc kien thuc (assets/kb/le-tuan-viet*.webp|jpg) cung duoc gan ma: anh duoc thay giu nguyen
+# ten tep, nen khong co ma thi khach vua xem van thay anh cu toi 4 gio (loi 03/11/2026 khi doi anh tac gia).
+$verRx = [regex]'(?<=\b(?:href|src)=")(?!https?:|//|data:)([^"?#]+\.(?:css|js|pdf|webp|jpg))(?:\?v=[0-9A-Za-z]+)?(?=")'
+$verAssetRx = '(^|/)assets/(cv/[^/]+\.pdf|kb/le-tuan-viet[^/]*\.(webp|jpg))$'
 foreach ($page in Get-ChildItem -LiteralPath $dist -Recurse -File -Filter *.html) {
   $html = [IO.File]::ReadAllText($page.FullName, $utf8)
   $pageDir = $page.DirectoryName
   $stamped = $verRx.Replace($html, [System.Text.RegularExpressions.MatchEvaluator]{
     param($m)
     $url = $m.Groups[1].Value
-    if ($url -match '(^|/)assets/' -and $url -notmatch '(^|/)assets/cv/[^/]+\.pdf$') { return $m.Value }
+    if ($url -match '(^|/)assets/' -and $url -notmatch $verAssetRx) { return $m.Value }
+    if ($url -match '\.(webp|jpg)$' -and $url -notmatch $verAssetRx) { return $m.Value }
     $base = if ($url.StartsWith('/')) { $dist } else { $pageDir }
     $file = [IO.Path]::GetFullPath((Join-Path $base $url.TrimStart('/')))
     if (-not [IO.File]::Exists($file)) { return $m.Value }
