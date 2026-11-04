@@ -41,6 +41,8 @@ module.exports = {
     phone: '0935 702 321',
     phoneRaw: '0935702321',
     zalo: 'https://zalo.me/0935702321',
+    // Biểu tượng mạng xã hội ở chân trang. Còn trống thì biểu tượng vẫn hiện nhưng chưa bấm được; điền link xong nhớ thêm vào sameAs
+    social: { linkedin: 'https://www.linkedin.com/in/letuanviet', facebook: '', tiktok: '' },
     cv: 'assets/cv/CV-Le-Tuan-Viet.pdf',
     locality: 'Hà Đông',
     region: 'Hà Nội',
@@ -52,7 +54,7 @@ module.exports = {
     identifier: 'letuanviet',
     description: 'Marketing Leader với hơn 4 năm kinh nghiệm tư vấn chiến lược và triển khai Marketing cho doanh nghiệp SME.',
     knowsAbout: ['Marketing Strategy', 'Marketing Planning', 'Kế hoạch Marketing', 'AI Marketing', 'Quản trị Marketing', 'Growth Marketing', 'Performance Marketing', 'Digital Marketing', 'SEO', 'Content Marketing', 'Marketing Team Leadership'],
-    sameAs: ['https://zalo.me/0935702321', 'https://github.com/tuanviet2712'],
+    sameAs: ['https://www.linkedin.com/in/letuanviet', 'https://zalo.me/0935702321', 'https://github.com/tuanviet2712'],
     // JSON-LD bằng tiếng Anh cho các trang /en/ (cùng câu chữ với bản EN của trang chủ trong js/i18n.js)
     en: {
       description: 'Marketing Leader with more than four years of experience advising SMEs on strategy and marketing execution.',

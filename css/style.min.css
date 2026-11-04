@@ -771,6 +771,14 @@ a.bio__link:hover small, button.bio__link:hover small { color: var(--taupe); }
 .footer__list a:hover { color: #fff; transform: translateX(4px); }
 .footer__clock b { font-variant-numeric: tabular-nums; color: var(--ivory); }
 .footer__cv { display: grid; gap: 12px; align-content: start; }
+/* Mạng xã hội dưới câu giới thiệu: nút tròn viền mảnh, rê chuột thì nổi lên thành nền trắng, biểu tượng xanh */
+.footer__social { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+.footer__social a { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; color: rgb(var(--ivory-rgb) / .82); background: rgb(var(--ivory-rgb) / .05); border: 1px solid var(--line-light); transition: color .3s, background .3s, border-color .3s, transform .4s var(--ease), box-shadow .4s var(--ease); }
+.footer__social a:hover, .footer__social a:focus-visible { color: var(--blue); background: #fff; border-color: #fff; transform: translateY(-3px); box-shadow: 0 0 0 4px rgb(var(--ivory-rgb) / .06), 0 12px 28px -10px rgb(var(--blue-rgb) / .8); }
+.footer__social a:not([href]) { cursor: default; }
+.footer__social svg { width: 17px; height: 17px; }
+.footer__social .footer__social-fb { width: 20px; height: 20px; }
+.footer__social .footer__social-zalo { width: 25px; height: 25px; }
 .footer__bottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-block: 24px; font-size: 13px; color: rgb(var(--ivory-rgb) / .5); }
 .footer__top { display: inline-flex; align-items: center; gap: 8px; color: rgb(var(--ivory-rgb) / .8); }
 .footer__top svg { width: 16px; height: 16px; transition: transform .4s var(--ease); }

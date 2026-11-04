@@ -121,6 +121,8 @@ const ICONS = {
   'i-link': '<symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12.708 18.364-1.415 1.414a5 5 0 1 1-7.07-7.07l1.413-1.415m12.728 1.414 1.415-1.414a5 5 0 0 0-7.071-7.071l-1.415 1.414M8.5 15.5l7-7"/></symbol>',
   'i-facebook': '<symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.4V21z"/></symbol>',
   'i-linkedin': '<symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9.75h4v11H3zm6.5 0h3.8v1.6h.06c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12v5.34h-4v-4.73c0-1.13-.02-2.58-1.57-2.58-1.58 0-1.82 1.23-1.82 2.5v4.81h-4z"/></symbol>',
+  'i-tiktok': '<symbol id="i-tiktok" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>',
+  'i-zalo-logo': '<symbol id="i-zalo-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M12.49 10.2722v-.4496h1.3467v6.3218h-.7704a.576.576 0 01-.5763-.5729l-.0006.0005a3.273 3.273 0 01-1.9372.6321c-1.8138 0-3.2844-1.4697-3.2844-3.2823 0-1.8125 1.4706-3.2822 3.2844-3.2822a3.273 3.273 0 011.9372.6321l.0006.0005zM6.9188 7.7896v.205c0 .3823-.051.6944-.2995 1.0605l-.03.0343c-.0542.0615-.1815.206-.2421.2843L2.024 14.8h4.8948v.7682a.5764.5764 0 01-.5767.5761H0v-.3622c0-.4436.1102-.6414.2495-.8476L4.8582 9.23H.1922V7.7896h6.7266zm8.5513 8.3548a.4805.4805 0 01-.4803-.4798v-7.875h1.4416v8.3548H15.47zM20.6934 9.6C22.52 9.6 24 11.0807 24 12.9044c0 1.8252-1.4801 3.306-3.3066 3.306-1.8264 0-3.3066-1.4808-3.3066-3.306 0-1.8237 1.4802-3.3044 3.3066-3.3044zm-10.1412 5.253c1.0675 0 1.9324-.8645 1.9324-1.9312 0-1.065-.865-1.9295-1.9324-1.9295s-1.9324.8644-1.9324 1.9295c0 1.0667.865 1.9312 1.9324 1.9312zm10.1412-.0033c1.0737 0 1.945-.8707 1.945-1.9453 0-1.073-.8713-1.9436-1.945-1.9436-1.0753 0-1.945.8706-1.945 1.9436 0 1.0746.8697 1.9453 1.945 1.9453z"/></symbol>',
   'i-x': '<symbol id="i-x" viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.3l-4.9-6.4L5.2 21H2.1l7.3-8.3L1.8 3h6.4l4.4 5.9zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></symbol>',
   'i-calendar': '<symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10H3m13-8v4M8 2v4m-.2 16h8.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C21 19.72 21 18.88 21 17.2V8.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C18.72 4 17.88 4 16.2 4H7.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C3 6.28 3 7.12 3 8.8v8.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C5.28 22 6.12 22 7.8 22Z"/></symbol>',
   'i-refresh': '<symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10s-2.005-2.732-3.634-4.362a9 9 0 1 0 2.282 8.862M21 10V4m0 6h-6"/></symbol>',
@@ -133,6 +135,20 @@ const ICONS = {
 };
 const sprite = () => `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>\n      ${Object.values(ICONS).join('\n      ')}\n    </defs></svg>`;
 const ico = (id, cls = '') => `<svg${cls ? ` class="${cls}"` : ''} aria-hidden="true"><use href="#${id}"/></svg>`;
+
+// Hàng biểu tượng mạng xã hội ở chân trang (site.cjs › author.social); mạng chưa có link vẫn hiện biểu tượng nhưng không bấm được
+function footerSocial() {
+  const S = A.social;
+  const item = (url, label, icon, extra = '') => url
+    ? `<li><a href="${url}" target="_blank" rel="noopener${label === 'Zalo' ? '' : ' me'}" aria-label="${label}"${extra}>${icon}</a></li>`
+    : `<li><a data-social="${label.toLowerCase()}">${icon}</a></li>`;
+  return `<ul class="footer__social">${[
+    item(S.linkedin, 'LinkedIn', ico('i-linkedin')),
+    item(S.facebook, 'Facebook', ico('i-facebook', 'footer__social-fb')),
+    item(S.tiktok, 'TikTok', ico('i-tiktok')),
+    item(A.zalo, 'Zalo', ico('i-zalo-logo', 'footer__social-zalo'), ' data-zalo')
+  ].join('')}</ul>`;
+}
 
 /* ----------------------------------------------------------------------------
    Thành phần dùng chung: menu, menu thả xuống, footer
@@ -250,6 +266,7 @@ function footer(rel, lang = 'vi') {
           <div class="footer__id"><span class="footer__logo"><img src="${rel}assets/img/logo.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><b>Lê Tuấn Việt</b></div>
           <span class="footer__role">${esc(A.positioning)}</span>
           <p class="desc" data-en="I believe effective marketing is not defined by a good idea alone, but by the ability to turn strategy into tangible results.">${isEn ? 'I believe effective marketing is not defined by a good idea alone, but by the ability to turn strategy into tangible results.' : 'Tôi tin rằng Marketing hiệu quả không dừng ở một ý tưởng hay, mà nằm ở khả năng biến chiến lược thành kết quả thực tế.'}</p>
+          ${footerSocial()}
         </div>
         <div>
           <p class="footer__h" data-en="Quick links">${isEn ? 'Quick links' : 'Menu nhanh'}</p>
@@ -886,7 +903,7 @@ function llmsTxt(all) {
     `- Danh hiệu: ${A.awards.map(([name, by]) => `${name} (${by.replace(/^Do /, '')})`).join('; ')}.`,
     `- Học vấn: ${A.education.school}, ngành ${A.education.major}, ${A.education.time}, ${A.education.note}.`,
     `- Chuyên môn: ${A.knowsAbout.join(', ')}.`,
-    `- Liên hệ: ${A.email}, điện thoại ${A.phone}, Zalo ${A.zalo}. CV: ${abs(A.cv)}`
+    `- Liên hệ: ${A.email}, điện thoại ${A.phone}, Zalo ${A.zalo}, LinkedIn ${A.social.linkedin}. CV: ${abs(A.cv)}`
   ];
   for (const { p, list } of byPillar) {
     lines.push('', `## ${p.name}`, '');
