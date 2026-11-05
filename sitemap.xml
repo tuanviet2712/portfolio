@@ -30,13 +30,13 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/</loc>
-    <lastmod>2026-11-04</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,39 @@
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/marketing/thiet-ke-website/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/thiet-ke-website.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/thiet-ke-website/01-thiet-ke-website.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/thiet-ke-website/02-thiet-ke-website.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/thiet-ke-website/03-thiet-ke-website.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/thiet-ke-website/04-thiet-ke-website.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/thiet-ke-website/05-thiet-ke-website.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/thiet-ke-website/06-thiet-ke-website.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/thiet-ke-website/07-thiet-ke-website.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/du-an-va-bai-hoc/chien-luoc-marketing-quoc-te-apple/</loc>
