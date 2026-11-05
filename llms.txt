@@ -32,6 +32,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [Template site là gì, cách chọn mẫu cho SME](https://letuanviet.com/goc-kien-thuc/marketing/template-site-la-gi/): Phân biệt template site dựng sẵn với thiết kế website riêng cho SME theo luồng chuyển đổi, chuẩn tốc độ Core Web Vitals, quy trình 4 bước và khung đo 3 tầng.
 - [Cách tạo website chuẩn chuyển đổi cho SME](https://letuanviet.com/goc-kien-thuc/marketing/cach-tao-website/): Hướng dẫn cách tạo website giúp doanh nghiệp vừa và nhỏ chọn đúng nền tảng theo nguồn lực, dựng trang đích trong 6 bước và kiểm soát đo lường chuyển đổi.
 - [Thiết kế website cho SME: Tiêu chí và quy trình](https://letuanviet.com/goc-kien-thuc/marketing/thiet-ke-website/): Hiểu bản chất thiết kế website theo mục tiêu chuyển đổi của SME: bảng chọn 3 hình thức triển khai, quy trình 5 bước nghiệm thu kỹ thuật và khung đo 3 tầng.
 - [Chiến lược 7P là gì và cách ưu tiên cho dịch vụ](https://letuanviet.com/goc-kien-thuc/marketing/chien-luoc-7p-marketing-dich-vu/): Chiến lược 7P là gì và khác 4P ra sao? Xem bảng phân biệt 3P mở rộng, bản đồ chọn P ưu tiên theo điểm nghẽn, quy trình bốn bước và khung đo cho ngành dịch vụ.
