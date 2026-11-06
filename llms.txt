@@ -32,6 +32,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [Tâm lý khách hàng là gì và cách ứng dụng](https://letuanviet.com/goc-kien-thuc/marketing/tam-ly-khach-hang-la-gi/): Giải mã tâm lý khách hàng là gì, phân biệt với hành vi mua và insight, kèm 4 bước thiết kế điểm chạm và theo dõi mua lặp lại cho cửa hàng nhỏ chưa có CRM.
 - [Khách hàng mục tiêu là gì và cách xác định](https://letuanviet.com/goc-kien-thuc/marketing/khach-hang-muc-tieu-la-gi/): Hiểu rõ khách hàng mục tiêu là gì giúp các SME phân bổ đúng ngân sách, tách bạch khách tiềm năng và áp dụng quy trình 4 bước lọc tệp sát dữ liệu thực tế.
 - [Công ty SEO là gì, tiêu chí chọn cho SME](https://letuanviet.com/goc-kien-thuc/marketing/tieu-chi-chon-cong-ty-seo/): Phân biệt công ty SEO với dịch vụ thuê marketing ngoài, quy trình 4 bước thẩm định hợp đồng và khung nghiệm thu 3 tầng theo khách hàng tiềm năng đạt chuẩn.
 - [Template site là gì, cách chọn mẫu cho SME](https://letuanviet.com/goc-kien-thuc/marketing/template-site-la-gi/): Phân biệt template site dựng sẵn với thiết kế website riêng cho SME theo luồng chuyển đổi, chuẩn tốc độ Core Web Vitals, quy trình 4 bước và khung đo 3 tầng.
