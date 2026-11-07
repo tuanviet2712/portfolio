@@ -60,6 +60,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## AI Marketing
 
+- [Perplexity AI là gì và cách nghiên cứu dữ liệu](https://letuanviet.com/goc-kien-thuc/ai-marketing/perplexity-ai-la-gi/): Hiểu rõ Perplexity AI là gì, điểm khác Google và ChatGPT, quy trình 4 bước tra cứu nguồn cấp một kèm bảng chọn gói và giới hạn bảo mật dữ liệu cho SME.
 - [AI personalization là gì? Khác quy tắc thế nào?](https://letuanviet.com/goc-kien-thuc/ai-marketing/ai-personalization-la-gi/): AI personalization là gì, khác cá nhân hóa theo quy tắc ra sao? Bốn mức cá nhân hóa, số liệu McKinsey kèm dải thật, vòng lặp gợi ý và Điều 28 luật dữ liệu.
 - [Human-in-the-loop là gì? Vai trò người duyệt trong AI](https://letuanviet.com/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/): Human-in-the-loop là gì và người duyệt cần gì để có tác dụng? Năm quyền theo Điều 14, số liệu thiên lệch tự động hóa và cách phân ba mức duyệt cho SME.
 - [AI workflow là gì? Luồng công việc có AI cho SME](https://letuanviet.com/goc-kien-thuc/ai-marketing/ai-workflow-la-gi/): AI workflow là gì, khác automation và AI agent ra sao? Năm mẫu luồng có tên, cách đọc con số 95% đúng phạm vi và năm bước dựng luồng AI đầu tiên cho SME.
