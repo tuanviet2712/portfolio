@@ -1,0 +1,332 @@
+<!--
+BÀI VIẾT: Cách làm video vietsub bằng AI chuẩn hiển thị
+Chủ đề (pillar): AI Marketing. Từ khóa chính: cách làm video vietsub.
+Ý định tìm kiếm: Thông tin hướng dẫn thực hành (How-to) kết hợp chọn công cụ và tối ưu hiển thị.
+Nguồn chính: OpenAI (2022), Google Search Central, YouTube Help, Netflix Timed Text Style Guide, Aegisub Manual, W3C WCAG 2.1 (2018).
+Liên kết nội bộ: AI workflow, Human-in-the-loop, Ảo giác AI, AI personalization, AI agent và chatbot, Cách tạo website, Mẫu kế hoạch Marketing, chuyên mục AI Marketing.
+  Tạo bởi SEO-Agent · bài 01M6N7TF8WPEND5W09YTP9FKSP · bản 2 · bộ não v5
+-->
+<script type="application/json" data-meta>
+{
+  "slug": "cach-lam-video-vietsub",
+  "pillar": "ai-marketing",
+  "title": "Cách làm video vietsub bằng AI chuẩn hiển thị",
+  "titleHtml": "Cách làm video vietsub <span class=\"grad\">bằng AI chuẩn hiển&nbsp;thị</span>",
+  "seoTitle": "Cách làm video vietsub bằng AI và Aegisub chuẩn hiển thị",
+  "description": "Hướng dẫn cách làm video vietsub tự động và thủ công cho đội ngũ marketing, kèm bảng chọn công cụ, vùng an toàn khung hình và bước kiểm duyệt thuật ngữ.",
+  "excerpt": "Làm video vietsub trong marketing không dừng ở thao tác nhận diện giọng nói tự động mà cần chuẩn hóa thuật ngữ, vùng an toàn khung hình và định dạng xuất tệp. Bài viết cung cấp quy trình kết hợp AI với Aegisub cùng khung kiểm duyệt cho doanh nghiệp.",
+  "sapo": "Cách làm video vietsub là quy trình chuyển đổi lời thoại gốc hoặc dịch thuật ngôn ngữ khác sang phụ đề tiếng Việt đồng bộ theo mốc thời gian và chuẩn hóa hiển thị trên khung hình video. Khi triển khai nội dung đa kênh, nhiều đội ngũ phụ thuộc hoàn toàn vào nút tạo phụ đề tự động một chạm khiến tên thương hiệu bị nhận diện sai, thuật ngữ chuyên ngành dịch lệch nghĩa hoặc chữ bị giao diện nền tảng che khuất. Để phụ đề thực sự giữ chân người xem ở chế độ tắt tiếng và hỗ trợ tìm kiếm, doanh nghiệp cần kết hợp tốc độ tách lời của công nghệ trí tuệ nhân tạo với quy chuẩn biên tập của con người. Tôi là Lê Tuấn Việt, Marketing Leader tại TAKI Group. Trong bài viết này, tôi phân tích tiêu chí chọn phương thức sản xuất theo nguồn lực, quy trình thực hiện trên công cụ AI lẫn phần mềm Aegisub và nguyên tắc kiểm duyệt trước khi\u00a0xuất\u00a0bản.",
+  "keyword": "cách làm video vietsub",
+  "keywords": [
+    "cách làm video vietsub",
+    "làm video vietsub",
+    "cách làm video vietsub tự động bằng công nghệ ai",
+    "cách làm vietsub thủ công với aegisub",
+    "phụ đề video tiếng việt",
+    "tối ưu định dạng phụ đề",
+    "phụ đề gắn cứng (hardsub) và phụ đề rời (softsub)",
+    "tối ưu hóa công cụ tìm kiếm (video seo)"
+  ],
+  "published": "2026-11-08T09:00:00+07:00",
+  "modified": "2026-11-08T09:00:00+07:00",
+  "cover": {
+    "base": "cach-lam-video-vietsub",
+    "alt": "Quy trình cách làm video vietsub kết hợp công nghệ AI nhận diện giọng nói và kiểm duyệt hiển thị",
+    "caption": "Kết hợp nhận diện giọng nói AI, dịch chuẩn thuật ngữ và đặt đúng vùng an toàn giúp video marketing giữ chân người xem",
+    "kicker": "Video Vietsub AI",
+    "line": "Chuẩn nhịp, đúng vùng an toàn",
+    "src": "tools/kb/covers/cach-lam-video-vietsub.png"
+  },
+  "takeaways": [
+    "Chọn phương thức làm phụ đề theo mục tiêu: dùng AI tự động cho video ngắn hằng ngày, dịch tệp .SRT qua mô hình ngôn ngữ lớn cho video chuyên môn và canh sóng âm Aegisub cho video quảng cáo\u00a0trọng\u00a0điểm.",
+    "Chuẩn bị tệp âm thanh đã lọc tạp âm cùng bảng thuật ngữ thương hiệu trước khi đưa vào công cụ giúp giảm đáng kể thời gian sửa lỗi nhận diện\u00a0giọng\u00a0nói.",
+    "Mỗi thẻ phụ đề chỉ nên hiển thị tối đa 2 dòng trong không quá 7 giây với độ tương phản tối thiểu 4.5:1 và đặt trong vùng an toàn của từng\u00a0khung\u00a0hình.",
+    "Xuất bản song song tệp .SRT mã hóa UTF-8 cho YouTube, website để phục vụ Video SEO và bản gắn cứng Hardsub cho TikTok, Reels để giữ nguyên nhận diện\u00a0thương\u00a0hiệu."
+  ],
+  "about": [
+    {
+      "name": "Closed captioning",
+      "sameAs": "https://en.wikipedia.org/wiki/Closed_captioning"
+    },
+    {
+      "name": "Speech recognition",
+      "sameAs": "https://en.wikipedia.org/wiki/Speech_recognition"
+    },
+    {
+      "name": "SubRip",
+      "sameAs": "https://en.wikipedia.org/wiki/SubRip"
+    }
+  ],
+  "mentions": [
+    {
+      "type": "CreativeWork",
+      "name": "Whisper (speech recognition system)",
+      "url": "https://openai.com/index/whisper/"
+    },
+    {
+      "type": "CreativeWork",
+      "name": "Aegisub",
+      "url": "https://aegisub.org/"
+    },
+    {
+      "type": "CreativeWork",
+      "name": "CapCut",
+      "url": "https://www.capcut.com/"
+    },
+    {
+      "type": "Organization",
+      "name": "YouTube",
+      "url": "https://www.youtube.com/"
+    },
+    {
+      "type": "Organization",
+      "name": "Google Search Central",
+      "url": "https://developers.google.com/search"
+    },
+    {
+      "type": "Organization",
+      "name": "Netflix",
+      "url": "https://www.netflix.com/"
+    },
+    {
+      "type": "CreativeWork",
+      "name": "Web Content Accessibility Guidelines",
+      "url": "https://www.w3.org/WAI/standards-guidelines/wcag/"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Khi nào doanh nghiệp không nên giao phụ đề cho AI?",
+      "a": "Không nên giao phó hoàn toàn cho AI khi doanh nghiệp sản xuất video công bố thông tin pháp lý, y tế, tài chính hoặc TVC ra mắt sản phẩm chiến lược. Với nội dung có mật độ thuật ngữ kỹ thuật cao hoặc nhiều phương ngữ, AI chỉ nên dùng để tách mốc thời gian thô bước đầu, sau đó bắt buộc có biên tập viên dịch và rà soát thủ công trên\u00a0Aegisub."
+    },
+    {
+      "q": "Làm phụ đề trên điện thoại có đủ chuẩn cho doanh nghiệp?",
+      "a": "Có, nếu mục tiêu là sản xuất nhanh các video ngắn gắn cứng phụ đề (Hardsub) quay dựng tại chỗ cho TikTok hoặc Facebook Reels. Ngược lại, ứng dụng di động bộc lộ giới hạn khi doanh nghiệp cần xuất tệp .SRT rời chuẩn mã hóa cho Video SEO, đối chiếu bảng thuật ngữ dài hoặc canh sóng âm chi tiết ở môi trường nhiều\u00a0tạp\u00a0âm."
+    },
+    {
+      "q": "Nên dịch trực tiếp khi nghe hay xuất tệp văn bản trước?",
+      "a": "Đội ngũ marketing nên xuất lời thoại gốc ra tệp phụ đề .SRT hoặc bản chép lời văn bản trước rồi mới tiến hành dịch sang tiếng Việt. Quy trình tách bước này giúp mô hình ngôn ngữ lớn hoặc biên tập viên nắm trọn ngữ cảnh toàn bài, giữ đồng nhất thuật ngữ xuyên suốt video và tránh lỗi dịch đứt quãng theo từng nhịp\u00a0nghỉ\u00a0ngắn."
+    },
+    {
+      "q": "Vì sao phụ đề tải lên YouTube bị lỗi phông chữ tiếng Việt?",
+      "a": "Lỗi vỡ dấu hoặc hiển thị ký tự lạ trên YouTube xảy ra khi tệp .SRT được lưu ở bảng mã cũ như ANSI hoặc chứa thẻ định dạng kiểu chữ phức tạp từ phần mềm dựng. Để khắc phục, người biên tập cần mở tệp trên trình soạn thảo hoặc Aegisub và xuất lại định dạng .SRT ở bảng mã văn bản thuần UTF-8 theo quy chuẩn của\u00a0YouTube."
+    },
+    {
+      "q": "Video chạy quảng cáo chuyển đổi nên dùng định dạng nào?",
+      "a": "Video chạy quảng cáo chuyển đổi trên TikTok, Reels và Shorts nên dùng phụ đề gắn cứng (Hardsub) ngay trong khung hình để chữ hiển thị tức thì đúng phông thương hiệu. Khi dựng video khung hình dọc trên điện thoại, người làm video cần đẩy vị trí chữ lên trên vùng đáy màn hình nhằm tránh bị nút kêu gọi hành động và dòng mô tả quảng cáo\u00a0che\u00a0khuất."
+    },
+    {
+      "q": "Làm sao giữ thuật ngữ thương hiệu đồng nhất giữa nhiều video?",
+      "a": "Doanh nghiệp cần xây dựng một bảng từ điển thuật ngữ chuẩn gồm từ gốc, nghĩa tiếng Việt đã duyệt và danh sách tên riêng sản phẩm cấm dịch tự động. Mỗi khi dịch tệp .SRT qua công cụ AI, biên tập viên đính kèm bảng quy chuẩn này vào câu lệnh đầu vào để hệ thống áp dụng thống nhất cho toàn bộ\u00a0chuỗi\u00a0video."
+    }
+  ],
+  "faqTitle": "Câu hỏi thường gặp về cách làm video vietsub",
+  "references": [
+    {
+      "text": "OpenAI. Introducing Whisper. Thông số tập dữ liệu huấn luyện 680.000 giờ âm thanh đa ngôn ngữ năm 2022.",
+      "url": "https://openai.com/index/whisper/",
+      "nofollow": false
+    },
+    {
+      "text": "Google. Supported subtitle and closed caption files. Quy định định dạng tệp .SRT cơ bản và bảng mã UTF-8 trên YouTube.",
+      "url": "https://support.google.com/youtube/answer/2734698",
+      "nofollow": false
+    },
+    {
+      "text": "Google. Video SEO best practices. Cơ chế Google sử dụng bản chép lời và phụ đề đóng để hiểu nội dung video.",
+      "url": "https://developers.google.com/search/docs/appearance/video",
+      "nofollow": false
+    },
+    {
+      "text": "Netflix. Timed Text Style Guide: General Requirements. Quy chuẩn tối đa 2 dòng và thời lượng tối đa 7 giây mỗi thẻ phụ đề.",
+      "url": "https://partnerhelp.netflixstudios.com/hc/en-us/articles/215758617-Timed-Text-Style-Guide-General-Requirements",
+      "nofollow": false
+    },
+    {
+      "text": "Aegisub Project. Timing with audio - Aegisub Manual. Chế độ đồng bộ âm thanh bằng biểu đồ sóng âm waveform và phổ tần số spectrum.",
+      "url": "https://aegisub.org/docs/latest/audio/",
+      "nofollow": false
+    },
+    {
+      "text": "Aegisub Project. Exporting subtitles - Aegisub Manual. Quy trình lưu định dạng gốc .ASS và xuất tệp .SRT qua menu File Export.",
+      "url": "https://aegisub.org/docs/latest/exporting/",
+      "nofollow": false
+    },
+    {
+      "text": "World Wide Web Consortium (W3C). Understanding Success Criterion 1.4.3: Contrast (Minimum). Tiêu chuẩn tỷ lệ tương phản văn bản tối thiểu 4.5:1 năm 2018.",
+      "url": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html",
+      "nofollow": false
+    }
+  ],
+  "ctaButtons": [
+    {
+      "text": "Quy trình sản xuất nội dung AI của bạn đang nghẽn?",
+      "label": "Nhắn Zalo cho tôi",
+      "href": "zalo"
+    },
+    {
+      "text": "Xem các dự án Marketing và AI tôi đã triển khai",
+      "label": "Xem dự án",
+      "href": "/#du-an",
+      "style": "ghost"
+    }
+  ],
+  "ctaMid": {
+    "title": "Đội ngũ tốn quá nhiều giờ sửa phụ đề video?",
+    "text": "Nhắn tôi để chuẩn hóa luồng làm việc có AI"
+  },
+  "ctaLate": {
+    "title": "Xem dự án chuẩn hóa quy trình bằng AI",
+    "text": "Ứng dụng AI và quản trị cho hơn 50 doanh nghiệp"
+  },
+  "en": {
+    "title": "How to make Vietnamese subtitles for marketing videos with AI and Aegisub",
+    "excerpt": "Creating Vietnamese video subtitles for marketing requires more than one-click speech recognition. This guide covers tool selection criteria, AI and Aegisub workflows, safe zones, Hardsub vs. Softsub for Video SEO, and human review checklists."
+  },
+  "howto": {
+    "name": "Cách làm video vietsub bằng công nghệ AI và Aegisub",
+    "description": "Quy trình từng bước tạo, dịch và chuẩn hóa hiển thị phụ đề video tiếng Việt kết hợp công nghệ nhận diện giọng nói AI, mô hình ngôn ngữ lớn và phần mềm Aegisub cho doanh nghiệp."
+  }
+}
+</script>
+<h2>Cách làm video vietsub là gì và cần chuẩn bị gì</h2>
+<p class="kb-def"><strong>Cách làm video vietsub</strong> là quy trình chuyển lời thoại gốc hoặc dịch ngôn ngữ nước ngoài sang phụ đề video tiếng Việt, đồng bộ chính xác với mốc thời gian âm thanh và chuẩn hóa hiển thị trên khung hình. Để triển khai hiệu quả, đội ngũ cần chuẩn bị trước tệp âm thanh sạch tạp âm cùng bảng thuật ngữ thương&nbsp;hiệu&nbsp;thống&nbsp;nhất.</p>
+<p>Trong hoạt động tiếp thị đa kênh, nhiều người dùng lướt bảng tin ở môi trường công cộng thường tắt âm thanh thiết bị. Phụ đề lúc này đóng vai trò giữ nhịp thông điệp trong những giây đầu tiên và giúp người xem nắm trọn luận điểm mà không cần bật tiếng. Tuy nhiên, nếu chỉ bấm nút nhận diện tự động mà bỏ qua bước chuẩn bị đầu vào, người dựng sẽ mất nhiều thời gian sửa từng lỗi chính tả và&nbsp;tên&nbsp;sản&nbsp;phẩm.</p>
+<figure class="kb-fig"><img src="/assets/kb/cach-lam-video-vietsub/01-cach-lam-video-vietsub.webp" srcset="/assets/kb/cach-lam-video-vietsub/01-cach-lam-video-vietsub-800.webp 800w, /assets/kb/cach-lam-video-vietsub/01-cach-lam-video-vietsub.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Ba bước chuẩn bị tệp âm thanh gốc, bảng thuật ngữ thương hiệu và chọn phương thức trước khi làm video vietsub" width="1600" height="900"><figcaption>Chuẩn bị âm thanh sạch và bảng thuật ngữ chuẩn giúp giảm thời gian sửa lỗi nhận diện giọng nói về sau</figcaption></figure>
+<p>Trước khi mở bất kỳ phần mềm biên tập nào, người phụ trách nội dung cần hoàn tất hai điều kiện đầu vào. Thứ nhất là tách hoặc lọc tiếng ồn nền khỏi rãnh âm thanh gốc để mô hình nhận diện giọng nói không chép nhầm tiếng nhạc thành chữ. Thứ hai là lập bảng quy chuẩn từ vựng gồm tên thương hiệu, mã sản phẩm và các thuật ngữ chuyên ngành không được dịch sát nghĩa&nbsp;sang&nbsp;tiếng&nbsp;Việt.</p>
+<h3>Ba phương thức tạo phụ đề video tiếng Việt phổ biến</h3>
+<p>Dựa trên mức độ tự động hóa bằng công nghệ nhận diện giọng nói (Speech-to-Text, viết tắt là STT), khả năng kiểm soát ngữ cảnh dịch thuật và độ chính xác khi canh nhịp hình ảnh, hoạt động làm video vietsub hiện nay được chia thành ba phương thức thực thi&nbsp;chính&nbsp;dưới&nbsp;đây:</p>
+<ul>
+  <li><strong>Tạo phụ đề tự động trực tiếp trên trình dựng (Auto Captions):</strong> Công cụ dùng mô hình nhận diện giọng nói để tách lời thoại và chèn thẳng chữ lên trục thời gian video. Cách này nhanh nhưng khả năng hiểu ngữ cảnh chuyên ngành hẹp khi dịch trực tiếp&nbsp;còn&nbsp;hạn&nbsp;chế.</li>
+  <li><strong>Tách tệp phụ đề thô kết hợp dịch qua mô hình ngôn ngữ lớn (Large Language Model, viết tắt là LLM):</strong> Người làm xuất tệp văn bản có mốc thời gian như SubRip (viết tắt là .SRT), đưa vào LLM kèm bảng thuật ngữ để dịch chuẩn giọng thương hiệu, sau đó nạp lại vào&nbsp;phần&nbsp;mềm&nbsp;dựng.</li>
+  <li><strong>Canh nhịp sóng âm thủ công trên phần mềm chuyên dụng:</strong> Biên tập viên mở tệp âm thanh trên phần mềm mã nguồn mở như Aegisub, nhìn trực tiếp biểu đồ sóng âm để cắt từng mốc mili-giây và định dạng kiểu&nbsp;chữ&nbsp;chi&nbsp;tiết.</li>
+</ul>
+<h3>Bảng chọn công cụ theo nguồn lực đội ngũ marketing</h3>
+<p>Không có một công cụ duy nhất tối ưu cho mọi định dạng video trong doanh nghiệp. Tôi ưu tiên phân bổ phương thức sản xuất theo mức độ rủi ro thương hiệu và quỹ thời gian của nhân sự thay vì áp một quy trình cứng nhắc cho cả video ngắn hằng ngày lẫn phim quảng&nbsp;cáo&nbsp;trọng&nbsp;điểm.</p>
+<p>Bảng dưới đây đối chiếu ba phương thức làm phụ đề theo bối cảnh sử dụng và sự đánh đổi nguồn lực để người phụ trách marketing ra quyết&nbsp;định&nbsp;phù&nbsp;hợp:</p>
+<table>
+  <caption>Bảng chọn phương thức làm video vietsub theo nguồn lực và mục tiêu</caption>
+  <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
+  <thead>
+    <tr><th>Phương thức</th><th>Phù hợp khi</th><th>Đánh đổi cần lưu ý</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>AI tự động CapCut</td><td>Làm video ngắn TikTok, Reels hằng ngày, lời thoại tiếng Việt rõ, ít thuật ngữ khó</td><td>Dễ sai tên riêng thương hiệu, ngắt dòng theo nhịp thở máy móc và phụ thuộc gói cước</td></tr>
+    <tr><td>Tách SRT dịch qua LLM</td><td>Bản địa hóa video dài, hội thảo hoặc bài giảng cần giữ chuẩn thuật ngữ chuyên ngành</td><td>Thêm thao tác xuất nhập tệp trung gian, cần câu lệnh khóa chặt cấu trúc mốc thời gian</td></tr>
+    <tr><td>Thủ công trên Aegisub</td><td>Sản xuất TVC quảng cáo, video ra mắt sản phẩm hoặc cảnh nhiều người nói chồng lấp</td><td>Tốn thời gian canh sóng âm thủ công, đòi hỏi nhân sự nắm vững thao tác phần mềm</td></tr>
+  </tbody>
+</table>
+<p>Lưu ý khi áp dụng bảng chọn: thời gian xử lý thực tế phụ thuộc vào chất lượng thu âm ban đầu và độ quen tay của biên tập viên. Khi thiết kế <a href="/goc-kien-thuc/ai-marketing/ai-workflow-la-gi/">luồng công việc có AI</a> cho phòng nội dung, các SME (doanh nghiệp vừa và nhỏ) thường kết hợp phương thức thứ hai cho video kiến thức và phương thức thứ nhất cho chuỗi video&nbsp;ngắn&nbsp;vệ&nbsp;tinh.</p>
+<!-- cta:nut -->
+<h2>Cách làm video vietsub tự động bằng công nghệ AI</h2>
+<p>Cách làm video vietsub tự động bằng công nghệ AI cho doanh nghiệp gồm ba bước liên hoàn: chuẩn hóa âm thanh để tách tệp phụ đề thô có mốc thời gian, dịch và hiệu đính qua mô hình ngôn ngữ lớn kèm bảng thuật ngữ, rồi nạp lại vào trình dựng để canh&nbsp;nhịp&nbsp;hiển&nbsp;thị.</p>
+<p>Nhiều đội ngũ nhầm lẫn giữa việc bấm nút dịch tự động trên ứng dụng với việc vận hành một quy trình làm phụ đề có kiểm soát. Theo báo cáo kỹ thuật năm 2022 của <a href="https://openai.com/index/whisper/">OpenAI</a> trên tập dữ liệu toàn cầu, hệ thống nhận diện giọng nói tự động (ASR) Whisper được huấn luyện từ 680.000 giờ âm thanh thu thập trên web, với khoảng một phần ba dữ liệu thuộc các ngôn ngữ ngoài&nbsp;tiếng&nbsp;Anh.</p>
+<p>Quy mô dữ liệu huấn luyện lớn giúp công cụ chép lời thoại rất nhanh, nhưng máy không thể tự biết quy ước viết hoa tên sản phẩm hay sắc thái thuật ngữ riêng của từng ngành hàng. Vì vậy, con người vẫn phải giữ vai trò định hướng ngữ cảnh ở bước dịch và kiểm&nbsp;duyệt&nbsp;đầu&nbsp;ra.</p>
+<figure class="kb-fig"><img src="/assets/kb/cach-lam-video-vietsub/02-cach-lam-video-vietsub.webp" srcset="/assets/kb/cach-lam-video-vietsub/02-cach-lam-video-vietsub-800.webp 800w, /assets/kb/cach-lam-video-vietsub/02-cach-lam-video-vietsub.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ quy trình làm video vietsub tự động bằng AI qua ba bước từ tách tệp SRT thô, dịch bằng LLM đến canh nhịp hiển thị" width="1600" height="900"><figcaption>Tách riêng bước dịch tệp .SRT qua mô hình ngôn ngữ lớn giúp giữ đúng thuật ngữ thương hiệu mà không làm lệch mốc thời gian</figcaption></figure>
+<h3>Bước 1: Chuẩn hóa âm thanh và nhận diện giọng nói</h3>
+<p>Đưa video hoặc tệp âm thanh đã tách nhạc nền vào công cụ nhận diện giọng nói (như tính năng Auto Captions trên CapCut hoặc trình tạo phụ đề tích hợp mô hình Whisper), chọn đúng ngôn ngữ gốc trong video và xuất ra tệp phụ đề thô định dạng .SRT lưu&nbsp;trên&nbsp;máy&nbsp;tính.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> Tệp văn bản .SRT gốc chứa số thứ tự câu, mốc thời gian bắt đầu, kết thúc và lời thoại thô khớp với nhịp&nbsp;nói&nbsp;trong&nbsp;video.</p>
+<p>Điểm các đội thực thi hay vướng ở bước này là bật đồng thời tính năng nhận diện và dịch tự động ngay trong trình dựng video. Khi máy vừa đoán âm thanh vừa dịch sang tiếng Việt trong một bước, lỗi nghe nhầm từ đồng âm sẽ biến thành câu dịch vô nghĩa mà người dựng rất khó truy ngược&nbsp;lại&nbsp;nguyên&nbsp;gốc.</p>
+<h3>Bước 2: Dịch tệp SRT bằng LLM giữ giọng thương hiệu</h3>
+<p>Mở tệp .SRT gốc bằng trình soạn thảo văn bản, sao chép từng phân đoạn lời thoại đưa vào mô hình ngôn ngữ lớn (LLM) kèm theo bảng thuật ngữ thương hiệu và yêu cầu dịch sang tiếng Việt tự nhiên nhưng giữ nguyên tuyệt đối số thứ tự cùng&nbsp;mốc&nbsp;thời&nbsp;gian.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> Bản dịch tiếng Việt định dạng .SRT đã chuẩn hóa thuật ngữ chuyên ngành, câu văn gọn và không làm xê dịch mã&nbsp;thời&nbsp;gian&nbsp;gốc.</p>
+<p>Trong hệ thống <a href="/goc-kien-thuc/ai-marketing/">AI Marketing</a> phục vụ sản xuất nội dung đa phương tiện, việc tách riêng khâu dịch ra khỏi trình cắt ghép video giúp người phụ trách dễ dàng kiểm soát chất lượng câu chữ. Nếu doanh nghiệp đang phân vân giữa việc dùng công cụ trò chuyện đơn lẻ hay thiết lập tác nhân tự động hóa chuỗi bước này, việc <a href="/goc-kien-thuc/ai-marketing/ai-agent-va-chatbot-khac-nhau/">phân biệt tác nhân AI và chatbot</a> sẽ giúp chọn đúng cấu hình kỹ thuật theo quy&nbsp;mô&nbsp;sản&nbsp;lượng.</p>
+<h3>Bước 3: Canh nhịp hiển thị trên CapCut và nghiệm thu</h3>
+<p>Nhập tệp .SRT tiếng Việt đã duyệt vào trình dựng video như CapCut trên máy tính, áp mẫu kiểu chữ (template) của thương hiệu, rà soát lại các câu bị tràn dòng trên màn hình xem trước và xuất tệp video&nbsp;hoàn&nbsp;chỉnh.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> Video thành phẩm có phụ đề tiếng Việt khớp khẩu hình, ngắt dòng đúng cụm nghĩa và không bị che khuất&nbsp;thông&nbsp;tin&nbsp;chính.</p>
+<figure class="kb-fig"><img src="/assets/kb/cach-lam-video-vietsub/03-cach-lam-video-vietsub.webp" srcset="/assets/kb/cach-lam-video-vietsub/03-cach-lam-video-vietsub-800.webp 800w, /assets/kb/cach-lam-video-vietsub/03-cach-lam-video-vietsub.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Đối chiếu hiển thị phụ đề tự động một chạm bị tràn dòng và phụ đề đã chuẩn hóa gọn hai dòng trên trình dựng" width="1600" height="900"><figcaption>Bước nghiệm thu trên trình dựng giúp loại bỏ lỗi tràn dòng và lệch khung hình trước khi xuất tệp</figcaption></figure>
+<p>Lưu ý về công cụ: tính đến tháng 11/2026, chính sách gói cước và hạn mức sử dụng tính năng tạo phụ đề tự động trả phí (Pro) hoặc xuất tệp .SRT rời trên CapCut thay đổi theo từng bản cập nhật phần mềm và khu vực tài khoản, không công bố một hạn mức miễn phí cố định dài hạn trên tài liệu kỹ thuật. Đội ngũ nên kiểm tra trực tiếp biểu tượng gói cước ngay trên giao diện phần mềm trước khi đưa vào quy trình sản&nbsp;xuất&nbsp;hàng&nbsp;loạt.</p>
+<!-- cta:mid -->
+<h2>Cách làm vietsub thủ công với Aegisub chuẩn nhịp</h2>
+<p>Cách làm vietsub thủ công với Aegisub là phương pháp sử dụng phần mềm mã nguồn mở chuyên dụng để căn chỉnh chính xác từng mili-giây điểm vào và điểm ra của lời thoại dựa trên biểu đồ sóng âm. Quy trình này gồm hai bước chính từ đồng bộ âm thanh đến định dạng&nbsp;và&nbsp;xuất&nbsp;tệp.</p>
+<p>Vậy khi đã có AI nhận diện giọng nói trong vài chục giây, tại sao đội ngũ marketing vẫn cần biết dùng Aegisub? Thực tế sản xuất cho thấy khi video có nhạc nền dồn dập, hiệu ứng âm thanh đè lên giọng đọc hoặc hai nhân vật đối thoại chồng lấp, bộ tách lời tự động thường gộp hai câu làm một hoặc đặt mốc xuất hiện trễ hơn khẩu hình. Với các video quảng cáo ngân sách lớn, sự lệch nhịp nửa giây cũng đủ làm giảm cảm giác chuyên nghiệp&nbsp;của&nbsp;thương&nbsp;hiệu.</p>
+<figure class="kb-fig"><img src="/assets/kb/cach-lam-video-vietsub/04-cach-lam-video-vietsub.webp" srcset="/assets/kb/cach-lam-video-vietsub/04-cach-lam-video-vietsub-800.webp 800w, /assets/kb/cach-lam-video-vietsub/04-cach-lam-video-vietsub.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Biểu đồ sóng âm Waveform trên Aegisub giúp biên tập viên khóa chính xác điểm bắt đầu và kết thúc của câu thoại" width="1600" height="900"><figcaption>Canh nhịp bằng biểu đồ sóng âm Waveform trên Aegisub giúp phụ đề khớp khẩu hình tới từng mili-giây</figcaption></figure>
+<h3>Bước 1: Nạp video và đồng bộ sóng âm Waveform</h3>
+<p>Khởi động phần mềm Aegisub, mở tệp video cùng rãnh âm thanh đi kèm, chuyển khung nhìn âm thanh sang chế độ biểu đồ sóng âm (Waveform) để quan sát các đỉnh sóng giọng nói rồi kéo thanh giới hạn đỏ và xanh khớp chính xác điểm bắt đầu, kết thúc của&nbsp;từng&nbsp;câu&nbsp;thoại.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> Danh sách các dòng thời gian trống hoặc bản nháp đã được khóa chặt mốc vào ra theo đúng nhịp ngắt nghỉ thực tế&nbsp;của&nbsp;người&nbsp;nói.</p>
+<p>Theo tài liệu hướng dẫn kỹ thuật của <a href="https://aegisub.org/docs/latest/audio/">Aegisub Project</a>, phần mềm hỗ trợ cả hai chế độ hiển thị âm thanh là biểu đồ sóng âm (waveform) và phổ tần số (spectrum) để biên tập viên canh thời gian lời thoại. Ở những đoạn có tiếng ồn môi trường dày, việc chuyển sang chế độ phổ tần số giúp mắt người phân biệt rõ dải tần giọng nói với tạp âm nền mà không cần nghe đi nghe&nbsp;lại&nbsp;nhiều&nbsp;lần.</p>
+<h3>Bước 2: Gõ lời dịch, định dạng ASS và xuất tệp</h3>
+<p>Nhập nội dung phụ đề tiếng Việt vào ô soạn thảo cho từng mốc sóng âm, mở trình quản lý kiểu dáng (Styles Manager) để thiết lập phông chữ, kích thước, viền chữ trên định dạng gốc, sau đó vào mục File chọn Export để xuất ra tệp .SRT với&nbsp;bảng&nbsp;mã&nbsp;UTF-8.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> Tệp phụ đề .ASS giữ nguyên thiết kế đồ họa hoặc tệp văn bản thuần .SRT chuẩn mã hóa UTF-8 sẵn sàng tải lên nền&nbsp;tảng&nbsp;phân&nbsp;phối.</p>
+<p>Tài liệu xuất tệp của <a href="https://aegisub.org/docs/latest/exporting/">Aegisub Manual</a> nêu rõ định dạng làm việc mặc định của phần mềm là Advanced SubStation Alpha (viết tắt là .ASS) nhằm bảo toàn kiểu dáng trình bày; để lưu sang định dạng văn bản thuần như .SRT, người dùng bắt buộc qua tính năng Xuất tệp (File chọn Export). Để tiết kiệm công sức, tôi khuyến nghị dùng AI tạo tệp .SRT nháp trước rồi mở trong Aegisub để tinh chỉnh các đỉnh sóng&nbsp;âm&nbsp;bị&nbsp;lệch.</p>
+<h2>Quy chuẩn tối ưu định dạng phụ đề theo khung hình</h2>
+<p>Quy chuẩn tối ưu định dạng phụ đề đòi hỏi mỗi thẻ chữ hiển thị trên màn hình không vượt quá 2 dòng, thời lượng xuất hiện tối đa 7 giây và tỷ lệ tương phản màu chữ so với nền đạt tối thiểu 4.5:1. Đồng thời, khung chữ phải nằm trọn trong vùng an toàn của từng tỷ lệ khung hình&nbsp;dọc&nbsp;hoặc&nbsp;ngang.</p>
+<p>Một bản dịch đúng ngữ pháp nhưng đặt chữ quá nhỏ, màu chữ chìm vào phông nền sáng hoặc nhảy dòng liên tục theo từng từ đơn lẻ vẫn làm người xem mỏi mắt và lướt qua video. Tối ưu hiển thị là bước biến văn bản dịch thành trải nghiệm thị giác hỗ trợ trực tiếp cho tỷ lệ giữ&nbsp;chân&nbsp;người&nbsp;xem.</p>
+<h3>Thông số số dòng, thời lượng và độ tương phản</h3>
+<p>Trong tài liệu quy chuẩn kỹ thuật Timed Text Style Guide áp dụng toàn cầu, <a href="https://partnerhelp.netflixstudios.com/hc/en-us/articles/215758617-Timed-Text-Style-Guide-General-Requirements">Netflix</a> quy định mỗi thẻ phụ đề chỉ được phép có tối đa 2 dòng văn bản và thời lượng hiển thị tối đa cho một thẻ đơn lẻ là 7 giây. Đồng thời, người biên tập cần kiểm soát mật độ ký tự trên mỗi dòng và tốc độ đọc ký tự mỗi giây (Characters Per Second, viết tắt là CPS) ở ngưỡng vừa mắt để người xem kịp thu nhận thông tin trước&nbsp;khi&nbsp;chuyển&nbsp;cảnh.</p>
+<p>Về khả năng nhìn rõ chữ trên màn hình di động, tiêu chuẩn tiếp cận nội dung số WCAG 2.1 mức AA công bố năm 2018 của <a href="https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html">World Wide Web Consortium (W3C)</a> xác định văn bản thông thường và hình ảnh chứa chữ phải đạt tỷ lệ tương phản tối thiểu 4.5:1 so với nền phía sau. Vì hậu cảnh video chuyển động liên tục, cách an toàn nhất là dùng chữ màu sáng kết hợp viền chữ đen vừa phải hoặc đặt trên dải hộp nền&nbsp;bán&nbsp;trong&nbsp;suốt.</p>
+<figure class="kb-fig"><img src="/assets/kb/cach-lam-video-vietsub/05-cach-lam-video-vietsub.webp" srcset="/assets/kb/cach-lam-video-vietsub/05-cach-lam-video-vietsub-800.webp 800w, /assets/kb/cach-lam-video-vietsub/05-cach-lam-video-vietsub.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Quy chuẩn hiển thị phụ đề gồm tối đa hai dòng mỗi thẻ, thời lượng tối đa bảy giây và độ tương phản tối thiểu 4.5:1" width="1600" height="900"><figcaption>Tuân thủ giới hạn hai dòng và độ tương phản 4.5:1 giúp người xem đọc lướt dễ dàng trên màn hình di động</figcaption></figure>
+<h3>Vùng an toàn cho video dọc 9:16 và video ngang 16:9</h3>
+<p>Khi cùng một nội dung được cắt ra nhiều phiên bản cho YouTube, website và TikTok, vị trí đặt phụ đề không thể giữ cố định một tọa độ. Trên giao diện video ngắn dọc 9:16, phần đáy màn hình chứa tên tài khoản, dòng mô tả bài đăng, tên nhạc nền và nút kêu gọi hành động, trong khi cạnh phải chứa cột biểu tượng thả tim, bình luận&nbsp;và&nbsp;chia&nbsp;sẻ.</p>
+<p>Bảng dưới đây tổng hợp quy chuẩn định dạng và vùng an toàn giữa hai tỷ lệ khung hình phổ biến để đội ngũ dựng video thiết lập&nbsp;mẫu&nbsp;cố&nbsp;định:</p>
+<table>
+  <caption>Bảng đối chiếu quy chuẩn định dạng phụ đề theo tỷ lệ khung hình</caption>
+  <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
+  <thead>
+    <tr><th>Tiêu chí hiển thị</th><th>Khung dọc 9:16 (TikTok, Reels)</th><th>Khung ngang 16:9 (YouTube, Web)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Số dòng mỗi thẻ</td><td>Tối đa 2 dòng, ưu tiên 1 đến 2 cụm ngắn gọn cho mỗi nhịp nói nhanh</td><td>Tối đa 2 dòng theo chuẩn Netflix, giữ nhịp ngắt câu trọn vẹn ý</td></tr>
+    <tr><td>Thời lượng và độ tương phản</td><td>Tối đa 7 giây mỗi thẻ, tỷ lệ tương phản chữ và nền tối thiểu 4.5:1</td><td>Tối đa 7 giây mỗi thẻ, tỷ lệ tương phản tối thiểu 4.5:1 kèm viền mảnh</td></tr>
+    <tr><td>Vùng an toàn đặt chữ</td><td>Đẩy cao khỏi đáy màn hình, chừa lề phải tránh cột nút tương tác</td><td>Đặt ở vùng một phần ba dưới, căn giữa và cách lề đáy khoảng 10%</td></tr>
+    <tr><td>Cách ngắt cụm tiếng Việt</td><td>Không tách rời tên thương hiệu hoặc từ ghép tiếng Việt sang 2 dòng</td><td>Ngắt tại dấu câu hoặc liên từ, giữ độ dài hai dòng cân đối nhau</td></tr>
+  </tbody>
+</table>
+<p>Điều kiện đọc bảng: kích thước vùng bị che khuất trên TikTok hoặc Facebook Reels có thể thay đổi tùy theo độ dài văn bản mô tả và nhãn quảng cáo tại thời điểm phân phối (thông số pixel cố định chưa được xác nhận đồng nhất cho mọi vị trí hiển thị). Người dựng luôn phải bật lớp lưới kiểm tra trước khi xuất tệp và có thể kết hợp thêm cơ chế <a href="/goc-kien-thuc/ai-marketing/ai-personalization-la-gi/">cá nhân hóa nội dung bằng AI</a> cho từng nhóm&nbsp;khán&nbsp;giả.</p>
+<!-- cta:nut -->
+<h2>Phụ đề Hardsub và Softsub trong tối ưu Video SEO</h2>
+<p>Phụ đề gắn cứng (Hardsub) và phụ đề rời (Softsub) khác nhau cốt lõi ở cơ chế lưu trữ dữ liệu: Hardsub đốt trực tiếp chữ thành điểm ảnh trên video nên giữ nguyên thiết kế nhưng máy tìm kiếm không đọc được văn bản, còn Softsub tồn tại dưới dạng tệp thời gian độc lập giúp công cụ tìm kiếm lập chỉ mục phục vụ tối ưu hóa công cụ tìm kiếm cho&nbsp;video&nbsp;(Video&nbsp;SEO).</p>
+<p>Theo tài liệu hướng dẫn tối ưu hóa tìm kiếm video hiện hành của <a href="https://developers.google.com/search/docs/appearance/video">Google Search Central</a>, bộ máy tìm kiếm Google có thể sử dụng phần văn bản trong bản chép lời (transcript) hoặc tệp phụ đề đóng (closed captions) để hiểu rõ hơn nội dung và ngữ cảnh của video đó. Nếu doanh nghiệp chỉ đăng một tệp video đã gắn cứng chữ lên website hoặc YouTube mà không kèm tệp phụ đề rời, hệ thống thu thập dữ liệu sẽ thiếu lớp văn bản xác thực từng mốc thời gian&nbsp;bên&nbsp;trong&nbsp;video.</p>
+<figure class="kb-fig"><img src="/assets/kb/cach-lam-video-vietsub/06-cach-lam-video-vietsub.webp" srcset="/assets/kb/cach-lam-video-vietsub/06-cach-lam-video-vietsub-800.webp 800w, /assets/kb/cach-lam-video-vietsub/06-cach-lam-video-vietsub.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Đối chiếu vùng an toàn đặt phụ đề giữa khung hình dọc 9:16 của TikTok, Reels và khung hình ngang 16:9 của YouTube" width="1600" height="900"><figcaption>Đặt phụ đề đúng vùng an toàn của từng tỷ lệ khung hình để chữ không bị nút tương tác và mô tả bài đăng che khuất</figcaption></figure>
+<p>Ngược lại, khi tải tệp phụ đề rời lên nền tảng phân phối, người làm kỹ thuật cần tuân thủ quy định mã hóa của từng hệ thống. Tài liệu trợ giúp hiện hành của <a href="https://support.google.com/youtube/answer/2734698">YouTube Help (Google)</a> xác nhận rằng với định dạng SubRip (.SRT), nền tảng chỉ hỗ trợ phiên bản văn bản cơ bản, không nhận diện các thẻ kiểu chữ phức tạp và tệp bắt buộc lưu ở bảng mã văn bản thuần UTF-8 để tránh lỗi hiển thị mã thẻ hoặc vỡ&nbsp;dấu&nbsp;tiếng&nbsp;Việt.</p>
+<p>Để chọn đúng định dạng xuất tệp cho từng kênh truyền thông, đội ngũ marketing có thể đối chiếu theo bốn tiêu chí kỹ thuật và phân phối trong&nbsp;bảng&nbsp;dưới&nbsp;đây:</p>
+<table>
+  <caption>Bảng phân biệt phụ đề gắn cứng Hardsub và phụ đề rời Softsub</caption>
+  <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
+  <thead>
+    <tr><th>Tiêu chí đối chiếu</th><th>Phụ đề gắn cứng (Hardsub)</th><th>Phụ đề rời (Softsub / .SRT)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Cơ chế lưu trữ và hiển thị</td><td>Kết xuất cố định thành điểm ảnh trên khung hình, không thể tắt mở</td><td>Tệp văn bản chứa mốc thời gian độc lập, người xem tự bật tắt được</td></tr>
+    <tr><td>Khả năng hỗ trợ Video SEO</td><td>Không cung cấp luồng văn bản riêng cho bọ tìm kiếm thu thập dữ liệu</td><td>Cung cấp văn bản rõ ràng giúp Google và YouTube hiểu ngữ cảnh video</td></tr>
+    <tr><td>Kiểu dáng và nhận diện</td><td>Giữ nguyên 100% phông chữ, màu sắc, hiệu ứng của thương hiệu</td><td>Phụ thuộc trình phát của nền tảng, định dạng .SRT trên YouTube bỏ thẻ kiểu</td></tr>
+    <tr><td>Kênh phân phối phù hợp</td><td>TikTok, Facebook Reels, Instagram, video chạy quảng cáo chuyển đổi</td><td>YouTube, video nhúng trên trang đích website, khóa học đa ngôn ngữ</td></tr>
+  </tbody>
+</table>
+<p>Giới hạn áp dụng: việc tải tệp .SRT chuẩn UTF-8 giúp công cụ tìm kiếm hiểu nội dung video chính xác hơn, nhưng thứ hạng thực tế còn phụ thuộc vào chất lượng trang đích, tiêu đề và tín hiệu tương tác tổng thể. Khi doanh nghiệp <a href="/goc-kien-thuc/marketing/cach-tao-website/">thiết kế website chuẩn chuyển đổi</a> và nhúng video giới thiệu sản phẩm lên trang dịch vụ, giải pháp tối ưu là xuất tệp kép: dùng bản có tệp .SRT rời cho trình phát trên web và YouTube, đồng thời xuất bản Hardsub cho các kênh mạng xã&nbsp;hội&nbsp;video&nbsp;ngắn.</p>
+<!-- cta:late -->
+<h2>Bốn lỗi nhận diện giọng nói AI và bước kiểm duyệt</h2>
+<p>Bốn lỗi phổ biến nhất khi dùng AI làm phụ đề video marketing gồm: nhận diện sai tên riêng thương hiệu, dịch sát nghĩa làm lệch thuật ngữ chuyên ngành, ngắt dòng ngược nhịp nói và tự ý lấy video hoặc phụ đề bên ngoài gây rủi ro bản quyền thương mại. Doanh nghiệp cần đặt điểm kiểm duyệt của con người trước&nbsp;khi&nbsp;xuất&nbsp;bản.</p>
+<p>Công nghệ nhận diện giọng nói giúp rút ngắn đáng kể thao tác gõ chữ thô, nhưng nếu giao phó hoàn toàn cho máy mà thiếu <a href="/goc-kien-thuc/ai-marketing/human-in-the-loop-la-gi/">vai trò người kiểm duyệt</a>, một lỗi sai chữ trên màn hình có thể làm hỏng uy tín chuyên môn của cả chiến dịch. Dưới đây là bốn nhóm lỗi điển hình cần rà soát kỹ trong quy&nbsp;trình&nbsp;sản&nbsp;xuất:</p>
+<ul class="kb-list-cards">
+  <li><strong>Biến dạng tên riêng và thương hiệu:</strong> Mô hình tách âm thanh thường phiên âm sai tên thương hiệu nước ngoài hoặc mã sản phẩm thành những cụm từ tiếng Việt đồng âm vô nghĩa, làm giảm độ tin cậy ngay từ vài giây mở đầu của video.</li>
+  <li><strong>Dịch sát nghĩa lệch thuật ngữ ngành:</strong> Khi dịch tự động thiếu ngữ cảnh, công cụ dễ mắc <a href="/goc-kien-thuc/ai-marketing/ao-giac-ai-la-gi/">hiện tượng ảo giác AI</a> hoặc dịch ghép từng từ khiến các khái niệm tiếp thị, kỹ thuật và tài chính bị sai lệch bản chất chuyên môn của ngành hàng.</li>
+  <li><strong>Ngắt dòng đứt cụm ngữ nghĩa:</strong> Thuật toán tự động thường cắt dòng dựa trên số lượng ký tự hoặc khoảng lặng ngắn của hơi thở, làm tách đôi một từ ghép tiếng Việt hoặc đặt dấu câu sai vị trí trên khung hình.</li>
+  <li><strong>Rủi ro bản quyền video và phụ đề:</strong> Việc tải lại video của nhà sáng tạo khác hoặc lấy tệp phụ đề từ các kho cộng đồng chưa được cấp phép để gắn logo doanh nghiệp chạy quảng cáo có thể dẫn tới đánh gậy bản quyền và khóa tài khoản.</li>
+</ul>
+<h3>Đối chiếu xử lý lỗi thuật ngữ, ngắt câu và bản quyền</h3>
+<p>Để hình dung rõ sự khác biệt giữa việc xuất bản thẳng kết quả thô của máy và quy trình có biên tập viên kiểm soát, hãy xem một tình huống ví dụ biên tập, không phải kết quả khách hàng thật: một doanh nghiệp cung cấp phần mềm quản trị B2B sản xuất chuỗi video ngắn giải thích tính năng tự động hóa báo cáo cho nhóm khách&nbsp;hàng&nbsp;tổ&nbsp;chức.</p>
+<div class="kb-case">
+  <p class="kb-case__k">Ví dụ biên tập, không phải kết quả khách hàng thật</p>
+  <p class="kb-case__t">Đối chiếu bản phụ đề AI tự động thô và bản đã qua biên tập viên chuẩn hóa</p>
+  <p>Trong video giới thiệu giải pháp (ví dụ biên tập), người nói phát âm nhanh câu chứa thuật ngữ chuyên ngành. Ở cách làm sai, nhân sự bấm tạo phụ đề một chạm rồi xuất thẳng tệp khiến chữ "dữ / liệu" bị cắt làm hai dòng và tràn xuống nút mua hàng. Ở cách làm đúng, biên tập viên đối chiếu bảng thuật ngữ, rút gọn câu thành "Tự động gom dữ liệu báo cáo về một bảng điều khiển", khóa tối đa 2 dòng và đẩy chữ lên&nbsp;vùng&nbsp;an&nbsp;toàn.</p>
+</div>
+<p>Về khía cạnh pháp lý, các kho lưu trữ phụ đề phim ảnh trên mạng chỉ phù hợp để tham khảo cách dịch câu giao tiếp đời thường. Đội ngũ marketing tuyệt đối không lấy nguyên tệp phụ đề hoặc cắt ghép video chưa có quyền sử dụng thương mại để làm nội dung bán hàng. Chi phí sửa chữa khủng hoảng bản quyền luôn lớn hơn nhiều so với thời gian tự thu âm và tạo tệp phụ đề gốc. Có công cụ chưa phải là&nbsp;có&nbsp;quy&nbsp;trình.</p>
+<figure class="kb-fig"><img src="/assets/kb/cach-lam-video-vietsub/07-cach-lam-video-vietsub.webp" srcset="/assets/kb/cach-lam-video-vietsub/07-cach-lam-video-vietsub-800.webp 800w, /assets/kb/cach-lam-video-vietsub/07-cach-lam-video-vietsub.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Chiến lược xuất tệp phụ đề kép gồm bản gắn cứng Hardsub cho mạng xã hội ngắn và tệp rời SRT chuẩn UTF-8 cho Video SEO" width="1600" height="900"><figcaption>Kết hợp xuất bản Hardsub cho video ngắn và tệp .SRT chuẩn UTF-8 cho YouTube, website để tối ưu cả hiển thị lẫn tìm kiếm</figcaption></figure>
+<h3>Checklist nghiệm thu và khung đo hiệu quả giữ chân</h3>
+<p>Trước khi bàn giao video cho bộ phận phân phối hoặc chạy quảng cáo, người phụ trách nội dung cần kiểm tra lần cuối theo năm tiêu chí nghiệm thu bắt&nbsp;buộc&nbsp;dưới&nbsp;đây:</p>
+<ul>
+  <li><strong>Chính tả và tên riêng:</strong> Đã rà soát 100% tên thương hiệu, tên sản phẩm, chức danh nhân vật và các con số cam kết xuất hiện&nbsp;trên&nbsp;phụ&nbsp;đề.</li>
+  <li><strong>Quy chuẩn dòng và thời lượng:</strong> Không có thẻ phụ đề nào vượt quá 2 dòng hoặc neo trên màn hình quá 7 giây gây mỏi&nbsp;mắt&nbsp;người&nbsp;xem.</li>
+  <li><strong>Độ tương phản và vùng an toàn:</strong> Màu chữ đạt độ tương phản tối thiểu 4.5:1 có viền hoặc nền đỡ, không bị giao diện dọc 9:16 hay ngang 16:9&nbsp;che&nbsp;khuất.</li>
+  <li><strong>Định dạng tệp xuất bản:</strong> Đã xuất đúng bản Hardsub cho mạng xã hội video ngắn và bản .SRT mã hóa thuần UTF-8 cho YouTube&nbsp;hoặc&nbsp;website.</li>
+  <li><strong>Bản quyền tài nguyên:</strong> Âm thanh gốc, hình ảnh, phông chữ tiếng Việt và bản dịch phụ đề đều thuộc quyền sử dụng hợp lệ của&nbsp;doanh&nbsp;nghiệp.</li>
+</ul>
+<p>Sau khi đăng tải, hiệu quả chuẩn hóa phụ đề cần được đặt trong <a href="/goc-kien-thuc/quan-tri-marketing/mau-ke-hoach-marketing/">bản kế hoạch marketing</a> tổng thể và theo dõi qua ba tầng chỉ số: tầng 1 là tín hiệu giữ chân đầu phễu (tỷ lệ xem qua 3 giây đầu khi tắt tiếng); tầng 2 là hành vi xem đạt chuẩn (thời lượng xem trung bình và tỷ lệ xem hết); tầng 3 là hành động chuyển đổi như nhấp vào trang đích hoặc gửi yêu&nbsp;cầu&nbsp;tư&nbsp;vấn.</p>
+<p>Khi đọc báo cáo, người làm marketing cần lưu ý giới hạn quy kết của dữ liệu. Phụ đề chuẩn giúp giảm tỷ lệ thoát sớm do người dùng không bật âm thanh, nhưng kết quả chuyển đổi cuối cùng luôn phụ thuộc đồng thời vào sức hút của kịch bản, ưu đãi sản phẩm và tệp đối tượng&nbsp;phân&nbsp;phối.</p>
+<!-- faq -->
+<h2>Kết luận</h2>
+<p>Chọn cách làm video vietsub bằng công nghệ AI tự động, dịch tệp .SRT qua mô hình ngôn ngữ lớn hay canh sóng âm thủ công trên Aegisub luôn bắt đầu từ mục tiêu sử dụng và độ phức tạp thuật ngữ của từng video, không bắt đầu từ việc chạy theo một công cụ duy nhất. Khi phụ đề tuân thủ giới hạn tối đa 2 dòng, đạt độ tương phản 4.5:1 trong vùng an toàn và phân tách rõ bản Hardsub với tệp .SRT chuẩn UTF-8, nội dung video vừa giữ chân được người xem tắt tiếng vừa hỗ trợ tốt&nbsp;cho&nbsp;Video&nbsp;SEO.</p>
+<p>Ngay trong tuần này, bạn có thể lấy 3 video gần nhất của doanh nghiệp đang đăng trên TikTok và YouTube để kiểm tra nhanh: phụ đề có bị các nút giao diện che khuất không, các thuật ngữ ngành hàng có đồng nhất không và kênh YouTube đã được đính kèm tệp .SRT rời mã hóa UTF-8&nbsp;hay&nbsp;chưa.</p>
+<p>Khi số lượng video sản xuất tăng lên hàng chục bản mỗi tháng trên nhiều kênh mà đội ngũ liên tục tốn giờ sửa lỗi dịch thuật hoặc báo cáo lượt xem không nối được với chất lượng khách hàng tiềm năng, bài toán lúc này không còn nằm ở thao tác chỉnh từng dòng phụ đề mà cần một quy trình vận hành nội dung và đo lường&nbsp;đồng&nbsp;bộ.</p>
+<p>Quy trình sản xuất video và ứng dụng AI tại doanh nghiệp của bạn đang tốn nhiều thời gian nhất ở khâu tách lời, dịch thuật ngữ hay kiểm&nbsp;duyệt&nbsp;đầu&nbsp;ra?</p>
