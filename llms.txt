@@ -32,6 +32,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [Marketing là gì, cách triển khai cho SME](https://letuanviet.com/goc-kien-thuc/marketing/marketing-la-gi/): Giải mã marketing là gì qua định nghĩa AMA, bảng phân biệt với quảng cáo và bán hàng, mô hình 4P, quy trình 4 bước kèm khung đo 3 tầng cho doanh nghiệp.
 - [CX là gì và cách đo trải nghiệm khách hàng](https://letuanviet.com/goc-kien-thuc/marketing/cx-la-gi/): Giải mã CX là gì giúp doanh nghiệp nhỏ phân biệt trải nghiệm với dịch vụ khách hàng, nắm công thức tính CSAT, CES, NPS, Churn Rate và sửa quy trình điểm chạm.
 - [Hiệu ứng chim mồi là gì và cách định giá gói](https://letuanviet.com/goc-kien-thuc/marketing/hieu-ung-chim-moi-la-gi/): Giải mã hiệu ứng chim mồi là gì qua cơ chế ưu thế bất đối xứng, bảng phân biệt với hiệu ứng thỏa hiệp và quy trình tính biên lợi nhuận 3 gói giá cho SME.
 - [Thiết kế website du lịch và dịch vụ cho SME](https://letuanviet.com/goc-kien-thuc/marketing/thiet-ke-website-du-lich/): Cách thiết kế website du lịch và dịch vụ khớp quy mô vận hành: phân biệt tính năng theo ngành, chọn mô hình giữ chỗ vừa sức và đo chuyển đổi đa tầng cho SME.
