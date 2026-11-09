@@ -1006,19 +1006,40 @@ function sideTitleLines(x) {
   }
   return cut == null ? [t] : [t.slice(0, cut).trim(), t.slice(cut).trim()];
 }
-function articleSide(a, all, rel) {
+/* Cột phải ĐÓNG BĂNG theo thời điểm đăng bài: số bài từng chuyên mục và "Kiến thức mới" chỉ tính các bài đăng
+   không muộn hơn bài đang dựng, nên đăng bài mới không phải viết lại trang cũ. Trình duyệt (js/kb.js mục 7) đọc
+   goc-kien-thuc/recent.json để cập nhật hai khối này theo hiện tại, cùng cấu trúc thẻ nên không xô lệch bố cục;
+   phần đóng băng là bản dự phòng khi không chạy JavaScript. Trang chính sách đóng băng theo ngày cập nhật của chính nó. */
+const RECENT = `${HUB}/recent.json`;
+const publishedBy = (all, iso) => all.filter(x => String(x.published) <= String(iso));
+/* recent.json: số bài từng chuyên mục + SIDE_POSTS + 1 bài mới nhất (bỏ bài đang đọc vẫn còn đủ SIDE_POSTS bài).
+   Mỗi bài mang đúng dữ liệu một dòng "Kiến thức mới" cần: u, t (tiêu đề), l (2 dòng tiêu đề), d (ngày), img (ảnh 320px nếu có). */
+function recentJson(all) {
+  return JSON.stringify({
+    n: pillarCounts(all),
+    posts: all.slice(0, SIDE_POSTS + 1).map(x => ({
+      u: articlePath(x), t: x.title, l: sideTitleLines(x), d: day(x.published),
+      ...(x.cover && x.cover.base ? { img: `assets/kb/${x.cover.base}-320.webp` } : {})
+    }))
+  });
+}
+function articleSide(a, allNow, rel) {
+  const all = publishedBy(allNow, a.published);                        // đóng băng tại thời điểm đăng bài
   const counts = pillarCounts(all);
   const cats = SITE.pillars.map(p => {
     const n = counts[p.slug];
     return `<li><a class="kb-side__cat${p.slug === a.pillar ? ' is-current' : ''}" href="${rel}${pillarPath(p)}">${ico('i-chev-r')}<span class="kb-side__cname">${esc(p.name)}</span>${n ? `<span class="kb-side__n">${n}</span>` : ''}</a></li>`;
   }).join('\n                ');
-  const others = all.filter(x => x.slug !== a.slug).slice(0, SIDE_POSTS);
+  let others = all.filter(x => x.slug !== a.slug).slice(0, SIDE_POSTS);
+  // Bài đăng sớm (lúc đăng chưa có đủ SIDE_POSTS bài cũ hơn): lấy các bài cũ nhất của cả kho cho đủ dòng. Tập này không đổi
+  // khi đăng thêm bài, và danh sách luôn đủ dòng thì lúc trình duyệt thay bằng bài mới nhất, cột phải không cao thêm.
+  if (others.length < SIDE_POSTS) others = allNow.slice(-(SIDE_POSTS + 1)).filter(x => x.slug !== a.slug).slice(0, SIDE_POSTS);
   const posts = (others.length ? others : [a]).map(x => {
     const self = x.slug === a.slug;
     return `<li><a class="kb-side__post" href="${rel}${articlePath(x)}"${self ? ' aria-current="page"' : ''}>${x.cover && x.cover.base ? `<span class="kb-side__img"><img src="${rel}assets/kb/${x.cover.base}-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span>` : ''}<span class="kb-side__txt"><b title="${esc(x.title)}">${sideTitleLines(x).map(l => `<span>${esc(l)}</span>`).join(' ')}</b><small>${self ? 'Bạn đang đọc' : `<time datetime="${day(x.published)}">${vnDate(x.published)}</time>`}</small></span></a></li>`;
   }).join('\n                ');
   return `<aside class="kb-art__aside" aria-label="Tìm kiếm, chuyên mục và bài viết mới">
-            <div class="kb-side">
+            <div class="kb-side" data-kb-recent="${rel}${RECENT}" data-kb-self="${articlePath(a)}">
               ${searchBox(rel, { id: 'kb-sq', side: true })}
               <nav class="kb-side__box" aria-labelledby="kb-side-cat">
                 <p class="kb-side__t" id="kb-side-cat">Chuyên mục</p>
@@ -1227,7 +1248,7 @@ ${related.length ? `
 ---------------------------------------------------------------------------- */
 function legalSide(doc, all, rel) {
   const isEn = doc.lang === 'en';
-  const counts = pillarCounts(all);
+  const counts = pillarCounts(all.filter(x => day(x.published) <= doc.updatedIso));   // đóng băng theo ngày cập nhật của trang
   const privacyPath = isEn ? 'en/privacy-policy/' : 'chinh-sach-bao-mat/';
   const termsPath = isEn ? 'en/terms-of-use/' : 'dieu-khoan-su-dung/';
   const cats = SITE.pillars.map(p => {
@@ -1236,7 +1257,7 @@ function legalSide(doc, all, rel) {
     return `<li><a class="kb-side__cat" href="${rel}${pillarPath(p)}">${ico('i-chev-r')}<span class="kb-side__cname">${esc(name)}</span>${n ? `<span class="kb-side__n">${n}</span>` : ''}</a></li>`;
   }).join('\n                ');
   return `<aside class="kb-art__aside" aria-label="${isEn ? 'Legal navigation, categories and contact' : 'Tài liệu pháp lý, chuyên mục và liên hệ'}">
-            <div class="kb-side">
+            <div class="kb-side" data-kb-recent="${rel}${RECENT}">
               ${searchBox(rel, { id: 'kb-sq', side: true, lang: doc.lang })}
               <nav class="kb-side__box" aria-labelledby="kb-side-legal">
                 <p class="kb-side__t" id="kb-side-legal">${isEn ? 'Policies & Terms' : 'Chính sách & Điều khoản'}</p>
@@ -1848,6 +1869,7 @@ function main() {
   drafts.forEach(a => written.push(writeFile(`${articlePath(a)}index.html`, articlePage(a, all))));
   LEGAL_PAGES.forEach(doc => written.push(writeFile(`${doc.path}index.html`, legalPage(doc, all))));
   written.push(writeFile(`${HUB}/feed.xml`, feed(all)));
+  written.push(writeFile(RECENT, recentJson(all)));
   const search = searchIndex(all);
   written.push(writeFile(`${HUB}/search.json`, search.slim));
   search.parts.forEach(p => written.push(writeFile(p.path, p.text)));

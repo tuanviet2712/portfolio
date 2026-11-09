@@ -270,4 +270,94 @@
       if (e.key === 'ArrowLeft') { go(-1); e.preventDefault(); }
     });
   })();
+
+  /* ---------- 7. Cột phải: số bài từng chuyên mục và "Kiến thức mới" theo hiện tại ----------
+     build-kb.cjs dựng cột phải ĐÓNG BĂNG tại lúc đăng bài (đăng bài mới không phải dựng lại trang cũ). Ở đây đọc
+     goc-kien-thuc/recent.json rồi cập nhật hai khối đó bằng đúng thẻ, đúng lớp như bản dựng, không đổi giao diện:
+     - số bài: chỉ đổi chữ số trong cùng một dòng;
+     - "Kiến thức mới": dựng danh sách mới ẩn bên cạnh để đo, chỉ thay khi cao ĐÚNG BẰNG danh sách cũ (không xô lệch
+       cột phải; lệch thì giữ bản đóng băng) và sau khi ảnh mới đã tải (không chớp ô ảnh trống).
+     Chỉ chạy khi cột phải đang hiện (từ 1280px); màn nhỏ hơn không tải gì, phóng to cửa sổ thì chạy lúc đó. */
+  (function freshSide() {
+    const side = $('.kb-side[data-kb-recent]');
+    const aside = side && side.closest('.kb-art__aside');
+    if (!side || !aside || !window.fetch) return;
+    const src = side.dataset.kbRecent;
+    const rel = src.replace(/goc-kien-thuc\/recent\.json$/, '');
+    let started = false, t = 0;
+    const start = () => {
+      if (started || !aside.getClientRects().length) return;
+      started = true;
+      removeEventListener('resize', later);
+      fetch(src, { credentials: 'same-origin' })
+        .then(r => (r.ok ? r.json() : Promise.reject(r.status)))
+        .then(apply)
+        .catch(() => {});                                // lỗi mạng: giữ nguyên cột phải đóng băng
+    };
+    const later = () => { clearTimeout(t); t = setTimeout(start, 200); };
+    addEventListener('resize', later, { passive: true });
+    start();
+
+    const vnDate = d => { const [y, m, dd] = String(d).split('-'); return `${dd}/${m}/${y}`; };
+    const tag = (name, attrs) => { const n = document.createElement(name); Object.keys(attrs || {}).forEach(k => n.setAttribute(k, attrs[k])); return n; };
+    // Cùng cấu trúc với một dòng "Kiến thức mới" của build-kb.cjs (articleSide)
+    const item = p => {
+      const li = tag('li');
+      const a = tag('a', { class: 'kb-side__post', href: rel + p.u });
+      if (p.img) {
+        const fig = tag('span', { class: 'kb-side__img' });
+        fig.appendChild(tag('img', { src: /^https?:/.test(p.img) ? p.img : rel + p.img, alt: '', width: '320', height: '168', loading: 'lazy', decoding: 'async' }));
+        a.appendChild(fig);
+      }
+      const txt = tag('span', { class: 'kb-side__txt' });
+      const b = tag('b', { title: p.t });
+      (p.l && p.l.length ? p.l : [p.t]).forEach((line, i) => { if (i) b.appendChild(document.createTextNode(' ')); const s = tag('span'); s.textContent = line; b.appendChild(s); });
+      const small = tag('small');
+      const time = tag('time', { datetime: p.d });
+      time.textContent = vnDate(p.d);
+      small.appendChild(time);
+      txt.append(b, small);
+      a.appendChild(txt);
+      li.appendChild(a);
+      return li;
+    };
+
+    function apply(j) {
+      // 1. Số bài từng chuyên mục (liên kết tới trang chủ đề)
+      const n = j && j.n ? j.n : {};
+      $$('.kb-side__cat', side).forEach(a => {
+        const m = /goc-kien-thuc\/([a-z0-9-]+)\/$/.exec(a.getAttribute('href') || '');
+        if (!m || !(m[1] in n)) return;
+        let s = $('.kb-side__n', a);
+        if (n[m[1]]) {
+          if (!s) { s = tag('span', { class: 'kb-side__n' }); a.appendChild(s); }
+          if (s.textContent !== String(n[m[1]])) s.textContent = n[m[1]];
+        } else if (s) s.remove();
+      });
+
+      // 2. Kiến thức mới
+      const ul = $('.kb-side__posts', side);
+      if (!ul || !j || !Array.isArray(j.posts)) return;
+      const self = side.dataset.kbSelf || '';
+      const items = j.posts.filter(p => p && p.u && p.u !== self).slice(0, 5).map(item);
+      if (!items.length) return;
+      const now = Array.from(ul.children);
+      if (items.length === now.length && items.every((li, i) => li.outerHTML === now[i].outerHTML)) return;   // đã đúng
+      const probe = ul.cloneNode(false);
+      probe.setAttribute('aria-hidden', 'true');
+      probe.style.cssText = `position:absolute;visibility:hidden;pointer-events:none;margin:0;left:-9999px;top:0;width:${ul.getBoundingClientRect().width}px`;
+      items.forEach(li => probe.appendChild(li.cloneNode(true)));
+      ul.parentNode.appendChild(probe);
+      const same = Math.abs(probe.getBoundingClientRect().height - ul.getBoundingClientRect().height) < 0.5;
+      probe.remove();
+      if (!same) return;
+      const imgs = items.map(li => li.querySelector('img')).filter(Boolean).map(img => new Promise(done => {
+        const im = new Image();
+        im.onload = im.onerror = () => done();
+        im.src = img.src;
+      }));
+      Promise.race([Promise.all(imgs), new Promise(done => setTimeout(done, 3000))])
+        .then(() => requestAnimationFrame(() => ul.replaceChildren(...items)));
+    }
+  })();
 })();

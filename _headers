@@ -53,6 +53,9 @@ https://:version.portfolio-elj.pages.dev/*
   X-Robots-Tag: noindex
 /goc-kien-thuc/search/*
   X-Robots-Tag: noindex
+# Số bài + bài mới nhất cho cột phải (js/kb.js cập nhật cột phải đóng băng của trang cũ)
+/goc-kien-thuc/recent.json
+  X-Robots-Tag: noindex
 
 # Toàn văn bài viết cho công cụ AI: vẫn đọc được, nhưng Google không lập chỉ mục (tránh trùng với chính các bài)
 /llms-full.txt
