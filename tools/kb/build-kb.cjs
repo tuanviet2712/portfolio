@@ -60,6 +60,16 @@ function writeFile(rel, content) {
   fs.writeFileSync(file, content, 'utf8');
   return file;
 }
+// Thư mục chỉ chứa tệp do bản dựng sinh ra (phần lưu trữ, mảnh chỉ mục): xoá tệp không còn dùng, thư mục rỗng thì xoá luôn
+function sweepDir(rel, keepNames) {
+  const dir = path.join(ROOT, rel);
+  if (!fs.existsSync(dir)) return;
+  fs.readdirSync(dir, { withFileTypes: true }).filter(d => d.isFile() && !keepNames.has(d.name)).forEach(d => {
+    fs.rmSync(path.join(dir, d.name), { force: true });
+    console.log(`  – Đã xoá tệp cũ ${path.relative(ROOT, path.join(dir, d.name))}`);
+  });
+  if (!fs.readdirSync(dir).length) fs.rmSync(dir, { recursive: true, force: true });
+}
 
 /* ----------------------------------------------------------------------------
    Đọc bài viết
@@ -914,8 +924,15 @@ function llmsTxt(all) {
   return lines.join('\n');
 }
 
-/* llms-full.txt: toàn văn mọi bài ở dạng Markdown thuần cho công cụ AI không chạy JavaScript.
-   Gắn X-Robots-Tag: noindex trong _headers để Google không xem là bản trùng của các bài viết. */
+/* llms-full.txt: toàn văn bài viết ở dạng Markdown thuần cho công cụ AI không chạy JavaScript.
+   Gắn X-Robots-Tag: noindex trong _headers để Google không xem là bản trùng của các bài viết.
+   Cloudflare Pages chặn tệp trên 25 MiB, nên llms-full.txt chỉ giữ các bài mới nhất (≈ LLMS_WINDOW byte);
+   bài cũ hơn nằm ở goc-kien-thuc/llms-full/phan-<n>.txt, mỗi phần ≤ LLMS_PART byte, ĐÁNH SỐ TỪ BÀI CŨ NHẤT:
+   phần đã đầy không đổi khi đăng bài mới, chỉ phần cuối nhận thêm bài trượt ra khỏi llms-full.txt.
+   Chưa có phần lưu trữ nào thì llms-full.txt giữ nguyên dạng cũ (không thêm dòng nào). */
+const LLMS_WINDOW = 3 * 1024 * 1024;
+const LLMS_PART = 4 * 1024 * 1024;
+const LLMS_DIR = `${HUB}/llms-full`;
 function bodyToText(html) {
   return decode(String(html)
     .replace(/<!--[\s\S]*?-->/g, '')
@@ -932,21 +949,43 @@ function bodyToText(html) {
     .split('\n').map(l => l.replace(/[ \t ]+/g, ' ').trim()).join('\n')
     .replace(/\n{3,}/g, '\n\n').trim();
 }
-function llmsFullTxt(all) {
-  const out = [`# ${SITE.siteName}: toàn văn Góc kiến thức`, '',
-    `> Toàn văn các bài viết của ${A.name}, ${A.role}. Mỗi bài ghi rõ địa chỉ gốc; khi trích dẫn, hãy dẫn về địa chỉ đó. Hồ sơ tác giả: ${abs('llms.txt')}`, ''];
-  for (const a of all) {
-    const p = pillarBySlug(a.pillar);
-    out.push('---', '', `## ${a.title}`, '',
-      `- URL: ${abs(articlePath(a))}`, `- Chủ đề: ${p.name}`, `- Tác giả: ${A.name}`,
-      `- Xuất bản: ${day(a.published)}; cập nhật: ${day(a.modified)}`, `- Tóm tắt: ${String(a.description).replace(/\s+/g, ' ').trim()}`, '');
-    if (a.sapo) out.push(plain(a.sapo), '');
-    if ((a.takeaways || []).length) out.push('### Tóm tắt nhanh', '', ...a.takeaways.map(t => `- ${plain(t)}`), '');
-    out.push(bodyToText(a.bodyHtml), '');
-    if ((a.faq || []).length) out.push('### Câu hỏi thường gặp', '', ...a.faq.flatMap(f => [`**${plain(f.q)}**`, plain(f.a), '']));
-    if ((a.references || []).length) out.push('### Nguồn tham khảo', '', ...a.references.map(r => `- ${r.text || r.name || ''}${r.url ? ` ${r.url}` : ''}`), '');
-  }
+function llmsArticle(a) {
+  const p = pillarBySlug(a.pillar);
+  const out = ['---', '', `## ${a.title}`, '',
+    `- URL: ${abs(articlePath(a))}`, `- Chủ đề: ${p.name}`, `- Tác giả: ${A.name}`,
+    `- Xuất bản: ${day(a.published)}; cập nhật: ${day(a.modified)}`, `- Tóm tắt: ${String(a.description).replace(/\s+/g, ' ').trim()}`, ''];
+  if (a.sapo) out.push(plain(a.sapo), '');
+  if ((a.takeaways || []).length) out.push('### Tóm tắt nhanh', '', ...a.takeaways.map(t => `- ${plain(t)}`), '');
+  out.push(bodyToText(a.bodyHtml), '');
+  if ((a.faq || []).length) out.push('### Câu hỏi thường gặp', '', ...a.faq.flatMap(f => [`**${plain(f.q)}**`, plain(f.a), '']));
+  if ((a.references || []).length) out.push('### Nguồn tham khảo', '', ...a.references.map(r => `- ${r.text || r.name || ''}${r.url ? ` ${r.url}` : ''}`), '');
   return out.join('\n');
+}
+/* Trả về { main, parts: [{ n, path, text }] }. all xếp mới → cũ. */
+function llmsFull(all) {
+  const blocks = all.map(a => ({ a, text: llmsArticle(a) }));
+  const bytes = b => Buffer.byteLength(b.text, 'utf8') + 1;            // + 1 ký tự xuống dòng nối giữa các khối
+  let k = 0, size = 0;                                                  // cửa sổ bài mới nhất, luôn có ít nhất 1 bài
+  while (k < blocks.length && (k === 0 || size + bytes(blocks[k]) <= LLMS_WINDOW)) size += bytes(blocks[k++]);
+  const groups = [];                                                    // phần lưu trữ: gom từ bài cũ nhất
+  let cur = [], curSize = 0;
+  for (const b of blocks.slice(k).reverse()) {
+    if (cur.length && curSize + bytes(b) > LLMS_PART) { groups.push(cur); cur = []; curSize = 0; }
+    cur.push(b); curSize += bytes(b);
+  }
+  if (cur.length) groups.push(cur);
+  const parts = groups.map((g, i) => {
+    const n = i + 1, list = g.slice().reverse();                        // trong mỗi phần vẫn xếp mới → cũ như tệp chính
+    const from = vnDate(g[0].a.published), to = vnDate(g[g.length - 1].a.published);
+    const head = [`# ${SITE.siteName}: toàn văn Góc kiến thức, phần lưu trữ ${n}`, '',
+      `> Bài đăng từ ${from} đến ${to} (${g.length} bài) của ${A.name}, ${A.role}. Mỗi bài ghi rõ địa chỉ gốc; khi trích dẫn, hãy dẫn về địa chỉ đó. Bài mới hơn: ${abs('llms-full.txt')}. Hồ sơ tác giả: ${abs('llms.txt')}`, ''];
+    return { n, from, to, count: g.length, path: `${LLMS_DIR}/phan-${n}.txt`, text: head.concat(list.map(b => b.text)).join('\n') };
+  });
+  const head = [`# ${SITE.siteName}: toàn văn Góc kiến thức`, '',
+    `> Toàn văn các bài viết của ${A.name}, ${A.role}. Mỗi bài ghi rõ địa chỉ gốc; khi trích dẫn, hãy dẫn về địa chỉ đó. Hồ sơ tác giả: ${abs('llms.txt')}`, ''];
+  if (parts.length) head.push(`Tệp này chứa ${k} bài mới nhất. Bài cũ hơn nằm ở các phần lưu trữ (đánh số từ bài cũ nhất):`, '',
+    ...parts.map(p => `- [Phần ${p.n}: ${p.from} đến ${p.to}, ${p.count} bài](${abs(p.path)})`), '');
+  return { main: head.concat(blocks.slice(0, k).map(b => b.text)).join('\n'), parts };
 }
 
 const SIDE_POSTS = 5;
@@ -1795,7 +1834,10 @@ function main() {
   written.push(writeFile(`${HUB}/feed.xml`, feed(all)));
   written.push(writeFile(`${HUB}/search.json`, searchIndex(all)));
   written.push(writeFile('llms.txt', llmsTxt(all)));
-  written.push(writeFile('llms-full.txt', llmsFullTxt(all)));
+  const llms = llmsFull(all);
+  written.push(writeFile('llms-full.txt', llms.main));
+  llms.parts.forEach(p => written.push(writeFile(p.path, p.text)));
+  sweepDir(LLMS_DIR, new Set(llms.parts.map(p => `phan-${p.n}.txt`)));
   updateSitemap(all);
   const homeChanged = updateHome(all);
 

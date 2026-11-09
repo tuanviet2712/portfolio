@@ -56,6 +56,10 @@ https://:version.portfolio-elj.pages.dev/*
 /llms-full.txt
   X-Robots-Tag: noindex
   Content-Type: text/plain; charset=utf-8
+# Phần lưu trữ của llms-full.txt (bài cũ hơn, đánh số từ bài cũ nhất): cùng quy tắc
+/goc-kien-thuc/llms-full/*
+  X-Robots-Tag: noindex
+  Content-Type: text/plain; charset=utf-8
 
 # Tệp báo lỗi bảo mật cần ở dạng văn bản thuần
 /.well-known/security.txt
