@@ -127,6 +127,45 @@ if ($leak) {
   $leak | ForEach-Object { "      " + $_.FullName.Substring($dist.Length + 1) }
 }
 
+# Canh bao gioi han (CHI BAO, KHONG BAO GIO CHAN trien khai). Bao vang khi dat 70%.
+#  - Cloudflare Pages mien phi: toi da 20.000 tep moi lan trien khai, moi tep toi da 25 MiB.
+#  - Moc giai doan 3 cua ke hoach mo rong Goc kien thuc: search.json (ban gon) nen gzip ~1 MB thi chuyen tim kiem
+#    sang may chu (Pages Functions + D1); tools/kb/articles ~2.500 tep thi chia thu muc con (can SEO-Agent).
+try {
+  $warnAt = 0.7
+  $distFiles = Get-ChildItem -LiteralPath $dist -Recurse -File
+  $relOf = { param($f) $f.FullName.Substring($dist.Length + 1).Replace('\', '/') }
+  $line = {
+    param($label, $value, $max, $text)
+    $p = $value / $max
+    $msg = "      {0}: {1} ({2}%)" -f $label, $text, [math]::Round(100 * $p)
+    if ($p -ge $warnAt) { Write-Host ($msg + "  <- CANH BAO: da qua 70%") -ForegroundColor Yellow } else { Write-Host $msg }
+  }
+  $mib = { param($b) [math]::Round($b / 1MB, 1) }
+  Write-Host "    Gioi han (bao vang tu 70%, khong chan trien khai):"
+  & $line "so tep" $distFiles.Count 20000 ("{0} / 20000" -f $distFiles.Count)
+  $big = $distFiles | Sort-Object Length -Descending | Select-Object -First 1
+  & $line "tep lon nhat" $big.Length 25MB ("{0} {1} / 25 MiB" -f (& $relOf $big), (& $mib $big.Length))
+  $kbBig = $distFiles | Where-Object { (& $relOf $_) -match '^(goc-kien-thuc/|llms)' } | Sort-Object Length -Descending | Select-Object -First 1
+  if ($kbBig) { & $line "tep Goc kien thuc lon nhat" $kbBig.Length 25MB ("{0} {1} / 25 MiB" -f (& $relOf $kbBig), (& $mib $kbBig.Length)) }
+  $searchFile = Join-Path $dist "goc-kien-thuc/search.json"
+  if (Test-Path -LiteralPath $searchFile) {
+    $raw = [IO.File]::ReadAllBytes($searchFile)
+    $ms = New-Object IO.MemoryStream
+    $gz = New-Object IO.Compression.GZipStream($ms, [IO.Compression.CompressionMode]::Compress)
+    $gz.Write($raw, 0, $raw.Length); $gz.Close()
+    $gzKb = [math]::Round($ms.ToArray().Length / 1KB)
+    & $line "search.json nen gzip (moc giai doan 3: tim kiem tren may chu)" $gzKb 1024 ("{0} KB / 1024 KB" -f $gzKb)
+  }
+  $artDir = Join-Path $root "tools/kb/articles"
+  if (Test-Path -LiteralPath $artDir) {
+    $artCount = (Get-ChildItem -LiteralPath $artDir -File -Filter *.html).Count
+    & $line "tools/kb/articles (moc giai doan 3: chia thu muc con)" $artCount 2500 ("{0} / 2500 tep" -f $artCount)
+  }
+} catch {
+  Write-Host "    (khong do duoc gioi han: $($_.Exception.Message); van trien khai binh thuong)" -ForegroundColor Yellow
+}
+
 if ($WhatIf) { Write-Host ""; Write-Host "  -WhatIf: dung o day, chua day len." -ForegroundColor Yellow; Write-Host ""; exit 0 }
 
 if (-not $Message) {
