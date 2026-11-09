@@ -295,6 +295,7 @@ async function main() {
       const src = fs.readFileSync(path.join(dir, f), 'utf8');
       const meta = JSON.parse(src.match(/<script type="application\/json" data-meta>([\s\S]*?)<\/script>/)[1]);
       if (meta.draft) continue;                 // bài mẫu / bài nháp: dùng lại ảnh bìa sẵn có, không tạo ảnh mới
+      if (meta.img_base) continue;              // ảnh của bài nằm trên R2 (img.letuanviet.com), không tạo bản ở assets/kb
       const c = meta.cover;
       const own = coverFile(meta);
       if (own) {

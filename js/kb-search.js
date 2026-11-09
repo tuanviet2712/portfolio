@@ -172,7 +172,7 @@
   function addPost(ui, p, Q) {
     option(ui, ui.rel + p.u, a => {
       const fig = el('span', 'kb-sr__img');
-      fig.appendChild(el('img', '', { src: ui.rel + p.img, alt: '', width: '120', height: '63', loading: 'lazy', decoding: 'async' }));
+      fig.appendChild(el('img', '', { src: /^https?:/.test(p.img) ? p.img : ui.rel + p.img, alt: '', width: '120', height: '63', loading: 'lazy', decoding: 'async' }));   // ảnh trên R2 có địa chỉ tuyệt đối
       const txt = el('span', 'kb-sr__txt');
       const t = el('span', 'kb-sr__t');
       t.appendChild(Q ? marked(p.t, Q) : document.createTextNode(p.t));

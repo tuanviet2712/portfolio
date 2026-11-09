@@ -54,6 +54,17 @@ const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 const enDate = iso => { const [y, m, d] = String(iso).slice(0, 10).split('-'); return `${MONTHS[+m - 1]} ${+d}, ${y}`; };
 const PAGES = [];                                   // mọi trang đã tạo, để kiểm tra title/meta ở báo cáo cuối
 
+/* Ảnh bài viết trên R2 (giai đoạn 2 của kế hoạch mở rộng; KHÔNG bài nào đổi cho tới khi có bài khai "img_base").
+   meta "img_base": "kb/<slug>/<rev>/" (rev: 6–12 ký tự a-z0-9). Có img_base thì MỌI ảnh của bài lấy từ
+   IMG_ORIGIN + img_base + đúng tên tệp đứng sau "assets/kb/" như cách cũ:
+     ảnh bìa  assets/kb/<cover.base>-320.webp  → https://img.letuanviet.com/kb/<slug>/<rev>/<cover.base>-320.webp
+     (cùng cách cho .webp, -640.webp, -1600.webp, .jpg)
+     hình     /assets/kb/<slug>/01-<slug>.webp → https://img.letuanviet.com/kb/<slug>/<rev>/<slug>/01-<slug>.webp
+   Không có img_base: giữ nguyên assets/kb. Trang nào có ảnh R2 thì thêm preconnect tới IMG_ORIGIN (page()). */
+const IMG_ORIGIN = 'https://img.letuanviet.com';
+const kbImg = (a, name, rel = '') => a.img_base ? `${IMG_ORIGIN}/${a.img_base}${name}` : `${rel}assets/kb/${name}`;
+const kbImgAbs = (a, name) => a.img_base ? `${IMG_ORIGIN}/${a.img_base}${name}` : abs(`assets/kb/${name}`);
+
 function writeFile(rel, content) {
   const file = path.join(ROOT, rel);
   fs.mkdirSync(path.dirname(file), { recursive: true });
@@ -87,6 +98,8 @@ function loadArticles() {
       const need = ['slug', 'pillar', 'title', 'description', 'sapo', 'published'];
       need.forEach(k => { if (!meta[k]) throw new Error(`${f}: thiếu "${k}"`); });
       if (!pillarBySlug(meta.pillar)) throw new Error(`${f}: chủ đề "${meta.pillar}" không có trong site.cjs`);
+      if (meta.img_base !== undefined && !(typeof meta.img_base === 'string' && new RegExp(`^kb/${meta.slug}/[a-z0-9]{6,12}/$`).test(meta.img_base)))
+        throw new Error(`${f}: "img_base" phải có dạng "kb/${meta.slug}/<6–12 ký tự a-z0-9>/"`);
       meta.modified = meta.modified || meta.published;
       meta.source = f;
       meta.raw = src.slice(m.index + m[0].length);
@@ -165,7 +178,7 @@ function footerSocial() {
    rel = đường dẫn tương đối về gốc website ('' ở trang chủ, '../../' ở trang con…)
 ---------------------------------------------------------------------------- */
 function cover(a, rel, { sizes = '100vw', lazy = true, alt = '', priority = false } = {}) {
-  const b = `${rel}assets/kb/${a.cover.base}`;
+  const b = kbImg(a, a.cover.base, rel);
   return `<picture><source type="image/webp" srcset="${b}-320.webp 320w, ${b}-640.webp 640w, ${b}.webp 1200w, ${b}-1600.webp 1600w" sizes="${sizes}"><img src="${b}.jpg" alt="${esc(alt)}" width="1200" height="630"${lazy ? ' loading="lazy"' : ''} decoding="async"${priority ? ' fetchpriority="high"' : ''}></picture>`;
 }
 
@@ -462,7 +475,8 @@ ${altLinks}
   <link rel="preload" href="${rel}assets/fonts/be-vietnam-pro/QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="${rel}assets/fonts/be-vietnam-pro/QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="${rel}assets/fonts/be-vietnam-pro/QdVMSTAyLFyeg_IDWvOJmVES_HSQI281Rb0.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="${rel}assets/fonts/be-vietnam-pro/QdVMSTAyLFyeg_IDWvOJmVES_HSQI286Rb0bcw.woff2" as="font" type="font/woff2" crossorigin>${preload}
+  <link rel="preload" href="${rel}assets/fonts/be-vietnam-pro/QdVMSTAyLFyeg_IDWvOJmVES_HSQI286Rb0bcw.woff2" as="font" type="font/woff2" crossorigin>${(main + preload).includes(IMG_ORIGIN + '/') ? `
+  <link rel="preconnect" href="${IMG_ORIGIN}">` : ''}${preload}
   <link rel="stylesheet" href="${rel}css/style.min.css?v=972">
   <link rel="stylesheet" href="${rel}css/kb-core.css?v=972">
   <link rel="stylesheet" href="${rel}css/kb.css?v=972">${css ? `
@@ -833,6 +847,9 @@ function processArticle(a) {
     return `<div class="kb-table" role="region" aria-label="${esc(cap)}" tabindex="0"><table>${inner}</table></div>`;
   });
 
+  // 5b. Ảnh trên R2 (meta img_base): mọi đường dẫn /assets/kb/<slug>/… trong src, srcset, href → IMG_ORIGIN + img_base + <slug>/…
+  if (a.img_base) body = body.replace(new RegExp(`(["\\s,])/assets/kb/${a.slug}/`, 'g'), `$1${IMG_ORIGIN}/${a.img_base}${a.slug}/`);
+
   // 6. Liên kết: đường dẫn gốc → tương đối; liên kết ngoài mở tab mới
   body = body.replace(/href="\/([^"]*)"/g, (_, p) => `href="${rel}${p}"`)
     .replace(/src="\/([^"]*)"/g, (_, p) => `src="${rel}${p}"`)
@@ -1019,7 +1036,7 @@ function recentJson(all) {
     n: pillarCounts(all),
     posts: all.slice(0, SIDE_POSTS + 1).map(x => ({
       u: articlePath(x), t: x.title, l: sideTitleLines(x), d: day(x.published),
-      ...(x.cover && x.cover.base ? { img: `assets/kb/${x.cover.base}-320.webp` } : {})
+      ...(x.cover && x.cover.base ? { img: kbImg(x, `${x.cover.base}-320.webp`) } : {})
     }))
   });
 }
@@ -1036,7 +1053,7 @@ function articleSide(a, allNow, rel) {
   if (others.length < SIDE_POSTS) others = allNow.slice(-(SIDE_POSTS + 1)).filter(x => x.slug !== a.slug).slice(0, SIDE_POSTS);
   const posts = (others.length ? others : [a]).map(x => {
     const self = x.slug === a.slug;
-    return `<li><a class="kb-side__post" href="${rel}${articlePath(x)}"${self ? ' aria-current="page"' : ''}>${x.cover && x.cover.base ? `<span class="kb-side__img"><img src="${rel}assets/kb/${x.cover.base}-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span>` : ''}<span class="kb-side__txt"><b title="${esc(x.title)}">${sideTitleLines(x).map(l => `<span>${esc(l)}</span>`).join(' ')}</b><small>${self ? 'Bạn đang đọc' : `<time datetime="${day(x.published)}">${vnDate(x.published)}</time>`}</small></span></a></li>`;
+    return `<li><a class="kb-side__post" href="${rel}${articlePath(x)}"${self ? ' aria-current="page"' : ''}>${x.cover && x.cover.base ? `<span class="kb-side__img"><img src="${kbImg(x, `${x.cover.base}-320.webp`, rel)}" alt="" width="320" height="168" loading="lazy" decoding="async"></span>` : ''}<span class="kb-side__txt"><b title="${esc(x.title)}">${sideTitleLines(x).map(l => `<span>${esc(l)}</span>`).join(' ')}</b><small>${self ? 'Bạn đang đọc' : `<time datetime="${day(x.published)}">${vnDate(x.published)}</time>`}</small></span></a></li>`;
   }).join('\n                ');
   return `<aside class="kb-art__aside" aria-label="Tìm kiếm, chuyên mục và bài viết mới">
             <div class="kb-side" data-kb-recent="${rel}${RECENT}" data-kb-self="${articlePath(a)}">
@@ -1075,7 +1092,7 @@ function articlePage(a, all) {
   const pPath = articlePath(a);
   const url = abs(pPath);
   const hasCover = !!(a.cover && a.cover.base);                       // bài không có ảnh bìa: bỏ hẳn khối ảnh
-  const img = hasCover ? abs(`assets/kb/${a.cover.base}.jpg`) : abs('assets/kb/goc-kien-thuc.jpg');
+  const img = hasCover ? kbImgAbs(a, `${a.cover.base}.jpg`) : abs('assets/kb/goc-kien-thuc.jpg');
   const crumbItems = [
     { name: 'Trang chủ', href: rel, url: `${ORIGIN}/` },
     { name: SITE.hub.name, href: `${rel}${hubPath}`, url: abs(hubPath) },
@@ -1237,7 +1254,7 @@ ${related.length ? `
   <meta property="article:modified_time" content="${a.modified}">
   <meta property="article:author" content="${A.url}">
   <meta property="article:section" content="${esc(p.name)}">${(a.keywords || []).map(k => `\n  <meta property="article:tag" content="${esc(k)}">`).join('')}`,
-    preload: !hasCover ? '' : `\n  <link rel="preload" as="image" href="${rel}assets/kb/${a.cover.base}.webp" imagesrcset="${rel}assets/kb/${a.cover.base}-320.webp 320w, ${rel}assets/kb/${a.cover.base}-640.webp 640w, ${rel}assets/kb/${a.cover.base}.webp 1200w, ${rel}assets/kb/${a.cover.base}-1600.webp 1600w" imagesizes="(min-width: 840px) 760px, 100vw" type="image/webp" fetchpriority="high">`,
+    preload: !hasCover ? '' : `\n  <link rel="preload" as="image" href="${kbImg(a, `${a.cover.base}.webp`, rel)}" imagesrcset="${kbImg(a, `${a.cover.base}-320.webp`, rel)} 320w, ${kbImg(a, `${a.cover.base}-640.webp`, rel)} 640w, ${kbImg(a, `${a.cover.base}.webp`, rel)} 1200w, ${kbImg(a, `${a.cover.base}-1600.webp`, rel)} 1600w" imagesizes="(min-width: 840px) 760px, 100vw" type="image/webp" fetchpriority="high">`,
     ld, bodyClass: 'kb--article', main, after, css: 'kb-article',
     ...(a.draft ? { robots: 'noindex, nofollow', draft: true } : {})
   });
@@ -1674,10 +1691,10 @@ function updateSitemap(all) {
   all.forEach(a => {
     // Ảnh bìa + mọi ảnh minh họa trong thân bài (bản lớn nhất trong src), để Google Images thấy hết sơ đồ của bài
     const pageUrl = abs(articlePath(a));
-    const imgs = [abs(`assets/kb/${a.cover.base}.jpg`)];
+    const imgs = [kbImgAbs(a, `${a.cover.base}.jpg`)];
     for (const m of a.bodyHtml.matchAll(/<img\b[^>]*\ssrc="([^"]+)"/g)) {
       const u = new URL(m[1], pageUrl).href;
-      if (u.startsWith(ORIGIN + '/') && !imgs.includes(u)) imgs.push(u);
+      if ((u.startsWith(ORIGIN + '/') || u.startsWith(IMG_ORIGIN + '/')) && !imgs.includes(u)) imgs.push(u);
     }
     const imgXml = imgs.map(u => `\n    <image:image>\n      <image:loc>${u}</image:loc>\n    </image:image>`).join('');
     urls.push(`  <url>\n    <loc>${pageUrl}</loc>\n    <lastmod>${day(a.modified)}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>${imgXml}\n  </url>`);
@@ -1719,7 +1736,7 @@ function searchIndex(all) {
         .filter(s => s.length > 2 && s.length < 90).slice(0, 40);
       return {
         u: articlePath(a), t: a.title, e: a.excerpt || a.description, c: p.name, d: day(a.published), r: a.readMin,
-        ...(a.cover && a.cover.base ? { img: `assets/kb/${a.cover.base}-320.webp` } : {}),
+        ...(a.cover && a.cover.base ? { img: kbImg(a, `${a.cover.base}-320.webp`) } : {}),
         k: a.keywords || [],
         h: a.toc.map(t => t.text),
         x: [...(a.takeaways || []), ...(a.faq || []).map(f => f.q), a.description, ...strong].map(clean)
@@ -1741,7 +1758,7 @@ function feed(all) {
       <category>${esc(pillarBySlug(a.pillar).name)}</category>
       <description>${esc(a.description)}</description>
 ${a.cover && a.cover.base ? `
-      <enclosure url="${abs(`assets/kb/${a.cover.base}.jpg`)}" type="image/jpeg" length="0"/>` : ''}
+      <enclosure url="${kbImgAbs(a, `${a.cover.base}.jpg`)}" type="image/jpeg" length="0"/>` : ''}
     </item>`).join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
