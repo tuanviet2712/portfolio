@@ -13,8 +13,13 @@
   const dlg = document.getElementById('kb-search');
   const NS = 'http://www.w3.org/2000/svg';
 
-  /* ---------------- Chỉ mục ---------------- */
-  let DATA = null, pending = null;
+  /* ---------------- Chỉ mục ----------------
+     search.json là bản gọn (không có toàn văn). Chữ thuần thân bài nằm ở các mảnh "parts" (≈ 1 MiB mỗi mảnh,
+     đánh số từ bài cũ nhất), chỉ tải khi người đọc gõ tìm: mảnh mới nhất trước, lần lượt từng mảnh, tối đa MAX_PARTS mảnh.
+     Mỗi mảnh về tới thì kết quả đang mở được tính lại. Bài nằm ngoài các mảnh đã tải vẫn tìm được theo tiêu đề, từ khóa,
+     mục lục, ý tóm tắt và câu hỏi FAQ (đều có trong bản gọn). */
+  const MAX_PARTS = 8;
+  let DATA = null, pending = null, bodies = false, bodyLeft = 0;
   const fold = s => String(s == null ? '' : s).normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[đĐ]/g, 'd').toLowerCase();
   const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   // Từ phổ biến không bắt buộc phải khớp ("kế hoạch marketing là gì" vẫn ra bài không có chữ "là gì")
@@ -25,12 +30,23 @@
     if (!pending) {
       pending = fetch(src, { credentials: 'same-origin' })
         .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-        .then(j => (DATA = prep(j)))
+        .then(j => (DATA = prep(j, src)))
         .catch(err => { pending = null; throw err; });
     }
     return pending;
   }
-  function prep(j) {
+  function loadBodies() {
+    if (bodies || !DATA) return;
+    bodies = true;
+    bodyLeft = DATA.partUrls.length;
+    DATA.partUrls.reduce((chain, url) => chain
+      .then(() => fetch(url, { credentials: 'same-origin' }))
+      .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(j => (j.posts || []).forEach(x => { const p = DATA.byUrl.get(x.u); if (p && x.b) { p.b = x.b; p._b = fold(x.b); } }))
+      .catch(() => {})                                  // mảnh lỗi: bỏ qua, các mảnh sau vẫn tải
+      .then(() => { bodyLeft--; uis.forEach(refresh); }), Promise.resolve());
+  }
+  function prep(j, src) {
     j.posts = j.posts || [];
     j.pillars = j.pillars || [];
     j.posts.forEach(p => {
@@ -45,6 +61,9 @@
     });
     j.pillars.forEach(p => { p._t = fold(p.n); p._x = fold([p.s].concat(p.tp || []).join(' | ')); });
     j.latest = j.posts.slice().sort((a, b) => String(b.d).localeCompare(String(a.d)));
+    j.byUrl = new Map(j.posts.map(p => [p.u, p]));
+    const base = new URL(src, location.href);
+    j.partUrls = (j.parts || []).map(n => new URL(n, base).href).reverse().slice(0, MAX_PARTS);
     return j;
   }
 
@@ -193,6 +212,11 @@
     ui.empty && ui.empty.remove();
     ui.empty = null;
     const n = r.posts.length + r.pillars.length;
+    if (!n && bodyLeft > 0) {                          // chưa khớp gì nhưng toàn văn còn đang tải: chưa báo "không có"
+      head(ui, ['Đang tìm trong toàn văn bài viết…']);
+      ui.status.textContent = '';
+      return;
+    }
     if (!n) {
       head(ui, []);
       const box = el('div', 'kb-search__empty');
@@ -263,8 +287,16 @@
       return;
     }
     if (!q) drawSuggest(ui);
-    else drawResults(ui, search(q), q);
+    else { loadBodies(); drawResults(ui, search(q), q); }
     open(ui);
+  }
+  // Một mảnh toàn văn vừa về: tính lại kết quả đang hiện, giữ nguyên dòng đang chọn
+  function refresh(ui) {
+    if (!ui.input.value.trim() || !(ui.inDialog ? dlg && dlg.open : ui.isOpen)) return;
+    const hrefOf = o => { const a = o && o.querySelector('a'); return a ? a.getAttribute('href') : null; };
+    const was = hrefOf(ui.opts[ui.active]);
+    update(ui);
+    if (was) { const i = ui.opts.findIndex(o => hrefOf(o) === was); if (i > -1) setActive(ui, i); }
   }
   function go(ui) {
     const o = ui.opts[ui.active >= 0 ? ui.active : (ui.input.value.trim() ? 0 : -1)];

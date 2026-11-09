@@ -1671,12 +1671,27 @@ function updateSitemap(all) {
 }
 
 /* Chỉ mục tìm kiếm cho js/kb-search.js (chỉ tải khi người đọc bắt đầu tìm).
-   Mỗi bài: tiêu đề, tóm tắt, từ khóa, các tiêu đề H2/H3, ý tóm tắt, câu hỏi FAQ, thuật ngữ in đậm
-   và chữ thuần của thân bài (b, điểm thấp nhất, dùng để trích đoạn chứa từ khóa). */
+   search.json (bản gọn): mỗi bài có tiêu đề, tóm tắt, từ khóa, các tiêu đề H2/H3, ý tóm tắt, câu hỏi FAQ, thuật ngữ in đậm.
+   SEO-Agent cũng đọc tệp này (mảng posts, trường u, t, e, c, d, k để chống trùng bài): giữ nguyên các trường đó.
+   Chữ thuần của thân bài (b, điểm thấp nhất, dùng để trích đoạn chứa từ khóa) nằm riêng ở goc-kien-thuc/search/phan-<n>.json,
+   mỗi mảnh ≤ SEARCH_PART byte, ĐÁNH SỐ TỪ BÀI CŨ NHẤT (mảnh đã đầy không đổi khi đăng bài mới); "parts" trong search.json
+   liệt kê các mảnh theo thứ tự đó, đường dẫn tính từ thư mục goc-kien-thuc/. Trình duyệt tải bản gọn trước, mảnh toàn văn sau. */
+const SEARCH_PART = 1024 * 1024;
+const SEARCH_DIR = `${HUB}/search`;
 function searchIndex(all) {
   const counts = pillarCounts(all);
   const clean = s => plain(s).replace(/\s*\[\d+\]/g, '').replace(/\s+([,.;:!?)])/g, '$1').trim();
-  return JSON.stringify({
+  const bodies = all.map(a => ({ u: articlePath(a), b: clean(a.bodyHtml.replace(/<aside class="kb-cta[\s\S]*?<\/aside>/g, ' ').replace(/<(h[23])[\s>][\s\S]*?<\/\1>/g, ' ')) }));
+  const groups = [];                                                    // mảnh toàn văn: gom từ bài cũ nhất
+  let cur = [], curSize = 0;
+  for (const x of bodies.slice().reverse()) {
+    const sz = Buffer.byteLength(JSON.stringify(x), 'utf8') + 1;
+    if (cur.length && curSize + sz > SEARCH_PART) { groups.push(cur); cur = []; curSize = 0; }
+    cur.push(x); curSize += sz;
+  }
+  if (cur.length) groups.push(cur);
+  const parts = groups.map((g, i) => ({ n: i + 1, name: `search/phan-${i + 1}.json`, path: `${SEARCH_DIR}/phan-${i + 1}.json`, text: JSON.stringify({ posts: g.slice().reverse() }) }));
+  const slim = JSON.stringify({
     posts: all.map(a => {
       const p = pillarBySlug(a.pillar);
       const strong = [...new Set([...a.bodyHtml.matchAll(/<strong>([\s\S]*?)<\/strong>/g)].map(m => clean(m[1])))]
@@ -1686,12 +1701,13 @@ function searchIndex(all) {
         ...(a.cover && a.cover.base ? { img: `assets/kb/${a.cover.base}-320.webp` } : {}),
         k: a.keywords || [],
         h: a.toc.map(t => t.text),
-        x: [...(a.takeaways || []), ...(a.faq || []).map(f => f.q), a.description, ...strong].map(clean),
-        b: clean(a.bodyHtml.replace(/<aside class="kb-cta[\s\S]*?<\/aside>/g, ' ').replace(/<(h[23])[\s>][\s\S]*?<\/\1>/g, ' '))
+        x: [...(a.takeaways || []), ...(a.faq || []).map(f => f.q), a.description, ...strong].map(clean)
       };
     }),
-    pillars: SITE.pillars.map(p => ({ u: pillarPath(p), n: p.name, s: p.short, i: p.icon, c: counts[p.slug], tp: (p.topics || []).map(t => t[0]) }))
+    pillars: SITE.pillars.map(p => ({ u: pillarPath(p), n: p.name, s: p.short, i: p.icon, c: counts[p.slug], tp: (p.topics || []).map(t => t[0]) })),
+    parts: parts.map(p => p.name)
   });
+  return { slim, parts };
 }
 
 function feed(all) {
@@ -1832,7 +1848,10 @@ function main() {
   drafts.forEach(a => written.push(writeFile(`${articlePath(a)}index.html`, articlePage(a, all))));
   LEGAL_PAGES.forEach(doc => written.push(writeFile(`${doc.path}index.html`, legalPage(doc, all))));
   written.push(writeFile(`${HUB}/feed.xml`, feed(all)));
-  written.push(writeFile(`${HUB}/search.json`, searchIndex(all)));
+  const search = searchIndex(all);
+  written.push(writeFile(`${HUB}/search.json`, search.slim));
+  search.parts.forEach(p => written.push(writeFile(p.path, p.text)));
+  sweepDir(SEARCH_DIR, new Set(search.parts.map(p => path.basename(p.path))));
   written.push(writeFile('llms.txt', llmsTxt(all)));
   const llms = llmsFull(all);
   written.push(writeFile('llms-full.txt', llms.main));

@@ -51,6 +51,8 @@ https://:version.portfolio-elj.pages.dev/*
 # Chỉ mục tìm kiếm của Góc kiến thức: chỉ dành cho ô tìm kiếm, không cho Google lập chỉ mục
 /goc-kien-thuc/search.json
   X-Robots-Tag: noindex
+/goc-kien-thuc/search/*
+  X-Robots-Tag: noindex
 
 # Toàn văn bài viết cho công cụ AI: vẫn đọc được, nhưng Google không lập chỉ mục (tránh trùng với chính các bài)
 /llms-full.txt
