@@ -1,6 +1,10 @@
 # Worker chuyển hướng về https://letuanviet.com
 # Triển khai:  npx -y wrangler@4 deploy   (chạy trong thư mục này)
 #
+# ĐANG THAY BẰNG REDIRECT RULES (2026-11-09): xem redirect-rules.json cùng thư mục. Luật chạy trước Worker
+# và không tính vào hạn yêu cầu của Workers miễn phí. Khi hai luật đã chạy, gỡ 3 route bên dưới trên dashboard
+# (Worker không còn nhận yêu cầu nào). Muốn quay lại: tắt hai luật, rồi triển khai lại Worker này để gắn lại route.
+#
 # Không gắn vào letuanviet.digital/google49ce971bbd8cd1d5.html: đường dẫn đó do Worker
 # letuanviet-google-verification trả lời (route cụ thể hơn nên được ưu tiên), để Google Search Console
 # vẫn xác minh được tên miền cũ khi làm thủ tục "Thay đổi địa chỉ".

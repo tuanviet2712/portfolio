@@ -1,0 +1,43 @@
+{
+  "_ghi_chu": [
+    "Luat chuyen huong (Cloudflare Redirect Rules / Single Redirects) thay cho Worker letuanviet-www-redirect.",
+    "Luat chay TRUOC Worker, khong tinh vao han 100.000 yeu cau/ngay cua goi Workers mien phi (dung chung voi Worker quantri cua SEO-Agent).",
+    "Moi vung (zone) mot luat. Goi Free cho phep 10 luat moi vung.",
+    "Tao tren dashboard: vung -> Rules -> Overview -> Create rule -> Redirect Rule, dan bieu thuc 'expression' va 'target_url.expression' ben duoi.",
+    "Hoac qua API (token can quyen Zone > Single Redirect: Edit): PUT /zones/<zone_id>/rulesets/phases/http_request_dynamic_redirect/entrypoint voi body {\"rules\": [luat]}.",
+    "Ngoai le xac minh Google: letuanviet.digital/google49ce971bbd8cd1d5.html KHONG bi chuyen huong, Worker letuanviet-google-verification van tra loi duong dan do.",
+    "Quay lai cach cu: tat (Disable) hai luat; Worker letuanviet-www-redirect va route cua no van con nguyen cho toi khi go route."
+  ],
+  "letuanviet.com": {
+    "zone_id": "ec904874d8cddc1ed8b3dc2dbf7a2960",
+    "rule": {
+      "description": "www.letuanviet.com ve letuanviet.com",
+      "expression": "(http.host eq \"www.letuanviet.com\")",
+      "action": "redirect",
+      "action_parameters": {
+        "from_value": {
+          "status_code": 301,
+          "target_url": { "expression": "concat(\"https://letuanviet.com\", http.request.uri.path)" },
+          "preserve_query_string": true
+        }
+      },
+      "enabled": true
+    }
+  },
+  "letuanviet.digital": {
+    "zone_id": "4c9204088e33131c125c4992f796b30d",
+    "rule": {
+      "description": "letuanviet.digital ve letuanviet.com, tru tep xac minh Google",
+      "expression": "(http.host eq \"www.letuanviet.digital\") or (http.host eq \"letuanviet.digital\" and http.request.uri.path ne \"/google49ce971bbd8cd1d5.html\")",
+      "action": "redirect",
+      "action_parameters": {
+        "from_value": {
+          "status_code": 301,
+          "target_url": { "expression": "concat(\"https://letuanviet.com\", http.request.uri.path)" },
+          "preserve_query_string": true
+        }
+      },
+      "enabled": true
+    }
+  }
+}
