@@ -1,0 +1,358 @@
+<!--
+BÀI VIẾT: Email marketing là gì và cách làm cho SME
+Chủ đề (pillar): Marketing. Từ khóa chính: email marketing là gì.
+Ý định tìm kiếm: Thông tin kết hợp hướng dẫn thực thi phân biệt email tiếp thị với email giao dịch, nắm quy trình 4 bước, cấu hình SPF/DKIM/DMARC, tuân thủ Nghị định 91/2020/NĐ-CP và đo lường chuyển đổi.
+Nguồn chính: Google Workspace Admin Help (2024), Chính phủ Việt Nam (Nghị định 91/2020/NĐ-CP), Cloudflare, Amazon Web Services, Mailchimp, Apple Support (2023), Zalo Cloud, HubSpot (2024).
+Liên kết nội bộ: digital-marketing-la-gi, zero-party-data-va-first-party-data, khach-hang-muc-tieu-la-gi, content-marketing-la-gi, cach-tao-website, brand-voice-va-tone-of-voice, micro-conversion-la-gi và trang pillar Marketing.
+  Tạo bởi SEO-Agent · bài 01M6QYKSJ2WSH5Q0YVP1BKQN57 · bản 1 · bộ não v5
+-->
+<script type="application/json" data-meta>
+{
+  "slug": "email-marketing-la-gi",
+  "pillar": "marketing",
+  "title": "Email marketing là gì và cách làm cho SME",
+  "titleHtml": "Email marketing là gì <span class=\"grad\">và cách làm cho&nbsp;SME</span>",
+  "seoTitle": "Email marketing là gì? Các loại, quy trình và cách đo SME",
+  "description": "Giải mã email marketing là gì giúp SME phân biệt thư giao dịch với tiếp thị, cấu hình tên miền tránh vào spam và thiết lập khung đo lường chuyển đổi\u00a0thực\u00a0tế.",
+  "excerpt": "Email marketing là hoạt động gửi thư điện tử thương mại và nuôi dưỡng tới nhóm người nhận đã chủ động cấp quyền nhằm thúc đẩy chuyển đổi. Bài viết phân biệt rõ thư giao dịch, chuẩn kỹ thuật bảo vệ tên miền và quy trình 4 bước cho\u00a0SME.",
+  "sapo": "Hiểu rõ email marketing là gì chính là nắm vững cách sử dụng thư điện tử để gửi thông điệp thương mại, nội dung nuôi dưỡng và chăm sóc tới nhóm người nhận đã chủ động cấp quyền nhằm thúc đẩy chuyển đổi có thể đo lường. Với doanh nghiệp vừa và nhỏ tại Việt Nam, điểm nghẽn lớn nhất không nằm ở thao tác phần mềm mà nằm ở quyết định xây dựng danh sách có sự đồng ý, tách bạch luồng thư giao dịch với quảng cáo và bảo vệ uy tín tên miền ngay từ đầu. Khi bỏ qua bước xác thực kỹ thuật hoặc mua dữ liệu trôi nổi, cả thư báo giá lẫn hóa đơn quan trọng đều dễ rơi thẳng vào hòm thư rác. Tôi là Lê Tuấn Việt, Marketing Leader tại TAKI Group. Trong bài viết này, tôi làm rõ ranh giới giữa các nhóm email, điều kiện kết hợp Zalo ZNS và cách đọc chỉ số sát doanh\u00a0thu\u00a0thực.",
+  "keyword": "email marketing là gì",
+  "keywords": [
+    "email marketing là gì",
+    "email marketing",
+    "các loại email marketing",
+    "email marketing hoạt động như thế nào",
+    "xây dựng danh sách email",
+    "nhược điểm của email marketing",
+    "tự động hóa email",
+    "công cụ email marketing"
+  ],
+  "published": "2026-11-10T14:00:00+07:00",
+  "modified": "2026-11-10T14:00:00+07:00",
+  "cover": {
+    "base": "email-marketing-la-gi",
+    "alt": "Sơ đồ cơ chế vận hành email marketing từ thu thập dữ liệu opt-in, xác thực tên miền đến đo lường chuyển đổi cho SME",
+    "caption": "Email marketing bền vững bắt đầu từ sự đồng ý của người nhận, tên miền xác thực kỹ thuật và nội dung phân nhóm theo hành trình mua",
+    "kicker": "Email Marketing",
+    "line": "Quy trình và cách đo cho SME",
+    "src": "tools/kb/covers/email-marketing-la-gi.png"
+  },
+  "takeaways": [
+    "Email marketing chỉ phát huy vai trò kênh truyền thông sở hữu khi gửi tới người nhận đã đồng ý trước (opt-in), tách bạch hoàn toàn với hành vi mua danh sách phát tán\u00a0thư\u00a0rác.",
+    "Doanh nghiệp cần tách riêng luồng hạ tầng gửi email giao dịch (hóa đơn, mật khẩu) và email tiếp thị (bản tin, khuyến mãi) để bảo vệ uy tín tên\u00a0miền\u00a0chính.",
+    "Cấu hình đồng bộ ba giao thức SPF, DKIM, DMARC cùng tuân thủ giới hạn tối đa 03 thư quảng cáo trong 24 giờ theo Nghị định 91/2020/NĐ-CP là điều kiện bắt buộc trước khi\u00a0mở\u00a0rộng.",
+    "Đánh giá hiệu quả phải đi qua ba tầng từ sức khỏe phân phối, chuyển đổi vi mô trên trang đích đến doanh thu xác nhận, không dựa đơn thuần vào tỷ lệ\u00a0mở\u00a0thư."
+  ],
+  "about": [
+    {
+      "name": "Email marketing",
+      "sameAs": "https://en.wikipedia.org/wiki/Email_marketing"
+    },
+    {
+      "name": "Opt-in email",
+      "sameAs": "https://en.wikipedia.org/wiki/Opt-in_email"
+    }
+  ],
+  "mentions": [
+    {
+      "type": "Organization",
+      "name": "TAKI Group",
+      "url": "https://takigroup.vn"
+    },
+    {
+      "type": "Organization",
+      "name": "Google",
+      "url": "https://support.google.com/a/answer/81126",
+      "sameAs": "https://en.wikipedia.org/wiki/Google"
+    },
+    {
+      "type": "Organization",
+      "name": "Cloudflare",
+      "url": "https://www.cloudflare.com/learning/email-security/dmarc-dkim-spf/",
+      "sameAs": "https://en.wikipedia.org/wiki/Cloudflare"
+    },
+    {
+      "type": "Organization",
+      "name": "Amazon Web Services",
+      "url": "https://docs.aws.amazon.com/ses/latest/dg/send-email-concepts-email-types.html",
+      "sameAs": "https://en.wikipedia.org/wiki/Amazon_Web_Services"
+    },
+    {
+      "type": "Organization",
+      "name": "Mailchimp",
+      "url": "https://mailchimp.com/help/soft-vs-hard-bounces/",
+      "sameAs": "https://en.wikipedia.org/wiki/Mailchimp"
+    },
+    {
+      "type": "Organization",
+      "name": "Apple",
+      "url": "https://support.apple.com/en-us/102327",
+      "sameAs": "https://en.wikipedia.org/wiki/Apple_Inc."
+    },
+    {
+      "type": "Organization",
+      "name": "HubSpot",
+      "url": "https://knowledge.hubspot.com/marketing-email/analyze-your-marketing-email-campaign-performance",
+      "sameAs": "https://en.wikipedia.org/wiki/HubSpot"
+    },
+    {
+      "type": "Thing",
+      "name": "Sender Policy Framework (SPF)",
+      "sameAs": "https://en.wikipedia.org/wiki/Sender_Policy_Framework"
+    },
+    {
+      "type": "Thing",
+      "name": "DomainKeys Identified Mail (DKIM)",
+      "sameAs": "https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail"
+    },
+    {
+      "type": "Thing",
+      "name": "DMARC",
+      "sameAs": "https://en.wikipedia.org/wiki/DMARC"
+    },
+    {
+      "type": "CreativeWork",
+      "name": "Nghị định 91/2020/NĐ-CP",
+      "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=200772"
+    },
+    {
+      "type": "Thing",
+      "name": "Zalo Notification Service (ZNS)",
+      "url": "https://zalo.cloud/zns"
+    },
+    {
+      "type": "Thing",
+      "name": "Bounce message",
+      "sameAs": "https://en.wikipedia.org/wiki/Bounce_message"
+    }
+  ],
+  "faq": [
+    {
+      "q": "Danh sách bao nhiêu người thì bắt đầu gửi email được?",
+      "a": "Có, doanh nghiệp có thể bắt đầu gửi ngay từ những liên hệ đầu tiên qua kịch bản email chào mừng hoặc chăm sóc tự động sau khi khách để lại thông tin. Với bản tin định kỳ, quy mô vài trăm liên hệ thật đã đồng ý nhận thư (opt-in) là đủ để phân nhóm cơ bản. Việc gửi sớm cho tệp nhỏ nhưng tương tác thật giúp tên miền tích lũy uy tín tốt với máy chủ Gmail trước khi\u00a0mở\u00a0rộng."
+    },
+    {
+      "q": "SME có nên gửi email marketing bằng Gmail cá nhân không?",
+      "a": "Không, doanh nghiệp không nên dùng tài khoản Gmail cá nhân (@gmail.com) để gửi email tiếp thị hàng loạt vì dễ bị khóa tài khoản, thiếu liên kết hủy đăng ký tự động và không thể cấu hình SPF, DKIM, DMARC cho tên miền riêng. Hộp thư cá nhân chỉ phù hợp khi nhân viên kinh doanh trao đổi một đối một với từng khách hàng. Khi gửi bản tin hoặc chuỗi nuôi dưỡng, bạn cần dùng địa chỉ theo tên miền thương hiệu kết hợp nền tảng gửi thư\u00a0chuyên\u00a0dụng."
+    },
+    {
+      "q": "Nên chọn Double Opt-in hay Single Opt-in khi thu thập?",
+      "a": "Doanh nghiệp nên ưu tiên Double Opt-in (xác nhận hai bước) nếu chạy quảng cáo thu hút khách tiềm năng hoặc bán hàng B2B cần chất lượng dữ liệu cao. Cơ chế Single Opt-in (xác nhận một bước) thêm địa chỉ ngay sau khi điền biểu mẫu nên nhanh nhưng dễ lẫn email gõ sai. Ngược lại, Double Opt-in yêu cầu người dùng mở thư bấm xác nhận lần hai, giúp loại bỏ lỗi trả thư vĩnh viễn và lưu bằng chứng đồng ý đúng\u00a0quy\u00a0định."
+    },
+    {
+      "q": "Làm sao làm sạch danh sách email cũ lâu chưa tương tác?",
+      "a": "Để làm sạch danh sách cũ an toàn, bạn phải lọc bỏ toàn bộ địa chỉ từng bị lỗi trả thư vĩnh viễn (hard bounce) và những người đã yêu cầu hủy đăng ký trước khi gửi lại. Sau đó, hãy tách nhóm lâu không tương tác thành phân khúc riêng và gửi chiến dịch hỏi xác nhận nhu cầu nhận tiếp theo từng lô nhỏ. Nếu người nhận vẫn không phản hồi sau đợt kích hoạt lại này, doanh nghiệp cần chủ động ngừng gửi tiếp thị để bảo vệ\u00a0tên\u00a0miền."
+    },
+    {
+      "q": "Tần suất gửi email bao nhiêu lần mỗi tuần là hợp lý?",
+      "a": "Tần suất gửi hợp lý phụ thuộc vào cam kết lúc đăng ký và chu kỳ mua hàng, thường từ một đến hai bản tin hữu ích mỗi tuần với doanh nghiệp vừa và nhỏ. Về mặt pháp lý tại Việt Nam, Nghị định 91/2020/NĐ-CP quy định mỗi người quảng cáo không được gửi quá 03 thư điện tử quảng cáo tới một địa chỉ trong vòng 24 giờ nếu không có thỏa thuận khác. Khi thấy tỷ lệ hủy đăng ký tăng lên sau một đợt gửi, đội ngũ phải giãn\u00a0lịch\u00a0ngay."
+    },
+    {
+      "q": "Khi nào doanh nghiệp chưa nên đầu tư làm email marketing?",
+      "a": "Doanh nghiệp chưa nên ưu tiên email marketing khi kinh doanh mặt hàng giá trị nhỏ mua tức thời, nơi khách hàng chỉ chốt đơn nhanh qua tin nhắn mạng xã hội và không có thói quen mở hộp thư điện tử. Ngoài ra, nếu nội bộ chưa có quy trình thu thập dữ liệu tự nguyện mà chỉ định mua danh sách bán sẵn trên mạng, việc triển khai sẽ làm hỏng uy tín tên miền. Trong giai đoạn đó, đội ngũ nên tập trung tối ưu tư vấn trực tiếp và chăm sóc đơn hàng\u00a0qua\u00a0Zalo."
+    }
+  ],
+  "faqTitle": "Câu hỏi thường gặp về email marketing",
+  "references": [
+    {
+      "text": "Google Workspace Admin Help. Email sender guidelines. Quy định năm 2024 về xác thực SPF, DKIM, DMARC cho người gửi từ 5.000 thư/ngày tới Gmail cá nhân và ngưỡng tỷ lệ báo cáo thư rác dưới 0,3%.",
+      "url": "https://support.google.com/a/answer/81126",
+      "nofollow": false
+    },
+    {
+      "text": "Chính phủ nước Cộng hòa xã hội chủ nghĩa Việt Nam. Nghị định số 91/2020/NĐ-CP về chống tin nhắn rác, thư điện tử rác, cuộc gọi rác. Quy định năm 2020 về điều kiện đồng ý trước của người nhận và giới hạn tối đa 03 thư quảng cáo trong 24 giờ.",
+      "url": "https://vanban.chinhphu.vn/?pageid=27160&docid=200772",
+      "nofollow": false
+    },
+    {
+      "text": "Cloudflare Learning Center. What are DMARC, DKIM, and SPF?. Giải thích cơ chế kỹ thuật của ba giao thức xác thực tên miền gửi thư trên hệ thống DNS.",
+      "url": "https://www.cloudflare.com/learning/email-security/dmarc-dkim-spf/",
+      "nofollow": false
+    },
+    {
+      "text": "Mailchimp Help Center. About Bounces: Soft vs. Hard Bounces. Phân biệt nguyên nhân và cách xử lý lỗi trả thư vĩnh viễn (hard bounce) với lỗi giao thư tạm thời (soft bounce).",
+      "url": "https://mailchimp.com/help/soft-vs-hard-bounces/",
+      "nofollow": false
+    },
+    {
+      "text": "Amazon Web Services (AWS Documentation). Sending email concepts: Transactional vs. promotional email. Phân biệt bản chất và luồng vận hành giữa email giao dịch tự động theo thao tác với email tiếp thị gửi theo nhóm.",
+      "url": "https://docs.aws.amazon.com/ses/latest/dg/send-email-concepts-email-types.html",
+      "nofollow": false
+    },
+    {
+      "text": "Apple Support. Use Mail Privacy Protection on iPhone. Tài liệu năm 2023 giải thích cơ chế tải ngầm nội dung qua máy chủ proxy làm ẩn thời điểm và hành vi mở thư thực tế.",
+      "url": "https://support.apple.com/en-us/102327",
+      "nofollow": false
+    },
+    {
+      "text": "Zalo Cloud (Zalo Business Solutions). Zalo Notification Service (ZNS). Mô tả dịch vụ gửi thông báo giao dịch và chăm sóc khách hàng qua API tới số điện thoại dùng Zalo tại Việt Nam.",
+      "url": "https://zalo.cloud/zns",
+      "nofollow": false
+    },
+    {
+      "text": "HubSpot Knowledge Base. Analyze your marketing email campaign performance. Hướng dẫn năm 2024 về việc ưu tiên đo tỷ lệ nhấp, tỷ lệ trả thư và chuyển đổi thay vì phụ thuộc vào tỷ lệ mở thư.",
+      "url": "https://knowledge.hubspot.com/marketing-email/analyze-your-marketing-email-campaign-performance",
+      "nofollow": false
+    }
+  ],
+  "ctaButtons": [
+    {
+      "text": "Chưa rõ cách dựng luồng email và dữ liệu cho SME?",
+      "label": "Nhắn Zalo cho tôi",
+      "href": "zalo"
+    },
+    {
+      "text": "Muốn xem các hệ thống Marketing tôi đã chuẩn hóa?",
+      "label": "Xem dự án",
+      "href": "/#du-an",
+      "style": "ghost"
+    }
+  ],
+  "ctaMid": {
+    "title": "Gửi email nhưng rơi vào spam hoặc ít đơn?",
+    "text": "Nhắn tôi để rà soát lại luồng dữ liệu và kênh"
+  },
+  "ctaLate": {
+    "title": "Xem dự án tôi đã cố vấn và chuẩn hóa",
+    "text": "Chuẩn hóa quy trình cho hơn 50 doanh nghiệp"
+  },
+  "en": {
+    "title": "What is email marketing and how should SMEs implement it?",
+    "excerpt": "Email marketing uses permission-based emails to nurture leads and drive measurable conversions. This guide distinguishes transactional emails, explains domain authentication, and provides a four-step workflow for SMEs."
+  },
+  "howto": {
+    "name": "Quy trình 4 bước làm email marketing cho SME",
+    "description": "Quy trình bốn bước triển khai email marketing cho doanh nghiệp vừa và nhỏ từ xây dựng danh sách đồng ý nhận thư, cấu hình xác thực tên miền SPF/DKIM/DMARC, phân nhóm soạn nội dung đến kiểm tra hiển thị và đối soát lỗi."
+  },
+  "img_base": "kb/email-marketing-la-gi/856d14bea8/"
+}
+</script>
+<h2>Email marketing là gì và cơ chế hoạt động</h2>
+<p class="kb-def"><strong>Email marketing (tiếp thị qua thư điện tử)</strong> là hoạt động sử dụng thư điện tử để gửi thông điệp thương mại, nội dung nuôi dưỡng hoặc chăm sóc tới nhóm người nhận đã chủ động cấp quyền (opt-in), nhằm xây dựng quan hệ với khách hàng và thúc đẩy chuyển đổi có thể&nbsp;đo&nbsp;lường.</p>
+<p>Khác với quảng cáo trả phí phải thuê hiển thị theo đợt, hình thức này thuộc nhóm Owned Media (kênh truyền thông sở hữu). Khi SME (doanh nghiệp vừa và nhỏ) phối hợp triển khai <a href="/goc-kien-thuc/marketing/digital-marketing-la-gi/">các kênh digital marketing</a>, hộp thư điện tử giúp biến dữ liệu khách hàng thành cuộc đối thoại có&nbsp;kiểm&nbsp;soát.</p>
+<figure class="kb-fig"><img src="/assets/kb/email-marketing-la-gi/01-email-marketing-la-gi.webp" srcset="/assets/kb/email-marketing-la-gi/01-email-marketing-la-gi-800.webp 800w, /assets/kb/email-marketing-la-gi/01-email-marketing-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ vị trí của email marketing trong hệ thống kênh truyền thông sở hữu và cơ sở dữ liệu khách hàng của doanh nghiệp" width="1600" height="900"><figcaption>Email marketing kết nối trực tiếp cơ sở dữ liệu khách hàng của doanh nghiệp với các điểm chạm chuyển đổi mà không phụ thuộc thuật toán mạng xã hội</figcaption></figure>
+<h3>Email marketing hoạt động như thế nào trong phễu</h3>
+<p>Để hiểu rõ email marketing hoạt động như thế nào trong thực tế, người phụ trách không nên nhìn nó như thao tác soạn thư rồi bấm gửi hàng loạt. Toàn bộ luồng vận hành từ lúc thu thập dữ liệu đến khi tạo ra đơn hàng đi qua bốn mắt xích&nbsp;dưới&nbsp;đây:</p>
+<figure class="kb-fig">
+  <ol class="kb-steps">
+    <li><span class="kb-steps__n">01</span><b>Thu thập sự đồng ý</b><span>Người dùng chủ động để lại địa chỉ email qua biểu mẫu đăng ký, tải tài liệu hoặc giao dịch mua hàng có xác nhận nhận tin.</span></li>
+    <li><span class="kb-steps__n">02</span><b>Xác thực và phân nhóm</b><span>Hệ thống kiểm tra cấu hình tên miền gửi và chia người nhận thành các nhóm nhỏ theo nhu cầu, nguồn thu thập hoặc hành vi.</span></li>
+    <li><span class="kb-steps__n">03</span><b>Phân phối qua máy chủ</b><span>Nền tảng gửi thư chuyển thông điệp qua các bộ lọc bảo mật của máy chủ nhận như Gmail, Outlook để đi vào hộp thư người dùng.</span></li>
+    <li><span class="kb-steps__n">04</span><b>Ghi nhận chuyển đổi</b><span>Hệ thống đo lường lượt nhấp sang trang đích, hành vi đặt hàng và đồng bộ ngược về cơ sở dữ liệu để điều chỉnh kịch bản.</span></li>
+  </ol>
+  <figcaption>Bốn mắt xích vận hành của hệ thống email marketing từ điểm chạm thu thập dữ liệu đến chuyển đổi trên trang đích</figcaption>
+</figure>
+<h3>Điều kiện dữ liệu và kỹ thuật cần có trước khi gửi</h3>
+<p>Trước khi chi ngân sách thuê phần mềm gửi thư, doanh nghiệp cần chuẩn bị đủ nền tảng đầu vào để tránh lãng phí chi phí duy trì hàng tháng. Ba điều kiện tối thiểu phải hoàn tất trước khi phát đi chiến dịch đầu tiên&nbsp;bao&nbsp;gồm:</p>
+<ul class="kb-list-cards">
+  <li><strong>Dữ liệu khách hàng chính chủ:</strong> Danh sách liên hệ phải đến từ nguồn <a href="/goc-kien-thuc/marketing/zero-party-data-va-first-party-data/">dữ liệu zero-party và first-party</a> (dữ liệu khách tự khai báo và dữ liệu hành vi trên kênh sở hữu), có lưu thời điểm đồng ý.</li>
+  <li><strong>Tên miền gửi đã xác thực:</strong> Doanh nghiệp dùng địa chỉ email theo tên miền riêng và khai báo đủ các bản ghi chứng minh danh tính chính chủ trên DNS (hệ thống phân giải tên miền).</li>
+  <li><strong>Trang đích khớp nhu cầu:</strong> Mỗi thông điệp gửi đi phải gắn với một mục tiêu rõ ràng và dẫn về trang đích tiếp nhận yêu cầu tư vấn hoặc đơn hàng&nbsp;mạch&nbsp;lạc.</li>
+</ul>
+<p>Tôi ưu tiên triển khai kênh này sớm ở những mô hình có chu kỳ cân nhắc dài hoặc mua lặp lại như dịch vụ B2B (giao dịch giữa doanh nghiệp với doanh nghiệp), giáo dục, phần mềm và bán lẻ chuyên biệt. Với mặt hàng giá rẻ mua ngẫu hứng qua mạng xã hội, việc dựng hệ thống email quá sớm khó đạt hiệu suất&nbsp;tương&nbsp;xứng.</p>
+<!-- cta:nut -->
+<h2>Email marketing là gì so với thư giao dịch và spam</h2>
+<p>Hiểu rõ email marketing là gì khi đặt cạnh Transactional Email (email giao dịch) và Spam (thư rác) giúp doanh nghiệp thiết lập đúng luồng kỹ thuật từ đầu. Email tiếp thị nuôi dưỡng nhu cầu ở nhóm người đăng ký, email giao dịch xác nhận thao tác cá nhân vừa phát sinh, còn thư rác là thư gửi khi chưa được&nbsp;cho&nbsp;phép.</p>
+<p>Theo tài liệu phân luồng của <a href="https://docs.aws.amazon.com/ses/latest/dg/send-email-concepts-email-types.html">Amazon Web Services</a> (AWS, nền tảng điện toán đám mây vận hành dịch vụ Amazon SES), email giao dịch là thông điệp tự động gửi tới từng cá nhân ngay khi họ đặt lại mật khẩu hoặc nhận hóa đơn. Ngược lại, email tiếp thị gửi đồng loạt cho nhóm đăng ký theo năm tiêu chí&nbsp;dưới&nbsp;đây:</p>
+<table>
+  <caption>Bảng phân biệt email tiếp thị và email giao dịch theo năm tiêu chí vận hành</caption>
+  <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
+  <thead><tr><th>Tiêu chí</th><th>Email tiếp thị</th><th>Email giao dịch</th></tr></thead>
+  <tbody>
+    <tr><td>Tác nhân gửi</td><td>Theo lịch chiến dịch của doanh nghiệp hoặc kịch bản nuôi dưỡng&nbsp;định&nbsp;kỳ</td><td>Kích hoạt tức thì bởi hành động cụ thể của chính người dùng trên&nbsp;hệ&nbsp;thống</td></tr>
+    <tr><td>Mục đích chính</td><td>Chia sẻ kiến thức, giới thiệu sản phẩm mới, gửi ưu đãi thúc đẩy&nbsp;mua&nbsp;hàng</td><td>Cung cấp mã xác thực, xác nhận đơn hàng, gửi biên lai hoặc báo&nbsp;bảo&nbsp;mật</td></tr>
+    <tr><td>Người nhận thư</td><td>Một phân khúc hoặc danh sách người dùng đã chủ động đăng ký nhận&nbsp;bản&nbsp;tin</td><td>Đúng một cá nhân duy nhất vừa thực hiện giao dịch hoặc yêu cầu&nbsp;hệ&nbsp;thống</td></tr>
+    <tr><td>Nút từ chối</td><td>Bắt buộc phải có liên kết từ chối nhận thư rõ ràng và hoạt&nbsp;động&nbsp;ngay</td><td>Không bắt buộc nút hủy vì đây là thông tin hoàn tất giao dịch khách&nbsp;đang&nbsp;cần</td></tr>
+    <tr><td>Hạ tầng gửi</td><td>Nên tách sang tên miền phụ riêng dành cho hoạt động tiếp thị và&nbsp;bản&nbsp;tin</td><td>Ưu tiên luồng máy chủ uy tín cao riêng biệt để bảo đảm vào hộp&nbsp;thư&nbsp;ngay</td></tr>
+  </tbody>
+</table>
+<p>Giới hạn khi đọc bảng: một bức thư xác nhận đơn hàng nếu chèn quá nhiều khối quảng cáo bán chéo ở phần đầu vẫn có thể bị bộ lọc phân loại sang nhóm tiếp thị. Ngoài ra, nếu dùng chung một tên miền cho cả kế toán lẫn marketing, khi thư khuyến mãi bị báo cáo rác thì hóa đơn và hợp đồng cũng dễ bị vạ lây vào&nbsp;hòm&nbsp;rác.</p>
+<figure class="kb-fig"><img src="/assets/kb/email-marketing-la-gi/02-email-marketing-la-gi.webp" srcset="/assets/kb/email-marketing-la-gi/02-email-marketing-la-gi-800.webp 800w, /assets/kb/email-marketing-la-gi/02-email-marketing-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ phân biệt ba luồng email tiếp thị, email giao dịch và thư rác spam theo điều kiện đồng ý và mục đích gửi" width="1600" height="900"><figcaption>Tách bạch luồng email giao dịch và email tiếp thị trên hai tên miền phụ giúp bảo vệ các thông báo vận hành quan trọng</figcaption></figure>
+<p>Về ranh giới pháp lý, văn bản <a href="https://vanban.chinhphu.vn/?pageid=27160&amp;docid=200772">Nghị định 91/2020/NĐ-CP</a> do Chính phủ Việt Nam ban hành năm 2020 (hiệu lực toàn quốc từ ngày 01/10/2020) quy định tại Khoản 4 Điều 3: mọi thư điện tử quảng cáo gửi đến người dùng khi chưa có sự đồng ý trước đều bị xếp vào nhóm thư điện tử rác. Do đó, mua danh sách email rồi viết lời chào lịch sự vẫn là phát tán&nbsp;thư&nbsp;rác.</p>
+<h2>Các loại email marketing theo hành trình mua</h2>
+<p>Theo hành trình mua hàng, các loại email marketing được chia thành sáu định dạng phổ biến gồm: thư chào mừng, bản tin định kỳ, thư khuyến mãi, thư nhắc giỏ hàng, thư chăm sóc sau mua và thư kích hoạt lại. Mỗi loại đảm nhận một nhiệm vụ riêng từ bước thu hút đến giữ chân khách&nbsp;hàng&nbsp;cũ.</p>
+<figure class="kb-fig"><img src="/assets/kb/email-marketing-la-gi/03-email-marketing-la-gi.webp" srcset="/assets/kb/email-marketing-la-gi/03-email-marketing-la-gi-800.webp 800w, /assets/kb/email-marketing-la-gi/03-email-marketing-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ các loại email marketing theo hành trình mua hàng kết hợp với Zalo ZNS và SMS tại Việt Nam" width="1600" height="900"><figcaption>Phối hợp email cho nội dung chuyên sâu và Zalo ZNS cho thông báo giao dịch tức thời giúp tối ưu chi phí tương tác tại Việt Nam</figcaption></figure>
+<h3>Nhóm email thu hút, nuôi dưỡng và giữ chân khách</h3>
+<p>Thay vì gửi cùng một mẫu thông báo giảm giá cho toàn bộ cơ sở dữ liệu, đội ngũ cần chọn đúng định dạng thư theo trạng thái nhận thức của người nhận sau khi đã <a href="/goc-kien-thuc/marketing/khach-hang-muc-tieu-la-gi/">xác định khách hàng mục tiêu</a>. Bảng ba cột dưới đây đối chiếu sáu loại email theo từng giai đoạn kèm sự đánh đổi&nbsp;nguồn&nbsp;lực:</p>
+<table>
+  <caption>Bảng chọn sáu loại email marketing theo giai đoạn hành trình mua và sự đánh đổi</caption>
+  <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
+  <thead><tr><th>Loại email</th><th>Khi nào dùng và người nhận</th><th>Hành động mục tiêu và đánh đổi</th></tr></thead>
+  <tbody>
+    <tr><td>Thư chào mừng</td><td>Gửi tự động ngay khi người dùng vừa đăng ký nhận tin hoặc tạo tài&nbsp;khoản&nbsp;mới</td><td>Xác nhận quyền lợi, hướng dẫn bước đầu; nếu viết dài dòng dễ làm khách&nbsp;bỏ&nbsp;qua</td></tr>
+    <tr><td>Bản tin&nbsp;định&nbsp;kỳ</td><td>Gửi đều đặn hàng tuần hoặc theo chuỗi cho người đang tìm hiểu&nbsp;giải&nbsp;pháp</td><td>Đọc bài chuyên sâu, tải tài liệu; tốn công biên tập nội dung hữu ích&nbsp;đều&nbsp;đặn</td></tr>
+    <tr><td>Thư khuyến mãi</td><td>Gửi khi ra mắt sản phẩm, mở ưu đãi có thời hạn cho nhóm đã có nhu&nbsp;cầu&nbsp;rõ</td><td>Nhấp vào trang bán hàng, đặt đơn; lạm dụng dày đặc sẽ làm tăng tỷ&nbsp;lệ&nbsp;hủy</td></tr>
+    <tr><td>Giỏ bỏ quên</td><td>Kích hoạt tự động khi khách đã thêm sản phẩm vào giỏ nhưng chưa&nbsp;hoàn&nbsp;tất</td><td>Quay lại thanh toán hoặc nhắn hỏi rào cản; cần kết nối dữ liệu giỏ&nbsp;hàng&nbsp;chuẩn</td></tr>
+    <tr><td>Chăm sóc&nbsp;sau&nbsp;mua</td><td>Gửi sau khi giao hàng thành công hoặc khi đến chu kỳ tái dùng&nbsp;sản&nbsp;phẩm</td><td>Hướng dẫn dùng, lấy đánh giá, mua lặp lại; đòi hỏi đồng bộ lịch sử&nbsp;đơn&nbsp;hàng</td></tr>
+    <tr><td>Kích hoạt lại</td><td>Gửi cho phân khúc người nhận đã ngừng mở hoặc ngừng nhấp trong&nbsp;nhiều&nbsp;tháng</td><td>Xác nhận còn muốn nhận thư hay không; phải chấp nhận xóa liên hệ không&nbsp;phản&nbsp;hồi</td></tr>
+  </tbody>
+</table>
+<p>Giới hạn khi đọc bảng: doanh nghiệp nhỏ không bắt buộc phải vận hành cả sáu loại email ngay trong tháng đầu tiên. Với nguồn lực mỏng, việc thiết lập vững thư chào mừng kết hợp bản tin hai tuần một lần gắn với <a href="/goc-kien-thuc/marketing/content-marketing-la-gi/">chiến lược content marketing</a> hiệu quả hơn nhiều so với dựng hàng chục nhánh tự động nhưng nội dung&nbsp;sơ&nbsp;sài.</p>
+<h3>Khi nào kết hợp tự động hóa email với Zalo ZNS, SMS</h3>
+<p>Tại Việt Nam, doanh nghiệp nên triển khai Email Automation (tự động hóa email theo hành vi hoặc thời gian) phối hợp cùng tin nhắn điện thoại theo độ khẩn cấp. Theo tài liệu của <a href="https://zalo.cloud/zns">Zalo Cloud</a>, dịch vụ ZNS (Zalo Notification Service, gửi thông báo qua cổng API từ Zalo Official Account) phục vụ thông báo giao dịch theo mẫu chứ không gửi quảng cáo&nbsp;đại&nbsp;trà.</p>
+<p>Vì vậy, doanh nghiệp nên dùng Zalo ZNS và SMS (tin nhắn văn bản di động) cho thông báo cần đọc ngay như mã xác thực, lịch hẹn hoặc trạng thái giao hàng, còn tự động hóa email gửi bảng báo giá, hợp đồng và chuỗi bài nuôi dưỡng. Nếu tệp khách nhỏ và chỉ mua hàng tiêu dùng nhanh qua điện thoại, bạn nên ưu tiên Zalo ZNS trước khi đầu tư phần mềm email&nbsp;đa&nbsp;tầng.</p>
+<!-- cta:mid -->
+<h2>Quy trình 4 bước làm email marketing cho SME</h2>
+<p>Quy trình triển khai email marketing bền vững cho doanh nghiệp vừa và nhỏ gồm bốn bước tuần tự: xây dựng danh sách người nhận có sự đồng ý, cấu hình xác thực tên miền trên công cụ phù hợp, phân nhóm dữ liệu để soạn nội dung khớp ý định, và kiểm tra kỹ thuật kèm đối soát&nbsp;lỗi&nbsp;gửi.</p>
+<figure class="kb-fig"><img src="/assets/kb/email-marketing-la-gi/04-email-marketing-la-gi.webp" srcset="/assets/kb/email-marketing-la-gi/04-email-marketing-la-gi-800.webp 800w, /assets/kb/email-marketing-la-gi/04-email-marketing-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ cơ chế hoạt động của ba giao thức xác thực tên miền email gồm SPF, DKIM và DMARC trên hệ thống DNS" width="1600" height="900"><figcaption>Ba bản ghi SPF, DKIM và DMARC phối hợp chứng minh danh tính chính chủ của tên miền gửi thư trước bộ lọc của Gmail và Outlook</figcaption></figure>
+<h3>Bước 1: Xây dựng danh sách email có sự đồng ý</h3>
+<p>Thiết lập các điểm thu thập địa chỉ email tự nguyện trên kênh sở hữu như biểu mẫu nhận tài liệu chuyên môn, đăng ký bản tin hoặc hộp kiểm đồng ý nhận ưu đãi ở bước thanh toán. Khi triển khai <a href="/goc-kien-thuc/marketing/cach-tao-website/">cách tạo website chuẩn chuyển đổi</a>, biểu mẫu cần nêu rõ người đăng ký sẽ nhận nội dung gì để tránh bị hủy đăng ký ngay tuần&nbsp;đầu&nbsp;tiên.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> danh sách liên hệ sạch trên hệ thống, mỗi dòng lưu rõ nguồn biểu mẫu, thời điểm đăng ký và trạng thái đồng ý&nbsp;nhận&nbsp;thư.</p>
+<h3>Bước 2: Cấu hình SPF, DKIM, DMARC và chọn công cụ</h3>
+<p>Khai báo bản ghi xác thực trên DNS trước khi kết nối ESP (Email Service Provider, nền tảng gửi email). Theo tài liệu của <a href="https://www.cloudflare.com/learning/email-security/dmarc-dkim-spf/">Cloudflare</a>, SPF (Sender Policy Framework) liệt kê máy chủ được phép gửi; DKIM (DomainKeys Identified Mail) gắn chữ ký số chống sửa đổi; còn DMARC (giao thức xác thực và báo cáo tên miền) quy định cách xử lý thư trượt&nbsp;xác&nbsp;thực.</p>
+<p>Từ năm 2024, quy định của <a href="https://support.google.com/a/answer/81126">Google Workspace Admin Help</a> (áp dụng cho lưu lượng gửi tới Gmail cá nhân toàn cầu) bắt buộc bên gửi từ 5.000 thư mỗi ngày trở lên phải bật đủ SPF, DKIM, DMARC và hủy đăng ký một chạm. Dù gửi dưới 5.000 thư mỗi ngày, hoàn tất đủ ba bản ghi này vẫn giúp SME bảo vệ tên miền khỏi bị&nbsp;giả&nbsp;mạo.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> trạng thái kiểm tra SPF, DKIM và DMARC đều báo đạt trong cài đặt tên miền của công cụ và thư thử nghiệm vào thẳng hộp&nbsp;thư&nbsp;chính.</p>
+<h3>Bước 3: Phân nhóm người nhận và soạn nội dung</h3>
+<p>Chia danh sách email thành các phân khúc nhỏ theo ngành nghề, vấn đề quan tâm hoặc lịch sử mua hàng, sau đó soạn tiêu đề cùng nội dung giải quyết đúng bài toán của nhóm đó. Mỗi bức thư chỉ nên tập trung vào một mục tiêu, giữ <a href="/goc-kien-thuc/marketing/brand-voice-va-tone-of-voice/">nhất quán giọng thương hiệu</a> và dẫn về một nút CTA (Call to Action, lời kêu gọi hành động)&nbsp;rõ&nbsp;ràng.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> bản nháp chiến dịch hoàn chỉnh có gắn mã UTM (Urchin Tracking Module, tham số theo dõi nguồn truy cập) và liên kết hủy đăng ký hoạt&nbsp;động&nbsp;tốt.</p>
+<h3>Bước 4: Kiểm tra hiển thị, gửi thử và đối soát lỗi</h3>
+<p>Gửi bản thử nghiệm về máy tính và điện thoại để kiểm tra lỗi hiển thị, sau đó theo dõi sát Bounce Rate (tỷ lệ trả thư). Theo hướng dẫn của <a href="https://mailchimp.com/help/soft-vs-hard-bounces/">Mailchimp Help Center</a>, Hard Bounce (lỗi trả thư vĩnh viễn) do địa chỉ không tồn tại hoặc máy chủ chặn phải được xóa ngay, còn Soft Bounce (lỗi tạm thời) xảy ra do hộp thư đầy hoặc máy chủ&nbsp;gián&nbsp;đoạn.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> báo cáo phân phối ghi nhận đã khóa toàn bộ địa chỉ lỗi vĩnh viễn và tỷ lệ người nhận báo cáo thư rác nằm dưới ngưỡng&nbsp;an&nbsp;toàn.</p>
+<figure class="kb-fig"><img src="/assets/kb/email-marketing-la-gi/05-email-marketing-la-gi.webp" srcset="/assets/kb/email-marketing-la-gi/05-email-marketing-la-gi-800.webp 800w, /assets/kb/email-marketing-la-gi/05-email-marketing-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ phân biệt nguyên nhân và cách xử lý lỗi trả thư vĩnh viễn hard bounce với lỗi tạm thời soft bounce" width="1600" height="900"><figcaption>Loại bỏ ngay các địa chỉ lỗi trả thư vĩnh viễn sau mỗi chiến dịch là kỷ luật bắt buộc để giữ uy tín tên miền</figcaption></figure>
+<!-- cta:nut -->
+<h2>Nhược điểm của email marketing và lỗi vào spam</h2>
+<p>Nhược điểm của email marketing đối với doanh nghiệp vừa và nhỏ nằm ở thời gian tích lũy danh sách ban đầu chậm, yêu cầu kỷ luật kỹ thuật khắt khe để tránh vào hòm rác và sự giảm tương tác nếu gửi đại trà. Bốn hạn chế vận hành phổ biến khiến nhiều SME bỏ cuộc giữa chừng&nbsp;bao&nbsp;gồm:</p>
+<ul>
+  <li><strong>Chi phí thời gian đầu tư ban đầu:</strong> Doanh nghiệp không thể có ngay tệp người nhận chất lượng sau vài ngày như chạy quảng cáo mà phải tích lũy qua từng điểm chạm&nbsp;nội&nbsp;dung.</li>
+  <li><strong>Rủi ro vào hòm rác do ngưỡng kỹ thuật:</strong> Theo quy định năm 2024 của Google trên Google Postmaster Tools (đo trên lưu lượng gửi tới Gmail toàn cầu), người gửi phải giữ Spam Complaint Rate (tỷ lệ báo cáo rác) dưới 0,3% và khuyến nghị dưới 0,1% để tránh bị chặn vào&nbsp;hòm&nbsp;rác.</li>
+  <li><strong>Sự hao hụt tự nhiên của dữ liệu:</strong> Người dùng có thể đổi công việc hoặc bỏ địa chỉ email cũ theo thời gian, đòi hỏi đội ngũ phải lọc bỏ liên hệ ngừng tương tác&nbsp;định&nbsp;kỳ.</li>
+  <li><strong>Đặc thù hành vi theo ngành tại Việt Nam:</strong> Ở các ngành dịch vụ tiêu dùng trực tiếp tại địa phương, nhiều khách hàng cá nhân hiếm khi mở hộp thư hàng ngày, làm giảm tốc độ phản hồi ưu đãi&nbsp;ngắn&nbsp;hạn.</li>
+</ul>
+<h3>Quy định pháp lý chống thư rác tại Việt Nam cần nhớ</h3>
+<p>Bên cạnh bộ lọc quốc tế, doanh nghiệp tại Việt Nam phải tuân thủ Nghị định 91/2020/NĐ-CP của Chính phủ ban hành năm 2020: mỗi người quảng cáo không được gửi quá 03 thư điện tử quảng cáo tới một địa chỉ trong 24 giờ nếu không có thỏa thuận khác. Thư phải gắn nhãn nhận diện, nêu rõ thông tin người gửi và dừng gửi ngay khi người nhận bấm&nbsp;từ&nbsp;chối.</p>
+<h3>Tiêu chí chọn công cụ email marketing vừa nguồn lực</h3>
+<p>Khi chọn công cụ email marketing (như Mailchimp, Brevo, HubSpot), SME nên xét bốn tiêu chí: hỗ trợ xác thực SPF, DKIM, DMARC dễ dàng, cách tính phí theo số liên hệ hay số thư gửi, tính năng phân nhóm tự động và cổng Webhook (cơ chế truyền dữ liệu theo sự kiện) kết nối phần mềm quản lý&nbsp;khách&nbsp;hàng.</p>
+<div class="kb-case">
+  <p class="kb-case__k">Ví dụ biên tập, không phải kết quả khách hàng thật</p>
+  <p class="kb-case__t">Đối chiếu hai cách triển khai email cho công ty phần mềm kế toán B2B</p>
+  <p>Tại Hà Nội, một công ty B2B cần giới thiệu bản cập nhật phần mềm hóa đơn điện tử. Cách làm sai là mua 20.000 email kế toán trôi nổi và dùng tên miền chính bắn đồng loạt: hàng nghìn địa chỉ hỏng gây lỗi trả thư vĩnh viễn, tỷ lệ báo cáo rác vượt ngưỡng 0,3% của Google khiến tên miền bị chặn&nbsp;gửi&nbsp;thư.</p>
+  <p>Cách làm đúng trong ví dụ biên tập này là chỉ gửi cho 800 người đã tải tài liệu thuế trên website (có opt-in), bật đủ SPF, DKIM, DMARC trên tên miền phụ và chia hai nhóm theo quy mô doanh nghiệp để gửi nội dung sát vướng mắc. Danh sách mua không phải là tài sản&nbsp;tiếp&nbsp;thị.</p>
+</div>
+<figure class="kb-fig"><img src="/assets/kb/email-marketing-la-gi/06-email-marketing-la-gi.webp" srcset="/assets/kb/email-marketing-la-gi/06-email-marketing-la-gi-800.webp 800w, /assets/kb/email-marketing-la-gi/06-email-marketing-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ các ngưỡng kỹ thuật của Google và quy định pháp lý Nghị định 91/2020/NĐ-CP giúp tránh rơi vào hòm thư rác" width="1600" height="900"><figcaption>Tuân thủ giới hạn tần suất gửi của Nghị định 91/2020/NĐ-CP và ngưỡng báo cáo rác của Google giúp bảo vệ khả năng vào hộp thư chính</figcaption></figure>
+<h2>Cách đo hiệu quả email marketing và đọc chỉ số</h2>
+<p>Cách đo hiệu quả email marketing chính xác là tách hệ thống chỉ số thành ba tầng riêng biệt: tầng phân phối và tương tác trong hộp thư, tầng hành vi đạt chuẩn trên trang đích và tầng kết quả kinh doanh thực tế. Việc đọc chéo cả ba tầng giúp người phụ trách không đánh đồng lượt mở thư với&nbsp;doanh&nbsp;thu.</p>
+<p>Theo tài liệu năm 2023 của <a href="https://support.apple.com/en-us/102327">Apple Support</a> về Mail Privacy Protection trên ứng dụng Mail (iOS, iPadOS, macOS), hệ thống tự động tải ngầm nội dung qua máy chủ trung gian, ẩn địa chỉ IP (giao thức Internet) và làm lệch Open Rate (tỷ lệ mở thư). Vì vậy, hướng dẫn năm 2024 của <a href="https://knowledge.hubspot.com/marketing-email/analyze-your-marketing-email-campaign-performance">HubSpot Knowledge Base</a> khuyến nghị ưu tiên đo CTR (Click-Through Rate, tỷ lệ nhấp) và chuyển đổi để lập baseline (mức nền tham chiếu)&nbsp;như&nbsp;sau:</p>
+<table>
+  <caption>Khung đo lường hiệu quả email marketing theo ba tầng chỉ số và giới hạn đọc dữ liệu</caption>
+  <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
+  <thead><tr><th>Chỉ số đo</th><th>Cách tính và mẫu số</th><th>Giới hạn khi đọc số liệu</th></tr></thead>
+  <tbody>
+    <tr><td>Tầng 1:&nbsp;Giao&nbsp;thư</td><td>Số thư giao thành công chia tổng số thư gửi đi sau khi trừ lỗi&nbsp;trả&nbsp;thư</td><td>Giao thành công chỉ báo thư tới máy chủ nhận, không bảo đảm vào hộp&nbsp;thư&nbsp;chính</td></tr>
+    <tr><td>Tầng 1:&nbsp;Lượt&nbsp;nhấp</td><td>Số người nhận nhấp vào liên kết chia cho tổng số thư đã giao&nbsp;thành&nbsp;công</td><td>Phản ánh sức hút của thông điệp và lời kêu gọi, chưa cho biết hành vi&nbsp;sau&nbsp;nhấp</td></tr>
+    <tr><td>Tầng 1:&nbsp;Báo&nbsp;rác</td><td>Số lượt người nhận bấm báo cáo thư rác chia tổng số thư giao&nbsp;thành&nbsp;công</td><td>Google yêu cầu giữ dưới 0,3% và khuyến nghị dưới 0,1% trên công cụ&nbsp;Postmaster</td></tr>
+    <tr><td>Tầng 2:&nbsp;Tương&nbsp;tác</td><td>Số người hoàn tất hành vi trung gian trên web chia tổng số người nhấp&nbsp;từ&nbsp;thư</td><td>Dùng để tìm điểm nghẽn trên trang đích, không dùng để quy kết thẳng&nbsp;ra&nbsp;tiền</td></tr>
+    <tr><td>Tầng 2:&nbsp;Lead&nbsp;chuẩn</td><td>Số liên hệ để lại yêu cầu tư vấn khớp tiêu chí chia tổng số lượt vào&nbsp;trang&nbsp;đích</td><td>Cần đối chiếu với bộ phận kinh doanh để loại trừ các biểu mẫu điền&nbsp;sai&nbsp;số</td></tr>
+    <tr><td>Tầng 3:&nbsp;Doanh&nbsp;thu</td><td>Tổng giá trị đơn hàng hoặc hợp đồng thanh toán thực tế từ nguồn chiến&nbsp;dịch&nbsp;thư</td><td>Có độ trễ ở ngành chu kỳ mua dài hoặc khi khách đọc thư rồi chuyển&nbsp;gọi&nbsp;điện</td></tr>
+  </tbody>
+</table>
+<p>Giới hạn khi đọc bảng: mọi tỷ lệ phần trăm trong báo cáo phải khóa chặt mẫu số là tính trên tổng số thư gửi đi hay số thư đã giao thành công, và đếm theo số người duy nhất hay tổng lượt bấm. Khi kết hợp <a href="/goc-kien-thuc/marketing/micro-conversion-la-gi/">đo lường chuyển đổi vi mô</a> ở tầng hai với đơn hàng ở tầng ba, bạn sẽ biết chiến dịch vướng ở thông điệp hay ở&nbsp;trang&nbsp;đích.</p>
+<figure class="kb-fig"><img src="/assets/kb/email-marketing-la-gi/07-email-marketing-la-gi.webp" srcset="/assets/kb/email-marketing-la-gi/07-email-marketing-la-gi-800.webp 800w, /assets/kb/email-marketing-la-gi/07-email-marketing-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ phễu đo lường hiệu quả email marketing ba tầng từ tương tác hộp thư, chuyển đổi vi mô đến doanh thu xác nhận" width="1600" height="900"><figcaption>Đọc chéo ba tầng chỉ số giúp doanh nghiệp không bị đánh lừa bởi tỷ lệ mở thư ảo do cơ chế tải ảnh tự động của Apple</figcaption></figure>
+<div class="kb-callout">
+  <p class="kb-callout__t">Lưu ý về độ trễ quy kết đa kênh tại Việt Nam</p>
+  <p>Trong thực tế, nhiều khách hàng đọc báo giá qua email nhưng sau đó lại nhắn Zalo hoặc gọi thẳng hotline để chốt đơn. Để không bỏ sót doanh thu hỗ trợ từ hộp thư, doanh nghiệp nên gắn mã ưu đãi riêng cho kênh email hoặc đối chiếu địa chỉ email của người mua với danh sách đã nhấp thư trong&nbsp;kỳ&nbsp;đo.</p>
+</div>
+<!-- cta:late -->
+<!-- faq -->
+<h2>Kết luận</h2>
+<p>Bản chất của email marketing bền vững không nằm ở việc gửi đi bao nhiêu vạn bức thư mỗi tháng, mà nằm ở sự đồng ý của người nhận, cấu hình tên miền đạt chuẩn xác thực và sự phân tách giữa thư giao dịch với thư tiếp thị. Ngay trong tuần này, bạn có thể tự rà soát lại biểu mẫu thu thập trên web và kiểm tra ba bản ghi SPF, DKIM, DMARC của&nbsp;tên&nbsp;miền.</p>
+<p>Khi dữ liệu tăng lên hàng nghìn liên hệ và cần đồng bộ tự động giữa website, phần mềm quản lý khách hàng cùng Zalo ZNS, việc sửa từng bức thư lẻ sẽ không còn đủ mà cần một khung hoạch định đồng bộ. Bạn có thể tham khảo thêm tại chuyên mục <a href="/goc-kien-thuc/marketing/">Marketing</a>. Hiện tại, đội ngũ của bạn đang vướng ở khâu tạo danh sách sạch hay dựng kịch bản nuôi dưỡng ra&nbsp;đơn&nbsp;hàng?</p>
