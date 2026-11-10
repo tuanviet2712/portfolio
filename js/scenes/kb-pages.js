@@ -20,12 +20,14 @@
       const inner = top.firstElementChild;
       if (inner) S.track(top, q => setVar(inner, '--tq', clamp((q - 0.5) * 2)));
     }
-    // thẻ trong cùng một lưới lệch nhịp theo cột
+    // thẻ trong cùng một lưới lệch nhịp theo cột; riêng 4 thẻ chủ đề (.kb-cats) cùng một nhịp để luôn ngang nhau, cùng cỡ
     $$('.kb-cats, .kb-grid, .kb-feature, .kb-list').forEach(grid => {
+      const even = grid.classList.contains('kb-cats');
       $$(':scope > *', grid).forEach((card, i) => {
+        const k = even ? 0 : i % 3;
         card.classList.add('kbs-c');
-        card.style.setProperty('--k', i % 3);
-        S.track(card, q => { const e = ease.out(r(q, 0.0, 0.3 + (i % 3) * 0.03)); setVar(card, '--e', e); card.classList.toggle('is-done', e >= 1); });
+        card.style.setProperty('--k', k);
+        S.track(card, q => { const e = ease.out(r(q, 0.0, 0.3 + k * 0.03)); setVar(card, '--e', e); card.classList.toggle('is-done', e >= 1); });
       });
     });
     $$('.kb-prose .kb-fig').forEach(fig => {
