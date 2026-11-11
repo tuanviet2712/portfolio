@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/ai-marketing/</loc>
-    <lastmod>2026-11-08</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,39 @@
     <lastmod>2026-11-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/ai-marketing/chatgpt-search-la-gi/</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chatgpt-search-la-gi/fdcc9a5018/chatgpt-search-la-gi.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chatgpt-search-la-gi/fdcc9a5018/chatgpt-search-la-gi/01-chatgpt-search-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chatgpt-search-la-gi/fdcc9a5018/chatgpt-search-la-gi/02-chatgpt-search-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chatgpt-search-la-gi/fdcc9a5018/chatgpt-search-la-gi/03-chatgpt-search-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chatgpt-search-la-gi/fdcc9a5018/chatgpt-search-la-gi/04-chatgpt-search-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chatgpt-search-la-gi/fdcc9a5018/chatgpt-search-la-gi/05-chatgpt-search-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chatgpt-search-la-gi/fdcc9a5018/chatgpt-search-la-gi/06-chatgpt-search-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chatgpt-search-la-gi/fdcc9a5018/chatgpt-search-la-gi/07-chatgpt-search-la-gi.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/</loc>

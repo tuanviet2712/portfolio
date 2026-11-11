@@ -4,6 +4,285 @@
 
 ---
 
+## ChatGPT Search là gì và cách tối ưu trích dẫn
+
+- URL: https://letuanviet.com/goc-kien-thuc/ai-marketing/chatgpt-search-la-gi/
+- Chủ đề: AI Marketing
+- Tác giả: Lê Tuấn Việt
+- Xuất bản: 2026-11-11; cập nhật: 2026-11-11
+- Tóm tắt: Hiểu rõ ChatGPT Search là gì giúp doanh nghiệp tách bạch điều kiện bot OpenAI quét trang với tiêu chí được chọn làm nguồn trích dẫn và cách đo lường trên GA4.
+
+ChatGPT Search là tính năng tìm kiếm web theo thời gian thực tích hợp trong giao diện hội thoại của OpenAI, giải đáp câu hỏi ChatGPT Search là gì qua cơ chế tổng hợp câu trả lời kèm liên kết trích dẫn tới nguồn gốc. Với doanh nghiệp vừa và nhỏ, sự thay đổi này đòi hỏi tách bạch điều kiện kỹ thuật cho phép bot quét trang với tiêu chí chất lượng để bài viết được chọn làm nguồn tham khảo. Khi người dùng đọc bản tóm tắt ngay trong khung trò chuyện, việc đánh đồng lượt bot truy cập với khách hàng tiềm năng sẽ làm lệch quyết định phân bổ ngân sách. Tôi là Lê Tuấn Việt, Marketing Leader tại TAKI Group. Trong bài viết này, tôi phân tích cơ chế xử lý truy vấn của OpenAI, ranh giới bốn cấp độ hiện diện, cách chuẩn hóa nội dung để tăng cơ hội được trích dẫn và khung đo lường trong GA4.
+
+### Tóm tắt nhanh
+
+- ChatGPT Search dùng phiên bản tinh chỉnh của GPT-4o để tự động tách câu hỏi hội thoại thành các truy vấn tìm kiếm mục tiêu gửi tới đối tác như Microsoft Bing và chỉ mục của OAI-SearchBot trước khi tổng hợp câu trả lời có gắn nguồn.
+- Cho phép OAI-SearchBot trong tệp robots.txt chỉ là điều kiện kỹ thuật để trang web lọt vào nhóm ứng viên; việc được chọn trích dẫn phụ thuộc vào cấu trúc câu trả lời trực tiếp, dữ liệu có nguồn gốc và độ tin cậy của thực thể.
+- Quản trị viên có thể cấu hình độc lập ba user-agent của OpenAI gồm OAI-SearchBot cho hiển thị tìm kiếm, GPTBot cho huấn luyện mô hình nền tảng và ChatGPT-User cho thao tác trực tiếp của người dùng.
+- Đo lường hiệu quả từ ChatGPT Search trong GA4 cần tách ba tầng từ lưu lượng có tham số utm_source=chatgpt.com, phiên tương tác đạt chuẩn đến chuyển đổi xác nhận để tránh ngộ nhận do hiện tượng đọc câu trả lời không nhấp chuột.
+
+### ChatGPT Search là gì và cơ chế tìm kiếm web
+
+ChatGPT Search là gì có thể hiểu ngắn gọn là tính năng tìm kiếm web theo thời gian thực được tích hợp trực tiếp trong giao diện ChatGPT của OpenAI, kế thừa từ nguyên mẫu thử nghiệm SearchGPT để tổng hợp câu trả lời hội thoại kèm liên kết trích dẫn tới các nguồn web liên quan.
+
+Theo thông báo sản phẩm công bố ngày 31/10/2024 của OpenAI trên phạm vi toàn cầu cho nền tảng web cùng ứng dụng máy tính và di động, mô hình tìm kiếm này là phiên bản tinh chỉnh của GPT-4o, kết hợp dữ liệu từ các nhà cung cấp tìm kiếm bên thứ ba và đối tác nội dung trực tiếp. Thay vì chỉ dựa vào kho dữ liệu huấn luyện tĩnh vốn bị giới hạn bởi mốc thời gian ngắt kiến thức (knowledge cutoff), hệ thống chủ động truy xuất thông tin mới trên internet để trả lời các truy vấn cần dữ liệu cập nhật.
+
+[Hình: ChatGPT Search bổ sung lớp truy xuất web thời gian thực kèm liên kết nguồn thay vì chỉ dựa vào dữ liệu huấn luyện tĩnh]
+
+Trong bức tranh tổng thể của chuyên mục AI Marketing, sự thay đổi lớn nhất mà công cụ này tạo ra nằm ở hành vi tiếp nhận thông tin của người mua. Khi tìm kiếm truyền thống buộc người dùng tự mở nhiều tab để đọc và chắt lọc, tìm kiếm web trong ChatGPT thực hiện luôn bước tổng hợp và chỉ hiển thị danh sách nguồn tham khảo qua nút Nguồn (Sources) ngay bên dưới đoạn phản hồi. Người làm marketing vì thế không chỉ cạnh tranh vị trí xếp hạng từ khóa, mà phải cạnh tranh khả năng được mô hình chọn làm căn cứ trích dẫn.
+
+#### ChatGPT Search hoạt động như thế nào
+
+Để hiểu rõ ChatGPT Search hoạt động như thế nào khi nhận một câu hỏi từ người dùng, cần nhìn vào quy trình chuyển đổi từ ngôn ngữ trò chuyện tự nhiên sang truy vấn kỹ thuật. Tài liệu năm 2025 của OpenAI Help Center cho biết hệ thống hợp tác với các nhà cung cấp tìm kiếm như Microsoft Bing và tự động viết lại câu hỏi hội thoại dài của người dùng thành một hoặc nhiều truy vấn tìm kiếm mục tiêu để gửi tới các hạ tầng này.
+
+Sau khi nhận danh sách kết quả từ chỉ mục tìm kiếm đối tác cùng dữ liệu do trình thu thập riêng của hãng ghi nhận, mô hình tinh chỉnh từ GPT-4o sẽ đọc hiểu ngữ cảnh, đối chiếu thông tin giữa các trang và biên tập thành câu trả lời mạch lạc kèm chú thích nguồn nội tuyến. Điểm tôi muốn lưu ý các đội ngũ nội dung là cơ chế tách câu hỏi lớn thành nhiều truy vấn con (query fan-out): khi khách hàng hỏi một bài toán phức tạp gồm cả giá cả, điều kiện áp dụng và rủi ro, một bài viết chỉ trả lời bề nổi một khía cạnh sẽ khó được chọn bằng trang web cấu trúc rõ từng mục con.
+
+[Hình: Một câu hỏi hội thoại phức tạp được hệ thống tách thành nhiều truy vấn tìm kiếm mục tiêu trước khi tổng hợp câu trả lời]
+
+#### Cách bật ChatGPT Search và sử dụng để tra cứu
+
+Về thao tác thực tế, thông báo tính năng ngày 31/10/2024 của OpenAI nêu rõ hệ thống sẽ tự động kích hoạt tìm kiếm web dựa trên nội dung câu hỏi, hoặc người dùng có thể chủ động bật thủ công. Tính đến tháng 11/2026, cách bật ChatGPT Search và cách sử dụng ChatGPT Search trong công việc hằng ngày được thực hiện qua ba phương thức thao tác dưới đây:
+
+- Kích hoạt trực tiếp bằng biểu tượng quả địa cầu (Search the web): Người dùng bấm vào biểu tượng tìm kiếm web ngay dưới khung nhập lệnh trên trang web hoặc ứng dụng di động để buộc mô hình tra cứu dữ liệu thời gian thực thay vì trả lời từ bộ nhớ huấn luyện.
+
+- Gõ lệnh tắt nhanh trong khung trò chuyện: Khi đang soạn câu hỏi trên máy tính, bạn có thể gõ dấu gạch chéo (/) rồi chọn chế độ Search từ trình đơn bật lên để chuyển thẳng câu lệnh sang luồng truy xuất internet.
+
+- Sử dụng tiện ích mở rộng trên trình duyệt Chrome: Người dùng có thể cài đặt tiện ích ChatGPT Search từ cửa hàng Chrome Web Store để đặt công cụ này làm trình tìm kiếm mặc định ngay trên thanh địa chỉ trình duyệt.
+
+Sau khi câu trả lời xuất hiện, người dùng bấm vào nút Sources ở cuối đoạn văn để mở thanh bên liệt kê toàn bộ các đường dẫn tham khảo. Nếu tài khoản hoặc trình duyệt chưa hiển thị biểu tượng quả địa cầu, nguyên nhân thường do người dùng chưa đăng nhập, ứng dụng di động chưa cập nhật phiên bản mới hoặc quản trị viên không gian làm việc doanh nghiệp (Workspace) đang tạm khóa quyền truy cập web công cộng.
+
+### ChatGPT Search khác Google và Deep Research ở đâu
+
+ChatGPT Search khác Google Search ở việc tổng hợp thẳng câu trả lời hội thoại có ngữ cảnh thay vì ưu tiên danh sách mười liên kết xanh, và khác chế độ Deep Research ở tốc độ phản hồi nhanh trong vài giây cho nhu cầu tra cứu tức thời thay vì chạy tác nhân suy luận đa bước mất từ 5 đến 30 phút.
+
+Để giúp người phụ trách marketing lựa chọn đúng công cụ theo mục đích công việc và hiểu hành vi tra cứu của khách hàng, bảng dưới đây đối chiếu trực tiếp ChatGPT Search với Google Search cùng Deep Research theo bốn tiêu chí vận hành:
+
+Bảng đối chiếu ChatGPT Search, Google Search và Deep Research theo nhu cầu
+
+| Tiêu chí đối chiếu | ChatGPT Search | Google Search và Deep Research |
+
+| Mục đích tra cứu chính | Hỏi đáp nhanh thông tin thời gian thực, tóm tắt khái niệm và so sánh ngắn gọn trong cuộc hội thoại | Google mạnh về điều hướng website, mua sắm và địa phương; Deep Research chuyên lập báo cáo phân tích sâu |
+
+| Cơ chế xử lý và thời gian | Tách câu hỏi thành vài truy vấn mục tiêu và trả lời trong vài giây dựa trên mô hình GPT-4o tinh chỉnh | Google trả kết quả tức thì theo chỉ mục; Deep Research duyệt web đa bước trong khoảng 5 đến 30 phút |
+
+| Cách hiển thị nguồn | Gắn thẻ chú thích nội tuyến ngay sau câu văn và gom danh sách liên kết vào bảng Sources bên phải | Google hiển thị danh sách URL kèm đoạn trích; Deep Research lập báo cáo dài có trích dẫn từng bước |
+
+| Hành vi nhấp của người đọc | Đọc câu trả lời tổng hợp trước, chỉ nhấp vào nguồn khi cần kiểm chứng sâu hoặc thực hiện giao dịch | Trên Google người dùng nhấp trực tiếp để tự đọc; với Deep Research người dùng đọc bản tổng hợp hoàn chỉnh |
+
+Lưu ý khi đọc bảng đối chiếu: ranh giới giữa các công cụ đang thu hẹp dần khi Google triển khai rộng rãi tính năng tóm tắt bằng AI (AI Overviews), nhưng thói quen đặt câu hỏi nối tiếp nhiều lượt vẫn là đặc trưng riêng của môi trường trò chuyện.
+
+[Hình: Chọn đúng công cụ giữa Google Search, ChatGPT Search và Deep Research phụ thuộc vào độ sâu thông tin và quỹ thời gian chờ]
+
+#### ChatGPT Search khác Google Search ở điểm nào
+
+Khi phân tích ChatGPT Search khác Google Search ở điểm nào dưới góc nhìn tiếp thị, sự khác biệt cốt lõi nằm ở cách người dùng duy trì mạch ngữ cảnh. Trên Google, người tìm kiếm thường gõ các cụm từ khóa ngắn rời rạc và tự mở nhiều trang web để ghép thông tin; trong khi đó, người dùng ChatGPT đặt câu hỏi dài kèm điều kiện cụ thể rồi hỏi xoáy sâu ngay trong cùng một luồng hội thoại.
+
+Cơ chế hội thoại này có điểm tương đồng với công cụ tìm kiếm AI Perplexity ở việc đặt nguồn trích dẫn làm trọng tâm, nhưng lợi thế của ChatGPT nằm ở tệp người dùng sẵn có đang sử dụng trợ lý này cho công việc hằng ngày. Dù việc kết hợp dữ liệu web theo thời gian thực giúp giảm đáng kể tình trạng mô hình tự suy diễn, người đọc vẫn cần kiểm tra chéo đường dẫn gốc để phòng ngừa hiện tượng ảo giác AI khi nguồn tham khảo ban đầu chứa thông tin chưa chuẩn.
+
+#### ChatGPT Search khác Deep Research như thế nào
+
+Nhiều người dùng vẫn bối rối ChatGPT Search khác Deep Research như thế nào vì cả hai tính năng đều nằm chung trên thanh công cụ của OpenAI và đều truy cập internet. Theo thông báo công bố ngày 02/02/2025 của OpenAI về tác nhân nghiên cứu vận hành trên mô hình suy luận o3, một tác vụ Deep Research thường mất từ 5 đến 30 phút để tự động duyệt web đa bước, đọc phân tích hàng trăm nguồn tài liệu và tổng hợp thành báo cáo chuyên sâu.
+
+Ngược lại, ChatGPT Search được thiết kế cho nhu cầu tra cứu phản hồi nhanh trong vài giây như kiểm tra giá cước, tin tức mới, thông số sản phẩm hoặc tóm tắt một chủ đề gọn. Nếu đặt trong bài toán phân biệt AI agent và chatbot, tính năng Search hoạt động như lớp truy xuất bổ sung cho cuộc trò chuyện tức thời, còn Deep Research vận hành đúng bản chất của một tác nhân tự chủ (AI agent) biết tự lập kế hoạch tìm kiếm, tự đánh giá tài liệu và đổi hướng truy vấn khi gặp thông tin chưa đủ.
+
+### Phân biệt điều kiện bot quét và được trích dẫn
+
+Việc cho phép trình thu thập OAI-SearchBot truy cập trong tệp robots.txt chỉ là điều kiện kỹ thuật cần để trang web lọt vào nhóm nguồn ứng viên, còn việc nội dung được chọn làm trích dẫn phụ thuộc vào mức độ khớp ý định truy vấn, cấu trúc câu trả lời trực tiếp và độ tin cậy của thực thể.
+
+Trong quá trình tư vấn cho các doanh nghiệp, tôi nhận thấy nhiều đội ngũ kỹ thuật kiểm tra nhật ký máy chủ (server log), thấy bot của OpenAI đã ghé thăm trang web liền kết luận rằng website đã tối ưu xong cho tìm kiếm AI. Thực tế vận hành gồm bốn cấp độ hoàn toàn tách biệt từ lúc bot gõ cửa đến khi tạo ra khách hàng thật.
+
+[Hình: Quản trị viên có thể chặn GPTBot thu thập dữ liệu huấn luyện mà vẫn mở OAI-SearchBot để xuất hiện trên ChatGPT Search]
+
+#### Vai trò của OAI-SearchBot, GPTBot và ChatGPT-User
+
+Theo hướng dẫn kỹ thuật của Google Search Central, tệp robots.txt đặt tại thư mục gốc của website đóng vai trò chỉ dẫn cho các trình thu thập dữ liệu biết những đường dẫn URL nào trên trang được phép hoặc không được phép truy cập. Đối với hệ sinh thái của OpenAI, tài liệu kỹ thuật chính thức dành cho nhà phát triển của OpenAI (kiểm tra tính đến tháng 11/2026) phân tách rõ ba trình thu thập (user-agent) độc lập để quản trị viên cấp quyền riêng theo từng mục đích:
+
+- OAI-SearchBot (Phục vụ tìm kiếm): Trình thu thập dùng để lập chỉ mục và hiển thị các website làm nguồn liên kết trong tính năng tìm kiếm của ChatGPT, không dùng để huấn luyện mô hình AI nền tảng.
+
+- GPTBot (Huấn luyện mô hình): Trình thu thập nội dung web phục vụ việc huấn luyện các mô hình trí tuệ nhân tạo tạo sinh nền tảng của OpenAI; chủ web có thể chặn GPTBot mà không ảnh hưởng tới hiển thị tìm kiếm.
+
+- ChatGPT-User (Tác vụ người dùng): Trình truy cập chỉ kích hoạt khi người dùng chủ động gửi yêu cầu đọc một trang cụ thể trong cuộc trò chuyện hoặc qua Custom GPT, không dùng để quét web tự động diện rộng.
+
+Cũng theo tài liệu kỹ thuật của OpenAI về trình thu thập dữ liệu, sau khi quản trị viên website cập nhật quy tắc trong tệp robots.txt, hệ thống của hãng thường cần khoảng 24 giờ để điều chỉnh hành vi thu thập theo cấu hình mới. Vì vậy, doanh nghiệp muốn bảo vệ dữ liệu độc quyền khỏi việc huấn luyện mô hình nhưng vẫn muốn nhận lưu lượng từ tìm kiếm chỉ cần chặn GPTBot và mở quyền Allow cho OAI-SearchBot.
+
+#### Vì sao bot truy cập nhưng trang chưa được chọn
+
+Vậy tại sao OAI-SearchBot đã quét bài viết mà khi thử đặt câu hỏi trên ChatGPT Search, thương hiệu của bạn vẫn vắng mặt trong mục Sources? Nguyên nhân nằm ở khoảng cách giữa khả năng tiếp cận kỹ thuật và giá trị thông tin mà mô hình trích xuất được. Bảng dưới đây phân biệt bốn cấp độ hiện diện kèm bằng chứng kiểm tra và giới hạn kết luận để đội ngũ không đọc nhầm số:
+
+Bảng phân biệt bốn cấp độ hiện diện của website trên ChatGPT Search
+
+| Cấp độ hiện diện | Bằng chứng kỹ thuật ghi nhận | Giới hạn khi đọc kết luận |
+
+| Cấp 1: Bot quét trang | Tệp robots.txt mở quyền cho OAI-SearchBot và nhật ký máy chủ ghi nhận mã phản hồi 200 OK | Chỉ xác nhận cửa kỹ thuật không khóa, chưa chứng minh trang đã được đưa vào chỉ mục tìm kiếm |
+
+| Cấp 2: Vào chỉ mục | URL đã được lập chỉ mục hợp lệ trên Bing Webmaster Tools và hệ thống thu thập của OpenAI | Trang mới nằm trong kho ứng viên tham khảo, chưa có nghĩa sẽ được chọn khi người dùng đặt câu hỏi |
+
+| Cấp 3: Được trích dẫn | Thương hiệu được nhắc tên hoặc gắn liên kết trong mục Sources khi kiểm tra bộ truy vấn mục tiêu | Tạo được nhận diện trong câu trả lời AI nhưng chưa đồng nghĩa với việc phát sinh lượt nhấp sang web |
+
+| Cấp 4: Có lượt nhấp | Báo cáo GA4 ghi nhận phiên truy cập có utm_source=chatgpt.com kèm hành vi tương tác hoặc điền form | Xác nhận có lưu lượng thực tế nhưng vẫn bị sót các khách hàng chỉ đọc câu trả lời rồi tự tìm lại |
+
+Lưu ý khi đọc bảng bốn cấp độ: một bài viết dừng lại ở Cấp 1 hoặc Cấp 2 thường do mắc một trong ba điểm nghẽn nội dung gồm mở đầu vòng vo thiếu định nghĩa trực diện, trình bày thông tin chung chung không có dữ liệu cụ thể, hoặc nội dung mâu thuẫn với các nguồn có thẩm quyền cao hơn trong cùng ngành. Bot quét trang chưa phải là được trích dẫn.
+
+### Cách giúp website xuất hiện trên ChatGPT Search
+
+Quy trình giúp website xuất hiện trên ChatGPT Search và tăng cơ hội được chọn làm nguồn trích dẫn gồm bốn bước tuần tự: mở quyền truy cập cho OAI-SearchBot cùng chỉ mục tìm kiếm, cấu trúc câu trả lời trực tiếp kèm dữ liệu gốc, củng cố thực thể thương hiệu đồng nhất và kiểm tra trích dẫn kết hợp đo lường trong GA4.
+
+Thay vì áp dụng các mẹo ngắn hạn thiếu căn cứ, tôi khuyến nghị các doanh nghiệp vừa và nhỏ triển khai theo đúng thứ tự từ hạ tầng kỹ thuật đến chất lượng nội dung và kiểm chứng thực tế qua bốn bước có đầu ra cụ thể dưới đây.
+
+[Hình: Quy trình bốn bước từ mở quyền thu thập kỹ thuật đến chuẩn hóa cấu trúc câu trả lời và kiểm chứng trích dẫn thực tế]
+
+#### Bước 1: Kiểm tra tệp robots.txt và chỉ mục tìm kiếm
+
+Mở tệp robots.txt tại thư mục gốc của tên miền để đảm bảo không có dòng lệnh Disallow: / chặn OAI-SearchBot hoặc Bingbot, đồng thời kiểm tra trạng thái lập chỉ mục của các trang quan trọng trên cả Google Search Console lẫn Bing Webmaster Tools.
+
+Đầu ra: Tệp robots.txt mở quyền hợp lệ cho OAI-SearchBot, tường lửa không chặn IP của bot và danh sách các URL chủ lực đã được lập chỉ mục trên Google cùng Bing.
+
+Điểm các đội ngũ thực thi hay vướng ở bước đầu tiên là dùng các trình cắm (plugin) bảo mật hoặc bật chế độ chống bot tự động trên CDN (như Cloudflare) khiến yêu cầu truy cập của OAI-SearchBot bị chặn ngầm dù tệp robots.txt vẫn hiển thị cho phép. Ngoài ra, vì ChatGPT Search kết hợp chặt với hạ tầng tìm kiếm của Microsoft Bing, một website bỏ quên việc khai báo sơ đồ trang (XML Sitemap) trên Bing Webmaster Tools sẽ mất đi một nguồn tín hiệu lập chỉ mục quan trọng.
+
+#### Bước 2: Cấu trúc câu trả lời trực tiếp và dữ liệu
+
+Biên tập lại các bài viết và trang dịch vụ trọng điểm theo cấu trúc trả lời thẳng câu hỏi trong 40 đến 60 từ đầu tiên ngay dưới mỗi tiêu đề H2, trình bày bảng đối chiếu rõ tiêu chí và bổ sung số liệu thống kê có gắn liên kết tới nguồn gốc kiểm chứng.
+
+Đầu ra: Các mục nội dung chính đều có đoạn định nghĩa tự đủ ngữ cảnh khi tách rời, có bảng dữ liệu có cấu trúc và mọi con số đều đi kèm nguồn xác thực.
+
+Cơ sở của cách làm này đã được kiểm chứng trong nghiên cứu học thuật năm 2024 về tối ưu hóa công cụ tạo sinh (Generative Engine Optimization, viết tắt là GEO) của nhóm tác giả thuộc Princeton University, Georgia Tech, Allen Institute for AI và IIT Delhi công bố tại hội nghị KDD 2024. Khi thử nghiệm trên bộ dữ liệu chuẩn GEO-bench gồm 10.000 truy vấn đa lĩnh vực trong môi trường mô phỏng công cụ tìm kiếm tạo sinh, nhóm nghiên cứu ghi nhận việc bổ sung trích dẫn nguồn đáng tin và số liệu thống kê giúp cải thiện mức độ hiển thị của nguồn lên tới 40%.
+
+Tuy nhiên, người làm marketing cần đọc con số 40% này kèm đúng giới hạn phạm vi: đây là kết quả trong môi trường thử nghiệm học thuật chứ không phải cam kết hiệu quả cố định trên hệ thống thương mại của ChatGPT Search. Để nội dung vừa dễ được AI trích xuất vừa thuyết phục người đọc thật, doanh nghiệp cần thiết lập quy trình có con người kiểm duyệt ở khâu xác thực dữ kiện và thiết kế luồng công việc có AI có điểm chặn chất lượng rõ ràng thay vì xuất bản hàng loạt bản nháp tự động.
+
+#### Bước 3: Củng cố thực thể và nguồn xác thực độc lập
+
+Chuẩn hóa thông tin thực thể thương hiệu gồm tên doanh nghiệp, lĩnh vực hoạt động, sản phẩm cốt lõi, thông tin liên hệ (NAP) và dữ liệu có cấu trúc (Schema Markup như Organization, Article, FAQPage) đồng nhất giữa website chính thức với các trang danh bạ, báo chí và nền tảng uy tín cùng ngành.
+
+Đầu ra: Hồ sơ thực thể thương hiệu nhất quán trên đa nền tảng, mã Schema không báo lỗi và có các đề cập xác thực từ bên thứ ba liên quan.
+
+Khi mô hình ngôn ngữ lớn tổng hợp câu trả lời cho các truy vấn thương mại (như tìm đơn vị cung cấp dịch vụ hoặc so sánh giải pháp), hệ thống không chỉ đọc mỗi trang web của bạn mà còn đối chiếu xem thương hiệu đó được các nguồn độc lập mô tả như thế nào. Sự nhất quán về thông tin thực thể theo nguyên tắc Semantic SEO (tối ưu công cụ tìm kiếm theo ngữ nghĩa) giúp mô hình gắn kết đúng tên thương hiệu với lĩnh vực chuyên môn mà không bị nhầm lẫn sang đơn vị khác.
+
+#### Bước 4: Kiểm tra trích dẫn thực tế và đọc nguồn GA4
+
+Xây dựng một bộ gồm 10 đến 20 câu hỏi sát với nhu cầu tìm kiếm thực tế của khách hàng ở từng chặng trên bản đồ hành trình khách hàng, tiến hành hỏi thử định kỳ hàng tháng trên ChatGPT Search để ghi nhận tỷ lệ xuất hiện trong mục Sources và đối chiếu với báo cáo lưu lượng trong GA4.
+
+Đầu ra: Bảng theo dõi hiện diện trích dẫn AI theo bộ câu hỏi cố định hàng tháng kết hợp báo cáo phiên truy cập giới thiệu từ chatgpt.com.
+
+Đối với doanh nghiệp vừa và nhỏ có đội ngũ mỏng, bạn không cần mua ngay các phần mềm theo dõi hiển thị AI đắt tiền. Việc duy trì một bảng tính theo dõi 15 câu hỏi cốt lõi liên quan trực tiếp đến dòng sản phẩm mang lại biên lợi nhuận cao nhất, kiểm tra đều đặn mỗi tháng một lần cùng dữ liệu GA4 đã đủ để nhận diện xu hướng và điều chỉnh nội dung kịp thời.
+
+### Hiểu sai ChatGPT Search là gì khi tối ưu trích dẫn
+
+Ba sai lầm phổ biến xuất phát từ việc hiểu lệch ChatGPT Search là gì khi tối ưu trích dẫn gồm: dùng AI sản xuất hàng loạt bài tổng hợp dài nhưng rỗng dữ liệu gốc, áp dụng máy móc con số thử nghiệm GEO như công thức đảm bảo lên top, và dồn nguồn lực làm GEO khi nền tảng SEO kỹ thuật cơ bản còn lỗi.
+
+Để hình dung rõ sự khác biệt giữa cách làm chạy theo số lượng và cách làm tập trung vào cơ chế trích dẫn, hãy xem xét tình huống đối chiếu dưới đây của một doanh nghiệp dịch vụ B2B.
+
+Ví dụ biên tập, không phải kết quả khách hàng thật
+
+Xuất bản 100 bài viết tổng hợp bằng AI với chuẩn hóa 10 trang chủ lực có dữ liệu gốc
+
+Trong một tình huống giả định để minh họa cơ chế: một công ty cung cấp phần mềm quản trị nhân sự B2B tại Hà Nội muốn xuất hiện trên ChatGPT Search. Ở phương án sai, đội ngũ mở toàn bộ tệp robots.txt và dùng công cụ tạo sinh viết 100 bài giải thích khái niệm chung chung không có nguồn dẫn; sau hai tháng, OAI-SearchBot có quét trang nhưng không bài nào được chọn vào mục Sources khi hỏi về giải pháp nhân sự. Ở phương án đúng, công ty giữ 10 bài hướng dẫn cốt lõi, viết lại đoạn mở đầu 50 từ trả lời thẳng dưới mỗi H2, bổ sung bảng so sánh chi phí triển khai kèm nguồn thông tư lao động hiện hành; kết quả là các trang này bắt đầu được trích dẫn ở nhóm câu hỏi so sánh giải pháp và ghi nhận lượt nhấp qua tham số utm_source=chatgpt.com.
+
+[Hình: Chất lượng cấu trúc câu trả lời và dữ liệu có nguồn kiểm chứng quyết định khả năng được trích dẫn chứ không phải số lượng bài viết]
+
+Sai lầm thứ hai là hiểu lệch kết quả nghiên cứu học thuật thành mẹo chèn chữ máy móc. Nhiều người đọc thấy nghiên cứu GEO nói rằng thêm trích dẫn và số liệu giúp tăng hiển thị liền nhồi nhét các câu khẩu hiệu như "theo các chuyên gia hàng đầu" hoặc chèn con số không rõ nguồn gốc vào mọi đoạn văn. Các mô hình tìm kiếm hiện đại đối chiếu chéo thông tin giữa nhiều trang; việc đưa số liệu giả hoặc trích dẫn mập mờ chẳng những không giúp trang được chọn mà còn làm mất uy tín trực tiếp với người đọc thật.
+
+Quan trọng hơn, không phải doanh nghiệp nào cũng cần ưu tiên tối ưu trích dẫn AI ngay lập tức. Dưới đây là ba điều kiện thực tế cho thấy doanh nghiệp vừa và nhỏ chưa nên dồn ngân sách riêng cho GEO:
+
+- Nền tảng kỹ thuật website đang bị chặn hoặc lỗi chỉ mục: Khi trang web còn lỗi noindex nhầm, tốc độ tải quá chậm hoặc chưa được Google và Bing lập chỉ mục ổn định, mọi nỗ lực tinh chỉnh câu chữ cho AI đều không có tác dụng.
+
+- Chưa có bộ nội dung nền tảng phục vụ quyết định mua: Nếu website mới chỉ có vài trang giới thiệu sơ sài, chưa có trang giải thích rõ dịch vụ, bảng giá tham khảo và câu hỏi thường gặp, doanh nghiệp cần xây dựng lớp nội dung gốc này trước khi nghĩ tới trích dẫn.
+
+- Sản phẩm thuộc nhóm mua ngẫu hứng giá trị nhỏ, ít nhu cầu tra cứu: Với các mặt hàng tiêu dùng nhanh mà khách hàng chốt đơn ngay qua video ngắn hoặc sàn thương mại điện tử mà không cần hỏi đáp so sánh, việc đầu tư tối ưu trải nghiệm trang đích hoặc cá nhân hóa trải nghiệm bằng AI tại điểm bán sẽ mang lại hiệu quả thiết thực hơn.
+
+### Cách đo nguồn truy cập ChatGPT trong GA4 cho SME
+
+Doanh nghiệp vừa và nhỏ có thể đo lường hiệu quả từ ChatGPT Search trong Google Analytics 4 (viết tắt là GA4) thông qua tham số utm_source=chatgpt.com được OpenAI tự động gắn vào các liên kết giới thiệu, kết hợp khung đo lường ba tầng từ tín hiệu hiện diện, phiên tương tác đạt chuẩn đến chuyển đổi xác nhận.
+
+Tài liệu trợ giúp chính thức năm 2025 của OpenAI Help Center xác nhận hệ thống tự động đính kèm tham số utm_source=chatgpt.com vào các URL giới thiệu đi ra từ kết quả tìm kiếm của ChatGPT. Nhờ cơ chế này, quản trị viên website không cần và cũng không thể tự gắn thẻ UTM thủ công cho các liên kết tự nhiên được AI trích dẫn. Theo hướng dẫn của Google Analytics Help, báo cáo Thu nạp lưu lượng truy cập (Traffic acquisition) trong GA4 cho phép doanh nghiệp xem các phiên truy cập mới và quay lại đến từ nguồn hoặc phương tiện cụ thể ở cấp độ phiên (Session source / medium).
+
+Để tránh bẫy báo cáo chỉ nhìn vào lượt truy cập bề nổi hoặc hoang mang khi thấy số lượt nhấp thấp, tôi thiết lập khung đo lường ba tầng trong GA4 dưới đây để đọc đúng giá trị của kênh tìm kiếm AI:
+
+Khung đo lường hiệu quả truy cập từ ChatGPT Search theo ba tầng trong GA4
+
+| Tầng đo lường | Chỉ số và nguồn dữ liệu GA4 | Giới hạn khi quy kết hiệu quả |
+
+| Tầng 1: Hiện diện | Số phiên truy cập (Sessions) lọc theo Session source chứa chatgpt.com kết hợp bảng kiểm câu hỏi | Không phản ánh được các lượt hiển thị câu trả lời có nhắc tên thương hiệu nhưng người dùng không nhấp |
+
+| Tầng 2: Tương tác chuẩn | Tỷ lệ phiên tương tác (Engaged sessions), thời gian đọc trang đích và sự kiện xem bảng giá | Cho biết chất lượng tệp người đọc nhấp sang web nhưng chưa xác nhận được nhu cầu mua hàng thực tế |
+
+| Tầng 3: Doanh thu thật | Sự kiện quan trọng (Key events) như gửi biểu mẫu tư vấn đạt chuẩn và đơn hàng khớp trên CRM | Cỡ mẫu giai đoạn đầu thường nhỏ và dễ bị quy kết thiếu do khách hàng chuyển sang tìm kiếm trực tiếp |
+
+Lưu ý giới hạn quy kết khi đọc bảng trên: tính đến tháng 11/2026, OpenAI chưa cung cấp một công cụ quản trị riêng cho chủ website (tương tự Google Search Console) để thống kê tổng số lần trang web xuất hiện trong câu trả lời mà không có lượt nhấp (zero-click impressions).
+
+[Hình: Kết hợp đọc tham số utm_source=chatgpt.com trong GA4 với chất lượng khách hàng tiềm năng giúp đánh giá đúng hiệu quả kênh AI]
+
+Trong một ví dụ biên tập, không phải kết quả khách hàng thật, một đơn vị đào tạo doanh nghiệp thấy báo cáo GA4 tháng vừa qua chỉ ghi nhận 45 phiên truy cập từ nguồn chatgpt.com nhưng tạo ra tới 6 biểu mẫu đăng ký tư vấn hợp lệ. Lý do là người mua đã hoàn tất bước tìm hiểu khái niệm và so sánh sơ bộ ngay trong cuộc hội thoại với ChatGPT; khi họ quyết định bấm vào liên kết nguồn để sang website, họ đã ở rất gần bước ra quyết định cuối. Nếu người quản lý chỉ nhìn tổng lượt truy cập để đánh giá thấp kênh này mà không đối chiếu tới Tầng 2 và Tầng 3, doanh nghiệp sẽ bỏ lỡ tệp khách hàng có ý định mua rõ ràng nhất.
+
+Để bù đắp khoảng trống dữ liệu hiển thị không nhấp chuột, doanh nghiệp nên thêm một câu hỏi ngắn trong biểu mẫu đăng ký hoặc kịch bản tư vấn của đội bán hàng: "Bạn biết đến hoặc kiểm tra thông tin về chúng tôi qua kênh nào?". Việc kết hợp dữ liệu định lượng trên GA4 với phản hồi tự khai của khách hàng giúp bức tranh đo lường sát với thực tế vận hành hơn nhiều.
+
+### Câu hỏi thường gặp về ChatGPT Search
+
+#### ChatGPT Search có miễn phí cho mọi tài khoản không?
+
+Có, OpenAI đã mở tính năng tìm kiếm web cho toàn bộ người dùng đăng nhập ở cả gói miễn phí (Free) lẫn các gói trả phí như Plus, Team, Enterprise và Edu trên trình duyệt cùng ứng dụng di động. Tuy nhiên, tính đến tháng 11/2026, hạn mức truy vấn theo thời gian thực và tốc độ phản hồi của mô hình nâng cao vẫn được phân bổ khác nhau tùy theo cấp độ tài khoản hiện hành.
+
+#### Chặn GPTBot thì website có mất hiển thị tìm kiếm không?
+
+Không, theo tài liệu kỹ thuật chính thức của OpenAI, việc chặn GPTBot trong tệp robots.txt chỉ ngăn nội dung website bị thu thập để huấn luyện các mô hình trí tuệ nhân tạo tạo sinh nền tảng. Miễn là quản trị viên vẫn cho phép OAI-SearchBot truy cập, các trang công khai vẫn đủ điều kiện xuất hiện và được gắn liên kết trích dẫn trong kết quả của ChatGPT Search.
+
+#### Mất bao lâu để OpenAI cập nhật thay đổi trong robots.txt?
+
+Khoảng 24 giờ là thời gian hệ thống của OpenAI cần để điều chỉnh hành vi thu thập sau khi quản trị viên cập nhật quy tắc mới trong tệp robots.txt. Để quá trình quét dữ liệu diễn ra thông suốt, đội ngũ kỹ thuật nên kiểm tra đồng thời cấu hình tường lửa ứng dụng web (WAF) và mạng phân phối nội dung (CDN) nhằm tránh chặn nhầm dải địa chỉ IP hợp lệ của OAI-SearchBot.
+
+#### Chủ web có phải tự gắn tham số utm_source=chatgpt.com không?
+
+Không, hệ thống của OpenAI tự động đính kèm tham số utm_source=chatgpt.com vào mọi đường dẫn giới thiệu đi ra khi người dùng nhấp vào thẻ nguồn trong kết quả tìm kiếm. Chủ website chỉ cần mở báo cáo Thu nạp lưu lượng truy cập (Traffic acquisition) trong Google Analytics 4 và lọc theo nguồn phiên chứa chatgpt.com để theo dõi số liệu mà không phải gắn mã thủ công.
+
+#### Vì sao số lượt nhấp từ ChatGPT trong GA4 thường thấp?
+
+Số lượt nhấp thường thấp vì giao diện hội thoại đã tổng hợp sẵn câu trả lời trực tiếp, khiến người dùng chỉ bấm vào liên kết nguồn khi cần kiểm chứng dữ liệu gốc hoặc thực hiện giao dịch mua hàng. Bên cạnh đó, nhiều khách hàng đọc tên thương hiệu trên khung trò chuyện rồi mới tự gõ tìm kiếm lại trên Google hoặc vào thẳng website, làm lưu lượng chuyển dịch sang kênh tự nhiên hoặc trực tiếp.
+
+#### Khi nào doanh nghiệp nhỏ chưa nên ưu tiên làm GEO?
+
+Doanh nghiệp nhỏ chưa nên dồn nguồn lực riêng cho GEO khi website vẫn đang gặp lỗi chặn lập chỉ mục cơ bản, chưa hoàn thiện bộ trang dịch vụ và bài viết chuẩn SEO truyền thống, hoặc chưa thiết lập hệ thống đo lường chuyển đổi. Vì công cụ tìm kiếm AI vẫn dựa chặt vào hạ tầng thu thập web và chỉ mục tìm kiếm nền tảng, việc xây dựng cấu trúc kỹ thuật và nội dung giải quyết đúng nhu cầu khách hàng luôn phải đi trước.
+
+### Kết luận
+
+Hiểu đúng bản chất ChatGPT Search giúp doanh nghiệp nhận ra rằng việc được hệ thống AI chọn làm nguồn trích dẫn không đến từ các thủ thuật đánh lừa mô hình, mà bắt đầu từ việc mở đúng quyền truy cập kỹ thuật cho OAI-SearchBot, cấu trúc câu trả lời trực diện có dữ liệu gốc kiểm chứng và xây dựng thực thể thương hiệu đáng tin.
+
+Ngay trong tuần này, bạn có thể tự thực hiện một bài kiểm tra nhỏ với công cụ sẵn có: mở tệp robots.txt của website để rà soát quyền truy cập của các bot OpenAI, lọc nguồn chatgpt.com trong báo cáo Traffic acquisition của GA4 và gõ thử 5 câu hỏi mua hàng quan trọng nhất của ngành mình lên ChatGPT Search để xem những nguồn nào đang được chọn.
+
+Khi bài toán của doanh nghiệp vượt ra khỏi việc sửa lẻ tẻ vài đoạn văn và cần thiết kế lại toàn bộ bản đồ nội dung, chuẩn hóa cấu trúc Semantic SEO kết hợp quy trình ứng dụng AI có kiểm soát chất lượng đồng bộ với phễu chuyển đổi, việc có một khung hoạch định tổng thể ngay từ đầu sẽ giúp tiết kiệm rất nhiều thời gian thử sai.
+
+Website của bạn hiện đã có lưu lượng tìm kiếm tự nhiên nhưng vẫn chưa xuất hiện trong câu trả lời của các công cụ AI hay chưa tách bạch được hiệu quả chuyển đổi thực tế trên GA4?
+
+### Câu hỏi thường gặp
+
+**ChatGPT Search có miễn phí cho mọi tài khoản không?**
+Có, OpenAI đã mở tính năng tìm kiếm web cho toàn bộ người dùng đăng nhập ở cả gói miễn phí (Free) lẫn các gói trả phí như Plus, Team, Enterprise và Edu trên trình duyệt cùng ứng dụng di động. Tuy nhiên, tính đến tháng 11/2026, hạn mức truy vấn theo thời gian thực và tốc độ phản hồi của mô hình nâng cao vẫn được phân bổ khác nhau tùy theo cấp độ tài khoản hiện hành.
+
+**Chặn GPTBot thì website có mất hiển thị tìm kiếm không?**
+Không, theo tài liệu kỹ thuật chính thức của OpenAI, việc chặn GPTBot trong tệp robots.txt chỉ ngăn nội dung website bị thu thập để huấn luyện các mô hình trí tuệ nhân tạo tạo sinh nền tảng. Miễn là quản trị viên vẫn cho phép OAI-SearchBot truy cập, các trang công khai vẫn đủ điều kiện xuất hiện và được gắn liên kết trích dẫn trong kết quả của ChatGPT Search.
+
+**Mất bao lâu để OpenAI cập nhật thay đổi trong robots.txt?**
+Khoảng 24 giờ là thời gian hệ thống của OpenAI cần để điều chỉnh hành vi thu thập sau khi quản trị viên cập nhật quy tắc mới trong tệp robots.txt. Để quá trình quét dữ liệu diễn ra thông suốt, đội ngũ kỹ thuật nên kiểm tra đồng thời cấu hình tường lửa ứng dụng web (WAF) và mạng phân phối nội dung (CDN) nhằm tránh chặn nhầm dải địa chỉ IP hợp lệ của OAI-SearchBot.
+
+**Chủ web có phải tự gắn tham số utm_source=chatgpt.com không?**
+Không, hệ thống của OpenAI tự động đính kèm tham số utm_source=chatgpt.com vào mọi đường dẫn giới thiệu đi ra khi người dùng nhấp vào thẻ nguồn trong kết quả tìm kiếm. Chủ website chỉ cần mở báo cáo Thu nạp lưu lượng truy cập (Traffic acquisition) trong Google Analytics 4 và lọc theo nguồn phiên chứa chatgpt.com để theo dõi số liệu mà không phải gắn mã thủ công.
+
+**Vì sao số lượt nhấp từ ChatGPT trong GA4 thường thấp?**
+Số lượt nhấp thường thấp vì giao diện hội thoại đã tổng hợp sẵn câu trả lời trực tiếp, khiến người dùng chỉ bấm vào liên kết nguồn khi cần kiểm chứng dữ liệu gốc hoặc thực hiện giao dịch mua hàng. Bên cạnh đó, nhiều khách hàng đọc tên thương hiệu trên khung trò chuyện rồi mới tự gõ tìm kiếm lại trên Google hoặc vào thẳng website, làm lưu lượng chuyển dịch sang kênh tự nhiên hoặc trực tiếp.
+
+**Khi nào doanh nghiệp nhỏ chưa nên ưu tiên làm GEO?**
+Doanh nghiệp nhỏ chưa nên dồn nguồn lực riêng cho GEO khi website vẫn đang gặp lỗi chặn lập chỉ mục cơ bản, chưa hoàn thiện bộ trang dịch vụ và bài viết chuẩn SEO truyền thống, hoặc chưa thiết lập hệ thống đo lường chuyển đổi. Vì công cụ tìm kiếm AI vẫn dựa chặt vào hạ tầng thu thập web và chỉ mục tìm kiếm nền tảng, việc xây dựng cấu trúc kỹ thuật và nội dung giải quyết đúng nhu cầu khách hàng luôn phải đi trước.
+
+### Nguồn tham khảo
+
+- OpenAI. Introducing ChatGPT search. Công bố tính năng tìm kiếm web tích hợp trong ChatGPT và kiến trúc mô hình GPT-4o tinh chỉnh ngày 31/10/2024. https://openai.com/index/introducing-chatgpt-search/
+- OpenAI. Overview of OpenAI Crawlers. Quy định kỹ thuật về chức năng độc lập của OAI-SearchBot, GPTBot, ChatGPT-User và thời gian cập nhật robots.txt. https://platform.openai.com/docs/bots
+- OpenAI Help Center. ChatGPT search. Cơ chế viết lại câu hỏi thành truy vấn tìm kiếm gửi tới đối tác như Bing và tự động gắn tham số utm_source=chatgpt.com. https://help.openai.com/en/articles/9237897-chatgpt-search
+- OpenAI. Introducing deep research. Thời gian xử lý từ 5 đến 30 phút của tác nhân nghiên cứu đa bước so với tra cứu nhanh. https://openai.com/index/introducing-deep-research/
+- Princeton University, Georgia Tech, Allen Institute for AI, IIT Delhi. GEO: Generative Engine Optimization. Thử nghiệm học thuật trên bộ chuẩn 10.000 truy vấn GEO-bench về khả năng cải thiện tới 40% mức độ hiển thị nguồn. https://arxiv.org/abs/2311.09735
+- Google Search Central. Introduction to robots.txt. Nguyên tắc kiểm soát quyền truy cập của trình thu thập dữ liệu tại thư mục gốc website. https://developers.google.com/search/docs/crawling-indexing/robots/intro
+- Google Analytics Help. Traffic acquisition report. Cách đọc nguồn và phương tiện thu nạp phiên truy cập trong Google Analytics 4. https://support.google.com/analytics/answer/12923437
+
+---
+
 ## Google Analytics 4 là gì và cách dùng GA4
 
 - URL: https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/
@@ -13547,7 +13826,7 @@ Khác ở tiêu chí kiểm tra, nên không gộp vào một lượt duyệt đ
 
 [Hình: Hai bước cần hai bộ tiêu chí kiểm tra khác nhau]
 
-Nếu hệ thống chọn một chiếc lều hợp nhu cầu gọn nhẹ, lời giới thiệu vẫn phải dựa vào hồ sơ đúng dòng sản phẩm. AI không được tự thêm khả năng chịu thời tiết chỉ vì câu đó nghe hợp với một chuyến đi. Sai ở bước chọn thì khách thấy sản phẩm không liên quan và bỏ qua; sai ở bước tạo thì khách nhận một cam kết doanh nghiệp không thực hiện được, và hậu quả nặng hơn nhiều.
+Nếu hệ thống chọn một chiếc lều hợp nhu cầu gọn nhẹ, lời giới thiệu vẫn phải dựa vào hồ sơ đúng dòng sản phẩm. AI không được tự thêm khả năng chịu thời tiết chỉ vì câu đó nghe hợp với một chuyến đi. Sai ở bước chọn thì khách thấy sản phẩm không liên quan và bỏ qua; sai ở bước tạo thì khách nhận một cam kết doanh nghiệp không thực hiện được, và hậu quả nặng hơn nhiều. Chuẩn dữ liệu sản phẩm này cũng quyết định khả năng được trích dẫn trên công cụ tìm kiếm ChatGPT Search khi khách tra cứu.
 
 Vì vậy bước tạo cần một điểm duyệt có thẩm quyền, như trình bày trong bài Human-in-the-loop là gì.
 
@@ -13866,7 +14145,7 @@ Việc cần làm khi đưa human-in-the-loop vào đội nội dung rất cụ 
 
 [Hình: Danh sách loại lỗi cụ thể hữu ích hơn một con số, vì nó chỉ cho người duyệt biết phải nhìn vào đâu]
 
-Bốn loại lỗi trong hình là ví dụ, không phải danh sách chuẩn. Mỗi đội cần rút danh sách của riêng mình từ chính các bản đã duyệt được lấy mẫu, vì loại lỗi phụ thuộc vào ngành hàng, vào cách viết hướng dẫn đầu vào và vào chất lượng hồ sơ nguồn. Một đội bán thiết bị kỹ thuật sẽ gặp nhiều lỗi nhầm thông số; một đội bán dịch vụ sẽ gặp nhiều lỗi mở rộng phạm vi cam kết.
+Bốn loại lỗi trong hình là ví dụ, không phải danh sách chuẩn. Mỗi đội cần rút danh sách của riêng mình từ chính các bản đã duyệt được lấy mẫu, vì loại lỗi phụ thuộc vào ngành hàng, vào cách viết hướng dẫn đầu vào và vào chất lượng hồ sơ nguồn. Một đội bán thiết bị kỹ thuật sẽ gặp nhiều lỗi nhầm thông số; một đội bán dịch vụ sẽ gặp nhiều lỗi mở rộng phạm vi cam kết. Kiểm soát thông số và dữ liệu nguồn cũng giúp bài viết đáp ứng tiêu chí tối ưu trích dẫn trên ChatGPT Search.
 
 #### Thí nghiệm này có giới hạn gì?
 
@@ -14366,7 +14645,7 @@ Ví dụ, nút chat trên website có thể dẫn đến câu trả lời FAQ, m
 
 Anthropic phân biệt workflow và agent: workflow đi theo đường xử lý được định trước; agent để mô hình quyết định linh hoạt hơn về quá trình và việc dùng công cụ. Đây là một cách phân biệt kiến trúc hữu ích, không phải chuẩn đặt tên bắt buộc cho mọi nhà cung cấp.
 
-Hình dung agent nhận mục tiêu, xem thông tin đang có, chọn bước phù hợp, gọi công cụ rồi kiểm tra kết quả. Nếu thiếu thông tin, nó có thể hỏi thêm hoặc dừng. Nếu công cụ báo lỗi, hệ thống cần biết trạng thái để tránh xem một đề xuất chưa thực hiện là việc đã xong.
+Hình dung agent nhận mục tiêu, xem thông tin đang có, chọn bước phù hợp, gọi công cụ rồi kiểm tra kết quả. Nếu thiếu thông tin, nó có thể hỏi thêm hoặc dừng. Nếu công cụ báo lỗi, hệ thống cần biết trạng thái để tránh xem một đề xuất chưa thực hiện là việc đã xong. Cơ chế gọi công cụ tương tự cũng giúp ChatGPT Search truy xuất web theo thời gian thực để trả lời kèm liên kết nguồn.
 
 [Hình: Kết quả công cụ giúp agent cân nhắc bước tiếp theo trong phạm vi được giao]
 
@@ -14702,7 +14981,7 @@ Hệ thống tự động càng có nhiều quyền hành động thì phần tr
 
 ### Ba loại khẳng định cần chú ý khi viết marketing
 
-Đừng chỉ tìm một dấu hiệu như đường dẫn lỗi. Một nguồn có thật cũng có thể bị đọc sai; một con số đúng ở nghiên cứu khác cũng có thể bị đưa vào bối cảnh không phù hợp.
+Đừng chỉ tìm một dấu hiệu như đường dẫn lỗi. Một nguồn có thật cũng có thể bị đọc sai; một con số đúng ở nghiên cứu khác cũng có thể bị đưa vào bối cảnh không phù hợp. Kể cả khi dùng ChatGPT Search để truy xuất web kèm liên kết nguồn, người duyệt vẫn phải đối chiếu dữ liệu gốc.
 
 Ba nhóm khẳng định cần kiểm chứng khi duyệt bản nháp AI
 
