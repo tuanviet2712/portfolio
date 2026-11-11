@@ -32,6 +32,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [Google Analytics 4 là gì và cách dùng GA4](https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/): Hiểu rõ Google Analytics 4 là gì giúp doanh nghiệp nắm mô hình dữ liệu sự kiện, thiết lập chuẩn 4 bước qua GTM và đọc đúng báo cáo phễu chuyển đổi thực.
 - [Inbound Marketing là gì, lộ trình cho SME](https://letuanviet.com/goc-kien-thuc/marketing/inbound-marketing-la-gi/): Hiểu rõ inbound marketing là gì giúp SME phân biệt đúng với Outbound, cân đối dòng tiền ngắn hạn và áp dụng quy trình 4 bước bàn giao khách cho đội Sales.
 - [Email marketing là gì và cách làm cho SME](https://letuanviet.com/goc-kien-thuc/marketing/email-marketing-la-gi/): Giải mã email marketing là gì giúp SME phân biệt thư giao dịch với tiếp thị, cấu hình tên miền tránh vào spam và thiết lập khung đo lường chuyển đổi thực tế.
 - [Customer Journey là gì và 6 bước lập bản đồ](https://letuanviet.com/goc-kien-thuc/marketing/customer-journey-la-gi/): Hiểu rõ customer journey là gì giúp SME tìm đúng điểm rơi khách giữa quảng cáo, Zalo và cửa hàng để áp dụng biểu mẫu 6 bước gắn chỉ số bàn giao thực tế.

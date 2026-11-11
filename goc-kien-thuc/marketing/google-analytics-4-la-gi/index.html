@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="vi" class="smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Chuyển cảnh vào trang: đặt sớm nhất có thể để màn phủ có ngay từ khung hình đầu tiên -->
+  <script src="../../../js/pt.js?v=972"></script>
+  <!-- Google tag (gtag.js). ga4.js để defer: không chặn hiển thị, gtag.js vẫn đọc dataLayer khi nó được đẩy vào -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9FR8F25SP"></script>
+  <script src="/js/ga4.js" defer></script>
+  <title>Google Analytics 4 là gì? Cách cài đặt và đọc báo cáo GA4</title>
+  <meta name="description" content="Hiểu rõ Google Analytics 4 là gì giúp doanh nghiệp nắm mô hình dữ liệu sự kiện, thiết lập chuẩn 4 bước qua GTM và đọc đúng báo cáo phễu chuyển đổi thực.">
+  <meta name="author" content="Lê Tuấn Việt">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/">
+  <link rel="alternate" hreflang="vi" href="https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/">
+  <link rel="alternate" hreflang="x-default" href="https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/">
+  <link rel="alternate" type="application/rss+xml" title="Góc kiến thức | Lê Tuấn Việt" href="https://letuanviet.com/goc-kien-thuc/feed.xml">
+  <meta name="theme-color" content="#F5F8FF">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:site_name" content="Lê Tuấn Việt">
+  <meta property="og:title" content="Google Analytics 4 là gì và cách dùng GA4">
+  <meta property="og:description" content="Hiểu rõ Google Analytics 4 là gì giúp doanh nghiệp nắm mô hình dữ liệu sự kiện, thiết lập chuẩn 4 bước qua GTM và đọc đúng báo cáo phễu chuyển đổi thực.">
+  <meta property="og:url" content="https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/">
+  <meta property="og:image" content="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sơ đồ cấu trúc Google Analytics 4 từ luồng dữ liệu, sự kiện đến khung báo cáo ba tầng cho doanh nghiệp vừa và nhỏ">
+  <meta property="article:published_time" content="2026-11-11T09:00:00+07:00">
+  <meta property="article:modified_time" content="2026-11-11T09:00:00+07:00">
+  <meta property="article:author" content="https://letuanviet.com/">
+  <meta property="article:section" content="Marketing">
+  <meta property="article:tag" content="google analytics 4 là gì">
+  <meta property="article:tag" content="Google Analytics 4">
+  <meta property="article:tag" content="GA4 là gì">
+  <meta property="article:tag" content="hướng dẫn sử dụng GA4">
+  <meta property="article:tag" content="cách cài đặt Google Analytics 4">
+  <meta property="article:tag" content="cách tạo sự kiện Google Analytics 4">
+  <meta property="article:tag" content="các báo cáo tiêu chuẩn trong Google Analytics 4">
+  <meta property="article:tag" content="luồng dữ liệu">
+  <meta property="article:tag" content="sự kiện tùy chỉnh">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Analytics 4 là gì và cách dùng GA4">
+  <meta name="twitter:description" content="Hiểu rõ Google Analytics 4 là gì giúp doanh nghiệp nắm mô hình dữ liệu sự kiện, thiết lập chuẩn 4 bước qua GTM và đọc đúng báo cáo phễu chuyển đổi thực.">
+  <meta name="twitter:image" content="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi.jpg">
+  <meta name="twitter:image:alt" content="Sơ đồ cấu trúc Google Analytics 4 từ luồng dữ liệu, sự kiện đến khung báo cáo ba tầng cho doanh nghiệp vừa và nhỏ">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/img/logo.svg">
+  <link rel="apple-touch-icon" href="../../../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../../../manifest.json">
+  <link rel="preload" href="../../../assets/fonts/be-vietnam-pro/QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../assets/fonts/be-vietnam-pro/QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../assets/fonts/be-vietnam-pro/QdVMSTAyLFyeg_IDWvOJmVES_HSQI281Rb0.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../assets/fonts/be-vietnam-pro/QdVMSTAyLFyeg_IDWvOJmVES_HSQI286Rb0bcw.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://img.letuanviet.com">
+  <link rel="preload" as="image" href="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi.webp" imagesrcset="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi-320.webp 320w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi-640.webp 640w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi.webp 1200w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi-1600.webp 1600w" imagesizes="(min-width: 840px) 760px, 100vw" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="../../../css/style.min.css?v=972">
+  <link rel="stylesheet" href="../../../css/kb-core.css?v=972">
+  <link rel="stylesheet" href="../../../css/kb.css?v=972">
+  <link rel="stylesheet" href="../../../css/kb-article.css?v=972">
+  <link rel="stylesheet" href="../../../css/stage.css?v=972">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://letuanviet.com/#website",
+      "url": "https://letuanviet.com/",
+      "name": "Lê Tuấn Việt",
+      "alternateName": [
+        "Le Tuan Viet",
+        "Portfolio Lê Tuấn Việt"
+      ],
+      "inLanguage": "vi-VN",
+      "publisher": {
+        "@id": "https://letuanviet.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://letuanviet.com/#person",
+      "name": "Lê Tuấn Việt",
+      "alternateName": "Le Tuan Viet",
+      "givenName": "Việt",
+      "familyName": "Lê",
+      "identifier": "letuanviet",
+      "url": "https://letuanviet.com/",
+      "mainEntityOfPage": "https://letuanviet.com/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://letuanviet.com/assets/img/portrait.jpg",
+        "width": 680,
+        "height": 941
+      },
+      "jobTitle": "Marketing Leader",
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Marketing Leader",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "Hà Nội"
+        }
+      },
+      "disambiguatingDescription": "Marketing & Growth Architect",
+      "description": "Marketing Leader với hơn 4 năm kinh nghiệm tư vấn chiến lược và triển khai Marketing cho doanh nghiệp SME.",
+      "email": "mailto:work@letuanviet.com",
+      "telephone": "+84935702321",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hà Đông",
+        "addressRegion": "Hà Nội",
+        "addressCountry": "VN"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "@id": "https://letuanviet.com/#taki-group",
+        "name": "TAKI Group",
+        "alternateName": "TAKI",
+        "legalName": "Công ty Cổ phần TAKI GROUP",
+        "url": "https://takigroup.vn/",
+        "description": "Công ty tư vấn và cố vấn doanh nghiệp tại Việt Nam"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Đại học Công Thương TP.HCM",
+        "alternateName": "HUIT",
+        "url": "https://huit.edu.vn/"
+      },
+      "knowsAbout": [
+        "Marketing Strategy",
+        "Marketing Planning",
+        "Kế hoạch Marketing",
+        "AI Marketing",
+        "Quản trị Marketing",
+        "Growth Marketing",
+        "Performance Marketing",
+        "Digital Marketing",
+        "SEO",
+        "Content Marketing",
+        "Marketing Team Leadership"
+      ],
+      "award": [
+        "Nhân viên xuất sắc nhất năm 2025 (Ban lãnh đạo TAKI Group bình chọn)",
+        "Nhân viên xuất sắc nhất năm 2024 (hơn 400 đối tác của PITO bình chọn)",
+        "Giải Khuyến khích cuộc thi Đổi mới sáng tạo khởi nghiệp cấp khoa năm 2022 (Đại học Công Thương TP.HCM)"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/letuanviet",
+        "https://zalo.me/0935702321",
+        "https://github.com/tuanviet2712"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#webpage",
+      "url": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/",
+      "name": "Google Analytics 4 là gì? Cách cài đặt và đọc báo cáo GA4",
+      "description": "Hiểu rõ Google Analytics 4 là gì giúp doanh nghiệp nắm mô hình dữ liệu sự kiện, thiết lập chuẩn 4 bước qua GTM và đọc đúng báo cáo phễu chuyển đổi thực.",
+      "isPartOf": [
+        {
+          "@id": "https://letuanviet.com/#website"
+        },
+        {
+          "@id": "https://letuanviet.com/goc-kien-thuc/marketing/#webpage"
+        }
+      ],
+      "primaryImageOfPage": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#primaryimage"
+      },
+      "breadcrumb": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#breadcrumb"
+      },
+      "inLanguage": "vi-VN",
+      "datePublished": "2026-11-11T09:00:00+07:00",
+      "dateModified": "2026-11-11T09:00:00+07:00",
+      "author": {
+        "@id": "https://letuanviet.com/#person"
+      },
+      "relatedLink": [
+        "https://letuanviet.com/goc-kien-thuc/marketing/zero-party-data-va-first-party-data/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/thiet-ke-website-du-lich/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/marketing-online-google/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/7p-trong-marketing-la-gi/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/chien-luoc-digital-marketing-la-gi/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/cach-tao-website/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/tam-ly-khach-hang-la-gi/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/khach-hang-muc-tieu-la-gi/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/inbound-marketing-la-gi/"
+      ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#primaryimage",
+      "url": "https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi.jpg",
+      "contentUrl": "https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi.jpg",
+      "width": 1200,
+      "height": 630,
+      "caption": "Mô hình dữ liệu dựa trên sự kiện của Google Analytics 4 nối liền hành vi trên website với quyết định tối ưu ngân sách marketing",
+      "inLanguage": "vi-VN"
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#article",
+      "isPartOf": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#webpage"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#webpage"
+      },
+      "headline": "Google Analytics 4 là gì và cách dùng GA4",
+      "description": "Hiểu rõ Google Analytics 4 là gì giúp doanh nghiệp nắm mô hình dữ liệu sự kiện, thiết lập chuẩn 4 bước qua GTM và đọc đúng báo cáo phễu chuyển đổi thực.",
+      "image": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#primaryimage"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://letuanviet.com/#person",
+        "name": "Lê Tuấn Việt",
+        "url": "https://letuanviet.com/",
+        "jobTitle": "Marketing Leader"
+      },
+      "publisher": {
+        "@id": "https://letuanviet.com/#person"
+      },
+      "datePublished": "2026-11-11T09:00:00+07:00",
+      "dateModified": "2026-11-11T09:00:00+07:00",
+      "inLanguage": "vi-VN",
+      "articleSection": "Marketing",
+      "keywords": "google analytics 4 là gì, Google Analytics 4, GA4 là gì, hướng dẫn sử dụng GA4, cách cài đặt Google Analytics 4, cách tạo sự kiện Google Analytics 4, các báo cáo tiêu chuẩn trong Google Analytics 4, luồng dữ liệu, sự kiện tùy chỉnh",
+      "wordCount": 4896,
+      "timeRequired": "PT21M",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Google Analytics",
+          "sameAs": "https://en.wikipedia.org/wiki/Google_Analytics"
+        },
+        {
+          "@type": "Thing",
+          "name": "Web analytics",
+          "sameAs": "https://en.wikipedia.org/wiki/Web_analytics"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://letuanviet.com/#taki-group"
+        },
+        {
+          "@type": "Organization",
+          "name": "Google",
+          "url": "https://www.google.com",
+          "sameAs": "https://en.wikipedia.org/wiki/Google"
+        },
+        {
+          "@type": "Thing",
+          "name": "Google Analytics 4",
+          "url": "https://support.google.com/analytics/answer/10089681",
+          "sameAs": "https://en.wikipedia.org/wiki/Google_Analytics"
+        },
+        {
+          "@type": "Thing",
+          "name": "Google Tag Manager",
+          "sameAs": "https://en.wikipedia.org/wiki/Google_Tag_Manager"
+        },
+        {
+          "@type": "Thing",
+          "name": "Google Search Console",
+          "sameAs": "https://en.wikipedia.org/wiki/Google_Search_Console"
+        },
+        {
+          "@type": "Thing",
+          "name": "Google Ads",
+          "url": "https://ads.google.com/",
+          "sameAs": "https://en.wikipedia.org/wiki/Google_Ads"
+        }
+      ],
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Google Analytics Help. [GA4] Introducing the next generation of Analytics, Google Analytics 4. Tài liệu chính thức năm 2024 mô tả cơ chế thu thập dữ liệu dựa trên sự kiện từ website và ứng dụng của thuộc tính GA4 thay thế Universal Analytics.",
+          "url": "https://support.google.com/analytics/answer/10089681"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Analytics Help. [UA→GA4] Google Analytics 4 has replaced Universal Analytics. Tài liệu chính thức năm 2024 xác nhận mốc ngừng xử lý dữ liệu ngày 01/07/2023 cho thuộc tính tiêu chuẩn và đóng hoàn toàn giao diện cùng API vào ngày 01/07/2024.",
+          "url": "https://support.google.com/analytics/answer/11583528"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Analytics Help. [GA4] About events. Tài liệu chính thức năm 2024 phân loại bốn nhóm sự kiện trong GA4 và quy định phạm vi hiển thị của sự kiện tùy chỉnh trong báo cáo.",
+          "url": "https://support.google.com/analytics/answer/9322688"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Analytics Help. [GA4] Event collection limits. Tài liệu chính thức năm 2024 quy định giới hạn tối đa 25 tham số mỗi sự kiện và độ dài tối đa 40 ký tự cho tên sự kiện cùng tên tham số.",
+          "url": "https://support.google.com/analytics/answer/9267744"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Analytics Help. [GA4] Engagement rate and bounce rate. Tài liệu chính thức năm 2024 định nghĩa phiên tương tác từ 10 giây trở lên, có ít nhất 1 sự kiện chính hoặc từ 2 lượt xem trang và cách tính tỷ lệ thoát.",
+          "url": "https://support.google.com/analytics/answer/12195621"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Analytics Help. [GA4] Custom dimensions and metrics. Tài liệu chính thức năm 2024 quy định việc đăng ký tham số thành phương diện tùy chỉnh, hạn mức 50 phương diện phạm vi sự kiện và độ trễ xử lý từ 24 đến 48 giờ.",
+          "url": "https://support.google.com/analytics/answer/10075209"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Analytics Help. [GA4] Monitor events in DebugView. Tài liệu chính thức năm 2024 hướng dẫn giám sát sự kiện, tham số và thuộc tính người dùng theo thời gian thực qua DebugView khi bật chế độ gỡ lỗi.",
+          "url": "https://support.google.com/analytics/answer/7201382"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Trang chủ",
+          "item": "https://letuanviet.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Góc kiến thức",
+          "item": "https://letuanviet.com/goc-kien-thuc/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Marketing",
+          "item": "https://letuanviet.com/goc-kien-thuc/marketing/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Google Analytics 4 là gì và cách dùng GA4",
+          "item": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#howto",
+      "name": "Quy trình 4 bước cài đặt Google Analytics 4 và tạo sự kiện cho SME",
+      "description": "Quy trình bốn bước từ tạo thuộc tính và luồng dữ liệu Web, kết nối qua Google Tag Manager, tạo sự kiện tùy chỉnh kèm đăng ký phương diện đến kiểm chứng bằng Realtime và DebugView.",
+      "inLanguage": "vi-VN",
+      "isPartOf": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#webpage"
+      },
+      "image": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#primaryimage"
+      },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Tạo thuộc tính và luồng dữ liệu Web",
+          "text": "Mở mục Quản trị trong Google Analytics để tạo Thuộc tính mới, chọn đúng múi giờ Việt Nam cùng đơn vị tiền tệ Việt Nam Đồng, rồi chọn nền tảng Web để mở Luồng dữ liệu đầu tiên và lấy mã đo lường Measurement ID (bắt đầu bằng ký tự G- ). Ngay tại bảng này, bạn bật các sự kiện Đo lường nâng cao phù hợp với cấu trúc website.",
+          "url": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#buoc-1-tao-thuoc-tinh-va-luong-du-lieu-web"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Kết nối website qua Google Tag Manager",
+          "text": "Mở công cụ quản lý thẻ Google Tag Manager (GTM), khởi tạo thẻ mới thuộc loại Google Tag rồi dán mã Measurement ID vừa sao chép ở Bước 1 vào ô cấu hình. Tiếp theo, bạn chọn điều kiện kích hoạt (Trigger) áp dụng cho toàn bộ trang và bật chế độ Xem trước (Preview) để kiểm tra trước khi xuất bản.",
+          "url": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#buoc-2-ket-noi-website-qua-google-tag-manager"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Tạo sự kiện tùy chỉnh và phương diện",
+          "text": "Dựng thẻ Sự kiện GA4 trong GTM cho hành vi chuyển đổi riêng như nhấp nút Zalo hoặc gửi biểu mẫu, đặt tên bằng chữ thường nối gạch dưới (tối đa 40 ký tự) kèm tham số mô tả. Sau đó, bạn vào mục Định nghĩa tùy chỉnh trong Quản trị GA4 để đăng ký tham số thành Phương diện tùy chỉnh và bật đánh dấu Sự kiện chính (Key event).",
+          "url": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#buoc-3-tao-su-kien-tuy-chinh-va-phuong-dien"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Kiểm chứng bằng Realtime và DebugView",
+          "text": "Mở website ở chế độ xem trước của GTM, thực hiện thử thao tác chuyển đổi trên trang, sau đó mở đồng thời báo cáo Thời gian thực (Realtime) và công cụ DebugView trong Quản trị GA4 để kiểm tra luồng sự kiện cùng giá trị tham số gửi về theo từng giây.",
+          "url": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#buoc-4-kiem-chung-bang-realtime-va-debugview"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#faq",
+      "isPartOf": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/#webpage"
+      },
+      "inLanguage": "vi-VN",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Vì sao đã gắn mã nhưng báo cáo chuẩn GA4 chưa hiện số?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có độ trễ xử lý hệ thống vì theo tài liệu Google Analytics Help năm 2024, nền tảng cần từ 24 đến 48 giờ để tổng hợp dữ liệu mới vào các báo cáo tiêu chuẩn và phương diện tùy chỉnh. Để kiểm tra ngay lập tức sau khi gắn thẻ, bạn cần mở báo cáo Thời gian thực (Realtime) hoặc bật chế độ xem trước của Google Tag Manager để quan sát trong DebugView. Nếu cả hai công cụ tức thời này vẫn trống, hãy rà soát lại mã Measurement ID và điều kiện kích hoạt của thẻ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Khi nào nên dùng sự kiện tự động thay vì sự kiện tùy chỉnh?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Luôn ưu tiên dùng sự kiện thu thập tự động, sự kiện đo lường nâng cao và sự kiện đề xuất của Google trước khi tự tạo bất kỳ sự kiện tùy chỉnh nào. Bạn chỉ nên dựng sự kiện tùy chỉnh khi hành vi cần đo đặc thù cho phễu bán hàng của doanh nghiệp như nhấp nút nhắn Zalo hoặc gửi biểu mẫu tư vấn riêng mà danh mục mặc định chưa hỗ trợ. Nguyên tắc này giúp tận dụng sẵn các bảng báo cáo chuẩn của Google và bảo toàn hạn mức 50 phương diện tùy chỉnh phạm vi sự kiện trên thuộc tính tiêu chuẩn."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vì sao số người dùng ở báo cáo Thu nạp lệch với Khám phá?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có sự chênh lệch này là do hai khu vực báo cáo áp dụng phạm vi phương diện, mô hình quy kết và cách tổng hợp dữ liệu khác nhau. Báo cáo tiêu chuẩn lấy số liệu từ các bảng đã xử lý sẵn theo người dùng đầu tiên hoặc theo phiên, còn mục Khám phá lại truy vấn trực tiếp dữ liệu thô nên chịu tác động của thời hạn lưu trữ và ngưỡng lấy mẫu. Vì vậy, người làm marketing chỉ nên theo dõi xu hướng biến động trong cùng một loại báo cáo thay vì so ngang con số tuyệt đối giữa hai giao diện."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Website ít truy cập có cần dựng báo cáo Khám phá không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Không cần thiết nếu website của doanh nghiệp mới có lưu lượng truy cập nhỏ và hành trình chuyển đổi ngắn từ bài viết sang biểu mẫu đăng ký hoặc nút gọi điện. Trong giai đoạn đầu, nhóm báo cáo tiêu chuẩn gồm Thu nạp người dùng, Thu nạp lưu lượng, Sự kiện và Trang đích đã giải đáp đủ các câu hỏi tối ưu kênh hàng tuần. Đội ngũ chỉ nên chuyển sang dựng báo cáo Khám phá khi cần mổ xẻ tỷ lệ rớt khách qua từng bước phễu cố định hoặc tách phân khúc theo nhiều phương diện tùy chỉnh."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Google Analytics 4 có dùng miễn phí cho doanh nghiệp nhỏ không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có, phiên bản thuộc tính Google Analytics 4 tiêu chuẩn hoàn toàn miễn phí và đáp ứng trọn vẹn nhu cầu đo lường website lẫn ứng dụng của doanh nghiệp vừa và nhỏ. Tính đến năm 2024 theo Google Analytics Help, bản miễn phí cho phép gửi tối đa 25 tham số đi kèm mỗi sự kiện và tạo tới 50 phương diện tùy chỉnh ở phạm vi sự kiện. Chỉ những tập đoàn có khối lượng sự kiện cực lớn và cần hợp đồng cam kết mức dịch vụ riêng mới phải nâng cấp lên bản trả phí của Google."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Sự kiện chính (Key event) khác gì chuyển đổi trong GA4?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sự kiện chính (Key event) chính là tên gọi mới của chỉ số Chuyển đổi (Conversion) trước đây trong các báo cáo hành vi của Google Analytics 4 nhằm thống nhất cách tính với Google Ads. Về mặt kỹ thuật, bất kỳ sự kiện nào phản ánh hành động có giá trị kinh doanh và được bạn bật đánh dấu trong phần Quản trị GA4 đều trở thành Sự kiện chính. Thuật ngữ Chuyển đổi hiện được Google dành riêng cho các hành động tạo từ Sự kiện chính để đồng bộ trực tiếp sang tài khoản Google Ads phục vụ đấu thầu quảng cáo."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body class="kb kb--article" data-nav-active="kien-thuc">
+<!--email_off--><!-- Cloudflare không mã hóa email trong vùng này: bot không chạy JavaScript (GPTBot, ClaudeBot…) đọc được đúng địa chỉ liên hệ -->
+  <a class="skip-link" href="#noi-dung">Bỏ qua phần điều hướng</a>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7m0 0H7m10 0v10"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m0 0-7 7m7-7 7 7"/></symbol>
+      <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.35-4.35M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v1.2c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C18.72 21 17.88 21 16.2 21H7.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C3 18.72 3 17.88 3 16.2V15m14-5-5 5m0 0-5-5m5 5V3"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 8.165 5.715c.661.463.992.695 1.351.784a2 2 0 0 0 .968 0c.36-.09.69-.32 1.351-.784L22 7M6.8 20h10.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C22 17.72 22 16.88 22 15.2V8.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C19.72 4 18.88 4 17.2 4H6.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C2 6.28 2 7.12 2 8.8v6.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C4.28 20 5.12 20 6.8 20Z"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.38 8.853a14.603 14.603 0 0 0 2.847 4.01 14.603 14.603 0 0 0 4.01 2.847c.124.06.187.09.265.112.28.082.625.023.862-.147.067-.048.124-.105.239-.219.35-.35.524-.524.7-.639a2 2 0 0 1 2.18 0c.176.115.35.29.7.64l.195.194c.532.531.797.797.942 1.082a2 2 0 0 1 0 1.806c-.145.285-.41.551-.942 1.082l-.157.158c-.53.53-.795.794-1.155.997-.4.224-1.02.386-1.478.384-.413-.001-.695-.081-1.26-.241a19.038 19.038 0 0 1-8.283-4.874A19.039 19.039 0 0 1 3.17 7.761c-.16-.564-.24-.846-.241-1.26a3.377 3.377 0 0 1 .384-1.477c.202-.36.467-.625.997-1.155l.157-.158c.532-.53.798-.797 1.083-.941a2 2 0 0 1 1.805 0c.286.144.551.41 1.083.942l.195.194c.35.35.524.525.638.7a2 2 0 0 1 0 2.18c-.114.177-.289.352-.638.701a2.037 2.037 0 0 0-.22.238 1.05 1.05 0 0 0-.147.862c.023.08.053.142.113.266Z"/></symbol>
+      <symbol id="i-zalo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-11.555 7.934c-.174-.066-.26-.1-.33-.116a.901.901 0 0 0-.186-.024 2.314 2.314 0 0 0-.303.021l-5.12.53c-.49.05-.733.075-.877-.013a.5.5 0 0 1-.234-.35c-.026-.166.09-.382.324-.814l1.636-3.027c.134-.25.202-.374.232-.494a.899.899 0 0 0 .028-.326c-.01-.123-.064-.283-.172-.604A8.5 8.5 0 1 1 21 11.5Z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M12 22c4-4 8-7.582 8-12a8 8 0 1 0-16 0c0 4.418 4 8 8 12Z"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2m6-2c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-verified" viewBox="0 0 24 24" fill="currentColor"><path d="M16.901 3.099a2.03 2.03 0 0 0 1.1 1.1l1.744.723a2.033 2.033 0 0 1 1.1 2.656l-.722 1.744a2.03 2.03 0 0 0 0 1.556l.722 1.744a2.033 2.033 0 0 1-1.1 2.656L19 17.901A2.033 2.033 0 0 0 17.9 19l-.723 1.745a2.032 2.032 0 0 1-2.656 1.1l-1.744-.722a2.032 2.032 0 0 0-1.555 0l-1.745.723a2.033 2.033 0 0 1-2.654-1.1L6.1 19.001A2.033 2.033 0 0 0 5 17.9l-1.744-.723a2.033 2.033 0 0 1-1.1-2.654l.721-1.744a2.033 2.033 0 0 0 0-1.556l-.722-1.746a2.033 2.033 0 0 1 1.1-2.657L5 6.098A2.03 2.03 0 0 0 6.1 5l.723-1.745a2.033 2.033 0 0 1 2.656-1.1l1.744.722a2.033 2.033 0 0 0 1.555-.001l1.746-.72a2.032 2.032 0 0 1 2.655 1.1l.723 1.746v-.003Z"/><path d="m9 12 2 2 4.5-4.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 22v-5m0-10V2M2 4.5h5m-5 15h5M13 3l-1.734 4.509c-.282.733-.423 1.1-.643 1.408a3 3 0 0 1-.706.707c-.308.219-.675.36-1.408.642L4 12l4.509 1.734c.733.282 1.1.423 1.408.643.273.194.512.433.707.706.219.308.36.675.642 1.408L13 21l1.734-4.509c.282-.733.423-1.1.643-1.408.194-.273.433-.512.706-.707.308-.219.675-.36 1.408-.642L22 12l-4.509-1.734c-.733-.282-1.1-.423-1.408-.642a3 3 0 0 1-.706-.707c-.22-.308-.36-.675-.643-1.408L13 3Z"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8V5l3-3 1 2 2 1-3 3h-3Zm0 0-4 4m10 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2m5 10a5 5 0 1 1-5-5"/></symbol>
+      <symbol id="i-kanban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v18m6-18v18M7.8 3h8.4c1.68 0 2.52 0 3.162.327a3 3 0 0 1 1.311 1.311C21 5.28 21 6.12 21 7.8v8.4c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C18.72 21 17.88 21 16.2 21H7.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C3 18.72 3 17.88 3 16.2V7.8c0-1.68 0-2.52.327-3.162a3 3 0 0 1 1.311-1.311C5.28 3 6.12 3 7.8 3Z"/></symbol>
+      <symbol id="i-kb-mkt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8V5l3-3 1 2 2 1-3 3h-3Zm0 0-4 4m10 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2m5 10a5 5 0 1 1-5-5"/></symbol>
+      <symbol id="i-kb-ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v2m6-2v2M9 20v2m6-2v2m5-13h2m-2 5h2M2 9h2m-2 5h2m4.8 6h6.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C20 17.72 20 16.88 20 15.2V8.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C17.72 4 16.88 4 15.2 4H8.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C4 6.28 4 7.12 4 8.8v6.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C6.28 20 7.12 20 8.8 20Zm1.8-5h2.8c.56 0 .84 0 1.054-.109a1 1 0 0 0 .437-.437C15 14.24 15 13.96 15 13.4v-2.8c0-.56 0-.84-.109-1.054a1 1 0 0 0-.437-.437C14.24 9 13.96 9 13.4 9h-2.8c-.56 0-.84 0-1.054.109a1 1 0 0 0-.437.437C9 9.76 9 10.04 9 10.6v2.8c0 .56 0 .84.109 1.054a1 1 0 0 0 .437.437C9.76 15 10.04 15 10.6 15Z"/></symbol>
+      <symbol id="i-kb-mgmt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h12m0 0a3 3 0 1 0 6 0 3 3 0 0 0-6 0Zm-6 8h12M9 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></symbol>
+      <symbol id="i-kb-case" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 15v2m4-6v6m4-10v10m-8.2 4h8.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C21 18.72 21 17.88 21 16.2V7.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C18.72 3 17.88 3 16.2 3H7.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C3 5.28 3 6.12 3 7.8v8.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C5.28 21 6.12 21 7.8 21Z"/></symbol>
+      <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V4s-1 1-4 1-5-2-8-2-4 1-4 1m0 18V2"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m2 12 9.642 4.821c.131.066.197.099.266.111.06.012.123.012.184 0 .069-.012.135-.045.266-.11L22 12M2 17l9.642 4.821c.131.066.197.099.266.111.06.012.123.012.184 0 .069-.012.135-.045.266-.11L22 17M2 7l9.642-4.821c.131-.066.197-.098.266-.111a.5.5 0 0 1 .184 0c.069.013.135.045.266.11L22 7l-9.642 4.821a1.028 1.028 0 0 1-.266.111.501.501 0 0 1-.184 0c-.069-.012-.135-.045-.266-.11L2 7Z"/></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12H9m12-6H9m12 12H9m-4-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12.708 18.364-1.415 1.414a5 5 0 1 1-7.07-7.07l1.413-1.415m12.728 1.414 1.415-1.414a5 5 0 0 0-7.071-7.071l-1.415 1.414M8.5 15.5l7-7"/></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.4V21z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9.75h4v11H3zm6.5 0h3.8v1.6h.06c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12v5.34h-4v-4.73c0-1.13-.02-2.58-1.57-2.58-1.58 0-1.82 1.23-1.82 2.5v4.81h-4z"/></symbol>
+      <symbol id="i-tiktok" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+      <symbol id="i-zalo-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M12.49 10.2722v-.4496h1.3467v6.3218h-.7704a.576.576 0 01-.5763-.5729l-.0006.0005a3.273 3.273 0 01-1.9372.6321c-1.8138 0-3.2844-1.4697-3.2844-3.2823 0-1.8125 1.4706-3.2822 3.2844-3.2822a3.273 3.273 0 011.9372.6321l.0006.0005zM6.9188 7.7896v.205c0 .3823-.051.6944-.2995 1.0605l-.03.0343c-.0542.0615-.1815.206-.2421.2843L2.024 14.8h4.8948v.7682a.5764.5764 0 01-.5767.5761H0v-.3622c0-.4436.1102-.6414.2495-.8476L4.8582 9.23H.1922V7.7896h6.7266zm8.5513 8.3548a.4805.4805 0 01-.4803-.4798v-7.875h1.4416v8.3548H15.47zM20.6934 9.6C22.52 9.6 24 11.0807 24 12.9044c0 1.8252-1.4801 3.306-3.3066 3.306-1.8264 0-3.3066-1.4808-3.3066-3.306 0-1.8237 1.4802-3.3044 3.3066-3.3044zm-10.1412 5.253c1.0675 0 1.9324-.8645 1.9324-1.9312 0-1.065-.865-1.9295-1.9324-1.9295s-1.9324.8644-1.9324 1.9295c0 1.0667.865 1.9312 1.9324 1.9312zm10.1412-.0033c1.0737 0 1.945-.8707 1.945-1.9453 0-1.073-.8713-1.9436-1.945-1.9436-1.0753 0-1.945.8706-1.945 1.9436 0 1.0746.8697 1.9453 1.945 1.9453z"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.3l-4.9-6.4L5.2 21H2.1l7.3-8.3L1.8 3h6.4l4.4 5.9zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10H3m13-8v4M8 2v4m-.2 16h8.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C21 19.72 21 18.88 21 17.2V8.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C18.72 4 17.88 4 16.2 4H7.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C3 6.28 3 7.12 3 8.8v8.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C5.28 22 6.12 22 7.8 22Z"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10s-2.005-2.732-3.634-4.362a9 9 0 1 0 2.282 8.862M21 10V4m0 6h-6"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 17h8M11.018 2.764 4.235 8.039c-.453.353-.68.53-.843.75a2 2 0 0 0-.318.65C3 9.704 3 9.991 3 10.565V17.8c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874C4.52 21 5.08 21 6.2 21h11.6c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C21 19.48 21 18.92 21 17.8v-7.235c0-.574 0-.861-.074-1.126a2.002 2.002 0 0 0-.318-.65c-.163-.22-.39-.397-.843-.75l-6.783-5.275c-.351-.273-.527-.41-.72-.462a1 1 0 0 0-.523 0c-.194.052-.37.189-.721.462Z"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-notes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 11H8m2 4H8m8-8H8m12-.2v10.4c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C17.72 22 16.88 22 15.2 22H8.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C4 19.72 4 18.88 4 17.2V6.8c0-1.68 0-2.52.327-3.162a3 3 0 0 1 1.311-1.311C6.28 2 7.12 2 8.8 2h6.4c1.68 0 2.52 0 3.162.327a3 3 0 0 1 1.311 1.311C20 4.28 20 5.12 20 6.8Z"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 21-.1-.15c-.695-1.042-1.042-1.563-1.5-1.94a4 4 0 0 0-1.378-.737C8.453 18 7.827 18 6.575 18H5.2c-1.12 0-1.68 0-2.108-.218a2 2 0 0 1-.874-.874C2 16.48 2 15.92 2 14.8V6.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C3.52 3 4.08 3 5.2 3h.4c2.24 0 3.36 0 4.216.436a4 4 0 0 1 1.748 1.748C12 6.04 12 7.16 12 9.4M12 21V9.4M12 21l.1-.15c.695-1.042 1.042-1.563 1.5-1.94a3.999 3.999 0 0 1 1.378-.737C15.547 18 16.173 18 17.425 18H18.8c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C22 16.48 22 15.92 22 14.8V6.2c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C20.48 3 19.92 3 18.8 3h-.4c-2.24 0-3.36 0-4.216.436a4 4 0 0 0-1.748 1.748C12 6.04 12 7.16 12 9.4"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11.5 2 2L15.5 9m4.5 3c0 4.908-5.354 8.478-7.302 9.615-.221.129-.332.194-.488.227a1.137 1.137 0 0 1-.42 0c-.156-.034-.267-.098-.488-.227C9.354 20.478 4 16.908 4 12V7.217c0-.799 0-1.199.13-1.542a2 2 0 0 1 .548-.79c.276-.243.65-.383 1.398-.664l5.362-2.01c.208-.078.312-.117.419-.133a1 1 0 0 1 .286 0c.107.016.21.055.419.133l5.362 2.01c.748.28 1.123.421 1.398.664a2 2 0 0 1 .547.79c.131.343.131.743.131 1.542V12Z"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10m0-20a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10m0-20C6.477 2 2 6.477 2 12s4.477 10 10 10m0-20c5.523 0 10 4.477 10 10s-4.477 10-10 10M2.5 9h19m-19 6h19"/></symbol>
+    </defs></svg>
+  <div class="pt" aria-hidden="true"><span class="pt__mark"><img src="../../../assets/img/logo.svg" alt="" width="40" height="40">Lê Tuấn Việt</span></div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="../../../" aria-label="Lê Tuấn Việt, về trang chủ">
+        <span class="nav__logo"><img src="../../../assets/img/logo.svg" alt="" width="28" height="28"></span><span class="nav__name">Lê Tuấn Việt</span><span class="nav__badge">Marketing Leader</span>
+      </a>
+      <nav class="nav__links" aria-label="Điều hướng chính" data-en-label="Main navigation">
+        <span class="nav__pill" aria-hidden="true"></span>
+        <a href="../../../" data-nav="trang-chu" data-en="Home">Trang chủ</a>
+        <a href="../../../#gioi-thieu" data-nav="gioi-thieu" data-en="About">Giới thiệu</a>
+        <a href="../../../#nang-luc" data-nav="nang-luc" data-en="Expertise">Năng lực</a>
+        <a href="../../../#du-an" data-nav="du-an" data-en="Projects">Dự án</a>
+        <a href="../../../#doi-tac" data-nav="doi-tac" data-en="Partners">Đối tác</a>
+        <a href="../../../#feedback" data-nav="feedback">Feedback</a>
+        <a class="nav__kb" href="../../../goc-kien-thuc/" data-nav="kien-thuc" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="kb-dd"><span data-en="Knowledge Hub">Góc kiến thức</span><svg class="nav__chev" aria-hidden="true"><use href="#i-chev"/></svg></a>
+        <div class="kbdd" id="kb-dd" role="region" aria-label="Góc kiến thức" data-en-label="Knowledge Hub">
+          <div class="kbdd__intro">
+            <p class="kbdd__title" data-en="Knowledge Hub">Góc kiến thức</p>
+            <p class="kbdd__desc" data-en="Marketing insights, AI tools, and real project lessons that turn strategy into measurable growth.">Góc nhìn Marketing, ứng dụng AI và bài học thực chiến giúp biến chiến lược thành hệ thống tăng trưởng.</p>
+            <div class="kbdd__by"><img src="../../../assets/kb/le-tuan-viet.webp" alt="" width="38" height="38" loading="lazy" decoding="async"><span><b>Lê Tuấn Việt</b><small>Marketing Leader</small></span></div>
+            <a class="kbdd__all" href="../../../goc-kien-thuc/"><span data-en="View all articles">Xem tất cả bài viết</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="kbdd__main">
+            <ul class="kbdd__list">
+            <li><a class="kbdd__item" href="../../../goc-kien-thuc/marketing/"><span class="kbdd__ico"><svg aria-hidden="true"><use href="#i-kb-mkt"/></svg></span><span class="kbdd__txt"><b data-en="Marketing">Marketing</b><small data-en="Market research, channel plans and multichannel growth for SMEs">Nghiên cứu thị trường, lập kế hoạch và triển khai đa kênh cho SME</small></span><svg class="kbdd__go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="kbdd__item" href="../../../goc-kien-thuc/ai-marketing/"><span class="kbdd__ico"><svg aria-hidden="true"><use href="#i-kb-ai"/></svg></span><span class="kbdd__txt"><b data-en="AI Marketing">AI Marketing</b><small data-en="Using AI for research, content work and ad campaign performance">Dùng AI nghiên cứu, làm nội dung và tối ưu hóa hiệu suất chiến dịch</small></span><svg class="kbdd__go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="kbdd__item" href="../../../goc-kien-thuc/quan-tri-marketing/"><span class="kbdd__ico"><svg aria-hidden="true"><use href="#i-kb-mgmt"/></svg></span><span class="kbdd__txt"><b data-en="Marketing Management">Quản trị Marketing</b><small data-en="Building teams, setting clear KPIs, managing budgets and workflows">Xây dựng đội ngũ, đặt mục tiêu KPI, quản lý ngân sách và vận hành</small></span><svg class="kbdd__go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="kbdd__item" href="../../../goc-kien-thuc/du-an-va-bai-hoc/"><span class="kbdd__ico"><svg aria-hidden="true"><use href="#i-kb-case"/></svg></span><span class="kbdd__txt"><b data-en="Case Marketing">Case Marketing</b><small data-en="Case analysis, campaign execution, metrics and key lessons">Phân tích bối cảnh, cách triển khai, đo lường và bài học thực tế</small></span><svg class="kbdd__go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            </ul>
+          </div>
+        </div>
+        <a href="../../../#lien-he" data-nav="lien-he" data-en="Contact">Liên hệ</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="nav__search" type="button" data-search-open aria-haspopup="dialog" aria-controls="kb-search" aria-label="Tìm kiếm bài viết" title="Tìm kiếm bài viết (phím /)"><svg aria-hidden="true"><use href="#i-search"/></svg></button>
+        <a class="btn btn--dark btn--sm magnetic" href="../../../assets/cv/CV-Le-Tuan-Viet.pdf" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv><span data-en="Download CV">Tải CV</span> <svg class="ico ico--down" aria-hidden="true"><use href="#i-download"/></svg></a>
+        <button class="nav__burger" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu__links" aria-label="Menu di động">
+      <a href="../../../"><small>01</small><span data-en="Home">Trang chủ</span></a>
+      <a href="../../../#gioi-thieu"><small>02</small><span data-en="About">Giới thiệu</span></a>
+      <a href="../../../#nang-luc"><small>03</small><span data-en="Expertise">Năng lực</span></a>
+      <a href="../../../#du-an"><small>04</small><span data-en="Projects">Dự án</span></a>
+      <a href="../../../#doi-tac"><small>05</small><span data-en="Partners">Đối tác</span></a>
+      <a href="../../../#feedback"><small>06</small>Feedback</a>
+      <div class="menu-kb is-open">
+        <button class="menu-kb__btn" type="button" aria-expanded="true" aria-controls="menu-kb-list"><small>07</small><span data-en="Knowledge Hub">Góc kiến thức</span><svg class="menu-kb__chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <div class="menu-kb__panel" id="menu-kb-list">
+          <div class="menu-kb__inner">
+            <a href="../../../goc-kien-thuc/marketing/"><span class="menu-kb__ico"><svg aria-hidden="true"><use href="#i-kb-mkt"/></svg></span><span data-en="Marketing">Marketing</span></a>
+            <a href="../../../goc-kien-thuc/ai-marketing/"><span class="menu-kb__ico"><svg aria-hidden="true"><use href="#i-kb-ai"/></svg></span><span data-en="AI Marketing">AI Marketing</span></a>
+            <a href="../../../goc-kien-thuc/quan-tri-marketing/"><span class="menu-kb__ico"><svg aria-hidden="true"><use href="#i-kb-mgmt"/></svg></span><span data-en="Marketing Management">Quản trị Marketing</span></a>
+            <a href="../../../goc-kien-thuc/du-an-va-bai-hoc/"><span class="menu-kb__ico"><svg aria-hidden="true"><use href="#i-kb-case"/></svg></span><span data-en="Case Marketing">Case Marketing</span></a>
+            <a class="menu-kb__all" href="../../../goc-kien-thuc/"><span data-en="View all articles">Tất cả bài viết</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <a href="../../../assets/cv/CV-Le-Tuan-Viet.pdf" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv><small>08</small><span data-en="Download CV">Tải CV</span></a>
+      <a href="../../../#lien-he"><small>09</small><span data-en="Contact">Liên hệ</span></a>
+    </nav>
+    <div class="menu__foot">
+      <a class="menu__contact" href="mailto:work@letuanviet.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><span>work@letuanviet.com</span></a>
+      <a class="menu__contact" href="tel:+84935702321"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>0935 702 321</span></a>
+    </div>
+  </div>
+
+  <main id="noi-dung" tabindex="-1">
+
+    <article class="kb-art">
+      <div class="container">
+        <div class="kb-art__grid">
+          <div class="kb-art__main">
+            <header class="kb-art__head">
+              <nav class="kb-crumbs" aria-label="Đường dẫn"><ol><li><a href="../../../"><svg aria-hidden="true"><use href="#i-home"/></svg>Trang chủ</a></li><li><a href="../../../goc-kien-thuc/">Góc kiến thức</a></li><li><a href="../../../goc-kien-thuc/marketing/">Marketing</a></li><li aria-current="page"><span>Google Analytics 4 là gì và cách dùng GA4</span></li></ol></nav>
+              <h1 class="kb-art__h1" data-fit data-fit-min="20">Google Analytics 4 là gì <span class="grad">và cách dùng&nbsp;GA4</span></h1>
+              <p class="kb-art__sapo">Hiểu rõ Google Analytics 4 là gì chính là nắm vững nền tảng phân tích thế hệ mới của Google, nơi mọi tương tác trên website và ứng dụng được ghi nhận thành sự kiện thay vì gom theo phiên truy cập. Với doanh nghiệp vừa và nhỏ, nếu chỉ gắn mã rồi tạo sự kiện rời rạc mà thiếu đăng ký phương diện tùy chỉnh hoặc đọc nhầm phạm vi báo cáo, đội ngũ rất dễ phân bổ sai ngân sách quảng cáo. Khi kết nối đúng từ luồng dữ liệu, hành vi chuyển đổi cốt lõi đến lịch kiểm tra định kỳ, người phụ trách marketing mới xác định được kênh nào tạo ra khách hàng thật và điểm nghẽn nằm ở đâu. Tôi là <a href="../../../">Lê Tuấn Việt</a>, Marketing Leader tại TAKI Group. Trong bài viết này, tôi phân tích cơ chế của mô hình dữ liệu sự kiện, cách thiết lập có kiểm chứng và nguyên tắc đọc chỉ số giúp doanh nghiệp ra quyết định tối ưu.</p>
+              <div class="kb-art__by">
+                <a class="kb-art__who" href="../../../" rel="author"><img src="../../../assets/kb/le-tuan-viet.webp" alt="Ảnh đại diện Lê Tuấn Việt" width="48" height="48"><span><b>Lê Tuấn Việt <svg aria-hidden="true"><use href="#i-verified"/></svg></b><small>Marketing Leader tại TAKI Group</small></span></a>
+                <ul class="kb-art__dates">
+                  <li><svg aria-hidden="true"><use href="#i-calendar"/></svg><span>Đăng ngày <time datetime="2026-11-11T09:00:00+07:00">11/11/2026</time></span></li>
+                  <li><svg aria-hidden="true"><use href="#i-refresh"/></svg><span>Cập nhật <time datetime="2026-11-11T09:00:00+07:00">11/11/2026</time></span></li>
+                </ul>
+              </div>
+            </header>
+
+<figure class="kb-art__cover">
+              <picture><source type="image/webp" srcset="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi-320.webp 320w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi-640.webp 640w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi.webp 1200w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi-1600.webp 1600w" sizes="(min-width: 840px) 760px, 100vw"><img src="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi.jpg" alt="Sơ đồ cấu trúc Google Analytics 4 từ luồng dữ liệu, sự kiện đến khung báo cáo ba tầng cho doanh nghiệp vừa và nhỏ" width="1200" height="630" decoding="async" fetchpriority="high"></picture>
+              <figcaption>Mô hình dữ liệu dựa trên sự kiện của Google Analytics 4 nối liền hành vi trên website với quyết định tối ưu ngân sách marketing</figcaption>
+            </figure>
+
+            <section class="kb-sum" aria-labelledby="tom-tat">
+              <p class="kb-sum__t" id="tom-tat"><svg aria-hidden="true"><use href="#i-notes"/></svg>Tóm tắt nhanh</p>
+              <ul><li>Google Analytics 4 chuyển hoàn toàn từ mô hình gom theo phiên của Universal Analytics sang mô hình dựa trên sự kiện, đo lường xuyên suốt cả website và ứng dụng trên cùng một thuộc tính.</li><li>Doanh nghiệp vừa và nhỏ cần ưu tiên tận dụng sự kiện thu thập tự động, sự kiện đo lường nâng cao và sự kiện đề xuất trước khi tự tạo sự kiện tùy chỉnh để tiết kiệm hạn mức 50 phương diện tùy chỉnh.</li><li>Gắn thẻ sự kiện tùy chỉnh trong Google Tag Manager chưa đủ để đọc báo cáo phân rã; người dùng phải đăng ký tham số đi kèm thành phương diện tùy chỉnh và chờ từ 24 đến 48 giờ để hệ thống xử lý số.</li><li>Khi đọc báo cáo Thu nạp, cần tách bạch báo cáo Thu nạp người dùng (đánh giá kênh kéo khách mới lần đầu) với báo cáo Thu nạp lưu lượng (đánh giá hiệu quả kéo phiên truy cập mới của từng chiến dịch).</li></ul>
+            </section>
+
+            <details class="kb-toc2">
+              <summary><span class="kb-toc2__t"><svg aria-hidden="true"><use href="#i-list"/></svg>Mục lục bài viết</span><span class="kb-toc2__n">8 phần</span><span class="kb-toc2__ico" aria-hidden="true"></span></summary>
+              <nav aria-label="Mục lục"><ol class="kb-toc__list"><li><a href="#google-analytics-4-la-gi-va-co-che-do-su-kien"><span class="kb-toc__n">1</span>Google Analytics 4 là gì và cơ chế đo sự kiện</a><ol><li><a href="#ga4-la-gi-va-cau-truc-tai-khoan-luong-du-lieu">GA4 là gì và cấu trúc tài khoản, luồng dữ liệu</a></li><li><a href="#bon-nhom-su-kien-cot-loi-trong-google-analytics-4">Bốn nhóm sự kiện cốt lõi trong Google Analytics 4</a></li></ol></li></li><li><a href="#google-analytics-4-la-gi-so-voi-ban-ua-cu"><span class="kb-toc__n">2</span>Google Analytics 4 là gì so với bản UA cũ</a></li><li><a href="#cach-cai-dat-google-analytics-4-va-tao-su-kien"><span class="kb-toc__n">3</span>Cách cài đặt Google Analytics 4 và tạo sự kiện</a><ol><li><a href="#buoc-1-tao-thuoc-tinh-va-luong-du-lieu-web">Bước 1: Tạo thuộc tính và luồng dữ liệu Web</a></li><li><a href="#buoc-2-ket-noi-website-qua-google-tag-manager">Bước 2: Kết nối website qua Google Tag Manager</a></li><li><a href="#buoc-3-tao-su-kien-tuy-chinh-va-phuong-dien">Bước 3: Tạo sự kiện tùy chỉnh và phương diện</a></li><li><a href="#buoc-4-kiem-chung-bang-realtime-va-debugview">Bước 4: Kiểm chứng bằng Realtime và DebugView</a></li></ol></li></li><li><a href="#cac-bao-cao-tieu-chuan-trong-google-analytics-4"><span class="kb-toc__n">4</span>Các báo cáo tiêu chuẩn trong Google Analytics 4</a><ol><li><a href="#nhom-bao-cao-thu-nap-va-muc-do-tuong-tac">Nhóm báo cáo Thu nạp và Mức độ tương tác</a></li><li><a href="#khi-nao-sme-chuyen-sang-bao-cao-kham-pha">Khi nào SME chuyển sang báo cáo Khám phá</a></li></ol></li></li><li><a href="#ba-loi-lam-lech-du-lieu-khi-moi-su-dung-ga4"><span class="kb-toc__n">5</span>Ba lỗi làm lệch dữ liệu khi mới sử dụng GA4</a></li><li><a href="#khung-doc-chi-so-ga4-va-gioi-han-du-lieu-cho-sme"><span class="kb-toc__n">6</span>Khung đọc chỉ số GA4 và giới hạn dữ liệu cho SME</a></li><li><a href="#cau-hoi-thuong-gap-ve-google-analytics-4"><span class="kb-toc__n">7</span>Câu hỏi thường gặp về Google Analytics 4</a></li><li><a href="#ket-luan"><span class="kb-toc__n">8</span>Kết luận</a></li></ol></nav>
+            </details>
+
+            <div class="kb-prose">
+<h2 id="google-analytics-4-la-gi-va-co-che-do-su-kien">Google Analytics 4 là gì và cơ chế đo sự kiện</h2>
+<p class="kb-def"><strong>Google Analytics 4 (GA4)</strong> là nền tảng phân tích kỹ thuật số thế hệ mới của Google thay thế Universal Analytics (UA, phiên bản đo lường cũ), thu thập và xử lý mọi tương tác của người dùng trên cả website lẫn ứng dụng dưới dạng sự kiện (Event) thay vì chỉ gom nhóm theo phiên truy&nbsp;cập.</p>
+<p>Theo tài liệu chính thức năm 2024 của <a href="https://support.google.com/analytics/answer/10089681" target="_blank" rel="noopener">Google Analytics Help</a> áp dụng cho thuộc tính GA4 toàn cầu, cơ chế dữ liệu dựa trên sự kiện (event-based data) giúp các SME (doanh nghiệp vừa và nhỏ) theo dõi liền mạch hành trình khách hàng qua nhiều thiết bị. Khi triển khai <a href="../../../goc-kien-thuc/marketing/digital-marketing-la-gi/">đo hiệu quả digital marketing</a>, mỗi thao tác xem trang hay gửi biểu mẫu đều quy về một đơn vị sự kiện thống&nbsp;nhất.</p>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/01-google-analytics-4-la-gi.webp" srcset="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/01-google-analytics-4-la-gi-800.webp 800w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/01-google-analytics-4-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ cấu trúc 4 lớp của Google Analytics 4 từ Tài khoản, Thuộc tính, Luồng dữ liệu đến Sự kiện, Tham số và Phương diện tùy chỉnh" width="1600" height="900"><figcaption>Hiểu rõ mối quan hệ từ luồng dữ liệu đến phương diện tùy chỉnh giúp doanh nghiệp thiết lập kho dữ liệu sạch ngay từ đầu</figcaption></figure>
+<h3 id="ga4-la-gi-va-cau-truc-tai-khoan-luong-du-lieu">GA4 là gì và cấu trúc tài khoản, luồng dữ liệu</h3>
+<p>Nhiều người mới tìm hiểu GA4 là gì thường mở ngay phần báo cáo mà bỏ qua cấu trúc phân cấp dữ liệu phía sau, dẫn tới việc gắn nhầm mã giữa các trang. Hệ thống quản trị của Google Analytics 4 vận hành theo bốn lớp cấu trúc liên kết chặt chẽ dưới&nbsp;đây:</p>
+<ul>
+  <li><strong>Tài khoản và Thuộc tính:</strong> Tài khoản (Account) là cấp quản lý cao nhất theo doanh nghiệp, bên trong chứa Thuộc tính (Property) tổng hợp số liệu cho một thương&nbsp;hiệu.</li>
+  <li><strong>Luồng dữ liệu (Data Stream):</strong> Nguồn truyền dữ liệu trực tiếp từ điểm chạm khách hàng (gồm luồng Web, ứng dụng iOS hoặc Android) đổ về cùng một Thuộc&nbsp;tính.</li>
+  <li><strong>Sự kiện và Tham số:</strong> Sự kiện (Event) ghi nhận hành động cụ thể của người dùng, còn Tham số (Parameter) bổ sung ngữ cảnh chi tiết cho chính hành động&nbsp;đó.</li>
+  <li><strong>Phương diện tùy chỉnh (Custom Dimension):</strong> Cầu nối đăng ký các tham số sự kiện riêng vào hệ thống quản trị để hiển thị thành cột hoặc dòng trong báo&nbsp;cáo.</li>
+</ul>
+<p>Hiểu rõ bốn lớp cấu trúc này giúp đội ngũ tổ chức kho <a href="../../../goc-kien-thuc/marketing/zero-party-data-va-first-party-data/">dữ liệu bên thứ nhất</a> sạch ngay từ đầu. Nếu doanh nghiệp có website và ứng dụng phục vụ cùng một tệp khách hàng, cả hai nên đặt thành hai luồng dữ liệu trong cùng một thuộc tính để không đếm trùng người&nbsp;dùng.</p>
+<h3 id="bon-nhom-su-kien-cot-loi-trong-google-analytics-4">Bốn nhóm sự kiện cốt lõi trong Google Analytics 4</h3>
+<p>Thay vì tự viết mã theo dõi cho từng thao tác nhỏ, người làm marketing cần tách rõ những gì nền tảng đã thu thập sẵn và những gì phải cấu hình thêm. Theo phân loại năm 2024 của <a href="https://support.google.com/analytics/answer/9322688" target="_blank" rel="noopener">Google Analytics Help</a> cho thuộc tính GA4 tiêu chuẩn, hệ thống chia sự kiện thành bốn nhóm theo thứ tự ưu tiên kiểm tra dưới&nbsp;đây:</p>
+<ul>
+  <li><strong>Sự kiện thu thập tự động:</strong> Nhóm sự kiện cơ bản được hệ thống ghi nhận mặc định ngay khi gắn mã như truy cập lần đầu (<code>first_visit</code>), mở phiên mới (<code>session_start</code>) và tương tác trên trang (<code>user_engagement</code>) của khách&nbsp;hàng.</li>
+  <li><strong>Sự kiện đo lường nâng cao:</strong> Nhóm sự kiện bật trực tiếp bằng nút gạt trong luồng dữ liệu Web mà không cần sửa mã nguồn, gồm xem trang (<code>page_view</code>), cuộn cuối trang (<code>scroll</code>), nhấp ra ngoài, tìm kiếm nội bộ và tải&nbsp;tệp.</li>
+  <li><strong>Sự kiện đề xuất:</strong> Danh mục sự kiện có tên gọi và tham số được Google định sẵn cho từng ngành (như <code>generate_lead</code> hoặc <code>purchase</code>), giúp mở khóa các tính năng báo cáo dựng&nbsp;sẵn.</li>
+  <li><strong>Sự kiện tùy chỉnh:</strong> Nhóm sự kiện do doanh nghiệp tự đặt tên và thiết lập điều kiện kích hoạt riêng khi hành vi cần đo không nằm trong ba nhóm có sẵn ở&nbsp;trên.</li>
+</ul>
+<p>Theo quy định giới hạn thu thập năm 2024 của <a href="https://support.google.com/analytics/answer/9267744" target="_blank" rel="noopener">Google Analytics Help</a> cho thuộc tính tiêu chuẩn, mỗi sự kiện gửi về được đính kèm tối đa 25 tham số và độ dài tên sự kiện lẫn tên tham số không vượt quá 40 ký tự. Sự kiện tùy chỉnh không tự động hiện trong hầu hết báo cáo chuẩn nên bạn phải đăng ký phương diện để&nbsp;đọc.</p>
+<p>Từ giới hạn kỹ thuật này, tôi ưu tiên rà soát kỹ ba nhóm sự kiện có sẵn của Google trước khi tạo bất kỳ sự kiện tùy chỉnh nào. Khi chỉ dựng sự kiện mới cho các <a href="../../../goc-kien-thuc/marketing/micro-conversion-la-gi/">micro conversion và macro conversion</a> phục vụ quyết định ngân sách, bảng dữ liệu sẽ gọn và không tràn hạn&nbsp;mức.</p>
+<aside class="kb-cta kb-cta--nut">
+  <p class="kb-cta__t">Chưa rõ website của bạn đang gắn đúng hay lệch số?</p>
+  <a class="kb-btn kb-btn--primary" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo><svg aria-hidden="true"><use href="#i-zalo"/></svg>Nhắn Zalo cho tôi</a>
+</aside>
+<h2 id="google-analytics-4-la-gi-so-voi-ban-ua-cu">Google Analytics 4 là gì so với bản UA cũ</h2>
+<p>Đặt câu hỏi Google Analytics 4 là gì so với Universal Analytics giúp người làm marketing thấy rõ sự chuyển dịch từ mô hình gom dữ liệu theo phiên truy cập (session-based) sang mô hình ghi nhận dựa trên sự kiện (event-based). Thay vì đo sự rời đi bằng tỷ lệ thoát cũ, GA4 đánh giá chất lượng điểm chạm qua phiên tương tác theo bốn tiêu chí đối chiếu dưới&nbsp;đây.</p>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/02-google-analytics-4-la-gi.webp" srcset="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/02-google-analytics-4-la-gi-800.webp 800w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/02-google-analytics-4-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="So sánh mô hình dữ liệu theo phiên của Universal Analytics và mô hình dữ liệu theo sự kiện của Google Analytics 4" width="1600" height="900"><figcaption>Google Analytics 4 chuyển đơn vị đo lường cốt lõi từ phiên truy cập sang từng sự kiện và đánh giá chất lượng qua phiên tương tác</figcaption></figure>
+<p>Trước hết, cần làm rõ mốc thời gian chuyển giao để tránh nhầm lẫn từ các bài viết cũ. Theo thông báo lộ trình năm 2024 của <a href="https://support.google.com/analytics/answer/11583528" target="_blank" rel="noopener">Google Analytics Help</a> trên toàn cầu, các thuộc tính Universal Analytics tiêu chuẩn đã ngừng xử lý dữ liệu mới từ ngày 01/07/2023 và đóng hoàn toàn giao diện cùng API (giao diện lập trình ứng dụng) từ ngày&nbsp;01/07/2024.</p>
+<p>Về đo lường hành vi, tài liệu năm 2024 của <a href="https://support.google.com/analytics/answer/12195621" target="_blank" rel="noopener">Google Analytics Help</a> định nghĩa một phiên tương tác (Engaged session) là phiên kéo dài từ 10 giây trở lên, có ít nhất 1 sự kiện chính (Key event) hoặc có từ 2 lượt xem trang trở lên. Tỷ lệ thoát (Bounce rate) trong GA4 là phần trăm các phiên không đạt ngưỡng tương tác này. Bảng dưới đây đối chiếu bốn tiêu chí cốt&nbsp;lõi.</p>
+<div class="kb-table" role="region" aria-label="Bảng đối chiếu cơ chế đo lường giữa Universal Analytics và Google Analytics 4" tabindex="0"><table>
+  <caption>Bảng đối chiếu cơ chế đo lường giữa Universal Analytics và Google Analytics 4</caption>
+  <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
+  <thead><tr><th>Tiêu chí đối chiếu</th><th>Universal Analytics (UA)</th><th>Google Analytics 4 (GA4)</th></tr></thead>
+  <tbody>
+    <tr><td data-label="Tiêu chí đối chiếu">Mô hình&nbsp;dữ&nbsp;liệu</td><td data-label="Universal Analytics (UA)">Dựa trên phiên truy cập, gom các lượt tương tác vào một khung&nbsp;thời&nbsp;gian</td><td data-label="Google Analytics 4 (GA4)">Dựa trên sự kiện, mọi tương tác kể cả xem trang đều tính là&nbsp;sự&nbsp;kiện</td></tr>
+    <tr><td data-label="Tiêu chí đối chiếu">Cấu trúc&nbsp;tham&nbsp;số</td><td data-label="Universal Analytics (UA)">Giới hạn trong các trường cố định gồm Danh mục, Hành động, Nhãn và&nbsp;Giá&nbsp;trị</td><td data-label="Google Analytics 4 (GA4)">Linh hoạt đính kèm tối đa 25 tham số tùy chỉnh mô tả ngữ cảnh&nbsp;sự&nbsp;kiện</td></tr>
+    <tr><td data-label="Tiêu chí đối chiếu">Đo lường&nbsp;tương&nbsp;tác</td><td data-label="Universal Analytics (UA)">Đo tỷ lệ thoát theo phiên chỉ xem 1 trang và không có tương tác&nbsp;tiếp&nbsp;theo</td><td data-label="Google Analytics 4 (GA4)">Đo phiên tương tác (từ 10 giây, từ 2 trang hoặc có 1 sự&nbsp;kiện&nbsp;chính)</td></tr>
+    <tr><td data-label="Tiêu chí đối chiếu">Phạm vi&nbsp;hợp&nbsp;nhất</td><td data-label="Universal Analytics (UA)">Tách riêng thuộc tính theo dõi cho giao diện website và ứng dụng&nbsp;di&nbsp;động</td><td data-label="Google Analytics 4 (GA4)">Hợp nhất luồng dữ liệu Web và App vào cùng một thuộc tính&nbsp;đo&nbsp;lường</td></tr>
+  </tbody>
+</table></div>
+<p>Giới hạn khi đọc bảng: do định nghĩa phiên và cách tính tỷ lệ thoát đã thay đổi từ gốc, doanh nghiệp không nên đem tỷ lệ thoát của Universal Analytics cũ đặt cạnh báo cáo GA4 để so sánh tăng giảm. Một người đọc kỹ bài viết rồi đóng trình duyệt từng bị bản cũ tính là thoát trang, nhưng được GA4 ghi nhận đúng là phiên tương tác chất&nbsp;lượng.</p>
+<h2 id="cach-cai-dat-google-analytics-4-va-tao-su-kien">Cách cài đặt Google Analytics 4 và tạo sự kiện</h2>
+<p>Cách cài đặt Google Analytics 4 và tạo sự kiện chuẩn cho doanh nghiệp vừa và nhỏ gồm bốn bước nối tiếp: khởi tạo thuộc tính kèm luồng dữ liệu Web, kết nối website qua Google Tag Manager, dựng sự kiện tùy chỉnh kèm đăng ký phương diện, rồi kiểm chứng bằng Realtime và DebugView. Tuân thủ đúng trình tự bốn bước dưới đây giúp ghi nhận dữ liệu sạch ngay từ tuần&nbsp;đầu.</p>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/03-google-analytics-4-la-gi.webp" srcset="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/03-google-analytics-4-la-gi-800.webp 800w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/03-google-analytics-4-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Quy trình 4 bước cài đặt Google Analytics 4 qua Google Tag Manager kèm đăng ký phương diện và kiểm chứng bằng DebugView" width="1600" height="900"><figcaption>Quy trình thiết lập GA4 chỉ hoàn tất khi sự kiện và tham số đã được kiểm chứng thực tế trên công cụ gỡ lỗi DebugView</figcaption></figure>
+<h3 id="buoc-1-tao-thuoc-tinh-va-luong-du-lieu-web" class="kb-h3-step">Bước 1: Tạo thuộc tính và luồng dữ liệu Web</h3>
+<p>Mở mục Quản trị trong Google Analytics để tạo Thuộc tính mới, chọn đúng múi giờ Việt Nam cùng đơn vị tiền tệ Việt Nam Đồng, rồi chọn nền tảng Web để mở Luồng dữ liệu đầu tiên và lấy mã đo lường Measurement ID (bắt đầu bằng ký tự <code>G-</code>). Ngay tại bảng này, bạn bật các sự kiện Đo lường nâng cao phù hợp với cấu trúc&nbsp;website.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> thuộc tính mới hiển thị mã Measurement ID hợp lệ, múi giờ báo cáo khớp giờ địa phương và danh sách sự kiện đo lường nâng cao đã được chọn&nbsp;lọc.</p>
+<p>Điểm các đội ngũ hay vướng ở bước đầu là để nguyên múi giờ mặc định của Hoa Kỳ khi tạo thuộc tính. Khi múi giờ lệch nửa ngày, số khách tiềm năng theo ngày trong GA4 sẽ không khớp với báo cáo chi tiêu quảng cáo hàng ngày của đội thực&nbsp;thi.</p>
+<h3 id="buoc-2-ket-noi-website-qua-google-tag-manager" class="kb-h3-step">Bước 2: Kết nối website qua Google Tag Manager</h3>
+<p>Mở công cụ quản lý thẻ Google Tag Manager (GTM), khởi tạo thẻ mới thuộc loại <code>Google Tag</code> rồi dán mã Measurement ID vừa sao chép ở Bước 1 vào ô cấu hình. Tiếp theo, bạn chọn điều kiện kích hoạt (Trigger) áp dụng cho toàn bộ trang và bật chế độ Xem trước (Preview) để kiểm tra trước khi xuất&nbsp;bản.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> thẻ Google Tag hiển thị trạng thái kích hoạt thành công (Fired) đúng một lần duy nhất trên mỗi trang trong cửa sổ kiểm tra Tag&nbsp;Assistant.</p>
+<p>Khi thực hiện <a href="../../../goc-kien-thuc/marketing/cach-tao-website/">cách tạo website chuẩn chuyển đổi</a>, bạn cần kiểm tra xem mã nguồn giao diện hoặc trình cắm (plugin) có đang chèn sẵn mã đo lường trực tiếp hay không. Nếu vừa dán mã trong mã nguồn vừa chạy thẻ qua GTM cho cùng một thuộc tính, mọi lượt xem trang sẽ bị tính gấp&nbsp;đôi.</p>
+<h3 id="buoc-3-tao-su-kien-tuy-chinh-va-phuong-dien" class="kb-h3-step">Bước 3: Tạo sự kiện tùy chỉnh và phương diện</h3>
+<p>Dựng thẻ Sự kiện GA4 trong GTM cho hành vi chuyển đổi riêng như nhấp nút Zalo hoặc gửi biểu mẫu, đặt tên bằng chữ thường nối gạch dưới (tối đa 40 ký tự) kèm tham số mô tả. Sau đó, bạn vào mục Định nghĩa tùy chỉnh trong Quản trị GA4 để đăng ký tham số thành Phương diện tùy chỉnh và bật đánh dấu Sự kiện chính (Key&nbsp;event).</p>
+<p class="kb-out"><strong>Đầu ra:</strong> tên sự kiện và tham số tuân thủ quy ước dưới 40 ký tự, tham số riêng đã nằm trong bảng Phương diện tùy chỉnh và hành vi mục tiêu đã được bật làm Sự kiện&nbsp;chính.</p>
+<p>Theo quy định năm 2024 của <a href="https://support.google.com/analytics/answer/10075209" target="_blank" rel="noopener">Google Analytics Help</a> cho thuộc tính tiêu chuẩn, người dùng bắt buộc phải đăng ký tham số sự kiện thành phương diện tùy chỉnh thì mới xem được giá trị đó trong báo cáo, và mỗi thuộc tính chỉ có tối đa 50 phương diện tùy chỉnh phạm vi sự kiện. Vì vậy, đừng tạo phương diện mới cho thông tin chỉ dùng một&nbsp;lần.</p>
+<h3 id="buoc-4-kiem-chung-bang-realtime-va-debugview" class="kb-h3-step">Bước 4: Kiểm chứng bằng Realtime và DebugView</h3>
+<p>Mở website ở chế độ xem trước của GTM, thực hiện thử thao tác chuyển đổi trên trang, sau đó mở đồng thời báo cáo Thời gian thực (Realtime) và công cụ DebugView trong Quản trị GA4 để kiểm tra luồng sự kiện cùng giá trị tham số gửi về theo từng&nbsp;giây.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> dòng thời gian trong DebugView hiển thị đúng tên sự kiện vừa thao tác, thấy đủ tham số đính kèm và sự kiện không bị bắn lặp nhiều lần cho một cú&nbsp;nhấp.</p>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/04-google-analytics-4-la-gi.webp" srcset="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/04-google-analytics-4-la-gi-800.webp 800w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/04-google-analytics-4-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ phân biệt bước kiểm tra sự kiện tức thời trên DebugView với thời gian chờ xử lý 24 đến 48 giờ của báo cáo chuẩn GA4" width="1600" height="900"><figcaption>Kiểm tra qua DebugView giúp phát hiện lỗi gắn thẻ ngay lập tức thay vì chờ 24 đến 48 giờ để dữ liệu hiển thị ở báo cáo chuẩn</figcaption></figure>
+<p>Theo hướng dẫn năm 2024 của <a href="https://support.google.com/analytics/answer/7201382" target="_blank" rel="noopener">Google Analytics Help</a>, công cụ DebugView cho phép giám sát trực tiếp các sự kiện và tham số trên thiết bị thử nghiệm ngay khi bật chế độ gỡ lỗi. Vì các báo cáo tiêu chuẩn cần từ 24 đến 48 giờ để xử lý dữ liệu mới, bước nghiệm thu qua DebugView giúp bạn phát hiện lỗi ngay trong buổi cài&nbsp;đặt.</p>
+<aside class="kb-cta kb-cta--mid" aria-label="Trao đổi với Lê Tuấn Việt">
+  <img class="kb-cta__ava" src="../../../assets/kb/le-tuan-viet.webp" alt="" width="52" height="52" loading="lazy" decoding="async">
+  <div class="kb-cta__txt">
+    <p class="kb-cta__t">Báo cáo GA4 có số nhưng khó ra quyết định?</p>
+    <p class="kb-cta__d">Nhắn tôi để rà soát lại luồng sự kiện và phễu đo</p>
+  </div>
+  <a class="kb-btn kb-btn--primary" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo><svg aria-hidden="true"><use href="#i-zalo"/></svg>Nhắn Zalo</a>
+</aside>
+<h2 id="cac-bao-cao-tieu-chuan-trong-google-analytics-4">Các báo cáo tiêu chuẩn trong Google Analytics 4</h2>
+<p>Các báo cáo tiêu chuẩn trong Google Analytics 4 được tổ chức theo vòng đời khách hàng, trong đó hai nhóm quan trọng nhất phục vụ quyết định hàng tuần của doanh nghiệp vừa và nhỏ là Thu nạp (Acquisition) và Mức độ tương tác (Engagement). Bảng chọn ba cột dưới đây nối trực tiếp bốn câu hỏi marketing với đúng báo cáo cần&nbsp;mở.</p>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/05-google-analytics-4-la-gi.webp" srcset="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/05-google-analytics-4-la-gi-800.webp 800w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/05-google-analytics-4-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ đối chiếu phạm vi đo giữa báo cáo Thu nạp người dùng và báo cáo Thu nạp lưu lượng trong Google Analytics 4" width="1600" height="900"><figcaption>Phân biệt đúng phạm vi người dùng đầu tiên và phạm vi phiên giúp người làm marketing đánh giá công bằng vai trò của từng kênh</figcaption></figure>
+<h3 id="nhom-bao-cao-thu-nap-va-muc-do-tuong-tac">Nhóm báo cáo Thu nạp và Mức độ tương tác</h3>
+<p>Khi mở phần Thu nạp (Acquisition), người mới dùng thường bối rối vì thấy hai báo cáo có giao diện gần giống nhau nhưng con số lại khác nhau. Điểm phân biệt cốt lõi nằm ở phạm vi phương diện của từng báo&nbsp;cáo.</p>
+<p>Báo cáo <strong>Thu nạp người dùng</strong> (User Acquisition) gắn với người dùng đầu tiên (<code>First user</code>), giúp xác định kênh nào đã đưa khách hàng mới biết đến website lần đầu. Ngược lại, báo cáo <strong>Thu nạp lưu lượng</strong> (Traffic Acquisition) dùng phạm vi phiên truy cập (<code>Session</code>), cho biết chiến dịch nào vừa tạo ra lượt truy cập hôm nay, bất kể khách mới hay khách&nbsp;cũ.</p>
+<p>Tiếp đó, nhóm <strong>Mức độ tương tác</strong> gồm các báo cáo Sự kiện, Trang và màn hình cùng Trang đích cho biết khách xem nội dung nào. Khi kết hợp dữ liệu này vào việc <a href="../../../goc-kien-thuc/marketing/marketing-online-google/">triển khai marketing online trên Google</a> hoặc <a href="../../../goc-kien-thuc/marketing/content-marketing-la-gi/">đo hiệu quả content marketing</a>, bạn sẽ tránh cắt nhầm kênh tạo nhận biết. Bảng dưới đây nối bốn câu hỏi quản trị với báo cáo cần&nbsp;mở.</p>
+<div class="kb-table" role="region" aria-label="Bảng chọn báo cáo tiêu chuẩn trong Google Analytics 4 theo câu hỏi marketing của SME" tabindex="0"><table>
+  <caption>Bảng chọn báo cáo tiêu chuẩn trong Google Analytics 4 theo câu hỏi marketing của SME</caption>
+  <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
+  <thead><tr><th>Câu hỏi marketing</th><th>Báo cáo chuẩn cần mở</th><th>Phương diện và chỉ số đọc</th></tr></thead>
+  <tbody>
+    <tr><td data-label="Câu hỏi marketing">Kênh nào kéo&nbsp;khách&nbsp;mới?</td><td data-label="Báo cáo chuẩn cần mở">Báo cáo Thu nạp người dùng trong mục&nbsp;Thu&nbsp;nạp</td><td data-label="Phương diện và chỉ số đọc">Nhóm kênh của người dùng đầu tiên kèm số Người&nbsp;dùng&nbsp;mới</td></tr>
+    <tr><td data-label="Câu hỏi marketing">Chiến dịch nào&nbsp;tạo&nbsp;phiên?</td><td data-label="Báo cáo chuẩn cần mở">Báo cáo Thu nạp lưu lượng trong mục&nbsp;Thu&nbsp;nạp</td><td data-label="Phương diện và chỉ số đọc">Nguồn và phương tiện của phiên kèm Tỷ lệ tương tác, Sự&nbsp;kiện&nbsp;chính</td></tr>
+    <tr><td data-label="Câu hỏi marketing">Trang đích nào&nbsp;giữ&nbsp;chân?</td><td data-label="Báo cáo chuẩn cần mở">Báo cáo Trang đích trong mục Mức độ&nbsp;tương&nbsp;tác</td><td data-label="Phương diện và chỉ số đọc">Đường dẫn trang đích kèm Thời gian tương tác bình quân&nbsp;mỗi&nbsp;phiên</td></tr>
+    <tr><td data-label="Câu hỏi marketing">Hành vi nào&nbsp;phát&nbsp;sinh?</td><td data-label="Báo cáo chuẩn cần mở">Báo cáo Sự kiện trong mục Mức độ&nbsp;tương&nbsp;tác</td><td data-label="Phương diện và chỉ số đọc">Tên sự kiện kèm Tổng số lượt sự kiện và Số người dùng&nbsp;thực&nbsp;hiện</td></tr>
+  </tbody>
+</table></div>
+<p>Giới hạn khi đọc bảng: các báo cáo tiêu chuẩn hiển thị số liệu tổng hợp theo từng lát cắt đơn lẻ để kiểm tra sức khỏe kênh định kỳ. Như tài liệu năm 2024 của <a href="https://support.google.com/analytics/answer/9322688" target="_blank" rel="noopener">Google Analytics Help</a> lưu ý, sự kiện tùy chỉnh không tự động phân rã chi tiết trong hầu hết báo cáo chuẩn nếu chưa cấu hình phương diện tùy&nbsp;chỉnh.</p>
+<h3 id="khi-nao-sme-chuyen-sang-bao-cao-kham-pha">Khi nào SME chuyển sang báo cáo Khám phá</h3>
+<p>Vậy khi nào doanh nghiệp vừa và nhỏ cần vượt ra khỏi các báo cáo tiêu chuẩn để vào mục Khám phá (Explorations)? Nếu website của bạn chỉ có luồng chuyển đổi ngắn từ bài viết sang biểu mẫu liên hệ, bộ báo cáo tiêu chuẩn ở bảng trên đã đáp ứng đủ nhu cầu ra quyết&nbsp;định.</p>
+<p>Đội ngũ chỉ nên dựng báo cáo Khám phá trong hai trường hợp: cần biểu đồ Phễu để đo tỷ lệ rớt khách qua chuỗi nhiều bước bắt buộc như xem hàng, thêm giỏ, thanh toán; hoặc cần bảng Tự do để ghép nhiều phương diện tùy chỉnh. Khi dữ liệu còn mỏng, dựng bảng phức tạp chỉ tốn thời gian mà không tạo ra quyết định&nbsp;mới.</p>
+<h2 id="ba-loi-lam-lech-du-lieu-khi-moi-su-dung-ga4">Ba lỗi làm lệch dữ liệu khi mới sử dụng GA4</h2>
+<p>Ba lỗi phổ biến nhất khiến doanh nghiệp vừa và nhỏ đọc sai hoặc không thấy dữ liệu trong Google Analytics 4 gồm: quên đăng ký tham số sự kiện thành phương diện tùy chỉnh, nhầm độ trễ xử lý 24 đến 48 giờ với lỗi mất mã, và gắn trùng mã đo lường làm nhân đôi số sự kiện. Nhận diện sớm ba cơ chế dưới đây giúp giữ số liệu&nbsp;sạch.</p>
+<ul>
+  <li><strong>Gửi tham số nhưng quên đăng ký phương diện:</strong> Kỹ thuật viên đã gắn tham số vị trí nút bấm trong GTM, nhưng không vào mục Định nghĩa tùy chỉnh của GA4 để đăng ký nên báo cáo chỉ hiện tổng lượt sự kiện mà không tách được chi&nbsp;tiết.</li>
+  <li><strong>Sửa mã liên tục trong thời gian chờ xử lý:</strong> Theo tài liệu năm 2024 của <a href="https://support.google.com/analytics/answer/10075209" target="_blank" rel="noopener">Google Analytics Help</a>, hệ thống cần từ 24 đến 48 giờ để cập nhật dữ liệu mới vào báo cáo chuẩn và phương diện tùy chỉnh; nhiều đội không kiểm tra DebugView mà vội xóa thẻ cài&nbsp;lại.</li>
+  <li><strong>Gắn trùng mã giữa website và GTM:</strong> Website vừa giữ mã cài trực tiếp trong giao diện hoặc trình cắm, vừa bật thêm thẻ Google Tag cùng mã Measurement ID trên GTM, khiến mỗi lượt xem trang bị tính hai lần và làm sai lệch tỷ lệ tương&nbsp;tác.</li>
+</ul>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/06-google-analytics-4-la-gi.webp" srcset="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/06-google-analytics-4-la-gi-800.webp 800w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/06-google-analytics-4-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Đối chiếu cách thiết lập sự kiện tùy chỉnh sai và đúng khi đo lường hành vi nhấp nút liên hệ trên website doanh nghiệp" width="1600" height="900"><figcaption>Gộp sự kiện theo quy ước tên chuẩn và đăng ký tham số làm phương diện tùy chỉnh giúp báo cáo rõ ràng mà không tốn hạn mức</figcaption></figure>
+<div class="kb-case">
+  <p class="kb-case__k">Ví dụ biên tập, không phải kết quả khách hàng&nbsp;thật</p>
+  <p class="kb-case__t">Đối chiếu cách thiết lập sự kiện tùy chỉnh sai và đúng trên trang dịch&nbsp;vụ</p>
+  <p>Một phòng khám nha khoa tại Hà Nội đặt ba nút nhắn Zalo ở đầu trang, giữa bài và chân trang dịch vụ. Cách làm sai: đội ngũ tạo ba sự kiện rời rạc nhưng gán nhầm điều kiện cho mọi liên kết chứa chữ Zalo, quên đăng ký phương diện tùy chỉnh và vừa cài mã qua plugin vừa bật thẻ GTM, khiến lượt bấm bị đếm&nbsp;trùng.</p>
+  <p>Cách làm đúng: đội ngũ gộp về một sự kiện <code>click_zalo</code>, truyền tham số vị trí nút, đăng ký tham số này làm phương diện tùy chỉnh trong GA4, gỡ mã trùng ở plugin và kiểm tra qua DebugView. Sau 48 giờ, báo cáo tách rõ lượt nhấp từng vị trí mà chỉ tốn 1 trong hạn mức 50 phương diện tùy&nbsp;chỉnh.</p>
+</div>
+<p>Trong ví dụ biên tập này, sự khác biệt nằm ở quy ước đặt tên và bước nghiệm thu dữ liệu đầu vào. Thiết lập đúng ngay từ đầu tiết kiệm hàng chục giờ dọn rác số liệu về sau. Gắn thẻ chưa phải là có dữ&nbsp;liệu.</p>
+<aside class="kb-cta kb-cta--nut">
+  <p class="kb-cta__t">Muốn xem cách tôi chuẩn hóa đo lường trong dự án?</p>
+  <a class="kb-btn kb-btn--ghost" href="../../../#du-an">Xem dự án <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</aside>
+<h2 id="khung-doc-chi-so-ga4-va-gioi-han-du-lieu-cho-sme">Khung đọc chỉ số GA4 và giới hạn dữ liệu cho SME</h2>
+<p>Để biến báo cáo Google Analytics 4 thành hành động tối ưu ngân sách và nội dung, doanh nghiệp vừa và nhỏ cần tách hệ thống chỉ số thành ba tầng: tín hiệu tương tác, hành vi đạt chuẩn và kết quả kinh doanh xác nhận. Khung đo lường ba tầng dưới đây giúp đội ngũ đọc số đúng ngữ cảnh và tránh bẫy quy kết sai&nbsp;nguồn.</p>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/07-google-analytics-4-la-gi.webp" srcset="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/07-google-analytics-4-la-gi-800.webp 800w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi/07-google-analytics-4-la-gi.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ khung đọc chỉ số Google Analytics 4 theo 3 tầng từ tương tác, sự kiện chính đến doanh thu thực tế trên CRM" width="1600" height="900"><figcaption>Đặt chỉ số GA4 cạnh dữ liệu bán hàng thực tế theo ba tầng giúp doanh nghiệp không nhầm lượt tương tác với hiệu quả doanh thu</figcaption></figure>
+<p>Mỗi tầng chỉ số đóng một vai trò riêng: tầng một kiểm tra chất lượng luồng truy cập và trải nghiệm trang đích; tầng hai phát hiện điểm nghẽn trên phễu chuyển đổi; và tầng ba quyết định phân bổ ngân sách kênh sau khi đối chiếu doanh thu trên CRM (hệ thống quản lý quan hệ khách hàng). Bảng dưới đây trình bày ba tầng đo lường&nbsp;này.</p>
+<div class="kb-table" role="region" aria-label="Khung đo lường 3 tầng trong Google Analytics 4 gắn với giới hạn quy kết cho SME" tabindex="0"><table>
+  <caption>Khung đo lường 3 tầng trong Google Analytics 4 gắn với giới hạn quy kết cho SME</caption>
+  <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
+  <thead><tr><th>Tầng đo lường</th><th>Chỉ số và nguồn báo cáo GA4</th><th>Giới hạn khi đọc và quy kết</th></tr></thead>
+  <tbody>
+    <tr><td data-label="Tầng đo lường">Tầng 1:&nbsp;Tương&nbsp;tác</td><td data-label="Chỉ số và nguồn báo cáo GA4">Người dùng, Phiên, Tỷ lệ tương tác (từ ngưỡng 10 giây) tại báo cáo&nbsp;Thu&nbsp;nạp</td><td data-label="Giới hạn khi đọc và quy kết">Chỉ phản ánh sức hút ban đầu và độ khớp nội dung, chưa chứng minh&nbsp;doanh&nbsp;thu</td></tr>
+    <tr><td data-label="Tầng đo lường">Tầng 2: Khách&nbsp;đạt&nbsp;chuẩn</td><td data-label="Chỉ số và nguồn báo cáo GA4">Số lượng Sự kiện chính và Tỷ lệ sự kiện chính theo phiên hoặc&nbsp;người&nbsp;dùng</td><td data-label="Giới hạn khi đọc và quy kết">Ghi nhận thao tác gửi biểu mẫu hoặc nhấp nút, chưa lọc được liên&nbsp;hệ&nbsp;trùng</td></tr>
+    <tr><td data-label="Tầng đo lường">Tầng 3: Doanh&nbsp;thu&nbsp;thực</td><td data-label="Chỉ số và nguồn báo cáo GA4">Doanh thu thương mại điện tử hoặc đối chiếu mã chiến dịch với dữ&nbsp;liệu&nbsp;CRM</td><td data-label="Giới hạn khi đọc và quy kết">Dễ lệch số so với thực tế do đơn hoàn hủy, khách chốt qua điện&nbsp;thoại&nbsp;riêng</td></tr>
+  </tbody>
+</table></div>
+<p>Giới hạn khi đọc bảng: số liệu trên Google Analytics 4 luôn là bức tranh xấp xỉ có điều kiện chứ không ghi nhận tuyệt đối mọi hành vi ngoài đời thực. Khi khách hàng gửi đường dẫn bài viết qua ứng dụng nhắn tin riêng tư, lượt truy cập đó thường mất dấu nguồn và rơi vào nhóm trực tiếp; bạn có thể đọc bài <a href="../../../goc-kien-thuc/marketing/dark-social-la-gi/">hiểu đúng nguồn direct traffic và dark social</a> để nắm cơ chế&nbsp;này.</p>
+<p>Bên cạnh chia sẻ riêng tư, việc trình duyệt chặn bộ nhớ lưu trữ (cookie), người dùng đổi thiết bị khi mua hàng hoặc đội ngũ chạy quảng cáo quên gắn bộ tham số theo dõi chiến dịch (UTM) nhất quán cũng làm đứt chuỗi quy kết giữa các&nbsp;kênh.</p>
+<p>Để giữ nhịp kiểm soát mà không bị quá tải, tôi ưu tiên duy trì lịch đọc báo cáo theo hai nhịp: rà soát đầu mỗi tuần trên báo cáo Thu nạp lưu lượng để phát hiện sớm trang đích lỗi, và đối chiếu cuối mỗi tháng giữa số Sự kiện chính trên GA4 với số khách hợp lệ trên CRM để phân bổ lại ngân&nbsp;sách.</p>
+<aside class="kb-cta kb-cta--late" aria-label="Dự án đã triển khai">
+  <span class="kb-cta__ico" aria-hidden="true"><svg aria-hidden="true"><use href="#i-layers"/></svg></span>
+  <div class="kb-cta__txt">
+    <p class="kb-cta__t">Xem dự án cố vấn Marketing tôi đã phụ trách</p>
+    <p class="kb-cta__d">Thực tế tối ưu CPL tại Hệ thống Y Đa khoa TOMEC</p>
+  </div>
+  <a class="kb-btn kb-btn--ghost" href="../../../#du-an">Xem dự án <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</aside>
+<h2 id="cau-hoi-thuong-gap-ve-google-analytics-4">Câu hỏi thường gặp về Google Analytics 4</h2>
+<div class="kb-faq">
+  <details class="kb-faq__item" open>
+    <summary><h3 class="kb-faq__q">Vì sao đã gắn mã nhưng báo cáo chuẩn GA4 chưa hiện số?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Có độ trễ xử lý hệ thống vì theo tài liệu Google Analytics Help năm 2024, nền tảng cần từ 24 đến 48 giờ để tổng hợp dữ liệu mới vào các báo cáo tiêu chuẩn và phương diện tùy chỉnh. Để kiểm tra ngay lập tức sau khi gắn thẻ, bạn cần mở báo cáo Thời gian thực (Realtime) hoặc bật chế độ xem trước của Google Tag Manager để quan sát trong DebugView. Nếu cả hai công cụ tức thời này vẫn trống, hãy rà soát lại mã Measurement ID và điều kiện kích hoạt của thẻ.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Khi nào nên dùng sự kiện tự động thay vì sự kiện tùy chỉnh?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Luôn ưu tiên dùng sự kiện thu thập tự động, sự kiện đo lường nâng cao và sự kiện đề xuất của Google trước khi tự tạo bất kỳ sự kiện tùy chỉnh nào. Bạn chỉ nên dựng sự kiện tùy chỉnh khi hành vi cần đo đặc thù cho phễu bán hàng của doanh nghiệp như nhấp nút nhắn Zalo hoặc gửi biểu mẫu tư vấn riêng mà danh mục mặc định chưa hỗ trợ. Nguyên tắc này giúp tận dụng sẵn các bảng báo cáo chuẩn của Google và bảo toàn hạn mức 50 phương diện tùy chỉnh phạm vi sự kiện trên thuộc tính tiêu chuẩn.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Vì sao số người dùng ở báo cáo Thu nạp lệch với Khám phá?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Có sự chênh lệch này là do hai khu vực báo cáo áp dụng phạm vi phương diện, mô hình quy kết và cách tổng hợp dữ liệu khác nhau. Báo cáo tiêu chuẩn lấy số liệu từ các bảng đã xử lý sẵn theo người dùng đầu tiên hoặc theo phiên, còn mục Khám phá lại truy vấn trực tiếp dữ liệu thô nên chịu tác động của thời hạn lưu trữ và ngưỡng lấy mẫu. Vì vậy, người làm marketing chỉ nên theo dõi xu hướng biến động trong cùng một loại báo cáo thay vì so ngang con số tuyệt đối giữa hai giao diện.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Website ít truy cập có cần dựng báo cáo Khám phá không?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Không cần thiết nếu website của doanh nghiệp mới có lưu lượng truy cập nhỏ và hành trình chuyển đổi ngắn từ bài viết sang biểu mẫu đăng ký hoặc nút gọi điện. Trong giai đoạn đầu, nhóm báo cáo tiêu chuẩn gồm Thu nạp người dùng, Thu nạp lưu lượng, Sự kiện và Trang đích đã giải đáp đủ các câu hỏi tối ưu kênh hàng tuần. Đội ngũ chỉ nên chuyển sang dựng báo cáo Khám phá khi cần mổ xẻ tỷ lệ rớt khách qua từng bước phễu cố định hoặc tách phân khúc theo nhiều phương diện tùy chỉnh.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Google Analytics 4 có dùng miễn phí cho doanh nghiệp nhỏ không?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Có, phiên bản thuộc tính Google Analytics 4 tiêu chuẩn hoàn toàn miễn phí và đáp ứng trọn vẹn nhu cầu đo lường website lẫn ứng dụng của doanh nghiệp vừa và nhỏ. Tính đến năm 2024 theo Google Analytics Help, bản miễn phí cho phép gửi tối đa 25 tham số đi kèm mỗi sự kiện và tạo tới 50 phương diện tùy chỉnh ở phạm vi sự kiện. Chỉ những tập đoàn có khối lượng sự kiện cực lớn và cần hợp đồng cam kết mức dịch vụ riêng mới phải nâng cấp lên bản trả phí của Google.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Sự kiện chính (Key event) khác gì chuyển đổi trong GA4?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Sự kiện chính (Key event) chính là tên gọi mới của chỉ số Chuyển đổi (Conversion) trước đây trong các báo cáo hành vi của Google Analytics 4 nhằm thống nhất cách tính với Google Ads. Về mặt kỹ thuật, bất kỳ sự kiện nào phản ánh hành động có giá trị kinh doanh và được bạn bật đánh dấu trong phần Quản trị GA4 đều trở thành Sự kiện chính. Thuật ngữ Chuyển đổi hiện được Google dành riêng cho các hành động tạo từ Sự kiện chính để đồng bộ trực tiếp sang tài khoản Google Ads phục vụ đấu thầu quảng cáo.</p></div>
+  </details>
+</div>
+<h2 id="ket-luan">Kết luận</h2>
+<p>Hiểu đúng Google Analytics 4 là gì không dừng ở việc nhớ vị trí các nút bấm, mà là nắm vững tư duy đo lường theo sự kiện: mỗi sự kiện gắn lên website phải trả lời một câu hỏi kinh doanh cụ thể và đi kèm giới hạn dữ liệu. Khi luồng dữ liệu được cài chuẩn và chỉ số tách thành ba tầng, báo cáo sẽ chỉ rõ điểm nghẽn trên hành trình&nbsp;mua.</p>
+<p>Ngay trong tuần này, bạn có thể mở mục Quản trị trên tài khoản GA4 hiện tại để tự kiểm tra ba điểm cơ bản: múi giờ và tiền tệ của thuộc tính đã đúng chuẩn Việt Nam chưa, có thẻ đo lường nào đang bị bắn trùng hai lần trong DebugView không, và các hành vi liên hệ quan trọng đã được đánh dấu làm Sự kiện chính hay&nbsp;chưa.</p>
+<p>Khi doanh nghiệp mở rộng chạy đa kênh nhưng số liệu giữa GA4 và bảng theo dõi bán hàng vẫn lệch nhau từng kỳ, việc sửa lẻ tẻ từng thẻ sự kiện sẽ không giải quyết được gốc rễ. Lúc đó, đội ngũ cần một khung hoạch định đo lường đồng bộ từ cấu trúc trang đích, quy ước gắn mã chiến dịch đến bước lọc khách tiềm&nbsp;năng.</p>
+<p>Bạn có thể tham khảo thêm các bài viết cùng hệ thống trong chuyên mục <a href="../../../goc-kien-thuc/marketing/">Marketing</a> để hoàn thiện nền tảng vận hành cho doanh nghiệp. Website của bạn hiện đã nối được dữ liệu sự kiện trên GA4 với chất lượng khách hàng tiềm năng thực tế hay vẫn đang dừng ở việc đếm lượt xem trang hàng&nbsp;tháng?</p>
+            </div>
+
+            <section class="kb-authorbox" aria-label="Về tác giả">
+              <img class="kb-authorbox__photo" src="../../../assets/kb/le-tuan-viet.webp" alt="Lê Tuấn Việt, Marketing Leader tại TAKI Group" width="96" height="96" loading="lazy" decoding="async">
+              <div class="kb-authorbox__body">
+                <p class="kb-authorbox__name">Lê Tuấn Việt <svg aria-hidden="true"><use href="#i-verified"/></svg></p>
+                <p class="kb-authorbox__role">Marketing Leader tại <a href="https://taki.vn" target="_blank" rel="noopener">TAKI Group</a></p>
+                <p class="kb-authorbox__slogan"><b class="kb-authorbox__pos">Marketing &amp; Growth Architect</b>Biến chiến lược thành hệ thống. Biến hệ thống thành tăng trưởng.</p>
+                <p class="kb-authorbox__bio"><a href="../../../">Lê Tuấn Việt</a> có hơn 4 năm kinh nghiệm trong Marketing, từng tư vấn chiến lược cho hơn 200 doanh nghiệp SME. Anh bắt đầu từ bài toán kinh doanh, chuyển mục tiêu thành kế hoạch, quy trình triển khai và hệ thống KPI rõ ràng. Từ đó, các hoạt động Marketing được phối hợp, đo lường và tối ưu để tạo ra tăng trưởng bền vững.</p>
+                <div class="kb-authorbox__links">
+                  <a href="../../../" rel="author">Xem Portfolio <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                  <a href="../../../#du-an">Dự án đã triển khai <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                  <a href="../../../#lien-he">Liên hệ <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </div>
+            </section>
+
+            <div class="kb-art__end">
+              <div class="kb-share kb-share--end">
+          <span class="kb-share__label">Chia sẻ</span>
+          <a class="kb-share__btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fletuanviet.com%2Fgoc-kien-thuc%2Fmarketing%2Fgoogle-analytics-4-la-gi%2F" target="_blank" rel="noopener" aria-label="Chia sẻ lên Facebook"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a>
+          <a class="kb-share__btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fletuanviet.com%2Fgoc-kien-thuc%2Fmarketing%2Fgoogle-analytics-4-la-gi%2F" target="_blank" rel="noopener" aria-label="Chia sẻ lên LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+          <a class="kb-share__btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fletuanviet.com%2Fgoc-kien-thuc%2Fmarketing%2Fgoogle-analytics-4-la-gi%2F&amp;text=Google%20Analytics%204%20l%C3%A0%20g%C3%AC%20v%C3%A0%20c%C3%A1ch%20d%C3%B9ng%20GA4" target="_blank" rel="noopener" aria-label="Chia sẻ lên X"><svg aria-hidden="true"><use href="#i-x"/></svg></a>
+          <button class="kb-share__btn" type="button" data-share-copy="https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/" aria-label="Sao chép liên kết bài viết"><svg aria-hidden="true"><use href="#i-link"/></svg></button>
+        </div>
+            </div>
+          </div>
+
+          <aside class="kb-art__aside" aria-label="Tìm kiếm, chuyên mục và bài viết mới">
+            <div class="kb-side" data-kb-recent="../../../goc-kien-thuc/recent.json" data-kb-self="goc-kien-thuc/marketing/google-analytics-4-la-gi/">
+              <form class="kb-search kb-search--side" role="search" action="../../../goc-kien-thuc/" method="get" data-kb-search="../../../goc-kien-thuc/search.json" data-rel="../../../" data-zalo="https://zalo.me/0935702321">
+      <div class="kb-search__box">
+        
+        <label class="sr-only" for="kb-sq">Tìm kiếm bài viết trong Góc kiến thức</label>
+        <input id="kb-sq" name="q" type="search" placeholder="Tìm kiếm bài viết" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="kb-sq-list">
+        <button class="kb-search__clear" type="button" aria-label="Xóa từ khóa"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+        <button class="kb-search__btn" type="submit"><svg aria-hidden="true"><use href="#i-search"/></svg><span>Tìm kiếm</span></button>
+      </div>
+      <div class="kb-search__panel" hidden>
+        <p class="kb-search__head" aria-hidden="true"></p>
+        <ul class="kb-search__list" id="kb-sq-list" role="listbox" aria-label="Kết quả tìm kiếm"></ul>
+      </div>
+      <p class="sr-only" role="status" aria-live="polite"></p>
+    </form>
+              <nav class="kb-side__box" aria-labelledby="kb-side-cat">
+                <p class="kb-side__t" id="kb-side-cat">Chuyên mục</p>
+                <ul class="kb-side__cats">
+                <li><a class="kb-side__cat is-current" href="../../../goc-kien-thuc/marketing/"><svg aria-hidden="true"><use href="#i-chev-r"/></svg><span class="kb-side__cname">Marketing</span><span class="kb-side__n">35</span></a></li>
+                <li><a class="kb-side__cat" href="../../../goc-kien-thuc/ai-marketing/"><svg aria-hidden="true"><use href="#i-chev-r"/></svg><span class="kb-side__cname">AI Marketing</span><span class="kb-side__n">7</span></a></li>
+                <li><a class="kb-side__cat" href="../../../goc-kien-thuc/quan-tri-marketing/"><svg aria-hidden="true"><use href="#i-chev-r"/></svg><span class="kb-side__cname">Quản trị Marketing</span><span class="kb-side__n">8</span></a></li>
+                <li><a class="kb-side__cat" href="../../../goc-kien-thuc/du-an-va-bai-hoc/"><svg aria-hidden="true"><use href="#i-chev-r"/></svg><span class="kb-side__cname">Case Marketing</span><span class="kb-side__n">10</span></a></li>
+                </ul>
+              </nav>
+              <section class="kb-side__box" aria-labelledby="kb-side-new">
+                <p class="kb-side__t" id="kb-side-new">Kiến thức mới</p>
+                <ul class="kb-side__posts">
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/marketing/inbound-marketing-la-gi/"><span class="kb-side__img"><img src="https://img.letuanviet.com/kb/inbound-marketing-la-gi/78a4ef5345/inbound-marketing-la-gi-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="Inbound Marketing là gì, lộ trình cho SME"><span>Inbound Marketing là gì,</span> <span>lộ trình cho SME</span></b><small><time datetime="2026-11-10">10/11/2026</time></small></span></a></li>
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/marketing/email-marketing-la-gi/"><span class="kb-side__img"><img src="https://img.letuanviet.com/kb/email-marketing-la-gi/856d14bea8/email-marketing-la-gi-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="Email marketing là gì và cách làm cho SME"><span>Email marketing là gì</span> <span>và cách làm cho SME</span></b><small><time datetime="2026-11-10">10/11/2026</time></small></span></a></li>
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/marketing/customer-journey-la-gi/"><span class="kb-side__img"><img src="../../../assets/kb/customer-journey-la-gi-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="Customer Journey là gì và 6 bước lập bản đồ"><span>Customer Journey là gì</span> <span>và 6 bước lập bản đồ</span></b><small><time datetime="2026-11-10">10/11/2026</time></small></span></a></li>
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/marketing/7p-trong-marketing-la-gi/"><span class="kb-side__img"><img src="../../../assets/kb/7p-trong-marketing-la-gi-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="7P trong marketing là gì, đối chiếu 4P và 4C"><span>7P trong marketing là gì,</span> <span>đối chiếu 4P và 4C</span></b><small><time datetime="2026-11-10">10/11/2026</time></small></span></a></li>
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/marketing/chien-luoc-gia-la-gi/"><span class="kb-side__img"><img src="../../../assets/kb/chien-luoc-gia-la-gi-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="Chiến lược giá là gì và cách chọn cho SME"><span>Chiến lược giá là gì</span> <span>và cách chọn cho SME</span></b><small><time datetime="2026-11-09">09/11/2026</time></small></span></a></li>
+                </ul>
+              </section>
+            </div>
+            <div class="kb-side__cta bio">
+              <div class="bio__photo"><img src="../../../assets/kb/le-tuan-viet-photo.webp" alt="Lê Tuấn Việt, Marketing Leader tại TAKI Group" loading="lazy" decoding="async" width="760" height="760"></div>
+              <div class="bio__body">
+                <div class="bio__sig"><img src="../../../assets/img/signature.png" alt="Chữ ký Lê Tuấn Việt" width="984" height="346" loading="lazy" decoding="async"></div>
+                <div class="bio__links">
+                  <button class="bio__link" type="button" data-copy="work@letuanviet.com"><span><svg aria-hidden="true"><use href="#i-mail"/></svg><em>work@letuanviet.com</em></span><small>Sao chép</small></button>
+                  <a class="bio__link" href="tel:0935702321"><span><svg aria-hidden="true"><use href="#i-phone"/></svg><em>0935 702 321</em></span><small>Gọi</small></a>
+                  <a class="bio__link" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo><span><svg aria-hidden="true"><use href="#i-zalo"/></svg><em>Zalo I Tuấn Việt</em></span><small>Mở</small></a>
+                </div>
+                <a class="kb-btn kb-btn--primary kb-btn--block kb-side__go" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo>Nhận tư vấn Marketing <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </article>
+
+
+    <section class="kb-more" aria-labelledby="kb-more-title">
+      <div class="container">
+        <header class="kb-head">
+          <h2 class="kb-head__t" id="kb-more-title" data-fit data-split>Bài viết có <span class="grad">liên quan</span></h2>
+          <div class="kb-more__actions">
+            <div class="kb-more__nav" aria-label="Điều hướng bài viết liên quan">
+              <button class="round kb-more__btn" type="button" data-more-nav="-1" aria-label="Bài trước"><svg class="kb-pager__prev" aria-hidden="true"><use href="#i-chev-r"/></svg></button>
+              <button class="round kb-more__btn" type="button" data-more-nav="1" aria-label="Bài tiếp"><svg aria-hidden="true"><use href="#i-chev-r"/></svg></button>
+            </div>
+            <a class="btn btn--dark btn--sm magnetic" href="../../../goc-kien-thuc/">Tất cả bài viết <svg class="ico ico--arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </header>
+        <div class="kb-more__viewport" data-more-viewport>
+          <div class="kb-more__track" data-more-track><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/zero-party-data-va-first-party-data-320.webp 320w, ../../../assets/kb/zero-party-data-va-first-party-data-640.webp 640w, ../../../assets/kb/zero-party-data-va-first-party-data.webp 1200w, ../../../assets/kb/zero-party-data-va-first-party-data-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="../../../assets/kb/zero-party-data-va-first-party-data.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-09-30"><b>30</b> <span>09/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/zero-party-data-va-first-party-data/">Zero-party data là gì và khác first-party data thế nào?</a></h3>
+            <p class="kb-post__x">Zero-party data là dữ liệu khách hàng chủ động, có ý thức chia sẻ với thương hiệu, như nhu cầu, sở thích hoặc cách họ muốn nhận thông tin. First-party data là dữ liệu doanh nghiệp thu trực tiếp từ quan hệ và tương tác với khách hàng.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/thiet-ke-website-du-lich-320.webp 320w, ../../../assets/kb/thiet-ke-website-du-lich-640.webp 640w, ../../../assets/kb/thiet-ke-website-du-lich.webp 1200w, ../../../assets/kb/thiet-ke-website-du-lich-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="../../../assets/kb/thiet-ke-website-du-lich.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-07"><b>07</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/thiet-ke-website-du-lich/">Thiết kế website du lịch và dịch vụ cho&nbsp;SME</a></h3>
+            <p class="kb-post__x">Thiết kế website du lịch và dịch vụ là việc xây dựng luồng tra cứu lịch trình, báo giá và giữ chỗ khớp với năng lực đón khách thực tế. Bài viết phân tích cấu trúc tính năng theo ngành, ba phương án đầu tư và quy trình bốn bước triển khai cho doanh nghiệp vừa và nhỏ.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/marketing-online-google-320.webp 320w, ../../../assets/kb/marketing-online-google-640.webp 640w, ../../../assets/kb/marketing-online-google.webp 1200w, ../../../assets/kb/marketing-online-google-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="../../../assets/kb/marketing-online-google.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-10-27"><b>27</b> <span>10/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/marketing-online-google/">Marketing online Google: Chọn SEO hay&nbsp;Ads?</a></h3>
+            <p class="kb-post__x">Marketing online Google bao gồm cả kênh tự nhiên lẫn quảng cáo trả phí trên hệ sinh thái tìm kiếm, bản đồ và video. Bài viết phân biệt SEO với Google Ads, cung cấp bảng chọn kênh theo nguồn lực và quy trình 4 bước đo lường chuyển đổi thực chất.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/7p-trong-marketing-la-gi-320.webp 320w, ../../../assets/kb/7p-trong-marketing-la-gi-640.webp 640w, ../../../assets/kb/7p-trong-marketing-la-gi.webp 1200w, ../../../assets/kb/7p-trong-marketing-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="../../../assets/kb/7p-trong-marketing-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-10"><b>10</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/7p-trong-marketing-la-gi/">7P trong marketing là gì, đối chiếu 4P và&nbsp;4C</a></h3>
+            <p class="kb-post__x">7P trong marketing là mô hình tiếp thị hỗn hợp mở rộng từ 4P sang bảy biến số kiểm soát cả sản phẩm lẫn trải nghiệm dịch vụ. Bài viết đối chiếu 7P với hệ quy chiếu 4C, hướng dẫn ma trận điều chỉnh trọng số qua bốn giai đoạn vòng đời và khung KPI kiểm soát cho SME.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/chien-luoc-digital-marketing-la-gi-320.webp 320w, ../../../assets/kb/chien-luoc-digital-marketing-la-gi-640.webp 640w, ../../../assets/kb/chien-luoc-digital-marketing-la-gi.webp 1200w, ../../../assets/kb/chien-luoc-digital-marketing-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="../../../assets/kb/chien-luoc-digital-marketing-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-09"><b>09</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/chien-luoc-digital-marketing-la-gi/">Chiến lược Digital Marketing là gì, cách&nbsp;lập</a></h3>
+            <p class="kb-post__x">Chiến lược Digital Marketing là khung quyết định dài hạn giúp doanh nghiệp chọn phân khúc khách hàng, đề xuất giá trị và trọng tâm nguồn lực số. Bài viết đối chiếu ba cấp hoạch định, đưa ma trận chọn kênh, quy trình bốn bước và khung đo ba tầng.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/cach-tao-website-320.webp 320w, ../../../assets/kb/cach-tao-website-640.webp 640w, ../../../assets/kb/cach-tao-website.webp 1200w, ../../../assets/kb/cach-tao-website-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="../../../assets/kb/cach-tao-website.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-05"><b>05</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/cach-tao-website/">Cách tạo website chuẩn chuyển đổi cho&nbsp;SME</a></h3>
+            <p class="kb-post__x">Cách tạo website cho doanh nghiệp vừa và nhỏ bắt đầu từ việc chọn phương thức triển khai khớp nguồn lực vận hành, sau đó thiết lập hạ tầng, nội dung trụ cột và khung đo lường chuyển đổi ba tầng trước khi mở rộng ngân sách thu hút truy cập.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/tam-ly-khach-hang-la-gi-320.webp 320w, ../../../assets/kb/tam-ly-khach-hang-la-gi-640.webp 640w, ../../../assets/kb/tam-ly-khach-hang-la-gi.webp 1200w, ../../../assets/kb/tam-ly-khach-hang-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="../../../assets/kb/tam-ly-khach-hang-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-06"><b>06</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/tam-ly-khach-hang-la-gi/">Tâm lý khách hàng là gì và cách ứng&nbsp;dụng</a></h3>
+            <p class="kb-post__x">Hiểu rõ tâm lý khách hàng là gì giúp doanh nghiệp vừa và nhỏ nối đúng động cơ, cảm xúc và rào cản của người mua ở từng chặng hành trình với kịch bản nội dung, cách trưng bày tại điểm bán và hệ thống đo lường chuyển đổi thực tế.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/khach-hang-muc-tieu-la-gi-320.webp 320w, ../../../assets/kb/khach-hang-muc-tieu-la-gi-640.webp 640w, ../../../assets/kb/khach-hang-muc-tieu-la-gi.webp 1200w, ../../../assets/kb/khach-hang-muc-tieu-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="../../../assets/kb/khach-hang-muc-tieu-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-06"><b>06</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/khach-hang-muc-tieu-la-gi/">Khách hàng mục tiêu là gì và cách xác&nbsp;định</a></h3>
+            <p class="kb-post__x">Khách hàng mục tiêu là nhóm người mua nằm trong thị trường mục tiêu có nhu cầu thực tế, khả năng chi trả và khớp với giải pháp của doanh nghiệp. Bài viết cung cấp bảng phân biệt khái niệm, phương pháp chọn tệp theo dữ liệu SME và quy trình bốn bước có đầu ra bàn giao cho bán hàng.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="https://img.letuanviet.com/kb/inbound-marketing-la-gi/78a4ef5345/inbound-marketing-la-gi-320.webp 320w, https://img.letuanviet.com/kb/inbound-marketing-la-gi/78a4ef5345/inbound-marketing-la-gi-640.webp 640w, https://img.letuanviet.com/kb/inbound-marketing-la-gi/78a4ef5345/inbound-marketing-la-gi.webp 1200w, https://img.letuanviet.com/kb/inbound-marketing-la-gi/78a4ef5345/inbound-marketing-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="https://img.letuanviet.com/kb/inbound-marketing-la-gi/78a4ef5345/inbound-marketing-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-10"><b>10</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/inbound-marketing-la-gi/">Inbound Marketing là gì, lộ trình cho&nbsp;SME</a></h3>
+            <p class="kb-post__x">Inbound Marketing là phương pháp thu hút khách hàng tự nhiên bằng nội dung giải quyết đúng vấn đề ở từng chặng mua. Bài viết đối chiếu với Outbound, đưa bảng chọn theo dòng tiền và quy trình bốn bước gắn thỏa thuận bàn giao cho đội Sales.</p>
+          </div>
+        </article></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid footer__grid--kb">
+        <div class="footer__brand">
+          <div class="footer__id"><span class="footer__logo"><img src="../../../assets/img/logo.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><b>Lê Tuấn Việt</b></div>
+          <span class="footer__role">Marketing &amp; Growth Architect</span>
+          <p class="desc" data-en="I believe effective marketing is not defined by a good idea alone, but by the ability to turn strategy into tangible results.">Tôi tin rằng Marketing hiệu quả không dừng ở một ý tưởng hay, mà nằm ở khả năng biến chiến lược thành kết quả thực tế.</p>
+          <ul class="footer__social"><li><a href="https://www.linkedin.com/in/letuanviet" target="_blank" rel="noopener me" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li><li><a data-social="facebook"><svg class="footer__social-fb" aria-hidden="true"><use href="#i-facebook"/></svg></a></li><li><a data-social="tiktok"><svg aria-hidden="true"><use href="#i-tiktok"/></svg></a></li><li><a href="https://zalo.me/0935702321" target="_blank" rel="noopener" aria-label="Zalo" data-zalo><svg class="footer__social-zalo" aria-hidden="true"><use href="#i-zalo-logo"/></svg></a></li></ul>
+        </div>
+        <div>
+          <p class="footer__h" data-en="Quick links">Menu nhanh</p>
+          <ul class="footer__list footer__list--2">
+            <li><a href="../../../" data-en="Home">Trang chủ</a></li><li><a href="../../../#gioi-thieu" data-en="About">Giới thiệu</a></li>
+            <li><a href="../../../#nang-luc" data-en="Expertise">Năng lực</a></li><li><a href="../../../#du-an" data-en="Projects">Dự án</a></li>
+            <li><a href="../../../#doi-tac" data-en="Partners">Đối tác</a></li><li><a href="../../../#feedback">Feedback</a></li>
+            <li><a href="../../../goc-kien-thuc/" data-en="Knowledge Hub">Góc kiến thức</a></li><li><a href="../../../#lien-he" data-en="Contact">Liên hệ</a></li>
+            <li><a href="../../../chinh-sach-bao-mat/" data-en="Privacy Policy" data-en-href="../../../en/privacy-policy/">Chính sách bảo mật</a></li><li><a href="../../../dieu-khoan-su-dung/" data-en="Terms of Use" data-en-href="../../../en/terms-of-use/">Điều khoản sử dụng</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__h" data-en="Knowledge Hub">Góc kiến thức</p>
+          <ul class="footer__list footer__list--kb-topics">
+            <li><a href="../../../goc-kien-thuc/" data-en="All articles">Tất cả bài viết</a></li><li><a href="../../../goc-kien-thuc/marketing/" data-en="Marketing">Marketing</a></li><li><a href="../../../goc-kien-thuc/ai-marketing/" data-en="AI Marketing">AI Marketing</a></li><li><a href="../../../goc-kien-thuc/quan-tri-marketing/" data-en="Marketing Management">Quản trị Marketing</a></li><li><a href="../../../goc-kien-thuc/du-an-va-bai-hoc/" data-en="Case Marketing">Case Marketing</a></li>
+          </ul>
+        </div>
+        <div class="footer__cv">
+          <p class="footer__h" data-en="Contact">Liên hệ</p>
+          <ul class="footer__list">
+            <li><a href="mailto:work@letuanviet.com" data-mailto><svg width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg>work@letuanviet.com</a></li>
+            <li><a href="tel:0935702321"><svg width="16" height="16" aria-hidden="true"><use href="#i-phone"/></svg>0935 702 321</a></li>
+            <li><span class="footer__clock"><svg width="16" height="16" aria-hidden="true"><use href="#i-clock"/></svg><span data-en="Hanoi ·">Hà Nội ·</span> <b data-clock>--:--</b></span></li>
+          </ul>
+          <a class="btn btn--light btn--sm magnetic" href="../../../assets/cv/CV-Le-Tuan-Viet.pdf" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv style="justify-self:start; margin-top:6px"><span data-en="Download CV (PDF)">Tải CV (PDF)</span> <svg class="ico ico--down" aria-hidden="true"><use href="#i-download"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <time datetime="2026">2026</time> Lê Tuấn Việt · Marketing Leader</span>
+        <a class="footer__top" href="#noi-dung"><span data-en="Back to top">Về đầu trang</span> <svg aria-hidden="true"><use href="#i-up"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__mark" aria-hidden="true"><span data-split>Le Tuan Viet</span></div>
+  </footer>
+
+  <div class="kb-bar" aria-hidden="true">
+    <button class="kb-bar__toc" type="button" data-sheet-open aria-controls="kb-sheet"><svg aria-hidden="true"><use href="#i-list"/></svg><span>Mục lục</span></button>
+    <a class="kb-bar__main" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo><svg aria-hidden="true"><use href="#i-zalo"/></svg><span>Nhắn Zalo cho tôi</span></a>
+    <a class="kb-bar__call" href="tel:0935702321" aria-label="Gọi 0935 702 321"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+  </div>
+  <dialog class="kb-sheet" id="kb-sheet" aria-labelledby="kb-sheet-t">
+    <div class="kb-sheet__head"><p id="kb-sheet-t"><svg aria-hidden="true"><use href="#i-list"/></svg>Mục lục bài viết</p><button type="button" data-sheet-close aria-label="Đóng mục lục"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <nav class="kb-sheet__body" aria-label="Mục lục"><ol class="kb-toc__list"><li><a href="#google-analytics-4-la-gi-va-co-che-do-su-kien"><span class="kb-toc__n">1</span>Google Analytics 4 là gì và cơ chế đo sự kiện</a><ol><li><a href="#ga4-la-gi-va-cau-truc-tai-khoan-luong-du-lieu">GA4 là gì và cấu trúc tài khoản, luồng dữ liệu</a></li><li><a href="#bon-nhom-su-kien-cot-loi-trong-google-analytics-4">Bốn nhóm sự kiện cốt lõi trong Google Analytics 4</a></li></ol></li></li><li><a href="#google-analytics-4-la-gi-so-voi-ban-ua-cu"><span class="kb-toc__n">2</span>Google Analytics 4 là gì so với bản UA cũ</a></li><li><a href="#cach-cai-dat-google-analytics-4-va-tao-su-kien"><span class="kb-toc__n">3</span>Cách cài đặt Google Analytics 4 và tạo sự kiện</a><ol><li><a href="#buoc-1-tao-thuoc-tinh-va-luong-du-lieu-web">Bước 1: Tạo thuộc tính và luồng dữ liệu Web</a></li><li><a href="#buoc-2-ket-noi-website-qua-google-tag-manager">Bước 2: Kết nối website qua Google Tag Manager</a></li><li><a href="#buoc-3-tao-su-kien-tuy-chinh-va-phuong-dien">Bước 3: Tạo sự kiện tùy chỉnh và phương diện</a></li><li><a href="#buoc-4-kiem-chung-bang-realtime-va-debugview">Bước 4: Kiểm chứng bằng Realtime và DebugView</a></li></ol></li></li><li><a href="#cac-bao-cao-tieu-chuan-trong-google-analytics-4"><span class="kb-toc__n">4</span>Các báo cáo tiêu chuẩn trong Google Analytics 4</a><ol><li><a href="#nhom-bao-cao-thu-nap-va-muc-do-tuong-tac">Nhóm báo cáo Thu nạp và Mức độ tương tác</a></li><li><a href="#khi-nao-sme-chuyen-sang-bao-cao-kham-pha">Khi nào SME chuyển sang báo cáo Khám phá</a></li></ol></li></li><li><a href="#ba-loi-lam-lech-du-lieu-khi-moi-su-dung-ga4"><span class="kb-toc__n">5</span>Ba lỗi làm lệch dữ liệu khi mới sử dụng GA4</a></li><li><a href="#khung-doc-chi-so-ga4-va-gioi-han-du-lieu-cho-sme"><span class="kb-toc__n">6</span>Khung đọc chỉ số GA4 và giới hạn dữ liệu cho SME</a></li><li><a href="#cau-hoi-thuong-gap-ve-google-analytics-4"><span class="kb-toc__n">7</span>Câu hỏi thường gặp về Google Analytics 4</a></li><li><a href="#ket-luan"><span class="kb-toc__n">8</span>Kết luận</a></li></ol></nav>
+  </dialog>
+  <dialog class="kb-sd" id="kb-search" aria-label="Tìm kiếm trong Góc kiến thức">
+    <form class="kb-search kb-search--dlg" role="search" action="../../../goc-kien-thuc/" method="get" data-kb-search="../../../goc-kien-thuc/search.json" data-rel="../../../" data-zalo="https://zalo.me/0935702321">
+      <div class="kb-search__box">
+        <svg class="kb-search__ico" aria-hidden="true"><use href="#i-search"/></svg>
+        <label class="sr-only" for="kb-dq">Tìm kiếm bài viết trong Góc kiến thức</label>
+        <input id="kb-dq" name="q" type="search" placeholder="Tìm bài viết, ví dụ: kế hoạch Marketing" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="kb-dq-list">
+        <button class="kb-search__clear" type="button" aria-label="Xóa từ khóa"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+        <button class="kb-sd__close" type="button" data-search-close>Đóng</button>
+      </div>
+      <div class="kb-search__panel">
+        <p class="kb-search__head" aria-hidden="true"></p>
+        <ul class="kb-search__list" id="kb-dq-list" role="listbox" aria-label="Kết quả tìm kiếm"></ul>
+      </div>
+      <p class="sr-only" role="status" aria-live="polite"></p>
+    </form>
+  </dialog>
+  <div class="toast" role="status" aria-live="polite"><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg><span>Đã sao chép</span></div>
+
+  <script src="../../../js/core.min.js?v=972" defer></script>
+  <script src="../../../js/vendor/lenis.min.js" defer></script>
+  <script src="../../../js/stage.js?v=972" defer></script>
+  <script src="../../../js/fx.js?v=972" defer></script>
+  <script src="../../../js/kb-nav.js" defer></script>
+  <script src="../../../js/kb.js" defer></script>
+  <script src="../../../js/kb-search.js" defer></script>
+  <script src="../../../js/scenes/kb-pages.js" defer></script>
+<!--/email_off-->
+</body>
+</html>
