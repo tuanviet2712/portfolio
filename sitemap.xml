@@ -30,7 +30,7 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -54,9 +54,42 @@
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/du-an-va-bai-hoc/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/du-an-va-bai-hoc/chien-luoc-marketing-cua-th-true-milk/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chien-luoc-marketing-cua-th-true-milk/4f3f4fd5fa/chien-luoc-marketing-cua-th-true-milk.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chien-luoc-marketing-cua-th-true-milk/4f3f4fd5fa/chien-luoc-marketing-cua-th-true-milk/01-chien-luoc-marketing-cua-th-true-milk.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chien-luoc-marketing-cua-th-true-milk/4f3f4fd5fa/chien-luoc-marketing-cua-th-true-milk/02-chien-luoc-marketing-cua-th-true-milk.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chien-luoc-marketing-cua-th-true-milk/4f3f4fd5fa/chien-luoc-marketing-cua-th-true-milk/03-chien-luoc-marketing-cua-th-true-milk.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chien-luoc-marketing-cua-th-true-milk/4f3f4fd5fa/chien-luoc-marketing-cua-th-true-milk/04-chien-luoc-marketing-cua-th-true-milk.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chien-luoc-marketing-cua-th-true-milk/4f3f4fd5fa/chien-luoc-marketing-cua-th-true-milk/05-chien-luoc-marketing-cua-th-true-milk.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chien-luoc-marketing-cua-th-true-milk/4f3f4fd5fa/chien-luoc-marketing-cua-th-true-milk/06-chien-luoc-marketing-cua-th-true-milk.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/chien-luoc-marketing-cua-th-true-milk/4f3f4fd5fa/chien-luoc-marketing-cua-th-true-milk/07-chien-luoc-marketing-cua-th-true-milk.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/du-an-va-bai-hoc/chien-luoc-marketing-cua-omo/</loc>
