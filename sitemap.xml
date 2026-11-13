@@ -30,13 +30,13 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,39 @@
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/marketing/buzz-marketing-la-gi/</loc>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi/01-buzz-marketing-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi/02-buzz-marketing-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi/03-buzz-marketing-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi/04-buzz-marketing-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi/05-buzz-marketing-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi/06-buzz-marketing-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi/07-buzz-marketing-la-gi.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/du-an-va-bai-hoc/chien-luoc-marketing-cua-highlands-coffee/</loc>
