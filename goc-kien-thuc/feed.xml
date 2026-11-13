@@ -7,7 +7,18 @@
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <description>Góc kiến thức Marketing của Lê Tuấn Việt: chiến lược, kế hoạch, ứng dụng AI, quản trị Marketing và bài học từ dự án thực tế cho doanh nghiệp SME tại Việt Nam.</description>
     <language>vi</language>
-    <lastBuildDate>Fri, 13 Nov 2026 02:01:57 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 13 Nov 2026 07:02:05 GMT</lastBuildDate>
+    <item>
+      <title>Cài đặt theo dõi chuyển đổi trên GA4 cho SME</title>
+      <link>https://letuanviet.com/goc-kien-thuc/marketing/cai-dat-theo-doi-chuyen-doi-ga4/</link>
+      <guid isPermaLink="true">https://letuanviet.com/goc-kien-thuc/marketing/cai-dat-theo-doi-chuyen-doi-ga4/</guid>
+      <pubDate>Fri, 13 Nov 2026 07:00:00 GMT</pubDate>
+      <dc:creator>Lê Tuấn Việt</dc:creator>
+      <category>Marketing</category>
+      <description>Hướng dẫn cài đặt theo dõi chuyển đổi trên Google Analytics 4 qua trang xác nhận và GTM, kiểm thử DebugView, chặn đếm trùng và đối chiếu số lead với CRM.</description>
+
+      <enclosure url="https://img.letuanviet.com/kb/cai-dat-theo-doi-chuyen-doi-ga4/28c041c691/cai-dat-theo-doi-chuyen-doi-ga4.jpg" type="image/jpeg" length="0"/>
+    </item>
     <item>
       <title>Buzz Marketing là gì, cách làm cho SME</title>
       <link>https://letuanviet.com/goc-kien-thuc/marketing/buzz-marketing-la-gi/</link>
