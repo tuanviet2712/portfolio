@@ -32,6 +32,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [Google Tag Manager là gì, cách cài đặt GTM](https://letuanviet.com/goc-kien-thuc/marketing/google-tag-manager-la-gi/): Giải mã Google Tag Manager là gì, phân biệt với GA4, quy chuẩn phân quyền agency, quy trình 4 bước cài đặt, chống đếm trùng và khung đo lường 3 tầng cho SME.
 - [Cài đặt theo dõi chuyển đổi trên GA4 cho SME](https://letuanviet.com/goc-kien-thuc/marketing/cai-dat-theo-doi-chuyen-doi-ga4/): Hướng dẫn cài đặt theo dõi chuyển đổi trên Google Analytics 4 qua trang xác nhận và GTM, kiểm thử DebugView, chặn đếm trùng và đối chiếu số lead với CRM.
 - [Buzz Marketing là gì, cách làm cho SME](https://letuanviet.com/goc-kien-thuc/marketing/buzz-marketing-la-gi/): Giải mã buzz marketing là gì để tách bạch thảo luận tự nhiên với chi phí mồi lửa, chọn 4 đòn bẩy có bộ lọc khủng hoảng và đo chuyển đổi 3 tầng cho SME.
 - [Google Analytics 4 là gì và cách dùng GA4](https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/): Hiểu rõ Google Analytics 4 là gì giúp doanh nghiệp nắm mô hình dữ liệu sự kiện, thiết lập chuẩn 4 bước qua GTM và đọc đúng báo cáo phễu chuyển đổi thực.
