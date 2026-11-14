@@ -54,7 +54,7 @@ module.exports = {
     identifier: 'letuanviet',
     description: 'Marketing Leader với hơn 4 năm kinh nghiệm tư vấn chiến lược và triển khai Marketing cho doanh nghiệp SME.',
     knowsAbout: ['Marketing Strategy', 'Marketing Planning', 'Kế hoạch Marketing', 'AI Marketing', 'Quản trị Marketing', 'Growth Marketing', 'Performance Marketing', 'Digital Marketing', 'SEO', 'Content Marketing', 'Marketing Team Leadership'],
-    sameAs: ['https://www.linkedin.com/in/letuanviet', 'https://zalo.me/0935702321', 'https://github.com/tuanviet2712'],
+    sameAs: ['https://www.linkedin.com/in/letuanviet', 'https://www.behance.net/letuanviet', 'https://www.topcv.vn/p/letuanviet', 'https://careerviet.vn/cb-vi/letuanviet', 'https://zalo.me/0935702321', 'https://github.com/tuanviet2712'],
     // JSON-LD bằng tiếng Anh cho các trang /en/ (cùng câu chữ với bản EN của trang chủ trong js/i18n.js)
     en: {
       description: 'Marketing Leader with more than four years of experience advising SMEs on strategy and marketing execution.',
