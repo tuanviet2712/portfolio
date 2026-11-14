@@ -48,8 +48,10 @@ const plural = (n, one, many) => n === 1 ? one : many;
 const hubPath = `${HUB}/`;
 const pillarPath = p => `${HUB}/${p.slug}/`;
 const pillarPageN = (p, n) => n <= 1 ? pillarPath(p) : `${HUB}/${p.slug}/trang/${n}/`;   // phân trang "Bài viết mới nhất"
-const articlePath = a => `${HUB}/${a.pillar}/${a.slug}/`;
+// urlDir: thư mục trên URL khi khác chuyên mục (bài của chuyên mục đã gộp giữ URL cũ, xem site.cjs › retiredPillars)
+const articlePath = a => `${HUB}/${a.urlDir || a.pillar}/${a.slug}/`;
 const pillarBySlug = slug => SITE.pillars.find(p => p.slug === slug);
+const RETIRED = SITE.retiredPillars || [];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const enDate = iso => { const [y, m, d] = String(iso).slice(0, 10).split('-'); return `${MONTHS[+m - 1]} ${+d}, ${y}`; };
 const PAGES = [];                                   // mọi trang đã tạo, để kiểm tra title/meta ở báo cáo cuối
@@ -97,6 +99,16 @@ function loadArticles() {
       try { meta = JSON.parse(m[1]); } catch (e) { throw new Error(`${f}: metadata JSON lỗi: ${e.message}`); }
       const need = ['slug', 'pillar', 'title', 'description', 'sapo', 'published'];
       need.forEach(k => { if (!meta[k]) throw new Error(`${f}: thiếu "${k}"`); });
+      // Chuyên mục đã gộp: bài vẫn khai slug cũ thì xếp vào chuyên mục mới; bài thuộc keepUrls (hoặc khai slug cũ) giữ URL thư mục cũ
+      if (meta.urlDir !== undefined) throw new Error(`${f}: không khai "urlDir" trong bài, URL cũ được giữ qua site.cjs › retiredPillars.keepUrls`);
+      const oldDir = RETIRED.find(r => r.slug === meta.pillar);
+      if (oldDir) {
+        meta.pillar = oldDir.mergedInto;
+        if (!oldDir.keepUrls.includes(meta.slug)) console.warn(`  ! ${f}: còn khai chuyên mục cũ "${oldDir.slug}", đã xếp vào "${oldDir.mergedInto}", URL giữ thư mục cũ. Thêm slug vào site.cjs › retiredPillars.keepUrls hoặc đổi "pillar" trong bài.`);
+        meta.urlDir = oldDir.slug;
+      }
+      const keepDir = RETIRED.find(r => r.keepUrls.includes(meta.slug));
+      if (keepDir) meta.urlDir = keepDir.slug;
       if (!pillarBySlug(meta.pillar)) throw new Error(`${f}: chủ đề "${meta.pillar}" không có trong site.cjs`);
       if (meta.img_base !== undefined && !(typeof meta.img_base === 'string' && new RegExp(`^kb/${meta.slug}/[a-z0-9]{6,12}/$`).test(meta.img_base)))
         throw new Error(`${f}: "img_base" phải có dạng "kb/${meta.slug}/<6–12 ký tự a-z0-9>/"`);
@@ -1546,7 +1558,7 @@ function pillarPage(p, all, pageNum = 1) {
         <div class="kb-empty">
           <span class="kb-empty__ico">${ico(p.icon)}</span>
           <h2 class="kb-empty__t" id="kb-list-title">Bài viết đầu tiên đang được biên soạn</h2>
-          <p class="kb-empty__d">Tôi đang viết những bài đầu tiên cho chủ đề ${esc(p.name)}. Nếu bạn cần trao đổi ngay, hãy nhắn cho tôi qua Zalo</p>
+          <p class="kb-empty__d">${esc(p.empty || `Tôi đang viết những bài đầu tiên cho chủ đề ${p.name}`)}. Nếu bạn cần trao đổi ngay, hãy nhắn cho tôi qua Zalo</p>
           <div class="btn-row">
             <a class="btn btn--dark btn--sm magnetic" href="${rel}${hubPath}">Xem Góc kiến thức ${ico('i-arrow', 'ico ico--arrow')}</a>
             <a class="btn btn--ghost btn--sm magnetic" href="${A.zalo}" target="_blank" rel="noopener" data-zalo>Nhắn Zalo ${ico('i-arrow-up-right', 'ico ico--arrow')}</a>
@@ -1929,6 +1941,24 @@ function main() {
       }
     });
     if (!fs.readdirSync(trangDir).length) fs.rmSync(trangDir, { recursive: true, force: true });
+  });
+  // Chuyên mục đã gộp: bỏ trang chuyên mục cũ và phân trang của nó (máy chủ chuyển hướng 301, xem _redirects),
+  // giữ thư mục các bài còn dùng URL cũ, xoá bài không còn nguồn
+  RETIRED.forEach(r => {
+    const dir = path.join(ROOT, HUB, r.slug);
+    if (!fs.existsSync(dir)) return;
+    for (const x of ['index.html', 'trang']) {
+      const full = path.join(dir, x);
+      if (fs.existsSync(full)) { fs.rmSync(full, { recursive: true, force: true }); console.log(`  – Đã xoá trang chuyên mục cũ ${path.relative(ROOT, full)}`); }
+    }
+    fs.readdirSync(dir, { withFileTypes: true }).filter(d => d.isDirectory()).forEach(d => {
+      const full = path.join(dir, d.name) + path.sep;
+      if (!keep.has(full) && fs.existsSync(path.join(full, 'index.html'))) {
+        fs.rmSync(full, { recursive: true, force: true });
+        console.log(`  – Đã xoá trang cũ ${path.relative(ROOT, full)}`);
+      }
+    });
+    if (!fs.readdirSync(dir).length) fs.rmSync(dir, { recursive: true, force: true });
   });
 
   console.log(`Góc kiến thức: ${all.length} bài, ${written.length} file${homeChanged ? ', đã cập nhật index.html' : ''} (${Date.now() - t0} ms)`);

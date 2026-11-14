@@ -13,6 +13,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { spawn } = require('node:child_process');
 const { pathToFileURL } = require('node:url');
+const SITE = require('./site.cjs');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const OUT = path.join(ROOT, 'assets', 'kb');
@@ -308,7 +309,7 @@ async function main() {
       await render(cdp, coverHtml({ kicker: c.kicker2 || 'Góc kiến thức', title: c.kicker, line: c.line, extra: steps, photo: c.photo, pos: c.pos }), meta.slug, 1200, 630, coverShots(c.base));
     }
     console.log('Ảnh chia sẻ trang tổng');
-    const chips = `<div class="chips"><span>Marketing</span><span>AI Marketing</span><span>Quản trị Marketing</span><span>Dự án và Bài học</span></div>`;
+    const chips = `<div class="chips">${SITE.pillars.map(p => `<span>${p.name}</span>`).join('')}</div>`;   // cùng tên, cùng thứ tự site.cjs
     await render(cdp, coverHtml({ kicker: 'Chia sẻ từ Lê Tuấn Việt', title: 'Góc kiến thức', line: 'Marketing cho doanh nghiệp SME', extra: chips }), 'hub', 1200, 630, [
       { file: 'goc-kien-thuc.jpg', format: 'jpeg', quality: 86, width: 1200 },
       { file: 'goc-kien-thuc.webp', format: 'webp', quality: 84, width: 1200 }

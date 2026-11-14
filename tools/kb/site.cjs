@@ -16,7 +16,7 @@ module.exports = {
     name: 'Góc kiến thức',
     title: 'Góc kiến thức Marketing cho doanh nghiệp SME | Lê Tuấn Việt',
     h1Html: 'Góc chia sẻ <span class="grad">kiến thức</span>',
-    description: 'Góc kiến thức Marketing của Lê Tuấn Việt: chiến lược, kế hoạch, ứng dụng AI, quản trị Marketing và bài học từ dự án thực tế cho doanh nghiệp SME tại Việt Nam.',
+    description: 'Góc kiến thức Marketing của Lê Tuấn Việt: chiến lược, quản trị, ứng dụng AI, case Marketing, tin tức và góc nhìn về công nghệ cho doanh nghiệp SME Việt Nam.',
     lead: 'Kiến thức Marketing, cách ứng dụng AI và bài học từ các dự án tôi đã triển khai cho doanh nghiệp SME',
     en: {
       name: 'Knowledge Hub',
@@ -121,17 +121,24 @@ module.exports = {
     }
   },
 
-  /* 4 chủ đề lớn (pillar). Thứ tự = thứ tự trên menu. */
+  /* 4 chuyên mục (pillar). Thứ tự = thứ tự ở MỌI nơi: menu, menu điện thoại, trang chủ, trang tổng, cột phải, tìm kiếm.
+     Phạm vi (dùng khi phân loại bài):
+       Marketing            kiến thức, chiến lược, triển khai, đo lường, ngân sách, KPI và quản trị đội ngũ
+       AI Marketing         công cụ, quy trình và ứng dụng AI trong công việc Marketing
+       Case Marketing       phân tích doanh nghiệp, chiến dịch, cách triển khai, kết quả và bài học
+       Tin tức và Góc nhìn  sự kiện, xu hướng, thay đổi đáng chú ý tác động đến Marketing và tăng trưởng */
   pillars: [
     {
       slug: 'marketing',
       name: 'Marketing',
       icon: 'i-kb-mkt',
+      // short: giữ câu cũ, câu mới nào cũng đổi số dòng của thẻ trang chủ ở 1920px hoặc 390px (đo 14/11/2026)
       short: 'Nghiên cứu thị trường, lập kế hoạch và triển khai đa kênh cho SME',
       h1Html: 'Kiến thức <span class="grad">Marketing</span>',
       title: 'Kiến thức Marketing cho doanh nghiệp SME | Lê Tuấn Việt',
-      description: 'Kiến thức Marketing thực tế cho doanh nghiệp SME: chiến lược, kế hoạch, thương hiệu, nội dung và quảng cáo, được chia sẻ bởi Marketing Leader Lê Tuấn Việt.',
-      intro: 'Chiến lược, kế hoạch và cách triển khai Marketing đa kênh để doanh nghiệp SME biến mục tiêu kinh doanh thành kết quả đo được',
+      description: 'Kiến thức Marketing thực tế cho doanh nghiệp SME: chiến lược, kế hoạch, triển khai, đo lường, ngân sách, KPI và quản trị đội ngũ, chia sẻ bởi Lê Tuấn Việt.',
+      // intro: 2 dòng ở desktop như mọi trang chủ đề (đo 1920→360px cùng số dòng với câu cũ)
+      intro: 'Chiến lược, kế hoạch, triển khai, đo lường và quản trị ngân sách, KPI, đội ngũ để doanh nghiệp SME biến mục tiêu thành kết quả',
       topics: [
         ['Chiến lược Marketing', 'Nghiên cứu thị trường, khách hàng mục tiêu và định vị phù hợp với nguồn lực doanh nghiệp.'],
         ['Kế hoạch Marketing', 'Chuyển mục tiêu kinh doanh thành kế hoạch kênh, ngân sách, KPI và lộ trình triển khai.'],
@@ -158,23 +165,6 @@ module.exports = {
       en: { name: 'AI Marketing', short: 'Using AI for research, content work and ad campaign performance' }
     },
     {
-      slug: 'quan-tri-marketing',
-      name: 'Quản trị Marketing',
-      icon: 'i-kb-mgmt',
-      short: 'Xây dựng đội ngũ, đặt mục tiêu KPI, quản lý ngân sách và vận hành',
-      h1Html: 'Kiến thức <span class="grad">Quản trị Marketing</span>',
-      title: 'Quản trị Marketing: đội ngũ, KPI, ngân sách | Lê Tuấn Việt',
-      description: 'Kiến thức quản trị Marketing cho doanh nghiệp SME: xây dựng đội ngũ, thiết lập KPI, quản lý ngân sách và vận hành bộ phận Marketing, chia sẻ bởi Lê Tuấn Việt.',
-      intro: 'Thiết lập KPI, phân bổ ngân sách, xây dựng quy trình và dẫn dắt đội ngũ để bộ phận Marketing chạy đúng tiến độ, đúng chất lượng',
-      topics: [
-        ['KPI và OKR', 'Thiết lập chỉ số và mục tiêu cho bộ phận Marketing gắn với doanh thu.'],
-        ['Ngân sách Marketing', 'Lập, phân bổ và kiểm soát ngân sách theo kênh và giai đoạn.'],
-        ['Quản lý đội ngũ', 'Phân công, đào tạo và theo dõi hiệu suất của đội ngũ Marketing.'],
-        ['Quy trình và SOP', 'Chuẩn hóa quy trình để giảm sai sót và tiết kiệm nguồn lực.']
-      ],
-      en: { name: 'Marketing Management', short: 'Building teams, setting clear KPIs, managing budgets and workflows' }
-    },
-    {
       slug: 'du-an-va-bai-hoc',
       name: 'Case Marketing',
       icon: 'i-kb-case',
@@ -190,6 +180,50 @@ module.exports = {
         ['Bài học và ứng dụng', 'Kinh nghiệm rút ra và cách áp dụng vào tình huống tương tự.']
       ],
       en: { name: 'Case Marketing', short: 'Case analysis, campaign execution, metrics and key lessons' }
+    },
+    {
+      slug: 'tin-tuc-goc-nhin',
+      name: 'Tin tức và Góc nhìn',
+      icon: 'i-kb-mgmt',                         // giữ biểu tượng của ô thứ tư cũ (không đổi bộ icon)
+      // short + intro: đã đo để thẻ, menu và phần đầu trang giữ đúng số dòng như ô cũ (1920→360px)
+      short: 'Phân tích sự kiện công nghệ, AI, nền tảng số và tác động tới Marketing',
+      h1Html: 'Tin tức và <span class="grad">Góc nhìn</span>',
+      title: 'Tin tức và Góc nhìn về Công nghệ, AI, Marketing | Lê Tuấn Việt',
+      description: 'Cập nhật tin nổi bật về công nghệ, AI và Marketing cùng phân tích tác động, góc nhìn chiến lược và đề xuất ứng dụng từ Lê Tuấn Việt.',
+      intro: 'Cập nhật, phân tích chuyển động nổi bật về công nghệ, AI, nền tảng số và Marketing dưới góc nhìn chiến lược, ứng dụng, tăng trưởng',
+      // Câu ở khối "chưa có bài" (cùng khối, cùng kiểu chữ như các chuyên mục khác)
+      empty: 'Các bài phân tích sẽ được cập nhật tại đây',
+      topics: [
+        ['Công nghệ và AI', 'Mô hình, công cụ và thay đổi công nghệ tác động trực tiếp đến cách làm Marketing.'],
+        ['Xu hướng Marketing', 'Chuyển động của hành vi khách hàng, kênh và cách doanh nghiệp tiếp cận thị trường.'],
+        ['Nền tảng số', 'Chính sách, thuật toán và tính năng mới của nền tảng quảng cáo, mạng xã hội, tìm kiếm.'],
+        ['Thương hiệu và thị trường', 'Động thái của thương hiệu, đối thủ và thị trường cùng bài học cho doanh nghiệp.']
+      ],
+      en: { name: 'News & Insights', short: 'Analysing tech, AI and market shifts that matter to marketing teams' }
+    }
+  ],
+
+  /* Chuyên mục đã gộp (14/11/2026): "Quản trị Marketing" gộp vào Marketing.
+     - Trang chuyên mục cũ /goc-kien-thuc/quan-tri-marketing/ chuyển hướng 301 sang /goc-kien-thuc/marketing/ (tệp _redirects).
+     - keepUrls: các bài vốn thuộc chuyên mục cũ, nay thuộc Marketing nhưng GIỮ NGUYÊN URL /goc-kien-thuc/quan-tri-marketing/<slug>/.
+     - Bài gửi tới vẫn khai "pillar": "quan-tri-marketing" (SEO-Agent chưa đồng bộ) được xếp vào Marketing, URL ở thư mục cũ,
+       để bước kiểm tra bài đã lên của SEO-Agent vẫn tìm đúng URL; bản dựng in cảnh báo để thêm slug vào keepUrls. */
+  retiredPillars: [
+    {
+      slug: 'quan-tri-marketing',
+      name: 'Quản trị Marketing',
+      mergedInto: 'marketing',
+      since: '2026-11-14',
+      keepUrls: [
+        'chien-dich-marketing-la-gi',
+        'chien-luoc-cho-san-pham-moi',
+        'chien-luoc-khuyen-mai-trong-marketing',
+        'chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho',
+        'chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong',
+        'ke-hoach-chay-quang-cao-facebook',
+        'ke-hoach-marketing',
+        'mau-ke-hoach-marketing'
+      ]
     }
   ]
 };
