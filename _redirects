@@ -1,19 +1,27 @@
 # Chuyển hướng phía máy chủ (Cloudflare Pages đọc tệp này khi deploy; tools/deploy.ps1 chép vào dist).
-# Quy tắc khớp đúng đường dẫn, không dùng ký tự đại diện, nên KHÔNG đụng tới URL của từng bài viết.
+# Quy tắc khớp đúng đường dẫn, không dùng ký tự đại diện.
 
 # 14/11/2026: chuyên mục "Quản trị Marketing" gộp vào Marketing (tools/kb/site.cjs › retiredPillars).
-# Chỉ trang chuyên mục cũ chuyển 301 sang trang Marketing; 8 bài cũ giữ nguyên URL /goc-kien-thuc/quan-tri-marketing/<slug>/.
+# Trang chuyên mục cũ → trang Marketing
 /goc-kien-thuc/quan-tri-marketing /goc-kien-thuc/marketing/ 301
 /goc-kien-thuc/quan-tri-marketing/ /goc-kien-thuc/marketing/ 301
 /goc-kien-thuc/quan-tri-marketing/index.html /goc-kien-thuc/marketing/ 301
 
-# Lưới an toàn: nơi nào ghép URL bài theo chuyên mục mới (/marketing/<slug>/) cho 8 bài này vẫn tới đúng URL thật.
-# Nếu sau này dời một bài trong số này sang /marketing/ thật, PHẢI xoá dòng của bài đó ở đây trước, nếu không sẽ lặp chuyển hướng.
-/goc-kien-thuc/marketing/chien-dich-marketing-la-gi/ /goc-kien-thuc/quan-tri-marketing/chien-dich-marketing-la-gi/ 301
-/goc-kien-thuc/marketing/chien-luoc-cho-san-pham-moi/ /goc-kien-thuc/quan-tri-marketing/chien-luoc-cho-san-pham-moi/ 301
-/goc-kien-thuc/marketing/chien-luoc-khuyen-mai-trong-marketing/ /goc-kien-thuc/quan-tri-marketing/chien-luoc-khuyen-mai-trong-marketing/ 301
-/goc-kien-thuc/marketing/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/ /goc-kien-thuc/quan-tri-marketing/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/ 301
-/goc-kien-thuc/marketing/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/ /goc-kien-thuc/quan-tri-marketing/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/ 301
-/goc-kien-thuc/marketing/ke-hoach-chay-quang-cao-facebook/ /goc-kien-thuc/quan-tri-marketing/ke-hoach-chay-quang-cao-facebook/ 301
-/goc-kien-thuc/marketing/ke-hoach-marketing/ /goc-kien-thuc/quan-tri-marketing/ke-hoach-marketing/ 301
-/goc-kien-thuc/marketing/mau-ke-hoach-marketing/ /goc-kien-thuc/quan-tri-marketing/mau-ke-hoach-marketing/ 301
+# 8 bài của chuyên mục cũ đã chuyển URL sang /goc-kien-thuc/marketing/<slug>/ (site.cjs › retiredPillars.movedUrls).
+# Thêm bài vào movedUrls thì thêm cả hai dòng (có và không có dấu / cuối) cho bài đó ở đây.
+/goc-kien-thuc/quan-tri-marketing/chien-dich-marketing-la-gi/ /goc-kien-thuc/marketing/chien-dich-marketing-la-gi/ 301
+/goc-kien-thuc/quan-tri-marketing/chien-dich-marketing-la-gi /goc-kien-thuc/marketing/chien-dich-marketing-la-gi/ 301
+/goc-kien-thuc/quan-tri-marketing/chien-luoc-cho-san-pham-moi/ /goc-kien-thuc/marketing/chien-luoc-cho-san-pham-moi/ 301
+/goc-kien-thuc/quan-tri-marketing/chien-luoc-cho-san-pham-moi /goc-kien-thuc/marketing/chien-luoc-cho-san-pham-moi/ 301
+/goc-kien-thuc/quan-tri-marketing/chien-luoc-khuyen-mai-trong-marketing/ /goc-kien-thuc/marketing/chien-luoc-khuyen-mai-trong-marketing/ 301
+/goc-kien-thuc/quan-tri-marketing/chien-luoc-khuyen-mai-trong-marketing /goc-kien-thuc/marketing/chien-luoc-khuyen-mai-trong-marketing/ 301
+/goc-kien-thuc/quan-tri-marketing/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/ /goc-kien-thuc/marketing/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/ 301
+/goc-kien-thuc/quan-tri-marketing/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho /goc-kien-thuc/marketing/chien-luoc-marketing-cho-doanh-nghiep-vua-va-nho/ 301
+/goc-kien-thuc/quan-tri-marketing/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/ /goc-kien-thuc/marketing/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/ 301
+/goc-kien-thuc/quan-tri-marketing/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong /goc-kien-thuc/marketing/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/ 301
+/goc-kien-thuc/quan-tri-marketing/ke-hoach-chay-quang-cao-facebook/ /goc-kien-thuc/marketing/ke-hoach-chay-quang-cao-facebook/ 301
+/goc-kien-thuc/quan-tri-marketing/ke-hoach-chay-quang-cao-facebook /goc-kien-thuc/marketing/ke-hoach-chay-quang-cao-facebook/ 301
+/goc-kien-thuc/quan-tri-marketing/ke-hoach-marketing/ /goc-kien-thuc/marketing/ke-hoach-marketing/ 301
+/goc-kien-thuc/quan-tri-marketing/ke-hoach-marketing /goc-kien-thuc/marketing/ke-hoach-marketing/ 301
+/goc-kien-thuc/quan-tri-marketing/mau-ke-hoach-marketing/ /goc-kien-thuc/marketing/mau-ke-hoach-marketing/ 301
+/goc-kien-thuc/quan-tri-marketing/mau-ke-hoach-marketing /goc-kien-thuc/marketing/mau-ke-hoach-marketing/ 301

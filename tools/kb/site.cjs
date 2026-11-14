@@ -188,8 +188,8 @@ module.exports = {
       // short + intro: đã đo để thẻ, menu và phần đầu trang giữ đúng số dòng như ô cũ (1920→360px)
       short: 'Phân tích sự kiện công nghệ, AI, nền tảng số và tác động tới Marketing',
       h1Html: 'Tin tức và <span class="grad">Góc nhìn</span>',
-      title: 'Tin tức và Góc nhìn về Công nghệ, AI, Marketing | Lê Tuấn Việt',
-      description: 'Cập nhật tin nổi bật về công nghệ, AI và Marketing cùng phân tích tác động, góc nhìn chiến lược và đề xuất ứng dụng từ Lê Tuấn Việt.',
+      title: 'Tin tức và Góc nhìn: Công nghệ, AI, Marketing | Lê Tuấn Việt',
+      description: 'Cập nhật tin nổi bật về công nghệ, AI và Marketing cùng phân tích tác động, góc nhìn chiến lược và đề xuất ứng dụng thực tế cho doanh nghiệp từ Lê Tuấn Việt.',
       intro: 'Cập nhật, phân tích chuyển động nổi bật về công nghệ, AI, nền tảng số và Marketing dưới góc nhìn chiến lược, ứng dụng, tăng trưởng',
       // Câu ở khối "chưa có bài" (cùng khối, cùng kiểu chữ như các chuyên mục khác)
       empty: 'Các bài phân tích sẽ được cập nhật tại đây',
@@ -205,16 +205,18 @@ module.exports = {
 
   /* Chuyên mục đã gộp (14/11/2026): "Quản trị Marketing" gộp vào Marketing.
      - Trang chuyên mục cũ /goc-kien-thuc/quan-tri-marketing/ chuyển hướng 301 sang /goc-kien-thuc/marketing/ (tệp _redirects).
-     - keepUrls: các bài vốn thuộc chuyên mục cũ, nay thuộc Marketing nhưng GIỮ NGUYÊN URL /goc-kien-thuc/quan-tri-marketing/<slug>/.
-     - Bài gửi tới vẫn khai "pillar": "quan-tri-marketing" (SEO-Agent chưa đồng bộ) được xếp vào Marketing, URL ở thư mục cũ,
-       để bước kiểm tra bài đã lên của SEO-Agent vẫn tìm đúng URL; bản dựng in cảnh báo để thêm slug vào keepUrls. */
+     - movedUrls: 8 bài của chuyên mục cũ đã CHUYỂN URL sang /goc-kien-thuc/marketing/<slug>/; URL cũ 301 sang URL mới (_redirects).
+       Dù bài gửi tới khai "pillar" cũ hay mới, các slug này luôn dựng ở /marketing/.
+     - Bài KHÁC gửi tới vẫn khai "pillar": "quan-tri-marketing" (SEO-Agent chưa đồng bộ) được xếp vào Marketing nhưng TẠM để URL ở
+       thư mục cũ, vì bước kiểm tra bài đã lên của SEO-Agent tự ghép URL từ pillar; bản dựng in cảnh báo. Khi gặp cảnh báo đó:
+       thêm slug vào movedUrls, thêm dòng 301 tương ứng vào _redirects, sửa liên kết nội bộ. */
   retiredPillars: [
     {
       slug: 'quan-tri-marketing',
       name: 'Quản trị Marketing',
       mergedInto: 'marketing',
       since: '2026-11-14',
-      keepUrls: [
+      movedUrls: [
         'chien-dich-marketing-la-gi',
         'chien-luoc-cho-san-pham-moi',
         'chien-luoc-khuyen-mai-trong-marketing',

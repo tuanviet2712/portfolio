@@ -99,16 +99,17 @@ function loadArticles() {
       try { meta = JSON.parse(m[1]); } catch (e) { throw new Error(`${f}: metadata JSON lỗi: ${e.message}`); }
       const need = ['slug', 'pillar', 'title', 'description', 'sapo', 'published'];
       need.forEach(k => { if (!meta[k]) throw new Error(`${f}: thiếu "${k}"`); });
-      // Chuyên mục đã gộp: bài vẫn khai slug cũ thì xếp vào chuyên mục mới; bài thuộc keepUrls (hoặc khai slug cũ) giữ URL thư mục cũ
-      if (meta.urlDir !== undefined) throw new Error(`${f}: không khai "urlDir" trong bài, URL cũ được giữ qua site.cjs › retiredPillars.keepUrls`);
+      // Chuyên mục đã gộp: bài vẫn khai slug cũ thì xếp vào chuyên mục mới. Bài trong movedUrls dựng ở URL mới;
+      // bài khác khai slug cũ tạm giữ URL thư mục cũ (SEO-Agent tự ghép URL từ pillar để kiểm tra bài đã lên)
+      if (meta.urlDir !== undefined) throw new Error(`${f}: không khai "urlDir" trong bài (URL do site.cjs › retiredPillars quyết định)`);
       const oldDir = RETIRED.find(r => r.slug === meta.pillar);
       if (oldDir) {
         meta.pillar = oldDir.mergedInto;
-        if (!oldDir.keepUrls.includes(meta.slug)) console.warn(`  ! ${f}: còn khai chuyên mục cũ "${oldDir.slug}", đã xếp vào "${oldDir.mergedInto}", URL giữ thư mục cũ. Thêm slug vào site.cjs › retiredPillars.keepUrls hoặc đổi "pillar" trong bài.`);
-        meta.urlDir = oldDir.slug;
+        if (!oldDir.movedUrls.includes(meta.slug)) {
+          console.warn(`  ! ${f}: còn khai chuyên mục cũ "${oldDir.slug}", đã xếp vào "${oldDir.mergedInto}", URL TẠM ở thư mục cũ. Thêm slug vào site.cjs › retiredPillars.movedUrls + dòng 301 trong _redirects, hoặc đổi "pillar" trong bài.`);
+          meta.urlDir = oldDir.slug;
+        }
       }
-      const keepDir = RETIRED.find(r => r.keepUrls.includes(meta.slug));
-      if (keepDir) meta.urlDir = keepDir.slug;
       if (!pillarBySlug(meta.pillar)) throw new Error(`${f}: chủ đề "${meta.pillar}" không có trong site.cjs`);
       if (meta.img_base !== undefined && !(typeof meta.img_base === 'string' && new RegExp(`^kb/${meta.slug}/[a-z0-9]{6,12}/$`).test(meta.img_base)))
         throw new Error(`${f}: "img_base" phải có dạng "kb/${meta.slug}/<6–12 ký tự a-z0-9>/"`);
@@ -1943,7 +1944,7 @@ function main() {
     if (!fs.readdirSync(trangDir).length) fs.rmSync(trangDir, { recursive: true, force: true });
   });
   // Chuyên mục đã gộp: bỏ trang chuyên mục cũ và phân trang của nó (máy chủ chuyển hướng 301, xem _redirects),
-  // giữ thư mục các bài còn dùng URL cũ, xoá bài không còn nguồn
+  // xoá bài đã chuyển URL hoặc không còn nguồn, giữ bài còn tạm ở URL cũ
   RETIRED.forEach(r => {
     const dir = path.join(ROOT, HUB, r.slug);
     if (!fs.existsSync(dir)) return;
