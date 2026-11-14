@@ -7,7 +7,18 @@
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <description>Góc kiến thức Marketing của Lê Tuấn Việt: chiến lược, kế hoạch, ứng dụng AI, quản trị Marketing và bài học từ dự án thực tế cho doanh nghiệp SME tại Việt Nam.</description>
     <language>vi</language>
-    <lastBuildDate>Fri, 13 Nov 2026 13:02:22 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 02:02:09 GMT</lastBuildDate>
+    <item>
+      <title>Conversion tracking là gì, cách thiết lập</title>
+      <link>https://letuanviet.com/goc-kien-thuc/marketing/conversion-tracking-la-gi/</link>
+      <guid isPermaLink="true">https://letuanviet.com/goc-kien-thuc/marketing/conversion-tracking-la-gi/</guid>
+      <pubDate>Sat, 14 Nov 2026 02:00:00 GMT</pubDate>
+      <dc:creator>Lê Tuấn Việt</dc:creator>
+      <category>Marketing</category>
+      <description>Hiểu rõ conversion tracking là gì giúp SME tách tương tác ảo khỏi khách tiềm năng thật, cài đặt chuẩn qua Google Tag Manager, GA4 và đọc báo cáo tối ưu vốn.</description>
+
+      <enclosure url="https://img.letuanviet.com/kb/conversion-tracking-la-gi/690f4a68ea/conversion-tracking-la-gi.jpg" type="image/jpeg" length="0"/>
+    </item>
     <item>
       <title>Google Tag Manager là gì, cách cài đặt GTM</title>
       <link>https://letuanviet.com/goc-kien-thuc/marketing/google-tag-manager-la-gi/</link>
