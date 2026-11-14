@@ -108,6 +108,8 @@ function loadArticles() {
       const opens = (meta.raw.match(/<article[\s>]/gi) || []).length;
       const closes = (meta.raw.match(/<\/article>/gi) || []).length;
       if (closes > opens) meta.raw = meta.raw.replace(/(\s*<\/article>)+\s*$/i, '\n');
+      // Bỏ nhãn nhỏ đầu khung tình huống ("Ví dụ biên tập…", "Hồ sơ dữ kiện…"): trên điện thoại nhãn dài bị tràn, đè chữ
+      meta.raw = meta.raw.replace(/[ \t]*<p class="kb-case__k">[\s\S]*?<\/p>[ \t]*\r?\n?/g, '');
       return meta;
     })
     .sort((a, b) => String(b.published).localeCompare(String(a.published)));
