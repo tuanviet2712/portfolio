@@ -231,7 +231,7 @@
       "inLanguage": "vi-VN",
       "articleSection": "Marketing",
       "keywords": "cài đặt theo dõi chuyển đổi trên Google Analytics 4, theo dõi lượt chuyển đổi trên Google Analytics 4, đo lường chuyển đổi GA4, chuyển đổi biểu mẫu, sự kiện chuyển đổi, hạn chế báo cáo ảo, trang xác nhận gửi biểu mẫu, thẻ sự kiện, DebugView",
-      "wordCount": 4761,
+      "wordCount": 4748,
       "timeRequired": "PT21M",
       "about": [
         {
@@ -708,13 +708,13 @@
 <p>Để chặn đếm lặp, bạn vào mục <strong>Key events</strong> trong phần Quản trị GA4, mở tùy chọn ở dòng sự kiện đăng ký biểu mẫu và chọn thay đổi phương pháp đếm. Tại đây, hãy chuyển chế độ từ đếm mỗi lần phát sinh sang <strong>Once per session (Một lần mỗi phiên)</strong> rồi lưu lại để hệ thống bỏ qua các lượt bắn trùng trong&nbsp;cùng&nbsp;phiên.</p>
 <p>Nhiều người làm kỹ thuật cũng hay nhầm chế độ đếm theo phiên với tính năng <strong>Audience triggers (Sự kiện kích hoạt đối tượng)</strong>. Tính đến tháng 11/2026 theo tài liệu năm 2024 đến 2026 của <a href="https://support.google.com/analytics/answer/13366706" target="_blank" rel="noopener">Google Analytics Help</a>, bạn có thể cấu hình sinh sự kiện khi người dùng thỏa mãn điều kiện gia nhập tệp đối tượng tùy chỉnh, nhưng đây là công cụ phân nhóm chứ không thay thế trình kích hoạt&nbsp;ở&nbsp;gốc.</p>
 <h3 id="tinh-huong-sai-va-dung-khi-bieu-mau-bao-loi">Tình huống sai và đúng khi biểu mẫu báo lỗi</h3>
-<p>Để thấy rõ hậu quả của việc bắt nhầm điều kiện kích hoạt khi biểu mẫu không chuyển trang, hãy quan sát tình huống vận hành dưới đây (ví dụ biên tập, không phải kết quả khách&nbsp;hàng&nbsp;thật).</p>
+<p>Để thấy rõ hậu quả của việc bắt nhầm điều kiện kích hoạt khi biểu mẫu không chuyển trang, hãy quan sát tình huống vận hành dưới&nbsp;đây.</p>
 <div class="kb-case">
   <p class="kb-case__t">Đối chiếu cách gắn thẻ biểu mẫu sai và&nbsp;đúng</p>
   <p>Một doanh nghiệp dịch vụ kế toán tại Hà Nội chạy quảng cáo dẫn về trang đích có biểu mẫu tư vấn không chuyển trang. Do gắn thẻ theo thao tác nhấp nút gửi (Click Trigger), mỗi khi khách gõ thiếu số điện thoại bị báo lỗi và bấm gửi lại, GA4 đều cộng dồn thành chuyển đổi ảo dù máy chủ chưa nhận được&nbsp;hồ&nbsp;sơ.</p>
   <p>Khi đội ngũ chuyển sang trình kích hoạt gửi biểu mẫu (Form Submission) có bật kiểm tra hợp lệ (Check Validation) và đổi phương pháp đếm sang một lần mỗi phiên, thẻ chỉ nổ khi dữ liệu vượt qua bước kiểm duyệt. Nhờ đó, báo cáo đã loại bỏ hoàn toàn các lượt chuyển đổi ảo phát sinh do lỗi&nbsp;nhập&nbsp;liệu.</p>
 </div>
-<p>Bên cạnh lỗi bắt nhầm nút nhấn, trong ví dụ biên tập này, đội ngũ còn phát hiện nhân sự cũ từng tạo sự kiện trực tiếp trong GA4 rồi nhân sự mới lại cài thêm thẻ trùng tên trên GTM. Trước khi bàn giao dữ liệu cho quảng cáo, bạn luôn phải kiểm tra cả hai nơi để bảo đảm mỗi sự kiện chỉ phát sinh từ một nguồn&nbsp;duy&nbsp;nhất.</p>
+<p>Bên cạnh lỗi bắt nhầm nút nhấn, trong ví dụ này, đội ngũ còn phát hiện nhân sự cũ từng tạo sự kiện trực tiếp trong GA4 rồi nhân sự mới lại cài thêm thẻ trùng tên trên GTM. Trước khi bàn giao dữ liệu cho quảng cáo, bạn luôn phải kiểm tra cả hai nơi để bảo đảm mỗi sự kiện chỉ phát sinh từ một nguồn&nbsp;duy&nbsp;nhất.</p>
 <p>Đếm lượt nhấp nút không phải là đo&nbsp;chuyển&nbsp;đổi.</p>
 
 <aside class="kb-cta kb-cta--late" aria-label="Dự án đã triển khai">

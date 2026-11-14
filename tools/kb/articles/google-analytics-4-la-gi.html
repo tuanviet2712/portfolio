@@ -283,7 +283,7 @@ Liên kết nội bộ: cach-tao-website, zero-party-data-va-first-party-data, m
   <p>Một phòng khám nha khoa tại Hà Nội đặt ba nút nhắn Zalo ở đầu trang, giữa bài và chân trang dịch vụ. Cách làm sai: đội ngũ tạo ba sự kiện rời rạc nhưng gán nhầm điều kiện cho mọi liên kết chứa chữ Zalo, quên đăng ký phương diện tùy chỉnh và vừa cài mã qua plugin vừa bật thẻ GTM, khiến lượt bấm bị đếm&nbsp;trùng.</p>
   <p>Cách làm đúng: đội ngũ gộp về một sự kiện <code>click_zalo</code>, truyền tham số vị trí nút, đăng ký tham số này làm phương diện tùy chỉnh trong GA4, gỡ mã trùng ở plugin và kiểm tra qua DebugView. Sau 48 giờ, báo cáo tách rõ lượt nhấp từng vị trí mà chỉ tốn 1 trong hạn mức 50 phương diện tùy&nbsp;chỉnh.</p>
 </div>
-<p>Trong ví dụ biên tập này, sự khác biệt nằm ở quy ước đặt tên và bước nghiệm thu dữ liệu đầu vào. Thiết lập đúng ngay từ đầu tiết kiệm hàng chục giờ dọn rác số liệu về sau. Gắn thẻ chưa phải là có dữ&nbsp;liệu.</p>
+<p>Trong ví dụ này, sự khác biệt nằm ở quy ước đặt tên và bước nghiệm thu dữ liệu đầu vào. Thiết lập đúng ngay từ đầu tiết kiệm hàng chục giờ dọn rác số liệu về sau. Gắn thẻ chưa phải là có dữ&nbsp;liệu.</p>
 <!-- cta:nut -->
 <h2>Khung đọc chỉ số GA4 và giới hạn dữ liệu cho SME</h2>
 <p>Để biến báo cáo Google Analytics 4 thành hành động tối ưu ngân sách và nội dung, doanh nghiệp vừa và nhỏ cần tách hệ thống chỉ số thành ba tầng: tín hiệu tương tác, hành vi đạt chuẩn và kết quả kinh doanh xác nhận. Khung đo lường ba tầng dưới đây giúp đội ngũ đọc số đúng ngữ cảnh và tránh bẫy quy kết sai&nbsp;nguồn.</p>
