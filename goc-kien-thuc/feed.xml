@@ -7,7 +7,18 @@
     <atom:link href="https://pubsubhubbub.appspot.com/" rel="hub"/>
     <description>Góc kiến thức Marketing của Lê Tuấn Việt: chiến lược, quản trị, ứng dụng AI, case Marketing, tin tức và góc nhìn về công nghệ cho doanh nghiệp SME Việt Nam.</description>
     <language>vi</language>
-    <lastBuildDate>Sat, 14 Nov 2026 11:12:54 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 13:02:09 GMT</lastBuildDate>
+    <item>
+      <title>Báo cáo khám phá phễu trong GA4 và cách tạo</title>
+      <link>https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/</link>
+      <guid isPermaLink="true">https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/</guid>
+      <pubDate>Sat, 14 Nov 2026 13:00:00 GMT</pubDate>
+      <dc:creator>Lê Tuấn Việt</dc:creator>
+      <category>Marketing</category>
+      <description>Hướng dẫn dựng báo cáo khám phá phễu trong GA4 cho SME: phân biệt phễu mở và đóng, cấu hình 4 bước chuẩn, xuất báo cáo và đọc tỷ lệ rời phễu sửa trang đích.</description>
+
+      <enclosure url="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4.jpg" type="image/jpeg" length="0"/>
+    </item>
     <item>
       <title>Các chỉ số Google Analytics 4 và cách đọc</title>
       <link>https://letuanviet.com/goc-kien-thuc/marketing/cac-chi-so-google-analytics-4/</link>

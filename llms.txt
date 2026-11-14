@@ -32,6 +32,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [Báo cáo khám phá phễu trong GA4 và cách tạo](https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/): Hướng dẫn dựng báo cáo khám phá phễu trong GA4 cho SME: phân biệt phễu mở và đóng, cấu hình 4 bước chuẩn, xuất báo cáo và đọc tỷ lệ rời phễu sửa trang đích.
 - [Các chỉ số Google Analytics 4 và cách đọc](https://letuanviet.com/goc-kien-thuc/marketing/cac-chi-so-google-analytics-4/): Phân nhóm các chỉ số Google Analytics 4 theo phễu thu hút và chuyển đổi, làm rõ công thức mẫu số kèm 3 bước chẩn đoán khi truy cập tăng mà đơn hàng sụt giảm.
 - [Conversion tracking là gì, cách thiết lập](https://letuanviet.com/goc-kien-thuc/marketing/conversion-tracking-la-gi/): Hiểu rõ conversion tracking là gì giúp SME tách tương tác ảo khỏi khách tiềm năng thật, cài đặt chuẩn qua Google Tag Manager, GA4 và đọc báo cáo tối ưu vốn.
 - [Google Tag Manager là gì, cách cài đặt GTM](https://letuanviet.com/goc-kien-thuc/marketing/google-tag-manager-la-gi/): Giải mã Google Tag Manager là gì, phân biệt với GA4, quy chuẩn phân quyền agency, quy trình 4 bước cài đặt, chống đếm trùng và khung đo lường 3 tầng cho SME.

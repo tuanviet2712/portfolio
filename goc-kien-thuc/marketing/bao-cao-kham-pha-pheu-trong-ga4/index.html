@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="vi" class="smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Chuyển cảnh vào trang: đặt sớm nhất có thể để màn phủ có ngay từ khung hình đầu tiên -->
+  <script src="../../../js/pt.js?v=972"></script>
+  <!-- Google tag (gtag.js). ga4.js để defer: không chặn hiển thị, gtag.js vẫn đọc dataLayer khi nó được đẩy vào -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9FR8F25SP"></script>
+  <script src="/js/ga4.js" defer></script>
+  <title>Báo cáo khám phá phễu trong GA4 là gì? Cách tạo và đọc số</title>
+  <meta name="description" content="Hướng dẫn dựng báo cáo khám phá phễu trong GA4 cho SME: phân biệt phễu mở và đóng, cấu hình 4 bước chuẩn, xuất báo cáo và đọc tỷ lệ rời phễu sửa trang đích.">
+  <meta name="author" content="Lê Tuấn Việt">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/">
+  <link rel="alternate" hreflang="vi" href="https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/">
+  <link rel="alternate" hreflang="x-default" href="https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/">
+  <link rel="alternate" type="application/rss+xml" title="Góc kiến thức | Lê Tuấn Việt" href="https://letuanviet.com/goc-kien-thuc/feed.xml">
+  <meta name="theme-color" content="#F5F8FF">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="vi_VN">
+  <meta property="og:site_name" content="Lê Tuấn Việt">
+  <meta property="og:title" content="Báo cáo khám phá phễu trong GA4 và cách tạo">
+  <meta property="og:description" content="Hướng dẫn dựng báo cáo khám phá phễu trong GA4 cho SME: phân biệt phễu mở và đóng, cấu hình 4 bước chuẩn, xuất báo cáo và đọc tỷ lệ rời phễu sửa trang đích.">
+  <meta property="og:url" content="https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/">
+  <meta property="og:image" content="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sơ đồ cấu trúc báo cáo khám phá phễu trong GA4 gồm phễu mở, phễu đóng, quy trình 4 bước cấu hình và khung chẩn đoán rời phễu cho SME">
+  <meta property="article:published_time" content="2026-11-14T20:00:00+07:00">
+  <meta property="article:modified_time" content="2026-11-14T20:00:00+07:00">
+  <meta property="article:author" content="https://letuanviet.com/">
+  <meta property="article:section" content="Marketing">
+  <meta property="article:tag" content="báo cáo khám phá phễu trong GA4">
+  <meta property="article:tag" content="báo cáo khám phá phễu trong GA4 là gì">
+  <meta property="article:tag" content="cách xuất báo cáo khám phá phễu">
+  <meta property="article:tag" content="khám phá phễu GA4">
+  <meta property="article:tag" content="báo cáo phễu GA4">
+  <meta property="article:tag" content="tạo phễu GA4">
+  <meta property="article:tag" content="phễu mở và phễu đóng">
+  <meta property="article:tag" content="cấu hình bước phễu">
+  <meta property="article:tag" content="phân tích rời phễu">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Báo cáo khám phá phễu trong GA4 và cách tạo">
+  <meta name="twitter:description" content="Hướng dẫn dựng báo cáo khám phá phễu trong GA4 cho SME: phân biệt phễu mở và đóng, cấu hình 4 bước chuẩn, xuất báo cáo và đọc tỷ lệ rời phễu sửa trang đích.">
+  <meta name="twitter:image" content="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4.jpg">
+  <meta name="twitter:image:alt" content="Sơ đồ cấu trúc báo cáo khám phá phễu trong GA4 gồm phễu mở, phễu đóng, quy trình 4 bước cấu hình và khung chẩn đoán rời phễu cho SME">
+  <link rel="icon" type="image/svg+xml" href="../../../assets/img/logo.svg">
+  <link rel="apple-touch-icon" href="../../../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../../../manifest.json">
+  <link rel="preload" href="../../../assets/fonts/be-vietnam-pro/QdVPSTAyLFyeg_IDWvOJmVES_Hw3BXo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../assets/fonts/be-vietnam-pro/QdVPSTAyLFyeg_IDWvOJmVES_Hw4BXoKZA.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../assets/fonts/be-vietnam-pro/QdVMSTAyLFyeg_IDWvOJmVES_HSQI281Rb0.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../../assets/fonts/be-vietnam-pro/QdVMSTAyLFyeg_IDWvOJmVES_HSQI286Rb0bcw.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preconnect" href="https://img.letuanviet.com">
+  <link rel="preload" as="image" href="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4.webp" imagesrcset="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4-320.webp 320w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4-640.webp 640w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4.webp 1200w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4-1600.webp 1600w" imagesizes="(min-width: 840px) 760px, 100vw" type="image/webp" fetchpriority="high">
+  <link rel="stylesheet" href="../../../css/style.min.css?v=972">
+  <link rel="stylesheet" href="../../../css/kb-core.css?v=972">
+  <link rel="stylesheet" href="../../../css/kb.css?v=972">
+  <link rel="stylesheet" href="../../../css/kb-article.css?v=972">
+  <link rel="stylesheet" href="../../../css/stage.css?v=972">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://letuanviet.com/#website",
+      "url": "https://letuanviet.com/",
+      "name": "Lê Tuấn Việt",
+      "alternateName": [
+        "Le Tuan Viet",
+        "Portfolio Lê Tuấn Việt"
+      ],
+      "inLanguage": "vi-VN",
+      "publisher": {
+        "@id": "https://letuanviet.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://letuanviet.com/#person",
+      "name": "Lê Tuấn Việt",
+      "alternateName": "Le Tuan Viet",
+      "givenName": "Việt",
+      "familyName": "Lê",
+      "identifier": "letuanviet",
+      "url": "https://letuanviet.com/",
+      "mainEntityOfPage": "https://letuanviet.com/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://letuanviet.com/assets/img/portrait.jpg",
+        "width": 680,
+        "height": 941
+      },
+      "jobTitle": "Marketing Leader",
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Marketing Leader",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "Hà Nội"
+        }
+      },
+      "disambiguatingDescription": "Marketing & Growth Architect",
+      "description": "Marketing Leader với hơn 4 năm kinh nghiệm tư vấn chiến lược và triển khai Marketing cho doanh nghiệp SME.",
+      "email": "mailto:work@letuanviet.com",
+      "telephone": "+84935702321",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hà Đông",
+        "addressRegion": "Hà Nội",
+        "addressCountry": "VN"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "@id": "https://letuanviet.com/#taki-group",
+        "name": "TAKI Group",
+        "alternateName": "TAKI",
+        "legalName": "Công ty Cổ phần TAKI GROUP",
+        "url": "https://takigroup.vn/",
+        "description": "Công ty tư vấn và cố vấn doanh nghiệp tại Việt Nam"
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Đại học Công Thương TP.HCM",
+        "alternateName": "HUIT",
+        "url": "https://huit.edu.vn/"
+      },
+      "knowsAbout": [
+        "Marketing Strategy",
+        "Marketing Planning",
+        "Kế hoạch Marketing",
+        "AI Marketing",
+        "Quản trị Marketing",
+        "Growth Marketing",
+        "Performance Marketing",
+        "Digital Marketing",
+        "SEO",
+        "Content Marketing",
+        "Marketing Team Leadership"
+      ],
+      "award": [
+        "Nhân viên xuất sắc nhất năm 2025 (Ban lãnh đạo TAKI Group bình chọn)",
+        "Nhân viên xuất sắc nhất năm 2024 (hơn 400 đối tác của PITO bình chọn)",
+        "Giải Khuyến khích cuộc thi Đổi mới sáng tạo khởi nghiệp cấp khoa năm 2022 (Đại học Công Thương TP.HCM)"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/letuanviet",
+        "https://www.behance.net/letuanviet",
+        "https://www.topcv.vn/p/letuanviet",
+        "https://careerviet.vn/cb-vi/letuanviet",
+        "https://zalo.me/0935702321",
+        "https://github.com/tuanviet2712"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#webpage",
+      "url": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/",
+      "name": "Báo cáo khám phá phễu trong GA4 là gì? Cách tạo và đọc số",
+      "description": "Hướng dẫn dựng báo cáo khám phá phễu trong GA4 cho SME: phân biệt phễu mở và đóng, cấu hình 4 bước chuẩn, xuất báo cáo và đọc tỷ lệ rời phễu sửa trang đích.",
+      "isPartOf": [
+        {
+          "@id": "https://letuanviet.com/#website"
+        },
+        {
+          "@id": "https://letuanviet.com/goc-kien-thuc/marketing/#webpage"
+        }
+      ],
+      "primaryImageOfPage": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#primaryimage"
+      },
+      "breadcrumb": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#breadcrumb"
+      },
+      "inLanguage": "vi-VN",
+      "datePublished": "2026-11-14T20:00:00+07:00",
+      "dateModified": "2026-11-14T20:00:00+07:00",
+      "author": {
+        "@id": "https://letuanviet.com/#person"
+      },
+      "relatedLink": [
+        "https://letuanviet.com/goc-kien-thuc/marketing/google-analytics-4-la-gi/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/conversion-tracking-la-gi/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/cai-dat-theo-doi-chuyen-doi-ga4/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/chien-luoc-gia-la-gi/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/khach-hang-muc-tieu-la-gi/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/cac-chi-so-google-analytics-4/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/google-tag-manager-la-gi/",
+        "https://letuanviet.com/goc-kien-thuc/marketing/buzz-marketing-la-gi/"
+      ]
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#primaryimage",
+      "url": "https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4.jpg",
+      "contentUrl": "https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4.jpg",
+      "width": 1200,
+      "height": 630,
+      "caption": "Thiết lập báo cáo khám phá phễu trong GA4 giúp khoanh vùng chính xác bước khách hàng bỏ dở trên hành trình điền biểu mẫu hoặc thanh toán",
+      "inLanguage": "vi-VN"
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#article",
+      "isPartOf": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#webpage"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#webpage"
+      },
+      "headline": "Báo cáo khám phá phễu trong GA4 và cách tạo",
+      "description": "Hướng dẫn dựng báo cáo khám phá phễu trong GA4 cho SME: phân biệt phễu mở và đóng, cấu hình 4 bước chuẩn, xuất báo cáo và đọc tỷ lệ rời phễu sửa trang đích.",
+      "image": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#primaryimage"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://letuanviet.com/#person",
+        "name": "Lê Tuấn Việt",
+        "url": "https://letuanviet.com/",
+        "jobTitle": "Marketing Leader"
+      },
+      "publisher": {
+        "@id": "https://letuanviet.com/#person"
+      },
+      "datePublished": "2026-11-14T20:00:00+07:00",
+      "dateModified": "2026-11-14T20:00:00+07:00",
+      "inLanguage": "vi-VN",
+      "articleSection": "Marketing",
+      "keywords": "báo cáo khám phá phễu trong GA4, báo cáo khám phá phễu trong GA4 là gì, cách xuất báo cáo khám phá phễu, khám phá phễu GA4, báo cáo phễu GA4, tạo phễu GA4, phễu mở và phễu đóng, cấu hình bước phễu, phân tích rời phễu",
+      "wordCount": 4756,
+      "timeRequired": "PT21M",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Google Analytics",
+          "sameAs": "https://en.wikipedia.org/wiki/Google_Analytics"
+        },
+        {
+          "@type": "Thing",
+          "name": "Conversion funnel",
+          "sameAs": "https://en.wikipedia.org/wiki/Conversion_funnel"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://letuanviet.com/#taki-group"
+        },
+        {
+          "@type": "Organization",
+          "name": "Google",
+          "url": "https://www.google.com/",
+          "sameAs": "https://en.wikipedia.org/wiki/Google"
+        },
+        {
+          "@type": "Thing",
+          "name": "Google Analytics 4",
+          "url": "https://support.google.com/analytics/answer/10089681",
+          "sameAs": "https://en.wikipedia.org/wiki/Google_Analytics"
+        },
+        {
+          "@type": "Thing",
+          "name": "Funnel exploration",
+          "url": "https://support.google.com/analytics/answer/9327974"
+        },
+        {
+          "@type": "Thing",
+          "name": "Google Ads",
+          "url": "https://ads.google.com/",
+          "sameAs": "https://en.wikipedia.org/wiki/Google_Ads"
+        }
+      ],
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Google Analytics Help. [GA4] Funnel exploration. Tài liệu chính thức về khái niệm khám phá phễu, cấu hình bước, phễu mở và đóng, điều kiện trực tiếp và gián tiếp, thời gian trôi qua và hành động tiếp theo.",
+          "url": "https://support.google.com/analytics/answer/9327974"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Analytics Help. [GA4] Get started with Explorations. Tài liệu chính thức về cấu trúc cột Biến, cột Cài đặt thẻ và thao tác xuất dữ liệu ra Google Sheets, TSV, CSV, PDF.",
+          "url": "https://support.google.com/analytics/answer/7579450"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Analytics Help. [GA4] Segment builder. Tài liệu chính thức về cơ chế hoạt động hồi tố của phân đoạn trong mô-đun Khám phá và tùy chọn xây dựng đối tượng.",
+          "url": "https://support.google.com/analytics/answer/9304353"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Analytics Help. [GA4] Introduction to audiences. Tài liệu chính thức về khái niệm đối tượng, giới hạn thu thập dữ liệu và tích hợp tiếp thị lại với Google Ads.",
+          "url": "https://support.google.com/analytics/answer/12799087"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Google Analytics Help. [GA4] Monitor events in DebugView. Tài liệu chính thức về cách giám sát sự kiện và thông số sự kiện theo thời gian thực để kiểm tra lỗi thu thập dữ liệu.",
+          "url": "https://support.google.com/analytics/answer/7201382"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Trang chủ",
+          "item": "https://letuanviet.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Góc kiến thức",
+          "item": "https://letuanviet.com/goc-kien-thuc/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Marketing",
+          "item": "https://letuanviet.com/goc-kien-thuc/marketing/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Báo cáo khám phá phễu trong GA4 và cách tạo",
+          "item": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#howto",
+      "name": "Cách tạo phễu GA4 và cấu hình bước phễu chuẩn",
+      "description": "Quy trình 4 bước thiết lập báo cáo khám phá phễu trong Google Analytics 4 từ khai báo biến phân đoạn, cấu hình điều kiện bước trực tiếp hoặc gián tiếp, chia nhỏ theo thiết bị đến xuất tệp và lưu vào Thư viện.",
+      "inLanguage": "vi-VN",
+      "isPartOf": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#webpage"
+      },
+      "image": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#primaryimage"
+      },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Khai báo biến phân đoạn và phương diện",
+          "text": "Truy cập mục Khám phá (Explore) trên thanh điều hướng bên trái của GA4, chọn mẫu Khám phá phễu (Funnel exploration). Tại đây, bạn cần phân biệt rõ vai trò của hai cột thiết lập theo tài liệu Get started with Explorations của Google tính đến tháng 11/2026.",
+          "url": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#buoc-1-khai-bao-bien-phan-doan-va-phuong-dien"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Chọn bước trực tiếp hoặc gián tiếp và thời gian",
+          "text": "Trong cột Cài đặt thẻ, cuộn xuống mục Bước (Steps) và nhấp biểu tượng cây bút để mở cửa sổ cấu hình bước phễu. Tại mỗi bước, hãy đặt tên theo hành động kinh doanh, chọn sự kiện tương ứng và thêm thông số bằng toán tử VÀ (AND) hoặc HOẶC (OR) khớp đúng trang đích cần đo.",
+          "url": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#buoc-2-chon-buoc-truc-tiep-hoac-gian-tiep-va-thoi-gian"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Áp bộ lọc, thiết bị và kiểm tra số liệu",
+          "text": "Sau khi biểu đồ hiện ra, hãy kéo phương diện Danh mục thiết bị (Device category) từ cột Biến thả vào ô Chia nhỏ (Breakdown) bên dưới cột Cài đặt thẻ. Thao tác này giúp bảng dữ liệu bên dưới tách riêng tỷ lệ hoàn thành trên điện thoại di động (Mobile), máy tính để bàn (Desktop) và máy tính bảng (Tablet).",
+          "url": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#buoc-3-ap-bo-loc-thiet-bi-va-kiem-tra-so-lieu"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Cách xuất báo cáo khám phá phễu và lưu Thư viện",
+          "text": "Nhiều hướng dẫn chỉ dừng ở bước xem biểu đồ mà bỏ qua cách xuất báo cáo khám phá phễu để chia sẻ cho đội ngũ. Theo tài liệu Google Analytics Help về Explorations tính đến tháng 11/2026, bạn nhấp biểu tượng Xuất dữ liệu (Export data, hình mũi tên xuống ở góc trên bên phải) để tải bảng số liệu ra Google Sheets, TSV, CSV hoặc PDF.",
+          "url": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#buoc-4-cach-xuat-bao-cao-kham-pha-pheu-va-luu-thu-vien"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#faq",
+      "isPartOf": {
+        "@id": "https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/#webpage"
+      },
+      "inLanguage": "vi-VN",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Báo cáo khám phá phễu GA4 tạo được tối đa mấy bước?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Báo cáo khám phá phễu trong GA4 cho phép thiết lập chuỗi nhiều bước chuyển tiếp tuần tự trong cùng một bảng phân tích tùy chỉnh. Với doanh nghiệp vừa và nhỏ, việc gom hành trình về 4 đến 6 bước cốt lõi giúp biểu đồ trực quan và tránh làm mẫu dữ liệu ở các bước cuối bị chia quá nhỏ. Nếu hành trình mua hàng thực tế dài hơn, bạn nên tách thành hai phễu riêng gồm phễu tìm hiểu dịch vụ và phễu hoàn tất thanh toán."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vì sao nút lưu báo cáo phễu vào Thư viện bị mờ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Không, bạn không thể bấm nút lưu vào Thư viện khi tài khoản GA4 chỉ được cấp quyền Xem hoặc Phân tích thay vì quyền Chỉnh sửa hoặc Quản trị viên. Ngoài ra, tính năng lưu thành báo cáo chuẩn trong Thư viện chỉ hỗ trợ kỹ thuật khám phá phễu với các cấu hình tương thích theo quy định hệ thống. Khi chưa có quyền quản trị, bạn vẫn có thể xuất dữ liệu ra tệp Google Sheets, CSV hoặc PDF để gửi cho đội ngũ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Tạo đối tượng từ bước phễu có lấy được khách cũ không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Không, tệp đối tượng tạo từ bước phễu không có hiệu lực hồi tố trên các báo cáo chuẩn của GA4 mà chỉ thu thập người dùng mới thỏa mãn điều kiện kể từ thời điểm khởi tạo. Khi thuộc tính GA4 đã liên kết với Google Ads, hệ thống mới nạp bổ sung dữ liệu người dùng khớp điều kiện trong thời gian gần để phục vụ chiến dịch tiếp thị lại. Nếu mục tiêu chỉ là mổ xẻ lại hành vi quá khứ ngay trong mục Khám phá, bạn nên tạo phân đoạn thay vì đối tượng."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Khi nào chưa nên sửa giao diện dù tỷ lệ rời phễu cao?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Không nên sửa giao diện trang đích ngay khi quy mô người dùng đi vào bước phễu còn quá ít hoặc chiến dịch mới chạy thử nghiệm trong vài ngày ngắn ngủi. Bạn cần kiểm tra trước xem tỷ lệ bỏ cuộc cao có bắt nguồn từ việc quảng cáo nhắm sai tệp khách hàng hoặc thẻ sự kiện bị lỗi trên trình duyệt di động hay không. Quyết định thay đổi bố cục trang chỉ nên đưa ra sau khi đã đối chiếu thời gian chuyển bước, hành động tiếp theo và tách riêng số liệu theo thiết bị."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Khám phá phễu khác gì báo cáo hành trình mua hàng?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Khám phá phễu là công cụ tùy chỉnh cho phép bạn tự chọn bất kỳ sự kiện hoặc phương diện nào làm bước chuyển tiếp, trong khi báo cáo hành trình mua hàng là báo cáo chuẩn cố định theo luồng thương mại điện tử mặc định. Trong báo cáo khám phá phễu, người làm marketing có thể bật chế độ phễu mở, đổi điều kiện bước trực tiếp hoặc gián tiếp và xem thời gian trôi qua giữa hai bước. Các website dịch vụ thu thập biểu mẫu tư vấn bắt buộc phải dùng khám phá phễu vì không có sự kiện giỏ hàng mặc định."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vì sao thời gian chuyển bước trong phễu lên tới vài ngày?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Thời gian chuyển bước kéo dài tới vài ngày vì báo cáo khám phá phễu trong GA4 ghi nhận hành trình dựa trên cấp độ người dùng xuyên suốt nhiều phiên truy cập trong khung ngày đã chọn. Khi bước phễu được đặt ở chế độ theo sau gián tiếp mà không gắn giới hạn thời gian, hệ thống sẽ tính tổng khoảng cách từ lần đầu khách chạm bước trước đến lúc họ quay lại hoàn tất bước sau ở phiên mới. Muốn đo đúng tốc độ thao tác trong một lần ghé thăm, bạn cần bật tùy chọn giới hạn thời gian hoàn thành trong vài chục phút."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body class="kb kb--article" data-nav-active="kien-thuc">
+<!--email_off--><!-- Cloudflare không mã hóa email trong vùng này: bot không chạy JavaScript (GPTBot, ClaudeBot…) đọc được đúng địa chỉ liên hệ -->
+  <a class="skip-link" href="#noi-dung">Bỏ qua phần điều hướng</a>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m0 0-7-7m7 7-7 7"/></symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7m0 0H7m10 0v10"/></symbol>
+      <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5m0 0-7 7m7-7 7 7"/></symbol>
+      <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+      <symbol id="i-chev-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m21 21-4.35-4.35M19 11a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v1.2c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C18.72 21 17.88 21 16.2 21H7.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C3 18.72 3 17.88 3 16.2V15m14-5-5 5m0 0-5-5m5 5V3"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 8.165 5.715c.661.463.992.695 1.351.784a2 2 0 0 0 .968 0c.36-.09.69-.32 1.351-.784L22 7M6.8 20h10.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C22 17.72 22 16.88 22 15.2V8.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C19.72 4 18.88 4 17.2 4H6.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C2 6.28 2 7.12 2 8.8v6.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C4.28 20 5.12 20 6.8 20Z"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.38 8.853a14.603 14.603 0 0 0 2.847 4.01 14.603 14.603 0 0 0 4.01 2.847c.124.06.187.09.265.112.28.082.625.023.862-.147.067-.048.124-.105.239-.219.35-.35.524-.524.7-.639a2 2 0 0 1 2.18 0c.176.115.35.29.7.64l.195.194c.532.531.797.797.942 1.082a2 2 0 0 1 0 1.806c-.145.285-.41.551-.942 1.082l-.157.158c-.53.53-.795.794-1.155.997-.4.224-1.02.386-1.478.384-.413-.001-.695-.081-1.26-.241a19.038 19.038 0 0 1-8.283-4.874A19.039 19.039 0 0 1 3.17 7.761c-.16-.564-.24-.846-.241-1.26a3.377 3.377 0 0 1 .384-1.477c.202-.36.467-.625.997-1.155l.157-.158c.532-.53.798-.797 1.083-.941a2 2 0 0 1 1.805 0c.286.144.551.41 1.083.942l.195.194c.35.35.524.525.638.7a2 2 0 0 1 0 2.18c-.114.177-.289.352-.638.701a2.037 2.037 0 0 0-.22.238 1.05 1.05 0 0 0-.147.862c.023.08.053.142.113.266Z"/></symbol>
+      <symbol id="i-zalo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-11.555 7.934c-.174-.066-.26-.1-.33-.116a.901.901 0 0 0-.186-.024 2.314 2.314 0 0 0-.303.021l-5.12.53c-.49.05-.733.075-.877-.013a.5.5 0 0 1-.234-.35c-.026-.166.09-.382.324-.814l1.636-3.027c.134-.25.202-.374.232-.494a.899.899 0 0 0 .028-.326c-.01-.123-.064-.283-.172-.604A8.5 8.5 0 1 1 21 11.5Z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/><path d="M12 22c4-4 8-7.582 8-12a8 8 0 1 0-16 0c0 4.418 4 8 8 12Z"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6v6l4 2m6-2c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-verified" viewBox="0 0 24 24" fill="currentColor"><path d="M16.901 3.099a2.03 2.03 0 0 0 1.1 1.1l1.744.723a2.033 2.033 0 0 1 1.1 2.656l-.722 1.744a2.03 2.03 0 0 0 0 1.556l.722 1.744a2.033 2.033 0 0 1-1.1 2.656L19 17.901A2.033 2.033 0 0 0 17.9 19l-.723 1.745a2.032 2.032 0 0 1-2.656 1.1l-1.744-.722a2.032 2.032 0 0 0-1.555 0l-1.745.723a2.033 2.033 0 0 1-2.654-1.1L6.1 19.001A2.033 2.033 0 0 0 5 17.9l-1.744-.723a2.033 2.033 0 0 1-1.1-2.654l.721-1.744a2.033 2.033 0 0 0 0-1.556l-.722-1.746a2.033 2.033 0 0 1 1.1-2.657L5 6.098A2.03 2.03 0 0 0 6.1 5l.723-1.745a2.033 2.033 0 0 1 2.656-1.1l1.744.722a2.033 2.033 0 0 0 1.555-.001l1.746-.72a2.032 2.032 0 0 1 2.655 1.1l.723 1.746v-.003Z"/><path d="m9 12 2 2 4.5-4.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 22v-5m0-10V2M2 4.5h5m-5 15h5M13 3l-1.734 4.509c-.282.733-.423 1.1-.643 1.408a3 3 0 0 1-.706.707c-.308.219-.675.36-1.408.642L4 12l4.509 1.734c.733.282 1.1.423 1.408.643.273.194.512.433.707.706.219.308.36.675.642 1.408L13 21l1.734-4.509c.282-.733.423-1.1.643-1.408.194-.273.433-.512.706-.707.308-.219.675-.36 1.408-.642L22 12l-4.509-1.734c-.733-.282-1.1-.423-1.408-.642a3 3 0 0 1-.706-.707c-.22-.308-.36-.675-.643-1.408L13 3Z"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8V5l3-3 1 2 2 1-3 3h-3Zm0 0-4 4m10 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2m5 10a5 5 0 1 1-5-5"/></symbol>
+      <symbol id="i-kanban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v18m6-18v18M7.8 3h8.4c1.68 0 2.52 0 3.162.327a3 3 0 0 1 1.311 1.311C21 5.28 21 6.12 21 7.8v8.4c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C18.72 21 17.88 21 16.2 21H7.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C3 18.72 3 17.88 3 16.2V7.8c0-1.68 0-2.52.327-3.162a3 3 0 0 1 1.311-1.311C5.28 3 6.12 3 7.8 3Z"/></symbol>
+      <symbol id="i-kb-mkt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8V5l3-3 1 2 2 1-3 3h-3Zm0 0-4 4m10 0c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2m5 10a5 5 0 1 1-5-5"/></symbol>
+      <symbol id="i-kb-ai" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v2m6-2v2M9 20v2m6-2v2m5-13h2m-2 5h2M2 9h2m-2 5h2m4.8 6h6.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C20 17.72 20 16.88 20 15.2V8.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C17.72 4 16.88 4 15.2 4H8.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C4 6.28 4 7.12 4 8.8v6.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C6.28 20 7.12 20 8.8 20Zm1.8-5h2.8c.56 0 .84 0 1.054-.109a1 1 0 0 0 .437-.437C15 14.24 15 13.96 15 13.4v-2.8c0-.56 0-.84-.109-1.054a1 1 0 0 0-.437-.437C14.24 9 13.96 9 13.4 9h-2.8c-.56 0-.84 0-1.054.109a1 1 0 0 0-.437.437C9 9.76 9 10.04 9 10.6v2.8c0 .56 0 .84.109 1.054a1 1 0 0 0 .437.437C9.76 15 10.04 15 10.6 15Z"/></symbol>
+      <symbol id="i-kb-mgmt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h12m0 0a3 3 0 1 0 6 0 3 3 0 0 0-6 0Zm-6 8h12M9 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></symbol>
+      <symbol id="i-kb-case" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 15v2m4-6v6m4-10v10m-8.2 4h8.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C21 18.72 21 17.88 21 16.2V7.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C18.72 3 17.88 3 16.2 3H7.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C3 5.28 3 6.12 3 7.8v8.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C5.28 21 6.12 21 7.8 21Z"/></symbol>
+      <symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V4s-1 1-4 1-5-2-8-2-4 1-4 1m0 18V2"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m2 12 9.642 4.821c.131.066.197.099.266.111.06.012.123.012.184 0 .069-.012.135-.045.266-.11L22 12M2 17l9.642 4.821c.131.066.197.099.266.111.06.012.123.012.184 0 .069-.012.135-.045.266-.11L22 17M2 7l9.642-4.821c.131-.066.197-.098.266-.111a.5.5 0 0 1 .184 0c.069.013.135.045.266.11L22 7l-9.642 4.821a1.028 1.028 0 0 1-.266.111.501.501 0 0 1-.184 0c-.069-.012-.135-.045-.266-.11L2 7Z"/></symbol>
+      <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12H9m12-6H9m12 12H9m-4-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12.708 18.364-1.415 1.414a5 5 0 1 1-7.07-7.07l1.413-1.415m12.728 1.414 1.415-1.414a5 5 0 0 0-7.071-7.071l-1.415 1.414M8.5 15.5l7-7"/></symbol>
+      <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H8v3h2.4V21z"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5M3 9.75h4v11H3zm6.5 0h3.8v1.6h.06c.53-1 1.84-2.06 3.78-2.06 4.04 0 4.79 2.66 4.79 6.12v5.34h-4v-4.73c0-1.13-.02-2.58-1.57-2.58-1.58 0-1.82 1.23-1.82 2.5v4.81h-4z"/></symbol>
+      <symbol id="i-tiktok" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+      <symbol id="i-zalo-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M12.49 10.2722v-.4496h1.3467v6.3218h-.7704a.576.576 0 01-.5763-.5729l-.0006.0005a3.273 3.273 0 01-1.9372.6321c-1.8138 0-3.2844-1.4697-3.2844-3.2823 0-1.8125 1.4706-3.2822 3.2844-3.2822a3.273 3.273 0 011.9372.6321l.0006.0005zM6.9188 7.7896v.205c0 .3823-.051.6944-.2995 1.0605l-.03.0343c-.0542.0615-.1815.206-.2421.2843L2.024 14.8h4.8948v.7682a.5764.5764 0 01-.5767.5761H0v-.3622c0-.4436.1102-.6414.2495-.8476L4.8582 9.23H.1922V7.7896h6.7266zm8.5513 8.3548a.4805.4805 0 01-.4803-.4798v-7.875h1.4416v8.3548H15.47zM20.6934 9.6C22.52 9.6 24 11.0807 24 12.9044c0 1.8252-1.4801 3.306-3.3066 3.306-1.8264 0-3.3066-1.4808-3.3066-3.306 0-1.8237 1.4802-3.3044 3.3066-3.3044zm-10.1412 5.253c1.0675 0 1.9324-.8645 1.9324-1.9312 0-1.065-.865-1.9295-1.9324-1.9295s-1.9324.8644-1.9324 1.9295c0 1.0667.865 1.9312 1.9324 1.9312zm10.1412-.0033c1.0737 0 1.945-.8707 1.945-1.9453 0-1.073-.8713-1.9436-1.945-1.9436-1.0753 0-1.945.8706-1.945 1.9436 0 1.0746.8697 1.9453 1.945 1.9453z"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24" fill="currentColor"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.3l-4.9-6.4L5.2 21H2.1l7.3-8.3L1.8 3h6.4l4.4 5.9zm-1.1 16.2h1.7L7.4 4.7H5.6z"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10H3m13-8v4M8 2v4m-.2 16h8.4c1.68 0 2.52 0 3.162-.327a3 3 0 0 0 1.311-1.311C21 19.72 21 18.88 21 17.2V8.8c0-1.68 0-2.52-.327-3.162a3 3 0 0 0-1.311-1.311C18.72 4 17.88 4 16.2 4H7.8c-1.68 0-2.52 0-3.162.327a3 3 0 0 0-1.311 1.311C3 6.28 3 7.12 3 8.8v8.4c0 1.68 0 2.52.327 3.162a3 3 0 0 0 1.311 1.311C5.28 22 6.12 22 7.8 22Z"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10s-2.005-2.732-3.634-4.362a9 9 0 1 0 2.282 8.862M21 10V4m0 6h-6"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 17h8M11.018 2.764 4.235 8.039c-.453.353-.68.53-.843.75a2 2 0 0 0-.318.65C3 9.704 3 9.991 3 10.565V17.8c0 1.12 0 1.68.218 2.108a2 2 0 0 0 .874.874C4.52 21 5.08 21 6.2 21h11.6c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C21 19.48 21 18.92 21 17.8v-7.235c0-.574 0-.861-.074-1.126a2.002 2.002 0 0 0-.318-.65c-.163-.22-.39-.397-.843-.75l-6.783-5.275c-.351-.273-.527-.41-.72-.462a1 1 0 0 0-.523 0c-.194.052-.37.189-.721.462Z"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-notes" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 11H8m2 4H8m8-8H8m12-.2v10.4c0 1.68 0 2.52-.327 3.162a3 3 0 0 1-1.311 1.311C17.72 22 16.88 22 15.2 22H8.8c-1.68 0-2.52 0-3.162-.327a3 3 0 0 1-1.311-1.311C4 19.72 4 18.88 4 17.2V6.8c0-1.68 0-2.52.327-3.162a3 3 0 0 1 1.311-1.311C6.28 2 7.12 2 8.8 2h6.4c1.68 0 2.52 0 3.162.327a3 3 0 0 1 1.311 1.311C20 4.28 20 5.12 20 6.8Z"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 21-.1-.15c-.695-1.042-1.042-1.563-1.5-1.94a4 4 0 0 0-1.378-.737C8.453 18 7.827 18 6.575 18H5.2c-1.12 0-1.68 0-2.108-.218a2 2 0 0 1-.874-.874C2 16.48 2 15.92 2 14.8V6.2c0-1.12 0-1.68.218-2.108a2 2 0 0 1 .874-.874C3.52 3 4.08 3 5.2 3h.4c2.24 0 3.36 0 4.216.436a4 4 0 0 1 1.748 1.748C12 6.04 12 7.16 12 9.4M12 21V9.4M12 21l.1-.15c.695-1.042 1.042-1.563 1.5-1.94a3.999 3.999 0 0 1 1.378-.737C15.547 18 16.173 18 17.425 18H18.8c1.12 0 1.68 0 2.108-.218a2 2 0 0 0 .874-.874C22 16.48 22 15.92 22 14.8V6.2c0-1.12 0-1.68-.218-2.108a2 2 0 0 0-.874-.874C20.48 3 19.92 3 18.8 3h-.4c-2.24 0-3.36 0-4.216.436a4 4 0 0 0-1.748 1.748C12 6.04 12 7.16 12 9.4"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m9 11.5 2 2L15.5 9m4.5 3c0 4.908-5.354 8.478-7.302 9.615-.221.129-.332.194-.488.227a1.137 1.137 0 0 1-.42 0c-.156-.034-.267-.098-.488-.227C9.354 20.478 4 16.908 4 12V7.217c0-.799 0-1.199.13-1.542a2 2 0 0 1 .548-.79c.276-.243.65-.383 1.398-.664l5.362-2.01c.208-.078.312-.117.419-.133a1 1 0 0 1 .286 0c.107.016.21.055.419.133l5.362 2.01c.748.28 1.123.421 1.398.664a2 2 0 0 1 .547.79c.131.343.131.743.131 1.542V12Z"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10m0-20a15.3 15.3 0 0 0-4 10 15.3 15.3 0 0 0 4 10m0-20C6.477 2 2 6.477 2 12s4.477 10 10 10m0-20c5.523 0 10 4.477 10 10s-4.477 10-10 10M2.5 9h19m-19 6h19"/></symbol>
+    </defs></svg>
+  <div class="pt" aria-hidden="true"><span class="pt__mark"><img src="../../../assets/img/logo.svg" alt="" width="40" height="40">Lê Tuấn Việt</span></div>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="../../../" aria-label="Lê Tuấn Việt, về trang chủ">
+        <span class="nav__logo"><img src="../../../assets/img/logo.svg" alt="" width="28" height="28"></span><span class="nav__name">Lê Tuấn Việt</span><span class="nav__badge">Marketing Leader</span>
+      </a>
+      <nav class="nav__links" aria-label="Điều hướng chính" data-en-label="Main navigation">
+        <span class="nav__pill" aria-hidden="true"></span>
+        <a href="../../../" data-nav="trang-chu" data-en="Home">Trang chủ</a>
+        <a href="../../../#gioi-thieu" data-nav="gioi-thieu" data-en="About">Giới thiệu</a>
+        <a href="../../../#nang-luc" data-nav="nang-luc" data-en="Expertise">Năng lực</a>
+        <a href="../../../#du-an" data-nav="du-an" data-en="Projects">Dự án</a>
+        <a href="../../../#doi-tac" data-nav="doi-tac" data-en="Partners">Đối tác</a>
+        <a href="../../../#feedback" data-nav="feedback">Feedback</a>
+        <a class="nav__kb" href="../../../goc-kien-thuc/" data-nav="kien-thuc" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="kb-dd"><span data-en="Knowledge Hub">Góc kiến thức</span><svg class="nav__chev" aria-hidden="true"><use href="#i-chev"/></svg></a>
+        <div class="kbdd" id="kb-dd" role="region" aria-label="Góc kiến thức" data-en-label="Knowledge Hub">
+          <div class="kbdd__intro">
+            <p class="kbdd__title" data-en="Knowledge Hub">Góc kiến thức</p>
+            <p class="kbdd__desc" data-en="Marketing insights, AI tools, and real project lessons that turn strategy into measurable growth.">Góc nhìn Marketing, ứng dụng AI và bài học thực chiến giúp biến chiến lược thành hệ thống tăng trưởng.</p>
+            <div class="kbdd__by"><img src="../../../assets/kb/le-tuan-viet.webp" alt="" width="38" height="38" loading="lazy" decoding="async"><span><b>Lê Tuấn Việt</b><small>Marketing Leader</small></span></div>
+            <a class="kbdd__all" href="../../../goc-kien-thuc/"><span data-en="View all articles">Xem tất cả bài viết</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+          <div class="kbdd__main">
+            <ul class="kbdd__list">
+            <li><a class="kbdd__item" href="../../../goc-kien-thuc/marketing/"><span class="kbdd__ico"><svg aria-hidden="true"><use href="#i-kb-mkt"/></svg></span><span class="kbdd__txt"><b data-en="Marketing">Marketing</b><small data-en="Market research, channel plans and multichannel growth for SMEs">Nghiên cứu thị trường, lập kế hoạch và triển khai đa kênh cho SME</small></span><svg class="kbdd__go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="kbdd__item" href="../../../goc-kien-thuc/ai-marketing/"><span class="kbdd__ico"><svg aria-hidden="true"><use href="#i-kb-ai"/></svg></span><span class="kbdd__txt"><b data-en="AI Marketing">AI Marketing</b><small data-en="Using AI for research, content work and ad campaign performance">Dùng AI nghiên cứu, làm nội dung và tối ưu hóa hiệu suất chiến dịch</small></span><svg class="kbdd__go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="kbdd__item" href="../../../goc-kien-thuc/du-an-va-bai-hoc/"><span class="kbdd__ico"><svg aria-hidden="true"><use href="#i-kb-case"/></svg></span><span class="kbdd__txt"><b data-en="Case Marketing">Case Marketing</b><small data-en="Case analysis, campaign execution, metrics and key lessons">Phân tích bối cảnh, cách triển khai, đo lường và bài học thực tế</small></span><svg class="kbdd__go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            <li><a class="kbdd__item" href="../../../goc-kien-thuc/tin-tuc-goc-nhin/"><span class="kbdd__ico"><svg aria-hidden="true"><use href="#i-kb-mgmt"/></svg></span><span class="kbdd__txt"><b data-en="News &amp; Insights">Tin tức và Góc nhìn</b><small data-en="Analysing tech, AI and market shifts that matter to marketing teams">Phân tích sự kiện công nghệ, AI, nền tảng số và tác động tới Marketing</small></span><svg class="kbdd__go" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+            </ul>
+          </div>
+        </div>
+        <a href="../../../#lien-he" data-nav="lien-he" data-en="Contact">Liên hệ</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="nav__search" type="button" data-search-open aria-haspopup="dialog" aria-controls="kb-search" aria-label="Tìm kiếm bài viết" title="Tìm kiếm bài viết (phím /)"><svg aria-hidden="true"><use href="#i-search"/></svg></button>
+        <a class="btn btn--dark btn--sm magnetic" href="../../../assets/cv/CV-Le-Tuan-Viet.pdf" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv><span data-en="Download CV">Tải CV</span> <svg class="ico ico--down" aria-hidden="true"><use href="#i-download"/></svg></a>
+        <button class="nav__burger" type="button" aria-label="Mở menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu__links" aria-label="Menu di động">
+      <a href="../../../"><small>01</small><span data-en="Home">Trang chủ</span></a>
+      <a href="../../../#gioi-thieu"><small>02</small><span data-en="About">Giới thiệu</span></a>
+      <a href="../../../#nang-luc"><small>03</small><span data-en="Expertise">Năng lực</span></a>
+      <a href="../../../#du-an"><small>04</small><span data-en="Projects">Dự án</span></a>
+      <a href="../../../#doi-tac"><small>05</small><span data-en="Partners">Đối tác</span></a>
+      <a href="../../../#feedback"><small>06</small>Feedback</a>
+      <div class="menu-kb is-open">
+        <button class="menu-kb__btn" type="button" aria-expanded="true" aria-controls="menu-kb-list"><small>07</small><span data-en="Knowledge Hub">Góc kiến thức</span><svg class="menu-kb__chev" aria-hidden="true"><use href="#i-chev"/></svg></button>
+        <div class="menu-kb__panel" id="menu-kb-list">
+          <div class="menu-kb__inner">
+            <a href="../../../goc-kien-thuc/marketing/"><span class="menu-kb__ico"><svg aria-hidden="true"><use href="#i-kb-mkt"/></svg></span><span data-en="Marketing">Marketing</span></a>
+            <a href="../../../goc-kien-thuc/ai-marketing/"><span class="menu-kb__ico"><svg aria-hidden="true"><use href="#i-kb-ai"/></svg></span><span data-en="AI Marketing">AI Marketing</span></a>
+            <a href="../../../goc-kien-thuc/du-an-va-bai-hoc/"><span class="menu-kb__ico"><svg aria-hidden="true"><use href="#i-kb-case"/></svg></span><span data-en="Case Marketing">Case Marketing</span></a>
+            <a href="../../../goc-kien-thuc/tin-tuc-goc-nhin/"><span class="menu-kb__ico"><svg aria-hidden="true"><use href="#i-kb-mgmt"/></svg></span><span data-en="News &amp; Insights">Tin tức và Góc nhìn</span></a>
+            <a class="menu-kb__all" href="../../../goc-kien-thuc/"><span data-en="View all articles">Tất cả bài viết</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <a href="../../../assets/cv/CV-Le-Tuan-Viet.pdf" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv><small>08</small><span data-en="Download CV">Tải CV</span></a>
+      <a href="../../../#lien-he"><small>09</small><span data-en="Contact">Liên hệ</span></a>
+    </nav>
+    <div class="menu__foot">
+      <a class="menu__contact" href="mailto:work@letuanviet.com"><svg aria-hidden="true"><use href="#i-mail"/></svg><span>work@letuanviet.com</span></a>
+      <a class="menu__contact" href="tel:+84935702321"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>0935 702 321</span></a>
+    </div>
+  </div>
+
+  <main id="noi-dung" tabindex="-1">
+
+    <article class="kb-art">
+      <div class="container">
+        <div class="kb-art__grid">
+          <div class="kb-art__main">
+            <header class="kb-art__head">
+              <nav class="kb-crumbs" aria-label="Đường dẫn"><ol><li><a href="../../../"><svg aria-hidden="true"><use href="#i-home"/></svg>Trang chủ</a></li><li><a href="../../../goc-kien-thuc/">Góc kiến thức</a></li><li><a href="../../../goc-kien-thuc/marketing/">Marketing</a></li><li aria-current="page"><span>Báo cáo khám phá phễu trong GA4 và cách tạo</span></li></ol></nav>
+              <h1 class="kb-art__h1" data-fit data-fit-min="20">Báo cáo khám phá phễu trong GA4 <span class="grad">và cách&nbsp;tạo</span></h1>
+              <p class="kb-art__sapo">Báo cáo khám phá phễu trong GA4 là công cụ phân tích tùy chỉnh thuộc mô-đun Khám phá, giúp doanh nghiệp trực quan hóa chuỗi bước người dùng thực hiện trước khi chuyển đổi và đo tỷ lệ rơi rụng tại từng điểm chạm. Với doanh nghiệp vừa và nhỏ, việc chỉ nhìn vào tổng số biểu mẫu tư vấn hoặc đơn hàng cuối cùng thường không cho biết khách hàng đang bỏ cuộc ở bước xem bảng giá, mở giỏ hàng hay thanh toán. Khi chọn nhầm giữa phễu mở và phễu đóng hoặc đặt sai điều kiện sự kiện, bảng số liệu rất dễ bị trống và dẫn tới quyết định sửa trang đích thiếu căn cứ. Tôi là <a href="../../../">Lê Tuấn Việt</a>, Marketing Leader tại TAKI Group. Trong bài viết này, tôi làm rõ điều kiện dữ liệu đầu vào cần kiểm tra, tiêu chí chọn loại phễu theo mục tiêu kinh doanh, quy trình bốn bước thiết lập kèm xuất báo cáo và cách đọc tín hiệu rời phễu để tối ưu chuyển đổi.</p>
+              <div class="kb-art__by">
+                <a class="kb-art__who" href="../../../" rel="author"><img src="../../../assets/kb/le-tuan-viet.webp" alt="Ảnh đại diện Lê Tuấn Việt" width="48" height="48"><span><b>Lê Tuấn Việt <svg aria-hidden="true"><use href="#i-verified"/></svg></b><small>Marketing Leader tại TAKI Group</small></span></a>
+                <ul class="kb-art__dates">
+                  <li><svg aria-hidden="true"><use href="#i-calendar"/></svg><span>Đăng ngày <time datetime="2026-11-14T20:00:00+07:00">14/11/2026</time></span></li>
+                  <li><svg aria-hidden="true"><use href="#i-refresh"/></svg><span>Cập nhật <time datetime="2026-11-14T20:00:00+07:00">14/11/2026</time></span></li>
+                </ul>
+              </div>
+            </header>
+
+<figure class="kb-art__cover">
+              <picture><source type="image/webp" srcset="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4-320.webp 320w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4-640.webp 640w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4.webp 1200w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4-1600.webp 1600w" sizes="(min-width: 840px) 760px, 100vw"><img src="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4.jpg" alt="Sơ đồ cấu trúc báo cáo khám phá phễu trong GA4 gồm phễu mở, phễu đóng, quy trình 4 bước cấu hình và khung chẩn đoán rời phễu cho SME" width="1200" height="630" decoding="async" fetchpriority="high"></picture>
+              <figcaption>Thiết lập báo cáo khám phá phễu trong GA4 giúp khoanh vùng chính xác bước khách hàng bỏ dở trên hành trình điền biểu mẫu hoặc thanh toán</figcaption>
+            </figure>
+
+            <section class="kb-sum" aria-labelledby="tom-tat">
+              <p class="kb-sum__t" id="tom-tat"><svg aria-hidden="true"><use href="#i-notes"/></svg>Tóm tắt nhanh</p>
+              <ul><li>Báo cáo khám phá phễu trong GA4 đo lường hành trình ở cấp độ người dùng qua chuỗi bước tùy chỉnh, đòi hỏi phải kiểm tra sự kiện đầu vào bằng DebugView trước khi dựng biểu đồ.</li><li>Chọn phễu đóng khi cần kiểm toán một luồng trang đích quảng cáo khép kín từ bước đầu, và chọn phễu mở khi đánh giá hành trình mua hàng đa điểm chạm cho phép khách gia nhập ở bước trung gian.</li><li>Cột Biến ở bên trái chỉ dùng để nạp sẵn phân đoạn và phương diện, còn cột Cài đặt thẻ mới là nơi áp dụng trực tiếp điều kiện bước, bộ lọc và thiết bị vào báo cáo phễu.</li><li>Quyết định sửa giao diện trang đích cần dựa trên việc kết hợp tỷ lệ rời phễu, thời gian chuyển bước và hành động tiếp theo, thay vì kết luận vội khi mẫu dữ liệu còn quá nhỏ.</li></ul>
+            </section>
+
+            <details class="kb-toc2">
+              <summary><span class="kb-toc2__t"><svg aria-hidden="true"><use href="#i-list"/></svg>Mục lục bài viết</span><span class="kb-toc2__n">8 phần</span><span class="kb-toc2__ico" aria-hidden="true"></span></summary>
+              <nav aria-label="Mục lục"><ol class="kb-toc__list"><li><a href="#bao-cao-kham-pha-pheu-trong-ga4-la-gi"><span class="kb-toc__n">1</span>Báo cáo khám phá phễu trong GA4 là gì?</a><ol><li><a href="#khac-biet-giua-kham-pha-pheu-ga4-va-bao-cao-chuan">Khác biệt giữa khám phá phễu GA4 và báo cáo chuẩn</a></li><li><a href="#dieu-kien-du-lieu-su-kien-can-kiem-tra-truoc-khi-tao">Điều kiện dữ liệu sự kiện cần kiểm tra trước khi tạo</a></li></ol></li></li><li><a href="#pheu-mo-va-pheu-dong-khac-nhau-the-nao"><span class="kb-toc__n">2</span>Phễu mở và phễu đóng khác nhau thế nào?</a><ol><li><a href="#co-che-ghi-nhan-nguoi-dung-o-hai-loai-pheu">Cơ chế ghi nhận người dùng ở hai loại phễu</a></li><li><a href="#khi-nao-chon-pheu-chuan-hoac-pheu-xu-huong">Khi nào chọn phễu chuẩn hoặc phễu xu hướng</a></li></ol></li></li><li><a href="#cach-tao-pheu-ga4-va-cau-hinh-buoc-pheu-chuan"><span class="kb-toc__n">3</span>Cách tạo phễu GA4 và cấu hình bước phễu chuẩn</a><ol><li><a href="#buoc-1-khai-bao-bien-phan-doan-va-phuong-dien">Bước 1: Khai báo biến phân đoạn và phương diện</a></li><li><a href="#buoc-2-chon-buoc-truc-tiep-hoac-gian-tiep-va-thoi-gian">Bước 2: Chọn bước trực tiếp hoặc gián tiếp và thời gian</a></li><li><a href="#buoc-3-ap-bo-loc-thiet-bi-va-kiem-tra-so-lieu">Bước 3: Áp bộ lọc, thiết bị và kiểm tra số liệu</a></li><li><a href="#buoc-4-cach-xuat-bao-cao-kham-pha-pheu-va-luu-thu-vien">Bước 4: Cách xuất báo cáo khám phá phễu và lưu Thư viện</a></li></ol></li></li><li><a href="#mau-bao-cao-kham-pha-pheu-trong-ga4-cho-sme"><span class="kb-toc__n">4</span>Mẫu báo cáo khám phá phễu trong GA4 cho SME</a><ol><li><a href="#mau-pheu-thu-thap-bieu-mau-cho-website-dich-vu">Mẫu phễu thu thập biểu mẫu cho website dịch vụ</a></li><li><a href="#mau-pheu-mua-hang-cho-website-thuong-mai-dien-tu">Mẫu phễu mua hàng cho website thương mại điện tử</a></li></ol></li></li><li><a href="#cach-doc-phan-tich-roi-pheu-de-sua-trang-dich"><span class="kb-toc__n">5</span>Cách đọc phân tích rời phễu để sửa trang đích</a><ol><li><a href="#doc-thoi-gian-giua-cac-buoc-va-hanh-dong-tiep-theo">Đọc thời gian giữa các bước và hành động tiếp theo</a></li><li><a href="#tao-doi-tuong-tiep-thi-lai-tu-nhom-khach-roi-bo">Tạo đối tượng tiếp thị lại từ nhóm khách rời bỏ</a></li></ol></li></li><li><a href="#ba-loi-cau-hinh-lam-lech-so-lieu-va-cach-xu-ly"><span class="kb-toc__n">6</span>Ba lỗi cấu hình làm lệch số liệu và cách xử lý</a></li><li><a href="#cau-hoi-thuong-gap-ve-kham-pha-pheu-ga4"><span class="kb-toc__n">7</span>Câu hỏi thường gặp về khám phá phễu GA4</a></li><li><a href="#ket-luan"><span class="kb-toc__n">8</span>Kết luận</a></li></ol></nav>
+            </details>
+
+            <div class="kb-prose">
+<h2 id="bao-cao-kham-pha-pheu-trong-ga4-la-gi">Báo cáo khám phá phễu trong GA4 là gì?</h2>
+<p class="kb-def"><strong>Báo cáo khám phá phễu trong GA4</strong> (Funnel exploration, kỹ thuật khám phá phễu) là công cụ phân tích tùy chỉnh trong mô-đun Khám phá của GA4 (Google Analytics 4, nền tảng phân tích dữ liệu của Google), giúp trực quan hóa chuỗi bước người dùng thực hiện để hoàn tất mục tiêu và đo tỷ lệ rơi rụng tại&nbsp;từng&nbsp;bước.</p>
+<p>Theo tài liệu chính thức của <a href="https://support.google.com/analytics/answer/9327974" target="_blank" rel="noopener">Google Analytics Help về Funnel exploration</a> kiểm tra năm 2026, công cụ này cho phép doanh nghiệp tự định nghĩa chuỗi bước (Steps) dựa trên sự kiện hoặc phương diện để nhận diện nơi khách hàng tiềm năng thoát khỏi hành trình&nbsp;chuyển&nbsp;đổi.</p>
+<p>Để thiết lập đúng báo cáo phễu GA4 mà không bị nhầm lẫn khi thao tác trên giao diện, người phụ trách marketing cần nắm rõ sáu thuật ngữ kỹ thuật xuất hiện xuyên suốt quá trình&nbsp;cấu&nbsp;hình:</p>
+<ul>
+  <li><strong>Phễu mở (Open funnel):</strong> Chế độ cho phép người dùng gia nhập vào phễu ở bất kỳ bước nào trong chuỗi hành trình mà vẫn được hệ thống&nbsp;ghi&nbsp;nhận.</li>
+  <li><strong>Phễu đóng (Closed funnel):</strong> Chế độ mặc định bắt buộc người dùng phải đi qua đúng bước đầu tiên mới được tính vào các bước&nbsp;tiếp&nbsp;theo.</li>
+  <li><strong>Phân đoạn (Segment):</strong> Tập hợp con của dữ liệu phân tích có hiệu lực hồi tố trên dữ liệu lịch sử, dùng để so sánh các nhóm người dùng trong mục&nbsp;Khám&nbsp;phá.</li>
+  <li><strong>Đối tượng (Audience):</strong> Nhóm người dùng có chung thuộc tính hoặc hành vi, được đóng gói để theo dõi trong báo cáo chuẩn và đồng bộ sang Google Ads (nền tảng quảng cáo trực tuyến của Google) phục vụ tiếp&nbsp;thị&nbsp;lại.</li>
+  <li><strong>Phương diện (Dimension):</strong> Thuộc tính định tính mô tả đặc điểm của người dùng hoặc phiên truy cập như danh mục thiết bị, nguồn truy cập hay đường&nbsp;dẫn&nbsp;trang.</li>
+  <li><strong>Thông số sự kiện (Event parameter):</strong> Dữ liệu chi tiết đi kèm một sự kiện để làm rõ ngữ cảnh hành động, chẳng hạn địa chỉ URL của trang hoặc giá trị&nbsp;giỏ&nbsp;hàng.</li>
+</ul>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/01-bao-cao-kham-pha-pheu-trong-ga4.webp" srcset="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/01-bao-cao-kham-pha-pheu-trong-ga4-800.webp 800w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/01-bao-cao-kham-pha-pheu-trong-ga4.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ nguyên lý hoạt động của báo cáo khám phá phễu trong GA4 từ bước xem trang đích đến hoàn tất chuyển đổi và tỷ lệ rời phễu" width="1600" height="900"><figcaption>Báo cáo khám phá phễu trong GA4 trực quan hóa số lượng người dùng đi tiếp và tỷ lệ bỏ cuộc qua từng bước của hành trình</figcaption></figure>
+<h3 id="khac-biet-giua-kham-pha-pheu-ga4-va-bao-cao-chuan">Khác biệt giữa khám phá phễu GA4 và báo cáo chuẩn</h3>
+<p>Khác biệt lớn nhất giữa khám phá phễu GA4 và báo cáo chuẩn trong mục Kiếm tiền (Monetization) nằm ở quyền tự định nghĩa điều kiện từng bước theo mô hình kinh doanh. Trong báo cáo chuẩn, hệ thống khóa cứng các bước thương mại điện tử mặc định nên website dịch vụ thu thập biểu mẫu tư vấn không thể&nbsp;áp&nbsp;dụng.</p>
+<p>Khi chuyển sang giao diện khám phá phễu GA4, bạn được quyền kết hợp lượt xem trang đích, các tín hiệu <a href="../../../goc-kien-thuc/marketing/micro-conversion-la-gi/">chuyển đổi vi mô trong GA4</a> như mở biểu mẫu với hành động gửi yêu cầu cuối cùng trên cùng một biểu đồ. Tôi ưu tiên dựng phễu từ câu hỏi kinh doanh đang cần quyết định trong tháng thay vì gom mọi thao tác nhấp chuột vào một&nbsp;báo&nbsp;cáo.</p>
+<h3 id="dieu-kien-du-lieu-su-kien-can-kiem-tra-truoc-khi-tao">Điều kiện dữ liệu sự kiện cần kiểm tra trước khi tạo</h3>
+<p>Một báo cáo phễu chỉ trả về con số chính xác khi các sự kiện đầu vào đã gửi dữ liệu ổn định về hệ thống. Nhiều đội ngũ tại SME (Small and Medium Enterprise, doanh nghiệp vừa và nhỏ) mở ngay giao diện tạo phễu khi chưa kiểm tra sự kiện gửi biểu mẫu (<code>generate_lead</code>) hay thanh toán (<code>purchase</code>) đã hoạt động&nbsp;hay&nbsp;chưa.</p>
+<p>Theo hướng dẫn của <a href="https://support.google.com/analytics/answer/7201382" target="_blank" rel="noopener">Google Analytics Help về DebugView</a>, công cụ DebugView (chế độ giám sát sự kiện theo thời gian thực) giúp kiểm tra trực tiếp từng sự kiện và thông số phát sinh từ trình duyệt thử nghiệm. Trước khi tạo phễu GA4, bạn cần tự thao tác thử một lượt đăng ký và xác nhận sự kiện xuất hiện đúng một lần trong DebugView. Dữ liệu đầu vào sai thì phễu đẹp cũng&nbsp;vô&nbsp;nghĩa.</p>
+<aside class="kb-cta kb-cta--nut">
+  <p class="kb-cta__t">Báo cáo GA4 của bạn đang trống hoặc lệch số liệu?</p>
+  <a class="kb-btn kb-btn--primary" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo><svg aria-hidden="true"><use href="#i-zalo"/></svg>Nhắn Zalo cho tôi</a>
+</aside>
+<h2 id="pheu-mo-va-pheu-dong-khac-nhau-the-nao">Phễu mở và phễu đóng khác nhau thế nào?</h2>
+<p>Phễu mở và phễu đóng khác nhau ở quy tắc ghi nhận điểm gia nhập của người dùng vào chuỗi hành trình đang đo lường. Theo <a href="https://support.google.com/analytics/answer/9327974" target="_blank" rel="noopener">tài liệu Funnel exploration của Google</a>, phễu đóng bắt buộc người dùng phải đi từ bước đầu tiên, còn phễu mở cho phép bước vào ở bất kỳ bước trung gian nào theo ba tiêu chí&nbsp;dưới&nbsp;đây.</p>
+<div class="kb-table" role="region" aria-label="Bảng phân biệt phễu mở và phễu đóng trong GA4 theo cơ chế tính và tình huống áp dụng" tabindex="0"><table>
+  <caption>Bảng phân biệt phễu mở và phễu đóng trong GA4 theo cơ chế tính và tình huống&nbsp;áp&nbsp;dụng</caption>
+  <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
+  <thead><tr><th>Tiêu chí</th><th>Phễu đóng (Closed funnel)</th><th>Phễu mở (Open funnel)</th></tr></thead>
+  <tbody>
+    <tr><td data-label="Tiêu chí">Cơ chế&nbsp;đếm&nbsp;mẫu</td><td data-label="Phễu đóng (Closed funnel)">Chỉ tính người bắt đầu đúng từ Bước 1 và đi tiếp theo&nbsp;trình&nbsp;tự</td><td data-label="Phễu mở (Open funnel)">Tính cả người bỏ qua Bước 1 để vào thẳng Bước 2 hoặc&nbsp;bước&nbsp;cuối</td></tr>
+    <tr><td data-label="Tiêu chí">Tình huống SME</td><td data-label="Phễu đóng (Closed funnel)">Kiểm toán luồng trang đích quảng cáo hoặc thanh toán&nbsp;khép&nbsp;kín</td><td data-label="Phễu mở (Open funnel)">Đánh giá website đa điểm chạm khi khách vào thẳng trang&nbsp;bảng&nbsp;giá</td></tr>
+    <tr><td data-label="Tiêu chí">Sai số&nbsp;dễ&nbsp;gặp</td><td data-label="Phễu đóng (Closed funnel)">Bỏ sót khách cũ lưu sẵn đường dẫn bước giữa nên số tổng&nbsp;thấp&nbsp;hơn</td><td data-label="Phễu mở (Open funnel)">Số người bước sau có thể lớn hơn bước trước, dễ đọc lệch&nbsp;tỷ&nbsp;lệ</td></tr>
+  </tbody>
+</table></div>
+<p>Giới hạn khi đọc bảng: phễu mở và phễu đóng trả lời hai câu hỏi quản trị khác nhau nên không thể lấy tỷ lệ hoàn thành của phễu mở để so sánh ngang với phễu đóng. Khi báo cáo kết quả trong <a href="../../../goc-kien-thuc/marketing/marketing-la-gi/">hệ thống marketing cho SME</a>, bạn cần ghi rõ biểu đồ đang khóa điểm vào tại bước đầu hay cho phép gia nhập&nbsp;tự&nbsp;do.</p>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/02-bao-cao-kham-pha-pheu-trong-ga4.webp" srcset="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/02-bao-cao-kham-pha-pheu-trong-ga4-800.webp 800w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/02-bao-cao-kham-pha-pheu-trong-ga4.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Minh họa đối chiếu cơ chế ghi nhận người dùng giữa phễu đóng bắt buộc vào từ bước đầu và phễu mở cho phép gia nhập ở bước trung gian" width="1600" height="900"><figcaption>Phễu đóng khóa mẫu số từ bước đầu tiên, trong khi phễu mở ghi nhận cả những khách hàng đi thẳng vào bước trung gian</figcaption></figure>
+<h3 id="co-che-ghi-nhan-nguoi-dung-o-hai-loai-pheu">Cơ chế ghi nhận người dùng ở hai loại phễu</h3>
+<p>Trong chế độ phễu đóng, nếu khách hàng xem bài viết ở tuần trước rồi hôm nay bấm thẳng vào liên kết trang bảng giá do nhân viên tư vấn gửi qua Zalo để điền biểu mẫu, người đó sẽ bị loại khỏi phễu nếu Bước 1 đặt là xem trang chủ. Cơ chế này giữ cho mẫu số ở mọi bước sau luôn là tập con của&nbsp;bước&nbsp;trước.</p>
+<p>Ngược lại, khi gạt nút Tạo phễu mở (Make open funnel) tính đến giao diện tháng 11/2026, hệ thống sẽ vẽ thêm phần cột màu khác biệt ở đầu mỗi bước để biểu thị số người mới gia nhập ngay tại bước đó. Nếu khách thường nhận liên kết bước giữa qua tin nhắn riêng tư, bạn nên đọc thêm về <a href="../../../goc-kien-thuc/marketing/dark-social-la-gi/">nguồn truy cập dark social</a> để hiểu vì sao họ không đi từ trang&nbsp;mở&nbsp;đầu.</p>
+<h3 id="khi-nao-chon-pheu-chuan-hoac-pheu-xu-huong">Khi nào chọn phễu chuẩn hoặc phễu xu hướng</h3>
+<p>Bên cạnh việc chọn phễu mở hay đóng, thanh cài đặt của GA4 còn cung cấp hai chế độ hiển thị gồm phễu chuẩn (Standard funnel, biểu đồ cột bậc thang) và phễu xu hướng (Trended funnel, biểu đồ đường theo chuỗi thời gian). Trên một số tài liệu dịch tự động, Trended funnel bị dịch máy thành kênh thịnh hành gây khó hiểu cho&nbsp;người&nbsp;đọc.</p>
+<p>Phễu chuẩn phù hợp khi bạn cần nhìn bức tranh tổng hợp trong kỳ đo để tìm bước có tỷ lệ rơi rụng lớn nhất. Trong khi đó, phễu xu hướng phát huy tác dụng khi đội kỹ thuật vừa sửa lỗi biểu mẫu và bạn cần theo dõi tỷ lệ hoàn thành của riêng bước đó biến động thế nào qua&nbsp;từng&nbsp;ngày.</p>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/03-bao-cao-kham-pha-pheu-trong-ga4.webp" srcset="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/03-bao-cao-kham-pha-pheu-trong-ga4-800.webp 800w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/03-bao-cao-kham-pha-pheu-trong-ga4.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="So sánh giao diện biểu đồ phễu chuẩn dạng cột bậc thang và phễu xu hướng dạng đường theo chuỗi thời gian trong GA4" width="1600" height="900"><figcaption>Chọn phễu chuẩn để tìm điểm nghẽn tổng hợp trong kỳ đo và chuyển sang phễu xu hướng khi cần theo dõi biến động từng bước theo ngày</figcaption></figure>
+<h2 id="cach-tao-pheu-ga4-va-cau-hinh-buoc-pheu-chuan">Cách tạo phễu GA4 và cấu hình bước phễu chuẩn</h2>
+<p>Quy trình tạo phễu GA4 và cấu hình bước phễu chuẩn cho doanh nghiệp gồm bốn bước tuần tự: khai báo phân đoạn và phương diện ở cột Biến, thiết lập điều kiện bước trực tiếp hoặc gián tiếp ở cột Cài đặt thẻ, áp dụng chia nhỏ theo thiết bị để kiểm tra số liệu, sau đó xuất tệp hoặc lưu vào&nbsp;Thư&nbsp;viện.</p>
+<figure class="kb-fig">
+  <ol class="kb-steps">
+    <li><span class="kb-steps__n">01</span><b>Khai báo cột Biến</b><span>Nạp sẵn phân đoạn và phương diện cần dùng vào cột bên trái.</span></li>
+    <li><span class="kb-steps__n">02</span><b>Cấu hình bước phễu</b><span>Đặt điều kiện sự kiện, chọn bước trực tiếp hoặc gián tiếp.</span></li>
+    <li><span class="kb-steps__n">03</span><b>Chia nhỏ và lọc số</b><span>Tách dữ liệu theo thiết bị và áp bộ lọc kiểm chứng mẫu số.</span></li>
+    <li><span class="kb-steps__n">04</span><b>Xuất và lưu báo cáo</b><span>Tải tệp Sheets, CSV, PDF hoặc lưu vào Thư viện xem định kỳ.</span></li>
+  </ol>
+  <figcaption>Quy trình bốn bước thiết lập và xuất báo cáo khám phá phễu&nbsp;trong&nbsp;GA4</figcaption>
+</figure>
+<h3 id="buoc-1-khai-bao-bien-phan-doan-va-phuong-dien" class="kb-h3-step">Bước 1: Khai báo biến phân đoạn và phương diện</h3>
+<p>Truy cập mục Khám phá (Explore) trên thanh điều hướng bên trái của GA4, chọn mẫu Khám phá phễu (Funnel exploration). Tại đây, bạn cần phân biệt rõ vai trò của hai cột thiết lập theo tài liệu <a href="https://support.google.com/analytics/answer/7579450" target="_blank" rel="noopener">Get started with Explorations của Google</a> tính đến&nbsp;tháng&nbsp;11/2026.</p>
+<p>Cột Biến (Variables) ở ngoài cùng bên trái là kho nguyên liệu đầu vào: muốn dùng phân đoạn nguồn truy cập hay phương diện thiết bị, bạn phải bấm dấu cộng ở cột Biến để nạp trước. Cột Cài đặt thẻ (Tab Settings) nằm kế bên mới là nơi kéo thả các biến đã nạp vào báo cáo để vẽ&nbsp;biểu&nbsp;đồ.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> Cột Biến đã hiển thị đủ các phân đoạn người dùng và phương diện (Danh mục thiết bị, Đường dẫn trang, Nguồn truy cập) sẵn sàng để kéo sang cột Cài&nbsp;đặt&nbsp;thẻ.</p>
+<h3 id="buoc-2-chon-buoc-truc-tiep-hoac-gian-tiep-va-thoi-gian" class="kb-h3-step">Bước 2: Chọn bước trực tiếp hoặc gián tiếp và thời gian</h3>
+<p>Trong cột Cài đặt thẻ, cuộn xuống mục Bước (Steps) và nhấp biểu tượng cây bút để mở cửa sổ cấu hình bước phễu. Tại mỗi bước, hãy đặt tên theo hành động kinh doanh, chọn sự kiện tương ứng và thêm thông số bằng toán tử VÀ (AND) hoặc HOẶC (OR) khớp đúng trang đích&nbsp;cần&nbsp;đo.</p>
+<p>Từ bước thứ hai trở đi, <a href="https://support.google.com/analytics/answer/9327974" target="_blank" rel="noopener">tài liệu kỹ thuật Funnel exploration</a> quy định hai lựa chọn gồm bước theo sau gián tiếp (Indirectly followed by) cho phép xen trang phụ ở giữa và bước theo sau trực tiếp (Directly followed by) đòi hỏi hành động sau diễn ra ngay lập tức, kèm ô tích giới hạn thời gian Trong&nbsp;vòng&nbsp;(Within).</p>
+<p class="kb-out"><strong>Đầu ra:</strong> Chuỗi từ 4 đến 6 bước phễu đã khóa rõ điều kiện sự kiện, lựa chọn trực tiếp hoặc gián tiếp hợp lý và hiển thị biểu đồ cột sau khi bấm Áp&nbsp;dụng&nbsp;(Apply).</p>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/04-bao-cao-kham-pha-pheu-trong-ga4.webp" srcset="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/04-bao-cao-kham-pha-pheu-trong-ga4-800.webp 800w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/04-bao-cao-kham-pha-pheu-trong-ga4.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ luồng thao tác giữa cột Biến nạp dữ liệu đầu vào và cột Cài đặt thẻ áp dụng bước phễu cùng vị trí nút xuất báo cáo trong GA4" width="1600" height="900"><figcaption>Phân đoạn và phương diện phải được nạp ở cột Biến trước khi kéo thả sang cột Cài đặt thẻ để áp dụng vào báo cáo phễu</figcaption></figure>
+<h3 id="buoc-3-ap-bo-loc-thiet-bi-va-kiem-tra-so-lieu" class="kb-h3-step">Bước 3: Áp bộ lọc, thiết bị và kiểm tra số liệu</h3>
+<p>Sau khi biểu đồ hiện ra, hãy kéo phương diện Danh mục thiết bị (Device category) từ cột Biến thả vào ô Chia nhỏ (Breakdown) bên dưới cột Cài đặt thẻ. Thao tác này giúp bảng dữ liệu bên dưới tách riêng tỷ lệ hoàn thành trên điện thoại di động (Mobile), máy tính để bàn (Desktop) và máy tính&nbsp;bảng&nbsp;(Tablet).</p>
+<p>Tiếp theo, kéo phương diện vào ô Bộ lọc (Filters) để giới hạn phạm vi cho một nhóm trang cụ thể, rồi đối chiếu số người dùng ở Bước 1 với báo cáo Sự kiện chuẩn. Nếu đang lên phương án <a href="../../../goc-kien-thuc/marketing/cach-tao-website/">cách tạo website chuẩn chuyển đổi</a>, việc tách thiết bị ngay từ đây sẽ chỉ ra liệu biểu mẫu có bị khuất nút bấm trên điện thoại&nbsp;hay&nbsp;không.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> Bảng số liệu dưới biểu đồ phễu đã chia tách rõ theo từng dòng thiết bị và số lượng người dùng ở bước đầu khớp logic với dữ liệu&nbsp;sự&nbsp;kiện.</p>
+<h3 id="buoc-4-cach-xuat-bao-cao-kham-pha-pheu-va-luu-thu-vien" class="kb-h3-step">Bước 4: Cách xuất báo cáo khám phá phễu và lưu Thư viện</h3>
+<p>Nhiều hướng dẫn chỉ dừng ở bước xem biểu đồ mà bỏ qua cách xuất báo cáo khám phá phễu để chia sẻ cho đội ngũ. Theo tài liệu <a href="https://support.google.com/analytics/answer/7579450" target="_blank" rel="noopener">Google Analytics Help về Explorations</a> tính đến tháng 11/2026, bạn nhấp biểu tượng Xuất dữ liệu (Export data, hình mũi tên xuống ở góc trên bên phải) để tải bảng số liệu ra Google Sheets, TSV, CSV&nbsp;hoặc&nbsp;PDF.</p>
+<p>Nếu tài khoản có quyền Chỉnh sửa (Editor) hoặc Quản trị viên (Administrator), bạn bấm biểu tượng Lưu dưới dạng báo cáo trong thư viện (Save as a report in the Library) cạnh nút xuất tệp. Sau đó, vào mục Báo cáo, mở Thư viện (Library) ở góc dưới bên trái và gắn báo cáo phễu vào bộ sưu tập để xem trực tiếp trên thanh menu&nbsp;hàng&nbsp;ngày.</p>
+<p class="kb-out"><strong>Đầu ra:</strong> Tệp dữ liệu báo cáo phễu đã được xuất sang Google Sheets hoặc PDF, đồng thời báo cáo đã được gắn vào thanh menu Báo cáo thông qua&nbsp;Thư&nbsp;viện.</p>
+<aside class="kb-cta kb-cta--mid" aria-label="Trao đổi với Lê Tuấn Việt">
+  <img class="kb-cta__ava" src="../../../assets/kb/le-tuan-viet.webp" alt="" width="52" height="52" loading="lazy" decoding="async">
+  <div class="kb-cta__txt">
+    <p class="kb-cta__t">Phễu GA4 chưa khớp số đơn hoặc biểu mẫu?</p>
+    <p class="kb-cta__d">Nhắn tôi để rà soát sự kiện và luồng trang đích</p>
+  </div>
+  <a class="kb-btn kb-btn--primary" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo><svg aria-hidden="true"><use href="#i-zalo"/></svg>Nhắn Zalo</a>
+</aside>
+<h2 id="mau-bao-cao-kham-pha-pheu-trong-ga4-cho-sme">Mẫu báo cáo khám phá phễu trong GA4 cho SME</h2>
+<p>Mẫu báo cáo khám phá phễu trong GA4 giúp doanh nghiệp vừa và nhỏ áp dụng ngay cấu hình sự kiện chuẩn theo mục tiêu kinh doanh thay vì tự dò từng thông số kỹ thuật. Tùy thuộc vào mô hình hoạt động là dịch vụ tư vấn hay bán lẻ trực tuyến, bạn có thể chọn một trong hai mẫu bốn bước&nbsp;dưới&nbsp;đây.</p>
+<div class="kb-table" role="region" aria-label="Bảng mẫu cấu hình 4 bước phễu trong GA4 cho website dịch vụ thu lead và thương mại điện tử" tabindex="0"><table>
+  <caption>Bảng mẫu cấu hình 4 bước phễu trong GA4 cho website dịch vụ thu lead và thương mại&nbsp;điện&nbsp;tử</caption>
+  <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
+  <thead><tr><th>Trình tự bước</th><th>Website dịch vụ thu lead</th><th>Website thương mại điện tử</th></tr></thead>
+  <tbody>
+    <tr><td data-label="Trình tự bước">Bước 1:&nbsp;Điểm&nbsp;vào</td><td data-label="Website dịch vụ thu lead">Sự kiện <code>page_view</code> có <code>page_location</code> chứa đường dẫn&nbsp;dịch&nbsp;vụ</td><td data-label="Website thương mại điện tử">Sự kiện <code>view_item</code> khi khách mở xem trang chi tiết&nbsp;sản&nbsp;phẩm</td></tr>
+    <tr><td data-label="Trình tự bước">Bước 2:&nbsp;Tương&nbsp;tác</td><td data-label="Website dịch vụ thu lead">Sự kiện nhấp nút mở biểu mẫu báo giá, theo sau gián tiếp&nbsp;Bước&nbsp;1</td><td data-label="Website thương mại điện tử">Sự kiện <code>add_to_cart</code> thêm hàng vào giỏ, theo sau gián tiếp&nbsp;Bước&nbsp;1</td></tr>
+    <tr><td data-label="Trình tự bước">Bước 3:&nbsp;Điền&nbsp;mẫu</td><td data-label="Website dịch vụ thu lead">Sự kiện <code>form_start</code> bắt đầu điền, theo sau gián tiếp&nbsp;Bước&nbsp;2</td><td data-label="Website thương mại điện tử">Sự kiện <code>begin_checkout</code> mở thanh toán, theo sau gián tiếp&nbsp;Bước&nbsp;2</td></tr>
+    <tr><td data-label="Trình tự bước">Bước 4:&nbsp;Hoàn&nbsp;tất</td><td data-label="Website dịch vụ thu lead">Sự kiện <code>generate_lead</code> gửi biểu mẫu, theo sau gián tiếp&nbsp;Bước&nbsp;3</td><td data-label="Website thương mại điện tử">Sự kiện <code>purchase</code> kèm giá trị đơn, theo sau gián tiếp&nbsp;Bước&nbsp;3</td></tr>
+  </tbody>
+</table></div>
+<p>Giới hạn khi đọc bảng: cả hai mẫu đều ưu tiên bước theo sau gián tiếp vì GA4 tự động thu thập nhiều sự kiện như cuộn trang (<code>scroll</code>) xen giữa các thao tác của khách. Nếu chọn bước trực tiếp cho luồng mua hàng thông thường, các sự kiện tự động này sẽ cắt đứt mạch phễu và làm số người ở bước sau giảm&nbsp;giả&nbsp;tạo.</p>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/05-bao-cao-kham-pha-pheu-trong-ga4.webp" srcset="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/05-bao-cao-kham-pha-pheu-trong-ga4-800.webp 800w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/05-bao-cao-kham-pha-pheu-trong-ga4.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ 4 bước cấu hình sự kiện phễu GA4 cho mô hình website dịch vụ thu thập biểu mẫu và mô hình thương mại điện tử" width="1600" height="900"><figcaption>Hai mẫu cấu hình 4 bước phễu chuẩn theo mục tiêu thu thập biểu mẫu dịch vụ và thanh toán giỏ hàng cho doanh nghiệp vừa và nhỏ</figcaption></figure>
+<h3 id="mau-pheu-thu-thap-bieu-mau-cho-website-dich-vu">Mẫu phễu thu thập biểu mẫu cho website dịch vụ</h3>
+<p>Với các phòng khám, đơn vị tư vấn hoặc giáo dục, mục tiêu trọng tâm của trang đích là thu thập yêu cầu liên hệ. Việc tách riêng bước mở biểu mẫu (Bước 2) và bước bắt đầu điền thông tin (Bước 3) trước khi gửi thành công (<code>generate_lead</code>) giúp phân biệt lỗi do nút kêu gọi kém thu hút hay do biểu mẫu hỏi quá&nbsp;nhiều&nbsp;trường.</p>
+<p>Trong dự án cố vấn Marketing cho Hệ thống Y Đa khoa TOMEC (tháng 8/2025 đến tháng 8/2026) do tôi phụ trách, việc theo dõi sát chỉ số chuyển đổi từng chặng đã hỗ trợ tối ưu luồng đón khách, giúp tăng 40% khách hàng tiềm năng và giảm 54% CPL (chi phí trên mỗi khách hàng tiềm năng), từ 1,2 triệu xuống 550.000 đồng&nbsp;mỗi&nbsp;data.</p>
+<h3 id="mau-pheu-mua-hang-cho-website-thuong-mai-dien-tu">Mẫu phễu mua hàng cho website thương mại điện tử</h3>
+<p>Đối với website bán lẻ có giỏ hàng, bốn sự kiện khuyến nghị gồm <code>view_item</code>, <code>add_to_cart</code>, <code>begin_checkout</code> và <code>purchase</code> là khung xương sống để đo hiệu suất. Khi triển khai <a href="../../../goc-kien-thuc/marketing/thiet-ke-website/">thiết kế website doanh nghiệp</a>, bạn hãy kiểm tra xem giỏ hàng trượt ngang có kích hoạt đúng sự kiện <code>begin_checkout</code> hay khách mua tắt làm bỏ qua bước&nbsp;giỏ&nbsp;hàng.</p>
+<h2 id="cach-doc-phan-tich-roi-pheu-de-sua-trang-dich">Cách đọc phân tích rời phễu để sửa trang đích</h2>
+<p>Cách đọc phân tích rời phễu hiệu quả là kết hợp đồng thời ba chỉ số gồm tỷ lệ bỏ cuộc (Abandonment rate), thời gian trôi qua (Elapsed time) và hành động tiếp theo (Next action) để lập giả thuyết sửa trang đích. Theo <a href="https://support.google.com/analytics/answer/9327974" target="_blank" rel="noopener">Google Analytics Help</a>, hai chỉ số phụ giúp làm rõ khách mất bao lâu giữa hai bước và đã&nbsp;rẽ&nbsp;đi&nbsp;đâu.</p>
+<div class="kb-table" role="region" aria-label="Khung chẩn đoán 3 cột đọc tín hiệu rời phễu trên GA4 để ra quyết định tối ưu trang đích" tabindex="0"><table>
+  <caption>Khung chẩn đoán 3 cột đọc tín hiệu rời phễu trên GA4 để ra quyết định tối ưu&nbsp;trang&nbsp;đích</caption>
+  <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
+  <thead><tr><th>Tín hiệu phễu</th><th>Giả thuyết điểm nghẽn</th><th>Việc kiểm tra và xử lý</th></tr></thead>
+  <tbody>
+    <tr><td data-label="Tín hiệu phễu">Rơi cao ở&nbsp;Bước&nbsp;2</td><td data-label="Giả thuyết điểm nghẽn">Thông điệp đầu trang lệch quảng cáo hoặc nút bấm khuất trên&nbsp;di&nbsp;động</td><td data-label="Việc kiểm tra và xử lý">Chia nhỏ theo thiết bị, đưa nút mở biểu mẫu lên vùng nhìn&nbsp;đầu&nbsp;trang</td></tr>
+    <tr><td data-label="Tín hiệu phễu">Chuyển bước lâu</td><td data-label="Giả thuyết điểm nghẽn">Khách thiếu thông tin bảng giá, phí giao hàng nên phải đi&nbsp;tìm&nbsp;thêm</td><td data-label="Việc kiểm tra và xử lý">Xem cột Hành động tiếp theo và bổ sung tóm tắt giá ngay&nbsp;tại&nbsp;chỗ</td></tr>
+    <tr><td data-label="Tín hiệu phễu">Bỏ dở&nbsp;biểu&nbsp;mẫu</td><td data-label="Giả thuyết điểm nghẽn">Biểu mẫu hỏi quá nhiều trường hoặc lỗi nhập số điện thoại&nbsp;di&nbsp;động</td><td data-label="Việc kiểm tra và xử lý">Rút gọn trường nhập phụ, gửi thử biểu mẫu thật trên iOS&nbsp;và&nbsp;Android</td></tr>
+  </tbody>
+</table></div>
+<p>Giới hạn khi đọc bảng: khung chẩn đoán trên cung cấp giả thuyết vận hành để kiểm tra, không phải kết luận nhân quả tuyệt đối khi mẫu dữ liệu còn nhỏ dưới vài chục người. Khi khách đổi thiết bị từ điện thoại sang máy tính hoặc xóa cookie, GA4 có thể đếm thành hai người độc lập khiến tỷ lệ rời phễu cao hơn&nbsp;thực&nbsp;tế.</p>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/06-bao-cao-kham-pha-pheu-trong-ga4.webp" srcset="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/06-bao-cao-kham-pha-pheu-trong-ga4-800.webp 800w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/06-bao-cao-kham-pha-pheu-trong-ga4.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Sơ đồ kết hợp ba chỉ số tỷ lệ rời phễu, thời gian chuyển bước và hành động tiếp theo để chẩn đoán điểm nghẽn trang đích" width="1600" height="900"><figcaption>Kết hợp tỷ lệ bỏ cuộc với thời gian chuyển bước và hành động tiếp theo giúp xác định đúng nguyên nhân khách hàng rời trang đích</figcaption></figure>
+<h3 id="doc-thoi-gian-giua-cac-buoc-va-hanh-dong-tiep-theo">Đọc thời gian giữa các bước và hành động tiếp theo</h3>
+<p>Để thấy cách kết hợp ba chỉ số này khi <a href="../../../goc-kien-thuc/marketing/cx-la-gi/">đo trải nghiệm khách hàng</a> trên trang, hãy xét một ví dụ: một công ty dịch vụ kế toán nhận thấy tỷ lệ rời phễu từ bước mở biểu mẫu sang gửi thành công lên tới 80% kèm thời gian chuyển bước hơn&nbsp;4&nbsp;phút.</p>
+<div class="kb-case">
+  <p class="kb-case__t">Chẩn đoán điểm nghẽn biểu mẫu báo giá bằng cột Hành động&nbsp;tiếp&nbsp;theo</p>
+  <p>Ví dụ, khi người phụ trách kéo phương diện Đường dẫn trang (Page path) vào ô Hành động tiếp theo và rê chuột vào cột bỏ cuộc, báo cáo cho thấy phần lớn người rời bước đã rẽ sang trang bảng phụ phí. Thay vì đổi màu nút bấm, đội ngũ bổ sung ngay ba dòng ghi chú chi phí trọn gói phía trên&nbsp;biểu&nbsp;mẫu.</p>
+</div>
+<p>Cách đọc kết hợp này ngăn thói quen sửa giao diện cảm tính khi thấy chuyển đổi giảm. Nếu thông tin biểu mẫu được quản trị như nguồn <a href="../../../goc-kien-thuc/marketing/zero-party-data-va-first-party-data/">dữ liệu first-party data</a>, bạn còn có thể đối chiếu ngược với chất lượng cuộc gọi của đội kinh doanh để biết việc rút ngắn trường nhập có làm tăng đăng ký rác&nbsp;hay&nbsp;không.</p>
+<h3 id="tao-doi-tuong-tiep-thi-lai-tu-nhom-khach-roi-bo">Tạo đối tượng tiếp thị lại từ nhóm khách rời bỏ</h3>
+<p>Sau khi xác định bước có nhiều người bỏ dở giữa chừng như đã thêm vào giỏ hàng, bạn có thể nhấp chuột phải vào cột bước đó để gom nhóm dữ liệu. Theo <a href="https://support.google.com/analytics/answer/9304353" target="_blank" rel="noopener">Google Analytics Help về Segment builder</a>, Phân đoạn (Segment) dùng để cắt lát dữ liệu ngay trong mục Khám phá và có hiệu lực hồi tố trên dữ liệu&nbsp;lịch&nbsp;sử.</p>
+<p>Ngược lại, theo <a href="https://support.google.com/analytics/answer/12799087" target="_blank" rel="noopener">tài liệu Introduction to audiences</a>, Đối tượng (Audience) dùng để đẩy danh sách sang Google Ads chạy tiếp thị lại và không hồi tố trên báo cáo chuẩn. Khi chọn Xây dựng đối tượng (Build an audience) từ bước giỏ hàng, hãy tích ô loại trừ người đã hoàn tất <code>purchase</code> để không tốn tiền bám đuổi khách đã&nbsp;mua&nbsp;xong.</p>
+<aside class="kb-cta kb-cta--nut">
+  <p class="kb-cta__t">Xem các dự án tối ưu chuyển đổi tôi đã phụ trách</p>
+  <a class="kb-btn kb-btn--ghost" href="../../../#du-an">Xem dự án <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</aside>
+<h2 id="ba-loi-cau-hinh-lam-lech-so-lieu-va-cach-xu-ly">Ba lỗi cấu hình làm lệch số liệu và cách xử lý</h2>
+<p>Ba lỗi cấu hình phổ biến khiến báo cáo khám phá phễu trong GA4 bị trống hoặc trả về 0 người dùng ở các bước sau gồm: gán sai toán tử điều kiện VÀ (AND) cho nhiều sự kiện cùng bước, lọc sai thông số đường dẫn trang, và bật bước trực tiếp cho luồng có sự kiện&nbsp;tự&nbsp;động.</p>
+<ul class="kb-list-cards">
+  <li><strong>Gộp sự kiện bằng toán tử AND:</strong> Một sự kiện không thể mang hai tên cùng lúc, cần đổi sang HOẶC (OR) hoặc tách thành hai bước.</li>
+  <li><strong>Lọc sai đường dẫn page_location:</strong> Chọn khớp chính xác khi URL có gắn mã UTM sẽ trả về 0 người, cần đổi sang điều kiện chứa.</li>
+  <li><strong>Bật bước trực tiếp cho luồng tự động:</strong> Sự kiện tự động như <code>scroll</code> xen giữa hai thao tác sẽ cắt đứt mạch phễu, cần đổi về bước theo sau&nbsp;gián&nbsp;tiếp.</li>
+</ul>
+<figure class="kb-fig"><img loading="lazy" decoding="async" src="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/07-bao-cao-kham-pha-pheu-trong-ga4.webp" srcset="https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/07-bao-cao-kham-pha-pheu-trong-ga4-800.webp 800w, https://img.letuanviet.com/kb/bao-cao-kham-pha-pheu-trong-ga4/8628d5aed9/bao-cao-kham-pha-pheu-trong-ga4/07-bao-cao-kham-pha-pheu-trong-ga4.webp 1600w" sizes="(min-width: 840px) 760px, 100vw" alt="Minh họa đối chiếu lỗi cấu hình toán tử AND làm báo cáo phễu trả về 0 người dùng và cách tách bước kết hợp điều kiện chứa đường dẫn đúng" width="1600" height="900"><figcaption>Tách riêng từng sự kiện theo bước và dùng điều kiện chứa cho đường dẫn URL giúp khắc phục lỗi báo cáo phễu trả về 0 người dùng</figcaption></figure>
+<p>Khi biểu đồ đột ngột báo 0 người dùng ở Bước 2 dù đội bán hàng vẫn nhận được đơn mỗi ngày, hãy kiểm tra lại điều kiện bước. Trong ví dụ này, cách làm sai là gộp sự kiện <code>page_view</code> VÀ (AND) <code>click_zalo</code> vào chung Bước 1 kèm điều kiện URL khớp chính xác <code>https://tenmien.vn/bang-gia</code> khiến phễu báo&nbsp;số&nbsp;0.</p>
+<p>Cách sửa đúng là tách Bước 1 chỉ nhận sự kiện <code>page_view</code> với thông số <code>page_location</code> chứa (contains) cụm <code>/bang-gia</code> để bao phủ cả lượt truy cập có gắn mã UTM quảng cáo. Sau đó, đưa sự kiện <code>click_zalo</code> xuống Bước 2 với tùy chọn theo sau gián tiếp để hệ thống ghi nhận đúng hành trình. Đã dựng phễu là phải kiểm điều&nbsp;kiện&nbsp;bước.</p>
+<aside class="kb-cta kb-cta--late" aria-label="Dự án đã triển khai">
+  <span class="kb-cta__ico" aria-hidden="true"><svg aria-hidden="true"><use href="#i-layers"/></svg></span>
+  <div class="kb-cta__txt">
+    <p class="kb-cta__t">Xem dự án cố vấn TOMEC và hệ thống website</p>
+    <p class="kb-cta__d">Tối ưu CPL, chuyển đổi và quản trị tại TAKI</p>
+  </div>
+  <a class="kb-btn kb-btn--ghost" href="../../../#du-an">Xem dự án <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+</aside>
+<h2 id="cau-hoi-thuong-gap-ve-kham-pha-pheu-ga4">Câu hỏi thường gặp về khám phá phễu GA4</h2>
+<div class="kb-faq">
+  <details class="kb-faq__item" open>
+    <summary><h3 class="kb-faq__q">Báo cáo khám phá phễu GA4 tạo được tối đa mấy bước?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Báo cáo khám phá phễu trong GA4 cho phép thiết lập chuỗi nhiều bước chuyển tiếp tuần tự trong cùng một bảng phân tích tùy chỉnh. Với doanh nghiệp vừa và nhỏ, việc gom hành trình về 4 đến 6 bước cốt lõi giúp biểu đồ trực quan và tránh làm mẫu dữ liệu ở các bước cuối bị chia quá nhỏ. Nếu hành trình mua hàng thực tế dài hơn, bạn nên tách thành hai phễu riêng gồm phễu tìm hiểu dịch vụ và phễu hoàn tất thanh toán.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Vì sao nút lưu báo cáo phễu vào Thư viện bị mờ?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Không, bạn không thể bấm nút lưu vào Thư viện khi tài khoản GA4 chỉ được cấp quyền Xem hoặc Phân tích thay vì quyền Chỉnh sửa hoặc Quản trị viên. Ngoài ra, tính năng lưu thành báo cáo chuẩn trong Thư viện chỉ hỗ trợ kỹ thuật khám phá phễu với các cấu hình tương thích theo quy định hệ thống. Khi chưa có quyền quản trị, bạn vẫn có thể xuất dữ liệu ra tệp Google Sheets, CSV hoặc PDF để gửi cho đội ngũ.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Tạo đối tượng từ bước phễu có lấy được khách cũ không?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Không, tệp đối tượng tạo từ bước phễu không có hiệu lực hồi tố trên các báo cáo chuẩn của GA4 mà chỉ thu thập người dùng mới thỏa mãn điều kiện kể từ thời điểm khởi tạo. Khi thuộc tính GA4 đã liên kết với Google Ads, hệ thống mới nạp bổ sung dữ liệu người dùng khớp điều kiện trong thời gian gần để phục vụ chiến dịch tiếp thị lại. Nếu mục tiêu chỉ là mổ xẻ lại hành vi quá khứ ngay trong mục Khám phá, bạn nên tạo phân đoạn thay vì đối tượng.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Khi nào chưa nên sửa giao diện dù tỷ lệ rời phễu cao?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Không nên sửa giao diện trang đích ngay khi quy mô người dùng đi vào bước phễu còn quá ít hoặc chiến dịch mới chạy thử nghiệm trong vài ngày ngắn ngủi. Bạn cần kiểm tra trước xem tỷ lệ bỏ cuộc cao có bắt nguồn từ việc quảng cáo nhắm sai tệp khách hàng hoặc thẻ sự kiện bị lỗi trên trình duyệt di động hay không. Quyết định thay đổi bố cục trang chỉ nên đưa ra sau khi đã đối chiếu thời gian chuyển bước, hành động tiếp theo và tách riêng số liệu theo thiết bị.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Khám phá phễu khác gì báo cáo hành trình mua hàng?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Khám phá phễu là công cụ tùy chỉnh cho phép bạn tự chọn bất kỳ sự kiện hoặc phương diện nào làm bước chuyển tiếp, trong khi báo cáo hành trình mua hàng là báo cáo chuẩn cố định theo luồng thương mại điện tử mặc định. Trong báo cáo khám phá phễu, người làm marketing có thể bật chế độ phễu mở, đổi điều kiện bước trực tiếp hoặc gián tiếp và xem thời gian trôi qua giữa hai bước. Các website dịch vụ thu thập biểu mẫu tư vấn bắt buộc phải dùng khám phá phễu vì không có sự kiện giỏ hàng mặc định.</p></div>
+  </details>
+  <details class="kb-faq__item">
+    <summary><h3 class="kb-faq__q">Vì sao thời gian chuyển bước trong phễu lên tới vài ngày?</h3><span class="kb-faq__ico" aria-hidden="true"></span></summary>
+    <div class="kb-faq__a"><p>Thời gian chuyển bước kéo dài tới vài ngày vì báo cáo khám phá phễu trong GA4 ghi nhận hành trình dựa trên cấp độ người dùng xuyên suốt nhiều phiên truy cập trong khung ngày đã chọn. Khi bước phễu được đặt ở chế độ theo sau gián tiếp mà không gắn giới hạn thời gian, hệ thống sẽ tính tổng khoảng cách từ lần đầu khách chạm bước trước đến lúc họ quay lại hoàn tất bước sau ở phiên mới. Muốn đo đúng tốc độ thao tác trong một lần ghé thăm, bạn cần bật tùy chọn giới hạn thời gian hoàn thành trong vài chục phút.</p></div>
+  </details>
+</div>
+<h2 id="ket-luan">Kết luận</h2>
+<p>Báo cáo khám phá phễu trong GA4 chỉ thực sự phát huy giá trị khi được dựng từ chuỗi sự kiện đã kiểm chứng trong DebugView, chọn đúng cơ chế phễu mở hoặc đóng theo mục tiêu trang đích và đọc kết hợp tỷ lệ bỏ cuộc với thời gian chuyển bước cùng hành động&nbsp;tiếp&nbsp;theo.</p>
+<p>Ngay trong tuần này, bạn có thể mở mục Khám phá trên tài khoản GA4 hiện có, dựng thử một phễu 4 bước cho trang dịch vụ hoặc giỏ hàng chủ lực, kéo phương diện Danh mục thiết bị vào ô Chia nhỏ và lưu báo cáo vào Thư viện để theo dõi&nbsp;hàng&nbsp;tuần.</p>
+<p>Khi doanh nghiệp chạy đa kênh mà số liệu giữa báo cáo GA4 và khách hàng tiềm năng thực tế vẫn lệch nhau, việc chỉ chỉnh từng biểu đồ lẻ sẽ không giải quyết tận gốc. Lúc này, bạn cần một khung hoạch định và đo lường đồng bộ hơn cho toàn bộ hệ thống <a href="../../../goc-kien-thuc/marketing/">Marketing</a> của&nbsp;doanh&nbsp;nghiệp.</p>
+<p>Nếu bạn đang vướng ở bước chuẩn hóa sự kiện đầu vào hoặc chưa rõ nguyên nhân khiến khách hàng rời bỏ trang đích ở chặng cuối, hãy nhắn cho tôi để cùng rà soát lại luồng chuyển đổi&nbsp;thực&nbsp;tế.</p>
+            </div>
+
+            <section class="kb-authorbox" aria-label="Về tác giả">
+              <img class="kb-authorbox__photo" src="../../../assets/kb/le-tuan-viet.webp" alt="Lê Tuấn Việt, Marketing Leader tại TAKI Group" width="96" height="96" loading="lazy" decoding="async">
+              <div class="kb-authorbox__body">
+                <p class="kb-authorbox__name">Lê Tuấn Việt <svg aria-hidden="true"><use href="#i-verified"/></svg></p>
+                <p class="kb-authorbox__role">Marketing Leader tại <a href="https://taki.vn" target="_blank" rel="noopener">TAKI Group</a></p>
+                <p class="kb-authorbox__slogan"><b class="kb-authorbox__pos">Marketing &amp; Growth Architect</b>Biến chiến lược thành hệ thống. Biến hệ thống thành tăng trưởng.</p>
+                <p class="kb-authorbox__bio"><a href="../../../">Lê Tuấn Việt</a> có hơn 4 năm kinh nghiệm trong Marketing, từng tư vấn chiến lược cho hơn 200 doanh nghiệp SME. Anh bắt đầu từ bài toán kinh doanh, chuyển mục tiêu thành kế hoạch, quy trình triển khai và hệ thống KPI rõ ràng. Từ đó, các hoạt động Marketing được phối hợp, đo lường và tối ưu để tạo ra tăng trưởng bền vững.</p>
+                <div class="kb-authorbox__links">
+                  <a href="../../../" rel="author">Xem Portfolio <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                  <a href="../../../#du-an">Dự án đã triển khai <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                  <a href="../../../#lien-he">Liên hệ <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+                </div>
+              </div>
+            </section>
+
+            <div class="kb-art__end">
+              <div class="kb-share kb-share--end">
+          <span class="kb-share__label">Chia sẻ</span>
+          <a class="kb-share__btn" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fletuanviet.com%2Fgoc-kien-thuc%2Fmarketing%2Fbao-cao-kham-pha-pheu-trong-ga4%2F" target="_blank" rel="noopener" aria-label="Chia sẻ lên Facebook"><svg aria-hidden="true"><use href="#i-facebook"/></svg></a>
+          <a class="kb-share__btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fletuanviet.com%2Fgoc-kien-thuc%2Fmarketing%2Fbao-cao-kham-pha-pheu-trong-ga4%2F" target="_blank" rel="noopener" aria-label="Chia sẻ lên LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+          <a class="kb-share__btn" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fletuanviet.com%2Fgoc-kien-thuc%2Fmarketing%2Fbao-cao-kham-pha-pheu-trong-ga4%2F&amp;text=B%C3%A1o%20c%C3%A1o%20kh%C3%A1m%20ph%C3%A1%20ph%E1%BB%85u%20trong%20GA4%20v%C3%A0%20c%C3%A1ch%20t%E1%BA%A1o" target="_blank" rel="noopener" aria-label="Chia sẻ lên X"><svg aria-hidden="true"><use href="#i-x"/></svg></a>
+          <button class="kb-share__btn" type="button" data-share-copy="https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/" aria-label="Sao chép liên kết bài viết"><svg aria-hidden="true"><use href="#i-link"/></svg></button>
+        </div>
+            </div>
+          </div>
+
+          <aside class="kb-art__aside" aria-label="Tìm kiếm, chuyên mục và bài viết mới">
+            <div class="kb-side" data-kb-recent="../../../goc-kien-thuc/recent.json" data-kb-self="goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/">
+              <form class="kb-search kb-search--side" role="search" action="../../../goc-kien-thuc/" method="get" data-kb-search="../../../goc-kien-thuc/search.json" data-rel="../../../" data-zalo="https://zalo.me/0935702321">
+      <div class="kb-search__box">
+        
+        <label class="sr-only" for="kb-sq">Tìm kiếm bài viết trong Góc kiến thức</label>
+        <input id="kb-sq" name="q" type="search" placeholder="Tìm kiếm bài viết" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="kb-sq-list">
+        <button class="kb-search__clear" type="button" aria-label="Xóa từ khóa"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+        <button class="kb-search__btn" type="submit"><svg aria-hidden="true"><use href="#i-search"/></svg><span>Tìm kiếm</span></button>
+      </div>
+      <div class="kb-search__panel" hidden>
+        <p class="kb-search__head" aria-hidden="true"></p>
+        <ul class="kb-search__list" id="kb-sq-list" role="listbox" aria-label="Kết quả tìm kiếm"></ul>
+      </div>
+      <p class="sr-only" role="status" aria-live="polite"></p>
+    </form>
+              <nav class="kb-side__box" aria-labelledby="kb-side-cat">
+                <p class="kb-side__t" id="kb-side-cat">Chuyên mục</p>
+                <ul class="kb-side__cats">
+                <li><a class="kb-side__cat is-current" href="../../../goc-kien-thuc/marketing/"><svg aria-hidden="true"><use href="#i-chev-r"/></svg><span class="kb-side__cname">Marketing</span><span class="kb-side__n">49</span></a></li>
+                <li><a class="kb-side__cat" href="../../../goc-kien-thuc/ai-marketing/"><svg aria-hidden="true"><use href="#i-chev-r"/></svg><span class="kb-side__cname">AI Marketing</span><span class="kb-side__n">8</span></a></li>
+                <li><a class="kb-side__cat" href="../../../goc-kien-thuc/du-an-va-bai-hoc/"><svg aria-hidden="true"><use href="#i-chev-r"/></svg><span class="kb-side__cname">Case Marketing</span><span class="kb-side__n">14</span></a></li>
+                <li><a class="kb-side__cat" href="../../../goc-kien-thuc/tin-tuc-goc-nhin/"><svg aria-hidden="true"><use href="#i-chev-r"/></svg><span class="kb-side__cname">Tin tức và Góc nhìn</span></a></li>
+                </ul>
+              </nav>
+              <section class="kb-side__box" aria-labelledby="kb-side-new">
+                <p class="kb-side__t" id="kb-side-new">Kiến thức mới</p>
+                <ul class="kb-side__posts">
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/marketing/cac-chi-so-google-analytics-4/"><span class="kb-side__img"><img src="https://img.letuanviet.com/kb/cac-chi-so-google-analytics-4/d7d6aad83c/cac-chi-so-google-analytics-4-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="Các chỉ số Google Analytics 4 và cách đọc"><span>Các chỉ số Google</span> <span>Analytics 4 và cách đọc</span></b><small><time datetime="2026-11-14">14/11/2026</time></small></span></a></li>
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/marketing/conversion-tracking-la-gi/"><span class="kb-side__img"><img src="https://img.letuanviet.com/kb/conversion-tracking-la-gi/690f4a68ea/conversion-tracking-la-gi-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="Conversion tracking là gì, cách thiết lập"><span>Conversion tracking là gì,</span> <span>cách thiết lập</span></b><small><time datetime="2026-11-14">14/11/2026</time></small></span></a></li>
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/marketing/google-tag-manager-la-gi/"><span class="kb-side__img"><img src="https://img.letuanviet.com/kb/google-tag-manager-la-gi/f1080cdbec/google-tag-manager-la-gi-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="Google Tag Manager là gì, cách cài đặt GTM"><span>Google Tag Manager là gì,</span> <span>cách cài đặt GTM</span></b><small><time datetime="2026-11-13">13/11/2026</time></small></span></a></li>
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/marketing/cai-dat-theo-doi-chuyen-doi-ga4/"><span class="kb-side__img"><img src="https://img.letuanviet.com/kb/cai-dat-theo-doi-chuyen-doi-ga4/28c041c691/cai-dat-theo-doi-chuyen-doi-ga4-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="Cài đặt theo dõi chuyển đổi trên GA4 cho SME"><span>Cài đặt theo dõi chuyển</span> <span>đổi trên GA4 cho SME</span></b><small><time datetime="2026-11-13">13/11/2026</time></small></span></a></li>
+                <li><a class="kb-side__post" href="../../../goc-kien-thuc/marketing/buzz-marketing-la-gi/"><span class="kb-side__img"><img src="https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi-320.webp" alt="" width="320" height="168" loading="lazy" decoding="async"></span><span class="kb-side__txt"><b title="Buzz Marketing là gì, cách làm cho SME"><span>Buzz Marketing là gì,</span> <span>cách làm cho SME</span></b><small><time datetime="2026-11-13">13/11/2026</time></small></span></a></li>
+                </ul>
+              </section>
+            </div>
+            <div class="kb-side__cta bio">
+              <div class="bio__photo"><img src="../../../assets/kb/le-tuan-viet-photo.webp" alt="Lê Tuấn Việt, Marketing Leader tại TAKI Group" loading="lazy" decoding="async" width="760" height="760"></div>
+              <div class="bio__body">
+                <div class="bio__sig"><img src="../../../assets/img/signature.png" alt="Chữ ký Lê Tuấn Việt" width="984" height="346" loading="lazy" decoding="async"></div>
+                <div class="bio__links">
+                  <button class="bio__link" type="button" data-copy="work@letuanviet.com"><span><svg aria-hidden="true"><use href="#i-mail"/></svg><em>work@letuanviet.com</em></span><small>Sao chép</small></button>
+                  <a class="bio__link" href="tel:0935702321"><span><svg aria-hidden="true"><use href="#i-phone"/></svg><em>0935 702 321</em></span><small>Gọi</small></a>
+                  <a class="bio__link" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo><span><svg aria-hidden="true"><use href="#i-zalo"/></svg><em>Zalo I Tuấn Việt</em></span><small>Mở</small></a>
+                </div>
+                <a class="kb-btn kb-btn--primary kb-btn--block kb-side__go" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo>Nhận tư vấn Marketing <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </article>
+
+
+    <section class="kb-more" aria-labelledby="kb-more-title">
+      <div class="container">
+        <header class="kb-head">
+          <h2 class="kb-head__t" id="kb-more-title" data-fit data-split>Bài viết có <span class="grad">liên quan</span></h2>
+          <div class="kb-more__actions">
+            <div class="kb-more__nav" aria-label="Điều hướng bài viết liên quan">
+              <button class="round kb-more__btn" type="button" data-more-nav="-1" aria-label="Bài trước"><svg class="kb-pager__prev" aria-hidden="true"><use href="#i-chev-r"/></svg></button>
+              <button class="round kb-more__btn" type="button" data-more-nav="1" aria-label="Bài tiếp"><svg aria-hidden="true"><use href="#i-chev-r"/></svg></button>
+            </div>
+            <a class="btn btn--dark btn--sm magnetic" href="../../../goc-kien-thuc/">Tất cả bài viết <svg class="ico ico--arrow" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </header>
+        <div class="kb-more__viewport" data-more-viewport>
+          <div class="kb-more__track" data-more-track><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi-320.webp 320w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi-640.webp 640w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi.webp 1200w, https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="https://img.letuanviet.com/kb/google-analytics-4-la-gi/67671679cd/google-analytics-4-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-11"><b>11</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/google-analytics-4-la-gi/">Google Analytics 4 là gì và cách dùng&nbsp;GA4</a></h3>
+            <p class="kb-post__x">Google Analytics 4 là nền tảng đo lường thế hệ mới của Google thu thập dữ liệu dựa trên sự kiện từ website và ứng dụng. Bài viết phân biệt GA4 với Universal Analytics, hướng dẫn cài đặt bốn bước có kiểm chứng và cung cấp khung đọc chỉ số ba tầng cho doanh nghiệp vừa và nhỏ.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="https://img.letuanviet.com/kb/conversion-tracking-la-gi/690f4a68ea/conversion-tracking-la-gi-320.webp 320w, https://img.letuanviet.com/kb/conversion-tracking-la-gi/690f4a68ea/conversion-tracking-la-gi-640.webp 640w, https://img.letuanviet.com/kb/conversion-tracking-la-gi/690f4a68ea/conversion-tracking-la-gi.webp 1200w, https://img.letuanviet.com/kb/conversion-tracking-la-gi/690f4a68ea/conversion-tracking-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="https://img.letuanviet.com/kb/conversion-tracking-la-gi/690f4a68ea/conversion-tracking-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-14"><b>14</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/conversion-tracking-la-gi/">Conversion tracking là gì, cách thiết&nbsp;lập</a></h3>
+            <p class="kb-post__x">Conversion tracking là quá trình đo lường các hành động có giá trị kinh doanh mà người dùng thực hiện sau khi tương tác với kênh tìm kiếm hoặc quảng cáo. Bài viết hướng dẫn cách chọn hành động, cấu hình cửa sổ chuyển đổi, cài đặt qua Google Tag Manager và đọc báo cáo ba tầng.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="https://img.letuanviet.com/kb/cai-dat-theo-doi-chuyen-doi-ga4/28c041c691/cai-dat-theo-doi-chuyen-doi-ga4-320.webp 320w, https://img.letuanviet.com/kb/cai-dat-theo-doi-chuyen-doi-ga4/28c041c691/cai-dat-theo-doi-chuyen-doi-ga4-640.webp 640w, https://img.letuanviet.com/kb/cai-dat-theo-doi-chuyen-doi-ga4/28c041c691/cai-dat-theo-doi-chuyen-doi-ga4.webp 1200w, https://img.letuanviet.com/kb/cai-dat-theo-doi-chuyen-doi-ga4/28c041c691/cai-dat-theo-doi-chuyen-doi-ga4-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="https://img.letuanviet.com/kb/cai-dat-theo-doi-chuyen-doi-ga4/28c041c691/cai-dat-theo-doi-chuyen-doi-ga4.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-13"><b>13</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/cai-dat-theo-doi-chuyen-doi-ga4/">Cài đặt theo dõi chuyển đổi trên GA4 cho&nbsp;SME</a></h3>
+            <p class="kb-post__x">Cài đặt theo dõi chuyển đổi trên Google Analytics 4 giúp doanh nghiệp ghi nhận chính xác lượt gửi biểu mẫu thành công thành sự kiện quan trọng. Bài viết hướng dẫn cấu hình qua trang xác nhận và GTM, kiểm thử bằng DebugView và đối chiếu dữ liệu với hệ thống.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/chien-luoc-gia-la-gi-320.webp 320w, ../../../assets/kb/chien-luoc-gia-la-gi-640.webp 640w, ../../../assets/kb/chien-luoc-gia-la-gi.webp 1200w, ../../../assets/kb/chien-luoc-gia-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="../../../assets/kb/chien-luoc-gia-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-09"><b>09</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/chien-luoc-gia-la-gi/">Chiến lược giá là gì và cách chọn cho&nbsp;SME</a></h3>
+            <p class="kb-post__x">Chiến lược giá là định hướng xác lập mức giá và cấu trúc thu phí gắn với kinh tế đơn vị để doanh nghiệp vừa và nhỏ đạt mục tiêu thị phần hoặc lợi nhuận. Bài viết phân biệt ba tầng khái niệm, đưa bảng chọn mô hình định giá, quy trình bốn bước thử nghiệm và cách tính sản lượng bù khi đổi giá bán.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/khach-hang-muc-tieu-la-gi-320.webp 320w, ../../../assets/kb/khach-hang-muc-tieu-la-gi-640.webp 640w, ../../../assets/kb/khach-hang-muc-tieu-la-gi.webp 1200w, ../../../assets/kb/khach-hang-muc-tieu-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="../../../assets/kb/khach-hang-muc-tieu-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-06"><b>06</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/khach-hang-muc-tieu-la-gi/">Khách hàng mục tiêu là gì và cách xác&nbsp;định</a></h3>
+            <p class="kb-post__x">Khách hàng mục tiêu là nhóm người mua nằm trong thị trường mục tiêu có nhu cầu thực tế, khả năng chi trả và khớp với giải pháp của doanh nghiệp. Bài viết cung cấp bảng phân biệt khái niệm, phương pháp chọn tệp theo dữ liệu SME và quy trình bốn bước có đầu ra bàn giao cho bán hàng.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="../../../assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong-320.webp 320w, ../../../assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong-640.webp 640w, ../../../assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong.webp 1200w, ../../../assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="../../../assets/kb/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-02"><b>02</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/chien-luoc-marketing-cua-nguoi-dan-dau-thi-truong/">Chiến lược marketing của người dẫn đầu thị&nbsp;trường</a></h3>
+            <p class="kb-post__x">Phân tích chiến lược marketing của người dẫn đầu thị trường theo ba trụ cột mở rộng tổng cầu, sáu thế phòng thủ và ngưỡng bảo vệ biên lợi nhuận ròng, kèm quy trình bốn bước áp dụng cho doanh nghiệp vừa và nhỏ.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="https://img.letuanviet.com/kb/cac-chi-so-google-analytics-4/d7d6aad83c/cac-chi-so-google-analytics-4-320.webp 320w, https://img.letuanviet.com/kb/cac-chi-so-google-analytics-4/d7d6aad83c/cac-chi-so-google-analytics-4-640.webp 640w, https://img.letuanviet.com/kb/cac-chi-so-google-analytics-4/d7d6aad83c/cac-chi-so-google-analytics-4.webp 1200w, https://img.letuanviet.com/kb/cac-chi-so-google-analytics-4/d7d6aad83c/cac-chi-so-google-analytics-4-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="https://img.letuanviet.com/kb/cac-chi-so-google-analytics-4/d7d6aad83c/cac-chi-so-google-analytics-4.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-14"><b>14</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/cac-chi-so-google-analytics-4/">Các chỉ số Google Analytics 4 và cách&nbsp;đọc</a></h3>
+            <p class="kb-post__x">Hiểu đúng bản chất và mẫu số của các chỉ số Google Analytics 4 giúp doanh nghiệp vừa và nhỏ tách bạch tín hiệu tương tác với kết quả chuyển đổi thực tế, tránh đọc lệch báo cáo và khoanh vùng chính xác điểm nghẽn trên trang đích.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="https://img.letuanviet.com/kb/google-tag-manager-la-gi/f1080cdbec/google-tag-manager-la-gi-320.webp 320w, https://img.letuanviet.com/kb/google-tag-manager-la-gi/f1080cdbec/google-tag-manager-la-gi-640.webp 640w, https://img.letuanviet.com/kb/google-tag-manager-la-gi/f1080cdbec/google-tag-manager-la-gi.webp 1200w, https://img.letuanviet.com/kb/google-tag-manager-la-gi/f1080cdbec/google-tag-manager-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="https://img.letuanviet.com/kb/google-tag-manager-la-gi/f1080cdbec/google-tag-manager-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-13"><b>13</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/google-tag-manager-la-gi/">Google Tag Manager là gì, cách cài đặt&nbsp;GTM</a></h3>
+            <p class="kb-post__x">Google Tag Manager là hệ thống quản lý thẻ giúp doanh nghiệp cài đặt và điều phối mã đo lường trên website mà không cần sửa mã nguồn trực tiếp. Bài viết làm rõ ranh giới với GA4, quy chuẩn phân quyền, bốn bước cài đặt và cơ chế chống đếm trùng.</p>
+          </div>
+        </article><article class="kb-post kb-post--slide">
+          <div class="kb-post__fig"><picture><source type="image/webp" srcset="https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi-320.webp 320w, https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi-640.webp 640w, https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi.webp 1200w, https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi-1600.webp 1600w" sizes="(min-width: 1025px) 280px, 250px"><img src="https://img.letuanviet.com/kb/buzz-marketing-la-gi/102dcd2396/buzz-marketing-la-gi.jpg" alt="" width="1200" height="630" loading="lazy" decoding="async"></picture><time class="kb-post__date" datetime="2026-11-13"><b>13</b> <span>11/2026</span></time></div>
+          <div class="kb-post__body">
+            
+            <h3 class="kb-post__t"><a href="../../../goc-kien-thuc/marketing/buzz-marketing-la-gi/">Buzz Marketing là gì, cách làm cho&nbsp;SME</a></h3>
+            <p class="kb-post__x">Buzz Marketing là chiến thuật thiết kế tác nhân kích hoạt thảo luận tự nguyện về thương hiệu. Bài viết đối chiếu với Viral và truyền miệng, kèm bảng chọn 4 đòn bẩy có bộ lọc rủi ro và quy trình 4 bước thu khách tiềm năng.</p>
+          </div>
+        </article></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid footer__grid--kb">
+        <div class="footer__brand">
+          <div class="footer__id"><span class="footer__logo"><img src="../../../assets/img/logo.svg" alt="" width="30" height="30" loading="lazy" decoding="async"></span><b>Lê Tuấn Việt</b></div>
+          <span class="footer__role">Marketing &amp; Growth Architect</span>
+          <p class="desc" data-en="I believe effective marketing is not defined by a good idea alone, but by the ability to turn strategy into tangible results.">Tôi tin rằng Marketing hiệu quả không dừng ở một ý tưởng hay, mà nằm ở khả năng biến chiến lược thành kết quả thực tế.</p>
+          <ul class="footer__social"><li><a href="https://www.linkedin.com/in/letuanviet" target="_blank" rel="noopener me" aria-label="LinkedIn"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li><li><a data-social="facebook"><svg class="footer__social-fb" aria-hidden="true"><use href="#i-facebook"/></svg></a></li><li><a data-social="tiktok"><svg aria-hidden="true"><use href="#i-tiktok"/></svg></a></li><li><a href="https://zalo.me/0935702321" target="_blank" rel="noopener" aria-label="Zalo" data-zalo><svg class="footer__social-zalo" aria-hidden="true"><use href="#i-zalo-logo"/></svg></a></li></ul>
+        </div>
+        <div>
+          <p class="footer__h" data-en="Quick links">Menu nhanh</p>
+          <ul class="footer__list footer__list--2">
+            <li><a href="../../../" data-en="Home">Trang chủ</a></li><li><a href="../../../#gioi-thieu" data-en="About">Giới thiệu</a></li>
+            <li><a href="../../../#nang-luc" data-en="Expertise">Năng lực</a></li><li><a href="../../../#du-an" data-en="Projects">Dự án</a></li>
+            <li><a href="../../../#doi-tac" data-en="Partners">Đối tác</a></li><li><a href="../../../#feedback">Feedback</a></li>
+            <li><a href="../../../goc-kien-thuc/" data-en="Knowledge Hub">Góc kiến thức</a></li><li><a href="../../../#lien-he" data-en="Contact">Liên hệ</a></li>
+            <li><a href="../../../chinh-sach-bao-mat/" data-en="Privacy Policy" data-en-href="../../../en/privacy-policy/">Chính sách bảo mật</a></li><li><a href="../../../dieu-khoan-su-dung/" data-en="Terms of Use" data-en-href="../../../en/terms-of-use/">Điều khoản sử dụng</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer__h" data-en="Knowledge Hub">Góc kiến thức</p>
+          <ul class="footer__list footer__list--kb-topics">
+            <li><a href="../../../goc-kien-thuc/" data-en="All articles">Tất cả bài viết</a></li><li><a href="../../../goc-kien-thuc/marketing/" data-en="Marketing">Marketing</a></li><li><a href="../../../goc-kien-thuc/ai-marketing/" data-en="AI Marketing">AI Marketing</a></li><li><a href="../../../goc-kien-thuc/du-an-va-bai-hoc/" data-en="Case Marketing">Case Marketing</a></li><li><a href="../../../goc-kien-thuc/tin-tuc-goc-nhin/" data-en="News &amp; Insights">Tin tức và Góc nhìn</a></li>
+          </ul>
+        </div>
+        <div class="footer__cv">
+          <p class="footer__h" data-en="Contact">Liên hệ</p>
+          <ul class="footer__list">
+            <li><a href="mailto:work@letuanviet.com" data-mailto><svg width="16" height="16" aria-hidden="true"><use href="#i-mail"/></svg>work@letuanviet.com</a></li>
+            <li><a href="tel:0935702321"><svg width="16" height="16" aria-hidden="true"><use href="#i-phone"/></svg>0935 702 321</a></li>
+            <li><span class="footer__clock"><svg width="16" height="16" aria-hidden="true"><use href="#i-clock"/></svg><span data-en="Hanoi ·">Hà Nội ·</span> <b data-clock>--:--</b></span></li>
+          </ul>
+          <a class="btn btn--light btn--sm magnetic" href="../../../assets/cv/CV-Le-Tuan-Viet.pdf" download="CV_Marketing Leader_Lê Tuấn Việt.pdf" data-cv style="justify-self:start; margin-top:6px"><span data-en="Download CV (PDF)">Tải CV (PDF)</span> <svg class="ico ico--down" aria-hidden="true"><use href="#i-download"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <time datetime="2026">2026</time> Lê Tuấn Việt · Marketing Leader</span>
+        <a class="footer__top" href="#noi-dung"><span data-en="Back to top">Về đầu trang</span> <svg aria-hidden="true"><use href="#i-up"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__mark" aria-hidden="true"><span data-split>Le Tuan Viet</span></div>
+  </footer>
+
+  <div class="kb-bar" aria-hidden="true">
+    <button class="kb-bar__toc" type="button" data-sheet-open aria-controls="kb-sheet"><svg aria-hidden="true"><use href="#i-list"/></svg><span>Mục lục</span></button>
+    <a class="kb-bar__main" href="https://zalo.me/0935702321" target="_blank" rel="noopener" data-zalo><svg aria-hidden="true"><use href="#i-zalo"/></svg><span>Nhắn Zalo cho tôi</span></a>
+    <a class="kb-bar__call" href="tel:0935702321" aria-label="Gọi 0935 702 321"><svg aria-hidden="true"><use href="#i-phone"/></svg></a>
+  </div>
+  <dialog class="kb-sheet" id="kb-sheet" aria-labelledby="kb-sheet-t">
+    <div class="kb-sheet__head"><p id="kb-sheet-t"><svg aria-hidden="true"><use href="#i-list"/></svg>Mục lục bài viết</p><button type="button" data-sheet-close aria-label="Đóng mục lục"><svg aria-hidden="true"><use href="#i-close"/></svg></button></div>
+    <nav class="kb-sheet__body" aria-label="Mục lục"><ol class="kb-toc__list"><li><a href="#bao-cao-kham-pha-pheu-trong-ga4-la-gi"><span class="kb-toc__n">1</span>Báo cáo khám phá phễu trong GA4 là gì?</a><ol><li><a href="#khac-biet-giua-kham-pha-pheu-ga4-va-bao-cao-chuan">Khác biệt giữa khám phá phễu GA4 và báo cáo chuẩn</a></li><li><a href="#dieu-kien-du-lieu-su-kien-can-kiem-tra-truoc-khi-tao">Điều kiện dữ liệu sự kiện cần kiểm tra trước khi tạo</a></li></ol></li></li><li><a href="#pheu-mo-va-pheu-dong-khac-nhau-the-nao"><span class="kb-toc__n">2</span>Phễu mở và phễu đóng khác nhau thế nào?</a><ol><li><a href="#co-che-ghi-nhan-nguoi-dung-o-hai-loai-pheu">Cơ chế ghi nhận người dùng ở hai loại phễu</a></li><li><a href="#khi-nao-chon-pheu-chuan-hoac-pheu-xu-huong">Khi nào chọn phễu chuẩn hoặc phễu xu hướng</a></li></ol></li></li><li><a href="#cach-tao-pheu-ga4-va-cau-hinh-buoc-pheu-chuan"><span class="kb-toc__n">3</span>Cách tạo phễu GA4 và cấu hình bước phễu chuẩn</a><ol><li><a href="#buoc-1-khai-bao-bien-phan-doan-va-phuong-dien">Bước 1: Khai báo biến phân đoạn và phương diện</a></li><li><a href="#buoc-2-chon-buoc-truc-tiep-hoac-gian-tiep-va-thoi-gian">Bước 2: Chọn bước trực tiếp hoặc gián tiếp và thời gian</a></li><li><a href="#buoc-3-ap-bo-loc-thiet-bi-va-kiem-tra-so-lieu">Bước 3: Áp bộ lọc, thiết bị và kiểm tra số liệu</a></li><li><a href="#buoc-4-cach-xuat-bao-cao-kham-pha-pheu-va-luu-thu-vien">Bước 4: Cách xuất báo cáo khám phá phễu và lưu Thư viện</a></li></ol></li></li><li><a href="#mau-bao-cao-kham-pha-pheu-trong-ga4-cho-sme"><span class="kb-toc__n">4</span>Mẫu báo cáo khám phá phễu trong GA4 cho SME</a><ol><li><a href="#mau-pheu-thu-thap-bieu-mau-cho-website-dich-vu">Mẫu phễu thu thập biểu mẫu cho website dịch vụ</a></li><li><a href="#mau-pheu-mua-hang-cho-website-thuong-mai-dien-tu">Mẫu phễu mua hàng cho website thương mại điện tử</a></li></ol></li></li><li><a href="#cach-doc-phan-tich-roi-pheu-de-sua-trang-dich"><span class="kb-toc__n">5</span>Cách đọc phân tích rời phễu để sửa trang đích</a><ol><li><a href="#doc-thoi-gian-giua-cac-buoc-va-hanh-dong-tiep-theo">Đọc thời gian giữa các bước và hành động tiếp theo</a></li><li><a href="#tao-doi-tuong-tiep-thi-lai-tu-nhom-khach-roi-bo">Tạo đối tượng tiếp thị lại từ nhóm khách rời bỏ</a></li></ol></li></li><li><a href="#ba-loi-cau-hinh-lam-lech-so-lieu-va-cach-xu-ly"><span class="kb-toc__n">6</span>Ba lỗi cấu hình làm lệch số liệu và cách xử lý</a></li><li><a href="#cau-hoi-thuong-gap-ve-kham-pha-pheu-ga4"><span class="kb-toc__n">7</span>Câu hỏi thường gặp về khám phá phễu GA4</a></li><li><a href="#ket-luan"><span class="kb-toc__n">8</span>Kết luận</a></li></ol></nav>
+  </dialog>
+  <dialog class="kb-sd" id="kb-search" aria-label="Tìm kiếm trong Góc kiến thức">
+    <form class="kb-search kb-search--dlg" role="search" action="../../../goc-kien-thuc/" method="get" data-kb-search="../../../goc-kien-thuc/search.json" data-rel="../../../" data-zalo="https://zalo.me/0935702321">
+      <div class="kb-search__box">
+        <svg class="kb-search__ico" aria-hidden="true"><use href="#i-search"/></svg>
+        <label class="sr-only" for="kb-dq">Tìm kiếm bài viết trong Góc kiến thức</label>
+        <input id="kb-dq" name="q" type="search" placeholder="Tìm bài viết, ví dụ: kế hoạch Marketing" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="kb-dq-list">
+        <button class="kb-search__clear" type="button" aria-label="Xóa từ khóa"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+        <button class="kb-sd__close" type="button" data-search-close>Đóng</button>
+      </div>
+      <div class="kb-search__panel">
+        <p class="kb-search__head" aria-hidden="true"></p>
+        <ul class="kb-search__list" id="kb-dq-list" role="listbox" aria-label="Kết quả tìm kiếm"></ul>
+      </div>
+      <p class="sr-only" role="status" aria-live="polite"></p>
+    </form>
+  </dialog>
+  <div class="toast" role="status" aria-live="polite"><svg width="18" height="18" aria-hidden="true"><use href="#i-check"/></svg><span>Đã sao chép</span></div>
+
+  <script src="../../../js/core.min.js?v=972" defer></script>
+  <script src="../../../js/vendor/lenis.min.js" defer></script>
+  <script src="../../../js/stage.js?v=972" defer></script>
+  <script src="../../../js/fx.js?v=972" defer></script>
+  <script src="../../../js/kb-nav.js" defer></script>
+  <script src="../../../js/kb.js" defer></script>
+  <script src="../../../js/kb-search.js" defer></script>
+  <script src="../../../js/scenes/kb-pages.js" defer></script>
+<!--/email_off-->
+</body>
+</html>

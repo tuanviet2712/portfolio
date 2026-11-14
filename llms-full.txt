@@ -4,6 +4,275 @@
 
 ---
 
+## Báo cáo khám phá phễu trong GA4 và cách tạo
+
+- URL: https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/
+- Chủ đề: Marketing
+- Tác giả: Lê Tuấn Việt
+- Xuất bản: 2026-11-14; cập nhật: 2026-11-14
+- Tóm tắt: Hướng dẫn dựng báo cáo khám phá phễu trong GA4 cho SME: phân biệt phễu mở và đóng, cấu hình 4 bước chuẩn, xuất báo cáo và đọc tỷ lệ rời phễu sửa trang đích.
+
+Báo cáo khám phá phễu trong GA4 là công cụ phân tích tùy chỉnh thuộc mô-đun Khám phá, giúp doanh nghiệp trực quan hóa chuỗi bước người dùng thực hiện trước khi chuyển đổi và đo tỷ lệ rơi rụng tại từng điểm chạm. Với doanh nghiệp vừa và nhỏ, việc chỉ nhìn vào tổng số biểu mẫu tư vấn hoặc đơn hàng cuối cùng thường không cho biết khách hàng đang bỏ cuộc ở bước xem bảng giá, mở giỏ hàng hay thanh toán. Khi chọn nhầm giữa phễu mở và phễu đóng hoặc đặt sai điều kiện sự kiện, bảng số liệu rất dễ bị trống và dẫn tới quyết định sửa trang đích thiếu căn cứ. Tôi là Lê Tuấn Việt, Marketing Leader tại TAKI Group. Trong bài viết này, tôi làm rõ điều kiện dữ liệu đầu vào cần kiểm tra, tiêu chí chọn loại phễu theo mục tiêu kinh doanh, quy trình bốn bước thiết lập kèm xuất báo cáo và cách đọc tín hiệu rời phễu để tối ưu chuyển đổi.
+
+### Tóm tắt nhanh
+
+- Báo cáo khám phá phễu trong GA4 đo lường hành trình ở cấp độ người dùng qua chuỗi bước tùy chỉnh, đòi hỏi phải kiểm tra sự kiện đầu vào bằng DebugView trước khi dựng biểu đồ.
+- Chọn phễu đóng khi cần kiểm toán một luồng trang đích quảng cáo khép kín từ bước đầu, và chọn phễu mở khi đánh giá hành trình mua hàng đa điểm chạm cho phép khách gia nhập ở bước trung gian.
+- Cột Biến ở bên trái chỉ dùng để nạp sẵn phân đoạn và phương diện, còn cột Cài đặt thẻ mới là nơi áp dụng trực tiếp điều kiện bước, bộ lọc và thiết bị vào báo cáo phễu.
+- Quyết định sửa giao diện trang đích cần dựa trên việc kết hợp tỷ lệ rời phễu, thời gian chuyển bước và hành động tiếp theo, thay vì kết luận vội khi mẫu dữ liệu còn quá nhỏ.
+
+### Báo cáo khám phá phễu trong GA4 là gì?
+
+Báo cáo khám phá phễu trong GA4 (Funnel exploration, kỹ thuật khám phá phễu) là công cụ phân tích tùy chỉnh trong mô-đun Khám phá của GA4 (Google Analytics 4, nền tảng phân tích dữ liệu của Google), giúp trực quan hóa chuỗi bước người dùng thực hiện để hoàn tất mục tiêu và đo tỷ lệ rơi rụng tại từng bước.
+
+Theo tài liệu chính thức của Google Analytics Help về Funnel exploration kiểm tra năm 2026, công cụ này cho phép doanh nghiệp tự định nghĩa chuỗi bước (Steps) dựa trên sự kiện hoặc phương diện để nhận diện nơi khách hàng tiềm năng thoát khỏi hành trình chuyển đổi.
+
+Để thiết lập đúng báo cáo phễu GA4 mà không bị nhầm lẫn khi thao tác trên giao diện, người phụ trách marketing cần nắm rõ sáu thuật ngữ kỹ thuật xuất hiện xuyên suốt quá trình cấu hình:
+
+- Phễu mở (Open funnel): Chế độ cho phép người dùng gia nhập vào phễu ở bất kỳ bước nào trong chuỗi hành trình mà vẫn được hệ thống ghi nhận.
+
+- Phễu đóng (Closed funnel): Chế độ mặc định bắt buộc người dùng phải đi qua đúng bước đầu tiên mới được tính vào các bước tiếp theo.
+
+- Phân đoạn (Segment): Tập hợp con của dữ liệu phân tích có hiệu lực hồi tố trên dữ liệu lịch sử, dùng để so sánh các nhóm người dùng trong mục Khám phá.
+
+- Đối tượng (Audience): Nhóm người dùng có chung thuộc tính hoặc hành vi, được đóng gói để theo dõi trong báo cáo chuẩn và đồng bộ sang Google Ads (nền tảng quảng cáo trực tuyến của Google) phục vụ tiếp thị lại.
+
+- Phương diện (Dimension): Thuộc tính định tính mô tả đặc điểm của người dùng hoặc phiên truy cập như danh mục thiết bị, nguồn truy cập hay đường dẫn trang.
+
+- Thông số sự kiện (Event parameter): Dữ liệu chi tiết đi kèm một sự kiện để làm rõ ngữ cảnh hành động, chẳng hạn địa chỉ URL của trang hoặc giá trị giỏ hàng.
+
+[Hình: Báo cáo khám phá phễu trong GA4 trực quan hóa số lượng người dùng đi tiếp và tỷ lệ bỏ cuộc qua từng bước của hành trình]
+
+#### Khác biệt giữa khám phá phễu GA4 và báo cáo chuẩn
+
+Khác biệt lớn nhất giữa khám phá phễu GA4 và báo cáo chuẩn trong mục Kiếm tiền (Monetization) nằm ở quyền tự định nghĩa điều kiện từng bước theo mô hình kinh doanh. Trong báo cáo chuẩn, hệ thống khóa cứng các bước thương mại điện tử mặc định nên website dịch vụ thu thập biểu mẫu tư vấn không thể áp dụng.
+
+Khi chuyển sang giao diện khám phá phễu GA4, bạn được quyền kết hợp lượt xem trang đích, các tín hiệu chuyển đổi vi mô trong GA4 như mở biểu mẫu với hành động gửi yêu cầu cuối cùng trên cùng một biểu đồ. Tôi ưu tiên dựng phễu từ câu hỏi kinh doanh đang cần quyết định trong tháng thay vì gom mọi thao tác nhấp chuột vào một báo cáo.
+
+#### Điều kiện dữ liệu sự kiện cần kiểm tra trước khi tạo
+
+Một báo cáo phễu chỉ trả về con số chính xác khi các sự kiện đầu vào đã gửi dữ liệu ổn định về hệ thống. Nhiều đội ngũ tại SME (Small and Medium Enterprise, doanh nghiệp vừa và nhỏ) mở ngay giao diện tạo phễu khi chưa kiểm tra sự kiện gửi biểu mẫu (generate_lead) hay thanh toán (purchase) đã hoạt động hay chưa.
+
+Theo hướng dẫn của Google Analytics Help về DebugView, công cụ DebugView (chế độ giám sát sự kiện theo thời gian thực) giúp kiểm tra trực tiếp từng sự kiện và thông số phát sinh từ trình duyệt thử nghiệm. Trước khi tạo phễu GA4, bạn cần tự thao tác thử một lượt đăng ký và xác nhận sự kiện xuất hiện đúng một lần trong DebugView. Dữ liệu đầu vào sai thì phễu đẹp cũng vô nghĩa.
+
+### Phễu mở và phễu đóng khác nhau thế nào?
+
+Phễu mở và phễu đóng khác nhau ở quy tắc ghi nhận điểm gia nhập của người dùng vào chuỗi hành trình đang đo lường. Theo tài liệu Funnel exploration của Google, phễu đóng bắt buộc người dùng phải đi từ bước đầu tiên, còn phễu mở cho phép bước vào ở bất kỳ bước trung gian nào theo ba tiêu chí dưới đây.
+
+Bảng phân biệt phễu mở và phễu đóng trong GA4 theo cơ chế tính và tình huống áp dụng
+
+| Tiêu chí | Phễu đóng (Closed funnel) | Phễu mở (Open funnel) |
+
+| Cơ chế đếm mẫu | Chỉ tính người bắt đầu đúng từ Bước 1 và đi tiếp theo trình tự | Tính cả người bỏ qua Bước 1 để vào thẳng Bước 2 hoặc bước cuối |
+
+| Tình huống SME | Kiểm toán luồng trang đích quảng cáo hoặc thanh toán khép kín | Đánh giá website đa điểm chạm khi khách vào thẳng trang bảng giá |
+
+| Sai số dễ gặp | Bỏ sót khách cũ lưu sẵn đường dẫn bước giữa nên số tổng thấp hơn | Số người bước sau có thể lớn hơn bước trước, dễ đọc lệch tỷ lệ |
+
+Giới hạn khi đọc bảng: phễu mở và phễu đóng trả lời hai câu hỏi quản trị khác nhau nên không thể lấy tỷ lệ hoàn thành của phễu mở để so sánh ngang với phễu đóng. Khi báo cáo kết quả trong hệ thống marketing cho SME, bạn cần ghi rõ biểu đồ đang khóa điểm vào tại bước đầu hay cho phép gia nhập tự do.
+
+[Hình: Phễu đóng khóa mẫu số từ bước đầu tiên, trong khi phễu mở ghi nhận cả những khách hàng đi thẳng vào bước trung gian]
+
+#### Cơ chế ghi nhận người dùng ở hai loại phễu
+
+Trong chế độ phễu đóng, nếu khách hàng xem bài viết ở tuần trước rồi hôm nay bấm thẳng vào liên kết trang bảng giá do nhân viên tư vấn gửi qua Zalo để điền biểu mẫu, người đó sẽ bị loại khỏi phễu nếu Bước 1 đặt là xem trang chủ. Cơ chế này giữ cho mẫu số ở mọi bước sau luôn là tập con của bước trước.
+
+Ngược lại, khi gạt nút Tạo phễu mở (Make open funnel) tính đến giao diện tháng 11/2026, hệ thống sẽ vẽ thêm phần cột màu khác biệt ở đầu mỗi bước để biểu thị số người mới gia nhập ngay tại bước đó. Nếu khách thường nhận liên kết bước giữa qua tin nhắn riêng tư, bạn nên đọc thêm về nguồn truy cập dark social để hiểu vì sao họ không đi từ trang mở đầu.
+
+#### Khi nào chọn phễu chuẩn hoặc phễu xu hướng
+
+Bên cạnh việc chọn phễu mở hay đóng, thanh cài đặt của GA4 còn cung cấp hai chế độ hiển thị gồm phễu chuẩn (Standard funnel, biểu đồ cột bậc thang) và phễu xu hướng (Trended funnel, biểu đồ đường theo chuỗi thời gian). Trên một số tài liệu dịch tự động, Trended funnel bị dịch máy thành kênh thịnh hành gây khó hiểu cho người đọc.
+
+Phễu chuẩn phù hợp khi bạn cần nhìn bức tranh tổng hợp trong kỳ đo để tìm bước có tỷ lệ rơi rụng lớn nhất. Trong khi đó, phễu xu hướng phát huy tác dụng khi đội kỹ thuật vừa sửa lỗi biểu mẫu và bạn cần theo dõi tỷ lệ hoàn thành của riêng bước đó biến động thế nào qua từng ngày.
+
+[Hình: Chọn phễu chuẩn để tìm điểm nghẽn tổng hợp trong kỳ đo và chuyển sang phễu xu hướng khi cần theo dõi biến động từng bước theo ngày]
+
+### Cách tạo phễu GA4 và cấu hình bước phễu chuẩn
+
+Quy trình tạo phễu GA4 và cấu hình bước phễu chuẩn cho doanh nghiệp gồm bốn bước tuần tự: khai báo phân đoạn và phương diện ở cột Biến, thiết lập điều kiện bước trực tiếp hoặc gián tiếp ở cột Cài đặt thẻ, áp dụng chia nhỏ theo thiết bị để kiểm tra số liệu, sau đó xuất tệp hoặc lưu vào Thư viện.
+
+[Hình: Quy trình bốn bước thiết lập và xuất báo cáo khám phá phễu trong GA4]
+
+#### Bước 1: Khai báo biến phân đoạn và phương diện
+
+Truy cập mục Khám phá (Explore) trên thanh điều hướng bên trái của GA4, chọn mẫu Khám phá phễu (Funnel exploration). Tại đây, bạn cần phân biệt rõ vai trò của hai cột thiết lập theo tài liệu Get started with Explorations của Google tính đến tháng 11/2026.
+
+Cột Biến (Variables) ở ngoài cùng bên trái là kho nguyên liệu đầu vào: muốn dùng phân đoạn nguồn truy cập hay phương diện thiết bị, bạn phải bấm dấu cộng ở cột Biến để nạp trước. Cột Cài đặt thẻ (Tab Settings) nằm kế bên mới là nơi kéo thả các biến đã nạp vào báo cáo để vẽ biểu đồ.
+
+Đầu ra: Cột Biến đã hiển thị đủ các phân đoạn người dùng và phương diện (Danh mục thiết bị, Đường dẫn trang, Nguồn truy cập) sẵn sàng để kéo sang cột Cài đặt thẻ.
+
+#### Bước 2: Chọn bước trực tiếp hoặc gián tiếp và thời gian
+
+Trong cột Cài đặt thẻ, cuộn xuống mục Bước (Steps) và nhấp biểu tượng cây bút để mở cửa sổ cấu hình bước phễu. Tại mỗi bước, hãy đặt tên theo hành động kinh doanh, chọn sự kiện tương ứng và thêm thông số bằng toán tử VÀ (AND) hoặc HOẶC (OR) khớp đúng trang đích cần đo.
+
+Từ bước thứ hai trở đi, tài liệu kỹ thuật Funnel exploration quy định hai lựa chọn gồm bước theo sau gián tiếp (Indirectly followed by) cho phép xen trang phụ ở giữa và bước theo sau trực tiếp (Directly followed by) đòi hỏi hành động sau diễn ra ngay lập tức, kèm ô tích giới hạn thời gian Trong vòng (Within).
+
+Đầu ra: Chuỗi từ 4 đến 6 bước phễu đã khóa rõ điều kiện sự kiện, lựa chọn trực tiếp hoặc gián tiếp hợp lý và hiển thị biểu đồ cột sau khi bấm Áp dụng (Apply).
+
+[Hình: Phân đoạn và phương diện phải được nạp ở cột Biến trước khi kéo thả sang cột Cài đặt thẻ để áp dụng vào báo cáo phễu]
+
+#### Bước 3: Áp bộ lọc, thiết bị và kiểm tra số liệu
+
+Sau khi biểu đồ hiện ra, hãy kéo phương diện Danh mục thiết bị (Device category) từ cột Biến thả vào ô Chia nhỏ (Breakdown) bên dưới cột Cài đặt thẻ. Thao tác này giúp bảng dữ liệu bên dưới tách riêng tỷ lệ hoàn thành trên điện thoại di động (Mobile), máy tính để bàn (Desktop) và máy tính bảng (Tablet).
+
+Tiếp theo, kéo phương diện vào ô Bộ lọc (Filters) để giới hạn phạm vi cho một nhóm trang cụ thể, rồi đối chiếu số người dùng ở Bước 1 với báo cáo Sự kiện chuẩn. Nếu đang lên phương án cách tạo website chuẩn chuyển đổi, việc tách thiết bị ngay từ đây sẽ chỉ ra liệu biểu mẫu có bị khuất nút bấm trên điện thoại hay không.
+
+Đầu ra: Bảng số liệu dưới biểu đồ phễu đã chia tách rõ theo từng dòng thiết bị và số lượng người dùng ở bước đầu khớp logic với dữ liệu sự kiện.
+
+#### Bước 4: Cách xuất báo cáo khám phá phễu và lưu Thư viện
+
+Nhiều hướng dẫn chỉ dừng ở bước xem biểu đồ mà bỏ qua cách xuất báo cáo khám phá phễu để chia sẻ cho đội ngũ. Theo tài liệu Google Analytics Help về Explorations tính đến tháng 11/2026, bạn nhấp biểu tượng Xuất dữ liệu (Export data, hình mũi tên xuống ở góc trên bên phải) để tải bảng số liệu ra Google Sheets, TSV, CSV hoặc PDF.
+
+Nếu tài khoản có quyền Chỉnh sửa (Editor) hoặc Quản trị viên (Administrator), bạn bấm biểu tượng Lưu dưới dạng báo cáo trong thư viện (Save as a report in the Library) cạnh nút xuất tệp. Sau đó, vào mục Báo cáo, mở Thư viện (Library) ở góc dưới bên trái và gắn báo cáo phễu vào bộ sưu tập để xem trực tiếp trên thanh menu hàng ngày.
+
+Đầu ra: Tệp dữ liệu báo cáo phễu đã được xuất sang Google Sheets hoặc PDF, đồng thời báo cáo đã được gắn vào thanh menu Báo cáo thông qua Thư viện.
+
+### Mẫu báo cáo khám phá phễu trong GA4 cho SME
+
+Mẫu báo cáo khám phá phễu trong GA4 giúp doanh nghiệp vừa và nhỏ áp dụng ngay cấu hình sự kiện chuẩn theo mục tiêu kinh doanh thay vì tự dò từng thông số kỹ thuật. Tùy thuộc vào mô hình hoạt động là dịch vụ tư vấn hay bán lẻ trực tuyến, bạn có thể chọn một trong hai mẫu bốn bước dưới đây.
+
+Bảng mẫu cấu hình 4 bước phễu trong GA4 cho website dịch vụ thu lead và thương mại điện tử
+
+| Trình tự bước | Website dịch vụ thu lead | Website thương mại điện tử |
+
+| Bước 1: Điểm vào | Sự kiện page_view có page_location chứa đường dẫn dịch vụ | Sự kiện view_item khi khách mở xem trang chi tiết sản phẩm |
+
+| Bước 2: Tương tác | Sự kiện nhấp nút mở biểu mẫu báo giá, theo sau gián tiếp Bước 1 | Sự kiện add_to_cart thêm hàng vào giỏ, theo sau gián tiếp Bước 1 |
+
+| Bước 3: Điền mẫu | Sự kiện form_start bắt đầu điền, theo sau gián tiếp Bước 2 | Sự kiện begin_checkout mở thanh toán, theo sau gián tiếp Bước 2 |
+
+| Bước 4: Hoàn tất | Sự kiện generate_lead gửi biểu mẫu, theo sau gián tiếp Bước 3 | Sự kiện purchase kèm giá trị đơn, theo sau gián tiếp Bước 3 |
+
+Giới hạn khi đọc bảng: cả hai mẫu đều ưu tiên bước theo sau gián tiếp vì GA4 tự động thu thập nhiều sự kiện như cuộn trang (scroll) xen giữa các thao tác của khách. Nếu chọn bước trực tiếp cho luồng mua hàng thông thường, các sự kiện tự động này sẽ cắt đứt mạch phễu và làm số người ở bước sau giảm giả tạo.
+
+[Hình: Hai mẫu cấu hình 4 bước phễu chuẩn theo mục tiêu thu thập biểu mẫu dịch vụ và thanh toán giỏ hàng cho doanh nghiệp vừa và nhỏ]
+
+#### Mẫu phễu thu thập biểu mẫu cho website dịch vụ
+
+Với các phòng khám, đơn vị tư vấn hoặc giáo dục, mục tiêu trọng tâm của trang đích là thu thập yêu cầu liên hệ. Việc tách riêng bước mở biểu mẫu (Bước 2) và bước bắt đầu điền thông tin (Bước 3) trước khi gửi thành công (generate_lead) giúp phân biệt lỗi do nút kêu gọi kém thu hút hay do biểu mẫu hỏi quá nhiều trường.
+
+Trong dự án cố vấn Marketing cho Hệ thống Y Đa khoa TOMEC (tháng 8/2025 đến tháng 8/2026) do tôi phụ trách, việc theo dõi sát chỉ số chuyển đổi từng chặng đã hỗ trợ tối ưu luồng đón khách, giúp tăng 40% khách hàng tiềm năng và giảm 54% CPL (chi phí trên mỗi khách hàng tiềm năng), từ 1,2 triệu xuống 550.000 đồng mỗi data.
+
+#### Mẫu phễu mua hàng cho website thương mại điện tử
+
+Đối với website bán lẻ có giỏ hàng, bốn sự kiện khuyến nghị gồm view_item, add_to_cart, begin_checkout và purchase là khung xương sống để đo hiệu suất. Khi triển khai thiết kế website doanh nghiệp, bạn hãy kiểm tra xem giỏ hàng trượt ngang có kích hoạt đúng sự kiện begin_checkout hay khách mua tắt làm bỏ qua bước giỏ hàng.
+
+### Cách đọc phân tích rời phễu để sửa trang đích
+
+Cách đọc phân tích rời phễu hiệu quả là kết hợp đồng thời ba chỉ số gồm tỷ lệ bỏ cuộc (Abandonment rate), thời gian trôi qua (Elapsed time) và hành động tiếp theo (Next action) để lập giả thuyết sửa trang đích. Theo Google Analytics Help, hai chỉ số phụ giúp làm rõ khách mất bao lâu giữa hai bước và đã rẽ đi đâu.
+
+Khung chẩn đoán 3 cột đọc tín hiệu rời phễu trên GA4 để ra quyết định tối ưu trang đích
+
+| Tín hiệu phễu | Giả thuyết điểm nghẽn | Việc kiểm tra và xử lý |
+
+| Rơi cao ở Bước 2 | Thông điệp đầu trang lệch quảng cáo hoặc nút bấm khuất trên di động | Chia nhỏ theo thiết bị, đưa nút mở biểu mẫu lên vùng nhìn đầu trang |
+
+| Chuyển bước lâu | Khách thiếu thông tin bảng giá, phí giao hàng nên phải đi tìm thêm | Xem cột Hành động tiếp theo và bổ sung tóm tắt giá ngay tại chỗ |
+
+| Bỏ dở biểu mẫu | Biểu mẫu hỏi quá nhiều trường hoặc lỗi nhập số điện thoại di động | Rút gọn trường nhập phụ, gửi thử biểu mẫu thật trên iOS và Android |
+
+Giới hạn khi đọc bảng: khung chẩn đoán trên cung cấp giả thuyết vận hành để kiểm tra, không phải kết luận nhân quả tuyệt đối khi mẫu dữ liệu còn nhỏ dưới vài chục người. Khi khách đổi thiết bị từ điện thoại sang máy tính hoặc xóa cookie, GA4 có thể đếm thành hai người độc lập khiến tỷ lệ rời phễu cao hơn thực tế.
+
+[Hình: Kết hợp tỷ lệ bỏ cuộc với thời gian chuyển bước và hành động tiếp theo giúp xác định đúng nguyên nhân khách hàng rời trang đích]
+
+#### Đọc thời gian giữa các bước và hành động tiếp theo
+
+Để thấy cách kết hợp ba chỉ số này khi đo trải nghiệm khách hàng trên trang, hãy xét một ví dụ: một công ty dịch vụ kế toán nhận thấy tỷ lệ rời phễu từ bước mở biểu mẫu sang gửi thành công lên tới 80% kèm thời gian chuyển bước hơn 4 phút.
+
+Chẩn đoán điểm nghẽn biểu mẫu báo giá bằng cột Hành động tiếp theo
+
+Ví dụ, khi người phụ trách kéo phương diện Đường dẫn trang (Page path) vào ô Hành động tiếp theo và rê chuột vào cột bỏ cuộc, báo cáo cho thấy phần lớn người rời bước đã rẽ sang trang bảng phụ phí. Thay vì đổi màu nút bấm, đội ngũ bổ sung ngay ba dòng ghi chú chi phí trọn gói phía trên biểu mẫu.
+
+Cách đọc kết hợp này ngăn thói quen sửa giao diện cảm tính khi thấy chuyển đổi giảm. Nếu thông tin biểu mẫu được quản trị như nguồn dữ liệu first-party data, bạn còn có thể đối chiếu ngược với chất lượng cuộc gọi của đội kinh doanh để biết việc rút ngắn trường nhập có làm tăng đăng ký rác hay không.
+
+#### Tạo đối tượng tiếp thị lại từ nhóm khách rời bỏ
+
+Sau khi xác định bước có nhiều người bỏ dở giữa chừng như đã thêm vào giỏ hàng, bạn có thể nhấp chuột phải vào cột bước đó để gom nhóm dữ liệu. Theo Google Analytics Help về Segment builder, Phân đoạn (Segment) dùng để cắt lát dữ liệu ngay trong mục Khám phá và có hiệu lực hồi tố trên dữ liệu lịch sử.
+
+Ngược lại, theo tài liệu Introduction to audiences, Đối tượng (Audience) dùng để đẩy danh sách sang Google Ads chạy tiếp thị lại và không hồi tố trên báo cáo chuẩn. Khi chọn Xây dựng đối tượng (Build an audience) từ bước giỏ hàng, hãy tích ô loại trừ người đã hoàn tất purchase để không tốn tiền bám đuổi khách đã mua xong.
+
+### Ba lỗi cấu hình làm lệch số liệu và cách xử lý
+
+Ba lỗi cấu hình phổ biến khiến báo cáo khám phá phễu trong GA4 bị trống hoặc trả về 0 người dùng ở các bước sau gồm: gán sai toán tử điều kiện VÀ (AND) cho nhiều sự kiện cùng bước, lọc sai thông số đường dẫn trang, và bật bước trực tiếp cho luồng có sự kiện tự động.
+
+- Gộp sự kiện bằng toán tử AND: Một sự kiện không thể mang hai tên cùng lúc, cần đổi sang HOẶC (OR) hoặc tách thành hai bước.
+
+- Lọc sai đường dẫn page_location: Chọn khớp chính xác khi URL có gắn mã UTM sẽ trả về 0 người, cần đổi sang điều kiện chứa.
+
+- Bật bước trực tiếp cho luồng tự động: Sự kiện tự động như scroll xen giữa hai thao tác sẽ cắt đứt mạch phễu, cần đổi về bước theo sau gián tiếp.
+
+[Hình: Tách riêng từng sự kiện theo bước và dùng điều kiện chứa cho đường dẫn URL giúp khắc phục lỗi báo cáo phễu trả về 0 người dùng]
+
+Khi biểu đồ đột ngột báo 0 người dùng ở Bước 2 dù đội bán hàng vẫn nhận được đơn mỗi ngày, hãy kiểm tra lại điều kiện bước. Trong ví dụ này, cách làm sai là gộp sự kiện page_view VÀ (AND) click_zalo vào chung Bước 1 kèm điều kiện URL khớp chính xác https://tenmien.vn/bang-gia khiến phễu báo số 0.
+
+Cách sửa đúng là tách Bước 1 chỉ nhận sự kiện page_view với thông số page_location chứa (contains) cụm /bang-gia để bao phủ cả lượt truy cập có gắn mã UTM quảng cáo. Sau đó, đưa sự kiện click_zalo xuống Bước 2 với tùy chọn theo sau gián tiếp để hệ thống ghi nhận đúng hành trình. Đã dựng phễu là phải kiểm điều kiện bước.
+
+### Câu hỏi thường gặp về khám phá phễu GA4
+
+#### Báo cáo khám phá phễu GA4 tạo được tối đa mấy bước?
+
+Báo cáo khám phá phễu trong GA4 cho phép thiết lập chuỗi nhiều bước chuyển tiếp tuần tự trong cùng một bảng phân tích tùy chỉnh. Với doanh nghiệp vừa và nhỏ, việc gom hành trình về 4 đến 6 bước cốt lõi giúp biểu đồ trực quan và tránh làm mẫu dữ liệu ở các bước cuối bị chia quá nhỏ. Nếu hành trình mua hàng thực tế dài hơn, bạn nên tách thành hai phễu riêng gồm phễu tìm hiểu dịch vụ và phễu hoàn tất thanh toán.
+
+#### Vì sao nút lưu báo cáo phễu vào Thư viện bị mờ?
+
+Không, bạn không thể bấm nút lưu vào Thư viện khi tài khoản GA4 chỉ được cấp quyền Xem hoặc Phân tích thay vì quyền Chỉnh sửa hoặc Quản trị viên. Ngoài ra, tính năng lưu thành báo cáo chuẩn trong Thư viện chỉ hỗ trợ kỹ thuật khám phá phễu với các cấu hình tương thích theo quy định hệ thống. Khi chưa có quyền quản trị, bạn vẫn có thể xuất dữ liệu ra tệp Google Sheets, CSV hoặc PDF để gửi cho đội ngũ.
+
+#### Tạo đối tượng từ bước phễu có lấy được khách cũ không?
+
+Không, tệp đối tượng tạo từ bước phễu không có hiệu lực hồi tố trên các báo cáo chuẩn của GA4 mà chỉ thu thập người dùng mới thỏa mãn điều kiện kể từ thời điểm khởi tạo. Khi thuộc tính GA4 đã liên kết với Google Ads, hệ thống mới nạp bổ sung dữ liệu người dùng khớp điều kiện trong thời gian gần để phục vụ chiến dịch tiếp thị lại. Nếu mục tiêu chỉ là mổ xẻ lại hành vi quá khứ ngay trong mục Khám phá, bạn nên tạo phân đoạn thay vì đối tượng.
+
+#### Khi nào chưa nên sửa giao diện dù tỷ lệ rời phễu cao?
+
+Không nên sửa giao diện trang đích ngay khi quy mô người dùng đi vào bước phễu còn quá ít hoặc chiến dịch mới chạy thử nghiệm trong vài ngày ngắn ngủi. Bạn cần kiểm tra trước xem tỷ lệ bỏ cuộc cao có bắt nguồn từ việc quảng cáo nhắm sai tệp khách hàng hoặc thẻ sự kiện bị lỗi trên trình duyệt di động hay không. Quyết định thay đổi bố cục trang chỉ nên đưa ra sau khi đã đối chiếu thời gian chuyển bước, hành động tiếp theo và tách riêng số liệu theo thiết bị.
+
+#### Khám phá phễu khác gì báo cáo hành trình mua hàng?
+
+Khám phá phễu là công cụ tùy chỉnh cho phép bạn tự chọn bất kỳ sự kiện hoặc phương diện nào làm bước chuyển tiếp, trong khi báo cáo hành trình mua hàng là báo cáo chuẩn cố định theo luồng thương mại điện tử mặc định. Trong báo cáo khám phá phễu, người làm marketing có thể bật chế độ phễu mở, đổi điều kiện bước trực tiếp hoặc gián tiếp và xem thời gian trôi qua giữa hai bước. Các website dịch vụ thu thập biểu mẫu tư vấn bắt buộc phải dùng khám phá phễu vì không có sự kiện giỏ hàng mặc định.
+
+#### Vì sao thời gian chuyển bước trong phễu lên tới vài ngày?
+
+Thời gian chuyển bước kéo dài tới vài ngày vì báo cáo khám phá phễu trong GA4 ghi nhận hành trình dựa trên cấp độ người dùng xuyên suốt nhiều phiên truy cập trong khung ngày đã chọn. Khi bước phễu được đặt ở chế độ theo sau gián tiếp mà không gắn giới hạn thời gian, hệ thống sẽ tính tổng khoảng cách từ lần đầu khách chạm bước trước đến lúc họ quay lại hoàn tất bước sau ở phiên mới. Muốn đo đúng tốc độ thao tác trong một lần ghé thăm, bạn cần bật tùy chọn giới hạn thời gian hoàn thành trong vài chục phút.
+
+### Kết luận
+
+Báo cáo khám phá phễu trong GA4 chỉ thực sự phát huy giá trị khi được dựng từ chuỗi sự kiện đã kiểm chứng trong DebugView, chọn đúng cơ chế phễu mở hoặc đóng theo mục tiêu trang đích và đọc kết hợp tỷ lệ bỏ cuộc với thời gian chuyển bước cùng hành động tiếp theo.
+
+Ngay trong tuần này, bạn có thể mở mục Khám phá trên tài khoản GA4 hiện có, dựng thử một phễu 4 bước cho trang dịch vụ hoặc giỏ hàng chủ lực, kéo phương diện Danh mục thiết bị vào ô Chia nhỏ và lưu báo cáo vào Thư viện để theo dõi hàng tuần.
+
+Khi doanh nghiệp chạy đa kênh mà số liệu giữa báo cáo GA4 và khách hàng tiềm năng thực tế vẫn lệch nhau, việc chỉ chỉnh từng biểu đồ lẻ sẽ không giải quyết tận gốc. Lúc này, bạn cần một khung hoạch định và đo lường đồng bộ hơn cho toàn bộ hệ thống Marketing của doanh nghiệp.
+
+Nếu bạn đang vướng ở bước chuẩn hóa sự kiện đầu vào hoặc chưa rõ nguyên nhân khiến khách hàng rời bỏ trang đích ở chặng cuối, hãy nhắn cho tôi để cùng rà soát lại luồng chuyển đổi thực tế.
+
+### Câu hỏi thường gặp
+
+**Báo cáo khám phá phễu GA4 tạo được tối đa mấy bước?**
+Báo cáo khám phá phễu trong GA4 cho phép thiết lập chuỗi nhiều bước chuyển tiếp tuần tự trong cùng một bảng phân tích tùy chỉnh. Với doanh nghiệp vừa và nhỏ, việc gom hành trình về 4 đến 6 bước cốt lõi giúp biểu đồ trực quan và tránh làm mẫu dữ liệu ở các bước cuối bị chia quá nhỏ. Nếu hành trình mua hàng thực tế dài hơn, bạn nên tách thành hai phễu riêng gồm phễu tìm hiểu dịch vụ và phễu hoàn tất thanh toán.
+
+**Vì sao nút lưu báo cáo phễu vào Thư viện bị mờ?**
+Không, bạn không thể bấm nút lưu vào Thư viện khi tài khoản GA4 chỉ được cấp quyền Xem hoặc Phân tích thay vì quyền Chỉnh sửa hoặc Quản trị viên. Ngoài ra, tính năng lưu thành báo cáo chuẩn trong Thư viện chỉ hỗ trợ kỹ thuật khám phá phễu với các cấu hình tương thích theo quy định hệ thống. Khi chưa có quyền quản trị, bạn vẫn có thể xuất dữ liệu ra tệp Google Sheets, CSV hoặc PDF để gửi cho đội ngũ.
+
+**Tạo đối tượng từ bước phễu có lấy được khách cũ không?**
+Không, tệp đối tượng tạo từ bước phễu không có hiệu lực hồi tố trên các báo cáo chuẩn của GA4 mà chỉ thu thập người dùng mới thỏa mãn điều kiện kể từ thời điểm khởi tạo. Khi thuộc tính GA4 đã liên kết với Google Ads, hệ thống mới nạp bổ sung dữ liệu người dùng khớp điều kiện trong thời gian gần để phục vụ chiến dịch tiếp thị lại. Nếu mục tiêu chỉ là mổ xẻ lại hành vi quá khứ ngay trong mục Khám phá, bạn nên tạo phân đoạn thay vì đối tượng.
+
+**Khi nào chưa nên sửa giao diện dù tỷ lệ rời phễu cao?**
+Không nên sửa giao diện trang đích ngay khi quy mô người dùng đi vào bước phễu còn quá ít hoặc chiến dịch mới chạy thử nghiệm trong vài ngày ngắn ngủi. Bạn cần kiểm tra trước xem tỷ lệ bỏ cuộc cao có bắt nguồn từ việc quảng cáo nhắm sai tệp khách hàng hoặc thẻ sự kiện bị lỗi trên trình duyệt di động hay không. Quyết định thay đổi bố cục trang chỉ nên đưa ra sau khi đã đối chiếu thời gian chuyển bước, hành động tiếp theo và tách riêng số liệu theo thiết bị.
+
+**Khám phá phễu khác gì báo cáo hành trình mua hàng?**
+Khám phá phễu là công cụ tùy chỉnh cho phép bạn tự chọn bất kỳ sự kiện hoặc phương diện nào làm bước chuyển tiếp, trong khi báo cáo hành trình mua hàng là báo cáo chuẩn cố định theo luồng thương mại điện tử mặc định. Trong báo cáo khám phá phễu, người làm marketing có thể bật chế độ phễu mở, đổi điều kiện bước trực tiếp hoặc gián tiếp và xem thời gian trôi qua giữa hai bước. Các website dịch vụ thu thập biểu mẫu tư vấn bắt buộc phải dùng khám phá phễu vì không có sự kiện giỏ hàng mặc định.
+
+**Vì sao thời gian chuyển bước trong phễu lên tới vài ngày?**
+Thời gian chuyển bước kéo dài tới vài ngày vì báo cáo khám phá phễu trong GA4 ghi nhận hành trình dựa trên cấp độ người dùng xuyên suốt nhiều phiên truy cập trong khung ngày đã chọn. Khi bước phễu được đặt ở chế độ theo sau gián tiếp mà không gắn giới hạn thời gian, hệ thống sẽ tính tổng khoảng cách từ lần đầu khách chạm bước trước đến lúc họ quay lại hoàn tất bước sau ở phiên mới. Muốn đo đúng tốc độ thao tác trong một lần ghé thăm, bạn cần bật tùy chọn giới hạn thời gian hoàn thành trong vài chục phút.
+
+### Nguồn tham khảo
+
+- Google Analytics Help. [GA4] Funnel exploration. Tài liệu chính thức về khái niệm khám phá phễu, cấu hình bước, phễu mở và đóng, điều kiện trực tiếp và gián tiếp, thời gian trôi qua và hành động tiếp theo. https://support.google.com/analytics/answer/9327974
+- Google Analytics Help. [GA4] Get started with Explorations. Tài liệu chính thức về cấu trúc cột Biến, cột Cài đặt thẻ và thao tác xuất dữ liệu ra Google Sheets, TSV, CSV, PDF. https://support.google.com/analytics/answer/7579450
+- Google Analytics Help. [GA4] Segment builder. Tài liệu chính thức về cơ chế hoạt động hồi tố của phân đoạn trong mô-đun Khám phá và tùy chọn xây dựng đối tượng. https://support.google.com/analytics/answer/9304353
+- Google Analytics Help. [GA4] Introduction to audiences. Tài liệu chính thức về khái niệm đối tượng, giới hạn thu thập dữ liệu và tích hợp tiếp thị lại với Google Ads. https://support.google.com/analytics/answer/12799087
+- Google Analytics Help. [GA4] Monitor events in DebugView. Tài liệu chính thức về cách giám sát sự kiện và thông số sự kiện theo thời gian thực để kiểm tra lỗi thu thập dữ liệu. https://support.google.com/analytics/answer/7201382
+
+---
+
 ## Các chỉ số Google Analytics 4 và cách đọc
 
 - URL: https://letuanviet.com/goc-kien-thuc/marketing/cac-chi-so-google-analytics-4/
@@ -7504,7 +7773,7 @@ Tôi luôn tách bạch hai cột mốc khi nghiệm thu: bàn giao mã nguồn 
 
 ### Cách tạo website xong đo hiệu quả thế nào?
 
-Sau khi hoàn tất cách tạo website và đưa trang vào vận hành, doanh nghiệp cần đo lường hiệu quả theo khung chỉ số ba tầng gồm khả năng hiện diện và lập chỉ mục trên công cụ tìm kiếm, mức độ tương tác vi mô trên trang, cùng số lượng khách hàng tiềm năng đạt chuẩn và doanh thu thực tế trong kỳ đo.
+Sau khi hoàn tất cách tạo website và đưa trang vào vận hành, doanh nghiệp cần đo lường hiệu quả theo khung chỉ số ba tầng gồm khả năng hiện diện và lập chỉ mục trên công cụ tìm kiếm, mức độ tương tác vi mô trên trang, cùng số lượng khách hàng tiềm năng đạt chuẩn và doanh thu thực tế trong kỳ đo. Việc hiểu rõ bản chất và cách đọc các chỉ số Google Analytics 4 giúp tách bạch tín hiệu tương tác với kết quả chuyển đổi thực tế.
 
 #### Khung chỉ số 3 tầng từ hiển thị đến khách đạt chuẩn
 
@@ -13927,7 +14196,7 @@ Khi bài viết có nhiều lượt xem nhưng ít người mở bảng giá ho�
 
 #### Có nhu cầu nhưng không hoàn tất đơn hàng
 
-Ở chặng này, khách hàng đã thêm hàng vào giỏ hoặc nhắn tin hỏi giá nhưng không tiến tới macro conversion (chuyển đổi vĩ mô, tức hành động hoàn tất đơn hàng đóng góp trực tiếp vào mục tiêu cốt lõi theo phân loại của Nielsen Norman Group). Điểm đứt gãy thường nằm ở tốc độ phản hồi tư vấn chậm trễ, biểu mẫu đặt hàng rườm rà hoặc phát sinh phí vận chuyển bất ngờ ở bước thanh toán.
+Ở chặng này, khách hàng đã thêm hàng vào giỏ hoặc nhắn tin hỏi giá nhưng không tiến tới macro conversion (chuyển đổi vĩ mô, tức hành động hoàn tất đơn hàng đóng góp trực tiếp vào mục tiêu cốt lõi theo phân loại của Nielsen Norman Group). Điểm đứt gãy thường nằm ở tốc độ phản hồi tư vấn chậm trễ, biểu mẫu đặt hàng rườm rà hoặc phát sinh phí vận chuyển bất ngờ ở bước thanh toán. Để đo tỷ lệ rời bỏ ở từng bước này trên website, doanh nghiệp nên dùng báo cáo khám phá phễu trong GA4.
 
 #### Có đơn nhưng lợi nhuận hoặc tỷ lệ mua lại thấp
 
@@ -16013,7 +16282,7 @@ Quy trình nối mục tiêu, nghiên cứu người đọc, lựa chọn tài s
 
 #### Bước 1: Chốt mục tiêu và hành động cần tạo
 
-Dùng ưu tiên kinh doanh và dữ liệu nền để chọn hành động, kỳ đánh giá và giới hạn nguồn lực. Tránh mục tiêu chỉ ghi “tăng tương tác” khi điều doanh nghiệp cần biết là nội dung có tạo yêu cầu phù hợp hay không.
+Dùng ưu tiên kinh doanh và dữ liệu nền để chọn hành động, kỳ đánh giá và giới hạn nguồn lực. Tránh mục tiêu chỉ ghi “tăng tương tác” khi điều doanh nghiệp cần biết là nội dung có tạo yêu cầu phù hợp hay không. Nắm rõ các chỉ số Google Analytics 4 sẽ giúp tách bạch tương tác với chuyển đổi thực tế.
 
 Đầu ra: phiếu mục tiêu có hành động, chỉ số, người phụ trách và kỳ đo; hoàn tất khi người duyệt thống nhất cách nhận biết kết quả.
 
@@ -18293,7 +18562,7 @@ Lựa chọn "muốn nhận nội dung về dã ngoại trong ngày" là khai b�
 
 [Hình: Một biểu mẫu sinh ra ba lớp dữ liệu cùng lúc, cần lưu vào ba trường riêng]
 
-Do đó, đừng gán nhãn cho cả form rồi suy mọi trường đều có cùng ý nghĩa. Với cách dùng first-party rộng, cả nội dung khai báo và sự kiện gửi có thể là dữ liệu trực tiếp. Với cách tách lớp để phân tích, bạn nên lưu riêng khai báo, hành vi và phần suy luận, mỗi lớp một trường.
+Do đó, đừng gán nhãn cho cả form rồi suy mọi trường đều có cùng ý nghĩa. Với cách dùng first-party rộng, cả nội dung khai báo và sự kiện gửi có thể là dữ liệu trực tiếp. Với cách tách lớp để phân tích, bạn nên lưu riêng khai báo, hành vi và phần suy luận, mỗi lớp một trường. Phần hành vi gửi form cần được ghi nhận chính xác bằng cách cài đặt theo dõi chuyển đổi trên GA4.
 
 #### Bàn giao cho người làm nội dung
 
@@ -18797,7 +19066,7 @@ Nielsen Norman Group chia hành vi nhỏ thành hai nhóm, và đây là cách p
 
 #### Hành vi cột mốc
 
-Đây là những bước nằm ngay trong quy trình hoàn thành mục tiêu: mở biểu mẫu trước khi gửi, bắt đầu thanh toán trước khi đặt hàng. Nhóm này đọc theo kiểu tỷ lệ rơi. Nếu 300 người mở biểu mẫu mà chỉ 90 người gửi, bạn có lý do cụ thể để đi kiểm tra trường bắt buộc, thông báo lỗi và cách biểu mẫu chạy trên điện thoại.
+Đây là những bước nằm ngay trong quy trình hoàn thành mục tiêu: mở biểu mẫu trước khi gửi, bắt đầu thanh toán trước khi đặt hàng. Nhóm này đọc theo kiểu tỷ lệ rơi. Nếu 300 người mở biểu mẫu mà chỉ 90 người gửi, bạn có lý do cụ thể để đi kiểm tra trường bắt buộc, thông báo lỗi và cách biểu mẫu chạy trên điện thoại. Để trực quan hóa tỷ lệ rời qua từng chặng này, bạn có thể dựng báo cáo khám phá phễu trong GA4.
 
 #### Hành vi bổ trợ
 
