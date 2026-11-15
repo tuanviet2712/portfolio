@@ -4,6 +4,285 @@
 
 ---
 
+## Công cụ phân tích đối thủ SEO và cách chọn
+
+- URL: https://letuanviet.com/goc-kien-thuc/marketing/cong-cu-phan-tich-doi-thu-seo/
+- Chủ đề: Marketing
+- Tác giả: Lê Tuấn Việt
+- Xuất bản: 2026-11-15; cập nhật: 2026-11-15
+- Tóm tắt: Phân nhóm các công cụ phân tích đối thủ SEO theo điểm nghẽn từ khóa, Content Gap và backlink, kèm bảng chọn theo ngân sách và quy trình 4 bước cho SME.
+
+Công cụ phân tích đối thủ SEO là nhóm phần mềm thu thập dữ liệu thứ hạng từ khóa, hồ sơ liên kết và nguồn truy cập để giúp doanh nghiệp nhận diện khoảng trống nội dung cùng cơ hội cạnh tranh trên trang kết quả tìm kiếm. Với doanh nghiệp vừa và nhỏ, rào cản lớn nhất không nằm ở việc thiếu phần mềm mà ở chỗ mua nhiều gói công cụ trùng lặp chức năng, rồi chép nguyên danh sách từ khóa của tập đoàn lớn về triển khai khi nguồn lực nội dung chưa đáp ứng. Khi không tách bạch được dữ liệu ước tính từ bên thứ ba với số liệu thực đo trên website của mình, đội ngũ rất dễ đặt nhầm chỉ tiêu lưu lượng và đầu tư sai nhóm bài viết ưu tiên. Tôi là Lê Tuấn Việt, Marketing Leader tại TAKI Group. Trong bài viết này, tôi làm rõ cơ chế của bốn nhóm phần mềm hiện hành, tiêu chí chọn tổ hợp công cụ vừa ngân sách và cách chuyển dữ liệu đối thủ thành kế hoạch thực thi thật.
+
+### Tóm tắt nhanh
+
+- Đối thủ trực tiếp trong SEO là những trang đích đang giành vị trí hiển thị cho cùng nhóm truy vấn trên Google, không đồng nhất với đối thủ kinh doanh ngoài đời thực.
+- Lưu lượng truy cập trên các công cụ bên thứ ba chỉ là con số ước tính từ mô hình tỷ lệ nhấp hoặc mẫu hành vi, tuyệt đối không dùng thay cho dữ liệu thực đo trong Google Search Console.
+- Doanh nghiệp vừa và nhỏ chỉ cần kết hợp dữ liệu gốc từ Google với một công cụ nghiên cứu từ khóa và Content Gap phù hợp giai đoạn phát triển, tránh mua trùng lặp nhiều phần mềm đắt tiền.
+- Mọi bảng dữ liệu trích xuất từ công cụ phải đi qua quy trình bốn bước gồm lọc đối thủ trên SERP, gom nhóm khoảng trống nội dung, rà soát trang đích và chốt thứ tự ưu tiên theo nguồn lực.
+
+### Công cụ phân tích đối thủ SEO là gì
+
+Công cụ phân tích đối thủ SEO là nhóm phần mềm thu thập dữ liệu tìm kiếm tự nhiên, hồ sơ liên kết và cơ cấu nguồn truy cập khi triển khai SEO Competitor Analysis Tools (phần mềm nghiên cứu đối thủ tìm kiếm). Hệ thống này giúp doanh nghiệp xác định khoảng trống thông tin và cơ hội cải thiện vị trí trên SERP (Search Engine Results Page, tức trang kết quả tìm kiếm).
+
+Ở nhiều SME (doanh nghiệp vừa và nhỏ), hoạt động nghiên cứu đối thủ thường dừng ở việc nhập tên miền của một thương hiệu lớn vào phần mềm rồi xuất ra hàng nghìn dòng từ khóa. Cách làm đó biến công cụ thành kho lưu trữ số liệu tĩnh mà không chỉ ra được bài viết nào cần sản xuất trước để phục vụ mục tiêu kinh doanh.
+
+Khi đặt trong chuyên mục Marketing và lộ trình xây dựng nền tảng triển khai content marketing, phần mềm phân tích đóng vai trò đài quan sát thị trường. Dữ liệu thu về giúp người phụ trách nhìn rõ chủ đề khách hàng đang tìm, mức độ đầu tư nội dung của trang đứng đầu và rào cản tín nhiệm cần vượt qua.
+
+[Hình: Phân biệt rõ đối thủ trên SERP, khoảng trống nội dung và bản chất dữ liệu ước tính giúp doanh nghiệp tránh đặt sai mục tiêu ngay từ đầu]
+
+#### Đối thủ kinh doanh khác gì đối thủ trên SERP
+
+Để sử dụng phần mềm đúng hướng và không đọc lệch báo cáo, người làm marketing cần tách bạch ba cặp khái niệm dễ nhầm lẫn dưới đây:
+
+- Đối thủ kinh doanh và đối thủ trên SERP: Đối thủ kinh doanh là đơn vị bán cùng sản phẩm ngoài đời thực nhưng có thể chỉ chạy quảng cáo mà không làm SEO. Ngược lại, đối thủ trên SERP là mọi trang đích đang chiếm vị trí hiển thị ở trang đầu Google cho cùng nhóm truy vấn, gồm cả báo chí, sàn thương mại điện tử và blog chuyên ngành.
+
+- Keyword Gap (khoảng trống từ khóa) và Content Gap (khoảng trống nội dung): Khoảng trống từ khóa chỉ danh sách các cụm truy vấn mà tên miền đối thủ đã có thứ hạng còn website của bạn chưa xuất hiện. Trong khi đó, khoảng trống nội dung bao hàm cả những câu hỏi thực tế, bảng biểu so sánh hoặc bằng chứng mà ngay cả các bài đứng đầu cũng chưa giải đáp trọn vẹn.
+
+- Lưu lượng truy cập ước tính và dữ liệu thực đo: Tài liệu năm 2026 của Ahrefs Site Explorer nêu rõ Organic Traffic (lưu lượng tìm kiếm tự nhiên) trên công cụ bên thứ ba chỉ là số ước tính từ vị trí từ khóa và mô hình CTR (tỷ lệ nhấp). Ngược lại, Google Search Console Help cung cấp số thực đo của chính web bạn qua Impressions (lượt hiển thị) và Clicks (lượt nhấp).
+
+Nguyên tắc quan trọng khi đọc báo cáo cạnh tranh là không bao giờ lấy lưu lượng truy cập ước tính của công cụ bên thứ ba làm KPI (chỉ số đo lường hiệu quả) tuyệt đối. Tại TAKI Group, tôi kết hợp dữ liệu từ Semrush với số liệu thực tế trên trang kết quả để nghiên cứu thị trường, lập Content Map (bản đồ nội dung) và xác định đúng điểm nghẽn trước khi phân bổ nguồn lực.
+
+### Phân nhóm công cụ phân tích website đối thủ
+
+Các công cụ phân tích website đối thủ hiện nay được chia thành bốn nhóm chính theo điểm nghẽn vận hành gồm nhóm nghiên cứu từ khóa và Content Gap, nhóm phân tích backlink, nhóm ước tính nguồn truy cập đa kênh và nhóm dữ liệu gốc kèm kiểm tra kỹ thuật. Bảng đối chiếu bốn nhóm dưới đây làm rõ dữ liệu đầu ra và giới hạn của từng nhóm.
+
+Bảng phân biệt 4 nhóm công cụ phân tích website đối thủ theo điểm nghẽn vận hành
+
+| Nhóm công cụ | Dữ liệu đầu ra chính | Giới hạn cần lưu ý |
+
+| Từ khóa và Content Gap | Danh sách từ khóa đối thủ đang lên hạng, biến động vị trí và cụm truy vấn tên miền mình còn thiếu | Lưu lượng từ khóa là số ước tính theo mô hình CTR, thường bỏ sót các truy vấn dài mới phát sinh |
+
+| Backlink và thẩm quyền | Hồ sơ liên kết trỏ về, số miền giới thiệu, phân bổ chữ neo và điểm tham chiếu uy tín tên miền | Mỗi hãng quét bằng hệ thống bot riêng nên số lượng liên kết và điểm số không đồng nhất với Google |
+
+| Nguồn truy cập đa kênh | Cơ cấu tỷ trọng kênh tìm kiếm, trực tiếp, mạng xã hội, giới thiệu và thị phần truy cập ngành | Sai số ngoại suy rất lớn ở các website doanh nghiệp nhỏ có tổng lượng truy cập hàng tháng thấp |
+
+| Dữ liệu gốc và kỹ thuật | Lượt hiển thị, lượt nhấp thực tế của web mình, tốc độ tải trang và cấu trúc kết quả SERP thật | Không xem được số liệu nội bộ của đối thủ mà phải kết hợp quan sát thủ công từng trang đích |
+
+Giới hạn khi đọc bảng: một phần mềm trả phí tổng hợp như Semrush hay Ahrefs thường bao phủ cả hai nhóm đầu, nhưng mỗi nền tảng vẫn có độ sâu cơ sở dữ liệu khác nhau tính đến tháng 11/2026. Người phụ trách cần xác định rõ đội ngũ đang vướng ở khâu tìm chủ đề, thiếu liên kết hay hụt hiệu suất kỹ thuật để chọn đúng nhóm chức năng.
+
+[Hình: Mỗi nhóm công cụ giải quyết một điểm nghẽn dữ liệu riêng và có giới hạn sai số cần lưu ý khi đọc báo cáo]
+
+#### Nhóm nghiên cứu từ khóa và Content Gap
+
+Nhóm công cụ này giải quyết câu hỏi đối thủ đang thu hút khách hàng qua những truy vấn nào mà website bạn chưa khai thác. Tài liệu kiểm tra năm 2026 trên Semrush Knowledge Base về Keyword Gap xác nhận tính năng này cho phép đặt tối đa 5 tên miền hoặc URL (địa chỉ trang web) cạnh nhau để so sánh từ khóa tự nhiên (Organic), trả phí (Paid), quảng cáo mua sắm (PLA) và lọc theo các nhãn Missing, Weak, Strong, Untapped, Shared.
+
+Tương tự, tính năng Content Gap trong Ahrefs Site Explorer kiểm tra năm 2026 giúp phát hiện ngay các từ khóa mà trang đối thủ đang có thứ hạng nhưng tên miền của bạn chưa xuất hiện. Thay vì đoán chủ đề bằng cảm tính, đội ngũ nội dung có thể xuất danh sách từ khóa thuộc nhóm Missing để bổ sung vào kế hoạch mở rộng cụm chủ đề.
+
+#### Nhóm phân tích backlink và thẩm quyền trang
+
+Khi hai bài viết có chất lượng thông tin tương đương nhưng bài đối thủ luôn giữ vị trí cao hơn, điểm nghẽn thường nằm ở Backlink (liên kết ngược từ web khác trỏ về). Nhóm công cụ phân tích liên kết như Ahrefs, Moz Pro, Semrush hay Majestic giúp bóc tách số lượng Referring Domains (miền giới thiệu), tốc độ tăng liên kết mới và ngữ cảnh đặt chữ neo.
+
+Trong nhóm này, tài liệu kiểm tra năm 2026 của Moz về Domain Authority giải thích rõ chỉ số DA (điểm thẩm quyền tên miền) được tính trên thang logarit từ 1 đến 100 dựa trên hồ sơ liên kết. Những công cụ này giúp bạn nhận diện các trang báo hoặc đối tác uy tín đang nhắc tới đối thủ để xây dựng phương án tiếp cận phù hợp.
+
+#### Nhóm đo lưu lượng truy cập ước tính và thị phần
+
+Đối với bài toán tìm hiểu chiến lược digital marketing là gì và phân bổ ngân sách đa kênh, việc chỉ nhìn vào tìm kiếm tự nhiên dễ làm người lập kế hoạch đánh giá sai sức mạnh thật của đối thủ. Nhóm công cụ như Similarweb bóc tách tỷ trọng khách đến từ truy cập trực tiếp, tìm kiếm tự nhiên, quảng cáo tìm kiếm, mạng xã hội và trang giới thiệu.
+
+Nếu dữ liệu cho thấy đối thủ có lượng truy cập lớn chủ yếu nhờ kênh trực tiếp và mạng xã hội chứ không phải từ Google Search, bạn sẽ biết họ đang thắng nhờ nhận diện thương hiệu. Phát hiện này giúp doanh nghiệp vừa và nhỏ tránh sai lầm dồn hết ngân sách vào cuộc đua từ khóa đơn thuần với thương hiệu đã có tệp khách trung thành lớn.
+
+#### Nhóm dữ liệu gốc từ Google và kiểm tra kỹ thuật
+
+Mọi số liệu ước tính từ phần mềm bên thứ ba đều phải kiểm chứng lại bằng công cụ dữ liệu gốc của Google. Tài liệu năm 2026 về Performance report của Google Search Console xác nhận báo cáo này cho phép lọc lưu lượng thực tế theo truy vấn, trang, quốc gia, thiết bị và tính chính xác CTR bằng số lượt nhấp chia cho lượt hiển thị.
+
+Khi đặt báo cáo hiệu suất thực đo của chính mình cạnh việc kiểm tra trực tiếp 10 kết quả đầu trên SERP và đo tốc độ trang đích đối thủ qua PageSpeed Insights, bạn sẽ thấy rõ vì sao bài viết có hiển thị nhưng tỷ lệ nhấp thấp. Đây là nhóm công cụ miễn phí mang lại căn cứ xác thực cao nhất trước khi sửa cấu trúc bài viết.
+
+### Các công cụ phân tích đối thủ SEO phổ biến
+
+Bảy công cụ phân tích đối thủ SEO và bộ giải pháp phổ biến nhất tính đến tháng 11/2026 gồm Ahrefs, Semrush, Similarweb, Serpstat, SpyFu, Moz Pro và bộ công cụ miễn phí của Google. Danh sách bảy thẻ dưới đây tóm tắt trọng tâm dữ liệu, giới hạn sai số và bước hành động tiếp theo của từng lựa chọn.
+
+- Ahrefs: Mạnh về kiểm tra hồ sơ backlink, tìm Content Gap cấp thư mục và xem trang đích đối thủ nhận nhiều truy cập tự nhiên nhất.
+
+- Semrush: Nổi bật với Keyword Gap đối chiếu tối đa 5 tên miền trên cả tìm kiếm tự nhiên lẫn quảng cáo, kèm phân loại ý định tìm kiếm.
+
+- Similarweb: Phù hợp để bóc tách cơ cấu nguồn truy cập đa kênh và thị phần ngành của các đối thủ lớn, nhưng sai số cao ở web nhỏ.
+
+- Serpstat: Giải pháp đa năng chi phí vừa phải cho nhu cầu gom nhóm từ khóa, kiểm tra thứ hạng và đối chiếu tên miền cơ bản.
+
+- SpyFu: Chuyên sâu tra cứu lịch sử xếp hạng từ khóa tự nhiên và lịch sử mẫu quảng cáo Google Ads của đối thủ qua nhiều năm.
+
+- Moz Pro: Cung cấp công cụ Link Explorer và chỉ số tham chiếu DA, PA để so sánh tương quan sức mạnh liên kết giữa các website.
+
+- Bộ công cụ Google: Gồm Google Search Console và kiểm tra SERP trực tiếp, cung cấp dữ liệu thực đo chính xác tuyệt đối cho website chính chủ.
+
+[Hình: Định vị bảy công cụ phổ biến theo trọng tâm dữ liệu giúp doanh nghiệp chọn đúng phần mềm thay vì mua trùng lặp chức năng]
+
+#### Ahrefs và Semrush cho từ khóa và liên kết
+
+Trong nhóm phần mềm trả phí chuyên sâu, Ahrefs và Semrush là hai nền tảng phổ biến nhất để giải quyết bài toán từ khóa và liên kết tính đến tháng 11/2026. Ahrefs phát huy thế mạnh khi bạn cần soi cấu trúc thư mục của đối thủ, kiểm tra lịch sử tăng giảm backlink theo ngày và tìm những trang đích mang về phần lớn lưu lượng ước tính qua báo cáo Top Pages.
+
+Ở chiều ngược lại, Semrush hỗ trợ tốt cho người lập kế hoạch cần nhìn đồng thời cả SEO lẫn PPC (quảng cáo trả tiền theo lượt nhấp). Sau khi xuất dữ liệu từ một trong hai công cụ này, bước hành động tiếp theo bắt buộc là lọc bỏ từ khóa thương hiệu riêng của đối thủ và gom các truy vấn còn lại theo từng nhóm ý định tìm kiếm.
+
+#### Similarweb và Serpstat cho nguồn truy cập
+
+Khi mục tiêu nghiên cứu mở rộng sang bức tranh toàn cảnh về nguồn khách hàng hoặc cần phương án tiết kiệm ngân sách hơn, Similarweb và Serpstat đáp ứng hai nhu cầu tách biệt tính đến tháng 11/2026. Similarweb phù hợp cho bước nghiên cứu thị trường đầu kỳ để xem đối thủ đang kéo khách từ mạng xã hội, báo chí hay tìm kiếm tự nhiên.
+
+Trong khi đó, Serpstat tập trung vào các tính năng cốt lõi gồm nghiên cứu từ khóa, phân tích miền cạnh tranh và kiểm tra kỹ thuật trang web với mức chi phí dễ tiếp cận cho đội ngũ nhỏ. Dữ liệu xuất từ Serpstat hoặc Similarweb nên dùng làm cơ sở định hướng danh mục chủ đề, sau đó kiểm tra chéo lại trên trang kết quả Google tại Việt Nam.
+
+#### SpyFu, Moz Pro và bộ công cụ miễn phí Google
+
+Với những doanh nghiệp vừa chạy tìm kiếm tự nhiên vừa đầu tư quảng cáo và đang cân nhắc bài toán chọn giữa SEO và Google Ads, SpyFu cung cấp góc nhìn lịch sử rất hữu ích tính đến tháng 11/2026. Phần mềm này cho biết một tên miền đã duy trì những từ khóa nào bền bỉ qua nhiều tháng, giúp bạn nhận diện nhóm từ khóa thực sự mang lại chuyển đổi.
+
+Moz Pro được nhiều đội ngũ dùng để tham chiếu tương quan độ mạnh tên miền qua chỉ số DA và PA (điểm thẩm quyền trang), còn Google Search Console giữ vai trò chốt chặn dữ liệu thật. Ngoài ra, hồ sơ năm 2026 trên Wikipedia về Alexa Internet ghi nhận dịch vụ Alexa.com thuộc Amazon đã ngừng hoạt động từ ngày 1/5/2022 nên bạn không cần mất thời gian tìm kiếm.
+
+Bên cạnh đó, thị trường còn có các hệ thống quản trị SEO quy mô tập đoàn như BrightEdge, Conductor, Searchmetrics hoặc công cụ ngách như iSpionage, Quantcast tính đến tháng 11/2026. Tuy nhiên, nhóm phần mềm tập đoàn này đòi hỏi ngân sách lớn và đội ngũ phân tích chuyên trách, thường vượt quá nhu cầu vận hành thực tế của doanh nghiệp vừa và nhỏ.
+
+[Hình: Cơ chế đối chiếu giao điểm từ khóa giữa các tên miền giúp phát hiện nhanh những chủ đề khách hàng đang tìm nhưng website chưa khai thác]
+
+### Tiêu chí chọn công cụ nghiên cứu đối thủ cho SME
+
+Doanh nghiệp vừa và nhỏ nên chọn công cụ nghiên cứu đối thủ dựa trên ba tiêu chí cốt lõi gồm điểm nghẽn hiện tại của website, tần suất sử dụng dữ liệu hàng tháng và năng lực nhân sự chuyển hóa số liệu thành bài viết hoàn chỉnh. Bảng chọn dưới đây phân bổ tổ hợp công cụ theo từng giai đoạn nguồn lực.
+
+Bảng chọn tổ hợp công cụ nghiên cứu đối thủ theo ngân sách và giai đoạn của SME
+
+| Giai đoạn SME | Điều kiện phù hợp | Tổ hợp và đánh đổi |
+
+| Giai đoạn mới khởi tạo | Website dưới 30 bài viết, ngân sách hẹp và chưa có nhân sự nội dung chuyên trách hàng ngày | Dùng Google Search Console kết hợp kiểm tra SERP thủ công; tốn công gom nhóm nhưng không tốn phí phần mềm |
+
+| Giai đoạn mở rộng cụm bài | Đã có đội viết bài đều đặn hàng tuần, cần lập Content Map và tìm khoảng trống từ khóa | Chọn 1 công cụ trả phí như Semrush, Ahrefs hoặc Serpstat theo kỳ lập kế hoạch; cần người biết lọc dữ liệu |
+
+| Giai đoạn cạnh tranh ngành | Website đã có lưu lượng ổn định, cần vượt đối thủ ở nhóm từ khóa khó và mở rộng đa kênh | Kết hợp Google Search Console, 1 công cụ SEO chuyên sâu và Similarweb; đòi hỏi ngân sách và quy trình đồng bộ |
+
+Giới hạn khi đọc bảng: bảng chọn trên giả định website của doanh nghiệp đã hoàn tất cài đặt kỹ thuật cơ bản và cho phép Google lập chỉ mục bình thường. Vậy khi nào doanh nghiệp tuyệt đối chưa nên chi tiền mua các gói phần mềm phân tích đối thủ đắt đỏ hàng tháng?
+
+Ngoại lệ đảo chiều nằm ở năng lực thực thi nội bộ. Nếu mỗi tháng đội ngũ chỉ xuất bản được một đến hai bài viết, việc mua gói phần mềm vài triệu đồng mỗi tháng sẽ lấy mất ngân sách sản xuất nội dung. Khi cân nhắc tự làm hay thuê ngoài theo các tiêu chí chọn công ty SEO cho doanh nghiệp, người quản lý phải tính tổng phí phần mềm cộng số giờ nhân sự xử lý bảng.
+
+Tôi ưu tiên dành ngân sách cho khâu biên tập nội dung chất lượng và tối ưu trải nghiệm trang đích trước, rồi mới mua gói công cụ phân tích theo đúng tháng lập kế hoạch quý khi đội ngũ đã sẵn sàng năng lực sản xuất. Mua phần mềm đắt tiền không tự tạo ra thứ hạng nếu thiếu người chuyển bảng từ khóa thành bài viết giải quyết đúng câu hỏi của khách hàng.
+
+[Hình: Lựa chọn tổ hợp công cụ phải khớp với tần suất xuất bản nội dung và năng lực thực thi của đội ngũ nội bộ]
+
+### Quy trình 4 bước phân tích đối thủ trong SEO
+
+Quy trình phân tích đối thủ trong SEO dành cho doanh nghiệp vừa và nhỏ gồm bốn bước nối tiếp: lọc đúng đối thủ trực tiếp trên SERP, trích xuất khoảng trống nội dung bằng Content Gap, đối chiếu trang đích cùng hồ sơ liên kết và chốt thứ tự ưu tiên theo nguồn lực thực thi.
+
+[Hình: Bốn bước chuyển hóa dữ liệu thô từ công cụ phân tích đối thủ SEO thành kế hoạch nội dung khả thi]
+
+#### Bước 1: Lọc đúng đối thủ trực tiếp trên SERP
+
+Lấy danh sách 5 đến 10 từ khóa hạt nhân gắn trực tiếp với sản phẩm hoặc dịch vụ chủ lực của doanh nghiệp để tìm kiếm thử trên Google và đưa vào báo cáo Organic Competitors trên phần mềm. Tại bước này, bạn cần loại bỏ các trang tin tổng hợp hoặc sàn thương mại điện tử lớn để giữ lại những website có cùng mô hình kinh doanh và phục vụ cùng nhóm người đọc.
+
+Đầu ra: danh sách 3 đến 5 tên miền đối thủ trực tiếp trên SERP gắn với từng cụm chủ đề sản phẩm cụ thể.
+
+#### Bước 2: Tìm khoảng trống nội dung bằng Content Gap
+
+Nhập tên miền của bạn cùng 3 đến 4 đối thủ trực tiếp đã lọc ở Bước 1 vào tính năng Keyword Gap của Semrush hoặc Content Gap của Ahrefs. Lọc riêng hai tệp dữ liệu gồm nhóm Missing (từ khóa đối thủ nằm trong top 10 nhưng bạn chưa có) và nhóm Weak (từ khóa bạn có thứ hạng thấp hơn), sau đó gom các từ khóa đồng nghĩa về cùng chủ đề theo ý định tìm kiếm.
+
+Đầu ra: bảng danh sách các chủ đề cần viết mới và các URL cũ cần tối ưu lại, đã phân loại theo tầng nhận biết, cân nhắc và quyết định.
+
+#### Bước 3: Đối chiếu trang đích và hồ sơ backlink
+
+Mở trực tiếp 5 trang đích đang đứng đầu SERP của từng chủ đề ưu tiên để kiểm tra cách họ giải quyết câu hỏi của người đọc, độ sâu của bảng đối chiếu và cách xác định content angle khác biệt. Đồng thời, kiểm tra số lượng miền giới thiệu trỏ về đúng URL trang đích đó để biết chủ đề này có đòi hỏi bổ sung liên kết ngoài hay chỉ cần vượt trội về nội dung.
+
+Đầu ra: phiếu ghi nhận điểm mạnh cần khớp và những khoảng trống thông tin, bảng công cụ hoặc dữ liệu nguồn mà bài đối thủ đang bỏ sót.
+
+#### Bước 4: Chốt thứ tự ưu tiên theo nguồn lực
+
+Chấm điểm các chủ đề đã rà soát theo ba trục gồm mức độ gắn kết với chuyển đổi kinh doanh, độ khó cạnh tranh và số giờ biên tập cần thiết. Từ thứ tự ưu tiên này, người phụ trách đưa từng chủ đề vào bản đồ nội dung và bàn giao sang quy trình viết content marketing bốn bước có người kiểm duyệt chất lượng cuối.
+
+Đầu ra: kế hoạch sản xuất và tối ưu bài viết theo tháng, ghi rõ tiêu đề dự kiến, tài sản giá trị riêng cần dựng và người chịu trách nhiệm.
+
+[Hình: Quy trình bốn bước nối tiếp giúp biến bảng xuất dữ liệu thô thành danh sách bài viết có góc tiếp cận và thứ tự ưu tiên rõ ràng]
+
+### Sai lầm khi đọc số liệu và cách kiểm tra hiệu quả
+
+Ba sai lầm phổ biến nhất khi dùng công cụ phân tích đối thủ SEO là coi số liệu lưu lượng ước tính như doanh số thật, sao chép nguyên danh sách từ khóa lưu lượng cao của tập đoàn lớn và chỉ nhìn điểm số công cụ mà bỏ qua hành vi chuyển đổi trên website. Tình huống dưới đây minh họa rõ sự khác biệt giữa hai cách vận hành.
+
+Sao chép từ khóa lưu lượng cao của đối thủ lớn khiến bài viết có truy cập nhưng không có khách hỏi mua
+
+Ví dụ: một đơn vị dịch vụ kế toán tại Hà Nội thấy nền tảng phần mềm lớn có hàng chục nghìn lượt truy cập ước tính mỗi tháng từ từ khóa biểu mẫu hành chính cá nhân. Cách làm sai ở kỳ đầu là đội ngũ chép nguyên bộ từ khóa đó về viết bài hàng loạt, dẫn tới chỉ có người tải biểu mẫu miễn phí mà không phát sinh yêu cầu tư vấn dịch vụ trọn gói nào.
+
+Cách làm đúng khi điều chỉnh ở kỳ sau là đơn vị lọc lại đối thủ trực tiếp cùng phân khúc B2B (doanh nghiệp bán cho doanh nghiệp). Đội ngũ dùng Content Gap tách riêng nhóm truy vấn về rủi ro quyết toán thuế cùng chi phí thuê kế toán ngoài, đồng thời gắn bảng tự kiểm tra hồ sơ ngay trong bài để thu hút đúng chủ doanh nghiệp có nhu cầu thật.
+
+Trong ví dụ này, nguyên nhân gốc rễ nằm ở việc đánh đồng quy mô truy cập ước tính với giá trị thương mại và chạy theo số lượng từ khóa. Tài liệu SEO Starter Guide của Google Search Central kiểm tra năm 2026 nhấn mạnh việc xây dựng nội dung hữu ích, đáng tin cậy và lấy người đọc làm trung tâm có ảnh hưởng lớn hơn mọi thủ thuật nhồi từ khóa theo đối thủ.
+
+Bên cạnh đó, nhiều đội ngũ còn mua liên kết hàng loạt chỉ để đẩy điểm DA trên công cụ cho bằng đối thủ. Tài liệu chính thức của Moz kiểm tra năm 2026 đã khẳng định rõ Domain Authority không phải là yếu tố xếp hạng mà Google sử dụng trên SERP, mà chỉ là chỉ số tham chiếu tương quan. Bảng ba cột dưới đây giúp người phụ trách chẩn đoán sai lầm và kiểm tra hiệu quả.
+
+Bảng chẩn đoán sai lầm khi đọc số liệu đối thủ và cách kiểm tra hiệu quả thực tế
+
+| Sai lầm phổ biến | Hệ quả vận hành | Cách kiểm tra và xử lý đúng |
+
+| Tin tuyệt đối số ước tính | Đặt KPI lưu lượng phi thực tế và phán đoán sai quy mô doanh thu của đối thủ | Dùng số ước tính để so tỷ lệ tương đối; lấy Impressions và Clicks trong GSC làm chuẩn thật |
+
+| Chép nguyên bộ từ khóa | Tốn nguồn lực viết các chủ đề lưu lượng cao nhưng lệch hoàn toàn nhu cầu mua hàng | Lọc từ khóa theo ý định tìm kiếm và đối chiếu với bài toán kinh doanh của chính doanh nghiệp |
+
+| Chạy theo điểm DA, DR | Mua liên kết rác hàng loạt để tăng điểm công cụ, gây rủi ro phạt thuật toán | Đánh giá chất lượng miền giới thiệu theo độ liên quan chủ đề và uy tín thực tế của nguồn dẫn |
+
+| Đo hiệu quả chỉ bằng top | Bài viết lên vị trí cao nhưng người đọc thoát trang nhanh, không tạo ra khách tiềm năng | Đo đủ 3 tầng gồm hiển thị GSC, chuyển đổi vi mô trên trang và số khách tiềm năng đạt chuẩn |
+
+Giới hạn khi đọc bảng: sau khi xuất bản nội dung mới từ phân tích đối thủ, dữ liệu cần độ trễ vài tuần đến vài tháng để phản ánh đầy đủ trên GSC (Google Search Console) và chỉ số DR (điểm đánh giá hồ sơ liên kết tên miền). Để tránh chỉ nhìn thứ hạng, bạn cần nối vị trí trung bình (Position, vị trí 1 là cao nhất theo Google Search Console Help năm 2026) với cách đo chuyển đổi vi mô trên website và CPL (chi phí mỗi khách tiềm năng).
+
+Trong quá trình triển khai nội dung SEO tại Công ty Cổ phần PITO với trung bình 60 bài viết mỗi tháng đạt 7.200 lượt truy cập tự nhiên mỗi tháng, cũng như khi phụ trách cố vấn Marketing cho Hệ thống Y Đa khoa TOMEC giúp tăng 40% khách hàng tiềm năng và giảm 54% CPL (từ 1,2 triệu xuống 550.000 đồng mỗi data), tôi luôn tách tín hiệu hiển thị với chuyển đổi thực tế. Công cụ cho bản đồ, người làm nghề quyết định đường đi.
+
+[Hình: Kết nối dữ liệu hiển thị trên Google Search Console với chuyển đổi vi mô và chất lượng khách tiềm năng để đánh giá đúng hiệu quả thực tế]
+
+### Câu hỏi thường gặp về công cụ phân tích đối thủ SEO
+
+#### Doanh nghiệp nhỏ cần dùng bao nhiêu công cụ phân tích đối thủ?
+
+Doanh nghiệp vừa và nhỏ chỉ cần kết hợp một công cụ dữ liệu gốc miễn phí là Google Search Console với một phần mềm nghiên cứu từ khóa như Semrush hoặc Ahrefs. Việc mua cùng lúc nhiều phần mềm trả phí tương đương chỉ làm tăng chi phí cố định và gây nhiễu khi mỗi bên báo một số ước tính khác nhau. Đội ngũ chỉ nên bổ sung Similarweb khi cần bóc tách cơ cấu kênh của các thương hiệu lớn cùng ngành.
+
+#### Vì sao lưu lượng truy cập ước tính giữa các công cụ lệch nhau?
+
+Lưu lượng truy cập ước tính giữa các công cụ luôn lệch nhau vì mỗi nền tảng áp dụng phương pháp thu thập dữ liệu và mô hình toán học riêng. Ahrefs và Semrush ước tính lượt truy cập tự nhiên bằng cách nhân lượng tìm kiếm từ khóa với mô hình tỷ lệ nhấp theo vị trí xếp hạng trong cơ sở dữ liệu của họ. Ngược lại, Similarweb ngoại suy tổng truy cập đa kênh từ mạng lưới thiết bị mẫu nên biên độ sai số lớn ở website quy mô nhỏ.
+
+#### Khi nào chưa nên mua công cụ phân tích đối thủ SEO trả phí?
+
+Không, doanh nghiệp chưa nên mua gói công cụ phân tích đối thủ SEO trả phí hàng tháng khi website mới khởi tạo dưới vài chục bài viết, còn lỗi chặn lập chỉ mục hoặc chưa có nhân sự viết bài đều đặn. Ở giai đoạn thiếu người thực thi, việc xuất hàng nghìn dòng từ khóa của đối thủ không tạo ra thêm bài viết hay chuyển đổi thực tế nào. Bạn nên dùng Google Search Console kết hợp quan sát trực tiếp 10 kết quả đầu trên Google để hoàn thiện nhóm trang trụ cột trước tiên.
+
+#### Nên xử lý thế nào khi hai công cụ báo số liệu khác nhau?
+
+Khi hai công cụ báo số liệu khác nhau, nguyên tắc bắt buộc là chọn một phần mềm cố định làm thước đo tham chiếu tương quan theo thời gian thay vì cộng trung bình hai con số. Đối với hiệu suất của chính website doanh nghiệp, bạn luôn lấy số lượt nhấp và lượt hiển thị thực tế trong Google Search Console làm chuẩn xác thực cuối cùng. Đối với website đối thủ, hãy đọc tỷ lệ chênh lệch tương đối và xu hướng tăng giảm giữa các cụm chủ đề thay vì tin tuyệt đối vào con số hàng tháng.
+
+#### Có nên dùng tài khoản mua chung công cụ SEO giá rẻ không?
+
+Không, doanh nghiệp không nên kết nối dữ liệu nội bộ vào các dịch vụ mua chung công cụ SEO không chính thức vì rủi ro lộ danh sách từ khóa chiến lược và đứt quãng truy vấn rất cao. Người phụ trách tuyệt đối không liên kết tài khoản Google Search Console hay Google Analytics của công ty vào những tài khoản dùng chung không rõ chủ thể quản lý. Nếu ngân sách hạn hẹp, bạn hãy dùng gói miễn phí chính hãng cho chủ sở hữu web hoặc đăng ký gói trả phí chính thức theo từng tháng lập kế hoạch.
+
+#### Bao lâu nên phân tích lại đối thủ trên trang kết quả tìm kiếm?
+
+Chu kỳ phù hợp nhất để rà soát toàn diện danh sách đối thủ trực tiếp trên trang kết quả tìm kiếm và cập nhật khoảng trống nội dung là mỗi quý một lần. Riêng với nhóm từ khóa chuyển đổi chủ lực đang cạnh tranh ở trang đầu, đội ngũ nên kiểm tra biến động thứ hạng và cấu trúc trang đích của đối thủ mỗi tháng. Ngoài ra, bất cứ khi nào Google triển khai đợt cập nhật thuật toán cốt lõi làm xáo trộn thứ hạng, bạn cần kiểm tra lại ngay để điều chỉnh góc tiếp cận kịp thời.
+
+### Kết luận
+
+Chọn đúng công cụ phân tích đối thủ SEO không nằm ở việc sở hữu tài khoản đắt tiền nhất, mà ở khả năng ghép đúng phần mềm vào điểm nghẽn từ khóa, khoảng trống nội dung hay hồ sơ liên kết mà doanh nghiệp đang cần tháo gỡ. Mọi con số ước tính từ bên thứ ba chỉ có giá trị khi được đặt cạnh dữ liệu thực đo của chính website bạn và phục vụ trực tiếp cho việc tạo ra nội dung hữu ích hơn đối thủ.
+
+Ngay trong tuần này, bạn có thể mở báo cáo hiệu suất trên Google Search Console, chọn ra 5 truy vấn chủ lực đang có lượt hiển thị cao nhưng vị trí nằm ngoài nhóm 5 kết quả đầu, rồi tìm kiếm trực tiếp trên Google để đối chiếu cấu trúc trang đích của 3 đối thủ đứng đầu mà chưa tốn thêm bất kỳ chi phí phần mềm nào.
+
+Khi quy mô website mở rộng lên hàng trăm bài viết và bài toán không còn nằm ở việc sửa lẻ từng trang, doanh nghiệp sẽ cần một hệ thống bản đồ nội dung, quy trình biên tập chuẩn hóa và bảng theo dõi chuyển đổi đồng bộ giữa marketing với bán hàng.
+
+Đội ngũ của bạn đang thiếu công cụ lấy số liệu hay đang vướng ở khâu biến bảng từ khóa đối thủ thành kế hoạch nội dung mang về khách hàng thật?
+
+### Câu hỏi thường gặp
+
+**Doanh nghiệp nhỏ cần dùng bao nhiêu công cụ phân tích đối thủ?**
+Doanh nghiệp vừa và nhỏ chỉ cần kết hợp một công cụ dữ liệu gốc miễn phí là Google Search Console với một phần mềm nghiên cứu từ khóa như Semrush hoặc Ahrefs. Việc mua cùng lúc nhiều phần mềm trả phí tương đương chỉ làm tăng chi phí cố định và gây nhiễu khi mỗi bên báo một số ước tính khác nhau. Đội ngũ chỉ nên bổ sung Similarweb khi cần bóc tách cơ cấu kênh của các thương hiệu lớn cùng ngành.
+
+**Vì sao lưu lượng truy cập ước tính giữa các công cụ lệch nhau?**
+Lưu lượng truy cập ước tính giữa các công cụ luôn lệch nhau vì mỗi nền tảng áp dụng phương pháp thu thập dữ liệu và mô hình toán học riêng. Ahrefs và Semrush ước tính lượt truy cập tự nhiên bằng cách nhân lượng tìm kiếm từ khóa với mô hình tỷ lệ nhấp theo vị trí xếp hạng trong cơ sở dữ liệu của họ. Ngược lại, Similarweb ngoại suy tổng truy cập đa kênh từ mạng lưới thiết bị mẫu nên biên độ sai số lớn ở website quy mô nhỏ.
+
+**Khi nào chưa nên mua công cụ phân tích đối thủ SEO trả phí?**
+Không, doanh nghiệp chưa nên mua gói công cụ phân tích đối thủ SEO trả phí hàng tháng khi website mới khởi tạo dưới vài chục bài viết, còn lỗi chặn lập chỉ mục hoặc chưa có nhân sự viết bài đều đặn. Ở giai đoạn thiếu người thực thi, việc xuất hàng nghìn dòng từ khóa của đối thủ không tạo ra thêm bài viết hay chuyển đổi thực tế nào. Bạn nên dùng Google Search Console kết hợp quan sát trực tiếp 10 kết quả đầu trên Google để hoàn thiện nhóm trang trụ cột trước tiên.
+
+**Nên xử lý thế nào khi hai công cụ báo số liệu khác nhau?**
+Khi hai công cụ báo số liệu khác nhau, nguyên tắc bắt buộc là chọn một phần mềm cố định làm thước đo tham chiếu tương quan theo thời gian thay vì cộng trung bình hai con số. Đối với hiệu suất của chính website doanh nghiệp, bạn luôn lấy số lượt nhấp và lượt hiển thị thực tế trong Google Search Console làm chuẩn xác thực cuối cùng. Đối với website đối thủ, hãy đọc tỷ lệ chênh lệch tương đối và xu hướng tăng giảm giữa các cụm chủ đề thay vì tin tuyệt đối vào con số hàng tháng.
+
+**Có nên dùng tài khoản mua chung công cụ SEO giá rẻ không?**
+Không, doanh nghiệp không nên kết nối dữ liệu nội bộ vào các dịch vụ mua chung công cụ SEO không chính thức vì rủi ro lộ danh sách từ khóa chiến lược và đứt quãng truy vấn rất cao. Người phụ trách tuyệt đối không liên kết tài khoản Google Search Console hay Google Analytics của công ty vào những tài khoản dùng chung không rõ chủ thể quản lý. Nếu ngân sách hạn hẹp, bạn hãy dùng gói miễn phí chính hãng cho chủ sở hữu web hoặc đăng ký gói trả phí chính thức theo từng tháng lập kế hoạch.
+
+**Bao lâu nên phân tích lại đối thủ trên trang kết quả tìm kiếm?**
+Chu kỳ phù hợp nhất để rà soát toàn diện danh sách đối thủ trực tiếp trên trang kết quả tìm kiếm và cập nhật khoảng trống nội dung là mỗi quý một lần. Riêng với nhóm từ khóa chuyển đổi chủ lực đang cạnh tranh ở trang đầu, đội ngũ nên kiểm tra biến động thứ hạng và cấu trúc trang đích của đối thủ mỗi tháng. Ngoài ra, bất cứ khi nào Google triển khai đợt cập nhật thuật toán cốt lõi làm xáo trộn thứ hạng, bạn cần kiểm tra lại ngay để điều chỉnh góc tiếp cận kịp thời.
+
+### Nguồn tham khảo
+
+- Google Search Console Help. What are impressions, position, and clicks?. Định nghĩa chính thức các chỉ số lượt hiển thị (Impressions), vị trí xếp hạng cao nhất (Position, trong đó vị trí 1 là trên cùng) và lượt nhấp (Clicks) kiểm tra năm 2026. https://support.google.com/webmasters/answer/7042828
+- Google Search Console Help. Performance report (Search results). Cơ chế lọc dữ liệu hiệu suất tìm kiếm theo truy vấn, trang, thiết bị và công thức tính tỷ lệ nhấp (CTR) bằng số lượt nhấp chia cho lượt hiển thị kiểm tra năm 2026. https://support.google.com/webmasters/answer/7576553
+- Semrush Knowledge Base. Keyword Gap Tool: Compare Competitor Keywords. Tính năng đối chiếu đồng thời tối đa 5 tên miền trên các nhóm từ khóa tự nhiên (Organic), trả phí (Paid), PLA và phân đoạn Missing, Weak, Untapped kiểm tra năm 2026. https://www.semrush.com/kb/819-keyword-gap
+- Ahrefs. Ahrefs Site Explorer & Content Gap. Cơ chế phát hiện từ khóa đối thủ đã lên hạng bằng Content Gap và phương pháp ước tính Organic Traffic dựa trên thứ hạng cùng mô hình CTR kiểm tra năm 2026. https://ahrefs.com/site-explorer
+- Moz. What is Domain Authority (DA)?. Thang điểm dự đoán khả năng xếp hạng từ 1 đến 100 theo hàm logarit và xác nhận Domain Authority không phải yếu tố xếp hạng của Google kiểm tra năm 2026. https://moz.com/learn/seo/domain-authority
+- Wikipedia. Alexa Internet. Thông tin xác nhận dịch vụ xếp hạng website Alexa.com thuộc Amazon đã chính thức ngừng hoạt động từ ngày 1 tháng 5 năm 2022. https://en.wikipedia.org/wiki/Alexa_Internet
+- Google Search Central. Search Engine Optimization (SEO) Starter Guide. Khuyến nghị chính thức của Google về việc ưu tiên xây dựng nội dung hữu ích, đáng tin cậy cho người đọc thay vì sao chép hay nhồi từ khóa theo đối thủ kiểm tra năm 2026. https://developers.google.com/search/docs/fundamentals/seo-starter-guide
+
+---
+
 ## Content SEO là gì và quy trình viết cho SME
 
 - URL: https://letuanviet.com/goc-kien-thuc/marketing/content-seo-la-gi/
@@ -7760,7 +8039,7 @@ Bắt đầu bằng việc lập bảng danh mục sản phẩm hoặc dịch v�
 
 #### Bước 2: Kiểm tra năng lực kỹ thuật và phương pháp
 
-Yêu cầu các công ty SEO đang tham gia chào thầu thực hiện một bản chẩn đoán sơ bộ ngay trên website hiện tại của bạn. Một đơn vị có năng lực thực thi thật sẽ chỉ ra được các điểm nghẽn về thu thập dữ liệu, lập chỉ mục, cấu trúc phân cấp tiêu đề và sự thiếu hụt nội dung so với ý định tìm kiếm thực tế trên trang kết quả.
+Yêu cầu các công ty SEO đang tham gia chào thầu thực hiện một bản chẩn đoán sơ bộ ngay trên website hiện tại của bạn. Một đơn vị có năng lực thực thi thật sẽ chỉ ra được các điểm nghẽn về thu thập dữ liệu, lập chỉ mục, cấu trúc phân cấp tiêu đề và sự thiếu hụt nội dung so với ý định tìm kiếm thực tế trên trang kết quả. Doanh nghiệp cũng có thể tự đối chiếu khoảng trống chủ đề bằng các công cụ phân tích đối thủ SEO trước buổi làm việc.
 
 Ở bước này, nếu đơn vị nào cam kết chắc chắn vị trí đầu bảng trong thời gian ngắn hoặc chào gói mua liên kết hàng loạt giá rẻ, bạn nên loại ngay. Theo chính sách chống spam năm 2024 của Google Search Central, hành vi mua bán hay tạo liên kết nhân tạo nhằm thao túng thứ hạng đều vi phạm quy định và khiến website chịu án phạt tụt hạng toàn miền.
 
@@ -15609,7 +15888,7 @@ Bảng phân biệt SEO và Google Ads theo sáu tiêu chí phục vụ quyết 
 
 | Năng lực vận hành | Cần kiến trúc thông tin, biên tập sâu và kỹ thuật web | Cần quản trị giá thầu, lọc từ khóa phủ định và tối ưu trang đích |
 
-Bảng đối chiếu trên phản ánh đặc trưng vận hành độc lập của từng kênh khi trang đích hoạt động bình thường. Tốc độ lên hạng SEO hay chi phí mỗi lượt nhấp Google Ads luôn biến thiên theo độ cạnh tranh ngành và lịch sử dữ liệu tài khoản.
+Bảng đối chiếu trên phản ánh đặc trưng vận hành độc lập của từng kênh khi trang đích hoạt động bình thường. Tốc độ lên hạng SEO hay chi phí mỗi lượt nhấp Google Ads luôn biến thiên theo độ cạnh tranh ngành và lịch sử dữ liệu tài khoản. Để đo sát mức cạnh tranh, doanh nghiệp nên chọn công cụ phân tích đối thủ SEO phù hợp ngân sách.
 
 [Hình: Hệ thống đấu giá quảng cáo trả phí và thuật toán xếp hạng tự nhiên của Google vận hành hoàn toàn tách biệt]
 
@@ -16845,7 +17124,7 @@ Dùng ưu tiên kinh doanh và dữ liệu nền để chọn hành động, k�
 
 #### Bước 3: Chọn chủ đề, định dạng và kênh
 
-Rà tài sản hiện có trước khi giao sản xuất mới. Khung vòng đời nội dung của Nielsen Norman Group tính cả việc duy trì và gỡ bỏ; vì vậy, quyết định có thể là cập nhật hoặc dùng lại tài sản đang có thay vì viết bài mới.
+Rà tài sản hiện có trước khi giao sản xuất mới. Khung vòng đời nội dung của Nielsen Norman Group tính cả việc duy trì và gỡ bỏ; vì vậy, quyết định có thể là cập nhật hoặc dùng lại tài sản đang có thay vì viết bài mới. Nhóm phụ trách cũng có thể dùng công cụ phân tích đối thủ SEO để tách khoảng trống nội dung.
 
 Đầu ra: danh sách nội dung ưu tiên có lý do chọn, người phụ trách và cách phân phối; hoàn tất khi lịch phù hợp năng lực đội ngũ.
 
@@ -18542,7 +18821,7 @@ Google công bố công khai bộ câu hỏi để người tạo nội dung t�
 
 [Hình: Bốn câu hỏi này chính là bộ lọc cho một góc tiếp cận]
 
-Đọc bốn câu theo thứ tự sẽ thấy chúng chính là bộ lọc angle. Câu một hỏi bạn có gì riêng. Câu hai hỏi cái riêng đó có đủ để tồn tại bên cạnh những trang đã có. Câu ba hỏi động cơ thật của bài. Câu bốn hỏi kết quả cuối cùng với người đọc.
+Đọc bốn câu theo thứ tự sẽ thấy chúng chính là bộ lọc angle. Câu một hỏi bạn có gì riêng. Câu hai hỏi cái riêng đó có đủ để tồn tại bên cạnh những trang đã có. Câu ba hỏi động cơ thật của bài. Câu bốn hỏi kết quả cuối cùng với người đọc. Để kiểm tra các trang đang xếp hạng và tách khoảng trống nội dung, bạn có thể dùng công cụ phân tích đối thủ SEO.
 
 Một góc tiếp cận chỉ đổi nhãn tiêu đề sẽ trượt cả bốn câu, dù tiêu đề nghe hấp dẫn tới đâu. Lưu ý cách đọc: đây là hướng dẫn tự đánh giá, không phải danh sách yếu tố xếp hạng. Google không công bố trọng số cho từng câu hỏi, và trả lời tốt bốn câu này cũng không bảo đảm thứ hạng.
 
@@ -19563,7 +19842,7 @@ Một người đọc bài giới thiệu dịch vụ, mở trang bảng giá, q
 
 [Hình: Hành vi nhỏ chỉ có nghĩa khi được đọc theo mục tiêu chính của hành trình mua]
 
-Một lần cuộn trang chỉ cho biết người dùng đã lướt tới vị trí đó. Công cụ ghi nhận thao tác, không ghi nhận ý định. Người đó có thể đang tìm số điện thoại, đang lướt cho qua, hoặc đang so sánh với ba nhà cung cấp khác.
+Một lần cuộn trang chỉ cho biết người dùng đã lướt tới vị trí đó. Công cụ ghi nhận thao tác, không ghi nhận ý định. Người đó có thể đang tìm số điện thoại, đang lướt cho qua, hoặc đang so sánh với ba nhà cung cấp khác. Để biết khách hàng đang đối chiếu thông tin gì, bạn có thể dùng công cụ phân tích đối thủ SEO.
 
 Tôi chọn hành vi theo một nguyên tắc duy nhất: nó phải trả lời được một câu hỏi tôi đang cần trả lời. Khách có tìm thấy thông tin họ cần không? Họ vướng ở bước nào trước khi gửi yêu cầu? Nếu một chỉ số tăng mà không đổi được quyết định nào, chỉ số đó nên bị xóa khỏi báo cáo.
 
