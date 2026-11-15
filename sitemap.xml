@@ -30,13 +30,13 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -51,6 +51,39 @@
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/marketing/nghien-cuu-tu-khoa-la-gi/</loc>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/nghien-cuu-tu-khoa-la-gi/59ca0bba3a/nghien-cuu-tu-khoa-la-gi.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/nghien-cuu-tu-khoa-la-gi/59ca0bba3a/nghien-cuu-tu-khoa-la-gi/01-nghien-cuu-tu-khoa-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/nghien-cuu-tu-khoa-la-gi/59ca0bba3a/nghien-cuu-tu-khoa-la-gi/02-nghien-cuu-tu-khoa-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/nghien-cuu-tu-khoa-la-gi/59ca0bba3a/nghien-cuu-tu-khoa-la-gi/03-nghien-cuu-tu-khoa-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/nghien-cuu-tu-khoa-la-gi/59ca0bba3a/nghien-cuu-tu-khoa-la-gi/04-nghien-cuu-tu-khoa-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/nghien-cuu-tu-khoa-la-gi/59ca0bba3a/nghien-cuu-tu-khoa-la-gi/05-nghien-cuu-tu-khoa-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/nghien-cuu-tu-khoa-la-gi/59ca0bba3a/nghien-cuu-tu-khoa-la-gi/06-nghien-cuu-tu-khoa-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/nghien-cuu-tu-khoa-la-gi/59ca0bba3a/nghien-cuu-tu-khoa-la-gi/07-nghien-cuu-tu-khoa-la-gi.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/bao-cao-kham-pha-pheu-trong-ga4/</loc>
