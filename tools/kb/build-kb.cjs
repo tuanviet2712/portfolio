@@ -1480,15 +1480,22 @@ function hubPage(all) {
   const img = abs('assets/kb/goc-kien-thuc.jpg');
   const crumbItems = [{ name: 'Trang chủ', href: rel, url: `${ORIGIN}/` }, { name: SITE.hub.name, url }];
 
-  // Khi đã có nhiều bài (từ 5 bài): thêm một khối riêng cho từng chủ đề có bài, như SEODO
-  const blocks = all.length >= 5 ? SITE.pillars.filter(p => counts[p.slug]).map((p, i) => `
+  // Khi đã có nhiều bài (từ 5 bài): thêm một khối riêng cho từng chủ đề có bài, như SEODO.
+  // Khối chủ đề không lặp lại bài đã hiện ở "Bài viết mới nhất" (17/11/2026: 4 bài mới nhất đều thuộc Marketing nên
+  // khối "Kiến thức Marketing" trùng hệt khối mới nhất); chủ đề không còn bài nào khác thì không có khối
+  const latest = all.slice(0, 4);
+  const shown = new Set(latest);
+  const blocks = all.length >= 5 ? SITE.pillars
+    .map(p => ({ p, list: all.filter(a => a.pillar === p.slug && !shown.has(a)).slice(0, 4) }))
+    .filter(b => b.list.length)
+    .map(({ p, list }, i) => `
     <section class="section kb-sec${i % 2 ? '' : ' kb-sec--soft'}" aria-labelledby="kb-b-${p.slug}">
       <div class="container">
         <header class="kb-head">
           <h2 class="kb-head__t" id="kb-b-${p.slug}" data-fit data-split>${p.h1Html}</h2>
           <a class="btn btn--dark btn--sm magnetic" href="${rel}${pillarPath(p)}">Xem thêm ${ico('i-arrow', 'ico ico--arrow')}</a>
         </header>
-        ${postList(all.filter(a => a.pillar === p.slug).slice(0, 4), rel)}
+        ${postList(list, rel)}
       </div>
     </section>`).join('') : '';
 
@@ -1508,7 +1515,7 @@ function hubPage(all) {
         <header class="kb-head">
           <h2 class="kb-head__t" id="kb-latest-title" data-fit data-split>Bài viết <span class="grad">mới nhất</span></h2>
         </header>
-        ${all.length ? postList(all.slice(0, 4), rel) : '<p class="kb-none">Bài viết đầu tiên đang được biên soạn</p>'}
+        ${all.length ? postList(latest, rel) : '<p class="kb-none">Bài viết đầu tiên đang được biên soạn</p>'}
       </div>
     </section>
 ${blocks}
