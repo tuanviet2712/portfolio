@@ -412,7 +412,7 @@ function personLd(lang = 'vi') {
     telephone: '+84' + A.phoneRaw.replace(/^0/, ''),
     address: { '@type': 'PostalAddress', addressLocality: E.locality || A.locality, addressRegion: E.region || A.region, addressCountry: 'VN' },
     worksFor: orgLd(lang),
-    alumniOf: { '@type': 'CollegeOrUniversity', name: (E.alumniOf || A.alumniOf).name, alternateName: A.alumniOf.alternateName, url: A.alumniOf.url },
+    alumniOf: { '@type': 'CollegeOrUniversity', name: (E.alumniOf || A.alumniOf).name, alternateName: A.alumniOf.alternateName, url: A.alumniOf.url, sameAs: A.alumniOf.sameAs },
     knowsAbout: E.knowsAbout || A.knowsAbout,
     // Cả ba danh hiệu đều hiển thị trên trang chủ (thẻ minh chứng trong js/data.js)
     award: E.awards || A.awards.map(([name, by]) => `${name} (${by.replace(/^Do /, '')})`),
@@ -423,7 +423,8 @@ function personLd(lang = 'vi') {
 const orgLd = (lang = 'vi') => ({
   '@type': 'Organization', '@id': `${ORIGIN}/#taki-group`, name: A.worksFor.name, alternateName: A.worksFor.alternateName,
   legalName: lang === 'en' ? A.en.worksFor.legalName : A.worksFor.legalName, url: A.worksFor.site,
-  description: lang === 'en' ? A.en.worksFor.description : A.worksFor.description
+  description: lang === 'en' ? A.en.worksFor.description : A.worksFor.description,
+  sameAs: A.worksFor.sameAs
 });
 const websiteLd = () => ({
   '@type': 'WebSite', '@id': `${ORIGIN}/#website`, url: `${ORIGIN}/`, name: SITE.siteName,

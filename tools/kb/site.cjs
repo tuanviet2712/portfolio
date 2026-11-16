@@ -47,14 +47,17 @@ module.exports = {
     locality: 'Hà Đông',
     region: 'Hà Nội',
     // url: liên kết hiển thị trong hộp tác giả (giữ nguyên). site: website chính thức của công ty, chỉ dùng trong JSON-LD
-    worksFor: { name: 'TAKI Group', alternateName: 'TAKI', legalName: 'Công ty Cổ phần TAKI GROUP', url: 'https://taki.vn', site: 'https://takigroup.vn/', description: 'Công ty tư vấn và cố vấn doanh nghiệp tại Việt Nam' },
-    alumniOf: { name: 'Đại học Công Thương TP.HCM', alternateName: 'HUIT', url: 'https://huit.edu.vn/' },
+    worksFor: { name: 'TAKI Group', alternateName: 'TAKI', legalName: 'Công ty Cổ phần TAKI GROUP', url: 'https://taki.vn', site: 'https://takigroup.vn/', description: 'Công ty tư vấn và cố vấn doanh nghiệp tại Việt Nam',
+      sameAs: ['https://taki.vn/', 'https://www.facebook.com/takigroup.vn', 'https://www.facebook.com/takiacademy.daotaokinhdoanhtmdtai'] },
+    // sameAs: Wikidata Q10829026 (nhãn trên Wikidata vẫn là tên cũ HUFI, cùng một trường) + Wikipedia tiếng Việt
+    alumniOf: { name: 'Đại học Công Thương TP.HCM', alternateName: 'HUIT', url: 'https://huit.edu.vn/',
+      sameAs: ['https://www.wikidata.org/wiki/Q10829026', 'https://vi.wikipedia.org/wiki/Tr%C6%B0%E1%BB%9Dng_%C4%90%E1%BA%A1i_h%E1%BB%8Dc_C%C3%B4ng_Th%C6%B0%C6%A1ng_Th%C3%A0nh_ph%E1%BB%91_H%E1%BB%93_Ch%C3%AD_Minh'] },
     givenName: 'Việt',
     familyName: 'Lê',
     identifier: 'letuanviet',
     description: 'Marketing Leader với hơn 4 năm kinh nghiệm tư vấn chiến lược và triển khai Marketing cho doanh nghiệp SME.',
     knowsAbout: ['Marketing Strategy', 'Marketing Planning', 'Kế hoạch Marketing', 'AI Marketing', 'Quản trị Marketing', 'Growth Marketing', 'Performance Marketing', 'Digital Marketing', 'SEO', 'Content Marketing', 'Marketing Team Leadership'],
-    sameAs: ['https://www.linkedin.com/in/letuanviet', 'https://www.behance.net/letuanviet', 'https://www.topcv.vn/p/letuanviet', 'https://careerviet.vn/cb-vi/letuanviet', 'https://zalo.me/0935702321', 'https://github.com/tuanviet2712'],
+    sameAs: ['https://www.linkedin.com/in/letuanviet', 'https://www.behance.net/letuanviet', 'https://www.topcv.vn/p/letuanviet', 'https://careerviet.vn/cb-vi/letuanviet', 'https://github.com/tuanviet2712'],
     // JSON-LD bằng tiếng Anh cho các trang /en/ (cùng câu chữ với bản EN của trang chủ trong js/i18n.js)
     en: {
       description: 'Marketing Leader with more than four years of experience advising SMEs on strategy and marketing execution.',
