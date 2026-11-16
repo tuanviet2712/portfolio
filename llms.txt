@@ -32,6 +32,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [SEO Local là gì và cách tối ưu Google Maps](https://letuanviet.com/goc-kien-thuc/marketing/seo-local-la-gi/): Hiểu rõ SEO Local là gì giúp SME phân biệt kết quả bản đồ với tìm kiếm tự nhiên, chuẩn hóa Google Business Profile, đồng bộ NAP và đo lượng khách đến quầy.
 - [GA4 và GSC: Khác nhau ở đâu và cách kết nối](https://letuanviet.com/goc-kien-thuc/marketing/ga4-va-gsc/): Phân biệt vai trò trước và sau lượt nhấp của GA4 và GSC, giải mã lý do lệch số liệu giữa clicks với sessions và quy trình 4 bước kết nối cho doanh nghiệp.
 - [Google Ads là gì, cách chọn và đo cho SME](https://letuanviet.com/goc-kien-thuc/marketing/google-ads-la-gi/): Phân tích Google Ads là gì từ cơ chế Điểm chất lượng, Xếp hạng quảng cáo đến bảng chọn chiến dịch, quy trình 5 bước và khung đo CPL, CPA, ROAS cho SME.
 - [Công cụ phân tích đối thủ SEO và cách chọn](https://letuanviet.com/goc-kien-thuc/marketing/cong-cu-phan-tich-doi-thu-seo/): Phân nhóm các công cụ phân tích đối thủ SEO theo điểm nghẽn từ khóa, Content Gap và backlink, kèm bảng chọn theo ngân sách và quy trình 4 bước cho SME.
