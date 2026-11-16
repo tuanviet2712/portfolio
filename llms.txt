@@ -32,6 +32,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [Google Ads là gì, cách chọn và đo cho SME](https://letuanviet.com/goc-kien-thuc/marketing/google-ads-la-gi/): Phân tích Google Ads là gì từ cơ chế Điểm chất lượng, Xếp hạng quảng cáo đến bảng chọn chiến dịch, quy trình 5 bước và khung đo CPL, CPA, ROAS cho SME.
 - [Công cụ phân tích đối thủ SEO và cách chọn](https://letuanviet.com/goc-kien-thuc/marketing/cong-cu-phan-tich-doi-thu-seo/): Phân nhóm các công cụ phân tích đối thủ SEO theo điểm nghẽn từ khóa, Content Gap và backlink, kèm bảng chọn theo ngân sách và quy trình 4 bước cho SME.
 - [Content SEO là gì và quy trình viết cho SME](https://letuanviet.com/goc-kien-thuc/marketing/content-seo-la-gi/): Giải mã Content SEO là gì cho SME qua bảng phân biệt với Content Marketing, cách chọn định dạng theo SERP, quy trình 6 bước có kiểm duyệt và khung đo 3 tầng.
 - [Nghiên cứu từ khoá là gì, quy trình 7 bước](https://letuanviet.com/goc-kien-thuc/marketing/nghien-cuu-tu-khoa-la-gi/): Giải mã nghiên cứu từ khoá là gì giúp SME chuyển bài toán kinh doanh thành keyword map, lọc điều kiện bắt buộc qua 7 bước và đo 3 tầng trên Search Console.
