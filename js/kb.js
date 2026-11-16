@@ -3,6 +3,7 @@
    - Mục lục (hộp gập trong bài, bảng trượt): tô sáng mục đang đọc (vị trí tiêu đề đo một lần, đo lại khi bố cục đổi)
    - Thanh kết nối cố định ở đáy màn hình điện thoại + bảng mục lục trượt lên
    - Chia sẻ: sao chép liên kết (hoặc bảng chia sẻ của điện thoại)
+   - Điện thoại: chữ căn đều hai bên mà không giãn khe (mục 8, tự ngắt dòng cả đoạn)
    Nav, thanh tiến trình, nút về đầu trang, hiệu ứng chung: js/core.min.js + js/fx.js + js/kb-nav.js
    ========================================================================== */
 (function () {
@@ -131,46 +132,9 @@
     copy(url).then(() => toast('Đã sao chép liên kết bài viết'), () => toast(url));
   });
 
-  /* ---------- 5. Điện thoại: tiêu đề không để một chữ lẻ ở dòng cuối ----------
-     CSS đã bỏ "balance" cho tiêu đề (trước đây câu bị chẻ đôi dù dòng đầu còn chỗ). Nếu dòng cuối của một tiêu đề chỉ còn
-     một chữ ngắn thì nối hai chữ cuối bằng khoảng trắng không ngắt, chỉ nhận khi không làm tăng số dòng.
-     Cỡ chữ tiêu đề do CSS đặt đồng bộ cho mọi tiêu đề cùng cấp, không hạ riêng từng tiêu đề.
-     Chỉ chạy trên màn ≤760px; rộng hơn thì trả tiêu đề về nguyên trạng. */
-  (function fitHeadings() {
-    const mq = window.matchMedia('(max-width: 760px)');
-    const els = $$('.kb-art__h1, .kb-prose h2, .kb-prose h3').filter(h => !h.classList.contains('kb-faq__q'));
-    if (!els.length) return;
-    const rectsOf = el => { const r = document.createRange(); r.selectNodeContents(el); return Array.from(r.getClientRects()).filter(q => q.width > 1); };
-    const lineCount = el => new Set(rectsOf(el).map(q => Math.round(q.top))).size;
-    const lastLineWidth = el => {
-      const rs = rectsOf(el); const top = Math.max(...rs.map(q => Math.round(q.top)));
-      const line = rs.filter(q => Math.round(q.top) === top);
-      return Math.max(...line.map(q => q.right)) - Math.min(...line.map(q => q.left));
-    };
-    const lastTextNode = el => { const w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT); let n, last = null; while ((n = w.nextNode())) if (n.nodeValue.trim()) last = n; return last; };
-    const orig = new Map();
-    const restore = el => { const o = orig.get(el); if (o) { o.node.nodeValue = o.text; orig.delete(el); } };
-    const run = () => {
-      els.forEach(restore);
-      if (!mq.matches) return;
-      els.forEach(el => {
-        const n = lineCount(el); if (n < 2) return;
-        if (lastLineWidth(el) >= el.getBoundingClientRect().width * 0.25) return;
-        const node = lastTextNode(el); if (!node) return;
-        const text = node.nodeValue; const p = text.trimEnd().lastIndexOf(' ');
-        if (p < 1 || text.trim().split(/\s+/).length < 3) return;
-        orig.set(el, { node, text });
-        node.nodeValue = text.slice(0, p) + ' ' + text.slice(p + 1);
-        if (lineCount(el) > n) restore(el);
-      });
-    };
-    let t;
-    const later = () => { clearTimeout(t); t = setTimeout(run, 120); };
-    window.addEventListener('resize', later, { passive: true });
-    window.addEventListener('orientationchange', later);
-    if (mq.addEventListener) mq.addEventListener('change', run);
-    (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(run);
-  })();
+  /* ---------- 5. (đã bỏ 16/11/2026) ----------
+     Trước đây nối hai chữ cuối của tiêu đề bằng khoảng trắng không ngắt khi dòng cuối chỉ còn một chữ, làm dòng trên
+     xuống hàng khi chưa hết chỗ. Người dùng yêu cầu trên điện thoại mọi dòng phải dồn đầy rồi mới xuống: xem mục 8. */
 
   /* ---------- 6. Bài viết có liên quan: carousel trôi liên tục chậm rãi, kéo để lướt ---------- */
   (function initRelatedCarousel() {
@@ -359,5 +323,379 @@
       Promise.race([Promise.all(imgs), new Promise(done => setTimeout(done, 3000))])
         .then(() => requestAnimationFrame(() => ul.replaceChildren(...items)));
     }
+  })();
+
+  /* ---------- 8. Điện thoại: căn đều hai bên mà không giãn khe chữ ----------
+     Trình duyệt ngắt dòng tham lam (dồn chữ tới hết dòng rồi mới xuống), dòng nào gặp chữ dài hay cụm liên kết ở cuối
+     thì phần trống dồn hết vào khe giữa các chữ; ở cột chữ hẹp của điện thoại các khe đó mở rất rộng.
+     Ở đây chọn chỗ xuống dòng cho cả đoạn một lúc (quy hoạch động kiểu Knuth–Plass, như js/m-justify.js của trang chủ)
+     để phần trống chia đều cho các dòng, mỗi dòng được nhích khoảng cách chữ trong [-0,015em; +0,015em] trước khi giãn khe.
+     Vẫn căn đều hai bên, không tách chữ, không gạch nối; đoạn đang hiện trên màn hình không bị thêm dòng
+     (phần bên dưới không bị đẩy), đoạn khác chỉ thêm/bớt dòng khi khe chữ đỡ hẳn. Mỗi dòng là một <span class="kj-l">, nội dung gốc được giữ để dựng
+     lại khi đổi khổ màn hình. Ô số liệu (.kb-case__m): nhãn nào phải xuống 2 dòng cạnh con số thì cả khối chuyển sang
+     số ở trên, nhãn ở dưới (.kj-stack). Chữ không căn đều (tiêu đề, khối kêu gọi, ô bảng...) dồn đầy dòng rồi mới xuống:
+     CSS bỏ balance/pretty, ở đây bỏ nối chữ &nbsp; (xem unbind). Chỉ chạy trên màn ≤760px, không chạy với bot tìm kiếm;
+     thêm ?nokj vào địa chỉ để xem lại cách ngắt dòng của trình duyệt. Giao diện: css/kb-article.css (.kj, .kj-l, .kj-run, .kj-stack) */
+  (function justifyLines() {
+    const root = $('.kb-art__main');
+    if (!root || !window.matchMedia || /bot|crawl|spider|slurp/i.test(navigator.userAgent || '')) return;
+    if (/[?&]nokj\b/.test(location.search)) return;
+    const mq = matchMedia('(max-width: 760px)');
+    const SKIP = '.kb-cta, .kb-toc2, .kb-share, .kb-more, .kb-art__by, .kb-crumbs';
+    const STRICT = { trMin: -0.015, trMax: 0.015, eMax: 0.55, eMin: -0.05 };
+    const RELAX = { trMin: -0.015, trMax: 0.03, eMax: 4, eMin: -0.05 };
+    const K_STRETCH = 0.25, K_SHRINK = 0.05, TR_REF = 0.02, W_TR = 30, W_TR_NEG = 70;
+    const BIND_PEN = 600, LINK_PEN = 35, FEWER_PEN = 150, MORE_PEN = 400, SLICE_MS = 10;
+    const trCost = (tr, fs) => (tr < 0 ? W_TR_NEG : W_TR) * (tr / fs / TR_REF) * (tr / fs / TR_REF);
+    const isWs = c => c === ' ' || c === '\n' || c === '\t' || c === '\r' || c === '\f' || c === '\u00A0';
+    const done = new Set();
+    let ctx = null, ctxFont = '', fonts = new Map(), widths = new Map(), gen = 0;
+
+    // Thẻ có tiêu đề đậm xuống dòng rồi mới đến chữ (vd. <li><strong>Tiêu đề:</strong> nội dung</li> của .kb-list-cards):
+    // gom phần chữ vào một <span class="kj-run"> (một khối, đúng như hộp vô danh trình duyệt vẫn tạo) để ngắt dòng riêng
+    const HEAD_TAGS = /^(STRONG|B|EM|SMALL|SPAN)$/;
+    const isBlock = n => n.nodeType === 1 && getComputedStyle(n).display !== 'inline';
+    function wrapRuns(scope) {
+      $$('li, p, dd, td', scope).forEach(el => {
+        if (el.__kjRuns || el.closest(SKIP) || getComputedStyle(el).textAlign !== 'justify') return;
+        const kids = [...el.childNodes];
+        const blocks = kids.filter(isBlock);
+        if (!blocks.length || !blocks.every(b => HEAD_TAGS.test(b.tagName) && !b.classList.contains('kj-run'))) return;
+        el.__kjRuns = true;
+        let run = [];
+        const flush = () => {
+          if (run.some(n => n.textContent.trim())) {
+            const s = document.createElement('span');
+            s.className = 'kj-run';
+            run[0].before(s);
+            s.append(...run);
+          }
+          run = [];
+        };
+        kids.forEach(n => { if (isBlock(n)) flush(); else run.push(n); });
+        flush();
+      });
+    }
+
+    // Khối căn đều chỉ chứa chữ và thẻ nội dòng (a, strong, em...): mới tự ngắt dòng được
+    function targets(scope) {
+      return $$('p, li, dd, td, div, span, figcaption, blockquote', scope).filter(el => {
+        if (el.classList.contains('kj-l') || el.closest(SKIP)) return false;
+        const cs = getComputedStyle(el);
+        if (cs.textAlign !== 'justify' || cs.display.indexOf('inline') === 0 || cs.display === 'none' || cs.display === 'contents') return false;
+        let text = false;
+        for (const n of el.childNodes) {
+          if (n.nodeType === 3) { if (n.nodeValue.trim()) text = true; continue; }
+          if (n.nodeType !== 1) continue;
+          if (getComputedStyle(n).display !== 'inline' || n.querySelector('img, svg, br, input, button, iframe, video, picture')) return false;
+          for (const d of n.getElementsByTagName('*')) if (getComputedStyle(d).display !== 'inline') return false;
+          if (n.textContent.trim()) text = true;
+        }
+        return text;
+      });
+    }
+
+    function restore(el) {
+      if (el.__kjOrig) { el.replaceChildren(...el.__kjOrig); el.__kjOrig = null; }
+      el.classList.remove('kj');
+    }
+
+    // Phông của thẻ chứa chữ (đo bằng canvas, nhanh hơn đo từng chữ trên trang)
+    function fontOf(node) {
+      const p = node.parentElement;
+      let f = fonts.get(p);
+      if (f) return f;
+      const cs = getComputedStyle(p);
+      f = { font: `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`, ls: parseFloat(cs.letterSpacing) || 0 };
+      f.sw = textWidth(' ', f) + (parseFloat(cs.wordSpacing) || 0);
+      fonts.set(p, f);
+      return f;
+    }
+    function textWidth(t, f) {
+      let wc = widths.get(f.font);
+      if (!wc) widths.set(f.font, wc = new Map());
+      let w = wc.get(t);
+      if (w === undefined) {
+        ctx = ctx || document.createElement('canvas').getContext('2d');
+        if (ctxFont !== f.font) ctx.font = ctxFont = f.font;   // đặt phông cho canvas khá tốn: chỉ đặt khi đổi phông
+        wc.set(t, w = ctx.measureText(t).width);
+      }
+      return w + t.length * f.ls;
+    }
+
+    // Tách khối thành các chữ (giữa hai khoảng trắng); một chữ có thể vắt qua nhiều thẻ, vd. "<a>Unilever</a>,"
+    function tokenize(el) {
+      const T = [];
+      const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      let n, cur = null, sep = null;
+      while ((n = tw.nextNode())) {
+        const s = n.nodeValue;
+        for (let i = 0; i < s.length; i++) {
+          if (isWs(s[i])) {
+            if (cur) { T.push(cur); cur = null; }
+            if (!sep) sep = { node: n, endNode: n, endI: i + 1, nb: false };
+            else { sep.endNode = n; sep.endI = i + 1; }
+            if (s[i] === '\u00A0') sep.nb = true;
+          } else {
+            if (!cur) { cur = { pieces: [], sep: T.length ? sep : null }; sep = null; }
+            const last = cur.pieces[cur.pieces.length - 1];
+            if (last && last.n === n) last.e = i + 1; else cur.pieces.push({ n, s: i, e: i + 1 });
+          }
+        }
+      }
+      if (cur) T.push(cur);
+      return T;
+    }
+
+    function measure(el) {
+      if (!el.isConnected || !el.getClientRects().length) return null;
+      const cs = getComputedStyle(el);
+      const W = el.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      const H = el.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+      const lh = parseFloat(cs.lineHeight);
+      if (W < 60 || !(H > 0)) return null;               // khối đang ẩn (vd. câu trả lời FAQ đang gập): dựng khi mở ra
+      const T = tokenize(el);
+      if (T.length < 4) return null;
+      for (const t of T) {
+        let w = 0, ch = 0;
+        for (const p of t.pieces) { w += textWidth(p.n.nodeValue.slice(p.s, p.e), fontOf(p.n)); ch += p.e - p.s; }
+        if (w > W) return null;                          // chữ dài hơn cả dòng (đường dẫn...): để trình duyệt tự xử lý
+        t.w = w; t.ch = ch;
+        t.sw = t.sep ? fontOf(t.sep.node).sw : 0;
+        t.bind = !!(t.sep && t.sep.nb);
+        const a = t.sep && t.sep.node.parentElement.closest('a');
+        t.link = !!(a && el.contains(a) && a.contains(t.pieces[0].n));
+      }
+      const box = el.getBoundingClientRect();
+      return {
+        el, T, W, fs: parseFloat(cs.fontSize),
+        ls: parseFloat(cs.letterSpacing) || 0, ws: parseFloat(cs.wordSpacing) || 0,
+        target: lh > 0 ? Math.max(1, Math.round(H / lh)) : 0,
+        hard: box.bottom > 0 && box.top < innerHeight   // đang hiện trên màn hình: không thêm dòng (chữ bên dưới không bị đẩy xuống)
+      };
+    }
+
+    // Quy hoạch động: phạt khe giãn (bình phương), phạt nhích khoảng cách chữ, phạt dòng cuối quá ngắn hoặc chỉ 1–2 chữ,
+    // phạt xuống dòng ngay chỗ khoảng trắng không ngắt (&nbsp;) hay giữa một liên kết
+    function breakLines(A, W, fs, target, hard, lim) {
+      const m = A.length;
+      const PW = new Float64Array(m + 1), PS = new Float64Array(m + 1), PC = new Float64Array(m + 1);
+      for (let k = 0; k < m; k++) { PW[k + 1] = PW[k] + A[k].w; PS[k + 1] = PS[k] + A[k].sw; PC[k + 1] = PC[k] + A[k].ch; }
+      // GW[j]: bề rộng cụm bắt đầu ở chữ j (gồm các chữ dính sau nó bằng khoảng trắng không ngắt, vd. "4,3 tỷ")
+      const GW = new Float64Array(m + 1);
+      for (let k = m - 1; k >= 0; k--) GW[k] = A[k].w + (k + 1 < m && A[k + 1].bind ? A[k + 1].sw + GW[k + 1] : 0);
+      const trMin = lim.trMin * fs, trMax = lim.trMax * fs;
+      const tooWide = (i, j) => PW[j] - PW[i] + PS[j] - PS[i + 1] - W > -lim.eMin * fs * (j - i) - trMin * (PC[j] - PC[i] + j - i) + 1;
+      // các dòng có thể có: dòng kết thúc ở chữ j bắt đầu từ chữ lo[j] … j-1; chi phí lưu trong mảng phẳng
+      const lo = new Int32Array(m + 1), off = new Int32Array(m + 1);
+      let total = 0;
+      for (let j = 1; j <= m; j++) {
+        let i = j - 1;
+        while (i > 0 && !tooWide(i - 1, j)) i--;
+        lo[j] = i; off[j] = total; total += j - i;
+      }
+      const COST = new Float64Array(total), TR = new Float64Array(total), WS = new Float64Array(total);
+      for (let j = 1; j <= m; j++) {
+        const last = j === m;
+        for (let i = lo[j]; i < j; i++) {
+          const nat = PW[j] - PW[i] + PS[j] - PS[i + 1];
+          const C = PC[j] - PC[i] + (j - i - 1);
+          const G = j - i - 1;
+          const S = W - nat;
+          let cost = 0, tr = 0, ws = 0;
+          if (last) {
+            if (S < 0) {
+              tr = Math.max(S / C, trMin);
+              const rest = S - C * tr;
+              if (rest < 0) {
+                if (!G || rest / G / fs < lim.eMin) cost = Infinity;
+                else { ws = rest / G; cost = 100 * (ws / fs / K_SHRINK) * (ws / fs / K_SHRINK); }
+              }
+              cost += trCost(tr, fs);
+            } else if (i > 0) {
+              const fill = nat / W;
+              if (fill < 0.3) cost += (0.3 - fill) * 900;
+              if (G === 0) cost += 350;                  // dòng cuối chỉ 1 chữ
+              else if (G === 1) cost += 120;             // dòng cuối chỉ 2 chữ
+            }
+          } else {
+            const K = S >= 0 ? K_STRETCH : K_SHRINK;
+            if (!G) {
+              tr = S / C;
+              cost = (tr < trMin || tr > trMax) ? Infinity : 250 + trCost(tr, fs);
+            } else {
+              const a = 100 / ((G * fs * K) * (G * fs * K)), b = (S >= 0 ? W_TR : W_TR_NEG) / ((TR_REF * fs) * (TR_REF * fs));
+              tr = Math.min(trMax, Math.max(trMin, a * C * S / (a * C * C + b)));
+              const e = (S - C * tr) / G / fs;
+              if (e > lim.eMax || e < lim.eMin) cost = Infinity;
+              else {
+                cost = 100 * (e / K) * (e / K) + trCost(tr, fs);
+                if (e < 0) ws = e * fs;
+              }
+            }
+            if (A[j].bind) cost += BIND_PEN;
+            if (A[j].link) cost += LINK_PEN;
+            // dòng phải đầy: cụm chữ kế tiếp còn vừa với khoảng trắng bình thường thì không được đẩy nó xuống dòng dưới
+            // (yêu cầu 16/11/2026: không xuống hàng khi chưa hết hàng)
+            if (S - A[j].sw - GW[j] > 0.5) cost = Infinity;
+          }
+          const x = off[j] + i - lo[j];
+          COST[x] = cost; TR[x] = tr; WS[x] = ws;
+        }
+      }
+      const maxN = Math.min(m, target ? target + 1 : Math.ceil((PW[m] + PS[m]) / W) + 2);
+      let prev = new Float64Array(m + 1).fill(Infinity);
+      prev[0] = 0;
+      const from = [null];
+      let best = null;
+      for (let k = 1; k <= maxN; k++) {
+        const cur = new Float64Array(m + 1).fill(Infinity), fr = new Int32Array(m + 1).fill(-1);
+        for (let j = k; j <= m; j++) {
+          const base = off[j] - lo[j];
+          for (let i = Math.max(lo[j], k - 1); i < j; i++) {
+            if (prev[i] === Infinity) continue;
+            const c = prev[i] + COST[base + i];
+            if (c < cur[j]) { cur[j] = c; fr[j] = i; }
+          }
+        }
+        from.push(fr);
+        if (cur[m] < Infinity && (!hard || k <= target)) {
+          // bớt 1 dòng thì nhẹ, thêm 1 dòng thì nặng (đẩy phần bên dưới xuống)
+          const score = cur[m] + (!target ? 0 : k < target ? FEWER_PEN * (target - k) : MORE_PEN * (k - target));
+          if (!best || score < best.score) best = { n: k, score };
+        }
+        prev = cur;
+      }
+      if (!best) return null;
+      const out = [];
+      for (let k = best.n, j = m; k > 0; k--) {
+        const i = from[k][j], x = off[j] + i - lo[j];
+        out.unshift([i, j, TR[x], WS[x]]);
+        j = i;
+      }
+      return out;
+    }
+
+    // Dựng các dòng từ chính nội dung gốc: mỗi dòng là bản sao một khoảng chữ (thẻ bị cắt ngang được sao ở cả hai dòng)
+    function commit(job) {
+      const { el, T, W, fs, ls, ws, target, hard } = job;
+      const Wl = W - 0.75;
+      const res = breakLines(T, Wl, fs, target, hard, STRICT) || breakLines(T, Wl, fs, target, hard, RELAX)
+        || (hard ? breakLines(T, Wl, fs, target, false, RELAX) : null);
+      if (!res) return null;
+      const m = T.length, ids = new Set(), r = document.createRange();
+      const spans = res.map(([i, j, tr, wsx]) => {
+        if (i === 0) r.setStart(el, 0); else r.setStart(T[i].pieces[0].n, T[i].pieces[0].s);
+        if (j === m) r.setEnd(el, el.childNodes.length); else r.setEnd(T[j].sep.endNode, T[j].sep.endI);
+        const frag = r.cloneContents();
+        if (frag.querySelector('*')) {
+          // thẻ bị cắt ở mép dòng mà không còn chữ (vd. <a></a>) thì bỏ; id chỉ giữ ở lần xuất hiện đầu
+          $$('*', frag).reverse().forEach(e => { if (!e.textContent.trim()) e.remove(); });
+          $$('[id]', frag).forEach(e => { if (ids.has(e.id)) e.removeAttribute('id'); else ids.add(e.id); });
+        }
+        const s = document.createElement('span');
+        s.className = 'kj-l' + (j === m ? ' kj-end' : '');
+        s.appendChild(frag);
+        if (tr) s.style.letterSpacing = (ls + tr).toFixed(3) + 'px';
+        if (wsx) s.style.wordSpacing = (ws + wsx - 0.2).toFixed(3) + 'px';
+        let c = j - i - 1;
+        for (let k = i; k < j; k++) c += T[k].ch;
+        s.__c = c;
+        return s;
+      });
+      el.__kjOrig = [...el.childNodes];
+      el.replaceChildren(...spans);
+      el.classList.add('kj');
+      done.add(el);
+      return spans;
+    }
+
+    // Dòng nào lố khung (sai số đo) thì siết khoảng cách chữ của riêng dòng đó
+    function verify(spans) {
+      const fixes = [];
+      spans.forEach(s => { const over = s.scrollWidth - s.clientWidth; if (over > 0.5) fixes.push([s, over]); });
+      fixes.forEach(([s, over]) => {
+        const cur = parseFloat(getComputedStyle(s).letterSpacing) || 0;
+        s.style.letterSpacing = (cur - (over + 0.4) / Math.max(1, s.__c)).toFixed(3) + 'px';
+      });
+    }
+
+    // Ô số liệu: nhãn nào phải xuống 2 dòng cạnh con số thì cả khối xếp số trên, nhãn dưới
+    function stackMetrics(scope) {
+      $$('.kb-case__m', scope).forEach(dl => {
+        dl.classList.remove('kj-stack');
+        if (!mq.matches) return;
+        if ($$('dd', dl).some(dd => dd.getBoundingClientRect().height > (parseFloat(getComputedStyle(dd).lineHeight) || 20) * 1.5)) dl.classList.add('kj-stack');
+      });
+    }
+
+    // Bài viết dùng khoảng trắng không ngắt (&nbsp;) nối 2–3 chữ cuối câu để bản máy tính không có dòng cuối một chữ.
+    // Trên điện thoại nó kéo cả cụm xuống dòng khi dòng trên còn chỗ (tiêu đề khối, ô bảng, chú thích...), nên ở đây coi
+    // như khoảng trắng thường, trừ chỗ nối số với đơn vị (vd. "4,3 tỷ", "30 ngày"); màn hình rộng ra thì trả lại bản gốc
+    const unbound = new Set();
+    function unbind(scope) {
+      const tw = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT);
+      let n;
+      while ((n = tw.nextNode())) {
+        const v = n.nodeValue;
+        if (v.indexOf('\u00A0') < 0) continue;
+        const next = v.replace(/(^|[^\d])\u00A0/g, '$1 ');
+        if (next === v) continue;
+        if (n.__kjNb === undefined) n.__kjNb = v;
+        n.nodeValue = next;
+        unbound.add(n);
+      }
+    }
+    function rebind() {
+      unbound.forEach(n => { if (n.__kjNb !== undefined) { n.nodeValue = n.__kjNb; n.__kjNb = undefined; } });
+      unbound.clear();
+    }
+
+    function run(scope) {
+      scope = scope || root;
+      const g = scope === root ? ++gen : gen;          // dựng lại cả bài thì bỏ các lượt cũ còn dở
+      [...done].forEach(el => { if (scope.contains(el)) { restore(el); done.delete(el); } });
+      fonts = new Map();
+      if (mq.matches) unbind(scope); else rebind();
+      stackMetrics(scope);
+      if (!mq.matches) return;
+      wrapRuns(scope);
+      // đoạn đang hiện trên màn hình làm ngay; phần còn lại làm từng chút lúc trình duyệt rảnh (mỗi lượt ~10ms)
+      // để không làm khựng trang trên điện thoại yếu
+      const list = targets(scope);
+      const vis = [], rest = [];
+      list.forEach(el => { const b = el.getBoundingClientRect(); (b.bottom > 0 && b.top < innerHeight ? vis : rest).push(el); });
+      const step = batch => {
+        const jobs = batch.map(measure).filter(Boolean);              // đọc
+        const spans = [].concat(...jobs.map(commit).filter(Boolean)); // ghi
+        verify(spans);                                                 // đọc rồi ghi
+      };
+      step(vis);
+      const next = () => {
+        if (g !== gen || !mq.matches) return;
+        const end = performance.now() + SLICE_MS;
+        while (rest.length && performance.now() < end) step(rest.splice(0, 1));
+        if (rest.length) later(next);
+      };
+      if (rest.length) later(next);
+    }
+    const later = window.requestIdleCallback ? f => requestIdleCallback(f, { timeout: 400 }) : f => setTimeout(f, 16);
+
+    let lastW = innerWidth, t;
+    window.addEventListener('resize', () => {
+      if (Math.abs(innerWidth - lastW) < 1) return;   // thanh địa chỉ điện thoại ẩn/hiện chỉ đổi chiều cao
+      lastW = innerWidth;
+      clearTimeout(t); t = setTimeout(() => run(), 150);
+    }, { passive: true });
+    if (mq.addEventListener) mq.addEventListener('change', () => run());
+    // câu trả lời FAQ đang gập có thể chưa đo được: dựng lại phần đó khi mở ra
+    $$('details', root).forEach(d => d.addEventListener('toggle', () => {
+      if (d.open && mq.matches && $$('p, li', d).some(el => !el.classList.contains('kj') && el.textContent.trim())) run(d);
+    }));
+    const ff = document.fonts;
+    (ff && ff.ready ? ff.ready : Promise.resolve()).then(() => {
+      run();
+      if (ff && ff.addEventListener) ff.addEventListener('loadingdone', () => { widths = new Map(); run(); });
+    });
   })();
 })();

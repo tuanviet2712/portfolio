@@ -501,10 +501,15 @@ html[lang="en"] .kb-authorbox__bio {
      đo trên 10 bài ở khổ 360, 390 và 412px, số dòng tiêu đề giảm khoảng 6% và số tiêu đề phải xuống dòng giảm khoảng 12% */
   .kb-prose h2 { font-size: calc(1.28rem - 1.33px); }
   .kb-prose h3 { font-size: calc(1.02rem - 1.33px); }
-  /* Tiêu đề trên điện thoại: dồn đầy dòng rồi mới xuống dòng. Không dùng "balance" (chẻ đôi câu dù dòng đầu còn chỗ)
-     và không dùng "pretty" (Chrome đẩy thêm chữ xuống để dòng cuối dài hơn, dòng đầu lại hụt, đo được trên màn 432px).
-     Dòng cuối chỉ còn một chữ lẻ thì js/kb.js (mục 5) nối hai chữ cuối */
-  .kb-art__h1[data-fit], .kb-prose h2, .kb-prose h3 { text-wrap: wrap; }
+  /* Điện thoại: MỌI dòng chữ của bài (H1, H2, H3, tiêu đề khối, khối kêu gọi, ô bảng, chú thích, đoạn văn...) dồn đầy
+     rồi mới xuống dòng (yêu cầu 16/11/2026, áp dụng mọi bài cũ và mới). Không dùng "balance" (chẻ đôi câu dù dòng đầu còn chỗ)
+     và không dùng "pretty" (đẩy chữ xuống cho dòng cuối dài hơn, dòng trên lại hụt). Dòng cuối chỉ còn một chữ vẫn để nguyên,
+     không nối chữ. Khoảng trắng không ngắt (&nbsp;) trong bài do js/kb.js mục 8 đổi thành khoảng trắng thường.
+     Dòng đầu áp cho mọi trình duyệt có text-wrap-style; các dòng sau cho trình duyệt cũ (vd. Samsung Internet) chỉ hiểu text-wrap */
+  .kb-art, .kb-art * { text-wrap-style: auto !important; }
+  .kb-art__h1, .kb-art__h1[data-fit], .kb-prose h2, .kb-prose h3, .kb-art__sapo, .kb-sum li, .kb-prose p, .kb-prose li,
+  .kb-prose .kb-cta__t, .kb-cta__t, .kb-prose .kb-cta--nut .kb-cta__t, .kb-case__m dd, .kb-table td, .kb-authorbox__bio,
+  .kb-prose .kb-list-cards > li, .kb-prose .kb-steps li, .kb-post__x { text-wrap: wrap; }
   .kb-prose .kb-def { padding: 16px 18px; font-size: 14.5px; }
   .kb-prose .kb-out { padding: 12px 14px 12px 44px; }
   .kb-out::before { left: 14px; top: 14px; }
@@ -518,6 +523,13 @@ html[lang="en"] .kb-authorbox__bio {
   .kb-case__m > div { display: flex; align-items: baseline; gap: 12px; padding: 12px 14px; }
   .kb-case__m dt { flex: none; min-width: 88px; font-size: 1.25rem; }
   .kb-case__m dd { margin: 0; }
+  /* Nhãn cạnh con số phải xuống 2 dòng (cột chữ còn ~110–170px, căn đều giãn chữ rất xa): js/kb.js mục 8 chuyển cả khối sang số ở trên, nhãn ở dưới */
+  .kb-case__m.kj-stack > div { display: block; }
+  .kb-case__m.kj-stack dd { margin-top: 4px; }
+  /* Căn đều hai bên không giãn khe chữ: js/kb.js mục 8 tự chọn chỗ xuống dòng, mỗi dòng một khối riêng căn đều hết bề ngang, dòng cuối căn trái */
+  .kj > .kj-l { display: block; white-space: nowrap; text-align: justify; text-align-last: justify; }
+  .kj > .kj-l.kj-end { text-align-last: auto; }
+  .kj-run { display: block; }
   .kb-prose .kb-callout { padding: 66px 18px 18px; }
   .kb-callout::before { left: 18px; top: 18px; }
   /* khối kêu gọi: ảnh + chữ một hàng, nút xuống dưới, rộng hết khối */
