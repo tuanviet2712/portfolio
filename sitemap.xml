@@ -30,13 +30,13 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -51,6 +51,39 @@
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/marketing/mau-bai-viet-blog-website/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/mau-bai-viet-blog-website/f17f00a3a4/mau-bai-viet-blog-website.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/mau-bai-viet-blog-website/f17f00a3a4/mau-bai-viet-blog-website/01-mau-bai-viet-blog-website.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/mau-bai-viet-blog-website/f17f00a3a4/mau-bai-viet-blog-website/02-mau-bai-viet-blog-website.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/mau-bai-viet-blog-website/f17f00a3a4/mau-bai-viet-blog-website/03-mau-bai-viet-blog-website.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/mau-bai-viet-blog-website/f17f00a3a4/mau-bai-viet-blog-website/04-mau-bai-viet-blog-website.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/mau-bai-viet-blog-website/f17f00a3a4/mau-bai-viet-blog-website/05-mau-bai-viet-blog-website.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/mau-bai-viet-blog-website/f17f00a3a4/mau-bai-viet-blog-website/06-mau-bai-viet-blog-website.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/mau-bai-viet-blog-website/f17f00a3a4/mau-bai-viet-blog-website/07-mau-bai-viet-blog-website.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/seo-local-la-gi/</loc>
