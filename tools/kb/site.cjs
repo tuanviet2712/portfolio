@@ -34,7 +34,7 @@ module.exports = {
     slogan: 'Biến chiến lược thành hệ thống. Biến hệ thống thành tăng trưởng.',
     role: 'Marketing Leader tại TAKI Group',
     url: 'https://letuanviet.com/',
-    image: 'assets/img/portrait.jpg',            // cùng ảnh với schema Person ở trang chủ (nhất quán thực thể)
+    image: 'assets/img/le-tuan-viet.jpg',        // 1200×1200, cùng ảnh với schema Person ở trang chủ và ảnh hồ sơ LinkedIn/GitHub (nhất quán thực thể)
     photo: 'assets/kb/le-tuan-viet-photo.webp',  // ảnh chân dung hiển thị trên Góc kiến thức (portfolio dùng ảnh riêng)
     avatar: 'assets/kb/le-tuan-viet',            // .webp 320×320 (tools/kb/render-assets.cjs)
     email: 'work@letuanviet.com',
@@ -65,6 +65,7 @@ module.exports = {
       region: 'Hanoi',
       worksFor: { legalName: 'TAKI Group Joint Stock Company', description: 'A business consulting and advisory firm in Vietnam' },
       alumniOf: { name: 'Ho Chi Minh City University of Industry and Trade' },
+      credentialName: 'Bachelor’s Degree',
       knowsAbout: ['Marketing Strategy', 'Marketing Planning', 'Marketing Plans', 'AI Marketing', 'Marketing Management', 'Growth Marketing', 'Performance Marketing', 'Digital Marketing', 'SEO', 'Content Marketing', 'Marketing Team Leadership'],
       awards: [
         'Outstanding Employee of the Year 2025 (voted by the leadership of TAKI Group)',

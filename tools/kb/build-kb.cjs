@@ -403,7 +403,7 @@ function personLd(lang = 'vi') {
     identifier: A.identifier,
     url: A.url,
     mainEntityOfPage: `${ORIGIN}/`,
-    image: { '@type': 'ImageObject', url: abs(A.image), width: 680, height: 941 },
+    image: { '@type': 'ImageObject', url: abs(A.image), width: 1200, height: 1200 },
     jobTitle: A.jobTitle,
     hasOccupation: { '@type': 'Occupation', name: A.jobTitle, occupationLocation: { '@type': 'City', name: E.region || A.region } },
     disambiguatingDescription: A.positioning,
@@ -413,6 +413,13 @@ function personLd(lang = 'vi') {
     address: { '@type': 'PostalAddress', addressLocality: E.locality || A.locality, addressRegion: E.region || A.region, addressCountry: 'VN' },
     worksFor: orgLd(lang),
     alumniOf: { '@type': 'CollegeOrUniversity', name: (E.alumniOf || A.alumniOf).name, alternateName: A.alumniOf.alternateName, url: A.alumniOf.url, sameAs: A.alumniOf.sameAs },
+    // Bằng cấp lấy từ A.education (cùng dữ kiện với CV); bản EN chỉ ghi bậc học để không tự dịch tên ngành
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential', credentialCategory: 'degree',
+      name: E.credentialName || `Cử nhân ${A.education.major}`,
+      recognizedBy: { '@type': 'CollegeOrUniversity', name: (E.alumniOf || A.alumniOf).name, url: A.alumniOf.url }
+    },
+    knowsLanguage: ['vi', 'en'],
     knowsAbout: E.knowsAbout || A.knowsAbout,
     // Cả ba danh hiệu đều hiển thị trên trang chủ (thẻ minh chứng trong js/data.js)
     award: E.awards || A.awards.map(([name, by]) => `${name} (${by.replace(/^Do /, '')})`),
@@ -946,7 +953,9 @@ function llmsTxt(all) {
     `- Danh hiệu: ${A.awards.map(([name, by]) => `${name} (${by.replace(/^Do /, '')})`).join('; ')}.`,
     `- Học vấn: ${A.education.school}, ngành ${A.education.major}, ${A.education.time}, ${A.education.note}.`,
     `- Chuyên môn: ${A.knowsAbout.join(', ')}.`,
-    `- Liên hệ: ${A.email}, điện thoại ${A.phone}, Zalo ${A.zalo}, LinkedIn ${A.social.linkedin}. CV: ${abs(A.cv)}`
+    `- Liên hệ: ${A.email}, điện thoại ${A.phone}, Zalo ${A.zalo}, LinkedIn ${A.social.linkedin}. CV: ${abs(A.cv)}`,
+    // Các hồ sơ này cùng một người với website; lấy từ sameAs để luôn khớp schema
+    `- Hồ sơ chính thức của ${A.name} trên các nền tảng khác: LinkedIn ${A.social.linkedin}; GitHub ${A.sameAs.find(u => u.includes('github.com'))}; Behance ${A.sameAs.find(u => u.includes('behance.net'))}. Cùng một người với website ${abs('')}.`
   ];
   for (const { p, list } of byPillar) {
     lines.push('', `## ${p.name}`, '');
