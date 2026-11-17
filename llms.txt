@@ -33,6 +33,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [Cách đọc báo cáo Google Analytics chuẩn GA4](https://letuanviet.com/goc-kien-thuc/marketing/cach-doc-bao-cao-google-analytics/): Hướng dẫn cách đọc báo cáo Google Analytics trên GA4 qua 5 bước kiểm dữ liệu, phân biệt chỉ số cốt lõi và bảng chẩn đoán điểm rơi khách cho website SME.
 - [Google Marketing Platform là gì và cách chọn](https://letuanviet.com/goc-kien-thuc/marketing/google-marketing-platform-la-gi/): Hiểu rõ Google Marketing Platform là gì qua bản đồ công cụ hiện hành, bảng phân biệt với Google Ads và ranh giới chọn bản miễn phí hay gói 360 cho SME.
 - [Mẫu bài viết blog website và cách chọn khung](https://letuanviet.com/goc-kien-thuc/marketing/mau-bai-viet-blog-website/): Cách chọn mẫu bài viết blog website khớp tín hiệu 3Cs trên SERP, kèm 6 khung dàn ý điền được ngay và bảng kiểm 7 điểm giúp doanh nghiệp nghiệm thu nhanh.
 - [SEO Local là gì và cách tối ưu Google Maps](https://letuanviet.com/goc-kien-thuc/marketing/seo-local-la-gi/): Hiểu rõ SEO Local là gì giúp SME phân biệt kết quả bản đồ với tìm kiếm tự nhiên, chuẩn hóa Google Business Profile, đồng bộ NAP và đo lượng khách đến quầy.
