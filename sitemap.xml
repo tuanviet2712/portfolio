@@ -30,7 +30,7 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -51,6 +51,45 @@
     <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/google-ai-studio-tich-hop-cloud-credits/</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/google-ai-studio-tich-hop-cloud-credits/af6e24c8fb/google-ai-studio-tich-hop-cloud-credits.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/google-ai-studio-tich-hop-cloud-credits/af6e24c8fb/google-ai-studio-tich-hop-cloud-credits/01-google-ai-studio-tich-hop-cloud-credits.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/google-ai-studio-tich-hop-cloud-credits/af6e24c8fb/google-ai-studio-tich-hop-cloud-credits/02-google-ai-studio-tich-hop-cloud-credits.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/google-ai-studio-tich-hop-cloud-credits/af6e24c8fb/google-ai-studio-tich-hop-cloud-credits/03-google-ai-studio-tich-hop-cloud-credits.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/google-ai-studio-tich-hop-cloud-credits/af6e24c8fb/google-ai-studio-tich-hop-cloud-credits/04-google-ai-studio-tich-hop-cloud-credits.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/google-ai-studio-tich-hop-cloud-credits/af6e24c8fb/google-ai-studio-tich-hop-cloud-credits/05-google-ai-studio-tich-hop-cloud-credits.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/google-ai-studio-tich-hop-cloud-credits/af6e24c8fb/google-ai-studio-tich-hop-cloud-credits/06-google-ai-studio-tich-hop-cloud-credits.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/google-ai-studio-tich-hop-cloud-credits/af6e24c8fb/google-ai-studio-tich-hop-cloud-credits/07-google-ai-studio-tich-hop-cloud-credits.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/cach-doc-bao-cao-google-analytics/</loc>

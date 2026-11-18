@@ -120,6 +120,10 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 - [Chiến lược marketing của Cocoon và bài học SME](https://letuanviet.com/goc-kien-thuc/du-an-va-bai-hoc/chien-luoc-marketing-cua-cocoon/): Chiến lược marketing của Cocoon định vị mỹ phẩm thuần chay và phối hợp 4P ra sao? Xem bảng đối chiếu bằng chứng, giới hạn dữ liệu và điều kiện áp dụng cho SME.
 - [Các chiến lược marketing của Apple, SME học được gì?](https://letuanviet.com/goc-kien-thuc/du-an-va-bai-hoc/chien-luoc-marketing-cua-apple/): Các chiến lược marketing của Apple phối hợp định vị, sản phẩm và truyền thông ra sao? Bảng chọn nguyên lý, điều kiện áp dụng và cách đo để SME thử đúng chỗ.
 
+## Tin tức và Góc nhìn
+
+- [Google AI Studio tích hợp Cloud Credits](https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/google-ai-studio-tich-hop-cloud-credits/): Từ 13/11/2026, Google AI Studio tích hợp Cloud Credits cho gói Pro và Ultra. Phân tích quy tắc cộng dồn 12 tháng và điều kiện bật Gemini API trả phí cho SME.
+
 ## Lưu ý khi trích dẫn
 
 - Ví dụ về cửa hàng, doanh nghiệp và nhân vật trong bài được ghi rõ là giả định biên tập, không phải kết quả khách hàng thật.
