@@ -30,13 +30,13 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,39 @@
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/marketing/ngan-sach-du-an-seo/</loc>
+    <lastmod>2026-11-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ngan-sach-du-an-seo/8d0415d545/ngan-sach-du-an-seo.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ngan-sach-du-an-seo/8d0415d545/ngan-sach-du-an-seo/01-ngan-sach-du-an-seo.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ngan-sach-du-an-seo/8d0415d545/ngan-sach-du-an-seo/02-ngan-sach-du-an-seo.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ngan-sach-du-an-seo/8d0415d545/ngan-sach-du-an-seo/03-ngan-sach-du-an-seo.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ngan-sach-du-an-seo/8d0415d545/ngan-sach-du-an-seo/04-ngan-sach-du-an-seo.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ngan-sach-du-an-seo/8d0415d545/ngan-sach-du-an-seo/05-ngan-sach-du-an-seo.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ngan-sach-du-an-seo/8d0415d545/ngan-sach-du-an-seo/06-ngan-sach-du-an-seo.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ngan-sach-du-an-seo/8d0415d545/ngan-sach-du-an-seo/07-ngan-sach-du-an-seo.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/trai-nghiem-nguoi-dung-la-gi/</loc>

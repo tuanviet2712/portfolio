@@ -33,6 +33,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [Ngân sách dự án SEO: Cách lập cho SME](https://letuanviet.com/goc-kien-thuc/marketing/ngan-sach-du-an-seo/): Cách lập ngân sách dự án SEO theo phạm vi bàn giao, giờ công chuyên môn và mục tiêu CPL, CPA giúp SME thẩm định báo giá agency và kiểm soát rủi ro hợp đồng.
 - [Trải nghiệm người dùng là gì, cách tối ưu UX](https://letuanviet.com/goc-kien-thuc/marketing/trai-nghiem-nguoi-dung-la-gi/): Giải mã trải nghiệm người dùng là gì giúp doanh nghiệp phân biệt UX với UI và CX, rà soát năm trụ cột khả năng sử dụng và đo tỷ lệ hoàn thành tác vụ trên GA4.
 - [SEO thời AI Overview: Cách tối ưu trích dẫn](https://letuanviet.com/goc-kien-thuc/marketing/seo-thoi-ai-overview/): Hiểu rõ SEO thời AI Overview giúp SME triển khai GEO trên nền kỹ thuật, viết đoạn trả lời tự đủ ngữ cảnh và đo hiển thị thương hiệu gắn với chuyển đổi.
 - [Cách đọc báo cáo Google Analytics chuẩn GA4](https://letuanviet.com/goc-kien-thuc/marketing/cach-doc-bao-cao-google-analytics/): Hướng dẫn cách đọc báo cáo Google Analytics trên GA4 qua 5 bước kiểm dữ liệu, phân biệt chỉ số cốt lõi và bảng chẩn đoán điểm rơi khách cho website SME.
