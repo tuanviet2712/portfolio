@@ -33,6 +33,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [Customer insight là gì, cách tìm cho SME](https://letuanviet.com/goc-kien-thuc/marketing/customer-insight-la-gi/): Giải mã customer insight là gì, cách phân biệt với nghiên cứu thị trường qua bốn cấp độ thông tin, quy trình bốn bước kiểm chứng và khung đo lường ba tầng.
 - [Sai lầm khi làm SEO và cách khắc phục](https://letuanviet.com/goc-kien-thuc/marketing/sai-lam-khi-lam-seo/): Nhận diện các sai lầm khi làm SEO khiến website mất chỉ mục hoặc có truy cập nhưng thiếu khách tiềm năng, kèm 4 bước rà soát trên Search Console và GA4.
 - [Ngân sách dự án SEO: Cách lập cho SME](https://letuanviet.com/goc-kien-thuc/marketing/ngan-sach-du-an-seo/): Cách lập ngân sách dự án SEO theo phạm vi bàn giao, giờ công chuyên môn và mục tiêu CPL, CPA giúp SME thẩm định báo giá agency và kiểm soát rủi ro hợp đồng.
 - [Trải nghiệm người dùng là gì, cách tối ưu UX](https://letuanviet.com/goc-kien-thuc/marketing/trai-nghiem-nguoi-dung-la-gi/): Giải mã trải nghiệm người dùng là gì giúp doanh nghiệp phân biệt UX với UI và CX, rà soát năm trụ cột khả năng sử dụng và đo tỷ lệ hoàn thành tác vụ trên GA4.
