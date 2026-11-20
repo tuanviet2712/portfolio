@@ -1617,6 +1617,11 @@ html.st .footer.footer--portal .footer__runway {
   display: block;
   overflow: visible;
 }
+/* Hai biến dưới đây chỉ được đọc trên CHÍNH phần tử mang nó (js/scenes/dom.js gán thẳng lên .hero__sticky, .totop,
+   .lang-float): khai báo không thừa kế để mỗi lần đổi (mỗi khung khi cuộn qua footer) trình duyệt chỉ tính lại style của
+   đúng phần tử đó, không phải cả cây con (~610 phần tử của hero, 17–33 ms mỗi lần). initial-value = giá trị dự phòng cũ. */
+@property --fp-hero-scale { syntax: "<number>"; inherits: false; initial-value: 1; }
+@property --fp-hide-ui { syntax: "<number>"; inherits: false; initial-value: 0; }
 /* Khi cổng mở sang Hero section (nửa sau quãng cuộn): đưa #trang-chu và #nav lên ngay dưới lớp cổng (.fportal z=115) */
 html.is-fportal-hero #trang-chu .hero__sticky {
   position: fixed !important;

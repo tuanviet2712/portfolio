@@ -126,7 +126,33 @@
      khoảng cách ký tự rất nhẹ (−0.012…+0.006em), giữ cách ngắt dòng có khoảng cách từ đều và nhỏ nhất,
      không để dòng cuối chỉ còn 1 từ, không để từ ngắn tiếng Anh đứng cuối dòng */
   const HERO_LS = [0, -0.006, 0.006, -0.012];
+  /* Nhớ kết quả fitHeroText: cùng đoạn chữ + cùng bề rộng + cùng phông/cỡ + cùng ngôn ngữ thì phép thử 44 phương án
+     cho ra đúng một kết quả, nên dùng lại thay vì dàn bố cục 44 lần (~50 ms mỗi đoạn, từng gây khựng giữa lúc cuộn
+     khi một chương hero hiện ra và ~0,5 s lúc tải). Lưu cả vào localStorage cho lần ghé sau.
+     Chỉ dùng/lưu khi phông đã tải xong để không nhớ nhầm số đo của phông dự phòng. */
+  const HFIT_KEY = 'ltv-hfit-v1';
+  let hfitMem = null;
+  const hfitStore = () => {
+    if (hfitMem) return hfitMem;
+    try { hfitMem = JSON.parse(localStorage.getItem(HFIT_KEY) || '{}') || {}; } catch (_) { hfitMem = {}; }
+    return hfitMem;
+  };
+  let hfitSaveT = 0;
+  const hfitSave = () => {
+    clearTimeout(hfitSaveT);
+    hfitSaveT = setTimeout(() => {
+      try {
+        const keys = Object.keys(hfitMem);
+        if (keys.length > 160) keys.slice(0, keys.length - 160).forEach(k => delete hfitMem[k]);
+        localStorage.setItem(HFIT_KEY, JSON.stringify(hfitMem));
+      } catch (_) { /* hết chỗ / chế độ riêng tư: chỉ nhớ trong phiên */ }
+    }, 600);
+  };
+  const fontsSettled = () => !document.fonts || document.fonts.status === 'loaded';
   function fitHeroText(el) {
+    // Phông chưa tải xong: bỏ qua. Kết quả đo bằng phông dự phòng luôn bị tính lại khi phông về (fonts.ready /
+    // loadingdone gọi L.fitSoon), và lúc này hero còn nằm sau màn chào nên không ai thấy — tiết kiệm ~0,2–0,4 s lúc tải.
+    if (!fontsSettled()) return;
     el.style.maxWidth = '';
     el.style.fontSize = '';
     el.style.letterSpacing = '';
@@ -143,9 +169,20 @@
     const cs = getComputedStyle(el), ctx = getMeasureCtx();
     if (!ctx) return;
     ctx.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+    const memoOn = fontsSettled();
+    const memoKey = memoOn ? [full, ctx.font, cs.wordSpacing, cs.textAlign, document.documentElement.lang, window.devicePixelRatio || 1, el.className, el.textContent].join('|') : '';
+    if (memoOn) {
+      const hit = hfitStore()[memoKey];
+      if (hit) {
+        el.style.maxWidth = hit[0] ? hit[0] + 'px' : '';
+        el.style.letterSpacing = hit[1] ? hit[1] + 'em' : '';
+        return;
+      }
+    }
+    const remember = (w, ls) => { if (memoOn) { hfitStore()[memoKey] = [w, ls]; hfitSave(); } };
     const space = Math.max(1, ctx.measureText(' ').width + (parseFloat(cs.wordSpacing) || 0));
     const base = heroGaps(el, space);
-    if (!base || base.lines < 2) return;
+    if (!base || base.lines < 2) { remember(0, 0); return; }
     const score = s => s.max * 3 + s.avg * 2 + Math.max(0, s.lines - base.lines) * 1.2 + s.shortEnds * 1.5 + (s.lastWords < 2 ? 4 : 0) + (s.fill < 0.2 ? 2 : 0);
     let best = { w: 0, ls: 0, s: score(base) };
     for (const ls of HERO_LS) {
@@ -162,6 +199,7 @@
     }
     el.style.maxWidth = best.w ? best.w + 'px' : '';
     el.style.letterSpacing = best.ls ? best.ls + 'em' : '';
+    remember(best.w, best.ls);
   }
 
   /* Đoạn cỡ chữ cố định (css/d-type.css): chữ đã được viết để căn đều ở 1280–1440px. Ở bề rộng khác, nếu có dòng

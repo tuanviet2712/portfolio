@@ -84,8 +84,14 @@
         if (img.decode) img.decode().catch(() => {});
       });
     };
-    if ('requestIdleCallback' in window) requestIdleCallback(warmImages, { timeout: 1500 });
-    else setTimeout(warmImages, 350);
+    // Chỉ làm ấm SAU khi màn chào đóng: trước đó băng thông dành cho khung hero (1,2 MB ảnh này từng giành
+    // đường truyền với hero và làm màn chào kéo dài). Section này cách hero hàng chục màn hình, thừa thời gian tải.
+    const startWarm = () => {
+      if ('requestIdleCallback' in window) requestIdleCallback(warmImages, { timeout: 1500 });
+      else setTimeout(warmImages, 350);
+    };
+    if (document.body.classList.contains('is-ready')) startWarm();
+    else L.on('ready', startWarm);
 
     // 4. Đo & đồng bộ viên thuốc (pill) trượt mượt dưới thanh 7 tab
     function syncPill(idx) {
@@ -1431,12 +1437,32 @@ void main() {
 
     let warmed = false, cooldownUntil = 0, lastPortalP = 0;
 
+    // Biến --fp-hide-ui / --fp-hero-scale đặt THẲNG lên đúng phần tử dùng nó (nút về đầu trang, nút ngôn ngữ, khối hero),
+    // không đặt lên <html>: biến tuỳ biến ở gốc được mọi phần tử thừa kế nên mỗi lần đổi là trình duyệt tính lại style
+    // CẢ TRANG (đo được ~2,6 s/4 s cuộn ở footer = giật). Kết quả hiển thị y hệt vì CSS đọc biến trên chính phần tử đó.
+    let fpHideEls = null, fpHeroEl = null, fpHideV = '', fpHeroV = '';
+    const fpTargets = () => {
+      if (!fpHideEls || fpHideEls.some(e => !e.isConnected)) fpHideEls = $$('.totop, .lang-float');
+      if (!fpHeroEl || !fpHeroEl.isConnected) fpHeroEl = $('#trang-chu .hero__sticky');
+    };
+    const setFpHide = v => { if (v === fpHideV) return; fpHideV = v; fpTargets(); fpHideEls.forEach(e => v ? e.style.setProperty('--fp-hide-ui', v) : e.style.removeProperty('--fp-hide-ui')); };
+    const setFpHero = v => { if (v === fpHeroV) return; fpHeroV = v; fpTargets(); if (fpHeroEl) v ? fpHeroEl.style.setProperty('--fp-hero-scale', v) : fpHeroEl.style.removeProperty('--fp-hero-scale'); };
+
+    // Vị trí footer chỉ đổi khi chiều cao phần phía trên đổi (vd. CSS tải trễ): đọc offsetTop khi ResizeObserver báo
+    // kích thước thay đổi, không đọc mỗi khung — đọc layout ngay sau khi các cảnh vừa ghi style ép tính lại style mỗi khung
+    let footDirty = true;
+    if (typeof ResizeObserver === 'function') {
+      const footRO = new ResizeObserver(() => { footDirty = true; });
+      footRO.observe(document.body);
+      footRO.observe(foot);
+    } else footDirty = null;   // trình duyệt cũ: đọc mỗi khung như trước
+
     function closePortal() {
       wasActive = false;
       portal.classList.remove('is-active');
       html.classList.remove('is-fportal-on');
-      html.style.removeProperty('--fp-hide-ui');
-      html.style.removeProperty('--fp-hero-scale');
+      setFpHide('');
+      setFpHero('');
       stickyWrap.style.transform = '';
       logoWrap.style.opacity = '0';
       logoWrap.style.transform = 'scale(1)';
@@ -1447,13 +1473,16 @@ void main() {
       if (st.t < cooldownUntil) return;
 
       // Đồng bộ vị trí thật của footer phòng trường hợp CSS tải trễ (như showcase.min.css) làm thay đổi chiều cao trang
-      const curFootTop = foot.offsetTop;
-      if (curFootTop > 0 && Math.abs(curFootTop - footTop) > 2) {
-        footTop = curFootTop;
-        footH = foot.offsetHeight || (stickyH + H * 2.65);
-        startY = footTop + Math.max(0, stickyH - H);
-        span = Math.max(1, footTop + footH - H - startY);
-        return;
+      if (footDirty !== false) {
+        if (footDirty) footDirty = false;
+        const curFootTop = foot.offsetTop;
+        if (curFootTop > 0 && Math.abs(curFootTop - footTop) > 2) {
+          footTop = curFootTop;
+          footH = foot.offsetHeight || (stickyH + H * 2.65);
+          startY = footTop + Math.max(0, stickyH - H);
+          span = Math.max(1, footTop + footH - H - startY);
+          return;
+        }
       }
 
       // Làm ấm trước (dịch shader, khung 0 của Hero) ngay khi người dùng cuộn xuống gần Footer
@@ -1495,7 +1524,7 @@ void main() {
 
       // Ẩn dần nút về đầu trang & chuyển ngôn ngữ khi màn đóng lại
       const hideUi = smooth(0.04, 0.28, p);
-      html.style.setProperty('--fp-hide-ui', hideUi.toFixed(3));
+      setFpHide(hideUi.toFixed(3));
 
       // Tính toán 3 pha với khung tròn đồng tâm (Circular Iris) + Logo LTV giữ nguyên tỉ lệ chuẩn:
       // Pha 1 (0.00 -> 0.42): Khung tròn thu mượt từ 4 góc màn hình về đúng tâm Logo LTV xanh gradient
@@ -1522,7 +1551,7 @@ void main() {
         logoAlpha = 1;
         logoScale = 1 + 0.035 * Math.sin(th * Math.PI);
         stickyWrap.style.transform = '';
-        html.style.setProperty('--fp-hero-scale', '1.04');
+        setFpHero('1.04');
       } else {
         setHeroPreview(true);
         const to = ease.inOut(r(p, 0.60, 0.985));
@@ -1531,7 +1560,7 @@ void main() {
         logoAlpha = 1 - smooth(0.56, 0.61, p);
         logoScale = mix(1.0, 1.14, smooth(0.56, 0.61, p));
         const hScale = 1 + 0.04 * (1 - ease.out(r(p, 0.60, 0.96)));
-        html.style.setProperty('--fp-hero-scale', hScale.toFixed(4));
+        setFpHero(hScale.toFixed(4));
         if (progBar) progBar.style.setProperty('--sp', (1 - ease.out(r(p, 0.60, 0.96))).toFixed(4));
       }
 

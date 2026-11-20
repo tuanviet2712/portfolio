@@ -168,7 +168,7 @@
           <div class="vcard__stage" aria-hidden="true">
             <div class="vcard__art">
               <img class="vcard__img vcard__img--top" src="${esc(cfg.src)}" alt="" width="1448" height="1086" loading="lazy" decoding="async" draggable="false">
-              <img class="vcard__img vcard__img--main" src="${esc(cfg.src)}" alt="${esc(cfg.alt)}" width="1448" height="1086" loading="${i < 2 ? 'eager' : 'lazy'}" decoding="async" draggable="false">
+              <img class="vcard__img vcard__img--main" src="${esc(cfg.src)}" alt="${esc(cfg.alt)}" width="1448" height="1086" loading="lazy" decoding="async" draggable="false">
               <img class="vcard__img vcard__img--refl" src="${esc(cfg.src)}" alt="" width="1448" height="1086" loading="lazy" decoding="async" draggable="false">
               <span class="vcard__glare"></span>
             </div>
@@ -207,8 +207,15 @@
         im.src = a.src;
       });
     };
-    if ('requestIdleCallback' in window) requestIdleCallback(warmImages, { timeout: 2000 });
-    else setTimeout(warmImages, 600);
+    // Làm ấm SAU khi màn chào đóng (trước đó băng thông dành cho khung hero), rồi cho các <img> lazy của bộ thẻ
+    // tải luôn từ bộ nhớ đệm — section này cách hero nhiều màn hình nên ảnh luôn sẵn trước khi người xem tới
+    const startWarm = () => {
+      const run = () => { warmImages(); deck.querySelectorAll('img[loading="lazy"]').forEach(img => { img.loading = 'eager'; }); };
+      if ('requestIdleCallback' in window) requestIdleCallback(run, { timeout: 2000 });
+      else setTimeout(run, 600);
+    };
+    if (document.body.classList.contains('is-ready')) startWarm();
+    else L.on('ready', startWarm);
 
     const FLEX_OPEN = 3.45;
     const FLEX_COL = 1;

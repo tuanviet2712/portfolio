@@ -20,7 +20,10 @@
   const DAMP_REST = 8, REST_EPS = 0.002;     // gần đích (|đích - p| < 0.002): đậu về đúng một khung, nhanh hơn
   const VMAX = 120;                          // tốc độ tua tối đa (khung/s = 5x tốc độ clip) khi vuốt mạnh
   const LEVELS = [8, 4, 2, 1];               // thứ tự tải: mỗi 8 khung trước, rồi 4, 2, 1
-  const PAR = 4;                             // giới hạn tải song song để không tranh băng thông với nội dung chính
+  const PAR = 6;                             // tải song song trong lúc màn chào (JS/CSS đã về hết, chỉ còn khung hero cần tải)
+  const PAR_BG = 10;                         // sau khi trang sẵn sàng: tải ngầm TOÀN BỘ chuỗi khung (HTTP/2-3 dồn kênh, 1 kết nối)
+  const PRE_AHEAD = 48;                      // trong lúc màn chào: tải trước 2 giây chuyển động đầu (48 khung) để cuộn ngay không hụt khung
+  const LEVEL_W = [0.25, 0.5, 0.75, 1];      // khung càng xa vị trí xem thì càng ưu tiên khung thô (mỗi 8, 4, 2) để vuốt nhanh vẫn có hình
   const AHEAD = 8, BEHIND = 4, KEEP = 14;    // cửa sổ giải mã quanh khung hiện tại (số khung)
   const MAXQ = 6;                            // số khung giải mã cùng lúc
   const MOUSE = { x: 7, y: 5, zoom: 1.02 };  // parallax chuột: dịch (px màn hình) + phóng nhẹ để có biên
@@ -44,6 +47,7 @@
     const hud = $('.hud', hero);
     const rail = $('.hud__rail', hero);
     const hudScroll = $('.hud__scroll', hero);
+    let hudGone = false;
     const hudProgress = $('.hud__progress', hero);
     const hudEls = {};
     $$('[data-hud]', hero).forEach(el => (hudEls[el.dataset.hud] = el));
@@ -328,7 +332,14 @@
     function updateHud(p, t) {
       if (scene) { setText('frame', String(Math.round(t) + 1).padStart(3, '0')); setText('total', String(scene.n).padStart(3, '0')); }
       if (hudProgress) hudProgress.style.transform = `scaleX(${p.toFixed(4)})`;
-      if (hudScroll) hudScroll.style.opacity = (1 - smooth(0.004, 0.04, p)).toFixed(3);
+      if (hudScroll) {
+        const so = 1 - smooth(0.004, 0.04, p);
+        hudScroll.style.opacity = so.toFixed(3);
+        // Biểu tượng chuột đã mờ hẳn: dừng animation lặp vô hạn của nó. Chrome không giao animation của phần tử
+        // vô hình cho GPU nên luồng chính phải tính lại style mỗi khung suốt trang — mắt không thấy khác biệt.
+        const gone = so < 0.001;
+        if (gone !== hudGone) { hudGone = gone; hudScroll.classList.toggle('is-gone', gone); }
+      }
       if (ticks.length) {
         let best = 0, bd = 9;
         tickKs.forEach((k, i) => { const d = Math.abs(k - p); if (d < bd) { bd = d; best = i; } });
@@ -358,7 +369,7 @@
       if (want === active) return;
       if (active) fallbackSet = active;
       active = want;
-      markWindow(active, curT, 18, 6);
+      markWindow(active, curT, readyFired ? 18 : PRE_AHEAD, 6);
       startLoading(active);
       dirty = true;
     }
@@ -389,14 +400,23 @@
       set.frames[hi].wanted = true;
     }
     function startLoading(set) { if (!set.started) set.started = true; pump(set); }
+    // Hướng cuộn gần nhất (schedule() cập nhật): khung phía trước được ưu tiên hơn khung phía sau
+    let loadDir = 1;
+    // Người dùng bật "Tiết kiệm dữ liệu": giữ cách cũ, chỉ tải khung quanh vị trí đang xem
+    const saveData = !!(navigator.connection && navigator.connection.saveData);
     function pump(set) {
-      const maxFetch = phoneMQ.matches ? 3 : PAR;
+      const phone = phoneMQ.matches;
+      // Sau khi trang sẵn sàng: mọi khung đều được tải ngầm (gần trước, xa sau), không chờ người xem cuộn tới mới tải
+      // => hết cảnh "nhảy ảnh" vì hụt khung khi cuộn. Pixel vẽ ra không đổi: vẫn đúng các tệp WebP đó.
+      const bg = readyFired && !saveData;
+      const maxFetch = bg ? (phone ? 6 : PAR_BG) : (phone ? 3 : PAR);
       while (set.inflight < maxFetch && set.pending > 0) {
         let best = null, bs = Infinity;
-        const rankW = readyFired ? 48 : 1e6;
         for (const f of set.frames) {
-          if (f.queued || !f.wanted) continue;
-          const s = f.rank * rankW + Math.abs(f.i - curT);
+          if (f.queued || !(f.wanted || bg)) continue;
+          let s;
+          if (!readyFired) s = f.rank * 1e6 + Math.abs(f.i - curT);   // màn chào: khung thô của cửa sổ đầu trước
+          else { const d = f.i - curT; s = Math.abs(d) * (d * loadDir >= 0 ? 0.6 : 1) * LEVEL_W[f.rank]; }
           if (s < bs) { bs = s; best = f; }
         }
         if (!best) break;
@@ -461,6 +481,7 @@
     function schedule(t, dir, vel) {
       const fr = active.frames, n = fr.length, hi = lowerBound(fr, t);
       const isPhone = phoneMQ.matches;
+      loadDir = dir >= 0 ? 1 : -1;
       markWindow(active, t, dir >= 0 ? 22 : 10, dir >= 0 ? 8 : 20);
       pump(active);
       const stride = Math.max(1, Math.min(8, Math.round(Math.abs(vel) / 60)));
