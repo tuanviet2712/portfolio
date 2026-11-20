@@ -99,6 +99,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## AI Marketing
 
+- [Ứng dụng AI miễn phí cho marketing theo tác vụ](https://letuanviet.com/goc-kien-thuc/ai-marketing/ung-dung-ai-mien-phi-cho-marketing/): Cách chọn ứng dụng AI miễn phí cho marketing theo điểm nghẽn tác vụ của SME, biết rõ hạn mức thật, ẩn danh hóa dữ liệu mật và đặt bước người kiểm duyệt cuối.
 - [ChatGPT Search là gì và cách tối ưu trích dẫn](https://letuanviet.com/goc-kien-thuc/ai-marketing/chatgpt-search-la-gi/): Hiểu rõ ChatGPT Search là gì giúp doanh nghiệp tách bạch điều kiện bot OpenAI quét trang với tiêu chí được chọn làm nguồn trích dẫn và cách đo lường trên GA4.
 - [Cách làm video vietsub bằng AI chuẩn hiển thị](https://letuanviet.com/goc-kien-thuc/ai-marketing/cach-lam-video-vietsub/): Hướng dẫn cách làm video vietsub tự động và thủ công cho đội ngũ marketing, kèm bảng chọn công cụ, vùng an toàn khung hình và bước kiểm duyệt thuật ngữ.
 - [Perplexity AI là gì và cách nghiên cứu dữ liệu](https://letuanviet.com/goc-kien-thuc/ai-marketing/perplexity-ai-la-gi/): Hiểu rõ Perplexity AI là gì, điểm khác Google và ChatGPT, quy trình 4 bước tra cứu nguồn cấp một kèm bảng chọn gói và giới hạn bảo mật dữ liệu cho SME.

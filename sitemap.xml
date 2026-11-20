@@ -30,7 +30,7 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/ai-marketing/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,39 @@
     <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/ai-marketing/ung-dung-ai-mien-phi-cho-marketing/</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ung-dung-ai-mien-phi-cho-marketing/89040e7cea/ung-dung-ai-mien-phi-cho-marketing.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ung-dung-ai-mien-phi-cho-marketing/89040e7cea/ung-dung-ai-mien-phi-cho-marketing/01-ung-dung-ai-mien-phi-cho-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ung-dung-ai-mien-phi-cho-marketing/89040e7cea/ung-dung-ai-mien-phi-cho-marketing/02-ung-dung-ai-mien-phi-cho-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ung-dung-ai-mien-phi-cho-marketing/89040e7cea/ung-dung-ai-mien-phi-cho-marketing/03-ung-dung-ai-mien-phi-cho-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ung-dung-ai-mien-phi-cho-marketing/89040e7cea/ung-dung-ai-mien-phi-cho-marketing/04-ung-dung-ai-mien-phi-cho-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ung-dung-ai-mien-phi-cho-marketing/89040e7cea/ung-dung-ai-mien-phi-cho-marketing/05-ung-dung-ai-mien-phi-cho-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ung-dung-ai-mien-phi-cho-marketing/89040e7cea/ung-dung-ai-mien-phi-cho-marketing/06-ung-dung-ai-mien-phi-cho-marketing.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/ung-dung-ai-mien-phi-cho-marketing/89040e7cea/ung-dung-ai-mien-phi-cho-marketing/07-ung-dung-ai-mien-phi-cho-marketing.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/customer-insight-la-gi/</loc>
