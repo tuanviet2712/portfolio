@@ -464,9 +464,8 @@ function page({ rel, pagePath, title, description, draft = false, robots = 'inde
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <!-- Chuyển cảnh vào trang: đặt sớm nhất có thể để màn phủ có ngay từ khung hình đầu tiên -->
   <script src="${rel}js/pt.js?v=972"></script>
-  <!-- Google tag (gtag.js). ga4.js để defer: không chặn hiển thị, gtag.js vẫn đọc dataLayer khi nó được đẩy vào -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9FR8F25SP"></script>
-  <script src="/js/ga4.js" defer></script>
+  <!-- Google Tag Manager (GTM-MD6TDLJN): gtm.js tự nạp bất đồng bộ, không chặn hiển thị. GA4 do GTM gửi -->
+  <script src="/js/gtm.js" async></script>
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
   <meta name="author" content="${A.name}">
@@ -510,6 +509,7 @@ ${json({ '@context': 'https://schema.org', '@graph': ld })}
   </script>
 </head>
 <body class="kb ${bodyClass}"${navActive ? ` data-nav-active="${navActive}"` : ''}>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MD6TDLJN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!--email_off--><!-- Cloudflare không mã hóa email trong vùng này: bot không chạy JavaScript (GPTBot, ClaudeBot…) đọc được đúng địa chỉ liên hệ -->
   <a class="skip-link" href="#noi-dung">${isEn ? 'Skip to main content' : 'Bỏ qua phần điều hướng'}</a>
   ${sprite()}
