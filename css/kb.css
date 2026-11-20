@@ -15,13 +15,14 @@
 .btn--glass:hover { background: rgb(var(--ivory-rgb) / .16); border-color: rgb(var(--ivory-rgb) / .5); }
 
 /* ---------- Đường dẫn (breadcrumb) ---------- */
-.kb-crumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 0; font-size: 13px; color: var(--ink-3); min-width: 0; }
-.kb-crumbs li { display: inline-flex; align-items: center; min-width: 0; }
+/* Đường dẫn luôn trên MỘT hàng (20/11/2026): ba mục đầu giữ nguyên, tên bài co lại bằng dấu "…" khi hẹp (trước đó tên bài rớt xuống hàng hai) */
+.kb-crumbs ol { display: flex; flex-wrap: nowrap; align-items: center; gap: 6px 0; font-size: 13px; color: var(--ink-3); min-width: 0; }
+.kb-crumbs li { display: inline-flex; align-items: center; min-width: 0; flex: none; }
 .kb-crumbs li + li::before { content: ""; width: 6px; height: 6px; margin: 0 12px 0 8px; border-top: 1.5px solid currentColor; border-right: 1.5px solid currentColor; transform: rotate(45deg); opacity: .45; flex: none; }
 .kb-crumbs a { display: inline-flex; align-items: center; gap: 6px; font-weight: 500; color: var(--ink-2); transition: color .3s; white-space: nowrap; }
 .kb-crumbs a:hover { color: var(--blue); }
 .kb-crumbs svg { width: 15px; height: 15px; }
-.kb-crumbs [aria-current] { min-width: 0; }
+.kb-crumbs [aria-current] { min-width: 0; flex: 0 1 auto; }
 .kb-crumbs [aria-current] span { display: block; max-width: 46ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink-3); }
 
 /* ---------- Khối nội dung ---------- */
