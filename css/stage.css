@@ -1842,3 +1842,23 @@ html.st.kbs .kbs-f:not(.is-done) { opacity: calc(.15 + var(--e, 0) * .85); trans
     display: none;
   }
 }
+
+/* ==========================================================================
+   LỚP ĐỒ HOẠ CHỈ GIỮ KHI SECTION Ở GẦN MÀN HÌNH
+   js/stage.js gắn .is-near cho #trang-chu, #gia-tri, #nang-luc khi section cách khung nhìn dưới 1,5 màn hình.
+   Xa hơn: các phần tử nặng thôi giữ lớp riêng (will-change / dịch 3D) — trình duyệt bớt hàng trăm lớp phải gom
+   (Layerize) và gửi cho GPU (Commit) ở MỖI khung, phần tốn nhất khi cuộn trên điện thoại. Khi section ở gần / đang
+   hiện, mọi thứ y như cũ nên hình ảnh không đổi. Phép dịch 2D dưới đây trùng khít hình học với bản 3D.
+   ========================================================================== */
+#trang-chu:not(.is-near) .ch .u { will-change: auto; }
+#trang-chu:not(.is-near) .ch .u--c { transform: translate(0, calc((1 - var(--ci)) * .42em)) rotate(calc((1 - var(--ci)) * -4deg)) scale(calc(.92 + .08 * var(--ci))); }
+#trang-chu:not(.is-near) .ch .u--w { transform: translate(0, calc((1 - var(--ci)) * 16px)); }
+#nang-luc:not(.is-near) .skx__art,
+#nang-luc:not(.is-near) .skx-panel,
+#nang-luc:not(.is-near) .skx-panel__title,
+#nang-luc:not(.is-near) .skx-panel__desc,
+#nang-luc:not(.is-near) .skx-checks li,
+#nang-luc:not(.is-near) .sphere span { will-change: auto; }
+html.st #gia-tri.vsc:not(.is-near) .vcard,
+html.st #gia-tri.vsc:not(.is-near) .vcard__stage,
+html.st #gia-tri.vsc:not(.is-near) .vcard__art { will-change: auto; }

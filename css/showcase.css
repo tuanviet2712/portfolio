@@ -83,7 +83,7 @@ div.pw-card__hit { cursor: default; }
 
 .pw-card__tag { position: absolute; left: 16px; bottom: 16px; max-width: calc(100% - 32px); display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px 7px 9px; border-radius: 999px; pointer-events: none;
   color: var(--ink); background: rgb(255 255 255 / .96); box-shadow: 0 1px 0 rgb(255 255 255 / .9) inset, 0 10px 24px -12px rgb(var(--shadow-rgb) / .5), 0 0 0 1px rgb(var(--ink-rgb) / .06);
-  opacity: 0; transform: translate3d(0, 8px, 0); transition: opacity .3s ease, transform .5s var(--ease); }
+  opacity: 0; transform: translate(0, 8px); transition: opacity .3s ease, transform .5s var(--ease); }
 .pw-card:hover .pw-card__tag, .pw-card:focus-within .pw-card__tag { opacity: 1; transform: none; }
 .pw-card__tag i { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; color: #fff; background: var(--grad-btn-hover); flex: none; }
 .pw-card__tag i svg { width: 12px; height: 12px; }

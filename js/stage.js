@@ -76,6 +76,18 @@
     }
   }
 
+  /* ---------------- section gần màn hình: .is-near ---------------- */
+  // Chữ chương hero, bảng Năng lực, thẻ Giá trị chỉ giữ lớp đồ hoạ riêng (will-change / dịch 3D) khi section của chúng
+  // cách khung nhìn dưới 1,5 màn hình (quy tắc ở cuối css/stage.css). Xa hơn thì thôi giữ lớp: mỗi khung trình duyệt
+  // bớt gom/gửi hàng trăm lớp — đo trên điện thoại giả lập, đây là phần tốn nhất khi cuộn. Hình ảnh không đổi.
+  (() => {
+    const near = document.querySelectorAll('#trang-chu, #gia-tri, #nang-luc');
+    if (!near.length) return;
+    if (!('IntersectionObserver' in window)) { near.forEach(s => s.classList.add('is-near')); return; }
+    const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('is-near', e.isIntersecting)), { rootMargin: '150% 0px 150% 0px' });
+    near.forEach(s => io.observe(s));
+  })();
+
   /* ---------------- Lenis ---------------- */
   if (!P.has('nolenis') && !html.classList.contains('inner-scroll') && window.Lenis) {
     html.classList.remove('smooth');
