@@ -131,6 +131,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Tin tức và Góc nhìn
 
+- [Google Search mở AI sidebar trên máy tính](https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/google-search-mo-thanh-ben-ai/): Ngày 19/11/2026, Google Search mở AI sidebar trên trang chủ máy tính theo từng đợt. Bài chỉ ra nhóm chịu tác động đầu tiên và mốc đo cần ghi trước khi đổi SEO.
 - [Anthropic lên sàn Nasdaq: công ty dùng AI nên làm gì tuần này?](https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/anthropic-len-san-nasdaq/): Ngày 19/11/2026, Anthropic lên sàn Nasdaq với mã ANT. Phân biệt giá IPO, giá mở cửa và vốn hóa để biết doanh nghiệp có nên đổi kế hoạch dùng Claude hay chưa.
 - [Google AI Studio tích hợp Cloud Credits](https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/google-ai-studio-tich-hop-cloud-credits/): Từ 13/11/2026, Google AI Studio tích hợp Cloud Credits cho gói Pro và Ultra. Phân tích quy tắc cộng dồn 12 tháng và điều kiện bật Gemini API trả phí cho SME.
 
