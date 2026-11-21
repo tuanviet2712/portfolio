@@ -30,13 +30,13 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-20</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/</loc>
-    <lastmod>2026-11-19</lastmod>
+    <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,39 @@
     <lastmod>2026-11-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/marketing/cach-tiep-can-khach-hang/</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/cach-tiep-can-khach-hang/ff25130b46/cach-tiep-can-khach-hang.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/cach-tiep-can-khach-hang/ff25130b46/cach-tiep-can-khach-hang/01-cach-tiep-can-khach-hang.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/cach-tiep-can-khach-hang/ff25130b46/cach-tiep-can-khach-hang/02-cach-tiep-can-khach-hang.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/cach-tiep-can-khach-hang/ff25130b46/cach-tiep-can-khach-hang/03-cach-tiep-can-khach-hang.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/cach-tiep-can-khach-hang/ff25130b46/cach-tiep-can-khach-hang/04-cach-tiep-can-khach-hang.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/cach-tiep-can-khach-hang/ff25130b46/cach-tiep-can-khach-hang/05-cach-tiep-can-khach-hang.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/cach-tiep-can-khach-hang/ff25130b46/cach-tiep-can-khach-hang/06-cach-tiep-can-khach-hang.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/cach-tiep-can-khach-hang/ff25130b46/cach-tiep-can-khach-hang/07-cach-tiep-can-khach-hang.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/anthropic-len-san-nasdaq/</loc>
