@@ -54,9 +54,21 @@
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/</loc>
-    <lastmod>2026-11-21</lastmod>
+    <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/bending-spoons-mua-mailchimp/</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/bending-spoons-mua-mailchimp/879b857e5f/bending-spoons-mua-mailchimp.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/du-an-va-bai-hoc/chien-luoc-marketing-cua-starbucks/</loc>
