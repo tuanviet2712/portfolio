@@ -30,13 +30,13 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-22</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/</loc>
-    <lastmod>2026-11-21</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,39 @@
     <lastmod>2026-11-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/marketing/trinh-quan-ly-quang-cao-la-gi/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/trinh-quan-ly-quang-cao-la-gi/abccb9b71a/trinh-quan-ly-quang-cao-la-gi.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/trinh-quan-ly-quang-cao-la-gi/abccb9b71a/trinh-quan-ly-quang-cao-la-gi/01-trinh-quan-ly-quang-cao-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/trinh-quan-ly-quang-cao-la-gi/abccb9b71a/trinh-quan-ly-quang-cao-la-gi/02-trinh-quan-ly-quang-cao-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/trinh-quan-ly-quang-cao-la-gi/abccb9b71a/trinh-quan-ly-quang-cao-la-gi/03-trinh-quan-ly-quang-cao-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/trinh-quan-ly-quang-cao-la-gi/abccb9b71a/trinh-quan-ly-quang-cao-la-gi/04-trinh-quan-ly-quang-cao-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/trinh-quan-ly-quang-cao-la-gi/abccb9b71a/trinh-quan-ly-quang-cao-la-gi/05-trinh-quan-ly-quang-cao-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/trinh-quan-ly-quang-cao-la-gi/abccb9b71a/trinh-quan-ly-quang-cao-la-gi/06-trinh-quan-ly-quang-cao-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/trinh-quan-ly-quang-cao-la-gi/abccb9b71a/trinh-quan-ly-quang-cao-la-gi/07-trinh-quan-ly-quang-cao-la-gi.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/bending-spoons-mua-mailchimp/</loc>

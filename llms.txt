@@ -33,6 +33,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [Trình quản lý quảng cáo là gì và cách dùng](https://letuanviet.com/goc-kien-thuc/marketing/trinh-quan-ly-quang-cao-la-gi/): Phân biệt trình quản lý quảng cáo với Trung tâm quảng cáo, chọn tài khoản Business Manager, thiết lập 4 bước gắn mã đo và đối soát CPL, ROAS trên dữ liệu.
 - [Công cụ Digital Marketing là gì và cách chọn](https://letuanviet.com/goc-kien-thuc/marketing/cong-cu-digital-marketing/): Phân nhóm công cụ Digital Marketing theo 8 nghiệp vụ, bảng chọn phần mềm cho 3 mức ngân sách SME và quy trình 4 bước tích hợp luồng dữ liệu về một dashboard.
 - [Cách tiếp cận khách hàng B2B và B2C cho SME](https://letuanviet.com/goc-kien-thuc/marketing/cach-tiep-can-khach-hang/): Phân tích cách tiếp cận khách hàng tiềm năng cho B2B và B2C qua 10 phương pháp, bảng chọn theo nguồn lực SME và quy trình 4 bước bàn giao cơ hội cho Sales.
 - [Customer insight là gì, cách tìm cho SME](https://letuanviet.com/goc-kien-thuc/marketing/customer-insight-la-gi/): Giải mã customer insight là gì, cách phân biệt với nghiên cứu thị trường qua bốn cấp độ thông tin, quy trình bốn bước kiểm chứng và khung đo lường ba tầng.
