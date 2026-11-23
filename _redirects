@@ -25,3 +25,9 @@
 /goc-kien-thuc/quan-tri-marketing/ke-hoach-marketing /goc-kien-thuc/marketing/ke-hoach-marketing/ 301
 /goc-kien-thuc/quan-tri-marketing/mau-ke-hoach-marketing/ /goc-kien-thuc/marketing/mau-ke-hoach-marketing/ 301
 /goc-kien-thuc/quan-tri-marketing/mau-ke-hoach-marketing /goc-kien-thuc/marketing/mau-ke-hoach-marketing/ 301
+# 23/11/2026: gỡ bài "Bending Spoons mua Mailchimp". Cloudflare Pages vẫn phục vụ bản cũ của trang đã xoá từ tầng lưu
+# tài nguyên riêng (kèm x-robots-tag: noindex, nút Purge của vùng không xoá được), nên chuyển hướng về chuyên mục để
+# người mở liên kết cũ không còn thấy bài. Google đã có yêu cầu xoá tạm thời trong Search Console.
+/goc-kien-thuc/tin-tuc-goc-nhin/bending-spoons-mua-mailchimp/ /goc-kien-thuc/tin-tuc-goc-nhin/ 301
+/goc-kien-thuc/tin-tuc-goc-nhin/bending-spoons-mua-mailchimp /goc-kien-thuc/tin-tuc-goc-nhin/ 301
+/goc-kien-thuc/tin-tuc-goc-nhin/bending-spoons-mua-mailchimp/index.html /goc-kien-thuc/tin-tuc-goc-nhin/ 301
