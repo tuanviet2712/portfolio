@@ -650,13 +650,19 @@
       unbound.forEach(n => { if (n.__kjNb !== undefined) { n.nodeValue = n.__kjNb; n.__kjNb = undefined; } });
       unbound.clear();
     }
+    // Máy tính / máy tính bảng (yêu cầu 23/11/2026): trong các KHỐI của bài (bảng, thẻ, danh sách bước, số liệu,
+    // tình huống, chú thích, FAQ, khối kêu gọi...) cụm 2–3 chữ nối &nbsp; bị đẩy xuống dòng khi dòng trên còn chỗ,
+    // để lại khoảng trống vô lý — gỡ nối ở đó như trên điện thoại. Đoạn văn cột rộng giữ nối (không có dòng cuối một chữ).
+    // Cùng bộ chọn với quy tắc cuối css/kb-article.css.
+    const BLOCKS = '.kb-prose > :is(div, table, aside, section, figure, dl, details), .kb-prose > :is(ul, ol)[class]';
+    function unbindBlocks() { $$(BLOCKS, root).forEach(unbind); }
 
     function run(scope) {
       scope = scope || root;
       const g = scope === root ? ++gen : gen;          // dựng lại cả bài thì bỏ các lượt cũ còn dở
       [...done].forEach(el => { if (scope.contains(el)) { restore(el); done.delete(el); } });
       fonts = new Map();
-      if (mq.matches) unbind(scope); else rebind();
+      if (mq.matches) unbind(scope); else { rebind(); unbindBlocks(); }
       stackMetrics(scope);
       if (!mq.matches) return;
       wrapRuns(scope);

@@ -575,3 +575,16 @@ html[lang="en"] .kb-authorbox__bio {
   .kb-prose { font-size: 11pt; }
   .kb-prose a { color: inherit; }
 }
+
+/* ==========================================================================
+   KHỐI TRONG BÀI: DỒN ĐẦY DÒNG RỒI MỚI XUỐNG (mọi khổ màn hình, yêu cầu 23/11/2026)
+   Bảng, thẻ (.kb-list-cards), danh sách bước (.kb-steps), số liệu (.kb-stats), tình huống (.kb-case), chú thích
+   (.kb-callout), hình (figcaption), FAQ, khối kêu gọi... "pretty"/"balance" đẩy chữ xuống sớm để dòng cuối dài hơn;
+   trong cột hẹp điều đó để lại dòng trên còn trống rất vô lý (quét 96 bài ở 1440px: 571 chỗ, gần hết trong ô bảng).
+   js/kb.js (justifyLines) gỡ thêm nối chữ &nbsp; trong các khối này. Đoạn văn cột rộng (.kb-prose > p, ul/ol thường)
+   giữ "pretty" vì ở đó không có lỗi. Chỉ đổi text-wrap-style, không đổi text-wrap-mode nên chữ nowrap vẫn nowrap.
+   ========================================================================== */
+.kb-prose > :is(div, table, aside, section, figure, dl, details),
+.kb-prose > :is(div, table, aside, section, figure, dl, details) *,
+.kb-prose > :is(ul, ol)[class],
+.kb-prose > :is(ul, ol)[class] * { text-wrap-style: auto !important; }
