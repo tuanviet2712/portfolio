@@ -588,3 +588,10 @@ html[lang="en"] .kb-authorbox__bio {
 .kb-prose > :is(div, table, aside, section, figure, dl, details) *,
 .kb-prose > :is(ul, ol)[class],
 .kb-prose > :is(ul, ol)[class] * { text-wrap-style: auto !important; }
+/* Căn đều trong khối không để khe chữ mở rộng: js/kb.js (justifyLines) tự chọn chỗ xuống dòng cho cả đoạn và nhích
+   khoảng cách ký tự rất nhẹ (±0,015em), mỗi dòng một khối riêng căn đều hết bề ngang, dòng cuối căn trái. Trước đây chỉ
+   trên điện thoại; từ 23/11/2026 cả máy tính nhưng CHỈ cho các khối (bảng, thẻ, số liệu...) — các lớp .kj/.kj-l/.kj-run
+   chỉ được gắn vào phần tử bộ căn dòng đã xử lý nên quy tắc dưới không chạm vào phần khác. */
+.kj > .kj-l { display: block; white-space: nowrap; text-align: justify; text-align-last: justify; }
+.kj > .kj-l.kj-end { text-align-last: auto; }
+.kj-run { display: block; }

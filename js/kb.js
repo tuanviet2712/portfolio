@@ -662,13 +662,17 @@
       const g = scope === root ? ++gen : gen;          // dựng lại cả bài thì bỏ các lượt cũ còn dở
       [...done].forEach(el => { if (scope.contains(el)) { restore(el); done.delete(el); } });
       fonts = new Map();
-      if (mq.matches) unbind(scope); else { rebind(); unbindBlocks(); }
+      // Điện thoại: căn dòng mọi đoạn. Máy tính / máy tính bảng (23/11/2026): chỉ căn dòng các KHỐI trong bài (bảng,
+      // thẻ, số liệu, danh sách bước, chú thích, FAQ...) — cột hẹp căn đều mà để trình duyệt tự ngắt thì khe chữ mở rất
+      // rộng; đoạn văn cột rộng vẫn do trình duyệt ngắt như cũ.
+      const phone = mq.matches;
+      if (phone) unbind(scope); else { rebind(); unbindBlocks(); }
       stackMetrics(scope);
-      if (!mq.matches) return;
-      wrapRuns(scope);
+      if (phone) wrapRuns(scope);
+      else $$(BLOCKS, root).forEach(b => { if (scope.contains(b) || b.contains(scope)) wrapRuns(b); });
       // đoạn đang hiện trên màn hình làm ngay; phần còn lại làm từng chút lúc trình duyệt rảnh (mỗi lượt ~10ms)
       // để không làm khựng trang trên điện thoại yếu
-      const list = targets(scope);
+      const list = phone ? targets(scope) : targets(scope).filter(el => el.closest(BLOCKS));
       const vis = [], rest = [];
       list.forEach(el => { const b = el.getBoundingClientRect(); (b.bottom > 0 && b.top < innerHeight ? vis : rest).push(el); });
       const step = batch => {
@@ -678,7 +682,7 @@
       };
       step(vis);
       const next = () => {
-        if (g !== gen || !mq.matches) return;
+        if (g !== gen || mq.matches !== phone) return;
         const end = performance.now() + SLICE_MS;
         while (rest.length && performance.now() < end) step(rest.splice(0, 1));
         if (rest.length) later(next);
@@ -696,7 +700,7 @@
     if (mq.addEventListener) mq.addEventListener('change', () => run());
     // câu trả lời FAQ đang gập có thể chưa đo được: dựng lại phần đó khi mở ra
     $$('details', root).forEach(d => d.addEventListener('toggle', () => {
-      if (d.open && mq.matches && $$('p, li', d).some(el => !el.classList.contains('kj') && el.textContent.trim())) run(d);
+      if (d.open && (mq.matches || d.closest(BLOCKS)) && $$('p, li', d).some(el => !el.classList.contains('kj') && el.textContent.trim())) run(d);
     }));
     const ff = document.fonts;
     (ff && ff.ready ? ff.ready : Promise.resolve()).then(() => {
