@@ -103,6 +103,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## AI Marketing
 
+- [AI Marketing là gì và cách dùng có kiểm duyệt](https://letuanviet.com/goc-kien-thuc/ai-marketing/ai-marketing-la-gi/): Phân biệt AI Marketing với tự động hóa cố định, chọn tác vụ hợp dữ liệu sẵn có và thiết lập điểm người duyệt cùng khung đo ba tầng chuyển đổi thực cho SME.
 - [Viết content bằng AI giữ chuẩn giọng văn](https://letuanviet.com/goc-kien-thuc/ai-marketing/viet-content-bang-ai/): Hướng dẫn viết content bằng AI cho doanh nghiệp vừa và nhỏ qua bộ ngữ cảnh thương hiệu, cấu trúc câu lệnh 5 phần, bảng chọn công cụ và danh mục kiểm duyệt.
 - [Ứng dụng AI miễn phí cho marketing theo tác vụ](https://letuanviet.com/goc-kien-thuc/ai-marketing/ung-dung-ai-mien-phi-cho-marketing/): Cách chọn ứng dụng AI miễn phí cho marketing theo điểm nghẽn tác vụ của SME, biết rõ hạn mức thật, ẩn danh hóa dữ liệu mật và đặt bước người kiểm duyệt cuối.
 - [ChatGPT Search là gì và cách tối ưu trích dẫn](https://letuanviet.com/goc-kien-thuc/ai-marketing/chatgpt-search-la-gi/): Hiểu rõ ChatGPT Search là gì giúp doanh nghiệp tách bạch điều kiện bot OpenAI quét trang với tiêu chí được chọn làm nguồn trích dẫn và cách đo lường trên GA4.
