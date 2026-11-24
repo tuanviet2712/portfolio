@@ -30,13 +30,13 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/</loc>
-    <lastmod>2026-11-23</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,39 @@
     <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/marketing/facebook-ads-la-gi/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/facebook-ads-la-gi/9817b3bdae/facebook-ads-la-gi.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/facebook-ads-la-gi/9817b3bdae/facebook-ads-la-gi/01-facebook-ads-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/facebook-ads-la-gi/9817b3bdae/facebook-ads-la-gi/02-facebook-ads-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/facebook-ads-la-gi/9817b3bdae/facebook-ads-la-gi/03-facebook-ads-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/facebook-ads-la-gi/9817b3bdae/facebook-ads-la-gi/04-facebook-ads-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/facebook-ads-la-gi/9817b3bdae/facebook-ads-la-gi/05-facebook-ads-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/facebook-ads-la-gi/9817b3bdae/facebook-ads-la-gi/06-facebook-ads-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/facebook-ads-la-gi/9817b3bdae/facebook-ads-la-gi/07-facebook-ads-la-gi.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/nhan-vien-nvidia-muon-jensen-huang-tro-lai/</loc>
