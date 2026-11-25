@@ -33,6 +33,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Marketing
 
+- [TikTok Ads là gì, cách kết hợp Zalo Ads](https://letuanviet.com/goc-kien-thuc/marketing/tiktok-ads-la-gi/): Nắm cơ chế đấu giá TikTok Ads, ngưỡng ngân sách máy học, quy trình 4 bước nối phễu Zalo và khung đo 3 tầng giúp SME phân bổ vốn quảng cáo ra khách đạt chuẩn.
 - [Facebook Ads là gì và cách chạy cho SME](https://letuanviet.com/goc-kien-thuc/marketing/facebook-ads-la-gi/): Hướng dẫn triển khai Facebook Ads trong Ads Manager cho SME: phân biệt với Boost Post, chọn 6 mục tiêu ODAX, quy trình 5 bước và đọc chỉ số CPL, CPA thực.
 - [Trình quản lý quảng cáo là gì và cách dùng](https://letuanviet.com/goc-kien-thuc/marketing/trinh-quan-ly-quang-cao-la-gi/): Phân biệt trình quản lý quảng cáo với Trung tâm quảng cáo, chọn tài khoản Business Manager, thiết lập 4 bước gắn mã đo và đối soát CPL, ROAS trên dữ liệu.
 - [Công cụ Digital Marketing là gì và cách chọn](https://letuanviet.com/goc-kien-thuc/marketing/cong-cu-digital-marketing/): Phân nhóm công cụ Digital Marketing theo 8 nghiệp vụ, bảng chọn phần mềm cho 3 mức ngân sách SME và quy trình 4 bước tích hợp luồng dữ liệu về một dashboard.

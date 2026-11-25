@@ -30,13 +30,13 @@
   <!-- KB:SITEMAP (tạo bởi tools/kb/build-kb.cjs) -->
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,39 @@
     <lastmod>2026-11-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/marketing/tiktok-ads-la-gi/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/tiktok-ads-la-gi/cdfc12199c/tiktok-ads-la-gi.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/tiktok-ads-la-gi/cdfc12199c/tiktok-ads-la-gi/01-tiktok-ads-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/tiktok-ads-la-gi/cdfc12199c/tiktok-ads-la-gi/02-tiktok-ads-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/tiktok-ads-la-gi/cdfc12199c/tiktok-ads-la-gi/03-tiktok-ads-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/tiktok-ads-la-gi/cdfc12199c/tiktok-ads-la-gi/04-tiktok-ads-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/tiktok-ads-la-gi/cdfc12199c/tiktok-ads-la-gi/05-tiktok-ads-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/tiktok-ads-la-gi/cdfc12199c/tiktok-ads-la-gi/06-tiktok-ads-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/tiktok-ads-la-gi/cdfc12199c/tiktok-ads-la-gi/07-tiktok-ads-la-gi.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/jensen-huang-len-tieng-sau-be-boi/</loc>
