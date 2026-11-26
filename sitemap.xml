@@ -54,9 +54,24 @@
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/</loc>
-    <lastmod>2026-11-25</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/gemini-computer-use-tren-mac/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/gemini-computer-use-tren-mac/8028dee3d9/gemini-computer-use-tren-mac.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/gemini-computer-use-tren-mac/8028dee3d9/gemini-computer-use-tren-mac/01-gemini-computer-use-tren-mac.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/ai-marketing/prompt-la-gi/</loc>
