@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/ai-marketing/</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -57,6 +57,39 @@
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://letuanviet.com/goc-kien-thuc/ai-marketing/prompt-la-gi/</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/prompt-la-gi/144e7c7066/prompt-la-gi.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/prompt-la-gi/144e7c7066/prompt-la-gi/01-prompt-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/prompt-la-gi/144e7c7066/prompt-la-gi/02-prompt-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/prompt-la-gi/144e7c7066/prompt-la-gi/03-prompt-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/prompt-la-gi/144e7c7066/prompt-la-gi/04-prompt-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://letuanviet.com/assets/kb/le-tuan-viet.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/prompt-la-gi/144e7c7066/prompt-la-gi/05-prompt-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/prompt-la-gi/144e7c7066/prompt-la-gi/06-prompt-la-gi.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://img.letuanviet.com/kb/prompt-la-gi/144e7c7066/prompt-la-gi/07-prompt-la-gi.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://letuanviet.com/goc-kien-thuc/marketing/content-writer-la-gi/</loc>

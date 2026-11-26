@@ -105,6 +105,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## AI Marketing
 
+- [Prompt là gì và cách viết câu lệnh cho AI](https://letuanviet.com/goc-kien-thuc/ai-marketing/prompt-la-gi/): Nắm rõ prompt là gì giúp đội ngũ marketing SME chuyển từ chép câu lệnh mẫu sang quy trình bốn bước có người duyệt, chọn đúng trợ lý AI và đo hiệu quả ba tầng.
 - [AI Marketing là gì và cách dùng có kiểm duyệt](https://letuanviet.com/goc-kien-thuc/ai-marketing/ai-marketing-la-gi/): Phân biệt AI Marketing với tự động hóa cố định, chọn tác vụ hợp dữ liệu sẵn có và thiết lập điểm người duyệt cùng khung đo ba tầng chuyển đổi thực cho SME.
 - [Viết content bằng AI giữ chuẩn giọng văn](https://letuanviet.com/goc-kien-thuc/ai-marketing/viet-content-bang-ai/): Hướng dẫn viết content bằng AI cho doanh nghiệp vừa và nhỏ qua bộ ngữ cảnh thương hiệu, cấu trúc câu lệnh 5 phần, bảng chọn công cụ và danh mục kiểm duyệt.
 - [Ứng dụng AI miễn phí cho marketing theo tác vụ](https://letuanviet.com/goc-kien-thuc/ai-marketing/ung-dung-ai-mien-phi-cho-marketing/): Cách chọn ứng dụng AI miễn phí cho marketing theo điểm nghẽn tác vụ của SME, biết rõ hạn mức thật, ẩn danh hóa dữ liệu mật và đặt bước người kiểm duyệt cuối.
