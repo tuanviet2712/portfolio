@@ -145,6 +145,7 @@ Tác giả: Lê Tuấn Việt (Marketing Leader). Mọi bài viết do tác gi�
 
 ## Tin tức và Góc nhìn
 
+- [Claude Install as app ra mắt: ứng dụng tự tạo có an toàn không?](https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/claude-install-as-app/): Claude Install as app biến Artifact thành ứng dụng có cửa sổ riêng trên Mac và Windows. Bài tách phạm vi beta, chi phí và quyền đọc, xóa tệp trước khi bạn cài.
 - [Gemini tạo ảnh GIF: người dùng Việt Nam đã dùng được chưa?](https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/gemini-tao-anh-gif/): Google công bố Gemini tạo ảnh GIF ngày 20/11/2026 nhưng danh sách nước hỗ trợ chưa có Việt Nam. Bài chỉ ra điều đã chắc, điều còn lệch và việc cần kiểm tra.
 - [Gemini Computer Use trên Mac: Google vừa mở gì, ai dùng được?](https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/gemini-computer-use-tren-mac/): Google mới mở Gemini Computer Use trên Mac cho người dùng đủ điều kiện tại Mỹ. Bài nêu phạm vi, quyền truy cập và việc nên kiểm tra trước khi thử ở Việt Nam.
 - [Jensen Huang trở lại CEO Nvidia: người dùng AI cần để ý gì?](https://letuanviet.com/goc-kien-thuc/tin-tuc-goc-nhin/jensen-huang-tro-lai-ceo-nvidia/): Ngày 23/11/2026, Jensen Huang trở lại CEO NVIDIA, còn cuộc điều tra vẫn mở. Bài tách điều đã xác nhận khỏi điều chưa rõ để bạn biết cần chờ tín hiệu nào.
