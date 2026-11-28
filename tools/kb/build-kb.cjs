@@ -1031,10 +1031,9 @@ function llmsFull(all) {
 }
 
 const SIDE_POSTS = 5;
-/* Tiêu đề trong "Kiến thức mới": luôn đúng 2 dòng, ngắt theo ý thay vì để trình duyệt ngắt giữa cụm từ.
-   Thứ tự ưu tiên: sau "?" hoặc "," giữa câu → trước chữ "khác" → chỗ trống gần giữa nhất. Mỗi nửa ≤ SIDE_LINE ký tự
-   (12.5px trong cột chữ 210px chứa khoảng 36 ký tự). Bài có thể tự chọn chỗ ngắt bằng "sideTitle": "Dòng một|Dòng hai".
-   Mỗi dòng không xuống hàng (CSS), dòng quá dài bị cắt bằng dấu "…" nên không bao giờ thành 3 dòng. */
+/* Tiêu đề trong "Kiến thức mới": từ 2026-11-28 CSS (css/kb-article.css) cho chữ chạy hết bề rộng cột rồi mới xuống dòng,
+   tối đa 2 dòng, dài hơn thì cắt đuôi bằng "…" (line-clamp). Hai nửa do hàm này tách ra chỉ còn là các <span> liền dòng
+   cách nhau bằng khoảng trắng, không còn ép xuống dòng ở chỗ tách; giữ nguyên markup để trang đã dựng và js/kb.js không lệch nhau. */
 const SIDE_LINE = 36;
 function sideTitleLines(x) {
   if (x.sideTitle) return x.sideTitle.split('|').map(s => s.trim());

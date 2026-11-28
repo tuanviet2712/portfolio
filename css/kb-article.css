@@ -314,9 +314,11 @@
 .kb-side__img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
 .kb-side__post:hover .kb-side__img img { transform: scale(1.05); }
 .kb-side__txt { display: grid; gap: 4px; min-width: 0; }
-/* Tiêu đề: 2 dòng ngắt theo ý (build-kb.cjs sideTitleLines), mỗi dòng một span không xuống hàng */
-.kb-side__txt b { font-size: 12.5px; font-weight: 700; line-height: 1.55; letter-spacing: -.01em; color: var(--ink); transition: color .25s; }
-.kb-side__txt b > span { display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* Tiêu đề: chữ chạy hết bề rộng cột rồi mới xuống dòng, tối đa 2 dòng; dài hơn thì cắt phần đuôi bằng "…".
+   text-wrap: wrap tắt cân dòng (balance/pretty) để dòng đầu luôn đầy, không bỏ trống phía sau.
+   Các <span> từ sideTitleLines (trong HTML dựng sẵn và do js/kb.js tạo) chỉ còn là chữ liền dòng, cách nhau bằng khoảng trắng. */
+.kb-side__txt b { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden; overflow-wrap: break-word; text-wrap: wrap; hyphens: none; font-size: 12.5px; font-weight: 700; line-height: 1.55; letter-spacing: -.01em; color: var(--ink); transition: color .25s; }
+.kb-side__txt b > span { display: inline; white-space: normal; }
 .kb-side__post:hover b { color: var(--blue); }
 .kb-side__txt small { font-size: 12.5px; color: var(--a-muted); }
 .kb-side__post[aria-current] small { font-weight: 600; color: var(--blue); }
